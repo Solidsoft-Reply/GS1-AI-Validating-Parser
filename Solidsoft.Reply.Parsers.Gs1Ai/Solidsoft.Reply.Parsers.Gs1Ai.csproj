@@ -15,6 +15,7 @@
     <Description>A comprehensive validating parser for GS1 Application Identifiers (AIs).</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Solidsoft-Reply/Solidsoft.Reply.Parsers.Gs1Ai</RepositoryUrl>
+	<PackageTags>gs1;ai;parser;barcode;datamatrix;qr;code-128</PackageTags>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
 
