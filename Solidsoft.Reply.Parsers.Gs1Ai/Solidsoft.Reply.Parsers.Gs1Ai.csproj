@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Solidsoft.Reply.Parsers.Common\Solidsoft.Reply.Parsers.Common\Solidsoft.Reply.Parsers.Common.csproj" />
+    <PackageReference Include="Solidsoft.Reply.Parsers.Common" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
