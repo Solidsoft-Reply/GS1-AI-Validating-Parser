@@ -4,6 +4,8 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>$(MSBuildProjectName.Replace(" ","_"))</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Solidsoft.Reply.Parsers.Gs1Ai\Solidsoft.Reply.Parsers.Gs1Ai\Solidsoft.Reply.Parsers.Gs1Ai.csproj" />
+    <ProjectReference Include="..\Solidsoft.Reply.Parsers.Gs1Ai\Solidsoft.Reply.Parsers.Gs1Ai.csproj" />
   </ItemGroup>
 
   <ItemGroup>

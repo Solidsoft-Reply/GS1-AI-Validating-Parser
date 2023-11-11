@@ -17,10 +17,12 @@
     <RepositoryUrl>https://github.com/Solidsoft-Reply/Solidsoft.Reply.Parsers.Gs1Ai</RepositoryUrl>
 	<PackageTags>gs1;ai;parser;barcode;datamatrix;qr;code-128</PackageTags>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Solidsoft.Reply.Parsers.Common" Version="1.0.0" />
+    <ProjectReference Include="..\..\Solidsoft.Reply.Parsers.Common\Solidsoft.Reply.Parsers.Common\Solidsoft.Reply.Parsers.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>

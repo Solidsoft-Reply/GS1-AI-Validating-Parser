@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.4.33213.308
+VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solidsoft.Reply.Parsers.Gs1Ai", "Solidsoft.Reply.Parsers.Gs1Ai\Solidsoft.Reply.Parsers.Gs1Ai.csproj", "{94A0DA62-ECCB-453A-B672-E541D478D215}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solidsoft.Reply.Parsers.Gs1Ai", "Solidsoft.Reply.Parsers.Gs1Ai\Solidsoft.Reply.Parsers.Gs1Ai.csproj", "{97AEF4DD-C2AE-4D75-930F-F7A14AFE7D72}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solidsoft.Reply.Parsers.Gs1Ai.Tests", "Solidsoft.Reply.Parsers.Gs1Ai.Tests\Solidsoft.Reply.Parsers.Gs1Ai.Tests.csproj", "{8A7CC890-F576-486A-B0F1-E94107D10B85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solidsoft.Reply.Parsers.Common", "..\Solidsoft.Reply.Parsers.Common\Solidsoft.Reply.Parsers.Common\Solidsoft.Reply.Parsers.Common.csproj", "{CF68E4C7-9D68-49B5-AAC8-0CF23461144A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solidsoft.Reply.Parsers.Gs1Ai.Tests", "Solidsoft.Reply.Parsers.Gs1Ai.Tests\Solidsoft.Reply.Parsers.Gs1Ai.Tests.csproj", "{479A8195-FBCA-4E8F-AEE6-10DF7776CE01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,19 +15,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{94A0DA62-ECCB-453A-B672-E541D478D215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{94A0DA62-ECCB-453A-B672-E541D478D215}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{94A0DA62-ECCB-453A-B672-E541D478D215}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{94A0DA62-ECCB-453A-B672-E541D478D215}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8A7CC890-F576-486A-B0F1-E94107D10B85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8A7CC890-F576-486A-B0F1-E94107D10B85}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8A7CC890-F576-486A-B0F1-E94107D10B85}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8A7CC890-F576-486A-B0F1-E94107D10B85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97AEF4DD-C2AE-4D75-930F-F7A14AFE7D72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97AEF4DD-C2AE-4D75-930F-F7A14AFE7D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97AEF4DD-C2AE-4D75-930F-F7A14AFE7D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97AEF4DD-C2AE-4D75-930F-F7A14AFE7D72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF68E4C7-9D68-49B5-AAC8-0CF23461144A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF68E4C7-9D68-49B5-AAC8-0CF23461144A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF68E4C7-9D68-49B5-AAC8-0CF23461144A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF68E4C7-9D68-49B5-AAC8-0CF23461144A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{479A8195-FBCA-4E8F-AEE6-10DF7776CE01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{479A8195-FBCA-4E8F-AEE6-10DF7776CE01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{479A8195-FBCA-4E8F-AEE6-10DF7776CE01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{479A8195-FBCA-4E8F-AEE6-10DF7776CE01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {620F3E78-3211-4980-8C1D-1AE6303F0F43}
+		SolutionGuid = {BE8A0D50-8C0C-4CAD-ABB7-A1FF124B1528}
 	EndGlobalSection
 EndGlobal
