@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solidsoft.Reply.Parsers.Gs1Ai", "Solidsoft.Reply.Parsers.Gs1Ai\Solidsoft.Reply.Parsers.Gs1Ai.csproj", "{94A0DA62-ECCB-453A-B672-E541D478D215}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solidsoft.Reply.Parsers.Gs1Ai.Tests", "Solidsoft.Reply.Parsers.Gs1Ai.Tests\Solidsoft.Reply.Parsers.Gs1Ai.Tests.csproj", "{8A7CC890-F576-486A-B0F1-E94107D10B85}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{94A0DA62-ECCB-453A-B672-E541D478D215}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94A0DA62-ECCB-453A-B672-E541D478D215}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94A0DA62-ECCB-453A-B672-E541D478D215}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A7CC890-F576-486A-B0F1-E94107D10B85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A7CC890-F576-486A-B0F1-E94107D10B85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A7CC890-F576-486A-B0F1-E94107D10B85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A7CC890-F576-486A-B0F1-E94107D10B85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
