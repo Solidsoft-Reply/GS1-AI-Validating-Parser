@@ -12,14 +12,10 @@
     <Company>Solidsoft Reply Ltd.</Company>
     <PackageProjectUrl>https://www.reply.com/solidsoft-reply/en/</PackageProjectUrl>
     <PackageIcon>Solidsoft Reply - LOGO Square_small.jpg</PackageIcon>
+    <Description>A comprehensive validating parser for GS1 Application Identifiers (AIs).</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Solidsoft-Reply/Solidsoft.Reply.Parsers.Gs1Ai</RepositoryUrl>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="..\..\..\..\OneDrive - London Living\Mega\Logos\Solidsoft Reply - LOGO Square_small.jpg">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Solidsoft.Reply.Parsers.Common" Version="1.0.0" />
@@ -38,6 +34,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Solidsoft Reply - LOGO Square_small.jpg">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
