@@ -1,4 +1,4 @@
-# Solidsoft.Reply.Parsers.Gs1Ai
+# Solidsoft Reply GS1 Validating Parser
 The Solidsoft Reply parser for GS1 Application Identifiers is a comprehensive validating parser that conforms to the GS1 General Specifications and parses strings containing a concatenation of AIs /value pairs using ASCII 29 as the FNC1 delimiter.
 
 GS1 defines AIs as part of its general specifications.  See [GS1 General Specifications - Standards | GS1]( https://www.gs1.org/standards/barcodes-epcrfid-id-keys/gs1-general-specifications)
