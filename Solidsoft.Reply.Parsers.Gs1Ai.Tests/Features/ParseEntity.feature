@@ -1635,6 +1635,102 @@ Scenario: Parse REL DATE
 		And the length of the value should be fixed
 		And there should be no errors
 
+@N4+N6+[-]
+Scenario: Parse MAX TEMP F
+	Given the input is 4330023020
+	When the input to submitted to the parser
+	Then the entity should be 4330
+	    And the AI should be 4330
+		And the value should be 023020
+		And the data value should be MAX TEMP F
+		And the description should be Maximum temperature in Fahrenheit 
+		And the length of the value should be variable
+		And there should be no errors
+
+@N4+N6+[-]
+Scenario: Parse MAX TEMP C
+	Given the input is 4331000090
+	When the input to submitted to the parser
+	Then the entity should be 4331
+	    And the AI should be 4331
+		And the value should be 000090
+		And the data value should be MAX TEMP C
+		And the description should be Maximum temperature in Celsius
+		And the length of the value should be variable
+		And there should be no errors
+
+@N4+N6+[-]
+Scenario: Parse MIN TEMP F
+	Given the input is 4332023020
+	When the input to submitted to the parser
+	Then the entity should be 4332
+	    And the AI should be 4332
+		And the value should be 023020
+		And the data value should be MIN TEMP F
+		And the description should be Minimum temperature in Fahrenheit
+		And the length of the value should be variable
+		And there should be no errors
+
+@N4+N6+[-]
+Scenario: Parse MIN TEMP C
+	Given the input is 4333000090
+	When the input to submitted to the parser
+	Then the entity should be 4333
+	    And the AI should be 4333
+		And the value should be 000090
+		And the data value should be MIN TEMP C
+		And the description should be Minimum temperature in Celsius
+		And the length of the value should be variable
+		And there should be no errors
+
+@N4+N6+[-]
+Scenario: Parse negative MAX TEMP F
+	Given the input is 4330000250-
+	When the input to submitted to the parser
+	Then the entity should be 4330
+	    And the AI should be 4330
+		And the value should be 000250-
+		And the data value should be MAX TEMP F
+		And the description should be Maximum temperature in Fahrenheit 
+		And the length of the value should be variable
+		And there should be no errors
+
+@N4+N6+[-]
+Scenario: Parse negative MAX TEMP C
+	Given the input is 4331001000-
+	When the input to submitted to the parser
+	Then the entity should be 4331
+	    And the AI should be 4331
+		And the value should be 001000-
+		And the data value should be MAX TEMP C
+		And the description should be Maximum temperature in Celsius
+		And the length of the value should be variable
+		And there should be no errors
+
+@N4+N6+[-]
+Scenario: Parse negative MIN TEMP F
+	Given the input is 4332000250-
+	When the input to submitted to the parser
+	Then the entity should be 4332
+	    And the AI should be 4332
+		And the value should be 000250-
+		And the data value should be MIN TEMP F
+		And the description should be Minimum temperature in Fahrenheit
+		And the length of the value should be variable
+		And there should be no errors
+
+@N4+N6+[-]
+Scenario: Parse negative MIN TEMP C
+	Given the input is 4333001000-
+	When the input to submitted to the parser
+	Then the entity should be 4333
+	    And the AI should be 4333
+		And the value should be 001000-
+		And the data value should be MIN TEMP C
+		And the description should be Minimum temperature in Celsius
+		And the length of the value should be variable
+		And there should be no errors
+
 @N4+N13
 Scenario: Parse NSN
 	Given the input is 70015310997032519
@@ -1655,7 +1751,7 @@ Scenario: Parse MEAT CUT
 	    And the AI should be 7002
 		And the value should be 44932211340000145100
 		And the data value should be MEAT CUT
-		And the description should be UN/ECE meat carcasses and cuts classification
+		And the description should be UNECE meat carcasses and cuts classification
 		And the length of the value should be variable
 		And there should be no errors
 
@@ -1937,6 +2033,30 @@ Scenario: Parse PROTOCOL
 		And the length of the value should be variable
 		And there should be no errors
 
+@N4+N2
+Scenario: Parse AIDC MEDIA TYPE
+	Given the input is 724105
+	When the input to submitted to the parser
+	Then the entity should be 7241
+	    And the AI should be 7241
+		And the value should be 05
+		And the data value should be AIDC MEDIA TYPE
+		And the description should be AIDC media type
+		And the length of the value should be fixed
+		And there should be no errors
+
+@N4+X..25
+Scenario: Parse VCN
+	Given the input is 7242094672AG22L44
+	When the input to submitted to the parser
+	Then the entity should be 7242
+	    And the AI should be 7242
+		And the value should be 094672AG22L44
+		And the data value should be VCN
+		And the description should be Version Control Number (VCN)
+		And the length of the value should be variable
+		And there should be no errors
+
 @N4+N14
 Scenario: Parse DIMENSIONS
 	Given the input is 800115000003056000
@@ -2151,6 +2271,18 @@ Scenario: Parse ITIP CONTENT
 		And the data value should be ITIP CONTENT
 		And the description should be Identification of pieces of a trade item (ITIP) contained in a logistic unit
 		And the length of the value should be fixed
+		And there should be no errors
+
+@N4+Z..90
+Scenario: Parse DIGSIG
+	Given the input is 803041703319222174341186086981525711229423385405386071942069864323665892369845781264435120798=
+	When the input to submitted to the parser
+	Then the entity should be 8030
+	    And the AI should be 8030
+		And the value should be 41703319222174341186086981525711229423385405386071942069864323665892369845781264435120798=
+		And the data value should be DIGSIG
+		And the description should be Digital Signature (DigSig)
+		And the length of the value should be variable
 		And there should be no errors
 
 @N4+X..70

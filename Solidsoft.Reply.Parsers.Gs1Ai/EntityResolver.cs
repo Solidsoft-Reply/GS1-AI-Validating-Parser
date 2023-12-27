@@ -406,11 +406,42 @@ internal static partial class EntityResolver {
     private static partial Regex DateTimePatternZerosAnd9SRegex();
 
     /// <summary>
-    ///     Returns a regular expression for the date and time of production:.
+    ///     Returns a regular expression for the date and time of production.
     ///     If it is not necessary to specify the minutes or the seconds.
     /// </summary>
     [GeneratedRegex(@"(((\d{2})(0[13578]|1[02])(0[0-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[0-9]|[12]\d|30))|((\d{2})02(0[0-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))(((0\d|1\d|2[0-3])([0-5]\d)?([0-5]\d)?))", RegexOptions.None, "en-US")]
     private static partial Regex DateAndTimeOfProductionRegex();
+
+    /// <summary>
+    ///     Returns a regular expression for the Scan4Transport temperature
+    ///     requirement. If there is a final -, this represents a negative 
+    ///     temerature value.
+    /// </summary>
+    [GeneratedRegex(@"^\d{6}-?$", RegexOptions.None, "en-US")]
+    private static partial Regex Scan4TransportTemperature();
+
+    /// <summary>
+    ///     Returns a regular expression for matching 2-digit AIDC media types.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex(@"^\d{2}$", RegexOptions.None, "en-US")]
+    private static partial Regex TwoDigitAidcMediaType();
+
+    /// <summary>
+    ///     Returns a regular expression for matching version control numbers.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex(@"^\d{2}$", RegexOptions.None, "en-US")]
+    private static partial Regex VersionControlNumberRegex();
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-90 character value of 
+    ///     characters taken from Character Set 64.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex("""^[A-Za-z0-9-_=]{1,90}$""", RegexOptions.None, "en-US")]
+    private static partial Regex CharacterSet6490CharsRegex();
+
     /// <summary>
     ///     A dictionary of application identifier descriptors.
     /// </summary>
@@ -1414,6 +1445,38 @@ internal static partial class EntityResolver {
                     true)
             },
             {
+                4330,
+                new EntityDescriptor(
+                    "MAX TEMP F",
+                    "Maximum temperature in Fahrenheit",
+                    Scan4TransportTemperature(),
+                    false)
+            },
+            {
+                4331,
+                new EntityDescriptor(
+                    "MAX TEMP C",
+                    "Maximum temperature in Celsius",
+                    Scan4TransportTemperature(),
+                    false)
+            },
+            {
+                4332,
+                new EntityDescriptor(
+                    "MIN TEMP F",
+                    "Minimum temperature in Fahrenheit",
+                    Scan4TransportTemperature(),
+                    false)
+            },
+            {
+                4333,
+                new EntityDescriptor(
+                    "MIN TEMP C",
+                    "Minimum temperature in Celsius",
+                    Scan4TransportTemperature(),
+                    false)
+            },
+            {
                 7001,
                 new EntityDescriptor(
                     "NSN",
@@ -1424,7 +1487,7 @@ internal static partial class EntityResolver {
             {
                 7002, new EntityDescriptor(
                     "MEAT CUT",
-                    "UN/ECE meat carcasses and cuts classification",
+                    "UNECE meat carcasses and cuts classification",
                     CharacterSet8230CharsRegex(),
                     false)
             },
@@ -1761,6 +1824,22 @@ internal static partial class EntityResolver {
                     false)
             },
             {
+                7241,
+                new EntityDescriptor(
+                    "AIDC MEDIA TYPE",
+                    "AIDC media type",
+                    TwoDigitAidcMediaType(),
+                    true)
+            },
+            {
+                7242,
+                new EntityDescriptor(
+                    "VCN",
+                    "Version Control Number (VCN)",
+                    CharacterSet8225CharsRegex(),
+                    false)
+            },
+            {
                 8001,
                 new EntityDescriptor(
                     "DIMENSIONS",
@@ -1882,7 +1961,7 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "GMN",
                     "Global Model Number (GMN)",
-                    CharacterSet8230CharsRegex(),
+                    CharacterSet8225CharsRegex(),
                     false)
             },
             {
@@ -1932,6 +2011,14 @@ internal static partial class EntityResolver {
                     "Identification of pieces of a trade item (ITIP) contained in a logistic unit",
                     EighteenDigitValueRegex(),
                     true)
+            },
+            {
+                8030,
+                new EntityDescriptor(
+                    "DIGSIG",
+                    "Digital Signature (DigSig)",
+                    CharacterSet6490CharsRegex(),
+                    false)
             },
             {
                 8110,
@@ -2112,6 +2199,7 @@ internal static partial class EntityResolver {
             case "23":
                 // 5
                 entity = data.IsNumberEqual(2, 1, 5) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
+
                 if (entity == ApplicationIdentifier.Unrecognised) {
                     value = data.GetValue(2);
                 }
@@ -2126,6 +2214,7 @@ internal static partial class EntityResolver {
                 entity = data.IsDigitInRange(2, 1) || data.IsNumberInRange(2, 1, 3, 5)
                              ? data.GetEntity3()
                              : ApplicationIdentifier.Unrecognised;
+
                 if (entity == ApplicationIdentifier.Unrecognised) {
                     value = data.GetValue(2);
                 }
@@ -2139,6 +2228,7 @@ internal static partial class EntityResolver {
             case "40":
                 // 0..3
                 entity = data.IsDigitInRange(2, 3) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
+
                 if (entity == ApplicationIdentifier.Unrecognised) {
                     value = data.GetValue(2);
                 }
@@ -2153,6 +2243,7 @@ internal static partial class EntityResolver {
                 entity = data.IsNumberInRange(2, 1, 0, 5)
                              ? data.GetEntity3()
                              : ApplicationIdentifier.Unrecognised;
+
                 if (entity == ApplicationIdentifier.Unrecognised) {
                     value = data.GetValue(2);
                 }
@@ -2166,6 +2257,7 @@ internal static partial class EntityResolver {
             case "42":
                 // 0..7
                 entity = data.IsDigitInRange(2, 7) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
+
                 if (entity == ApplicationIdentifier.Unrecognised) {
                     value = data.GetValue(2);
                 }
@@ -2178,6 +2270,7 @@ internal static partial class EntityResolver {
             case "39":
                 // 0n..5n
                 entity = data.IsDigitInRange(2, 5) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
+
                 if (entity == ApplicationIdentifier.Unrecognised) {
                     value = data.GetValue(2);
                 }
@@ -2192,6 +2285,7 @@ internal static partial class EntityResolver {
             case "31":
                 // 0n..6n
                 entity = data.IsDigitInRange(2, 6) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
+
                 if (entity == ApplicationIdentifier.Unrecognised) {
                     value = data.GetValue(2);
                 }
@@ -2207,6 +2301,7 @@ internal static partial class EntityResolver {
             case "35":
                 // 0n..7n
                 entity = data.IsDigitInRange(2, 7) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
+
                 if (entity == ApplicationIdentifier.Unrecognised) {
                     value = data.GetValue(2);
                 }
@@ -2223,6 +2318,7 @@ internal static partial class EntityResolver {
             case "36":
                 // 0n..9n
                 entity = data.IsDigitInRange(2, 9) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
+
                 if (entity == ApplicationIdentifier.Unrecognised) {
                     value = data.GetValue(2);
                 }
@@ -2235,8 +2331,8 @@ internal static partial class EntityResolver {
 
                 break;
             case "43":
-                //00..26
-                entity = data.IsNumberInRange(2, 2, 0, 26)
+                //00..26, 30..33
+                entity = data.IsNumberInRange(2, 2, 0, 26) || data.IsNumberInRange(2, 2, 30, 33)
                     ? data.GetEntity4()
                     : ApplicationIdentifier.Unrecognised;
 
@@ -2245,6 +2341,7 @@ internal static partial class EntityResolver {
                 }
                 else {
                     value = data.GetValue(4);
+                    numberOfDecimalPlaces = data.IsNumberInRange(2, 2, 30, 33) ? 2 : null;
                     currentPosition += 2;
                 }
 
@@ -2256,6 +2353,7 @@ internal static partial class EntityResolver {
                                                            || data.IsNumberEqual(2, 2, 40)
                              ? data[2] == '3' ? data.GetEntity3() : data.GetEntity4()
                              : ApplicationIdentifier.Unrecognised;
+
                 if (entity == ApplicationIdentifier.Unrecognised) {
                     value = data.GetValue(2);
                 }
@@ -2273,9 +2371,10 @@ internal static partial class EntityResolver {
                 break;
             case "72":
                 // 3s, 40
-                entity = data.IsNumberEqual(2, 1, 3) || data.IsNumberEqual(2, 2, 40)
+                entity = data.IsNumberEqual(2, 1, 3) || data.IsNumberInRange(2, 2, 40, 42)
                              ? data[2] == '3' ? data.GetEntity3() : data.GetEntity4()
                              : ApplicationIdentifier.Unrecognised;
+
                 if (entity == ApplicationIdentifier.Unrecognised) {
                     value = data.GetValue(2);
                 }
@@ -2292,12 +2391,14 @@ internal static partial class EntityResolver {
 
                 break;
             case "80":
-                // 01..09, 10..13, 17..20, 26
+                // 01..09, 10..13, 17..20, 26, 30
                 entity = data.IsNumberInRange(2, 2, 1, 9) || data.IsNumberInRange(2, 2, 10, 13)
                                                           || data.IsNumberInRange(2, 2, 17, 20)
                                                           || data.IsNumberEqual(2, 2, 26)
+                                                          || data.IsNumberEqual(2, 2, 30)
                              ? data.GetEntity4()
                              : ApplicationIdentifier.Unrecognised;
+
                 if (entity == ApplicationIdentifier.Unrecognised) {
                     value = data.GetValue(2);
                 }
@@ -2312,6 +2413,7 @@ internal static partial class EntityResolver {
                 entity = data.IsNumberInRange(2, 2, 10, 12)
                              ? data.GetEntity4()
                              : ApplicationIdentifier.Unrecognised;
+
                 if (entity == ApplicationIdentifier.Unrecognised) {
                     value = data.GetValue(2);
                 }
@@ -2324,6 +2426,7 @@ internal static partial class EntityResolver {
             case "82":
                 // 00
                 entity = data.IsNumberEqual(2, 2, 0) ? data.GetEntity4() : ApplicationIdentifier.Unrecognised;
+
                 if (entity == ApplicationIdentifier.Unrecognised) {
                     value = data.GetValue(2);
                 }

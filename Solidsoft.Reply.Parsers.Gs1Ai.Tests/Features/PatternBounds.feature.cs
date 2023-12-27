@@ -281,6 +281,8 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Tests.Features
         [Xunit.InlineDataAttribute("@N4+N18", "8017", "", "999999999999999995", new string[0])]
         [Xunit.InlineDataAttribute("@N4+N1", "4321", "", "0", new string[0])]
         [Xunit.InlineDataAttribute("@N4+N1", "4321", "", "1", new string[0])]
+        [Xunit.InlineDataAttribute("@N4+N2", "7241", "", "00", new string[0])]
+        [Xunit.InlineDataAttribute("@N4+N2", "7241", "", "99", new string[0])]
         [Xunit.InlineDataAttribute("@N4+N20", "4309", "", "00000000000000000000", new string[0])]
         [Xunit.InlineDataAttribute("@N4+N20", "4309", "", "99999999999999999999", new string[0])]
         [Xunit.InlineDataAttribute("@N4+N3+N..15", "391", "2", "0000", new string[0])]
@@ -309,7 +311,10 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Tests.Features
         [Xunit.InlineDataAttribute("@N4+N6", "8005", "", "999999", new string[0])]
         [Xunit.InlineDataAttribute("@N4+N6", "4326", "", "000101", new string[0])]
         [Xunit.InlineDataAttribute("@N4+N6", "4326", "", "991231", new string[0])]
-        [Xunit.InlineDataAttribute("@N4+N8[+N..4]", "8008", "", "00010100", new string[0])]
+        [Xunit.InlineDataAttribute("@N4+N6+[-]", "4330", "", "000000", new string[0])]
+        [Xunit.InlineDataAttribute("@N4+N6+[-]", "4330", "", "999999", new string[0])]
+        [Xunit.InlineDataAttribute("@N4+N6+[-]", "4330", "", "000001-", new string[0])]
+        [Xunit.InlineDataAttribute("@N4+N6+[-]", "4330", "", "045967-", new string[0])]
         [Xunit.InlineDataAttribute("@N4+N8[+N..4]", "8008", "", "99123123", new string[0])]
         [Xunit.InlineDataAttribute("@N4+N8[+N..4]", "8008", "", "991231230000", new string[0])]
         [Xunit.InlineDataAttribute("@N4+N8[+N..4]", "8008", "", "991231235959", new string[0])]
@@ -485,6 +490,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Tests.Features
         [Xunit.InlineDataAttribute("@N4+Y..30", "8010", "", "999999999999999999999999999999", new string[0])]
         [Xunit.InlineDataAttribute("@N4+Y..30", "8010", "", "#-/0123456789ABCDEFGHIJKLMNOPQ", new string[0])]
         [Xunit.InlineDataAttribute("@N4+Y..30", "8010", "", "RSTUVWXYZ", new string[0])]
+        [Xunit.InlineDataAttribute("@N4+Z..90", "8030", "", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_=", new string[0])]
         public void MaxEightDigitValue(string pattern, string ai, string invexporseq, string countvalue, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

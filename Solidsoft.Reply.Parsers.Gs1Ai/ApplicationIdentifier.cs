@@ -887,6 +887,30 @@ public enum ApplicationIdentifier {
     ReleaseDate = 4326,
 
     /// <summary>
+    ///     Maximum temperature in Fahrenheit (MAX TEMP F).
+    /// </summary>
+    /// <remarks>Format: N4+N6+[-] (FNC1)</remarks>
+    MaximumTemperatureFahrenheit = 4330,
+
+    /// <summary>
+    ///     Maximum temperature in Celsius (MAX TEMP C).
+    /// </summary>
+    /// <remarks>Format: N4+N6+[-] (FNC1)</remarks>
+    MaximumTemperatureCelsius = 4331,
+
+    /// <summary>
+    ///     Minimum temperature in Fahrenheit (MIN TEMP F).
+    /// </summary>
+    /// <remarks>Format: N4+N6+[-] (FNC1)</remarks>
+    MinimumTemperatureFahrenheit = 4332,
+
+    /// <summary>
+    ///     Minimum temperature in Celsius (MIN TEMP C).
+    /// </summary>
+    /// <remarks>Format: N4+N6+[-] (FNC1)</remarks>
+    MinimumTemperatureCelsius = 4333,
+
+    /// <summary>
     ///     NATO Stock Number (NSN) (NSN).
     /// </summary>
     /// <remarks>Format: N4+N13 (FNC1)</remarks>
@@ -1039,6 +1063,18 @@ public enum ApplicationIdentifier {
     ProtocolId = 7240,
 
     /// <summary>
+    ///     AIDC media type (AIDC MEDIA TYPE).
+    /// </summary>
+    /// <remarks>Format: N4+N2 (FNC1)</remarks>
+    AidcMediaType = 7241,
+
+    /// <summary>
+    ///     Version Control Number (VCN).
+    /// </summary>
+    /// <remarks>Format: N4+X..25 (FNC1)</remarks>
+    VersionControlNumber = 7242,
+
+    /// <summary>
     ///     Roll products (width, length, core diameter, direction, splices) (DIMENSIONS).
     /// </summary>
     /// <remarks>Format: N4+N14 (FNC1)</remarks>
@@ -1158,6 +1194,12 @@ public enum ApplicationIdentifier {
     /// </summary>
     /// <remarks>Format: N4+N14+N2+N2 (FNC1)</remarks>
     IdentificationOfTradeItemPieces = 8026,
+
+    /// <summary>
+    ///     Digital Signature (DigDig).
+    /// </summary>
+    /// <remarks>Format: N4+Z..90 (FNC1)</remarks>
+    DigitalSignature = 8030,
 
     /// <summary>
     ///     Coupon code identification for use in North America (-).
