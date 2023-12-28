@@ -26,7 +26,6 @@
 
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
-using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 
 /// <summary>
@@ -38,770 +37,769 @@ using System.Diagnostics.CodeAnalysis;
     "StyleCop.CSharp.DocumentationRules",
     "SA1630:DocumentationTextMustContainWhitespace",
     Justification = "Reviewed. Suppression is OK here.")]
-public enum CompanyPrefix {
+public enum CountryCode {
     /// <summary>
     ///     Unknown country.
     /// </summary>
-    [Description("Reserved by GS1 Global Office for allocations in non-member countries and for future use")]
+    [LocalisedDescription(nameof(Unknown))]
     Unknown = -1,
 
     /// <summary>
     ///     UPC-A compatible (GTIN 8).
     /// </summary>
-    [Description("UPC-A compatible (GTIN 8)")]
+    [LocalisedDescription(nameof(UpcACompatibleGtin8))]
     UpcACompatibleGtin8 = 0,
 
     /// <summary>
     ///     UPC-A compatible - United States and Canada.
     /// </summary>
-    [Description("UPC-A compatible - United States and Canada")]
+    [LocalisedDescription(nameof(UpcACompatibleUnitedStatesAndCanada))]
     UpcACompatibleUnitedStatesAndCanada = 19,
 
     /// <summary>
     ///     UPC-A compatible - Used to issue restricted circulation numbers within a geographic region.
     /// </summary>
-    [Description("UPC-A compatible - Used to issue restricted circulation numbers within a geographic region")]
+    [LocalisedDescription(nameof(UpcACompatibleRestrictedCirculation))]
     UpcACompatibleRestrictedCirculation = 20,
 
     /// <summary>
     ///     UPC-A compatible -  United States drugs (National Drug Code).
     /// </summary>
-    [Description("UPC-A compatible -  United States drugs (National Drug Code)")]
+    [LocalisedDescription(nameof(UpcACompatibleUnitedStatesDrugs))]
     UpcACompatibleUnitedStatesDrugs = 30,
 
     /// <summary>
     ///     UPC-A compatible - GS1 US reserved for future use .
     /// </summary>
-    [Description("UPC-A compatible - United States reserved for future use ")]
+    [LocalisedDescription(nameof(UpcACompatibleUnitedStatesReserved))]
     UpcACompatibleUnitedStatesReserved = 50,
 
     /// <summary>
     ///     United States of America
     /// </summary>
-    [Description("United States")]
+    [LocalisedDescription(nameof(UnitedStates))]
     UnitedStates = 100,
 
     /// <summary>
     ///     Used to issue GS1 restricted circulation number within a geographic region
     /// </summary>
-    [Description("Used to issue GS1 restricted circulation number within a geographic region")]
+    [LocalisedDescription(nameof(RestrictedCirculation))]
     RestrictedCirculation = 200,
 
     /// <summary>
     ///     France and Monaco.
     /// </summary>
-    [Description("France and Monaco")]
+    [LocalisedDescription(nameof(FranceAndMonaco))]
     FranceAndMonaco = 300,
 
     /// <summary>
     ///     Bulgaria.
     /// </summary>
-    [Description("Bulgaria")]
+    [LocalisedDescription(nameof(Bulgaria))]
     Bulgaria = 380,
 
     /// <summary>
     ///     Slovenia.
     /// </summary>
-    [Description("Slovenia")]
+    [LocalisedDescription(nameof(Slovenia))]
     Slovenia = 383,
 
     /// <summary>
     ///     Croatia.
     /// </summary>
-    [Description("Croatia")]
+    [LocalisedDescription(nameof(Croatia))]
     Croatia = 385,
 
     /// <summary>
     ///     Bosnia and Herzegovina
     /// </summary>
-    [Description("Bosnia and Herzegovina")]
+    [LocalisedDescription(nameof(BosniaAndHerzegovina))]
     BosniaAndHerzegovina = 387,
 
     /// <summary>
     ///     Montenegro.
     /// </summary>
-    [Description("Montenegro")]
+    [LocalisedDescription(nameof(Montenegro))]
     Montenegro = 389,
 
     /// <summary>
     ///     Kosovo.
     /// </summary>
-    [Description("Kosovo")]
+    [LocalisedDescription(nameof(Kosovo))]
     Kosovo = 390,
 
     /// <summary>
     ///     Germany.
     /// </summary>
-    [Description("Germany")]
+    [LocalisedDescription(nameof(Germany))]
     Germany = 400,
 
     /// <summary>
     ///     Japan.
     /// </summary>
-    [Description("Japan (new Japanese Article Number range)")]
+    [LocalisedDescription(nameof(Japan))]
     Japan = 450,
 
     /// <summary>
     ///     Russia.
     /// </summary>
-    [Description("Russia")]
+    [LocalisedDescription(nameof(Russia))]
     Russia = 460,
 
     /// <summary>
     ///     Kyrgyzstan.
     /// </summary>
-    [Description("Kyrgyzstan")]
+    [LocalisedDescription(nameof(Kyrgyzstan))]
     Kyrgyzstan = 470,
 
     /// <summary>
     ///     Taiwan.
     /// </summary>
-    [Description("Republic of China (Taiwan)")]
+    [LocalisedDescription(nameof(Taiwan))]
     Taiwan = 471,
 
     /// <summary>
     ///     Estonia.
     /// </summary>
-    [Description("Estonia")]
+    [LocalisedDescription(nameof(Estonia))]
     Estonia = 474,
 
     /// <summary>
     ///     Latvia.
     /// </summary>
-    [Description("Latvia")]
+    [LocalisedDescription(nameof(Latvia))]
     Latvia = 475,
 
     /// <summary>
     ///     Azerbaijan.
     /// </summary>
-    [Description("Azerbaijan")]
+    [LocalisedDescription(nameof(Azerbaijan))]
     Azerbaijan = 476,
 
     /// <summary>
     ///     Lithuania.
     /// </summary>
-    [Description("Lithuania")]
+    [LocalisedDescription(nameof(Lithuania))]
     Lithuania = 477,
 
     /// <summary>
     ///     Uzbekistan.
     /// </summary>
-    [Description("Uzbekistan")]
+    [LocalisedDescription(nameof(Uzbekistan))]
     Uzbekistan = 478,
 
     /// <summary>
     ///     Sri Lanka.
     /// </summary>
-    [Description("Sri Lanka")]
+    [LocalisedDescription(nameof(SriLanka))]
     SriLanka = 479,
 
     /// <summary>
     ///     Philippines.
     /// </summary>
-    [Description("Philippines")]
+    [LocalisedDescription(nameof(Philippines))]
     Philippines = 480,
 
     /// <summary>
     ///     Belarus.
     /// </summary>
-    [Description("Belarus")]
+    [LocalisedDescription(nameof(Belarus))]
     Belarus = 481,
 
     /// <summary>
     ///     Ukraine.
     /// </summary>
-    [Description("Ukraine")]
+    [LocalisedDescription(nameof(Ukraine))]
     Ukraine = 482,
 
     /// <summary>
     ///     Turkmenistan.
     /// </summary>
-    [Description("Turkmenistan")]
+    [LocalisedDescription(nameof(Turkmenistan))]
     Turkmenistan = 483,
 
     /// <summary>
     ///     Moldova.
     /// </summary>
-    [Description("Moldova")]
+    [LocalisedDescription(nameof(Moldova))]
     Moldova = 484,
 
     /// <summary>
     ///     Armenia.
     /// </summary>
-    [Description("Armenia")]
+    [LocalisedDescription(nameof(Armenia))]
     Armenia = 485,
 
     /// <summary>
     ///     Georgia.
     /// </summary>
-    [Description("Georgia")]
+    [LocalisedDescription(nameof(Georgia))]
     Georgia = 486,
 
     /// <summary>
     ///     Kazakhstan.
     /// </summary>
-    [Description("Kazakhstan")]
+    [LocalisedDescription(nameof(Kazakhstan))]
     Kazakhstan = 487,
 
     /// <summary>
     ///     Tajikistan.
     /// </summary>
-    [Description("Tajikistan")]
+    [LocalisedDescription(nameof(Tajikistan))]
     Tajikistan = 488,
 
     /// <summary>
     ///     Hong Kong.
     /// </summary>
-    [Description("HongKong")]
+    [LocalisedDescription(nameof(HongKong))]
     HongKong = 489,
 
     /// <summary>
     ///     Japan.
     /// </summary>
-    [Description("Japan (original Japanese Article Number range)")]
+    [LocalisedDescription(nameof(JapanOriginalJan))]
     JapanOriginalJan = 490,
 
     /// <summary>
     ///     United Kingdom.
     /// </summary>
-    [Description("United Kingdom")]
+    [LocalisedDescription(nameof(UnitedKingdom))]
     UnitedKingdom = 500,
 
     /// <summary>
     ///     Greece.
     /// </summary>
-    [Description("Greece")]
+    [LocalisedDescription(nameof(Greece))]
     Greece = 520,
 
     /// <summary>
     ///     Lebanon.
     /// </summary>
-    [Description("Lebanon")]
+    [LocalisedDescription(nameof(Lebanon))]
     Lebanon = 528,
 
     /// <summary>
     ///     Cyprus.
     /// </summary>
-    [Description("Cyprus")]
+    [LocalisedDescription(nameof(Cyprus))]
     Cyprus = 529,
 
     /// <summary>
     ///     Albania.
     /// </summary>
-    [Description("Albania")]
+    [LocalisedDescription(nameof(Albania))]
     Albania = 530,
 
     /// <summary>
     ///     Macedonia.
     /// </summary>
-    [Description("Macedonia")]
+    [LocalisedDescription(nameof(NorthMacedonia))]
     NorthMacedonia = 531,
 
     /// <summary>
     ///     Malta.
     /// </summary>
-    [Description("Malta")]
+    [LocalisedDescription(nameof(Malta))]
     Malta = 535,
 
     /// <summary>
     ///     Ireland.
     /// </summary>
-    [Description("Ireland")]
+    [LocalisedDescription(nameof(Ireland))]
     Ireland = 539,
 
     /// <summary>
     ///     Belgium And Luxembourg.
     /// </summary>
-    [Description("Belgium And Luxembourg")]
+    [LocalisedDescription(nameof(BelgiumAndLuxembourg))]
     BelgiumAndLuxembourg = 540,
 
     /// <summary>
     ///     Portugal.
     /// </summary>
-    [Description("Portugal")]
+    [LocalisedDescription(nameof(Portugal))]
     Portugal = 560,
 
     /// <summary>
     ///     Iceland.
     /// </summary>
-    [Description("Iceland")]
+    [LocalisedDescription(nameof(Iceland))]
     Iceland = 569,
 
     /// <summary>
     ///     Denmark, Faroe Islands and Greenland.
     /// </summary>
-    [Description("Denmark, Faroe Islands and Greenland")]
+    [LocalisedDescription(nameof(DenmarkFaroeIslandsAndGreenland))]
     DenmarkFaroeIslandsAndGreenland = 570,
 
     /// <summary>
     ///     Poland.
     /// </summary>
-    [Description("Poland")]
+    [LocalisedDescription(nameof(Poland))]
     Poland = 590,
 
     /// <summary>
     ///     Romania.
     /// </summary>
-    [Description("Romania")]
+    [LocalisedDescription(nameof(Romania))]
     Romania = 594,
 
     /// <summary>
     ///     Hungary.
     /// </summary>
-    [Description("Hungary")]
+    [LocalisedDescription(nameof(Hungary))]
     Hungary = 599,
 
     /// <summary>
     ///     South Africa.
     /// </summary>
-    [Description("South Africa")]
+    [LocalisedDescription(nameof(SouthAfrica))]
     SouthAfrica = 600,
 
     /// <summary>
     ///     Ghana.
     /// </summary>
-    [Description("Ghana")]
+    [LocalisedDescription(nameof(Ghana))]
     Ghana = 603,
 
     /// <summary>
     ///     Senegal.
     /// </summary>
-    [Description("Senegal")]
+    [LocalisedDescription(nameof(Senegal))]
     Senegal = 604,
 
     /// <summary>
     ///     Bahrain.
     /// </summary>
-    [Description("Bahrain")]
+    [LocalisedDescription(nameof(Bahrain))]
     Bahrain = 608,
 
     /// <summary>
     ///     Mauritius.
     /// </summary>
-    [Description("Mauritius")]
+    [LocalisedDescription(nameof(Mauritius))]
     Mauritius = 609,
 
     /// <summary>
     ///     Morocco.
     /// </summary>
-    [Description("Morocco")]
+    [LocalisedDescription(nameof(Morocco))]
     Morocco = 611,
 
     /// <summary>
     ///     Algeria.
     /// </summary>
-    [Description("Algeria")]
+    [LocalisedDescription(nameof(Algeria))]
     Algeria = 613,
 
     /// <summary>
     ///     Nigeria.
     /// </summary>
-    [Description("Nigeria")]
+    [LocalisedDescription(nameof(Nigeria))]
     Nigeria = 615,
 
     /// <summary>
     ///     Kenya.
     /// </summary>
-    [Description("Kenya")]
+    [LocalisedDescription(nameof(Kenya))]
     Kenya = 616,
 
     /// <summary>
     ///     Ivory Coast.
     /// </summary>
-    [Description("Ivory Coast")]
+    [LocalisedDescription(nameof(IvoryCoast))]
     IvoryCoast = 618,
 
     /// <summary>
     ///     Tunisia.
     /// </summary>
-    [Description("Tunisia")]
+    [LocalisedDescription(nameof(Tunisia))]
     Tunisia = 619,
 
     /// <summary>
     ///     Tanzania.
     /// </summary>
-    [Description("Tanzania")]
+    [LocalisedDescription(nameof(Tanzania))]
     Tanzania = 620,
 
     /// <summary>
     ///     Syria.
     /// </summary>
-    [Description("Syria")]
+    [LocalisedDescription(nameof(Syria))]
     Syria = 621,
 
     /// <summary>
     ///     Egypt.
     /// </summary>
-    [Description("Egypt")]
+    [LocalisedDescription(nameof(Egypt))]
     Egypt = 622,
 
     /// <summary>
     ///     Brunei.
     /// </summary>
-    [Description("Brunei")]
+    [LocalisedDescription(nameof(Brunei))]
     Brunei = 623,
 
     /// <summary>
     ///     Libya.
     /// </summary>
-    [Description("Libya")]
+    [LocalisedDescription(nameof(Libya))]
     Libya = 624,
 
     /// <summary>
     ///     Jordan.
     /// </summary>
-    [Description("Jordan")]
+    [LocalisedDescription(nameof(Jordan))]
     Jordan = 625,
 
     /// <summary>
     ///     Iran.
     /// </summary>
-    [Description("Iran")]
+    [LocalisedDescription(nameof(Iran))]
     Iran = 626,
 
     /// <summary>
     ///     Kuwait.
     /// </summary>
-    [Description("Kuwait")]
+    [LocalisedDescription(nameof(Kuwait))]
     Kuwait = 627,
 
     /// <summary>
     ///     Saudi Arabia.
     /// </summary>
-    [Description("Saudi Arabia")]
+    [LocalisedDescription(nameof(SaudiArabia))]
     SaudiArabia = 628,
 
     /// <summary>
     ///     United Arab Emirates.
     /// </summary>
-    [Description("United Arab Emirates")]
+    [LocalisedDescription(nameof(UnitedArabEmirates))]
     UnitedArabEmirates = 629,
 
     /// <summary>
     ///     Finland.
     /// </summary>
-    [Description("Finland")]
+    [LocalisedDescription(nameof(Finland))]
     Finland = 640,
 
     /// <summary>
     ///     China.
     /// </summary>
-    [Description("Peoples Republic of China")]
+    [LocalisedDescription(nameof(PeoplesRepublicOfChina))]
     PeoplesRepublicOfChina = 690,
 
     /// <summary>
     ///     Norway.
     /// </summary>
-    [Description("Norway")]
+    [LocalisedDescription(nameof(Norway))]
     Norway = 700,
 
     /// <summary>
     ///     Israel.
     /// </summary>
-    [Description("Israel")]
+    [LocalisedDescription(nameof(Israel))]
     Israel = 729,
 
     /// <summary>
     ///     Sweden.
     /// </summary>
-    [Description("Sweden")]
+    [LocalisedDescription(nameof(Sweden))]
     Sweden = 730,
 
     /// <summary>
     ///     Guatemala.
     /// </summary>
-    [Description("Guatemala")]
+    [LocalisedDescription(nameof(Guatemala))]
     Guatemala = 740,
 
     /// <summary>
     ///     El Salvador.
     /// </summary>
     // ReSharper disable once IdentifierTypo
-    [Description("El Salvador")]
+    [LocalisedDescription(nameof(ElSalvador))]
     ElSalvador = 741,
 
     /// <summary>
     ///     Honduras.
     /// </summary>
-    [Description("Kosovo")]
+    [LocalisedDescription(nameof(Honduras))]
     Honduras = 742,
 
     /// <summary>
     ///     Nicaragua.
     /// </summary>
-    [Description("Nicaragua")]
+    [LocalisedDescription(nameof(Nicaragua))]
     Nicaragua = 743,
 
     /// <summary>
     ///     Costa Rica.
     /// </summary>
     // ReSharper disable once IdentifierTypo
-    [Description("Costa Rica")]
+    [LocalisedDescription(nameof(CostaRica))]
     CostaRica = 744,
 
     /// <summary>
     ///     Panama.
     /// </summary>
-    [Description("Panama")]
+    [LocalisedDescription(nameof(Panama))]
     Panama = 745,
 
     /// <summary>
     ///     Dominican Republic.
     /// </summary>
-    [Description("Dominican Republic")]
+    [LocalisedDescription(nameof(DominicanRepublic))]
     DominicanRepublic = 746,
 
     /// <summary>
     ///     Mexico.
     /// </summary>
-    [Description("Mexico")]
+    [LocalisedDescription(nameof(Mexico))]
     Mexico = 750,
 
     /// <summary>
     ///     Canada.
     /// </summary>
-    [Description("Canada")]
+    [LocalisedDescription(nameof(Canada))]
     Canada = 754,
 
     /// <summary>
     ///     Venezuela.
     /// </summary>
-    [Description("Venezuela")]
+    [LocalisedDescription(nameof(Venezuela))]
     Venezuela = 759,
 
     /// <summary>
     ///     Switzerland and Liechtenstein.
     /// </summary>
-    [Description("Switzerland and Liechtenstein")]
+    [LocalisedDescription(nameof(SwitzerlandAndLiechtenstein))]
     SwitzerlandAndLiechtenstein = 760,
 
     /// <summary>
     ///     Colombia.
     /// </summary>
-    [Description("Colombia")]
+    [LocalisedDescription(nameof(Colombia))]
     Colombia = 770,
 
     /// <summary>
     ///     Uruguay.
     /// </summary>
-    [Description("Uruguay")]
+    [LocalisedDescription(nameof(Uruguay))]
     Uruguay = 773,
 
     /// <summary>
     ///     Peru.
     /// </summary>
-    [Description("Peru")]
+    [LocalisedDescription(nameof(Peru))]
     Peru = 775,
 
     /// <summary>
     ///     Bolivia.
     /// </summary>
-    [Description("Bolivia")]
+    [LocalisedDescription(nameof(Bolivia))]
     Bolivia = 777,
 
     /// <summary>
     ///     Argentina.
     /// </summary>
-    [Description("Argentina")]
+    [LocalisedDescription(nameof(Argentina))]
     Argentina = 778,
 
     /// <summary>
     ///     Chile.
     /// </summary>
-    [Description("Chile")]
+    [LocalisedDescription(nameof(Chile))]
     Chile = 780,
 
     /// <summary>
     ///     Paraguay.
     /// </summary>
-    [Description("Paraguay")]
+    [LocalisedDescription(nameof(Paraguay))]
     Paraguay = 784,
 
     /// <summary>
     ///     Ecuador.
     /// </summary>
-    [Description("Ecuador")]
+    [LocalisedDescription(nameof(Ecuador))]
     Ecuador = 786,
 
     /// <summary>
     ///     Brazil.
     /// </summary>
-    [Description("Brazil")]
+    [LocalisedDescription(nameof(Brazil))]
     Brazil = 789,
 
     /// <summary>
     ///     Italy, San Marino and Vatican City.
     /// </summary>
-    [Description("Italy, San Marino and Vatican City")]
+    [LocalisedDescription(nameof(ItalySanMarinoAndVaticanCity))]
     ItalySanMarinoAndVaticanCity = 800,
 
     /// <summary>
     ///     Spain and Andorra.
     /// </summary>
-    [Description("Spain and Andorra")]
+    [LocalisedDescription(nameof(SpainAndAndorra))]
     SpainAndAndorra = 840,
 
     /// <summary>
     ///     Cuba.
     /// </summary>
-    [Description("Cuba")]
+    [LocalisedDescription(nameof(Cuba))]
     Cuba = 850,
 
     /// <summary>
     ///     Slovakia.
     /// </summary>
-    [Description("Slovakia")]
+    [LocalisedDescription(nameof(Slovakia))]
     Slovakia = 858,
 
     /// <summary>
     ///     Czech Republic.
     /// </summary>
-    [Description("Czech Republic")]
+    [LocalisedDescription(nameof(CzechRepublic))]
     CzechRepublic = 859,
 
     /// <summary>
     ///     Serbia.
     /// </summary>
-    [Description("Serbia")]
+    [LocalisedDescription(nameof(Serbia))]
     Serbia = 860,
 
     /// <summary>
     ///     Mongolia.
     /// </summary>
-    [Description("Mongolia")]
+    [LocalisedDescription(nameof(Mongolia))]
     Mongolia = 865,
 
     /// <summary>
     ///     North Korea.
     /// </summary>
-    [Description("North Korea")]
+    [LocalisedDescription(nameof(NorthKorea))]
     NorthKorea = 867,
 
     /// <summary>
     ///     Turkey.
     /// </summary>
-    [Description("Turkey")]
+    [LocalisedDescription(nameof(Turkey))]
     Turkey = 868,
 
     /// <summary>
     ///     Netherlands.
     /// </summary>
-    [Description("Netherlands")]
+    [LocalisedDescription(nameof(Netherlands))]
     Netherlands = 870,
 
     /// <summary>
     ///     South Korea.
     /// </summary>
-    [Description("South Korea")]
+    [LocalisedDescription(nameof(SouthKorea))]
     SouthKorea = 880,
 
     /// <summary>
     ///     Cambodia.
     /// </summary>
-    [Description("Cambodia")]
+    [LocalisedDescription(nameof(Cambodia))]
     Cambodia = 884,
 
     /// <summary>
     ///     Thailand.
     /// </summary>
-    [Description("Thailand")]
+    [LocalisedDescription(nameof(Thailand))]
     Thailand = 885,
 
     /// <summary>
     ///     Singapore.
     /// </summary>
-    [Description("Singapore")]
+    [LocalisedDescription(nameof(Singapore))]
     Singapore = 888,
 
     /// <summary>
     ///     India.
     /// </summary>
-    [Description("India")]
+    [LocalisedDescription(nameof(India))]
     India = 890,
 
     /// <summary>
     ///     Vietnam.
     /// </summary>
-    [Description("Vietnam")]
+    [LocalisedDescription(nameof(Vietnam))]
     Vietnam = 893,
 
     /// <summary>
     ///     Bangladesh.
     /// </summary>
-    [Description("Bangladesh")]
+    [LocalisedDescription(nameof(Bangladesh))]
     Bangladesh = 894,
 
     /// <summary>
     ///     Pakistan.
     /// </summary>
-    [Description("Pakistan")]
+    [LocalisedDescription(nameof(Pakistan))]
     Pakistan = 896,
 
     /// <summary>
     ///     Indonesia.
     /// </summary>
-    [Description("Indonesia")]
+    [LocalisedDescription(nameof(Indonesia))]
     Indonesia = 899,
 
     /// <summary>
     ///     Austria.
     /// </summary>
-    [Description("Austria")]
+    [LocalisedDescription(nameof(Austria))]
     Austria = 900,
 
     /// <summary>
     ///     Australia.
     /// </summary>
-    [Description("Australia")]
+    [LocalisedDescription(nameof(Australia))]
     Australia = 930,
 
     /// <summary>
     ///     New Zealand.
     /// </summary>
-    [Description("New Zealand")]
+    [LocalisedDescription(nameof(NewZealand))]
     NewZealand = 940,
 
     /// <summary>
     ///     Global Office - special application.
     /// </summary>
-    [Description("Global Office - special application")]
+    [LocalisedDescription(nameof(GlobalOffice))]
     GlobalOffice = 950,
 
     /// <summary>
     ///     General Manager Numbers for the EPC General Identifier (GID) scheme as defined by the EPC Tag Data Standard.
     /// </summary>
-    [Description(
-        "General Manager Numbers for the EPC General Identifier (GID) scheme as defined by the EPC Tag Data Standard")]
+    [LocalisedDescription(nameof(GeneralManagerNumber))]
     GeneralManagerNumber = 951,
 
     /// <summary>
     ///     Malaysia.
     /// </summary>
-    [Description("Malaysia")]
+    [LocalisedDescription(nameof(Malaysia))]
     Malaysia = 955,
 
     /// <summary>
     ///     Macau.
     /// </summary>
-    [Description("Macau")]
+    [LocalisedDescription(nameof(Macau))]
     Macau = 958,
 
     /// <summary>
     ///     GS1 UK Office: GTIN-8 allocation.
     /// </summary>
-    [Description("GS1 UK Office: GTIN-8 allocation")]
+    [LocalisedDescription(nameof(UnitedKingdomOfficeGtin8Allocation))]
     UnitedKingdomOfficeGtin8Allocation = 960,
 
     /// <summary>
     ///     GS1 Global Office: GTIN-8 allocation.
     /// </summary>
-    [Description("GS1 Global Office: GTIN-8 allocation")]
+    [LocalisedDescription(nameof(GlobalOfficeGtin8Allocation))]
     GlobalOfficeGtin8Allocation = 962,
 
     /// <summary>
     ///     Serial publications (ISSN).
     /// </summary>
-    [Description("Serial publications (ISSN)")]
+    [LocalisedDescription(nameof(SerialPublicationIssn))]
     SerialPublicationIssn = 977,
 
     /// <summary>
@@ -811,7 +809,7 @@ public enum CompanyPrefix {
         "StyleCop.CSharp.DocumentationRules",
         "SA1650:ElementDocumentationMustBeSpelledCorrectly",
         Justification = "Reviewed. Suppression is OK here.")]
-    [Description("Bookland (ISBN)")]
+    [LocalisedDescription(nameof(BooklandIsbn))]
     BooklandIsbn = 978,
 
     /// <summary>
@@ -821,24 +819,24 @@ public enum CompanyPrefix {
         "StyleCop.CSharp.DocumentationRules",
         "SA1650:ElementDocumentationMustBeSpelledCorrectly",
         Justification = "Reviewed. Suppression is OK here.")]
-    [Description("Bookland (ISBN) - sheet music (ISMN-13)")]
+    [LocalisedDescription(nameof(BooklandIsbnIsmn))]
     BooklandIsbnIsmn = 979,
 
     /// <summary>
     ///     Refund Receipt.
     /// </summary>
-    [Description("Refund Receipt")]
+    [LocalisedDescription(nameof(RefundReceipt))]
     RefundReceipt = 980,
 
     /// <summary>
     ///     GS1 coupon identification for common currency areas.
     /// </summary>
-    [Description("GS1 coupon identification for common currency areas")]
+    [LocalisedDescription(nameof(CouponIdentificationForCommonCurrencyArea))]
     CouponIdentificationForCommonCurrencyArea = 981,
 
     /// <summary>
     ///     Coupon identification.
     /// </summary>
-    [Description("Coupon identification")]
+    [LocalisedDescription(nameof(CouponIdentification))]
     CouponIdentification = 990
 }
