@@ -118,47 +118,43 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="GS1_Error_001" xml:space="preserve">
-    <value>No data provided.</value>
+    <value>Aucune donnée fournie.</value>
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_002" xml:space="preserve">
-    <value>Entity is incorrectly terminated with an FNC1.</value>
+    <value>La validation pour AI {0} a expiré.</value>
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_003" xml:space="preserve">
-    <value>Fixed-width entity does not contain sufficient number of characters.</value>
+    <value>Aucune valeur d'entité fournie pour AI {0}.</value>
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Validation for AI {0} timed out.</value>
+    <value>L'entité est incorrectement terminée par un FNC1.</value>
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>The entity value cannot be null for AI {0}.</value>
+    <value>L'entité à largeur fixe ne contient pas un nombre suffisant de caractères.</value>
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
-    <value>The value{0} is invalid for AI {1}.</value>
+    <value>La valeur {0} est invalide pour AI {1}.</value>
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Invalid application identifier {0}.</value>
+    <value>Identifiant d'application invalide {0}.</value>
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_008" xml:space="preserve">
-    <value>The GTIN value{0} has an invalid checksum.</value>
+    <value>La valeur {0} a une somme de contrôle invalide.</value>
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_009" xml:space="preserve">
-    <value>The value{0} does not match the specified pattern for the data element.</value>
+    <value>La valeur {0} ne correspond pas au motif spécifié pour l'élément de données.</value>
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
-    <value>The implied decimal point position (inverse exponent) is specified incorrectly.</value>
-    <comment>Error</comment>
-  </data>
-  <data name="GS1_Error_011" xml:space="preserve">
-    <value>No entity value provided.</value>
+    <value>La position du point décimal implicite (exposant inverse) est spécifiée incorrectement.</value>
     <comment>Error</comment>
   </data>
 </root>
