@@ -48,11 +48,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Properties\Gs1CountryCode.es.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+    </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.fr.resx">
+		  <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.de.resx">
+		  <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
     <EmbeddedResource Update="Properties\Gs1CountryCode.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Gs1CountryCode.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.de.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.es.resx">
       <DependentUpon>Resources.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.fr.resx">
