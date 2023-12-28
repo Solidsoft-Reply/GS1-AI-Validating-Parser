@@ -738,7 +738,7 @@ public static partial class Extensions {
     /// <summary>
     ///     Resolve a GTIN or NTIN to a GS1 country code.
     /// </summary>
-    /// <param name="productCode">The product code code.</param>
+    /// <param name="productCode">The product code.</param>
     /// <returns>A GS1 country code.</returns>
     public static CompanyPrefix ResolveGtinNtinToGs1Country(this string productCode) {
         return string.IsNullOrWhiteSpace(productCode)

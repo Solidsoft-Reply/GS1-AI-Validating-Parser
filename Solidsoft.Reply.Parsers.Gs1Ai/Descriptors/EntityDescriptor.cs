@@ -90,7 +90,7 @@ internal class EntityDescriptor {
     /// </summary>
     /// <param name="value">The data to be validated.</param>
     /// <param name="validationErrors">A list of validation errors.</param>
-    /// <returns>True, if valid.  Otherwise false.</returns>
+    /// <returns>True, if valid.  Otherwise, false.</returns>
     public virtual bool IsValid(string value, out IList<ParserException> validationErrors) {
         validationErrors = new List<ParserException>();
 

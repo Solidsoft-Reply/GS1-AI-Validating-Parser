@@ -62,7 +62,7 @@ internal class IdentifierWithFinalChecksumDescriptor : EntityDescriptor {
     /// </summary>
     /// <param name="value">The GS1 identifier to be validated.</param>
     /// <param name="validationErrors">A list of validation errors.</param>
-    /// <returns>True, if valid.  Otherwise false.</returns>
+    /// <returns>True, if valid.  Otherwise, false.</returns>
     // ReSharper disable once CommentTypo
     // ReSharper disable once InheritdocConsiderUsage
     public override bool IsValid(string value, out IList<ParserException> validationErrors) {

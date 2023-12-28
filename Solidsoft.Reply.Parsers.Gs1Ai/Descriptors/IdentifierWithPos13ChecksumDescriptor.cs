@@ -62,7 +62,7 @@ internal class IdentifierWithPos13ChecksumDescriptor : EntityDescriptor {
     /// </summary>
     /// <param name="value">The GS1 data element value to be validated.</param>
     /// <param name="validationErrors">A list of validation errors.</param>
-    /// <returns>True, if valid.  Otherwise false.</returns>
+    /// <returns>True, if valid.  Otherwise, false.</returns>
 
     // ReSharper disable once CommentTypo
     // ReSharper disable once InheritdocConsiderUsage
