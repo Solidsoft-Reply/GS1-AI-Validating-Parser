@@ -397,7 +397,7 @@
     <value>Refund Receipt</value>
   </data>
   <data name="RestrictedCirculation" xml:space="preserve">
-    <value>Used to issue GS1 restricted circulation number within a geographic region</value>
+    <value>Used to issue a GS1 restricted circulation number within a geographic region</value>
   </data>
   <data name="Romania" xml:space="preserve">
     <value>Romania</value>

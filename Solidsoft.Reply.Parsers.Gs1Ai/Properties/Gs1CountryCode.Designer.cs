@@ -898,7 +898,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Used to issue GS1 restricted circulation number within a geographic region.
+        ///   Looks up a localized string similar to Used to issue a GS1 restricted circulation number within a geographic region.
         /// </summary>
         internal static string RestrictedCirculation {
             get {
