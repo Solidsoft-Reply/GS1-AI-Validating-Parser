@@ -33,7 +33,7 @@ public record ResolvedApplicationIdentifier : IResolvedEntity {
     /// <summary>
     ///     A list  of resolver exceptions.
     /// </summary>
-    private readonly List<ParserException> _exceptions = new();
+    private readonly List<ParserException> _exceptions = [];
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="ResolvedApplicationIdentifier" /> class.

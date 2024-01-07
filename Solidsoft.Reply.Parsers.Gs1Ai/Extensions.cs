@@ -24,8 +24,6 @@
 
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
-using System.ComponentModel;
-
 using System;
 using System.Collections.Generic;
 using System.Globalization;

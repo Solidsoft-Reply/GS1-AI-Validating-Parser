@@ -44,7 +44,7 @@ public class LocalisedDescriptionAttribute : DescriptionAttribute
     /// </summary>
     /// <param name="key"></param>
     /// <returns></returns>
-    static string Localise(string key)
+    private static string Localise(string key)
     {
         return Gs1CountryCode.ResourceManager.GetString(key) ?? string.Empty;
     }
