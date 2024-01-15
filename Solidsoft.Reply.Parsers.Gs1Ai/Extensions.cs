@@ -33,6 +33,7 @@ using System.Text.RegularExpressions;
 /// <summary>
 ///     Extension methods.
 /// </summary>
+#if NET7_0_OR_GREATER
 public static partial class Extensions {
 
     /// <summary>
@@ -48,11 +49,26 @@ public static partial class Extensions {
     /// <returns></returns>
     [GeneratedRegex("^\\d((0000[1-9])|(000[1-9])|(0[01][0-9]))\\d*$")]
     private static partial Regex UpcaCompatibleUnitedStatesAndCanadaRegex();
+#else
+public static class Extensions {
 
     /// <summary>
-    ///     A dictionary of GS1 company prefixes.
+    ///   UPC-A Compatible regular expression.
     /// </summary>
-    private static readonly Dictionary<int, CountryCode> CompanyPrefixes =
+    /// <returns></returns>
+    private static Regex UpcACompatibleRegex = new("^\\d*$");
+
+    /// <summary>
+    ///   UPC-A Compatible UnitedStates and Canada regular expression.
+    /// </summary>
+    /// <returns></returns>
+    private static Regex UpcaCompatibleUnitedStatesAndCanadaRegex = new("^\\d((0000[1-9])|(000[1-9])|(0[01][0-9]))\\d*$");
+#endif
+
+/// <summary>
+///     A dictionary of GS1 company prefixes.
+/// </summary>
+private static readonly Dictionary<int, CountryCode> CompanyPrefixes =
         new()
         {
             { 100, CountryCode.UnitedStates },
@@ -744,7 +760,13 @@ public static partial class Extensions {
                    : TestProductCodeLengthGt3();
 
         CountryCode TestSheetMusicSpecifier() =>
-            int.TryParse(productCode[4..5], out var sheetMusicSpecifier)
+            int.TryParse(
+#if NET6_0_OR_GREATER
+                productCode[4..5], 
+#else
+                productCode.Substring(4, 1),
+#endif
+                out var sheetMusicSpecifier)
                 ? sheetMusicSpecifier switch {
                     0 => CountryCode.BooklandIsbnIsmn,
                     _ => CountryCode.BooklandIsbn
@@ -752,7 +774,13 @@ public static partial class Extensions {
                 : CountryCode.Unknown;
 
         CountryCode TestCountryCode() =>
-            int.TryParse(productCode[1..4], out var countryCode)
+            int.TryParse(
+#if NET6_0_OR_GREATER
+            productCode[1..4],
+#else
+            productCode.Substring(1, 3),
+#endif
+            out var countryCode)
                 ? countryCode switch {
                     <= 99 and >= 0 => ResolveToGs1UpcACompatible(productCode),
                     979 => TestSheetMusicSpecifier(),
@@ -812,8 +840,14 @@ public static partial class Extensions {
     /// <param name="productCode">The product code.</param>
     /// <returns>The UPC-A Compatible company prefix.</returns>
     private static CountryCode ResolveToGs1UpcACompatible(string productCode) {
-        if (string.IsNullOrWhiteSpace(productCode) || !UpcACompatibleRegex().IsMatch(productCode)
-                                                   || productCode.Length > 14) {
+        if (string.IsNullOrWhiteSpace(productCode) ||
+#if NET7_0_OR_GREATER
+            !UpcACompatibleRegex()
+#else
+            !UpcACompatibleRegex
+#endif
+            .IsMatch(productCode) || 
+            productCode.Length > 14) {
             return CountryCode.Unknown;
         }
 
@@ -822,46 +856,95 @@ public static partial class Extensions {
         return GetCompanyPrefix();
 
         CountryCode TestForUpcACompatibleUnitedStatesDrugs() =>
-            productCode[1..3] == "03"
+#if NET6_0_OR_GREATER
+            productCode[1..3]
+#else
+            productCode.Substring(1, 2)
+#endif
+            == "03"
                 ? CountryCode.UpcACompatibleUnitedStatesDrugs
                 : TestForUpcACompatibleUnitedStatesReserved();
 
         int GetCountryCode()
         {
-            if (int.TryParse(productCode[1..4].Trim(), NumberStyles.None, CultureInfo.InvariantCulture,
-                    out var countryCode))
+            if (int.TryParse(
+#if NET6_0_OR_GREATER
+                productCode[1..4]
+#else
+                productCode.Substring(1,3)
+#endif
+                .Trim(), NumberStyles.None, CultureInfo.InvariantCulture, out var countryCode))
                 return countryCode;
 
             return (int)CountryCode.Unknown;
         }
         
         CountryCode GetCompanyPrefix() =>
-            productCode[1..4] == "000"
+#if NET6_0_OR_GREATER
+            productCode[1..4] 
+#else
+            productCode.Substring(1, 3)
+#endif
+            == "000"
                 ? TestForFiveZeros()
                 : GetCountryCode().ResolveToGs1Country();
 
         CountryCode TestForFiveZeros() =>
-            productCode[1..6] == "00000"
+#if NET6_0_OR_GREATER
+            productCode[1..6]
+#else
+            productCode.Substring(1,5)
+#endif
+            == "00000"
                 ? CountryCode.UpcACompatibleGtin8
                 : TestForUpcACompatibleUnitedStatesAndCanada();
 
         CountryCode TestForUpcACompatibleUnitedStatesAndCanada() =>
-            UpcaCompatibleUnitedStatesAndCanadaRegex().IsMatch(productCode) ||
-            productCode[1..3] == "06"
+#if NET7_0_OR_GREATER
+            UpcaCompatibleUnitedStatesAndCanadaRegex()
+#else
+            UpcaCompatibleUnitedStatesAndCanadaRegex
+#endif
+            .IsMatch(productCode) ||
+#if NET6_0_OR_GREATER
+            productCode[1..3] 
+#else
+            productCode.Substring(1,2)
+#endif
+            == "06"
                 ? CountryCode.UpcACompatibleUnitedStatesAndCanada
                 : TestForUpcACompatibleRestrictedCirculation();
 
         CountryCode TestForUpcACompatibleRestrictedCirculation() =>
-            productCode[1..3] == "02" ||
-            productCode[1..3] == "04"
+#if NET6_0_OR_GREATER
+            productCode[1..3] 
+#else
+            productCode.Substring(1,2)
+#endif
+            == "02" ||
+#if NET6_0_OR_GREATER
+            productCode[1..3] 
+#else
+            productCode.Substring(1,2)
+#endif
+            == "04"
                 ? CountryCode.UpcACompatibleRestrictedCirculation
                 : TestForUpcACompatibleUnitedStatesDrugs();
 
         CountryCode TestForUpcACompatibleUnitedStatesReserved() =>
-            productCode[1..3] == "05"
+#if NET6_0_OR_GREATER
+            productCode[1..3] 
+#else
+            productCode.Substring(1,2)
+#endif
+            == "05"
                 ? CountryCode.UpcACompatibleUnitedStatesReserved
                 : int.Parse(
+#if NET6_0_OR_GREATER
                         productCode[1..4],
+#else
+                        productCode.Substring(1, 3),
+#endif
                         NumberStyles.None,
                         CultureInfo.InvariantCulture)
                     .ResolveToGs1Country();

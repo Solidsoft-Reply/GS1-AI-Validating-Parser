@@ -41,7 +41,9 @@ using Common;
 /// <summary>
 ///     Resolves GS1 entities, validating the entity value and providing descriptors.
 /// </summary>
+#if NET7_0_OR_GREATER
 internal static partial class EntityResolver {
+
     /// <summary>
     ///     Returns a regular expression for matching a Serial Shipping Container Code.
     /// </summary>
@@ -411,6 +413,327 @@ internal static partial class EntityResolver {
     /// </summary>
     [GeneratedRegex(@"(((\d{2})(0[13578]|1[02])(0[0-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[0-9]|[12]\d|30))|((\d{2})02(0[0-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))(((0\d|1\d|2[0-3])([0-5]\d)?([0-5]\d)?))", RegexOptions.None, "en-US")]
     private static partial Regex DateAndTimeOfProductionRegex();
+#else
+internal static class EntityResolver {
+    
+    /// <summary>
+    ///     Returns a regular expression for matching a Serial Shipping Container Code.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex SsccRegex = new(@"^\d{18}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a Global Trade Item Number.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex GtinRegex= new(@"^\d{14}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a Global Document Type Identifier.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex GdtiRegex= new("""^\d{13}([-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,17})?$""", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a Global Coupon Number.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex GcnRegex= new(@"^\d{13}(\d{1,12})?$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a Global Returnable Asset Identifier (GRAI).
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex GraiRegex= new("""^0\d{13}([-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,16})?$""", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for an identification of an individual trade item piece (ITIP).
+    /// </summary>
+    private static readonly Regex ItipRegex= new(@"^\d{14}\d{2}\d{2}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-2 character value of characters taken from Character Set 82.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex CharacterSet8202CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,2}$""", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 2-2 character value of characters taken from Character Set 82.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex CharacterSet820202CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{2,2}$""", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-3 character value of characters taken from Character Set 82.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex CharacterSet8203CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,3}$""", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-10 character value of characters taken from Character Set 82.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex CharacterSet8210CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,10}$""", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-12 character value of characters taken from Character Set 82.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex CharacterSet8212CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,12}$""", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-20 character value of characters taken from Character Set 82.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex CharacterSet8220CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,20}$""", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-25 character value of characters taken from Character Set 82.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex CharacterSet8225CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,25}$""", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-28 character value of characters taken from Character Set 82.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex CharacterSet8228CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,28}$""", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 3-30 character value of characters taken from Character Set 82.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex CharacterSet820330CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{3,30}$""", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-30 character value of characters taken from Character Set 82.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex CharacterSet8230CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,30}$""", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-30 character value of characters taken from Character Set 39.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex CharacterSet3930CharsRegex= new(@"^[#-/0-9A-Z]{1,30}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-34 character value of characters taken from Character Set 82.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex CharacterSet8234CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,34}$""", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-35 character value of characters taken from Character Set 82.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex CharacterSet8235CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,35}$""", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-50 character value of characters taken from Character Set 82.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex CharacterSet8250CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,50}$""", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-70 character value of characters taken from Character Set 82.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex CharacterSet8270CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,70}$""", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-90 character value of characters taken from Character Set 82.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex CharacterSet8290CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,90}$""", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a processor with an ISO country code.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex ProcessorWithIsoCountryCodeRegex= new("""^\d{3}[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,27}$""", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a processor with an ISO country code.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex PostalCodeWithIsoCountryCodeRegex= new("""^\d{3}[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,9}$""", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a GS1 UIC with Extension 1 and Imported index.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex Gs1UicWithExtension1AndImportedIndexRegex= new("""^\d[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{3,3}$""", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for six-digit date representation - YYMMDD.
+    ///     If it is not necessary to specify the day, the day field can be filled with two zeros.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex DatePatternZerosRegex= new(@"^(((\d{2})(0[13578]|1[02])(0[0-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[0-9]|[12]\d|30))|((\d{2})02(0[0-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching 6-digit trade measures.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex SixDigitTradeMeasureRegex= new(@"^\d{6}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching 6-digit logistics measures.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex SixDigitLogisticsMeasureRegex= new(@"^\d{6}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching 6-digit monetary values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex SixDigitMonetaryValueRegex= new(@"^\d{6}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching 2-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex TwoDigitValueRegex= new(@"^\d{2}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching 3-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex ThreeDigitValueRegex= new(@"^\d{3}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching 4-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex FourDigitValueRegex= new(@"^\d{4}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching 6-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex SixDigitValueRegex= new(@"^\d{6}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching 13-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex ThirteenDigitValueRegex= new(@"^\d{13}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching 14-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex FourteenDigitValueRegex= new(@"^\d{14}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching 17-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex SeventeenDigitValueRegex= new(@"^\d{17}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching 18-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex EighteenDigitValueRegex= new(@"^\d{18}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching up to 4-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex MaxFourDigitValueRegex= new(@"^\d{1,4}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching up to 6-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex MaxSixDigitValueRegex= new(@"^\d{1,6}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching up to 8-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex MaxEightDigitValueRegex= new(@"^\d{1,8}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching up to 10-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex MaxTenDigitValueRegex= new(@"^\d{1,10}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching up to 12-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex MaxTwelveDigitValueRegex= new(@"^\d{1,12}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching up to 15-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex MaxFifteenDigitValueRegex= new(@"^\d{1,15}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching up to 4-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex MinFourMaxTwentyDigitValueRegex= new(@"^\d{4,20}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching up to 15-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex MaxFifteenDigitAmountWithIsoCodeRegex= new(@"^\d{3}\d{1,15}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching up to 15-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex MaxFiveIsoCountryCodesRegex= new(@"^(\d{3}){1,5}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a binary flag (1 or 0).
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex BinaryFlagRegex= new(@"^[01]$", RegexOptions.None);
+
+    /// <summary>
+    ///     A regular expression for six-digit date representation - YYMMDD.
+    /// </summary>
+    private static readonly Regex DatePatternRegex= new(@"(((\d{2})(0[13578]|1[02])(0[1-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[1-9]|[12]\d|30))|((\d{2})02(0[1-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for ten-digit date and time representation - YYMMDDHHMM.
+    /// </summary>
+    private static readonly Regex DateTimePatternRegex= new(@"(((\d{2})(0[13578]|1[02])(0[1-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[1-9]|[12]\d|30))|((\d{2})02(0[1-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))((0\d|1\d|2[0-3])([0-5]\d))", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for ten-digit date and time representation - YYMMDDHHMM.
+    ///     The time copmponent is optional.
+    /// </summary>
+    private static readonly Regex DateOptionalTimePatternRegex= new(@"(((\d{2})(0[13578]|1[02])(0[1-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[1-9]|[12]\d|30))|((\d{2})02(0[1-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))((0\d|1\d|2[0-3])([0-5]\d))?", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for the harvest date.
+    ///     The second (end) date is optional.
+    /// </summary>
+    private static readonly Regex HarvestDateRegex= new(@"((0\d|1[012])([0-5]\d))((0\d|1[012])([0-5]\d))?", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for ten-digit date and time representation - YYMMDDHHMM.
+    ///     If it is not necessary to specify the day, the day field can be filled with two zeros.
+    ///     If it is not necessary to specify a time, the hour and minutes are filled with 9s.
+    /// </summary>
+    private static readonly Regex DateTimePatternZerosAnd9SRegex= new(@"(((\d{2})(0[13578]|1[02])(0[0-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[0-9]|[12]\d|30))|((\d{2})02(0[0-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))(((0\d|1\d|2[0-3])([0-5]\d))|9999)", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for the date and time of production:.
+    ///     If it is not necessary to specify the minutes or the seconds.
+    /// </summary>
+    private static readonly Regex DateAndTimeOfProductionRegex= new(@"(((\d{2})(0[13578]|1[02])(0[0-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[0-9]|[12]\d|30))|((\d{2})02(0[0-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))(((0\d|1\d|2[0-3])([0-5]\d)?([0-5]\d)?))", RegexOptions.None);
+#endif
+
     /// <summary>
     ///     A dictionary of application identifier descriptors.
     /// </summary>
@@ -423,7 +746,11 @@ internal static partial class EntityResolver {
                     // ReSharper disable once StringLiteralTypo
                     "SSCC",
                     "Identification of a logistic unit (SSCC)",
+#if NET7_0_OR_GREATER
                     SsccRegex(),
+#else 
+                    SsccRegex,
+#endif
                     true)
             },
             {
@@ -431,21 +758,33 @@ internal static partial class EntityResolver {
                 new IdentifierWithFinalChecksumDescriptor(
                     "GTIN",
                     "Identification of a trade item (GTIN)",
+#if NET7_0_OR_GREATER
                     GtinRegex(),
+#else 
+                    GtinRegex,
+#endif
                     true)
             },
             {
                 2, new IdentifierWithFinalChecksumDescriptor(
                     "CONTENT",
                     "Identification of trade items contained in a logistic unit",
+#if NET7_0_OR_GREATER
                     GtinRegex(),
+#else 
+                    GtinRegex,
+#endif
                     true)
             },
             {
                 10, new EntityDescriptor(
                     "BATCH/LOT",
                     "Batch or lot number",
+#if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
+#else 
+                    CharacterSet8220CharsRegex,
+#endif
                     false)
             },
             {
@@ -454,7 +793,11 @@ internal static partial class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "Production date",
+#if NET7_0_OR_GREATER
                     DatePatternZerosRegex(),
+#else 
+                    DatePatternZerosRegex,
+#endif
                     true)
             },
             {
@@ -463,7 +806,11 @@ internal static partial class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "Due date for amount on payment slip",
+#if NET7_0_OR_GREATER
                     DatePatternZerosRegex(),
+#else 
+                    DatePatternZerosRegex,
+#endif
                     true)
             },
             {
@@ -472,7 +819,11 @@ internal static partial class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "Packaging date",
+#if NET7_0_OR_GREATER
                     DatePatternZerosRegex(),
+#else 
+                    DatePatternZerosRegex,
+#endif
                     true)
             },
             {
@@ -481,7 +832,11 @@ internal static partial class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "Best before date",
+#if NET7_0_OR_GREATER
                     DatePatternZerosRegex(),
+#else 
+                    DatePatternZerosRegex,
+#endif
                     true)
             },
             {
@@ -490,7 +845,11 @@ internal static partial class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "Sell by date",
+#if NET7_0_OR_GREATER
                     DatePatternZerosRegex(),
+#else 
+                    DatePatternZerosRegex,
+#endif
                     true)
             },
             {
@@ -499,7 +858,11 @@ internal static partial class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "Expiration date",
+#if NET7_0_OR_GREATER
                     DatePatternZerosRegex(),
+#else 
+                    DatePatternZerosRegex,
+#endif
                     true)
             },
             {
@@ -507,7 +870,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "VARIANT",
                     "Internal product variant",
+#if NET7_0_OR_GREATER
                     TwoDigitValueRegex(),
+#else 
+                    TwoDigitValueRegex,
+#endif
                     true)
             },
             {
@@ -515,28 +882,44 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "SERIAL",
                     "Serial number",
+#if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
+#else 
+                    CharacterSet8220CharsRegex,
+#endif
                     false)
             },
             {
                 22, new EntityDescriptor(
                     "CPV",
                     "Consumer product variant",
+#if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
+#else 
+                    CharacterSet8220CharsRegex,
+#endif
                     false)
             },
             {
                 235, new EntityDescriptor(
                     "TPX",
                     "Third Party Controlled, Serialised Extension of Global Trade Item Number (GTIN) (TPX)",
+#if NET7_0_OR_GREATER
                     CharacterSet8228CharsRegex(),
+#else 
+                    CharacterSet8228CharsRegex,
+#endif
                     false)
             },
             {
                 240, new EntityDescriptor(
                     "ADDITIONAL ID",
                     "Additional product identification assigned by the manufacturer",
+#if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
+#else 
+                    CharacterSet8230CharsRegex,
+#endif
                     false)
             },
             {
@@ -545,7 +928,11 @@ internal static partial class EntityResolver {
                     // ReSharper disable once StringLiteralTypo
                     "CUST. PART No.",
                     "Customer part number",
+#if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
+#else 
+                    CharacterSet8230CharsRegex,
+#endif
                     false)
             },
             {
@@ -553,28 +940,44 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "MTO VARIANT",
                     "Made-to-Order variation number",
+#if NET7_0_OR_GREATER
                     MaxSixDigitValueRegex(),
+#else 
+                    MaxSixDigitValueRegex,
+#endif
                     false)
             },
             {
                 243, new EntityDescriptor(
                     "PCN",
                     "Packaging component number",
+#if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
+#else 
+                    CharacterSet8220CharsRegex,
+#endif
                     false)
             },
             {
                 250, new EntityDescriptor(
                     "SECONDARY SERIAL",
                     "Secondary serial number",
+#if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
+#else 
+                    CharacterSet8230CharsRegex,
+#endif
                     false)
             },
             {
                 251, new EntityDescriptor(
                     "REF. TO SOURCE",
                     "Reference to source entity",
+#if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
+#else 
+                    CharacterSet8230CharsRegex,
+#endif
                     false)
             },
             {
@@ -583,147 +986,231 @@ internal static partial class EntityResolver {
                     // ReSharper disable once StringLiteralTypo
                     "GDTI",
                     "Global Document Type Identifier (GDTI)",
+#if NET7_0_OR_GREATER
                     GdtiRegex(),
+#else 
+                    GdtiRegex,
+#endif
                     false)
             },
             {
                 254, new EntityDescriptor(
                     "GLN EXTENSION COMPONENT",
                     "Global Location Number (GLN) extension component",
+#if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
+#else 
+                    CharacterSet8220CharsRegex,
+#endif
                     false)
             },
             {
                 255, new IdentifierWithPos13ChecksumDescriptor(
                     "GCN",
                     "Global Coupon Number (GCN)",
+#if NET7_0_OR_GREATER
                     GcnRegex(),
+#else 
+                    GcnRegex,
+#endif
                     false)
             },
             {
                 30, new EntityDescriptor(
                     "VAR. COUNT",
                     "Variable count of items",
+#if NET7_0_OR_GREATER
                     MaxEightDigitValueRegex(),
+#else 
+                    MaxEightDigitValueRegex,
+#endif
                     false)
             },
             {
                 310, new EntityDescriptor(
                     "NET WEIGHT (kg)",
                     "Net weight, kilograms (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
                 311, new EntityDescriptor(
                     "LENGTH (m)",
                     "Length or first dimension, metres (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
                 312, new EntityDescriptor(
                     "WIDTH (m)",
                     "Width, diameter, or second dimension, metres (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
                 313, new EntityDescriptor(
                     "HEIGHT (m)",
                     "Depth, thickness, height, or third dimension, metres (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
                 314, new EntityDescriptor(
                     "AREA (m²)",
                     "Area, square metres (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
                 315, new EntityDescriptor(
                     "NET VOLUME (l)",
                     "Net volume, litres (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
                 316, new EntityDescriptor(
                     "NET VOLUME (m³)",
                     "Net volume, cubic metres (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
                 320, new EntityDescriptor(
                     "NET WEIGHT (lb)",
                     "Net weight, pounds (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
                 321, new EntityDescriptor(
                     "LENGTH (i)",
                     "Length or first dimension, inches (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
                 322, new EntityDescriptor(
                     "LENGTH (f)",
                     "Length or first dimension, feet (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
                 323, new EntityDescriptor(
                     "LENGTH (y)",
                     "Length or first dimension, yards (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
                 324, new EntityDescriptor(
                     "WIDTH (i)",
                     "Width, diameter, or second dimension, inches (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
                 325, new EntityDescriptor(
                     "WIDTH (f)",
                     "Width, diameter, or second dimension, feet (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
                 326, new EntityDescriptor(
                     "WIDTH (y)",
                     "Width, diameter, or second dimension, yards (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
                 327, new EntityDescriptor(
                     "HEIGHT (i)",
                     "Depth, thickness, height, or third dimension, inches (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
                 328, new EntityDescriptor(
                     "HEIGHT (f)",
                     "Depth, thickness, height, or third dimension, feet (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
                 329, new EntityDescriptor(
                     "HEIGHT (y)",
                     "Depth, thickness, height, or third dimension, yards (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
@@ -731,7 +1218,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "GROSS WEIGHT (kg)",
                     "Logistic weight, kilograms",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
@@ -739,21 +1230,33 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "LENGTH (m), log",
                     "Length or first dimension, metres",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
                 332, new EntityDescriptor(
                     "WIDTH (m), log",
                     "Width, diameter, or second dimension, metres",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
                 333, new EntityDescriptor(
                     "HEIGHT (m), log",
                     "Depth, thickness, height, or third dimension, metres",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
@@ -761,7 +1264,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "AREA (m²), log",
                     "Area, square metres",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
@@ -769,7 +1276,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "VOLUME (l), log",
                     "Logistic volume, litres",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
@@ -777,7 +1288,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "VOLUME (m³), log",
                     "Logistic volume, cubic metres",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
@@ -785,7 +1300,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "KG PER m²",
                     "Kilograms per square metre",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
@@ -793,7 +1312,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "GROSS WEIGHT (lb)",
                     "Logistic weight, pounds",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
@@ -801,7 +1324,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "LENGTH (i), log",
                     "Length or first dimension, inches",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
@@ -809,7 +1336,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "LENGTH (f), log",
                     "Length or first dimension, feet",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
@@ -817,70 +1348,110 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "LENGTH (y), log",
                     "Length or first dimension, yards",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
                 344, new EntityDescriptor(
                     "WIDTH (i), log",
                     "Width, diameter, or second dimension, inches",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
                 345, new EntityDescriptor(
                     "WIDTH (f), log",
                     "Width, diameter, or second dimension, feet",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
                 346, new EntityDescriptor(
                     "WIDTH (y), log",
                     "Width, diameter, or second dimension, yard",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
                 347, new EntityDescriptor(
                     "HEIGHT (i), log",
                     "Depth, thickness, height, or third dimension, inches",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
                 348, new EntityDescriptor(
                     "HEIGHT (f), log",
                     "Depth, thickness, height, or third dimension, feet",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
                 349, new EntityDescriptor(
                     "HEIGHT (y), log",
                     "Depth, thickness, height, or third dimension, yards",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
                 350, new EntityDescriptor(
                     "AREA (i²)",
                     "Area, square inches (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
                 351, new EntityDescriptor(
                     "AREA (f²)",
                     "Area, square feet (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
                 352, new EntityDescriptor(
                     "AREA (y²)",
                     "Area, square yards (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
@@ -888,7 +1459,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "AREA (i²), log",
                     "Area, square inches",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
@@ -896,7 +1471,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "AREA (f²), log",
                     "Area, square feet",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
@@ -904,7 +1483,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "AREA (y²), log",
                     "Area, square yards",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
@@ -912,7 +1495,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "NET WEIGHT (t)",
                     "Net weight, troy ounces (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
@@ -920,7 +1507,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "NET VOLUME (oz)",
                     "Net weight (or volume), ounces (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
@@ -928,7 +1519,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "NET VOLUME (q)",
                     "Net volume, quarts (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
@@ -936,7 +1531,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "NET VOLUME (g)",
                     "Net volume, gallons U.S. (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
@@ -944,7 +1543,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "VOLUME (q), log",
                     "Logistic volume, quarts",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
@@ -952,28 +1555,44 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "VOLUME (g), log",
                     "Logistic volume, gallons U.S.",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
                 364, new EntityDescriptor(
                     "VOLUME (i³)",
                     "Net volume, cubic inches (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
                 365, new EntityDescriptor(
                     "VOLUME (f³)",
                     "Net volume, cubic feet (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
                 366, new EntityDescriptor(
                     "VOLUME (y³)",
                     "Net volume, cubic yards (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
+#else 
+                    SixDigitTradeMeasureRegex,
+#endif
                     true)
             },
             {
@@ -981,7 +1600,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "VOLUME (i³), log",
                     "Logistic volume, cubic inches",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
@@ -989,7 +1612,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "VOLUME (f³), log",
                     "Logistic volume, cubic feet",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
@@ -997,7 +1624,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "VOLUME (y³), log",
                     "Logistic volume, cubic yards",
+#if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
+#else 
+                    SixDigitLogisticsMeasureRegex,
+#endif
                     true)
             },
             {
@@ -1005,7 +1636,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "COUNT",
                     "Count of trade items or trade item pieces contained in a logistic unit",
+#if NET7_0_OR_GREATER
                     MaxEightDigitValueRegex(),
+#else 
+                    MaxEightDigitValueRegex,
+#endif
                     false)
             },
             {
@@ -1013,7 +1648,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "AMOUNT",
                     "Amount payable or coupon value - Single monetary area",
+#if NET7_0_OR_GREATER
                     MaxFifteenDigitValueRegex(),
+#else 
+                    MaxFifteenDigitValueRegex,
+#endif
                     false)
             },
             {
@@ -1021,7 +1660,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "AMOUNT",
                     "Amount payable and ISO currency code",
+#if NET7_0_OR_GREATER
                     MaxFifteenDigitAmountWithIsoCodeRegex(),
+#else 
+                    MaxFifteenDigitAmountWithIsoCodeRegex,
+#endif
                     false)
             },
             {
@@ -1029,7 +1672,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "PRICE",
                     "Amount payable for a variable measure trade item – Single monetary area",
+#if NET7_0_OR_GREATER
                     MaxFifteenDigitValueRegex(),
+#else 
+                    MaxFifteenDigitValueRegex,
+#endif
                     false)
             },
             {
@@ -1037,7 +1684,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "PRICE",
                     "Amount payable for a variable measure trade item and ISO currency code",
+#if NET7_0_OR_GREATER
                     MaxFifteenDigitAmountWithIsoCodeRegex(),
+#else 
+                    MaxFifteenDigitAmountWithIsoCodeRegex,
+#endif
                     false)
             },
             {
@@ -1047,7 +1698,11 @@ internal static partial class EntityResolver {
                     // ReSharper disable once StringLiteralTypo
                     "PRCNT OFF",
                     "Percentage discount of a coupon",
+#if NET7_0_OR_GREATER
                     FourDigitValueRegex(),
+#else 
+                    FourDigitValueRegex,
+#endif
                     true)
             },
             {
@@ -1057,7 +1712,11 @@ internal static partial class EntityResolver {
                     // ReSharper disable once StringLiteralTypo
                     "PRICE/UoM",
                     "Amount payable per unit of measure single monetary area (variable measure trade item)",
+#if NET7_0_OR_GREATER
                     SixDigitMonetaryValueRegex(),
+#else 
+                    SixDigitMonetaryValueRegex,
+#endif
                     true)
             },
             {
@@ -1065,7 +1724,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "ORDER NUMBER",
                     "Customer’s purchase order number",
+#if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
+#else 
+                    CharacterSet8230CharsRegex,
+#endif
                     false)
             },
             {
@@ -1077,7 +1740,11 @@ internal static partial class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "Global Identification Number for Consignment (GINC)",
+#if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
+#else 
+                    CharacterSet8230CharsRegex,
+#endif
                     false)
             },
             {
@@ -1089,7 +1756,11 @@ internal static partial class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "Global Shipment Identification Number (GSIN)",
+#if NET7_0_OR_GREATER
                     SeventeenDigitValueRegex(),
+#else 
+                    SeventeenDigitValueRegex,
+#endif
                     true)
             },
             {
@@ -1097,49 +1768,77 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "ROUTE",
                     "Routing code",
+#if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
+#else 
+                    CharacterSet8230CharsRegex,
+#endif
                     false)
             },
             {
                 410, new IdentifierWithFinalChecksumDescriptor(
                     "SHIP TO LOC",
                     "Ship to - Deliver to Global Location Number (GLN)",
+#if NET7_0_OR_GREATER
                     ThirteenDigitValueRegex(),
+#else 
+                    ThirteenDigitValueRegex,
+#endif
                     true)
             },
             {
                 411, new IdentifierWithFinalChecksumDescriptor(
                     "BILL TO",
                     "Bill to - Invoice to Global Location Number (GLN)",
+#if NET7_0_OR_GREATER
                     ThirteenDigitValueRegex(),
+#else 
+                    ThirteenDigitValueRegex,
+#endif
                     true)
             },
             {
                 412, new IdentifierWithFinalChecksumDescriptor(
                     "PURCHASE FROM",
                     "Purchased from Global Location Number (GLN)",
+#if NET7_0_OR_GREATER
                     ThirteenDigitValueRegex(),
+#else 
+                    ThirteenDigitValueRegex,
+#endif
                     true)
             },
             {
                 413, new IdentifierWithFinalChecksumDescriptor(
                     "SHIP FOR LOC",
                     "Ship for - Deliver for - Forward to Global Location Number (GLN)",
+#if NET7_0_OR_GREATER
                     ThirteenDigitValueRegex(),
+#else 
+                    ThirteenDigitValueRegex,
+#endif
                     true)
             },
             {
                 414, new IdentifierWithFinalChecksumDescriptor(
                     "LOC No.",
                     "Identification of a physical location - Global Location Number (GLN)",
+#if NET7_0_OR_GREATER
                     ThirteenDigitValueRegex(),
+#else 
+                    ThirteenDigitValueRegex,
+#endif
                     true)
             },
             {
                 415, new IdentifierWithFinalChecksumDescriptor(
                     "PAY TO",
                     "Global Location Number (GLN) of the invoicing party",
+#if NET7_0_OR_GREATER
                     ThirteenDigitValueRegex(),
+#else 
+                    ThirteenDigitValueRegex,
+#endif
                     true)
             },
             {
@@ -1148,7 +1847,11 @@ internal static partial class EntityResolver {
                     // ReSharper disable once StringLiteralTypo
                     "PROD/SERV LOC",
                     "Global Location Number (GLN) of the production or service location",
+#if NET7_0_OR_GREATER
                     ThirteenDigitValueRegex(),
+#else 
+                    ThirteenDigitValueRegex,
+#endif
                     true)
             },
             {
@@ -1157,21 +1860,33 @@ internal static partial class EntityResolver {
                     // ReSharper disable once StringLiteralTypo
                     "PARTY",
                     "Party Global Location Number (GLN)",
+#if NET7_0_OR_GREATER
                     ThirteenDigitValueRegex(),
+#else 
+                    ThirteenDigitValueRegex,
+#endif
                     true)
             },
             {
                 420, new EntityDescriptor(
                     "SHIP TO POST",
                     "Ship-to / Deliver-to postal code within a single postal authority",
+#if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
+#else 
+                    CharacterSet8220CharsRegex,
+#endif
                     false)
             },
             {
                 421, new EntityDescriptor(
                     "SHIP TO POST",
                     "Ship-to / Deliver-to postal code with three-digit ISO country code",
+#if NET7_0_OR_GREATER
                     PostalCodeWithIsoCountryCodeRegex(),
+#else 
+                    PostalCodeWithIsoCountryCodeRegex,
+#endif
                     false)
             },
             {
@@ -1179,14 +1894,22 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "ORIGIN",
                     "Country of origin of a trade item",
+#if NET7_0_OR_GREATER
                     ThreeDigitValueRegex(),
+#else 
+                    ThreeDigitValueRegex,
+#endif
                     true)
             },
             {
                 423, new EntityDescriptor(
                     "COUNTRY - INITIAL PROCESS",
                     "Country of initial processing",
+#if NET7_0_OR_GREATER
                     MaxFiveIsoCountryCodesRegex(),
+#else 
+                    MaxFiveIsoCountryCodesRegex,
+#endif
                     false)
             },
             {
@@ -1194,7 +1917,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "COUNTRY - PROCESS",
                     "Country of processing",
+#if NET7_0_OR_GREATER
                     ThreeDigitValueRegex(),
+#else 
+                    ThreeDigitValueRegex,
+#endif
                     true)
             },
             {
@@ -1205,21 +1932,33 @@ internal static partial class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "Country of disassembly",
+#if NET7_0_OR_GREATER
                     MaxFiveIsoCountryCodesRegex(),
+#else 
+                    MaxFiveIsoCountryCodesRegex,
+#endif
                     false)
             },
             {
                 426, new EntityDescriptor(
                     "COUNTRY – FULL PROCESS",
                     "Country covering full process chain",
+#if NET7_0_OR_GREATER
                     ThreeDigitValueRegex(),
+#else 
+                    ThreeDigitValueRegex,
+#endif
                     true)
             },
             {
                 427, new EntityDescriptor(
                     "ORIGIN SUBDIVISION",
                     "Country subdivision of origin code for a trade item",
+#if NET7_0_OR_GREATER
                     CharacterSet8203CharsRegex(),
+#else 
+                    CharacterSet8203CharsRegex,
+#endif
                     false)
             },
             {
@@ -1227,174 +1966,275 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "SHIP TO COMP",
                     "Ship-to / Deliver-to Company name",
+#if NET7_0_OR_GREATER
                     CharacterSet8235CharsRegex(),
+#else 
+                    CharacterSet8235CharsRegex,
+#endif
                     false)
             },
             {
                 4301,
                 new EntityDescriptor("SHIP TO NAME",
                     "Ship-to / Deliver-to contact name",
+#if NET7_0_OR_GREATER
                     CharacterSet8235CharsRegex(),
+#else 
+                    CharacterSet8235CharsRegex,
+#endif
                     false)
             },
             {
                 4302,
                 new EntityDescriptor("SHIP TO ADD1",
                     "Ship-to / Deliver-to address line 1",
+#if NET7_0_OR_GREATER
                     CharacterSet8270CharsRegex(),
+#else 
+                    CharacterSet8270CharsRegex,
+#endif
                     false)
             },
             {
                 4303,
                 new EntityDescriptor("SHIP TO ADD2",
                     "Ship-to / Deliver-to address line 2",
+#if NET7_0_OR_GREATER
                     CharacterSet8270CharsRegex(),
+#else 
+                    CharacterSet8270CharsRegex,
+#endif
                     false)
             },
             {
                 4304,
                 new EntityDescriptor("SHIP TO SUB",
                     "Ship-to / Deliver-to suburb",
+#if NET7_0_OR_GREATER
                     CharacterSet8270CharsRegex(),
+#else 
+                    CharacterSet8270CharsRegex,
+#endif
                     false)
             },
             {
                 4305,
                 new EntityDescriptor("SHIP TO LOC",
                     "Ship-to / Deliver-to locality",
+#if NET7_0_OR_GREATER
                     CharacterSet8270CharsRegex(),
+#else 
+                    CharacterSet8270CharsRegex,
+#endif
                     false)
             },
             {
                 4306,
                 new EntityDescriptor("SHIP TO REG",
                     "Ship-to / Deliver-to region",
+#if NET7_0_OR_GREATER
                     CharacterSet8270CharsRegex(),
+#else 
+                    CharacterSet8270CharsRegex,
+#endif
                     false)
             },
             {
                 4307,
                 new EntityDescriptor("SHIP TO COUNTRY",
                     "Ship-to / Deliver-to country code",
-                    CharacterSet820202CharsRegex(), true)
+#if NET7_0_OR_GREATER
+                    CharacterSet820202CharsRegex(),
+#else 
+                    CharacterSet820202CharsRegex,
+#endif
+                    true)
             },
             {
                 4308,
                 new EntityDescriptor("SHIP TO PHONE",
                     "Ship-to / Deliver-to telephone number",
+#if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
+#else 
+                    CharacterSet8230CharsRegex,
+#endif
                     false)
             },
             {
                 4309,
                 new EntityDescriptor("SHIP TO GEO",
                     "Ship-to / Deliver-to GEO location",
+#if NET7_0_OR_GREATER
                     MinFourMaxTwentyDigitValueRegex(),
+#else 
+                    MinFourMaxTwentyDigitValueRegex,
+#endif
                     true)
             },
             {
                 4310,
                 new EntityDescriptor("RTN TO COMP",
                     "Return-to company name",
+#if NET7_0_OR_GREATER
                     CharacterSet8235CharsRegex(),
+#else 
+                    CharacterSet8235CharsRegex,
+#endif
                     false)
             },
             {
                 4311,
                 new EntityDescriptor("RTN TO NAME",
                     "Return-to contact name",
+#if NET7_0_OR_GREATER
                     CharacterSet8235CharsRegex(),
+#else 
+                    CharacterSet8235CharsRegex,
+#endif
                     false)
             },
             {
                 4312,
                 new EntityDescriptor("RTN TO ADD1",
                     "Return-to address line 1",
+#if NET7_0_OR_GREATER
                     CharacterSet8270CharsRegex(),
+#else 
+                    CharacterSet8270CharsRegex,
+#endif
                     false)
             },
             {
                 4313,
                 new EntityDescriptor("RTN TO ADD2",
                     "Return-to address line 2",
+#if NET7_0_OR_GREATER
                     CharacterSet8270CharsRegex(),
+#else 
+                    CharacterSet8270CharsRegex,
+#endif
                     false)
             },
             {
                 4314,
                 new EntityDescriptor("RTN TO SUB",
                     "Return-to suburb",
+#if NET7_0_OR_GREATER
                     CharacterSet8270CharsRegex(),
+#else 
+                    CharacterSet8270CharsRegex,
+#endif
                     false)
             },
             {
                 4315,
                 new EntityDescriptor("RTN TO LOC",
                     "Return-to locality",
+#if NET7_0_OR_GREATER
                     CharacterSet8270CharsRegex(),
+#else 
+                    CharacterSet8270CharsRegex,
+#endif
                     false)
             },
             {
                 4316,
                 new EntityDescriptor("RTN TO REG",
                     "Return-to region",
+#if NET7_0_OR_GREATER
                     CharacterSet8270CharsRegex(),
+#else 
+                    CharacterSet8270CharsRegex,
+#endif
                     false)
             },
             {
                 4317,
                 new EntityDescriptor("RTN TO COUNTRY",
                     "Return-to country code",
+#if NET7_0_OR_GREATER
                     CharacterSet820202CharsRegex(),
+#else 
+                    CharacterSet820202CharsRegex,
+#endif
                     true)
             },
             {
                 4318,
                 new EntityDescriptor("RTN TO POST",
                     "Return-to postal code",
+#if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
+#else 
+                    CharacterSet8220CharsRegex,
+#endif
                     false)
             },
             {
                 4319,
                 new EntityDescriptor("RTN TO PHONE",
                     "Return-to telephone number",
+#if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
+#else 
+                    CharacterSet8230CharsRegex,
+#endif
                     false)
             },
             {
                 4320,
                 new EntityDescriptor("SRV DESCRIPTION",
                     "Service code description",
+#if NET7_0_OR_GREATER
                     CharacterSet8235CharsRegex(),
+#else 
+                    CharacterSet8235CharsRegex,
+#endif
                     false)
             },
             {
                 4321,
                 new EntityDescriptor("DANGEROUS GOODS",
                     "Dangerous goods flag",
+#if NET7_0_OR_GREATER
                     BinaryFlagRegex(),
+#else 
+                    BinaryFlagRegex,
+#endif
                     true)
             },
             {
                 4322,
                 new EntityDescriptor("AUTH LEAVE",
                     "Authority to leave flag",
+#if NET7_0_OR_GREATER
                     BinaryFlagRegex(),
+#else 
+                    BinaryFlagRegex,
+#endif
                     true)
             },
             {
                 4323,
                 new EntityDescriptor("SIG REQUIRED",
                     "Signature required flag",
+#if NET7_0_OR_GREATER
                     BinaryFlagRegex(),
+#else 
+                    BinaryFlagRegex,
+#endif
                     true)
             },
             {
                 4324,
                 new EntityDescriptor("NBEF DEL DT",
                     "Not before delivery date/time",
+#if NET7_0_OR_GREATER
                     DateTimePatternZerosAnd9SRegex(),
+#else 
+                    DateTimePatternZerosAnd9SRegex,
+#endif
                     true)
             },
             {
@@ -1402,7 +2242,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "NAFT DEL DT",
                     "Not after delivery date/time",
+#if NET7_0_OR_GREATER
                     DateTimePatternZerosAnd9SRegex(),
+#else 
+                    DateTimePatternZerosAnd9SRegex,
+#endif
                     true)
             },
             {
@@ -1410,7 +2254,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "REL DATE",
                     "Release date",
+#if NET7_0_OR_GREATER
                     DatePatternRegex(),
+#else 
+                    DatePatternRegex,
+#endif
                     true)
             },
             {
@@ -1418,14 +2266,22 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "NSN",
                     "NATO Stock Number (NSN)",
+#if NET7_0_OR_GREATER
                     ThirteenDigitValueRegex(),
+#else 
+                    ThirteenDigitValueRegex,
+#endif
                     true)
             },
             {
                 7002, new EntityDescriptor(
                     "MEAT CUT",
                     "UN/ECE meat carcasses and cuts classification",
+#if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
+#else 
+                    CharacterSet8230CharsRegex,
+#endif
                     false)
             },
             {
@@ -1433,35 +2289,55 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "EXPIRY TIME",
                     "Expiration date and time",
+#if NET7_0_OR_GREATER
                     DateTimePatternRegex(),
+#else 
+                    DateTimePatternRegex,
+#endif
                     true) },
             {
                 7004,
                 new EntityDescriptor(
                     "ACTIVE POTENCY",
                     "Active potency",
+#if NET7_0_OR_GREATER
                     MaxFourDigitValueRegex(),
+#else 
+                    MaxFourDigitValueRegex,
+#endif
                     false) },
             {
                 7005,
                 new EntityDescriptor(
                     "CATCH AREA",
                     "Catch area",
+#if NET7_0_OR_GREATER
                     CharacterSet8212CharsRegex(),
+#else 
+                    CharacterSet8212CharsRegex,
+#endif
                     false) },
             {
                 7006,
                 new EntityDescriptor(
                     "FIRST FREEZE DATE",
                     "First freeze date",
+#if NET7_0_OR_GREATER
                     DatePatternRegex(),
+#else 
+                    DatePatternRegex,
+#endif
                     true) },
             {
                 7007,
                 new EntityDescriptor(
                     "HARVEST DATE",
                     "Harvest date",
+#if NET7_0_OR_GREATER
                     HarvestDateRegex(),
+#else 
+                    HarvestDateRegex,
+#endif
                     false)
             },
             {
@@ -1469,7 +2345,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "AQUATIC SPECIES",
                     "Species for fishery purposes",
+#if NET7_0_OR_GREATER
                     CharacterSet8203CharsRegex(),
+#else 
+                    CharacterSet8203CharsRegex,
+#endif
                     false)
             },
             {
@@ -1477,7 +2357,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "FISHING GEAR TYPE",
                     "Fishing gear type",
+#if NET7_0_OR_GREATER
                     CharacterSet8210CharsRegex(),
+#else 
+                    CharacterSet8210CharsRegex,
+#endif
                     false)
             },
             {
@@ -1485,7 +2369,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "PROD METHOD",
                     "Production method",
+#if NET7_0_OR_GREATER
                     CharacterSet8202CharsRegex(),
+#else 
+                    CharacterSet8202CharsRegex,
+#endif
                     false)
             },
             {
@@ -1493,7 +2381,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "TEST BY DATE",
                     "Test by date",
+#if NET7_0_OR_GREATER
                     DateOptionalTimePatternRegex(),
+#else 
+                    DateOptionalTimePatternRegex,
+#endif
                     false)
             },
             {
@@ -1503,7 +2395,11 @@ internal static partial class EntityResolver {
                     // ReSharper disable once StringLiteralTypo
                     "REFURB LOT",
                     "Refurbishment lot ID",
+#if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
+#else 
+                    CharacterSet8220CharsRegex,
+#endif
                     false)
             },
             {
@@ -1511,7 +2407,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "FUNC STAT",
                     "Functional status",
+#if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
+#else 
+                    CharacterSet8220CharsRegex,
+#endif
                     false)
             },
             {
@@ -1519,7 +2419,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "REV STAT",
                     "Revision status",
+#if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
+#else 
+                    CharacterSet8220CharsRegex,
+#endif
                     false)
             },
             {
@@ -1531,7 +2435,11 @@ internal static partial class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "Global Individual Asset Identifier of an assembly",
+#if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
+#else 
+                    CharacterSet8230CharsRegex,
+#endif
                     false)
             },
             {
@@ -1539,7 +2447,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "PROCESSOR # s",
                     "Number of processor with three-digit ISO country code",
+#if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
+#else 
+                    ProcessorWithIsoCountryCodeRegex,
+#endif
                     false)
             },
             {
@@ -1547,7 +2459,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "PROCESSOR # 1",
                     "Number of processor with ISO Country Code",
+#if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
+#else 
+                    ProcessorWithIsoCountryCodeRegex,
+#endif
                     false)
             },
             {
@@ -1555,7 +2471,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "PROCESSOR # 2",
                     "Number of processor with ISO Country Code",
+#if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
+#else 
+                    ProcessorWithIsoCountryCodeRegex,
+#endif
                     false)
             },
             {
@@ -1563,7 +2483,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "PROCESSOR # 3",
                     "Number of processor with ISO Country Code",
+#if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
+#else 
+                    ProcessorWithIsoCountryCodeRegex,
+#endif
                     false)
             },
             {
@@ -1571,7 +2495,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "PROCESSOR # 4",
                     "Number of processor with ISO Country Code",
+#if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
+#else 
+                    ProcessorWithIsoCountryCodeRegex,
+#endif
                     false)
             },
             {
@@ -1579,7 +2507,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "PROCESSOR # 5",
                     "Number of processor with ISO Country Code",
+#if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
+#else 
+                    ProcessorWithIsoCountryCodeRegex,
+#endif
                     false)
             },
             {
@@ -1587,7 +2519,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "PROCESSOR # 6",
                     "Number of processor with ISO Country Code",
+#if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
+#else 
+                    ProcessorWithIsoCountryCodeRegex,
+#endif
                     false)
             },
             {
@@ -1595,7 +2531,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "PROCESSOR # 7",
                     "Number of processor with ISO Country Code",
+#if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
+#else 
+                    ProcessorWithIsoCountryCodeRegex,
+#endif
                     false)
             },
             {
@@ -1603,7 +2543,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "PROCESSOR # 8",
                     "Number of processor with ISO Country Code",
+#if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
+#else 
+                    ProcessorWithIsoCountryCodeRegex,
+#endif
                     false)
             },
             {
@@ -1611,7 +2555,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "PROCESSOR # 9",
                     "Number of processor with ISO Country Code",
+#if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
+#else 
+                    ProcessorWithIsoCountryCodeRegex,
+#endif
                     false)
             },
             {
@@ -1619,7 +2567,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "UIC+EXT",
                     "GS1 UIC with Extension 1 and Importer index",
+#if NET7_0_OR_GREATER
                     Gs1UicWithExtension1AndImportedIndexRegex(),
+#else 
+                    Gs1UicWithExtension1AndImportedIndexRegex,
+#endif
                     true)
             },
             {
@@ -1627,7 +2579,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "NHRN PZN",
                     "National Healthcare Reimbursement Number (NHRN) – Germany PZN",
+#if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
+#else 
+                    CharacterSet8220CharsRegex,
+#endif
                     false)
             },
             {
@@ -1635,7 +2591,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "NHRN CIP",
                     "National Healthcare Reimbursement Number (NHRN) – France CIP",
+#if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
+#else 
+                    CharacterSet8220CharsRegex,
+#endif
                     false)
             },
             {
@@ -1643,7 +2603,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "NHRN CN",
                     "National Healthcare Reimbursement Number (NHRN) – Spain CN",
+#if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
+#else 
+                    CharacterSet8220CharsRegex,
+#endif
                     false)
             },
             {
@@ -1653,7 +2617,11 @@ internal static partial class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "National Healthcare Reimbursement Number (NHRN) – Brasil DRN",
+#if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
+#else 
+                    CharacterSet8220CharsRegex,
+#endif
                     false)
             },
             {
@@ -1661,7 +2629,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "NHRN AIM",
                     "National Healthcare Reimbursement Number (NHRN) – Portugal AIM",
+#if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
+#else 
+                    CharacterSet8220CharsRegex,
+#endif
                     false)
             },
             {
@@ -1669,7 +2641,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "NHRN NDC",
                     "National Healthcare Reimbursement Number (NHRN) – United States of America NDC",
+#if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
+#else 
+                    CharacterSet8220CharsRegex,
+#endif
                     false)
             },
             {
@@ -1677,7 +2653,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "CERT # s",
                     "Certification reference",
+#if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
+#else 
+                    CharacterSet820330CharsRegex,
+#endif
                     false)
             },
             {
@@ -1685,7 +2665,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "CERT # 1",
                     "Certification reference",
+#if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
+#else 
+                    CharacterSet820330CharsRegex,
+#endif
                     false)
             },
             {
@@ -1693,7 +2677,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "CERT # 2",
                     "Certification reference",
+#if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
+#else 
+                    CharacterSet820330CharsRegex,
+#endif
                     false)
             },
             {
@@ -1701,7 +2689,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "CERT # 3",
                     "Certification reference",
+#if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
+#else 
+                    CharacterSet820330CharsRegex,
+#endif
                     false)
             },
             {
@@ -1709,7 +2701,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "CERT # 4",
                     "Certification reference",
+#if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
+#else 
+                    CharacterSet820330CharsRegex,
+#endif
                     false)
             },
             {
@@ -1717,7 +2713,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "CERT # 5",
                     "Certification reference",
+#if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
+#else 
+                    CharacterSet820330CharsRegex,
+#endif
                     false)
             },
             {
@@ -1725,7 +2725,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "CERT # 6",
                     "Certification reference",
+#if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
+#else 
+                    CharacterSet820330CharsRegex,
+#endif
                     false)
             },
             {
@@ -1733,7 +2737,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "CERT # 7",
                     "Certification reference",
+#if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
+#else 
+                    CharacterSet820330CharsRegex,
+#endif
                     false)
             },
             {
@@ -1741,7 +2749,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "CERT # 8",
                     "Certification reference",
+#if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
+#else 
+                    CharacterSet820330CharsRegex,
+#endif
                     false)
             },
             {
@@ -1749,7 +2761,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "CERT # 9",
                     "Certification reference",
+#if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
+#else 
+                    CharacterSet820330CharsRegex,
+#endif
                     false)
             },
             {
@@ -1757,7 +2773,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "PROTOCOL",
                     "Protocol ID",
+#if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
+#else 
+                    CharacterSet8220CharsRegex,
+#endif
                     false)
             },
             {
@@ -1765,7 +2785,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "DIMENSIONS",
                     "Roll products - width, length, core diameter, direction, splices",
+#if NET7_0_OR_GREATER
                     FourteenDigitValueRegex(),
+#else 
+                    FourteenDigitValueRegex,
+#endif
                     true)
             },
             {
@@ -1773,7 +2797,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "CMT No.",
                     "Cellular mobile telephone identifier",
+#if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
+#else 
+                    CharacterSet8220CharsRegex,
+#endif
                     false)
             },
             {
@@ -1785,7 +2813,11 @@ internal static partial class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "Global Returnable Asset Identifier (GRAI)",
+#if NET7_0_OR_GREATER
                     GraiRegex(),
+#else 
+                    GraiRegex,
+#endif
                     false)
             },
             {
@@ -1797,7 +2829,11 @@ internal static partial class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "Global Individual Asset Identifier (GIAI)",
+#if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
+#else 
+                    CharacterSet8230CharsRegex,
+#endif
                     false)
             },
             {
@@ -1805,7 +2841,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "PRICE PER UNIT",
                     "Price per unit of measure",
+#if NET7_0_OR_GREATER
                     SixDigitValueRegex(),
+#else 
+                    SixDigitValueRegex,
+#endif
                     true)
             },
             {
@@ -1815,7 +2855,11 @@ internal static partial class EntityResolver {
                     // ReSharper disable once StringLiteralTypo
                     "ITIP",
                     "Identification of an individual trade item (ITIP) piece",
+#if NET7_0_OR_GREATER
                     ItipRegex(),
+#else 
+                    ItipRegex,
+#endif
                     true)
             },
             {
@@ -1827,7 +2871,11 @@ internal static partial class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "International Bank Account Number (IBAN)",
+#if NET7_0_OR_GREATER
                     CharacterSet8234CharsRegex(),
+#else 
+                    CharacterSet8234CharsRegex,
+#endif
                     false)
             },
             {
@@ -1835,7 +2883,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "PROD TIME",
                     "Date and time of production",
+#if NET7_0_OR_GREATER
                     DateAndTimeOfProductionRegex(),
+#else 
+                    DateAndTimeOfProductionRegex,
+#endif
                     false) },
             {
                 8009,
@@ -1844,7 +2896,11 @@ internal static partial class EntityResolver {
                     // ReSharper disable once StringLiteralTypo
                     "OPTSEN",
                     "Optically readable sensor indicator",
+#if NET7_0_OR_GREATER
                     CharacterSet8250CharsRegex(),
+#else 
+                    CharacterSet8250CharsRegex,
+#endif
                     false)
             },
             {
@@ -1854,7 +2910,11 @@ internal static partial class EntityResolver {
                     // ReSharper disable once StringLiteralTypo
                     "CPID",
                     "Component/Part Identifier (CPID)",
+#if NET7_0_OR_GREATER
                     CharacterSet3930CharsRegex(),
+#else 
+                    CharacterSet3930CharsRegex,
+#endif
                     false)
             },
             {
@@ -1866,7 +2926,11 @@ internal static partial class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "Component/Part Identifier serial number",
+#if NET7_0_OR_GREATER
                     MaxTwelveDigitValueRegex(),
+#else 
+                    MaxTwelveDigitValueRegex,
+#endif
                     false)
             },
             {
@@ -1874,7 +2938,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "VERSION",
                     "Software version",
+#if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
+#else 
+                    CharacterSet8220CharsRegex,
+#endif
                     false)
             },
             {
@@ -1882,7 +2950,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "GMN",
                     "Global Model Number (GMN)",
+#if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
+#else 
+                    CharacterSet8230CharsRegex,
+#endif
                     false)
             },
             {
@@ -1892,7 +2964,11 @@ internal static partial class EntityResolver {
                     // ReSharper disable once StringLiteralTypo
                     "GSRN - PROVIDER",
                     "Global Service Relation Number (GSRN) to identify the relationship between an organisation offering services and the provider of services",
+#if NET7_0_OR_GREATER
                     EighteenDigitValueRegex(),
+#else 
+                    EighteenDigitValueRegex,
+#endif
                     true)
             },
             {
@@ -1902,7 +2978,11 @@ internal static partial class EntityResolver {
                     // ReSharper disable once StringLiteralTypo
                     "GSRN - RECIPIENT",
                     "Global Service Relation Number (GSRN) to identify the relationship between an organisation offering services and the recipient of services",
+#if NET7_0_OR_GREATER
                     EighteenDigitValueRegex(),
+#else 
+                    EighteenDigitValueRegex,
+#endif
                     true)
             },
             {
@@ -1914,7 +2994,11 @@ internal static partial class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "Service Relation Instance Number (SRIN)",
+#if NET7_0_OR_GREATER
                     MaxTenDigitValueRegex(),
+#else 
+                    MaxTenDigitValueRegex,
+#endif
                     false)
             },
             {
@@ -1922,7 +3006,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "REF No.",
                     "Payment slip reference number",
+#if NET7_0_OR_GREATER
                     CharacterSet8225CharsRegex(),
+#else 
+                    CharacterSet8225CharsRegex,
+#endif
                     false)
             },
             {
@@ -1930,7 +3018,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "ITIP CONTENT",
                     "Identification of pieces of a trade item (ITIP) contained in a logistic unit",
+#if NET7_0_OR_GREATER
                     EighteenDigitValueRegex(),
+#else 
+                    EighteenDigitValueRegex,
+#endif
                     true)
             },
             {
@@ -1938,7 +3030,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "-",
                     "Coupon code identification for use in North America",
+#if NET7_0_OR_GREATER
                     CharacterSet8270CharsRegex(),
+#else 
+                    CharacterSet8270CharsRegex,
+#endif
                     false)
             },
             {
@@ -1946,7 +3042,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "POINTS",
                     "Loyalty points of a coupon",
+#if NET7_0_OR_GREATER
                     FourDigitValueRegex(),
+#else 
+                    FourDigitValueRegex,
+#endif
                     true)
             },
             {
@@ -1954,7 +3054,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "-",
                     "Positive offer file coupon code identification for use in North America",
+#if NET7_0_OR_GREATER
                     CharacterSet8270CharsRegex(),
+#else 
+                    CharacterSet8270CharsRegex,
+#endif
                     false)
             },
             {
@@ -1962,7 +3066,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "PRODUCT URL",
                     "Extended packaging URL",
+#if NET7_0_OR_GREATER
                     CharacterSet8270CharsRegex(),
+#else 
+                    CharacterSet8270CharsRegex,
+#endif
                     false)
             },
             {
@@ -1970,7 +3078,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "INTERNAL",
                     "Information mutually agreed between trading partners",
+#if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
+#else 
+                    CharacterSet8230CharsRegex,
+#endif
                     false)
             },
             {
@@ -1978,7 +3090,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "INTERNAL",
                     "Company internal information",
+#if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
+#else 
+                    CharacterSet8290CharsRegex,
+#endif
                     false)
             },
             {
@@ -1986,7 +3102,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "INTERNAL",
                     "Company internal information",
+#if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
+#else 
+                    CharacterSet8290CharsRegex,
+#endif
                     false)
             },
             {
@@ -1994,7 +3114,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "INTERNAL",
                     "Company internal information",
+#if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
+#else 
+                    CharacterSet8290CharsRegex,
+#endif
                     false)
             },
             {
@@ -2002,7 +3126,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "INTERNAL",
                     "Company internal information",
+#if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
+#else 
+                    CharacterSet8290CharsRegex,
+#endif
                     false)
             },
             {
@@ -2010,7 +3138,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "INTERNAL",
                     "Company internal information",
+#if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
+#else 
+                    CharacterSet8290CharsRegex,
+#endif
                     false)
             },
             {
@@ -2018,7 +3150,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "INTERNAL",
                     "Company internal information",
+#if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
+#else 
+                    CharacterSet8290CharsRegex,
+#endif
                     false)
             },
             {
@@ -2026,7 +3162,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "INTERNAL",
                     "Company internal information",
+#if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
+#else 
+                    CharacterSet8290CharsRegex,
+#endif
                     false)
             },
             {
@@ -2034,7 +3174,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "INTERNAL",
                     "Company internal information",
+#if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
+#else 
+                    CharacterSet8290CharsRegex,
+#endif
                     false)
             },
             {
@@ -2042,7 +3186,11 @@ internal static partial class EntityResolver {
                 new EntityDescriptor(
                     "INTERNAL",
                     "Company internal information",
+#if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
+#else 
+                    CharacterSet8290CharsRegex,
+#endif
                     false)
             }
         };
@@ -2412,11 +3560,15 @@ internal static partial class EntityResolver {
     /// </returns>
     private static ApplicationIdentifier GetEntity(this string data, int length) {
         return !string.IsNullOrEmpty(data) && data.Length >= length && Enum.TryParse(
-                   data[..length],
-                   true,
-                   out ApplicationIdentifier applicationIdentifier)
-                   ? applicationIdentifier
-                   : ApplicationIdentifier.Unrecognised;
+#if NET6_0_OR_GREATER
+                    data[..length],
+#else
+                    data.Substring(length),
+#endif
+                    true,
+                    out ApplicationIdentifier applicationIdentifier)
+                    ? applicationIdentifier
+                    : ApplicationIdentifier.Unrecognised;
     }
 
     /// <summary>
@@ -2491,7 +3643,13 @@ internal static partial class EntityResolver {
     /// <param name="applicationIdentifierLength">The length of the application identifier.</param>
     /// <returns>The value associated wit the application identifier.</returns>
     private static string GetValue(this string data, int applicationIdentifierLength) {
-        return applicationIdentifierLength >= data.Length ? string.Empty : data[applicationIdentifierLength..];
+        return applicationIdentifierLength >= data.Length 
+            ? string.Empty
+#if NET6_0_OR_GREATER
+            : data[applicationIdentifierLength..];
+#else
+            : data.Substring(applicationIdentifierLength);
+#endif
     }
 
     /// <summary>
@@ -2533,7 +3691,13 @@ internal static partial class EntityResolver {
         int lowerBound,
         int upperBound) {
         return data.Length >= startIndex + length
-            && int.TryParse(data[startIndex..(length + startIndex)], out var number)
+            && int.TryParse(
+#if NET6_0_OR_GREATER
+                data[startIndex..(length + startIndex)],
+#else
+                data.Substring(startIndex, length + startIndex - 1),
+#endif
+                out var number)
             && number.IsNumberInRange(lowerBound, upperBound);
     }
 

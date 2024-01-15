@@ -52,7 +52,12 @@ internal class EntityDescriptor {
     /// <param name="validator">
     ///     An optional validator expression for additional validation of value.
     /// </param>
-    public EntityDescriptor(string? dataTitle, string? description, Regex? pattern, bool isFixedWidth, Regex? validator = null) {
+    public EntityDescriptor(
+        string? dataTitle, 
+        string? description,
+        Regex? pattern,
+        bool isFixedWidth, 
+        Regex? validator = null) {
         DataTitle = dataTitle;
         Description = description;
         Pattern = pattern;

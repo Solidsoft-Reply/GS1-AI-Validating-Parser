@@ -93,7 +93,7 @@ public static class Parser {
             return;
         }
 
-        DoParse(data.ToCharArray(), processResolvedEntity, initialPosition);
+        DoParse(data?.ToCharArray() ?? [], processResolvedEntity, initialPosition);
     }
 
     /// <summary>

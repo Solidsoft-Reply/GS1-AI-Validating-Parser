@@ -52,7 +52,7 @@ internal class IdentifierWithPos13ChecksumDescriptor : EntityDescriptor {
     public IdentifierWithPos13ChecksumDescriptor(
         string dataTitle,
         string description,
-        Regex pattern,
+        Regex? pattern,
         bool isFixedWidth)
         : base(dataTitle, description, pattern, isFixedWidth) {
     }
@@ -79,7 +79,13 @@ internal class IdentifierWithPos13ChecksumDescriptor : EntityDescriptor {
         }
 
         // Get first 13 characters
-        if (value[..13].Gs1ChecksumIsValid()) {
+        if (
+#if NET6_0_OR_GREATER
+            value[..13]
+#else
+            value.Substring(0, 13)
+#endif
+        .Gs1ChecksumIsValid()) {
             return result;
         }
 

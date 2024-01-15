@@ -23,6 +23,7 @@
 // ReSharper disable UnusedMember.Global
 // ReSharper disable CommentTypo
 
+// ReSharper disable GrammarMistakeInComment
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
 using System.Diagnostics.CodeAnalysis;
