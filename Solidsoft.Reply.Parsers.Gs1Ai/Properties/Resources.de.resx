@@ -119,42 +119,50 @@
   </resheader>
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Keine Daten angegeben.</value>
-    <comment>Error</comment>
   </data>
   <data name="GS1_Error_002" xml:space="preserve">
     <value>Die Validierung für AI {0} ist abgelaufen.</value>
-    <comment>Error</comment>
   </data>
   <data name="GS1_Error_003" xml:space="preserve">
     <value>Kein Entitätswert für AI {0} angegeben.</value>
-    <comment>Error</comment>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
     <value>Die Entität wird fälschlicherweise mit einem FNC1 beendet.</value>
-    <comment>Error</comment>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
     <value>Festbreitenentität enthält nicht genügend Zeichen.</value>
-    <comment>Error</comment>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Der Wert{0} ist ungültig für AI {1}.</value>
-    <comment>Error</comment>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
     <value>Ungültiger Anwendungsidentifikator {0}.</value>
-    <comment>Error</comment>
   </data>
   <data name="GS1_Error_008" xml:space="preserve">
     <value>Der Wert{0} hat eine ungültige Prüfsumme.</value>
-    <comment>Error</comment>
   </data>
   <data name="GS1_Error_009" xml:space="preserve">
     <value>Der Wert{0} entspricht nicht dem spezifizierten Muster für das Datenelement.</value>
-    <comment>Error</comment>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
     <value>Die implizierte Dezimalpunkt-Position (inverser Exponent) ist falsch angegeben.</value>
-    <comment>Error</comment>
+  </data>
+  <data name="GS1_Error_011" xml:space="preserve">
+    <value>Der Wert{0} entspricht nicht dem IBAN-Standard.</value>
+  </data>
+  <data name="GS1_Error_012" xml:space="preserve">
+    <value>Der Wert{0} entspricht nicht dem für IBAN-Nummern für {1} spezifizierten Muster.</value>
+  </data>
+  <data name="GS1_Error_013" xml:space="preserve">
+    <value>Der Wert{0} entspricht dem für {1} spezifizierten Muster, das derzeit in Entwicklung ist und nicht für den allgemeinen internationalen Gebrauch katalogisiert ist.</value>
+  </data>
+  <data name="GS1_Error_014" xml:space="preserve">
+    <value>Der IBAN-Wert{0} enthält falsche Prüfziffern.</value>
+  </data>
+  <data name="GS1_Error_015" xml:space="preserve">
+    <value>Der Wert{0} entspricht nicht dem für nordamerikanische Coupons spezifizierten Muster.</value>
+  </data>
+  <data name="GS1_Error_016" xml:space="preserve">
+    <value>Der Wert{0} entspricht nicht dem für nordamerikanische Positive-Angebot-Datei-Coupons spezifizierten Muster.</value>
   </data>
 </root>

@@ -147,4 +147,22 @@
   <data name="GS1_Error_010" xml:space="preserve">
     <value>La posición del punto decimal implícito (exponente inverso) está especificada incorrectamente.</value>
   </data>
+  <data name="GS1_Error_011" xml:space="preserve">
+    <value>El valor{0} no se ajusta al estándar IBAN.</value>
+  </data>
+  <data name="GS1_Error_012" xml:space="preserve">
+    <value>El valor{0} no coincide con el patrón especificado para los números IBAN de {1}.</value>
+  </data>
+  <data name="GS1_Error_013" xml:space="preserve">
+    <value>El valor{0} coincide con el patrón especificado para {1} que está actualmente en desarrollo y no catalogado para uso internacional general.</value>
+  </data>
+  <data name="GS1_Error_014" xml:space="preserve">
+    <value>El valor IBAN{0} contiene dígitos de control incorrectos.</value>
+  </data>
+  <data name="GS1_Error_015" xml:space="preserve">
+    <value>El valor{0} no coincide con el patrón especificado para cupones de América del Norte.</value>
+  </data>
+  <data name="GS1_Error_016" xml:space="preserve">
+    <value>El valor{0} no coincide con el patrón especificado para cupones de oferta positiva de América del Norte.</value>
+  </data>
 </root>
