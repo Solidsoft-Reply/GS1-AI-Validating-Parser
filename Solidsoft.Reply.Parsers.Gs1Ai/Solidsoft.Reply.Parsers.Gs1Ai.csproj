@@ -7,7 +7,7 @@
 	<Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>GS1 AI Validating Parser</Title>
-    <Copyright>©2023 Solidsoft Reply</Copyright>
+    <Copyright>© 2018-2024 Solidsoft Reply</Copyright>
     <Authors>cnayoung</Authors>
     <Company>Solidsoft Reply Ltd.</Company>
     <RepositoryUrl>https://github.com/Solidsoft-Reply/Solidsoft.Reply.Parsers.Gs1Ai</RepositoryUrl>

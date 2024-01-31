@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="EntityDescriptor.cs" company="Solidsoft Reply Ltd.">
-//   (c) 2018-2023 Solidsoft Reply Ltd.  All rights reserved.
+//   (c) 2018-2024 Solidsoft Reply Ltd.  All rights reserved.
 // </copyright>
 // <license>
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -86,7 +86,7 @@ internal class EntityDescriptor {
     public Regex? Pattern { get; }
 
     /// <summary>
-    ///     Gets the compiled regular expression object for validating the entity pattern.
+    ///     Gets a compiled regular expression object for validating the entity pattern.
     /// </summary>
     public Regex? Validator { get; }
 
@@ -106,7 +106,6 @@ internal class EntityDescriptor {
         if (Pattern == null) {
             return true;
         }
-
 
         var result = Pattern.IsMatch(value);
 

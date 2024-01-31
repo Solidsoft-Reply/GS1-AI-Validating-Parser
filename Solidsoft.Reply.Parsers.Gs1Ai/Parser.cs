@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="Parser.cs" company="Solidsoft Reply Ltd.">
-//   (c) 2018-2023 Solidsoft Reply Ltd.  All rights reserved.
+//   (c) 2018-2024 Solidsoft Reply Ltd.  All rights reserved.
 // </copyright>
 // <license>
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -79,9 +79,13 @@ public static class Parser {
     ///     The initial character position.
     /// </param>
     public static void Parse(string? data, Action<IResolvedEntity> processResolvedEntity, int initialPosition = 0) {
+#if NET7_0_OR_GREATER
+        ArgumentNullException.ThrowIfNull(processResolvedEntity);
+#else
         if (processResolvedEntity is null) {
             throw new ArgumentNullException(nameof(processResolvedEntity));
         }
+#endif
 
         // Is any data present?
         if (string.IsNullOrWhiteSpace(data)) {
@@ -93,7 +97,7 @@ public static class Parser {
             return;
         }
 
-        DoParse(data?.ToCharArray() ?? [], processResolvedEntity, initialPosition);
+        DoParse(data.ToCharArray(), processResolvedEntity, initialPosition);
     }
 
     /// <summary>

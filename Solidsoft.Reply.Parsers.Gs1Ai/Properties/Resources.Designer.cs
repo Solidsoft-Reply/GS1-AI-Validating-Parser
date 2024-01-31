@@ -149,5 +149,59 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
                 return ResourceManager.GetString("GS1_Error_010", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value{0} does not conform to the IBAN standard..
+        /// </summary>
+        internal static string GS1_Error_011 {
+            get {
+                return ResourceManager.GetString("GS1_Error_011", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value{0} does not match the pattern specified for IBAN numbers for {1}..
+        /// </summary>
+        internal static string GS1_Error_012 {
+            get {
+                return ResourceManager.GetString("GS1_Error_012", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value{0} matches the pattern specified for {1} that is currently in development and not catalogued for general international use..
+        /// </summary>
+        internal static string GS1_Error_013 {
+            get {
+                return ResourceManager.GetString("GS1_Error_013", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The IBAN value{0} contains incorrect check digits..
+        /// </summary>
+        internal static string GS1_Error_014 {
+            get {
+                return ResourceManager.GetString("GS1_Error_014", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value{0} does not match the pattern specified for North American coupons..
+        /// </summary>
+        internal static string GS1_Error_015 {
+            get {
+                return ResourceManager.GetString("GS1_Error_015", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value{0} does not match the pattern specified for North American positive offer file coupons..
+        /// </summary>
+        internal static string GS1_Error_016 {
+            get {
+                return ResourceManager.GetString("GS1_Error_016", resourceCulture);
+            }
+        }
     }
 }

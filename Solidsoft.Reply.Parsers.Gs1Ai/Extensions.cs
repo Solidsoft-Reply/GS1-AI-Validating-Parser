@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="Extensions.cs" company="Solidsoft Reply Ltd.">
-//   (c) 2018-2023 Solidsoft Reply Ltd.  All rights reserved.
+//   (c) 2018-2024 Solidsoft Reply Ltd.  All rights reserved.
 // </copyright>
 // <license>
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,14 +37,14 @@ using System.Text.RegularExpressions;
 public static partial class Extensions {
 
     /// <summary>
-    ///   UPC-A Compatible regular expression.
+    ///     UPC-A Compatible regular expression.
     /// </summary>
     /// <returns></returns>
     [GeneratedRegex("^\\d*$")]
     private static partial Regex UpcACompatibleRegex();
 
     /// <summary>
-    ///   UPC-A Compatible UnitedStates and Canada regular expression.
+    ///    UPC-A Compatible UnitedStates and Canada regular expression.
     /// </summary>
     /// <returns></returns>
     [GeneratedRegex("^\\d((0000[1-9])|(000[1-9])|(0[01][0-9]))\\d*$")]
@@ -53,22 +53,41 @@ public static partial class Extensions {
 public static class Extensions {
 
     /// <summary>
-    ///   UPC-A Compatible regular expression.
+    ///     UPC-A Compatible regular expression.
     /// </summary>
     /// <returns></returns>
     private static Regex UpcACompatibleRegex = new("^\\d*$");
 
     /// <summary>
-    ///   UPC-A Compatible UnitedStates and Canada regular expression.
+    ///     UPC-A Compatible UnitedStates and Canada regular expression.
     /// </summary>
     /// <returns></returns>
     private static Regex UpcaCompatibleUnitedStatesAndCanadaRegex = new("^\\d((0000[1-9])|(000[1-9])|(0[01][0-9]))\\d*$");
 #endif
 
-/// <summary>
-///     A dictionary of GS1 company prefixes.
-/// </summary>
-private static readonly Dictionary<int, CountryCode> CompanyPrefixes =
+    /// <summary>
+    ///     A character array containing all invariant characters.
+    /// </summary>
+    private const string Invariants = "!\"%&'()*+,-./0123456789:;<=>?ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz";
+    
+    /// <summary>
+    ///     A character array containing all characters used in alphanumeric check character pairs.
+    /// </summary>
+    private const string AlphanumericCheckCharacters = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
+
+    /// <summary>
+    ///     A list or prime numbers sufficient to meet current GS1 General Specification requirements for calculating
+    ///     alphanumeric check character pairs.
+    /// </summary>
+    private static readonly int[] PrimeNumbers =
+    [
+        2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83
+    ];
+
+    /// <summary>
+    ///     A dictionary of GS1 company prefixes.
+    /// </summary>
+    private static readonly Dictionary<int, CountryCode> CompanyPrefixes =
         new()
         {
             { 100, CountryCode.UnitedStates },
@@ -736,7 +755,7 @@ private static readonly Dictionary<int, CountryCode> CompanyPrefixes =
         if (string.IsNullOrWhiteSpace(key)) {
             return false;
         }
-
+        
         // Ensure that the string contains only integer values.
         if (key.Any(c => (int)char.GetNumericValue(c) == -1)) {
             return false;
@@ -750,6 +769,42 @@ private static readonly Dictionary<int, CountryCode> CompanyPrefixes =
     }
 
     /// <summary>
+    ///     Determines if a GS1 alphanumeric key has a correct check character pair. Include the
+    ///     check characters in the key value.
+    /// </summary>
+    /// <param name="key">The GS1 alphanumeric key.</param>
+    /// <returns>True, if the alphanumeric key contains a correct check character pair; otherwise false.</returns>
+    internal static bool Gs1CheckCharactersPairIsValid(this string key) {
+        if (string.IsNullOrWhiteSpace(key)) return false;
+        if (key.Length < 2) return false;
+
+        var keyData = key
+#if NET6_0_OR_GREATER
+                [..^2]
+#else
+                .Substring(0, key.Length - 2)
+#endif
+            ;
+
+        var checkCharacterPair = key
+#if NET6_0_OR_GREATER
+                [^2..]
+#else
+                .Substring(key.Length - 2)
+#endif
+            ;
+
+        var checkCharacterRefValue = 0;
+        
+        for (var idx = keyData.Length - 1; idx >= 0; idx--) {
+            checkCharacterRefValue += Invariants.IndexOf(keyData[idx]) * PrimeNumbers[keyData.Length - idx - 1];
+        }
+
+        checkCharacterRefValue %= 1021;
+        return checkCharacterPair ==  AlphanumericCheckCharacters[checkCharacterRefValue / 32].ToInvariantString() + AlphanumericCheckCharacters[checkCharacterRefValue % 32]; 
+    }
+
+    /// <summary>
     ///     Resolve a GTIN or NTIN to a GS1 country code.
     /// </summary>
     /// <param name="productCode">The product code.</param>
@@ -760,12 +815,13 @@ private static readonly Dictionary<int, CountryCode> CompanyPrefixes =
                    : TestProductCodeLengthGt3();
 
         CountryCode TestSheetMusicSpecifier() =>
-            int.TryParse(
+            int.TryParse(productCode
 #if NET6_0_OR_GREATER
-                productCode[4..5], 
+                [4..5]
 #else
-                productCode.Substring(4, 1),
+                .Substring(4, 1)
 #endif
+                ,
                 out var sheetMusicSpecifier)
                 ? sheetMusicSpecifier switch {
                     0 => CountryCode.BooklandIsbnIsmn,
@@ -774,12 +830,13 @@ private static readonly Dictionary<int, CountryCode> CompanyPrefixes =
                 : CountryCode.Unknown;
 
         CountryCode TestCountryCode() =>
-            int.TryParse(
+            int.TryParse(productCode
 #if NET6_0_OR_GREATER
-            productCode[1..4],
+            [1..4]
 #else
-            productCode.Substring(1, 3),
+            .Substring(1, 3)
 #endif
+                ,
             out var countryCode)
                 ? countryCode switch {
                     <= 99 and >= 0 => ResolveToGs1UpcACompatible(productCode),

@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="EntityResolver.cs" company="Solidsoft Reply Ltd.">
-//   (c) 2018-2023 Solidsoft Reply Ltd.  All rights reserved.
+//   (c) 2018-2024 Solidsoft Reply Ltd.  All rights reserved.
 // </copyright>
 // <license>
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -43,7 +43,110 @@ using Common;
 /// </summary>
 #if NET7_0_OR_GREATER
 internal static partial class EntityResolver {
+#else
+internal static class EntityResolver {
+#endif
+    
+    /// <summary>
+    /// ISO 3166 numeric country codes.
+    /// Last checked January 2024.
+    /// </summary>
+    private const string Iso3166CountryCodes =
+    "(004|008|010|012|016|020|024|028|031|032|036|040|" +
+    "044|048|050|051|052|056|060|064|068|070|072|074|" +
+    "076|084|086|090|092|096|100|104|108|112|116|120|" +
+    "124|132|136|140|144|148|152|156|158|162|166|170|" +
+    "174|175|178|180|184|188|191|192|196|203|204|208|" +
+    "212|214|218|222|226|231|232|233|234|238|239|242|" +
+    "246|248|250|254|258|260|262|266|268|270|275|276|" +
+    "288|292|296|300|304|308|312|316|320|324|328|332|" +
+    "334|336|340|344|348|352|356|360|364|368|372|376|" +
+    "380|384|388|392|398|400|404|408|410|414|417|418|" +
+    "422|426|428|430|434|438|440|442|446|450|454|458|" +
+    "462|466|470|474|478|480|484|492|496|498|499|500|" +
+    "504|508|512|516|520|524|528|531|533|534|535|540|" +
+    "548|554|558|562|566|570|574|578|580|581|583|584|" +
+    "585|586|591|598|600|604|608|612|616|620|624|626|" +
+    "630|634|638|642|643|646|652|654|659|660|662|663|" +
+    "666|670|674|678|682|686|688|690|694|702|703|704|" +
+    "705|706|710|716|724|728|729|732|740|744|748|752|" +
+    "756|760|762|764|768|772|776|780|784|788|792|795|" +
+    "796|798|800|804|807|818|826|831|832|833|834|840|" +
+    "850|854|858|860|862|876|882|887|894)";
 
+    /// <summary>
+    /// ISO 3166 alpha-2 country codes.
+    /// Last checked January 2024.
+    /// </summary>
+    private const string Iso3166Alpha2CountryCodes =
+        "(AD|AE|AF|AG|AI|AL|AM|AO|AQ|AR|AS|AT|" +
+        "AU|AW|AX|AZ|BA|BB|BD|BE|BF|BG|BH|BI|" +
+        "BJ|BL|BM|BN|BO|BQ|BR|BS|BT|BV|BW|BY|" +
+        "BZ|CA|CC|CD|CF|CG|CH|CI|CK|CL|CM|CN|" +
+        "CO|CR|CU|CV|CW|CX|CY|CZ|DE|DJ|DK|DM|" +
+        "DO|DZ|EC|EE|EG|EH|ER|ES|ET|FI|FJ|FK|" +
+        "FM|FO|FR|GA|GB|GD|GE|GF|GG|GH|GI|GL|" +
+        "GM|GN|GP|GQ|GR|GS|GT|GU|GW|GY|HK|HM|" +
+        "HN|HR|HT|HU|ID|IE|IL|IM|IN|IO|IQ|IR|" +
+        "IS|IT|JE|JM|JO|JP|KE|KG|KH|KI|KM|KN|" +
+        "KP|KR|KW|KY|KZ|LA|LB|LC|LI|LK|LR|LS|" +
+        "LT|LU|LV|LY|MA|MC|MD|ME|MF|MG|MH|MK|" +
+        "ML|MM|MN|MO|MP|MQ|MR|MS|MT|MU|MV|MW|" +
+        "MX|MY|MZ|NA|NC|NE|NF|NG|NI|NL|NO|NP|" +
+        "NR|NU|NZ|OM|PA|PE|PF|PG|PH|PK|PL|PM|" +
+        "PN|PR|PS|PT|PW|PY|QA|RE|RO|RS|RU|RW|" +
+        "SA|SB|SC|SD|SE|SG|SH|SI|SJ|SK|SL|SM|" +
+        "SN|SO|SR|SS|ST|SV|SX|SY|SZ|TC|TD|TF|" +
+        "TG|TH|TJ|TK|TL|TM|TN|TO|TR|TT|TV|TW|" +
+        "TZ|UA|UG|UM|US|UY|UZ|VA|VC|VE|VG|VI|" +
+        "VN|VU|WF|WS|YE|YT|ZA|ZM|ZW)";
+
+    /// <summary>
+    /// ISO 4217 numeric currency codes.
+    /// </summary>
+    private const string Iso4217CurrencyCodes =
+        "(008|012|032|036|044|048|050|051|052|060|064|068|" +
+        "072|084|090|096|104|108|116|124|132|136|144|152|" +
+        "156|170|174|188|191|192|203|208|214|222|230|232|" +
+        "238|242|262|270|292|320|324|328|332|340|344|348|" +
+        "352|356|360|364|368|376|388|392|398|400|404|408|" +
+        "410|414|417|418|422|426|430|434|446|454|458|462|" +
+        "480|484|496|498|504|512|516|524|532|533|548|554|" +
+        "558|566|578|586|590|598|600|604|608|634|643|646|" +
+        "654|682|690|694|702|704|706|710|728|748|752|756|" +
+        "760|764|776|780|784|788|800|807|818|826|834|840|" +
+        "858|860|882|886|901|925|927|928|929|930|931|932|" +
+        "933|934|936|938|940|941|943|944|946|947|948|949|" +
+        "950|951|952|953|955|956|957|958|959|960|961|962|" +
+        "963|964|965|967|968|969|970|971|972|973|975|976|" +
+        "977|978|979|980|981|984|985|986|990|994|997|999)";
+
+    /// <summary>
+    /// Character Set for check characters for alphanumeric values.
+    /// </summary>
+    private const string AlphanumericCheckCharacterSet = "[2-9A-Z]";
+
+    /// <summary>
+    /// Character Set 39 (file-safe / URI-safe base64).
+    /// </summary>
+    private const string CharacterSet39 = "[#-/0-9A-Z]";
+
+    /// <summary>
+    /// Character Set 64 (file-safe / URI-safe base64).
+    /// </summary>
+    private const string CharacterSet64 = "[A-Za-z0-9-_=]";
+
+    /// <summary>
+    /// Character Set 82 (Invariants).
+    /// </summary>
+    private const string CharacterSet82 = "[!\"%&'()*+,-./0-9:;<=>?A-Z_a-z]";
+
+    /// <summary>
+    /// Character Set for EU 2018/574 IDs.
+    /// </summary>
+    private const string Eu2018574ImporterIndexCharacterSet = "[A-Za-z0-9-_]";
+
+#if NET7_0_OR_GREATER
     /// <summary>
     ///     Returns a regular expression for matching a Serial Shipping Container Code.
     /// </summary>
@@ -62,7 +165,7 @@ internal static partial class EntityResolver {
     ///     Returns a regular expression for matching a Global Document Type Identifier.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex("""^\d{13}([-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,17})?$""", RegexOptions.None, "en-US")]
+    [GeneratedRegex(@"^\d{13}(" + CharacterSet82 + @"{1,17})?$", RegexOptions.None, "en-US")]
     private static partial Regex GdtiRegex();
 
     /// <summary>
@@ -76,7 +179,7 @@ internal static partial class EntityResolver {
     ///     Returns a regular expression for matching a Global Returnable Asset Identifier (GRAI).
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex("""^0\d{13}([-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,16})?$""", RegexOptions.None, "en-US")]
+    [GeneratedRegex(@"^0\d{13}(" + CharacterSet82 + @"{1,16})?$", RegexOptions.None, "en-US")]
     private static partial Regex GraiRegex();
 
     /// <summary>
@@ -89,133 +192,150 @@ internal static partial class EntityResolver {
     ///     Returns a regular expression for matching a 1-2 character value of characters taken from Character Set 82.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,2}$""", RegexOptions.None, "en-US")]
+    [GeneratedRegex("^" + CharacterSet82 + @"{1,2}$", RegexOptions.None, "en-US")]
     private static partial Regex CharacterSet8202CharsRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching a 2-2 character value of characters taken from Character Set 82.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{2,2}$""", RegexOptions.None, "en-US")]
+    [GeneratedRegex($"^{Iso3166Alpha2CountryCodes}$", RegexOptions.None, "en-US")]
     private static partial Regex CharacterSet820202CharsRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-3 character value of characters taken from Character Set 82.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,3}$""", RegexOptions.None, "en-US")]
+    [GeneratedRegex($"^{CharacterSet82}" + @"{1,3}$", RegexOptions.None, "en-US")]
     private static partial Regex CharacterSet8203CharsRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-10 character value of characters taken from Character Set 82.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,10}$""", RegexOptions.None, "en-US")]
+    [GeneratedRegex("^" + CharacterSet82 + @"{1,10}$", RegexOptions.None, "en-US")]
     private static partial Regex CharacterSet8210CharsRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-12 character value of characters taken from Character Set 82.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,12}$""", RegexOptions.None, "en-US")]
+    [GeneratedRegex("^" + CharacterSet82 + @"{1,12}$", RegexOptions.None, "en-US")]
     private static partial Regex CharacterSet8212CharsRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-20 character value of characters taken from Character Set 82.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,20}$""", RegexOptions.None, "en-US")]
+    [GeneratedRegex("^" + CharacterSet82 + @"{1,20}$", RegexOptions.None, "en-US")]
     private static partial Regex CharacterSet8220CharsRegex();
+
+    /// <summary>
+    ///     Returns a regular expression for matching a GCP with 1-19 character value of characters taken from
+    ///     Character Set 82 and a check character pair.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex(@"^[0-9]{4}" + CharacterSet82 + @"{1,19}" + $"{AlphanumericCheckCharacterSet}" + @"{2}$", RegexOptions.None, "en-US")]
+    private static partial Regex GcpWithCharacterSet8219CharsAndCheckCharacterPairRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-25 character value of characters taken from Character Set 82.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,25}$""", RegexOptions.None, "en-US")]
+    [GeneratedRegex("^" + CharacterSet82 + @"{1,25}$", RegexOptions.None, "en-US")]
     private static partial Regex CharacterSet8225CharsRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-28 character value of characters taken from Character Set 82.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,28}$""", RegexOptions.None, "en-US")]
+    [GeneratedRegex("^" + CharacterSet82 + @"{1,28}$", RegexOptions.None, "en-US")]
     private static partial Regex CharacterSet8228CharsRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching a 3-30 character value of characters taken from Character Set 82.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{3,30}$""", RegexOptions.None, "en-US")]
+    [GeneratedRegex("^" + CharacterSet82 + @"{3,30}$", RegexOptions.None, "en-US")]
     private static partial Regex CharacterSet820330CharsRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-30 character value of characters taken from Character Set 82.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,30}$""", RegexOptions.None, "en-US")]
+    [GeneratedRegex("^" + CharacterSet82 + @"{1,30}$", RegexOptions.None, "en-US")]
     private static partial Regex CharacterSet8230CharsRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-30 character value of characters taken from Character Set 39.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex(@"^[#-/0-9A-Z]{1,30}$", RegexOptions.None, "en-US")]
+    [GeneratedRegex($"^{CharacterSet39}" + @"{1,30}$", RegexOptions.None, "en-US")]
     private static partial Regex CharacterSet3930CharsRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-34 character value of characters taken from Character Set 82.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,34}$""", RegexOptions.None, "en-US")]
+    [GeneratedRegex("^" + CharacterSet82 + @"{1,34}$", RegexOptions.None, "en-US")]
     private static partial Regex CharacterSet8234CharsRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-35 character value of characters taken from Character Set 82.
+    ///     The strings use percent encoding (hexadecimal octets) to encode characters that are not included in Character Set 82.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,35}$""", RegexOptions.None, "en-US")]
-    private static partial Regex CharacterSet8235CharsRegex();
+    [GeneratedRegex($"^({CharacterSet82}" + @"|%(?=[0-9a-fA-F]{2})){1,35}$", RegexOptions.None, "en-US")]
+    private static partial Regex CharacterSet8235CharsPercEncRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-50 character value of characters taken from Character Set 82.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,50}$""", RegexOptions.None, "en-US")]
+    [GeneratedRegex("^" + CharacterSet82 + @"{1,50}$", RegexOptions.None, "en-US")]
     private static partial Regex CharacterSet8250CharsRegex();
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-70 character value of characters taken from Character Set 82.
+    ///     The strings use percent encoding (hexadecimal octets) to encode characters that are not included in Character Set 82.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex("^(" + CharacterSet82 + @"|%(?=[0-9a-fA-F]{2})){1,70}$", RegexOptions.None, "en-US")]
+    private static partial Regex CharacterSet8270CharsPercEncRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-70 character value of characters taken from Character Set 82.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,70}$""", RegexOptions.None, "en-US")]
+    [GeneratedRegex("^" + CharacterSet82 + @"{1,70}$", RegexOptions.None, "en-US")]
     private static partial Regex CharacterSet8270CharsRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-90 character value of characters taken from Character Set 82.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,90}$""", RegexOptions.None, "en-US")]
+    [GeneratedRegex("^" + CharacterSet82 + @"{1,90}$", RegexOptions.None, "en-US")]
     private static partial Regex CharacterSet8290CharsRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching a processor with an ISO country code.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex("""^\d{3}[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,27}$""", RegexOptions.None, "en-US")]
+    [GeneratedRegex($"^{Iso3166CountryCodes}{CharacterSet82}" + @"{1,27}$", RegexOptions.None, "en-US")]
     private static partial Regex ProcessorWithIsoCountryCodeRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching a processor with an ISO country code.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex("""^\d{3}[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,9}$""", RegexOptions.None, "en-US")]
+    [GeneratedRegex( $"^{Iso3166CountryCodes}{CharacterSet82}" + @"{1,9}$", RegexOptions.None, "en-US")]
     private static partial Regex PostalCodeWithIsoCountryCodeRegex();
 
     /// <summary>
-    ///     Returns a regular expression for matching a GS1 UIC with Extension 1 and Imported index.
+    ///     Returns a regular expression for matching a GS1 UIC with Extension 1 and Importer index.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex("""^\d[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{3,3}$""", RegexOptions.None, "en-US")]
+    [GeneratedRegex(@"^\d" + CharacterSet82 + @"{2}" + $"{Eu2018574ImporterIndexCharacterSet}$", RegexOptions.None, "en-US")]
     private static partial Regex Gs1UicWithExtension1AndImportedIndexRegex();
 
     /// <summary>
@@ -258,7 +378,7 @@ internal static partial class EntityResolver {
     ///     Returns a regular expression for matching 3-digit values.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex(@"^\d{3}$", RegexOptions.None, "en-US")]
+    [GeneratedRegex($"^{Iso3166CountryCodes}$", RegexOptions.None, "en-US")]
     private static partial Regex ThreeDigitValueRegex();
 
     /// <summary>
@@ -283,11 +403,11 @@ internal static partial class EntityResolver {
     private static partial Regex ThirteenDigitValueRegex();
 
     /// <summary>
-    ///     Returns a regular expression for matching 14-digit values.
+    ///     Returns a regular expression for matching 14-digit roll products.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex(@"^\d{14}$", RegexOptions.None, "en-US")]
-    private static partial Regex FourteenDigitValueRegex();
+    [GeneratedRegex(@"^\d{12}[019]\d$", RegexOptions.None, "en-US")]
+    private static partial Regex FourteenDigitRollProductValueRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching 17-digit values.
@@ -333,10 +453,11 @@ internal static partial class EntityResolver {
 
     /// <summary>
     ///     Returns a regular expression for matching up to 12-digit values.
+    ///     The first digit must be non-zero unless the value is a single 0.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex(@"^\d{1,12}$", RegexOptions.None, "en-US")]
-    private static partial Regex MaxTwelveDigitValueRegex();
+    [GeneratedRegex(@"^(0|[^0]\d{0,11})$", RegexOptions.None, "en-US")]
+    private static partial Regex MaxTwelveDigitValueZeroOrNonZeroFirstRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching up to 15-digit values.
@@ -346,24 +467,24 @@ internal static partial class EntityResolver {
     private static partial Regex MaxFifteenDigitValueRegex();
 
     /// <summary>
-    ///     Returns a regular expression for matching up to 4-digit values.
+    ///     Returns a regular expression for matching geographic locations as 20-digit values.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex(@"^\d{4,20}$", RegexOptions.None, "en-US")]
-    private static partial Regex MinFourMaxTwentyDigitValueRegex();
+    [GeneratedRegex(@"^((0\d{9}|1[0-7]\d{8}|180{8})([0-2]\d{9}|3[0-5]\d{8}|360{8}))$", RegexOptions.None, "en-US")]
+    private static partial Regex TwentyDigitGeoLocationValueRegex();
+
+    /// <summary>
+    ///     Returns a regular expression for matching up to 15-digit values with ISO 4217 code.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex($"^{Iso4217CurrencyCodes}" + @"\d{1,15}$", RegexOptions.None, "en -US")]
+    private static partial Regex MaxFifteenDigitAmountWithIso4217CodeRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching up to 15-digit values.
     /// </summary>
     /// <returns>A regular expression.</returns>
-    [GeneratedRegex(@"^\d{3}\d{1,15}$", RegexOptions.None, "en -US")]
-    private static partial Regex MaxFifteenDigitAmountWithIsoCodeRegex();
-
-    /// <summary>
-    ///     Returns a regular expression for matching up to 15-digit values.
-    /// </summary>
-    /// <returns>A regular expression.</returns>
-    [GeneratedRegex(@"^(\d{3}){1,5}$", RegexOptions.None, "en -US")]
+    [GeneratedRegex($"^{Iso3166CountryCodes}{{1,5}}$", RegexOptions.None, "en -US")]
     private static partial Regex MaxFiveIsoCountryCodesRegex();
 
     /// <summary>
@@ -413,333 +534,333 @@ internal static partial class EntityResolver {
     /// </summary>
     [GeneratedRegex(@"(((\d{2})(0[13578]|1[02])(0[0-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[0-9]|[12]\d|30))|((\d{2})02(0[0-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))(((0\d|1\d|2[0-3])([0-5]\d)?([0-5]\d)?))", RegexOptions.None, "en-US")]
     private static partial Regex DateAndTimeOfProductionRegex();
-#else
-internal static class EntityResolver {
     
+    /// <summary>
+    ///     Returns a regular expression for the Scan4Transport temperature
+    ///     requirement. If there is a final -, this represents a negative 
+    ///     temerature value.
+    /// </summary>
+    [GeneratedRegex(@"^\d{6}-?$", RegexOptions.None, "en-US")]
+    private static partial Regex Scan4TransportTemperature();
+
+    /// <summary>
+    ///     Returns a regular expression for matching 2-digit AIDC media types.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex(@"^(0[1-9]|10|[89][0-9])$", RegexOptions.None, "en-US")]
+    private static partial Regex TwoDigitAidcMediaType();
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-90 character value of 
+    ///     characters taken from Character Set 64 (RFC 4648 Section 5).
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex($"^{CharacterSet64}" + @"{1,90}$", RegexOptions.None, "en-US")]
+    private static partial Regex CharacterSet6490CharsRegex();
+#else
     /// <summary>
     ///     Returns a regular expression for matching a Serial Shipping Container Code.
     /// </summary>
-    /// <returns>A regular expression.</returns>
     private static readonly Regex SsccRegex = new(@"^\d{18}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a Global Trade Item Number.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex GtinRegex= new(@"^\d{14}$", RegexOptions.None);
+    private static readonly Regex GtinRegex = new(@"^\d{14}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a Global Document Type Identifier.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex GdtiRegex= new("""^\d{13}([-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,17})?$""", RegexOptions.None);
+    private static readonly Regex GdtiRegex = new(@"^\d{13}(" + CharacterSet82 + @"{1,17})?$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a Global Coupon Number.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex GcnRegex= new(@"^\d{13}(\d{1,12})?$", RegexOptions.None);
+    private static readonly Regex GcnRegex = new(@"^\d{13}(\d{1,12})?$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a Global Returnable Asset Identifier (GRAI).
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex GraiRegex= new("""^0\d{13}([-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,16})?$""", RegexOptions.None);
+    private static readonly Regex GraiRegex = new(@"^0\d{13}(" + CharacterSet82 + @"{1,16})?$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for an identification of an individual trade item piece (ITIP).
     /// </summary>
-    private static readonly Regex ItipRegex= new(@"^\d{14}\d{2}\d{2}$", RegexOptions.None);
+    private static readonly Regex ItipRegex = new(@"^\d{14}\d{2}\d{2}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-2 character value of characters taken from Character Set 82.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex CharacterSet8202CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,2}$""", RegexOptions.None);
+    private static readonly Regex CharacterSet8202CharsRegex = new("^" + CharacterSet82 + @"{1,2}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 2-2 character value of characters taken from Character Set 82.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex CharacterSet820202CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{2,2}$""", RegexOptions.None);
+    private static readonly Regex CharacterSet820202CharsRegex = new($"^{Iso3166Alpha2CountryCodes}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-3 character value of characters taken from Character Set 82.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex CharacterSet8203CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,3}$""", RegexOptions.None);
+    private static readonly Regex CharacterSet8203CharsRegex = new("^" + CharacterSet82 + @"{1,3}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-10 character value of characters taken from Character Set 82.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex CharacterSet8210CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,10}$""", RegexOptions.None);
+    private static readonly Regex CharacterSet8210CharsRegex = new("^" + CharacterSet82 + @"{1,10}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-12 character value of characters taken from Character Set 82.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex CharacterSet8212CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,12}$""", RegexOptions.None);
+    private static readonly Regex CharacterSet8212CharsRegex = new("^" + CharacterSet82 + @"{1,12}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-20 character value of characters taken from Character Set 82.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex CharacterSet8220CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,20}$""", RegexOptions.None);
+    private static readonly Regex CharacterSet8220CharsRegex = new("^" + CharacterSet82 + @"{1,20}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-25 character value of characters taken from Character Set 82.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex CharacterSet8225CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,25}$""", RegexOptions.None);
+    private static readonly Regex CharacterSet8225CharsRegex = new("^" + CharacterSet82 + @"{1,25}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-28 character value of characters taken from Character Set 82.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex CharacterSet8228CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,28}$""", RegexOptions.None);
+    private static readonly Regex CharacterSet8228CharsRegex = new("^" + CharacterSet82 + @"{1,28}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 3-30 character value of characters taken from Character Set 82.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex CharacterSet820330CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{3,30}$""", RegexOptions.None);
+    private static readonly Regex CharacterSet820330CharsRegex = new("^" + CharacterSet82 + @"{3,30}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-30 character value of characters taken from Character Set 82.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex CharacterSet8230CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,30}$""", RegexOptions.None);
+    private static readonly Regex CharacterSet8230CharsRegex = new("^" + CharacterSet82 + @"{1,30}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-30 character value of characters taken from Character Set 39.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex CharacterSet3930CharsRegex= new(@"^[#-/0-9A-Z]{1,30}$", RegexOptions.None);
+    private static readonly Regex CharacterSet3930CharsRegex = new($"^{CharacterSet39}" + @"{1,30}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-34 character value of characters taken from Character Set 82.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex CharacterSet8234CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,34}$""", RegexOptions.None);
+    private static readonly Regex CharacterSet8234CharsRegex = new("^" + CharacterSet82 + @"{1,34}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-35 character value of characters taken from Character Set 82.
+    ///     The strings use percent encoding (hexadecimal octets) to encode characters that are not included in Character Set 82.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex CharacterSet8235CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,35}$""", RegexOptions.None);
+    private static readonly Regex CharacterSet8235CharsPercEncRegex = new($"^({CharacterSet82}" + @"|%(?=[0-9a-fA-F]{2})){1,35}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-50 character value of characters taken from Character Set 82.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex CharacterSet8250CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,50}$""", RegexOptions.None);
+    private static readonly Regex CharacterSet8250CharsRegex = new("^" + CharacterSet82 + @"{1,50}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-70 character value of characters taken from Character Set 82.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex CharacterSet8270CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,70}$""", RegexOptions.None);
+    private static readonly Regex CharacterSet8270CharsPercEncRegex = new(@"^(" + CharacterSet82 + @"|%(?=[0-9a-fA-F]{2})){1,70}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-70 character value of characters taken from Character Set 82.
+    /// </summary>
+    private static readonly Regex CharacterSet8270CharsRegex = new("^" + CharacterSet82 + @"{1,70}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-90 character value of characters taken from Character Set 82.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex CharacterSet8290CharsRegex= new("""^[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,90}$""", RegexOptions.None);
+    private static readonly Regex CharacterSet8290CharsRegex = new("^" + CharacterSet82 + @"{1,90}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a processor with an ISO country code.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex ProcessorWithIsoCountryCodeRegex= new("""^\d{3}[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,27}$""", RegexOptions.None);
+    private static readonly Regex ProcessorWithIsoCountryCodeRegex = new($"^{Iso3166CountryCodes}{CharacterSet82}" + @"{1,27}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a processor with an ISO country code.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex PostalCodeWithIsoCountryCodeRegex= new("""^\d{3}[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{1,9}$""", RegexOptions.None);
+    private static readonly Regex PostalCodeWithIsoCountryCodeRegex = new(@"^\d{3}" + CharacterSet82 + @"{1,9}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a GS1 UIC with Extension 1 and Imported index.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex Gs1UicWithExtension1AndImportedIndexRegex= new("""^\d[-!""%&'()*+,./0-9:;<=>?A-Z_a-z]{3,3}$""", RegexOptions.None);
+    private static readonly Regex Gs1UicWithExtension1AndImportedIndexRegex = new(@"^\d" + CharacterSet82 + @"{2}[A-Za-z0-9-_]$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for six-digit date representation - YYMMDD.
     ///     If it is not necessary to specify the day, the day field can be filled with two zeros.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex DatePatternZerosRegex= new(@"^(((\d{2})(0[13578]|1[02])(0[0-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[0-9]|[12]\d|30))|((\d{2})02(0[0-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))$", RegexOptions.None);
+    private static readonly Regex DatePatternZerosRegex = new(@"^(((\d{2})(0[13578]|1[02])(0[0-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[0-9]|[12]\d|30))|((\d{2})02(0[0-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 6-digit trade measures.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex SixDigitTradeMeasureRegex= new(@"^\d{6}$", RegexOptions.None);
+    private static readonly Regex SixDigitTradeMeasureRegex = new(@"^\d{6}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 6-digit logistics measures.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex SixDigitLogisticsMeasureRegex= new(@"^\d{6}$", RegexOptions.None);
+    private static readonly Regex SixDigitLogisticsMeasureRegex = new(@"^\d{6}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 6-digit monetary values.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex SixDigitMonetaryValueRegex= new(@"^\d{6}$", RegexOptions.None);
+    private static readonly Regex SixDigitMonetaryValueRegex = new(@"^\d{6}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 2-digit values.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex TwoDigitValueRegex= new(@"^\d{2}$", RegexOptions.None);
+    private static readonly Regex TwoDigitValueRegex = new(@"^\d{2}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 3-digit values.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex ThreeDigitValueRegex= new(@"^\d{3}$", RegexOptions.None);
+    private static readonly Regex ThreeDigitValueRegex = new($"^{Iso3166CountryCodes}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 4-digit values.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex FourDigitValueRegex= new(@"^\d{4}$", RegexOptions.None);
+    private static readonly Regex FourDigitValueRegex = new(@"^\d{4}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 6-digit values.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex SixDigitValueRegex= new(@"^\d{6}$", RegexOptions.None);
+    private static readonly Regex SixDigitValueRegex = new(@"^\d{6}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 13-digit values.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex ThirteenDigitValueRegex= new(@"^\d{13}$", RegexOptions.None);
+    private static readonly Regex ThirteenDigitValueRegex = new(@"^\d{13}$", RegexOptions.None);
 
     /// <summary>
-    ///     Returns a regular expression for matching 14-digit values.
+    ///     Returns a regular expression for matching 14-digit roll product values.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex FourteenDigitValueRegex= new(@"^\d{14}$", RegexOptions.None);
+    private static readonly Regex FourteenDigitRollProductValueRegex = new(@"^\d{12}[019]\d$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 17-digit values.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex SeventeenDigitValueRegex= new(@"^\d{17}$", RegexOptions.None);
+    private static readonly Regex SeventeenDigitValueRegex = new(@"^\d{17}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 18-digit values.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex EighteenDigitValueRegex= new(@"^\d{18}$", RegexOptions.None);
+    private static readonly Regex EighteenDigitValueRegex = new(@"^\d{18}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching up to 4-digit values.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex MaxFourDigitValueRegex= new(@"^\d{1,4}$", RegexOptions.None);
+    private static readonly Regex MaxFourDigitValueRegex = new(@"^\d{1,4}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching up to 6-digit values.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex MaxSixDigitValueRegex= new(@"^\d{1,6}$", RegexOptions.None);
+    private static readonly Regex MaxSixDigitValueRegex = new(@"^\d{1,6}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching up to 8-digit values.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex MaxEightDigitValueRegex= new(@"^\d{1,8}$", RegexOptions.None);
+    private static readonly Regex MaxEightDigitValueRegex = new(@"^\d{1,8}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching up to 10-digit values.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex MaxTenDigitValueRegex= new(@"^\d{1,10}$", RegexOptions.None);
+    private static readonly Regex MaxTenDigitValueRegex = new(@"^\d{1,10}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching up to 12-digit values.
+    ///     The first digit must be non-zero unless the value is a single 0.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex MaxTwelveDigitValueRegex= new(@"^\d{1,12}$", RegexOptions.None);
+    private static readonly Regex MaxTwelveDigitValueZeroOrNonZeroFirstRegex = new(@"^(0|[^0]\d{0,11})$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching up to 15-digit values.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex MaxFifteenDigitValueRegex= new(@"^\d{1,15}$", RegexOptions.None);
+    private static readonly Regex MaxFifteenDigitValueRegex = new(@"^\d{1,15}$", RegexOptions.None);
 
     /// <summary>
-    ///     Returns a regular expression for matching up to 4-digit values.
+    ///     Returns a regular expression for matching geographic locations as 20-digit values.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex MinFourMaxTwentyDigitValueRegex= new(@"^\d{4,20}$", RegexOptions.None);
+    private static readonly Regex TwentyDigitGeoLocationValueRegex = new(@"^((0\d{9}|1[0-7]\d{8}|180{8})([0-2]\d{9}|3[0-5]\d{8}|360{8}))$", RegexOptions.None);
 
     /// <summary>
-    ///     Returns a regular expression for matching up to 15-digit values.
+    ///     Returns a regular expression for matching up to 15-digit values with ISO 4217 code.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex MaxFifteenDigitAmountWithIsoCodeRegex= new(@"^\d{3}\d{1,15}$", RegexOptions.None);
+    private static readonly Regex MaxFifteenDigitAmountWithIso4217CodeRegex = new($"^{Iso4217CurrencyCodes}" + @"\d{1,15}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching up to 15-digit values.
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex MaxFiveIsoCountryCodesRegex= new(@"^(\d{3}){1,5}$", RegexOptions.None);
+    private static readonly Regex MaxFiveIsoCountryCodesRegex = new($"^{Iso3166CountryCodes}{{1,5}}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a binary flag (1 or 0).
     /// </summary>
-    /// <returns>A regular expression.</returns>
-    private static readonly Regex BinaryFlagRegex= new(@"^[01]$", RegexOptions.None);
+    private static readonly Regex BinaryFlagRegex = new(@"^[01]$", RegexOptions.None);
 
     /// <summary>
     ///     A regular expression for six-digit date representation - YYMMDD.
     /// </summary>
-    private static readonly Regex DatePatternRegex= new(@"(((\d{2})(0[13578]|1[02])(0[1-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[1-9]|[12]\d|30))|((\d{2})02(0[1-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))", RegexOptions.None);
+    private static readonly Regex DatePatternRegex = new(@"(((\d{2})(0[13578]|1[02])(0[1-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[1-9]|[12]\d|30))|((\d{2})02(0[1-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for ten-digit date and time representation - YYMMDDHHMM.
     /// </summary>
-    private static readonly Regex DateTimePatternRegex= new(@"(((\d{2})(0[13578]|1[02])(0[1-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[1-9]|[12]\d|30))|((\d{2})02(0[1-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))((0\d|1\d|2[0-3])([0-5]\d))", RegexOptions.None);
+    private static readonly Regex DateTimePatternRegex = new(@"(((\d{2})(0[13578]|1[02])(0[1-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[1-9]|[12]\d|30))|((\d{2})02(0[1-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))((0\d|1\d|2[0-3])([0-5]\d))", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for ten-digit date and time representation - YYMMDDHHMM.
     ///     The time copmponent is optional.
     /// </summary>
-    private static readonly Regex DateOptionalTimePatternRegex= new(@"(((\d{2})(0[13578]|1[02])(0[1-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[1-9]|[12]\d|30))|((\d{2})02(0[1-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))((0\d|1\d|2[0-3])([0-5]\d))?", RegexOptions.None);
+    private static readonly Regex DateOptionalTimePatternRegex = new(@"(((\d{2})(0[13578]|1[02])(0[1-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[1-9]|[12]\d|30))|((\d{2})02(0[1-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))((0\d|1\d|2[0-3])([0-5]\d))?", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for the harvest date.
     ///     The second (end) date is optional.
     /// </summary>
-    private static readonly Regex HarvestDateRegex= new(@"((0\d|1[012])([0-5]\d))((0\d|1[012])([0-5]\d))?", RegexOptions.None);
+    private static readonly Regex HarvestDateRegex = new(@"((0\d|1[012])([0-5]\d))((0\d|1[012])([0-5]\d))?", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for ten-digit date and time representation - YYMMDDHHMM.
     ///     If it is not necessary to specify the day, the day field can be filled with two zeros.
     ///     If it is not necessary to specify a time, the hour and minutes are filled with 9s.
     /// </summary>
-    private static readonly Regex DateTimePatternZerosAnd9SRegex= new(@"(((\d{2})(0[13578]|1[02])(0[0-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[0-9]|[12]\d|30))|((\d{2})02(0[0-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))(((0\d|1\d|2[0-3])([0-5]\d))|9999)", RegexOptions.None);
+    private static readonly Regex DateTimePatternZerosAnd9SRegex = new(@"(((\d{2})(0[13578]|1[02])(0[0-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[0-9]|[12]\d|30))|((\d{2})02(0[0-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))(((0\d|1\d|2[0-3])([0-5]\d))|9999)", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for the date and time of production:.
     ///     If it is not necessary to specify the minutes or the seconds.
     /// </summary>
-    private static readonly Regex DateAndTimeOfProductionRegex= new(@"(((\d{2})(0[13578]|1[02])(0[0-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[0-9]|[12]\d|30))|((\d{2})02(0[0-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))(((0\d|1\d|2[0-3])([0-5]\d)?([0-5]\d)?))", RegexOptions.None);
+    private static readonly Regex DateAndTimeOfProductionRegex = new(@"(((\d{2})(0[13578]|1[02])(0[0-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[0-9]|[12]\d|30))|((\d{2})02(0[0-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))(((0\d|1\d|2[0-3])([0-5]\d)?([0-5]\d)?))", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for the Scan4Transport temperature
+    ///     requirement. If there is a final -, this represents a negative 
+    ///     temerature value.
+    /// </summary>
+    private static readonly Regex Scan4TransportTemperature = new(@"^\d{6}-?$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching 2-digit AIDC media types.
+    /// </summary>
+    private static readonly Regex TwoDigitAidcMediaType = new(@"^(0[1-9]|10|[89][0-9])$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-90 character value of 
+    ///     characters taken from Character Set 64 (RFC 4648 Section 5).
+    /// </summary>
+    private static readonly Regex CharacterSet6490CharsRegex = new($"^{CharacterSet64}" + @"{1,90}$", RegexOptions.None);
+
 #endif
 
     /// <summary>
     ///     A dictionary of application identifier descriptors.
     /// </summary>
     private static readonly IDictionary<int, EntityDescriptor> Descriptors =
-        new Dictionary<int, EntityDescriptor>
-        {
+        new Dictionary<int, EntityDescriptor> {
             {
                 0, new IdentifierWithFinalChecksumDescriptor(
 
@@ -1661,9 +1782,9 @@ internal static class EntityResolver {
                     "AMOUNT",
                     "Amount payable and ISO currency code",
 #if NET7_0_OR_GREATER
-                    MaxFifteenDigitAmountWithIsoCodeRegex(),
+                    MaxFifteenDigitAmountWithIso4217CodeRegex(),
 #else 
-                    MaxFifteenDigitAmountWithIsoCodeRegex,
+                    MaxFifteenDigitAmountWithIso4217CodeRegex,
 #endif
                     false)
             },
@@ -1685,9 +1806,9 @@ internal static class EntityResolver {
                     "PRICE",
                     "Amount payable for a variable measure trade item and ISO currency code",
 #if NET7_0_OR_GREATER
-                    MaxFifteenDigitAmountWithIsoCodeRegex(),
+                    MaxFifteenDigitAmountWithIso4217CodeRegex(),
 #else 
-                    MaxFifteenDigitAmountWithIsoCodeRegex,
+                    MaxFifteenDigitAmountWithIso4217CodeRegex,
 #endif
                     false)
             },
@@ -1749,7 +1870,7 @@ internal static class EntityResolver {
             },
             {
                 402,
-                new EntityDescriptor(
+                new IdentifierWithFinalChecksumDescriptor(
 
                     // ReSharper disable once StringLiteralTypo
                     "GSIN",
@@ -1967,9 +2088,9 @@ internal static class EntityResolver {
                     "SHIP TO COMP",
                     "Ship-to / Deliver-to Company name",
 #if NET7_0_OR_GREATER
-                    CharacterSet8235CharsRegex(),
+                    CharacterSet8235CharsPercEncRegex(),
 #else 
-                    CharacterSet8235CharsRegex,
+                    CharacterSet8235CharsPercEncRegex,
 #endif
                     false)
             },
@@ -1978,9 +2099,9 @@ internal static class EntityResolver {
                 new EntityDescriptor("SHIP TO NAME",
                     "Ship-to / Deliver-to contact name",
 #if NET7_0_OR_GREATER
-                    CharacterSet8235CharsRegex(),
+                    CharacterSet8235CharsPercEncRegex(),
 #else 
-                    CharacterSet8235CharsRegex,
+                    CharacterSet8235CharsPercEncRegex,
 #endif
                     false)
             },
@@ -1989,9 +2110,9 @@ internal static class EntityResolver {
                 new EntityDescriptor("SHIP TO ADD1",
                     "Ship-to / Deliver-to address line 1",
 #if NET7_0_OR_GREATER
-                    CharacterSet8270CharsRegex(),
+                    CharacterSet8270CharsPercEncRegex(),
 #else 
-                    CharacterSet8270CharsRegex,
+                    CharacterSet8270CharsPercEncRegex,
 #endif
                     false)
             },
@@ -2000,9 +2121,9 @@ internal static class EntityResolver {
                 new EntityDescriptor("SHIP TO ADD2",
                     "Ship-to / Deliver-to address line 2",
 #if NET7_0_OR_GREATER
-                    CharacterSet8270CharsRegex(),
+                    CharacterSet8270CharsPercEncRegex(),
 #else 
-                    CharacterSet8270CharsRegex,
+                    CharacterSet8270CharsPercEncRegex,
 #endif
                     false)
             },
@@ -2011,9 +2132,9 @@ internal static class EntityResolver {
                 new EntityDescriptor("SHIP TO SUB",
                     "Ship-to / Deliver-to suburb",
 #if NET7_0_OR_GREATER
-                    CharacterSet8270CharsRegex(),
+                    CharacterSet8270CharsPercEncRegex(),
 #else 
-                    CharacterSet8270CharsRegex,
+                    CharacterSet8270CharsPercEncRegex,
 #endif
                     false)
             },
@@ -2022,9 +2143,9 @@ internal static class EntityResolver {
                 new EntityDescriptor("SHIP TO LOC",
                     "Ship-to / Deliver-to locality",
 #if NET7_0_OR_GREATER
-                    CharacterSet8270CharsRegex(),
+                    CharacterSet8270CharsPercEncRegex(),
 #else 
-                    CharacterSet8270CharsRegex,
+                    CharacterSet8270CharsPercEncRegex,
 #endif
                     false)
             },
@@ -2033,9 +2154,9 @@ internal static class EntityResolver {
                 new EntityDescriptor("SHIP TO REG",
                     "Ship-to / Deliver-to region",
 #if NET7_0_OR_GREATER
-                    CharacterSet8270CharsRegex(),
+                    CharacterSet8270CharsPercEncRegex(),
 #else 
-                    CharacterSet8270CharsRegex,
+                    CharacterSet8270CharsPercEncRegex,
 #endif
                     false)
             },
@@ -2066,9 +2187,9 @@ internal static class EntityResolver {
                 new EntityDescriptor("SHIP TO GEO",
                     "Ship-to / Deliver-to GEO location",
 #if NET7_0_OR_GREATER
-                    MinFourMaxTwentyDigitValueRegex(),
+                    TwentyDigitGeoLocationValueRegex(),
 #else 
-                    MinFourMaxTwentyDigitValueRegex,
+                    TwentyDigitGeoLocationValueRegex,
 #endif
                     true)
             },
@@ -2077,9 +2198,9 @@ internal static class EntityResolver {
                 new EntityDescriptor("RTN TO COMP",
                     "Return-to company name",
 #if NET7_0_OR_GREATER
-                    CharacterSet8235CharsRegex(),
+                    CharacterSet8235CharsPercEncRegex(),
 #else 
-                    CharacterSet8235CharsRegex,
+                    CharacterSet8235CharsPercEncRegex,
 #endif
                     false)
             },
@@ -2088,9 +2209,9 @@ internal static class EntityResolver {
                 new EntityDescriptor("RTN TO NAME",
                     "Return-to contact name",
 #if NET7_0_OR_GREATER
-                    CharacterSet8235CharsRegex(),
+                    CharacterSet8235CharsPercEncRegex(),
 #else 
-                    CharacterSet8235CharsRegex,
+                    CharacterSet8235CharsPercEncRegex,
 #endif
                     false)
             },
@@ -2099,9 +2220,9 @@ internal static class EntityResolver {
                 new EntityDescriptor("RTN TO ADD1",
                     "Return-to address line 1",
 #if NET7_0_OR_GREATER
-                    CharacterSet8270CharsRegex(),
+                    CharacterSet8270CharsPercEncRegex(),
 #else 
-                    CharacterSet8270CharsRegex,
+                    CharacterSet8270CharsPercEncRegex,
 #endif
                     false)
             },
@@ -2110,9 +2231,9 @@ internal static class EntityResolver {
                 new EntityDescriptor("RTN TO ADD2",
                     "Return-to address line 2",
 #if NET7_0_OR_GREATER
-                    CharacterSet8270CharsRegex(),
+                    CharacterSet8270CharsPercEncRegex(),
 #else 
-                    CharacterSet8270CharsRegex,
+                    CharacterSet8270CharsPercEncRegex,
 #endif
                     false)
             },
@@ -2121,9 +2242,9 @@ internal static class EntityResolver {
                 new EntityDescriptor("RTN TO SUB",
                     "Return-to suburb",
 #if NET7_0_OR_GREATER
-                    CharacterSet8270CharsRegex(),
+                    CharacterSet8270CharsPercEncRegex(),
 #else 
-                    CharacterSet8270CharsRegex,
+                    CharacterSet8270CharsPercEncRegex,
 #endif
                     false)
             },
@@ -2132,9 +2253,9 @@ internal static class EntityResolver {
                 new EntityDescriptor("RTN TO LOC",
                     "Return-to locality",
 #if NET7_0_OR_GREATER
-                    CharacterSet8270CharsRegex(),
+                    CharacterSet8270CharsPercEncRegex(),
 #else 
-                    CharacterSet8270CharsRegex,
+                    CharacterSet8270CharsPercEncRegex,
 #endif
                     false)
             },
@@ -2143,9 +2264,9 @@ internal static class EntityResolver {
                 new EntityDescriptor("RTN TO REG",
                     "Return-to region",
 #if NET7_0_OR_GREATER
-                    CharacterSet8270CharsRegex(),
+                    CharacterSet8270CharsPercEncRegex(),
 #else 
-                    CharacterSet8270CharsRegex,
+                    CharacterSet8270CharsPercEncRegex,
 #endif
                     false)
             },
@@ -2187,9 +2308,9 @@ internal static class EntityResolver {
                 new EntityDescriptor("SRV DESCRIPTION",
                     "Service code description",
 #if NET7_0_OR_GREATER
-                    CharacterSet8235CharsRegex(),
+                    CharacterSet8235CharsPercEncRegex(),
 #else 
-                    CharacterSet8235CharsRegex,
+                    CharacterSet8235CharsPercEncRegex,
 #endif
                     false)
             },
@@ -2262,13 +2383,60 @@ internal static class EntityResolver {
                     true)
             },
             {
-                7001,
+                4330,
+                new EntityDescriptor(
+                    "MAX TEMP F",
+                    "Maximum temperature in Fahrenheit",
+#if NET7_0_OR_GREATER
+                    Scan4TransportTemperature(),
+#else 
+                    Scan4TransportTemperature,
+#endif
+                    false)
+            },
+            {
+                4331,
+                new EntityDescriptor(
+                    "MAX TEMP C",
+                    "Maximum temperature in Celsius",
+#if NET7_0_OR_GREATER
+                    Scan4TransportTemperature(),
+#else 
+                    Scan4TransportTemperature,
+#endif
+                    false)
+            },
+            {
+                4332,
+                new EntityDescriptor(
+                    "MIN TEMP F",
+                    "Minimum temperature in Fahrenheit",
+#if NET7_0_OR_GREATER
+                    Scan4TransportTemperature(),
+#else 
+                    Scan4TransportTemperature,
+#endif
+                    false)
+            },
+            {
+                4333,
+                new EntityDescriptor(
+                    "MIN TEMP C",
+                    "Minimum temperature in Celsius",
+#if NET7_0_OR_GREATER
+                    Scan4TransportTemperature(),
+#else 
+                    Scan4TransportTemperature,
+#endif
+                    false)
+            },
+            {                7001,
                 new EntityDescriptor(
                     "NSN",
                     "NATO Stock Number (NSN)",
 #if NET7_0_OR_GREATER
                     ThirteenDigitValueRegex(),
-#else 
+#else
                     ThirteenDigitValueRegex,
 #endif
                     true)
@@ -2276,10 +2444,10 @@ internal static class EntityResolver {
             {
                 7002, new EntityDescriptor(
                     "MEAT CUT",
-                    "UN/ECE meat carcasses and cuts classification",
+                    "UNECE meat carcasses and cuts classification",
 #if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
-#else 
+#else
                     CharacterSet8230CharsRegex,
 #endif
                     false)
@@ -2291,7 +2459,7 @@ internal static class EntityResolver {
                     "Expiration date and time",
 #if NET7_0_OR_GREATER
                     DateTimePatternRegex(),
-#else 
+#else
                     DateTimePatternRegex,
 #endif
                     true) },
@@ -2302,7 +2470,7 @@ internal static class EntityResolver {
                     "Active potency",
 #if NET7_0_OR_GREATER
                     MaxFourDigitValueRegex(),
-#else 
+#else
                     MaxFourDigitValueRegex,
 #endif
                     false) },
@@ -2313,7 +2481,7 @@ internal static class EntityResolver {
                     "Catch area",
 #if NET7_0_OR_GREATER
                     CharacterSet8212CharsRegex(),
-#else 
+#else
                     CharacterSet8212CharsRegex,
 #endif
                     false) },
@@ -2324,7 +2492,7 @@ internal static class EntityResolver {
                     "First freeze date",
 #if NET7_0_OR_GREATER
                     DatePatternRegex(),
-#else 
+#else
                     DatePatternRegex,
 #endif
                     true) },
@@ -2335,7 +2503,7 @@ internal static class EntityResolver {
                     "Harvest date",
 #if NET7_0_OR_GREATER
                     HarvestDateRegex(),
-#else 
+#else
                     HarvestDateRegex,
 #endif
                     false)
@@ -2347,7 +2515,7 @@ internal static class EntityResolver {
                     "Species for fishery purposes",
 #if NET7_0_OR_GREATER
                     CharacterSet8203CharsRegex(),
-#else 
+#else
                     CharacterSet8203CharsRegex,
 #endif
                     false)
@@ -2359,7 +2527,7 @@ internal static class EntityResolver {
                     "Fishing gear type",
 #if NET7_0_OR_GREATER
                     CharacterSet8210CharsRegex(),
-#else 
+#else
                     CharacterSet8210CharsRegex,
 #endif
                     false)
@@ -2371,7 +2539,7 @@ internal static class EntityResolver {
                     "Production method",
 #if NET7_0_OR_GREATER
                     CharacterSet8202CharsRegex(),
-#else 
+#else
                     CharacterSet8202CharsRegex,
 #endif
                     false)
@@ -2383,7 +2551,7 @@ internal static class EntityResolver {
                     "Test by date",
 #if NET7_0_OR_GREATER
                     DateOptionalTimePatternRegex(),
-#else 
+#else
                     DateOptionalTimePatternRegex,
 #endif
                     false)
@@ -2397,7 +2565,7 @@ internal static class EntityResolver {
                     "Refurbishment lot ID",
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
-#else 
+#else
                     CharacterSet8220CharsRegex,
 #endif
                     false)
@@ -2409,7 +2577,7 @@ internal static class EntityResolver {
                     "Functional status",
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
-#else 
+#else
                     CharacterSet8220CharsRegex,
 #endif
                     false)
@@ -2421,7 +2589,7 @@ internal static class EntityResolver {
                     "Revision status",
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
-#else 
+#else
                     CharacterSet8220CharsRegex,
 #endif
                     false)
@@ -2437,7 +2605,7 @@ internal static class EntityResolver {
                     "Global Individual Asset Identifier of an assembly",
 #if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
-#else 
+#else
                     CharacterSet8230CharsRegex,
 #endif
                     false)
@@ -2449,7 +2617,7 @@ internal static class EntityResolver {
                     "Number of processor with three-digit ISO country code",
 #if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
-#else 
+#else
                     ProcessorWithIsoCountryCodeRegex,
 #endif
                     false)
@@ -2461,7 +2629,7 @@ internal static class EntityResolver {
                     "Number of processor with ISO Country Code",
 #if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
-#else 
+#else
                     ProcessorWithIsoCountryCodeRegex,
 #endif
                     false)
@@ -2473,7 +2641,7 @@ internal static class EntityResolver {
                     "Number of processor with ISO Country Code",
 #if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
-#else 
+#else
                     ProcessorWithIsoCountryCodeRegex,
 #endif
                     false)
@@ -2485,7 +2653,7 @@ internal static class EntityResolver {
                     "Number of processor with ISO Country Code",
 #if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
-#else 
+#else
                     ProcessorWithIsoCountryCodeRegex,
 #endif
                     false)
@@ -2497,7 +2665,7 @@ internal static class EntityResolver {
                     "Number of processor with ISO Country Code",
 #if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
-#else 
+#else
                     ProcessorWithIsoCountryCodeRegex,
 #endif
                     false)
@@ -2509,7 +2677,7 @@ internal static class EntityResolver {
                     "Number of processor with ISO Country Code",
 #if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
-#else 
+#else
                     ProcessorWithIsoCountryCodeRegex,
 #endif
                     false)
@@ -2521,7 +2689,7 @@ internal static class EntityResolver {
                     "Number of processor with ISO Country Code",
 #if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
-#else 
+#else
                     ProcessorWithIsoCountryCodeRegex,
 #endif
                     false)
@@ -2533,7 +2701,7 @@ internal static class EntityResolver {
                     "Number of processor with ISO Country Code",
 #if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
-#else 
+#else
                     ProcessorWithIsoCountryCodeRegex,
 #endif
                     false)
@@ -2545,7 +2713,7 @@ internal static class EntityResolver {
                     "Number of processor with ISO Country Code",
 #if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
-#else 
+#else
                     ProcessorWithIsoCountryCodeRegex,
 #endif
                     false)
@@ -2557,7 +2725,7 @@ internal static class EntityResolver {
                     "Number of processor with ISO Country Code",
 #if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
-#else 
+#else
                     ProcessorWithIsoCountryCodeRegex,
 #endif
                     false)
@@ -2569,7 +2737,7 @@ internal static class EntityResolver {
                     "GS1 UIC with Extension 1 and Importer index",
 #if NET7_0_OR_GREATER
                     Gs1UicWithExtension1AndImportedIndexRegex(),
-#else 
+#else
                     Gs1UicWithExtension1AndImportedIndexRegex,
 #endif
                     true)
@@ -2581,7 +2749,7 @@ internal static class EntityResolver {
                     "National Healthcare Reimbursement Number (NHRN) – Germany PZN",
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
-#else 
+#else
                     CharacterSet8220CharsRegex,
 #endif
                     false)
@@ -2593,7 +2761,7 @@ internal static class EntityResolver {
                     "National Healthcare Reimbursement Number (NHRN) – France CIP",
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
-#else 
+#else
                     CharacterSet8220CharsRegex,
 #endif
                     false)
@@ -2605,7 +2773,7 @@ internal static class EntityResolver {
                     "National Healthcare Reimbursement Number (NHRN) – Spain CN",
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
-#else 
+#else
                     CharacterSet8220CharsRegex,
 #endif
                     false)
@@ -2619,7 +2787,7 @@ internal static class EntityResolver {
                     "National Healthcare Reimbursement Number (NHRN) – Brasil DRN",
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
-#else 
+#else
                     CharacterSet8220CharsRegex,
 #endif
                     false)
@@ -2631,7 +2799,7 @@ internal static class EntityResolver {
                     "National Healthcare Reimbursement Number (NHRN) – Portugal AIM",
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
-#else 
+#else
                     CharacterSet8220CharsRegex,
 #endif
                     false)
@@ -2643,7 +2811,7 @@ internal static class EntityResolver {
                     "National Healthcare Reimbursement Number (NHRN) – United States of America NDC",
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
-#else 
+#else
                     CharacterSet8220CharsRegex,
 #endif
                     false)
@@ -2655,7 +2823,7 @@ internal static class EntityResolver {
                     "Certification reference",
 #if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
-#else 
+#else
                     CharacterSet820330CharsRegex,
 #endif
                     false)
@@ -2667,7 +2835,7 @@ internal static class EntityResolver {
                     "Certification reference",
 #if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
-#else 
+#else
                     CharacterSet820330CharsRegex,
 #endif
                     false)
@@ -2679,7 +2847,7 @@ internal static class EntityResolver {
                     "Certification reference",
 #if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
-#else 
+#else
                     CharacterSet820330CharsRegex,
 #endif
                     false)
@@ -2691,7 +2859,7 @@ internal static class EntityResolver {
                     "Certification reference",
 #if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
-#else 
+#else
                     CharacterSet820330CharsRegex,
 #endif
                     false)
@@ -2703,7 +2871,7 @@ internal static class EntityResolver {
                     "Certification reference",
 #if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
-#else 
+#else
                     CharacterSet820330CharsRegex,
 #endif
                     false)
@@ -2715,7 +2883,7 @@ internal static class EntityResolver {
                     "Certification reference",
 #if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
-#else 
+#else
                     CharacterSet820330CharsRegex,
 #endif
                     false)
@@ -2727,7 +2895,7 @@ internal static class EntityResolver {
                     "Certification reference",
 #if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
-#else 
+#else
                     CharacterSet820330CharsRegex,
 #endif
                     false)
@@ -2739,7 +2907,7 @@ internal static class EntityResolver {
                     "Certification reference",
 #if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
-#else 
+#else
                     CharacterSet820330CharsRegex,
 #endif
                     false)
@@ -2751,7 +2919,7 @@ internal static class EntityResolver {
                     "Certification reference",
 #if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
-#else 
+#else
                     CharacterSet820330CharsRegex,
 #endif
                     false)
@@ -2763,7 +2931,7 @@ internal static class EntityResolver {
                     "Certification reference",
 #if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
-#else 
+#else
                     CharacterSet820330CharsRegex,
 #endif
                     false)
@@ -2775,8 +2943,32 @@ internal static class EntityResolver {
                     "Protocol ID",
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
-#else 
+#else
                     CharacterSet8220CharsRegex,
+#endif
+                    false)
+            },
+            {
+                7241,
+                new EntityDescriptor(
+                    "AIDC MEDIA TYPE",
+                    "AIDC media type",
+#if NET7_0_OR_GREATER
+                    TwoDigitAidcMediaType(),
+#else
+                    TwoDigitAidcMediaType,
+#endif
+                    true)
+            },
+            {
+                7242,
+                new EntityDescriptor(
+                    "VCN",
+                    "Version Control Number (VCN)",
+#if NET7_0_OR_GREATER
+                    CharacterSet8225CharsRegex(),
+#else
+                    CharacterSet8225CharsRegex,
 #endif
                     false)
             },
@@ -2786,9 +2978,9 @@ internal static class EntityResolver {
                     "DIMENSIONS",
                     "Roll products - width, length, core diameter, direction, splices",
 #if NET7_0_OR_GREATER
-                    FourteenDigitValueRegex(),
-#else 
-                    FourteenDigitValueRegex,
+                    FourteenDigitRollProductValueRegex(),
+#else
+                    FourteenDigitRollProductValueRegex,
 #endif
                     true)
             },
@@ -2799,7 +2991,7 @@ internal static class EntityResolver {
                     "Cellular mobile telephone identifier",
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
-#else 
+#else
                     CharacterSet8220CharsRegex,
 #endif
                     false)
@@ -2815,7 +3007,7 @@ internal static class EntityResolver {
                     "Global Returnable Asset Identifier (GRAI)",
 #if NET7_0_OR_GREATER
                     GraiRegex(),
-#else 
+#else
                     GraiRegex,
 #endif
                     false)
@@ -2831,7 +3023,7 @@ internal static class EntityResolver {
                     "Global Individual Asset Identifier (GIAI)",
 #if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
-#else 
+#else
                     CharacterSet8230CharsRegex,
 #endif
                     false)
@@ -2843,28 +3035,28 @@ internal static class EntityResolver {
                     "Price per unit of measure",
 #if NET7_0_OR_GREATER
                     SixDigitValueRegex(),
-#else 
+#else
                     SixDigitValueRegex,
 #endif
                     true)
             },
             {
                 8006,
-                new EntityDescriptor(
+                new IdentifierWithPos14ChecksumDescriptor(
 
                     // ReSharper disable once StringLiteralTypo
                     "ITIP",
                     "Identification of an individual trade item (ITIP) piece",
 #if NET7_0_OR_GREATER
                     ItipRegex(),
-#else 
+#else
                     ItipRegex,
 #endif
                     true)
             },
             {
                 8007,
-                new EntityDescriptor(
+                new IbanDescriptor(
 
                     // ReSharper disable once StringLiteralTypo
                     "IBAN",
@@ -2873,7 +3065,7 @@ internal static class EntityResolver {
                     "International Bank Account Number (IBAN)",
 #if NET7_0_OR_GREATER
                     CharacterSet8234CharsRegex(),
-#else 
+#else
                     CharacterSet8234CharsRegex,
 #endif
                     false)
@@ -2885,7 +3077,7 @@ internal static class EntityResolver {
                     "Date and time of production",
 #if NET7_0_OR_GREATER
                     DateAndTimeOfProductionRegex(),
-#else 
+#else
                     DateAndTimeOfProductionRegex,
 #endif
                     false) },
@@ -2898,7 +3090,7 @@ internal static class EntityResolver {
                     "Optically readable sensor indicator",
 #if NET7_0_OR_GREATER
                     CharacterSet8250CharsRegex(),
-#else 
+#else
                     CharacterSet8250CharsRegex,
 #endif
                     false)
@@ -2912,7 +3104,7 @@ internal static class EntityResolver {
                     "Component/Part Identifier (CPID)",
 #if NET7_0_OR_GREATER
                     CharacterSet3930CharsRegex(),
-#else 
+#else
                     CharacterSet3930CharsRegex,
 #endif
                     false)
@@ -2927,9 +3119,9 @@ internal static class EntityResolver {
                     // ReSharper disable once StringLiteralTypo
                     "Component/Part Identifier serial number",
 #if NET7_0_OR_GREATER
-                    MaxTwelveDigitValueRegex(),
-#else 
-                    MaxTwelveDigitValueRegex,
+                    MaxTwelveDigitValueZeroOrNonZeroFirstRegex(),
+#else
+                    MaxTwelveDigitValueZeroOrNonZeroFirstRegex,
 #endif
                     false)
             },
@@ -2940,20 +3132,20 @@ internal static class EntityResolver {
                     "Software version",
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
-#else 
+#else
                     CharacterSet8220CharsRegex,
 #endif
                     false)
             },
             {
                 8013,
-                new EntityDescriptor(
+                new AlphanumericKeyWithCheckCharacterPairDescriptor(
                     "GMN",
                     "Global Model Number (GMN)",
 #if NET7_0_OR_GREATER
-                    CharacterSet8230CharsRegex(),
-#else 
-                    CharacterSet8230CharsRegex,
+                    GcpWithCharacterSet8219CharsAndCheckCharacterPairRegex(),
+#else
+                    CharacterSet8225CharsRegex,
 #endif
                     false)
             },
@@ -2966,7 +3158,7 @@ internal static class EntityResolver {
                     "Global Service Relation Number (GSRN) to identify the relationship between an organisation offering services and the provider of services",
 #if NET7_0_OR_GREATER
                     EighteenDigitValueRegex(),
-#else 
+#else
                     EighteenDigitValueRegex,
 #endif
                     true)
@@ -2980,7 +3172,7 @@ internal static class EntityResolver {
                     "Global Service Relation Number (GSRN) to identify the relationship between an organisation offering services and the recipient of services",
 #if NET7_0_OR_GREATER
                     EighteenDigitValueRegex(),
-#else 
+#else
                     EighteenDigitValueRegex,
 #endif
                     true)
@@ -2996,7 +3188,7 @@ internal static class EntityResolver {
                     "Service Relation Instance Number (SRIN)",
 #if NET7_0_OR_GREATER
                     MaxTenDigitValueRegex(),
-#else 
+#else
                     MaxTenDigitValueRegex,
 #endif
                     false)
@@ -3008,31 +3200,43 @@ internal static class EntityResolver {
                     "Payment slip reference number",
 #if NET7_0_OR_GREATER
                     CharacterSet8225CharsRegex(),
-#else 
+#else
                     CharacterSet8225CharsRegex,
 #endif
                     false)
             },
             {
                 8026,
-                new EntityDescriptor(
+                new IdentifierWithPos14ChecksumDescriptor(
                     "ITIP CONTENT",
                     "Identification of pieces of a trade item (ITIP) contained in a logistic unit",
 #if NET7_0_OR_GREATER
                     EighteenDigitValueRegex(),
-#else 
+#else
                     EighteenDigitValueRegex,
 #endif
                     true)
             },
             {
-                8110,
+                8030,
                 new EntityDescriptor(
+                    "DIGSIG",
+                    "Digital Signature (DigSig)",
+#if NET7_0_OR_GREATER
+                    CharacterSet6490CharsRegex(),
+#else
+                    CharacterSet6490CharsRegex,
+#endif
+                    false)
+            },
+            {
+                8110,
+                new CouponCodeDescriptor(
                     "-",
                     "Coupon code identification for use in North America",
 #if NET7_0_OR_GREATER
                     CharacterSet8270CharsRegex(),
-#else 
+#else
                     CharacterSet8270CharsRegex,
 #endif
                     false)
@@ -3044,7 +3248,7 @@ internal static class EntityResolver {
                     "Loyalty points of a coupon",
 #if NET7_0_OR_GREATER
                     FourDigitValueRegex(),
-#else 
+#else
                     FourDigitValueRegex,
 #endif
                     true)
@@ -3056,7 +3260,7 @@ internal static class EntityResolver {
                     "Positive offer file coupon code identification for use in North America",
 #if NET7_0_OR_GREATER
                     CharacterSet8270CharsRegex(),
-#else 
+#else
                     CharacterSet8270CharsRegex,
 #endif
                     false)
@@ -3068,7 +3272,7 @@ internal static class EntityResolver {
                     "Extended packaging URL",
 #if NET7_0_OR_GREATER
                     CharacterSet8270CharsRegex(),
-#else 
+#else
                     CharacterSet8270CharsRegex,
 #endif
                     false)
@@ -3080,7 +3284,7 @@ internal static class EntityResolver {
                     "Information mutually agreed between trading partners",
 #if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
-#else 
+#else
                     CharacterSet8230CharsRegex,
 #endif
                     false)
@@ -3092,7 +3296,7 @@ internal static class EntityResolver {
                     "Company internal information",
 #if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
-#else 
+#else
                     CharacterSet8290CharsRegex,
 #endif
                     false)
@@ -3104,7 +3308,7 @@ internal static class EntityResolver {
                     "Company internal information",
 #if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
-#else 
+#else
                     CharacterSet8290CharsRegex,
 #endif
                     false)
@@ -3116,7 +3320,7 @@ internal static class EntityResolver {
                     "Company internal information",
 #if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
-#else 
+#else
                     CharacterSet8290CharsRegex,
 #endif
                     false)
@@ -3128,7 +3332,7 @@ internal static class EntityResolver {
                     "Company internal information",
 #if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
-#else 
+#else
                     CharacterSet8290CharsRegex,
 #endif
                     false)
@@ -3140,7 +3344,7 @@ internal static class EntityResolver {
                     "Company internal information",
 #if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
-#else 
+#else
                     CharacterSet8290CharsRegex,
 #endif
                     false)
@@ -3152,7 +3356,7 @@ internal static class EntityResolver {
                     "Company internal information",
 #if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
-#else 
+#else
                     CharacterSet8290CharsRegex,
 #endif
                     false)
@@ -3164,7 +3368,7 @@ internal static class EntityResolver {
                     "Company internal information",
 #if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
-#else 
+#else
                     CharacterSet8290CharsRegex,
 #endif
                     false)
@@ -3176,7 +3380,7 @@ internal static class EntityResolver {
                     "Company internal information",
 #if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
-#else 
+#else
                     CharacterSet8290CharsRegex,
 #endif
                     false)
@@ -3188,7 +3392,7 @@ internal static class EntityResolver {
                     "Company internal information",
 #if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
-#else 
+#else
                     CharacterSet8290CharsRegex,
 #endif
                     false)
@@ -3382,9 +3586,10 @@ internal static class EntityResolver {
                 }
 
                 break;
+
             case "43":
-                //00..26
-                entity = data.IsNumberInRange(2, 2, 0, 26)
+                //00..26, 30..33
+                entity = data.IsNumberInRange(2, 2, 0, 26) || data.IsNumberInRange(2, 2, 30, 33)
                     ? data.GetEntity4()
                     : ApplicationIdentifier.Unrecognised;
 
@@ -3393,6 +3598,7 @@ internal static class EntityResolver {
                 }
                 else {
                     value = data.GetValue(4);
+                    numberOfDecimalPlaces = data.IsNumberInRange(2, 2, 30, 33) ? 2 : null;
                     currentPosition += 2;
                 }
 
@@ -3421,7 +3627,7 @@ internal static class EntityResolver {
                 break;
             case "72":
                 // 3s, 40
-                entity = data.IsNumberEqual(2, 1, 3) || data.IsNumberEqual(2, 2, 40)
+                entity = data.IsNumberEqual(2, 1, 3) || data.IsNumberInRange(2, 2, 40, 42)
                              ? data[2] == '3' ? data.GetEntity3() : data.GetEntity4()
                              : ApplicationIdentifier.Unrecognised;
                 if (entity == ApplicationIdentifier.Unrecognised) {
@@ -3440,10 +3646,11 @@ internal static class EntityResolver {
 
                 break;
             case "80":
-                // 01..09, 10..13, 17..20, 26
+                // 01..09, 10..13, 17..20, 26, 30
                 entity = data.IsNumberInRange(2, 2, 1, 9) || data.IsNumberInRange(2, 2, 10, 13)
                                                           || data.IsNumberInRange(2, 2, 17, 20)
                                                           || data.IsNumberEqual(2, 2, 26)
+                                                          || data.IsNumberEqual(2, 2, 30)
                              ? data.GetEntity4()
                              : ApplicationIdentifier.Unrecognised;
                 if (entity == ApplicationIdentifier.Unrecognised) {

@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IdentifierWithPos13ChecksumDescriptor.cs" company="Solidsoft Reply Ltd.">
+// <copyright file="AlphanumericKeyWithCheckCharacterPair.cs" company="Solidsoft Reply Ltd.">
 //   (c) 2018-2024 Solidsoft Reply Ltd.  All rights reserved.
 // </copyright>
 // <license>
@@ -16,7 +16,7 @@
 // limitations under the License.
 // </license>
 // <summary>
-// A descriptor for a GS1 identifiers with a checksum at position 13 followed by optional text.
+// A descriptor for a GS1 identifiers whose last two characters are check characters.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -24,18 +24,19 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Descriptors;
 
 using Properties;
 
-using Common;
-
-using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Text.RegularExpressions;
+
+using Common;
 
 /// <summary>
-///     A descriptor for a GS1 identifiers with a checksum at position 13 followed by optional text.
+///     A descriptor for a GS1 identifiers whose last two characters are check characters.
 /// </summary>
-internal class IdentifierWithPos13ChecksumDescriptor : EntityDescriptor {
+internal class AlphanumericKeyWithCheckCharacterPairDescriptor : EntityDescriptor {
+    
     /// <summary>
-    ///     Initializes a new instance of the <see cref="IdentifierWithPos13ChecksumDescriptor" /> class.
+    ///     Initializes a new instance of the <see cref="AlphanumericKeyWithCheckCharacterPairDescriptor" /> class.
     /// </summary>
     /// <param name="dataTitle">
     ///     The data title.
@@ -49,10 +50,10 @@ internal class IdentifierWithPos13ChecksumDescriptor : EntityDescriptor {
     /// <param name="isFixedWidth">
     ///     Indicates whether the value associated with the Application Identifier is fixed-width.
     /// </param>
-    public IdentifierWithPos13ChecksumDescriptor(
+    public AlphanumericKeyWithCheckCharacterPairDescriptor(
         string dataTitle,
         string description,
-        Regex? pattern,
+        Regex pattern,
         bool isFixedWidth)
         : base(dataTitle, description, pattern, isFixedWidth) {
     }
@@ -60,10 +61,9 @@ internal class IdentifierWithPos13ChecksumDescriptor : EntityDescriptor {
     /// <summary>
     ///     Validate data against the descriptor.
     /// </summary>
-    /// <param name="value">The GS1 data element value to be validated.</param>
+    /// <param name="value">The GS1 identifier to be validated.</param>
     /// <param name="validationErrors">A list of validation errors.</param>
     /// <returns>True, if valid.  Otherwise, false.</returns>
-
     // ReSharper disable once CommentTypo
     // ReSharper disable once InheritdocConsiderUsage
     public override bool IsValid(string value, out IList<ParserException> validationErrors) {
@@ -73,32 +73,19 @@ internal class IdentifierWithPos13ChecksumDescriptor : EntityDescriptor {
             return result;
         }
 
-        // Check the length is at least 13 characters
-        if (value.Length < 13) {
-            return result;
-        }
-
-        // Get first 13 characters
-        if (
-#if NET6_0_OR_GREATER
-            value[..13]
-#else
-            value.Substring(0, 13)
-#endif
-        .Gs1ChecksumIsValid()) {
+        if (value.Gs1CheckCharactersPairIsValid()) {
             return result;
         }
 
         var valueString = value.Length > 0 ? " " + value : string.Empty;
         var offset = valueString.Length > 0 ? valueString.Trim().Length - 1 : 0;
-
-        // ReSharper disable once StringLiteralTypo
         validationErrors.Add(
             new ParserException(
-                2009,
+                2008,
                 string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_008, valueString),
                 false,
                 offset));
+        
         return false;
     }
 }
