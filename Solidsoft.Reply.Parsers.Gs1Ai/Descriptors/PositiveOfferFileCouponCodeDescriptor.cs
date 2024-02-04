@@ -33,11 +33,30 @@ using Common;
 /// <summary>
 ///     A descriptor for North American Positive Offer File coupon codes.
 /// </summary>
+/// <remarks>
+///     Initializes a new instance of the <see cref="PositiveOfferFileCouponCodeDescriptor" /> class.
+/// </remarks>
+/// <param name="dataTitle">
+///     The data title.
+/// </param>
+/// <param name="description">
+///     The description.
+/// </param>
+/// <param name="pattern">
+///     The pattern.
+/// </param>
+/// <param name="isFixedWidth">
+///     Indicates whether the value associated with the Application Identifier is fixed-width.
+/// </param>
 internal
 #if NET7_0_OR_GREATER
     partial
 #endif
-    class PositiveOfferFileCouponCodeDescriptor : EntityDescriptor {
+    class PositiveOfferFileCouponCodeDescriptor(
+        string dataTitle,
+        string description,
+        Regex pattern,
+        bool isFixedWidth) : EntityDescriptor(dataTitle, description, pattern, isFixedWidth) {
 
     /// <summary>
     ///     A regular expression for six-digit date representation - YYMMDD.
@@ -61,30 +80,8 @@ internal
     ///     A regular expression for North American positive offer file coupon codes.
     /// </summary>
     private static readonly Regex PositiveOfferFileCouponCodeRegex = new (@"^[01][0-6]\d{6,12}\d{6}[0-9]\d{6,15}$");
-#endif
 
-	/// <summary>
-	///     Initializes a new instance of the <see cref="PositiveOfferFileCouponCodeDescriptor" /> class.
-	/// </summary>
-	/// <param name="dataTitle">
-	///     The data title.
-	/// </param>
-	/// <param name="description">
-	///     The description.
-	/// </param>
-	/// <param name="pattern">
-	///     The pattern.
-	/// </param>
-	/// <param name="isFixedWidth">
-	///     Indicates whether the value associated with the Application Identifier is fixed-width.
-	/// </param>
-	public PositiveOfferFileCouponCodeDescriptor(
-        string dataTitle,
-        string description,
-        Regex pattern,
-        bool isFixedWidth)
-        : base(dataTitle, description, pattern, isFixedWidth) {
-    }
+#endif
 
     /// <summary>
     ///     Validate data against the descriptor.

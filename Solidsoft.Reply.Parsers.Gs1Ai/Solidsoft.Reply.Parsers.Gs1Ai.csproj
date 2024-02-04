@@ -17,9 +17,7 @@
 	<PackageTags>gs1;ai;parser;barcode;datamatrix;qr;code-128</PackageTags>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 	<PackageReleaseNotes>
-		1) Updated to incorporate all relevant changes for GS1 General Specifications 2024.
-		2) Improved validation handling for IBAN, coupons, etc.
-		3) Extended target platform reach to .NET Standard 2.0, .NET 6.0, .NET 7.0 and .NET 8.0.
+		1) Added Italian language support.
 	</PackageReleaseNotes>
     <Description>
 		A comprehensive validating parser for GS1 Application Identifiers (AIs).
@@ -28,7 +26,7 @@
 		--------------
 		$(PackageReleaseNotes)
 	</Description>
-	<Version>1.0.2</Version>
+	<Version>1.0.3</Version>
 	<AssemblyName>$(MSBuildProjectName)</AssemblyName>
     <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
 	<NeutralLanguage>en</NeutralLanguage>
@@ -65,6 +63,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Properties\Gs1CountryCode.it.Designer.cs">
+      <DependentUpon>Gs1CountryCode.it.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Update="Properties\Gs1CountryCode.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -82,14 +85,86 @@
       <DependentUpon>Gs1CountryCode.resx</DependentUpon>
     </EmbeddedResource>
 	  <EmbeddedResource Update="Properties\Gs1CountryCode.fr.resx">
-		  <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Properties\Gs1CountryCode.de.resx">
-		  <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Gs1CountryCode.it.resx">
+	    <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+    </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.bg.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.cs.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.da.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.el.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.et.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.fi.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.ga.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.hr.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.hu.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.is.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.lt.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.lv.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.mt.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.nl.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.no.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.pl.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.pt.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.rm.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.ro.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.sk.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.sl.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1CountryCode.sv.resx">
+      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
 	  </EmbeddedResource>
     <EmbeddedResource Update="Properties\Gs1CountryCode.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Gs1CountryCode.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources - Copy.de.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.de.resx">
       <DependentUpon>Resources.resx</DependentUpon>
@@ -100,7 +175,76 @@
     <EmbeddedResource Update="Properties\Resources.fr.resx">
       <DependentUpon>Resources.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Properties\Resources.resx">
+	<EmbeddedResource Update="Properties\Resources.it.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.bg.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Resources.cs.resx">
+    <DependentUpon>Resources.resx</DependentUpon>
+	  </EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.da.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.el.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.et.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.fi.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.ga.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.hr.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.hu.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.is.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.lt.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.lv.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.mt.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.nl.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.no.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.pl.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.pt.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.rm.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.ro.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.sk.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.sl.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.sv.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
