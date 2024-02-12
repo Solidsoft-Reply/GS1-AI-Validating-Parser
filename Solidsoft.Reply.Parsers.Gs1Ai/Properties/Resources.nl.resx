@@ -118,67 +118,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="GS1_Error_001" xml:space="preserve">
-    <value>No data provided.</value>
-    <comment>Error</comment>
+    <value>Geen gegevens verstrekt.</value>
   </data>
   <data name="GS1_Error_002" xml:space="preserve">
-    <value>Validation for AI {0} timed out.</value>
-    <comment>Error</comment>
+    <value>Validatie voor AI {0} is verlopen.</value>
   </data>
   <data name="GS1_Error_003" xml:space="preserve">
-    <value>No entity value provided for AI {0}.</value>
-    <comment>Error</comment>
+    <value>Geen entiteitswaarde verstrekt voor AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Entity is incorrectly terminated with an FNC1.</value>
-    <comment>Error</comment>
+    <value>Entiteit is incorrect beëindigd met een FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Fixed-width entity does not contain sufficient number of characters.</value>
-    <comment>Error</comment>
+    <value>Vaste breedte entiteit bevat niet voldoende aantal karakters.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
-    <value>The value{0} is invalid for AI {1}.</value>
-    <comment>Error</comment>
+    <value>De waarde{0} is ongeldig voor AI {1}.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Invalid application identifier {0}.</value>
-    <comment>Error</comment>
+    <value>Ongeldige applicatie-identificatie {0}.</value>
   </data>
   <data name="GS1_Error_008" xml:space="preserve">
-    <value>The value{0} has an invalid checksum.</value>
-    <comment>Error</comment>
+    <value>De waarde{0} heeft een ongeldige checksum.</value>
   </data>
   <data name="GS1_Error_009" xml:space="preserve">
-    <value>The value{0} does not match the specified pattern for the data element.</value>
-    <comment>Error</comment>
+    <value>De waarde{0} komt niet overeen met het gespecificeerde patroon voor het gegevenselement.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
-    <value>The implied decimal point position (inverse exponent) is specified incorrectly.</value>
-    <comment>Error</comment>
+    <value>De geïmpliceerde decimale punt positie (inverse exponent) is onjuist gespecificeerd.</value>
   </data>
   <data name="GS1_Error_011" xml:space="preserve">
-    <value>The value{0} does not conform to the IBAN standard.</value>
-    <comment>Error</comment>
+    <value>De waarde{0} voldoet niet aan de IBAN-standaard.</value>
   </data>
   <data name="GS1_Error_012" xml:space="preserve">
-    <value>The value{0} does not match the pattern specified for IBAN numbers for {1}.</value>
-    <comment>Error</comment>
+    <value>De waarde{0} komt niet overeen met het gespecificeerde patroon voor IBAN-nummers voor {1}.</value>
   </data>
   <data name="GS1_Error_013" xml:space="preserve">
-    <value>The value{0} matches the pattern specified for {1} that is currently in development and not catalogued for general international use.</value>
-    <comment>Error</comment>
+    <value>De waarde{0} komt overeen met het gespecificeerde patroon voor {1} dat momenteel in ontwikkeling is en niet gecatalogiseerd is voor algemeen internationaal gebruik.</value>
   </data>
   <data name="GS1_Error_014" xml:space="preserve">
-    <value>The IBAN value{0} contains incorrect check digits.</value>
-    <comment>Error</comment>
+    <value>De IBAN-waarde{0} bevat onjuiste controlecijfers.</value>
   </data>
   <data name="GS1_Error_015" xml:space="preserve">
-    <value>The value{0} does not match the pattern specified for North American coupons.</value>
-    <comment>Error</comment>
+    <value>De waarde{0} komt niet overeen met het gespecificeerde patroon voor Noord-Amerikaanse coupons.</value>
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
-    <value>The value{0} does not match the pattern specified for North American positive offer file coupons.</value>
-    <comment>Error</comment>
+    <value>De waarde{0} komt niet overeen met het gespecificeerde patroon voor Noord-Amerikaanse positieve aanbiedingsbestandcoupons.</value>
   </data>
 </root>

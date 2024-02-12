@@ -133,16 +133,16 @@
     <value>L'entité à largeur fixe ne contient pas un nombre suffisant de caractères.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
-    <value>La valeur {0} est invalide pour AI {1}.</value>
+    <value>La valeur{0} est invalide pour AI {1}.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
     <value>Identifiant d'application invalide {0}.</value>
   </data>
   <data name="GS1_Error_008" xml:space="preserve">
-    <value>La valeur {0} a une somme de contrôle invalide.</value>
+    <value>La valeur{0} a une somme de contrôle invalide.</value>
   </data>
   <data name="GS1_Error_009" xml:space="preserve">
-    <value>La valeur {0} ne correspond pas au motif spécifié pour l'élément de données.</value>
+    <value>La valeur{0} ne correspond pas au motif spécifié pour l'élément de données.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
     <value>La position du point décimal implicite (exposant inverse) est spécifiée incorrectement.</value>

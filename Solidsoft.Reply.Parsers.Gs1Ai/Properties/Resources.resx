@@ -117,16 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="GS1_Error_001" xml:space="preserve">
+    <value>No data provided.</value>
+    <comment>Error</comment>
+  </data>
+  <data name="GS1_Error_002" xml:space="preserve">
+    <value>Validation for AI {0} timed out.</value>
+    <comment>Error</comment>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>No entity value provided for AI {0}.</value>
+    <comment>Error</comment>
+  </data>
   <data name="GS1_Error_004" xml:space="preserve">
     <value>Entity is incorrectly terminated with an FNC1.</value>
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
     <value>Fixed-width entity does not contain sufficient number of characters.</value>
-    <comment>Error</comment>
-  </data>
-  <data name="GS1_Error_002" xml:space="preserve">
-    <value>Validation for AI {0} timed out.</value>
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
@@ -147,14 +155,6 @@
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
     <value>The implied decimal point position (inverse exponent) is specified incorrectly.</value>
-    <comment>Error</comment>
-  </data>
-  <data name="GS1_Error_001" xml:space="preserve">
-    <value>No data provided.</value>
-    <comment>Error</comment>
-  </data>
-  <data name="GS1_Error_003" xml:space="preserve">
-    <value>No entity value provided for AI {0}.</value>
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_011" xml:space="preserve">

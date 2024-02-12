@@ -118,67 +118,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="GS1_Error_001" xml:space="preserve">
-    <value>No data provided.</value>
-    <comment>Error</comment>
+    <value>Nebyla poskytnuta žádná data.</value>
   </data>
   <data name="GS1_Error_002" xml:space="preserve">
-    <value>Validation for AI {0} timed out.</value>
-    <comment>Error</comment>
+    <value>Validace pro AI {0} vypršela.</value>
   </data>
   <data name="GS1_Error_003" xml:space="preserve">
-    <value>No entity value provided for AI {0}.</value>
-    <comment>Error</comment>
+    <value>Nebyla poskytnuta hodnota entity pro AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Entity is incorrectly terminated with an FNC1.</value>
-    <comment>Error</comment>
+    <value>Entita je ukončena nesprávně s FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Fixed-width entity does not contain sufficient number of characters.</value>
-    <comment>Error</comment>
+    <value>Entita pevné šířky neobsahuje dostatečný počet znaků.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
-    <value>The value{0} is invalid for AI {1}.</value>
-    <comment>Error</comment>
+    <value>Hodnota{0} je neplatná pro AI {1}.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Invalid application identifier {0}.</value>
-    <comment>Error</comment>
+    <value>Neplatný identifikátor aplikace {0}.</value>
   </data>
   <data name="GS1_Error_008" xml:space="preserve">
-    <value>The value{0} has an invalid checksum.</value>
-    <comment>Error</comment>
+    <value>Hodnota{0} má neplatný kontrolní součet.</value>
   </data>
   <data name="GS1_Error_009" xml:space="preserve">
-    <value>The value{0} does not match the specified pattern for the data element.</value>
-    <comment>Error</comment>
+    <value>Hodnota{0} neodpovídá specifikovanému vzoru pro datový prvek.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
-    <value>The implied decimal point position (inverse exponent) is specified incorrectly.</value>
-    <comment>Error</comment>
+    <value>Pozice implikované desetinné čárky (inverzní exponent) je specifikována nesprávně.</value>
   </data>
   <data name="GS1_Error_011" xml:space="preserve">
-    <value>The value{0} does not conform to the IBAN standard.</value>
-    <comment>Error</comment>
+    <value>Hodnota{0} neodpovídá standardu IBAN.</value>
   </data>
   <data name="GS1_Error_012" xml:space="preserve">
-    <value>The value{0} does not match the pattern specified for IBAN numbers for {1}.</value>
-    <comment>Error</comment>
+    <value>Hodnota{0} neodpovídá vzoru specifikovanému pro čísla IBAN pro {1}.</value>
   </data>
   <data name="GS1_Error_013" xml:space="preserve">
-    <value>The value{0} matches the pattern specified for {1} that is currently in development and not catalogued for general international use.</value>
-    <comment>Error</comment>
+    <value>Hodnota{0} odpovídá vzoru specifikovanému pro {1}, který je v současné době ve vývoji a není katalogizován pro obecné mezinárodní použití.</value>
   </data>
   <data name="GS1_Error_014" xml:space="preserve">
-    <value>The IBAN value{0} contains incorrect check digits.</value>
-    <comment>Error</comment>
+    <value>Hodnota IBAN {0} obsahuje nesprávné kontrolní číslice.</value>
   </data>
   <data name="GS1_Error_015" xml:space="preserve">
-    <value>The value{0} does not match the pattern specified for North American coupons.</value>
-    <comment>Error</comment>
+    <value>Hodnota{0} neodpovídá vzoru specifikovanému pro severoamerické kupóny.</value>
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
-    <value>The value{0} does not match the pattern specified for North American positive offer file coupons.</value>
-    <comment>Error</comment>
+    <value>Hodnota{0} neodpovídá vzoru specifikovanému pro severoamerické kupóny s pozitivní nabídkovou souborovou.</value>
   </data>
 </root>

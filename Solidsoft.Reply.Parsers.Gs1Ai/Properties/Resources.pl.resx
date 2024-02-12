@@ -118,67 +118,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="GS1_Error_001" xml:space="preserve">
-    <value>No data provided.</value>
-    <comment>Error</comment>
+    <value>Nie dostarczono danych.</value>
   </data>
   <data name="GS1_Error_002" xml:space="preserve">
-    <value>Validation for AI {0} timed out.</value>
-    <comment>Error</comment>
+    <value>Walidacja dla identyfikatora AI {0} przekroczyła limit czasu.</value>
   </data>
   <data name="GS1_Error_003" xml:space="preserve">
-    <value>No entity value provided for AI {0}.</value>
-    <comment>Error</comment>
+    <value>Nie podano wartości jednostki dla identyfikatora AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Entity is incorrectly terminated with an FNC1.</value>
-    <comment>Error</comment>
+    <value>Jednostka jest nieprawidłowo zakończona kodem FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Fixed-width entity does not contain sufficient number of characters.</value>
-    <comment>Error</comment>
+    <value>Jednostka o stałej szerokości nie zawiera wystarczającej liczby znaków.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
-    <value>The value{0} is invalid for AI {1}.</value>
-    <comment>Error</comment>
+    <value>Wartość{0} jest nieprawidłowa dla identyfikatora AI {1}.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Invalid application identifier {0}.</value>
-    <comment>Error</comment>
+    <value>Nieprawidłowy identyfikator aplikacji {0}.</value>
   </data>
   <data name="GS1_Error_008" xml:space="preserve">
-    <value>The value{0} has an invalid checksum.</value>
-    <comment>Error</comment>
+    <value>Wartość{0} posiada nieprawidłową sumę kontrolną.</value>
   </data>
   <data name="GS1_Error_009" xml:space="preserve">
-    <value>The value{0} does not match the specified pattern for the data element.</value>
-    <comment>Error</comment>
+    <value>Wartość{0} nie odpowiada określonemu wzorcowi dla elementu danych.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
-    <value>The implied decimal point position (inverse exponent) is specified incorrectly.</value>
-    <comment>Error</comment>
+    <value>Pozycja domniemanego przecinka dziesiętnego (odwrotny wykładnik) jest określona nieprawidłowo.</value>
   </data>
   <data name="GS1_Error_011" xml:space="preserve">
-    <value>The value{0} does not conform to the IBAN standard.</value>
-    <comment>Error</comment>
+    <value>Wartość{0} nie jest zgodna ze standardem IBAN.</value>
   </data>
   <data name="GS1_Error_012" xml:space="preserve">
-    <value>The value{0} does not match the pattern specified for IBAN numbers for {1}.</value>
-    <comment>Error</comment>
+    <value>Wartość{0} nie odpowiada wzorcowi określonemu dla numerów IBAN dla {1}.</value>
   </data>
   <data name="GS1_Error_013" xml:space="preserve">
-    <value>The value{0} matches the pattern specified for {1} that is currently in development and not catalogued for general international use.</value>
-    <comment>Error</comment>
+    <value>Wartość{0} odpowiada wzorcowi określonemu dla {1}, który jest obecnie w fazie rozwoju i nie jest jeszcze katalogowany do ogólnego międzynarodowego użytku.</value>
   </data>
   <data name="GS1_Error_014" xml:space="preserve">
-    <value>The IBAN value{0} contains incorrect check digits.</value>
-    <comment>Error</comment>
+    <value>Wartość IBAN{0} zawiera nieprawidłowe cyfry kontrolne.</value>
   </data>
   <data name="GS1_Error_015" xml:space="preserve">
-    <value>The value{0} does not match the pattern specified for North American coupons.</value>
-    <comment>Error</comment>
+    <value>Wartość{0} nie odpowiada wzorcowi określonemu dla kuponów północnoamerykańskich.</value>
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
-    <value>The value{0} does not match the pattern specified for North American positive offer file coupons.</value>
-    <comment>Error</comment>
+    <value>Wartość{0} nie odpowiada wzorcowi określonemu dla północnoamerykańskich kuponów z ofertami pozytywnymi.</value>
   </data>
 </root>

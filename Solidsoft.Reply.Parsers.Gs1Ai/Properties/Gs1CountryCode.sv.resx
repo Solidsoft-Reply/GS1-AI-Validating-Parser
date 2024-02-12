@@ -118,25 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Albania" xml:space="preserve">
-    <value>Albania</value>
+    <value>Albanien</value>
   </data>
   <data name="Algeria" xml:space="preserve">
-    <value>Algeria</value>
+    <value>Algeriet</value>
   </data>
   <data name="Argentina" xml:space="preserve">
     <value>Argentina</value>
   </data>
   <data name="Armenia" xml:space="preserve">
-    <value>Armenia</value>
+    <value>Armenien</value>
   </data>
   <data name="Australia" xml:space="preserve">
-    <value>Australia</value>
+    <value>Australien</value>
   </data>
   <data name="Austria" xml:space="preserve">
-    <value>Austria</value>
+    <value>Österrike</value>
   </data>
   <data name="Azerbaijan" xml:space="preserve">
-    <value>Azerbaijan</value>
+    <value>Azerbajdzjan</value>
   </data>
   <data name="Bahrain" xml:space="preserve">
     <value>Bahrain</value>
@@ -145,10 +145,10 @@
     <value>Bangladesh</value>
   </data>
   <data name="Belarus" xml:space="preserve">
-    <value>Belarus</value>
+    <value>Vitryssland</value>
   </data>
   <data name="BelgiumAndLuxembourg" xml:space="preserve">
-    <value>Belgium And Luxembourg</value>
+    <value>Belgien och Luxemburg</value>
   </data>
   <data name="Bolivia" xml:space="preserve">
     <value>Bolivia</value>
@@ -157,25 +157,25 @@
     <value>Bookland (ISBN)</value>
   </data>
   <data name="BooklandIsbnIsmn" xml:space="preserve">
-    <value>Bookland (ISBN) - sheet music (ISMN-13)</value>
+    <value>Bookland (ISBN) - notblad (ISMN-13)</value>
   </data>
   <data name="BosniaAndHerzegovina" xml:space="preserve">
-    <value>Bosnia and Herzegovina</value>
+    <value>Bosnien och Hercegovina</value>
   </data>
   <data name="Brazil" xml:space="preserve">
-    <value>Brazil</value>
+    <value>Brasilien</value>
   </data>
   <data name="Brunei" xml:space="preserve">
     <value>Brunei</value>
   </data>
   <data name="Bulgaria" xml:space="preserve">
-    <value>Bulgaria</value>
+    <value>Bulgarien</value>
   </data>
   <data name="Cambodia" xml:space="preserve">
-    <value>Cambodia</value>
+    <value>Kambodja</value>
   </data>
   <data name="Canada" xml:space="preserve">
-    <value>Canada</value>
+    <value>Kanada</value>
   </data>
   <data name="Chile" xml:space="preserve">
     <value>Chile</value>
@@ -187,67 +187,67 @@
     <value>Costa Rica</value>
   </data>
   <data name="CouponIdentification" xml:space="preserve">
-    <value>Coupon identification</value>
+    <value>Kupongidentifiering</value>
   </data>
   <data name="CouponIdentificationForCommonCurrencyArea" xml:space="preserve">
-    <value>GS1 coupon identification for common currency areas</value>
+    <value>GS1-kupongidentifiering för gemensamma valutaområden</value>
   </data>
   <data name="Croatia" xml:space="preserve">
-    <value>Croatia</value>
+    <value>Kroatien</value>
   </data>
   <data name="Cuba" xml:space="preserve">
-    <value>Cuba</value>
+    <value>Kuba</value>
   </data>
   <data name="Cyprus" xml:space="preserve">
-    <value>Cyprus</value>
+    <value>Cypern</value>
   </data>
   <data name="CzechRepublic" xml:space="preserve">
-    <value>Czech Republic</value>
+    <value>Svenska republiken</value>
   </data>
   <data name="DenmarkFaroeIslandsAndGreenland" xml:space="preserve">
-    <value>Denmark, Faroe Islands and Greenland</value>
+    <value>Danmark, Färöarna och Grönland</value>
   </data>
   <data name="DominicanRepublic" xml:space="preserve">
-    <value>Dominican Republic</value>
+    <value>Dominikanska republiken</value>
   </data>
   <data name="Ecuador" xml:space="preserve">
     <value>Ecuador</value>
   </data>
   <data name="Egypt" xml:space="preserve">
-    <value>Egypt</value>
+    <value>Egypten</value>
   </data>
   <data name="ElSalvador" xml:space="preserve">
     <value>El Salvador</value>
   </data>
   <data name="Estonia" xml:space="preserve">
-    <value>Estonia</value>
+    <value>Estland</value>
   </data>
   <data name="Finland" xml:space="preserve">
-    <value>Finland     </value>
+    <value>Finland</value>
   </data>
   <data name="FranceAndMonaco" xml:space="preserve">
-    <value>France and Monaco</value>
+    <value>Frankrike och Monaco</value>
   </data>
   <data name="GeneralManagerNumber" xml:space="preserve">
-    <value>General Manager Numbers for the EPC General Identifier (GID) scheme as defined by the EPC Tag Data Standard</value>
+    <value>Allmänna chefnummer för EPC:s allmänna identifieringssystem (GID) som definierats av EPC Tag Data Standard</value>
   </data>
   <data name="Georgia" xml:space="preserve">
-    <value>Georgia</value>
+    <value>Georgien</value>
   </data>
   <data name="Germany" xml:space="preserve">
-    <value>Germany</value>
+    <value>Spanien</value>
   </data>
   <data name="Ghana" xml:space="preserve">
     <value>Ghana</value>
   </data>
   <data name="GlobalOffice" xml:space="preserve">
-    <value>Global Office - special application</value>
+    <value>Globalt kontor - speciell tillämpning</value>
   </data>
   <data name="GlobalOfficeGtin8Allocation" xml:space="preserve">
-    <value>GS1 Global Office: GTIN-8 allocation</value>
+    <value>GS1 Globalt kontor: GTIN-8-tilldelning</value>
   </data>
   <data name="Greece" xml:space="preserve">
-    <value>Greece</value>
+    <value>Grekland</value>
   </data>
   <data name="Guatemala" xml:space="preserve">
     <value>Guatemala</value>
@@ -256,46 +256,46 @@
     <value>Honduras</value>
   </data>
   <data name="HongKong" xml:space="preserve">
-    <value>Hong Kong</value>
+    <value>Hongkong</value>
   </data>
   <data name="Hungary" xml:space="preserve">
-    <value>Hungary     </value>
+    <value>Ungern</value>
   </data>
   <data name="Iceland" xml:space="preserve">
-    <value>Iceland</value>
+    <value>Island</value>
   </data>
   <data name="India" xml:space="preserve">
-    <value>India</value>
+    <value>Indien</value>
   </data>
   <data name="Indonesia" xml:space="preserve">
-    <value>Indonesia</value>
+    <value>Indonesien</value>
   </data>
   <data name="Iran" xml:space="preserve">
     <value>Iran</value>
   </data>
   <data name="Ireland" xml:space="preserve">
-    <value>Ireland</value>
+    <value>Irland</value>
   </data>
   <data name="Israel" xml:space="preserve">
     <value>Israel</value>
   </data>
   <data name="ItalySanMarinoAndVaticanCity" xml:space="preserve">
-    <value>Italy, San Marino and Vatican City</value>
+    <value>Italien, San Marino och Vatikanstaten</value>
   </data>
   <data name="IvoryCoast" xml:space="preserve">
-    <value>Ivory Coast</value>
+    <value>Elfenbenskusten</value>
   </data>
   <data name="Japan" xml:space="preserve">
-    <value>Japan (new Japanese Article Number range)</value>
+    <value>Japan (nytt japanskt artikelnummerspann)</value>
   </data>
   <data name="JapanOriginalJan" xml:space="preserve">
-    <value>Japan (original Japanese Article Number range)</value>
+    <value>Japan (ursprungligt japanskt artikelnummerspann)</value>
   </data>
   <data name="Jordan" xml:space="preserve">
-    <value>Jordan</value>
+    <value>Jordanien</value>
   </data>
   <data name="Kazakhstan" xml:space="preserve">
-    <value>Kazakhstan</value>
+    <value>Kazakstan</value>
   </data>
   <data name="Kenya" xml:space="preserve">
     <value>Kenya</value>
@@ -307,22 +307,22 @@
     <value>Kuwait</value>
   </data>
   <data name="Kyrgyzstan" xml:space="preserve">
-    <value>Kyrgyzstan</value>
+    <value>Kirgizistan</value>
   </data>
   <data name="Latvia" xml:space="preserve">
-    <value>Latvia</value>
+    <value>Lettland</value>
   </data>
   <data name="Lebanon" xml:space="preserve">
-    <value>Lebanon</value>
+    <value>Libanon</value>
   </data>
   <data name="Libya" xml:space="preserve">
-    <value>Libya</value>
+    <value>Libyen</value>
   </data>
   <data name="Lithuania" xml:space="preserve">
-    <value>Lithuania</value>
+    <value>Litauen</value>
   </data>
   <data name="Macau" xml:space="preserve">
-    <value>Macau</value>
+    <value>Macao</value>
   </data>
   <data name="Malaysia" xml:space="preserve">
     <value>Malaysia</value>
@@ -334,25 +334,25 @@
     <value>Mauritius</value>
   </data>
   <data name="Mexico" xml:space="preserve">
-    <value>Mexico</value>
+    <value>Mexiko</value>
   </data>
   <data name="Moldova" xml:space="preserve">
-    <value>Moldova</value>
+    <value>Moldavien</value>
   </data>
   <data name="Mongolia" xml:space="preserve">
-    <value>Mongolia</value>
+    <value>Mongoliet</value>
   </data>
   <data name="Montenegro" xml:space="preserve">
     <value>Montenegro</value>
   </data>
   <data name="Morocco" xml:space="preserve">
-    <value>Morocco</value>
+    <value>Marocko</value>
   </data>
   <data name="Netherlands" xml:space="preserve">
-    <value>Netherlands</value>
+    <value>Nederländerna</value>
   </data>
   <data name="NewZealand" xml:space="preserve">
-    <value>New Zealand</value>
+    <value>Nya Zeeland</value>
   </data>
   <data name="Nicaragua" xml:space="preserve">
     <value>Nicaragua</value>
@@ -361,13 +361,13 @@
     <value>Nigeria</value>
   </data>
   <data name="NorthKorea" xml:space="preserve">
-    <value>North Korea</value>
+    <value>Nordkorea</value>
   </data>
   <data name="NorthMacedonia" xml:space="preserve">
-    <value>Macedonia</value>
+    <value>Makedonien</value>
   </data>
   <data name="Norway" xml:space="preserve">
-    <value>Norway</value>
+    <value>Norge</value>
   </data>
   <data name="Pakistan" xml:space="preserve">
     <value>Pakistan</value>
@@ -379,79 +379,79 @@
     <value>Paraguay</value>
   </data>
   <data name="PeoplesRepublicOfChina" xml:space="preserve">
-    <value>Peoples Republic of China</value>
+    <value>Folkrepubliken Kina</value>
   </data>
   <data name="Peru" xml:space="preserve">
     <value>Peru</value>
   </data>
   <data name="Philippines" xml:space="preserve">
-    <value>Philippines</value>
+    <value>Filippinerna</value>
   </data>
   <data name="Poland" xml:space="preserve">
-    <value>Poland</value>
+    <value>Polen</value>
   </data>
   <data name="Portugal" xml:space="preserve">
     <value>Portugal</value>
   </data>
   <data name="RefundReceipt" xml:space="preserve">
-    <value>Refund Receipt</value>
+    <value>Återbetalningskvitto</value>
   </data>
   <data name="RestrictedCirculation" xml:space="preserve">
-    <value>Used to issue a GS1 restricted circulation number within a geographic region</value>
+    <value>Används för att utfärda GS1 begränsade cirkulationsnummer inom en geografisk region</value>
   </data>
   <data name="Romania" xml:space="preserve">
-    <value>Romania</value>
+    <value>Rumänien</value>
   </data>
   <data name="Russia" xml:space="preserve">
-    <value>Russia</value>
+    <value>Ryssland</value>
   </data>
   <data name="SaudiArabia" xml:space="preserve">
-    <value>Saudi Arabia</value>
+    <value>Saudiarabien</value>
   </data>
   <data name="Senegal" xml:space="preserve">
     <value>Senegal</value>
   </data>
   <data name="Serbia" xml:space="preserve">
-    <value>Serbia</value>
+    <value>Serbien</value>
   </data>
   <data name="SerialPublicationIssn" xml:space="preserve">
-    <value>Serial publications (ISSN)</value>
+    <value>Seriella publikationer (ISSN)</value>
   </data>
   <data name="Singapore" xml:space="preserve">
     <value>Singapore</value>
   </data>
   <data name="Slovakia" xml:space="preserve">
-    <value>Slovakia</value>
+    <value>Slovakien</value>
   </data>
   <data name="Slovenia" xml:space="preserve">
-    <value>Slovenia</value>
+    <value>Slovenien</value>
   </data>
   <data name="SouthAfrica" xml:space="preserve">
-    <value>South Africa</value>
+    <value>Sydafrika</value>
   </data>
   <data name="SouthKorea" xml:space="preserve">
-    <value>South Korea</value>
+    <value>Sydkorea</value>
   </data>
   <data name="SpainAndAndorra" xml:space="preserve">
-    <value>Spain and Andorra</value>
+    <value>Spanien och Andorra</value>
   </data>
   <data name="SriLanka" xml:space="preserve">
     <value>Sri Lanka</value>
   </data>
   <data name="Sweden" xml:space="preserve">
-    <value>Sweden</value>
+    <value>Sverige</value>
   </data>
   <data name="SwitzerlandAndLiechtenstein" xml:space="preserve">
-    <value>Switzerland and Liechtenstein</value>
+    <value>Schweiz och Liechtenstein</value>
   </data>
   <data name="Syria" xml:space="preserve">
-    <value>Syria</value>
+    <value>Syrien</value>
   </data>
   <data name="Taiwan" xml:space="preserve">
-    <value>Republic of China (Taiwan)</value>
+    <value>Republiken Kina (Taiwan)</value>
   </data>
   <data name="Tajikistan" xml:space="preserve">
-    <value>Tajikistan</value>
+    <value>Tadzjikistan</value>
   </data>
   <data name="Tanzania" xml:space="preserve">
     <value>Tanzania</value>
@@ -460,49 +460,49 @@
     <value>Thailand</value>
   </data>
   <data name="Tunisia" xml:space="preserve">
-    <value>Tunisia</value>
+    <value>Tunisien</value>
   </data>
   <data name="Turkey" xml:space="preserve">
-    <value>Turkey</value>
+    <value>Turkiet</value>
   </data>
   <data name="Turkmenistan" xml:space="preserve">
     <value>Turkmenistan</value>
   </data>
   <data name="Ukraine" xml:space="preserve">
-    <value>Ukraine</value>
+    <value>Ukraina</value>
   </data>
   <data name="UnitedArabEmirates" xml:space="preserve">
-    <value>United Arab Emirates</value>
+    <value>Förenade Arabemiraten</value>
   </data>
   <data name="UnitedKingdom" xml:space="preserve">
-    <value>United Kingdom</value>
+    <value>Storbritannien</value>
   </data>
   <data name="UnitedKingdomOfficeGtin8Allocation" xml:space="preserve">
-    <value>GS1 UK Office: GTIN-8 allocation</value>
+    <value>GS1 UK-kontoret: GTIN-8-tilldelning</value>
   </data>
   <data name="UnitedStates" xml:space="preserve">
-    <value>United States</value>
+    <value>USA</value>
   </data>
   <data name="Unknown" xml:space="preserve">
-    <value>Reserved by GS1 Global Office for allocations in non-member countries and for future use</value>
+    <value>Reserverad av GS1 Global Office för tillsättningar i icke-medlemsländer och för framtida användning</value>
   </data>
   <data name="UpcACompatibleGtin8" xml:space="preserve">
-    <value>UPC-A compatible (GTIN 8)</value>
+    <value>UPC-A-kompatibel (GTIN 8)</value>
   </data>
   <data name="UpcACompatibleRestrictedCirculation" xml:space="preserve">
-    <value>UPC-A compatible - Used to issue restricted circulation numbers within a geographic region</value>
+    <value>UPC-A-kompatibel - Används för att utfärda begränsade cirkulationsnummer inom en geografisk region</value>
   </data>
   <data name="UpcACompatibleUnitedStatesAndCanada" xml:space="preserve">
-    <value>UPC-A compatible - United States and Canada</value>
+    <value>UPC-A-kompatibel - USA och Kanada</value>
   </data>
   <data name="UpcACompatibleUnitedStatesDrugs" xml:space="preserve">
-    <value>UPC-A compatible -  United States drugs (National Drug Code)</value>
+    <value>UPC-A-kompatibel - USA:s läkemedel (National Drug Code)</value>
   </data>
   <data name="UpcACompatibleUnitedStatesReserved" xml:space="preserve">
-    <value>UPC-A compatible - United States reserved for future use</value>
+    <value>UPC-A-kompatibel - USA reserverad för framtida användning</value>
   </data>
   <data name="Uruguay" xml:space="preserve">
-    <value>Uruguay     </value>
+    <value>Uruguay</value>
   </data>
   <data name="Uzbekistan" xml:space="preserve">
     <value>Uzbekistan</value>
