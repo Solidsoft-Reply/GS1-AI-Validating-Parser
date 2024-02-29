@@ -144,9 +144,6 @@
 	  <EmbeddedResource Update="Properties\Gs1CountryCode.pt.resx">
       <DependentUpon>Gs1CountryCode.resx</DependentUpon>
 	  </EmbeddedResource>
-	  <EmbeddedResource Update="Properties\Gs1CountryCode.rm.resx">
-      <DependentUpon>Gs1CountryCode.resx</DependentUpon>
-	  </EmbeddedResource>
 	  <EmbeddedResource Update="Properties\Gs1CountryCode.ro.resx">
       <DependentUpon>Gs1CountryCode.resx</DependentUpon>
 	  </EmbeddedResource>
@@ -227,9 +224,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
 	</EmbeddedResource>
 	<EmbeddedResource Update="Properties\Resources.pt.resx">
-      <DependentUpon>Resources.resx</DependentUpon>
-	</EmbeddedResource>
-	<EmbeddedResource Update="Properties\Resources.rm.resx">
       <DependentUpon>Resources.resx</DependentUpon>
 	</EmbeddedResource>
 	<EmbeddedResource Update="Properties\Resources.ro.resx">
