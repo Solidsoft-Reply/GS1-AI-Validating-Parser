@@ -1,0 +1,705 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ai00" xml:space="preserve">
+    <value>Αναγνώριση λογιστικής μονάδας (SSCC)</value>
+  </data>
+  <data name="ai01" xml:space="preserve">
+    <value>Αναγνώριση εμπορικού αντικειμένου (GTIN)</value>
+  </data>
+  <data name="ai02" xml:space="preserve">
+    <value>Αναγνώριση εμπορικών αντικειμένων που περιέχονται σε μια λογιστική μονάδα</value>
+  </data>
+  <data name="ai10" xml:space="preserve">
+    <value>Αριθμός παρτίδας ή σειράς</value>
+  </data>
+  <data name="ai11" xml:space="preserve">
+    <value>Ημερομηνία παραγωγής</value>
+  </data>
+  <data name="ai12" xml:space="preserve">
+    <value>Ημερομηνία λήξης για ποσό σε απόδειξη πληρωμής</value>
+  </data>
+  <data name="ai13" xml:space="preserve">
+    <value>Ημερομηνία συσκευασίας</value>
+  </data>
+  <data name="ai15" xml:space="preserve">
+    <value>Ημερομηνία λήξης προτεινόμενης κατανάλωσης</value>
+  </data>
+  <data name="ai16" xml:space="preserve">
+    <value>Ημερομηνία πώλησης</value>
+  </data>
+  <data name="ai17" xml:space="preserve">
+    <value>Ημερομηνία λήξης</value>
+  </data>
+  <data name="ai20" xml:space="preserve">
+    <value>Εσωτερική παραλλαγή προϊόντος</value>
+  </data>
+  <data name="ai21" xml:space="preserve">
+    <value>Σειριακός αριθμός</value>
+  </data>
+  <data name="ai22" xml:space="preserve">
+    <value>Παραλλαγή προϊόντος για τον καταναλωτή</value>
+  </data>
+  <data name="ai235" xml:space="preserve">
+    <value>Ελεγχόμενη από Τρίτους, Σειριοποιημένη Επέκταση του Παγκόσμιου Αριθμού Εμπορικού Αντικειμένου (GTIN) (TPX)</value>
+  </data>
+  <data name="ai240" xml:space="preserve">
+    <value>Πρόσθετη ταυτοποίηση προϊόντος που ανατέθηκε από τον κατασκευαστή</value>
+  </data>
+  <data name="ai241" xml:space="preserve">
+    <value>Αριθμός μέρους πελάτη</value>
+  </data>
+  <data name="ai242" xml:space="preserve">
+    <value>Αριθμός παραλλαγής κατά παραγγελία</value>
+  </data>
+  <data name="ai243" xml:space="preserve">
+    <value>Αριθμός συστατικού συσκευασίας</value>
+  </data>
+  <data name="ai250" xml:space="preserve">
+    <value>Δευτερεύων σειριακός αριθμός</value>
+  </data>
+  <data name="ai251" xml:space="preserve">
+    <value>Αναφορά σε πηγαία οντότητα</value>
+  </data>
+  <data name="ai253" xml:space="preserve">
+    <value>Παγκόσμιος Αναγνωριστικός Τύπος Εγγράφου (GDTI)</value>
+  </data>
+  <data name="ai254" xml:space="preserve">
+    <value>Συστατικό επέκτασης Παγκόσμιου Αριθμού Τοποθεσίας (GLN)</value>
+  </data>
+  <data name="ai255" xml:space="preserve">
+    <value>Παγκόσμιος Αριθμός Κουπονιού (GCN)</value>
+  </data>
+  <data name="ai30" xml:space="preserve">
+    <value>Μεταβλητός αριθμός αντικειμένων</value>
+  </data>
+  <data name="ai310n" xml:space="preserve">
+    <value>Καθαρό βάρος, κιλά (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai311n" xml:space="preserve">
+    <value>Μήκος ή πρώτη διάσταση, μέτρα (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai312n" xml:space="preserve">
+    <value>Πλάτος, διάμετρος ή δεύτερη διάσταση, μέτρα (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai313n" xml:space="preserve">
+    <value>Βάθος, πάχος, ύψος ή τρίτη διάσταση, μέτρα (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai314n" xml:space="preserve">
+    <value>Εμβαδόν, τετραγωνικά μέτρα (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai315n" xml:space="preserve">
+    <value>Καθαρός όγκος, λίτρα (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai316n" xml:space="preserve">
+    <value>Καθαρός όγκος, κυβικά μέτρα (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai320n" xml:space="preserve">
+    <value>Καθαρό βάρος, λίβρες (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai321n" xml:space="preserve">
+    <value>Μήκος ή πρώτη διάσταση, ίντσες (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai322n" xml:space="preserve">
+    <value>Μήκος ή πρώτη διάσταση, πόδια (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai323n" xml:space="preserve">
+    <value>Μήκος ή πρώτη διάσταση, γιάρδες (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai324n" xml:space="preserve">
+    <value>Πλάτος, διάμετρος ή δεύτερη διάσταση, ίντσες (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai325n" xml:space="preserve">
+    <value>Πλάτος, διάμετρος ή δεύτερη διάσταση, πόδια (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai326n" xml:space="preserve">
+    <value>Πλάτος, διάμετρος ή δεύτερη διάσταση, γιάρδες (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai327n" xml:space="preserve">
+    <value>Βάθος, πάχος, ύψος ή τρίτη διάσταση, ίντσες (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai328n" xml:space="preserve">
+    <value>Βάθος, πάχος, ύψος ή τρίτη διάσταση, πόδια (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai329n" xml:space="preserve">
+    <value>Βάθος, πάχος, ύψος ή τρίτη διάσταση, γιάρδες (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai330n" xml:space="preserve">
+    <value>Λογιστικό βάρος, κιλά</value>
+  </data>
+  <data name="ai331n" xml:space="preserve">
+    <value>Μήκος ή πρώτη διάσταση, μέτρα</value>
+  </data>
+  <data name="ai332n" xml:space="preserve">
+    <value>Πλάτος, διάμετρος ή δεύτερη διάσταση, μέτρα</value>
+  </data>
+  <data name="ai333n" xml:space="preserve">
+    <value>Βάθος, πάχος, ύψος ή τρίτη διάσταση, μέτρα</value>
+  </data>
+  <data name="ai334n" xml:space="preserve">
+    <value>Εμβαδόν, τετραγωνικά μέτρα</value>
+  </data>
+  <data name="ai335n" xml:space="preserve">
+    <value>Λογιστικός όγκος, λίτρα</value>
+  </data>
+  <data name="ai336n" xml:space="preserve">
+    <value>Λογιστικός όγκος, κυβικά μέτρα</value>
+  </data>
+  <data name="ai337n" xml:space="preserve">
+    <value>Κιλά ανά τετραγωνικό μέτρο</value>
+  </data>
+  <data name="ai340n" xml:space="preserve">
+    <value>Λογιστικό βάρος, λίβρες</value>
+  </data>
+  <data name="ai341n" xml:space="preserve">
+    <value>Μήκος ή πρώτη διάσταση, ίντσες</value>
+  </data>
+  <data name="ai342n" xml:space="preserve">
+    <value>Μήκος ή πρώτη διάσταση, πόδια</value>
+  </data>
+  <data name="ai343n" xml:space="preserve">
+    <value>Μήκος ή πρώτη διάσταση, γιάρδες</value>
+  </data>
+  <data name="ai344n" xml:space="preserve">
+    <value>Πλάτος, διάμετρος ή δεύτερη διάσταση, ίντσες</value>
+  </data>
+  <data name="ai345n" xml:space="preserve">
+    <value>Πλάτος, διάμετρος ή δεύτερη διάσταση, πόδια</value>
+  </data>
+  <data name="ai346n" xml:space="preserve">
+    <value>Πλάτος, διάμετρος ή δεύτερη διάσταση, yard</value>
+  </data>
+  <data name="ai347n" xml:space="preserve">
+    <value>Βάθος, πάχος, ύψος ή τρίτη διάσταση, ίντσες</value>
+  </data>
+  <data name="ai348n" xml:space="preserve">
+    <value>Βάθος, πάχος, ύψος ή τρίτη διάσταση, πόδια</value>
+  </data>
+  <data name="ai349n" xml:space="preserve">
+    <value>Βάθος, πάχος, ύψος ή τρίτη διάσταση, γιάρδες</value>
+  </data>
+  <data name="ai350n" xml:space="preserve">
+    <value>Εμβαδόν, τετραγωνικές ίντσες (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai351n" xml:space="preserve">
+    <value>Εμβαδόν, τετραγωνικά πόδια (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai352n" xml:space="preserve">
+    <value>Εμβαδόν, τετραγωνικές γιάρδες (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai353n" xml:space="preserve">
+    <value>Εμβαδόν, τετραγωνικές ίντσες</value>
+  </data>
+  <data name="ai354n" xml:space="preserve">
+    <value>Εμβαδόν, τετραγωνικά πόδια</value>
+  </data>
+  <data name="ai355n" xml:space="preserve">
+    <value>Εμβαδόν, τετραγωνικές γιάρδες</value>
+  </data>
+  <data name="ai356n" xml:space="preserve">
+    <value>Καθαρό βάρος, τροιανές ουγγιές (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai357n" xml:space="preserve">
+    <value>Καθαρό βάρος (ή όγκος), ουγγιές (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai360n" xml:space="preserve">
+    <value>Καθαρός όγκος, κουάρτες (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai361n" xml:space="preserve">
+    <value>Καθαρός όγκος, γαλόνια ΗΠΑ (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai362n" xml:space="preserve">
+    <value>Λογιστικός όγκος, κουάρτες</value>
+  </data>
+  <data name="ai363n" xml:space="preserve">
+    <value>Λογιστικός όγκος, γαλόνια ΗΠΑ</value>
+  </data>
+  <data name="ai364n" xml:space="preserve">
+    <value>Καθαρός όγκος, κυβικές ίντσες (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai365n" xml:space="preserve">
+    <value>Καθαρός όγκος, κυβικά πόδια (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai366n" xml:space="preserve">
+    <value>Καθαρός όγκος, κυβικές γιάρδες (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai367n" xml:space="preserve">
+    <value>Λογιστικός όγκος, κυβικές ίντσες</value>
+  </data>
+  <data name="ai368n" xml:space="preserve">
+    <value>Λογιστικός όγκος, κυβικά πόδια</value>
+  </data>
+  <data name="ai369n" xml:space="preserve">
+    <value>Λογιστικός όγκος, κυβικές γιάρδες</value>
+  </data>
+  <data name="ai37" xml:space="preserve">
+    <value>Πλήθος εμπορικών αντικειμένων ή κομματιών εμπορικών αντικειμένων που περιέχονται σε μια λογιστική μονάδα</value>
+  </data>
+  <data name="ai390n" xml:space="preserve">
+    <value>Ποσό προς πληρωμή ή αξία κουπονιού - Ενιαία νομισματική περιοχή</value>
+  </data>
+  <data name="ai391n" xml:space="preserve">
+    <value>Ποσό προς πληρωμή και κωδικός νομίσματος ISO</value>
+  </data>
+  <data name="ai392n" xml:space="preserve">
+    <value>Ποσό προς πληρωμή για εμπορικό αντικείμενο μεταβλητής μέτρησης - Ενιαία νομισματική περιοχή</value>
+  </data>
+  <data name="ai393n" xml:space="preserve">
+    <value>Ποσό προς πληρωμή για εμπορικό αντικείμενο μεταβλητής μέτρησης και κωδικός νομίσματος ISO</value>
+  </data>
+  <data name="ai394n" xml:space="preserve">
+    <value>Ποσοστιαία έκπτωση ενός κουπονιού</value>
+  </data>
+  <data name="ai395n" xml:space="preserve">
+    <value>Ποσό προς πληρωμή ανά μονάδα μέτρησης ενιαίας νομισματικής περιοχής (εμπορικό αντικείμενο μεταβλητής μέτρησης)</value>
+  </data>
+  <data name="ai400" xml:space="preserve">
+    <value>Αριθμός παραγγελίας αγοράς πελάτη</value>
+  </data>
+  <data name="ai401" xml:space="preserve">
+    <value>Παγκόσμιος Αριθμός Αναγνώρισης για Αποστολή (GINC)</value>
+  </data>
+  <data name="ai402" xml:space="preserve">
+    <value>Παγκόσμιος Αριθμός Αναγνώρισης Αποστολής (GSIN)</value>
+  </data>
+  <data name="ai403" xml:space="preserve">
+    <value>Κωδικός δρομολόγησης</value>
+  </data>
+  <data name="ai410" xml:space="preserve">
+    <value>Αποστολή σε - Παράδοση σε Παγκόσμιο Αριθμό Τοποθεσίας (GLN)</value>
+  </data>
+  <data name="ai411" xml:space="preserve">
+    <value>Χρέωση σε - Τιμολόγηση σε Παγκόσμιο Αριθμό Τοποθεσίας (GLN)</value>
+  </data>
+  <data name="ai412" xml:space="preserve">
+    <value>Αγορά από Παγκόσμιο Αριθμό Τοποθεσίας (GLN)</value>
+  </data>
+  <data name="ai413" xml:space="preserve">
+    <value>Αποστολή για - Παράδοση για - Προώθηση σε Παγκόσμιο Αριθμό Τοποθεσίας (GLN)</value>
+  </data>
+  <data name="ai414" xml:space="preserve">
+    <value>Αναγνώριση φυσικής τοποθεσίας - Παγκόσμιος Αριθμός Τοποθεσίας (GLN)</value>
+  </data>
+  <data name="ai415" xml:space="preserve">
+    <value>Παγκόσμιος Αριθμός Τοποθεσίας (GLN) του τιμολογούντος</value>
+  </data>
+  <data name="ai416" xml:space="preserve">
+    <value>Παγκόσμιος Αριθμός Τοποθεσίας (GLN) του παραγωγού ή της υπηρεσίας</value>
+  </data>
+  <data name="ai417" xml:space="preserve">
+    <value>Παγκόσμιος Αριθμός Τοποθεσίας (GLN) του συμμετέχοντα</value>
+  </data>
+  <data name="ai420" xml:space="preserve">
+    <value>Ταχυδρομικός κώδικας Αποστολής / Παράδοσης σε μια ενιαία ταχυδρομική αρχή</value>
+  </data>
+  <data name="ai421" xml:space="preserve">
+    <value>Ταχυδρομικός κώδικας Αποστολής / Παράδοσης με τριψήφιο κωδικό χώρας ISO</value>
+  </data>
+  <data name="ai422" xml:space="preserve">
+    <value>Χώρα προέλευσης ενός εμπορικού αντικειμένου</value>
+  </data>
+  <data name="ai423" xml:space="preserve">
+    <value>Χώρα αρχικής επεξεργασίας</value>
+  </data>
+  <data name="ai424" xml:space="preserve">
+    <value>Χώρα επεξεργασίας</value>
+  </data>
+  <data name="ai425" xml:space="preserve">
+    <value>Χώρα διάλυσης</value>
+  </data>
+  <data name="ai426" xml:space="preserve">
+    <value>Χώρα που καλύπτει την πλήρη αλυσίδα διαδικασιών</value>
+  </data>
+  <data name="ai427" xml:space="preserve">
+    <value>Υποδιαίρεση χώρας προέλευσης κωδικού για ένα εμπορικό αντικείμενο</value>
+  </data>
+  <data name="ai4300" xml:space="preserve">
+    <value>Όνομα εταιρείας Αποστολής / Παράδοσης</value>
+  </data>
+  <data name="ai4301" xml:space="preserve">
+    <value>Όνομα επαφής Αποστολής / Παράδοσης</value>
+  </data>
+  <data name="ai4302" xml:space="preserve">
+    <value>Διεύθυνση γραμμής 1 Αποστολής / Παράδοσης</value>
+  </data>
+  <data name="ai4303" xml:space="preserve">
+    <value>Διεύθυνση γραμμής 2 Αποστολής / Παράδοσης</value>
+  </data>
+  <data name="ai4304" xml:space="preserve">
+    <value>Προάστιο Αποστολής / Παράδοσης</value>
+  </data>
+  <data name="ai4305" xml:space="preserve">
+    <value>Τοπικότητα Αποστολής / Παράδοσης</value>
+  </data>
+  <data name="ai4306" xml:space="preserve">
+    <value>Περιοχή Αποστολής / Παράδοσης</value>
+  </data>
+  <data name="ai4307" xml:space="preserve">
+    <value>Κωδικός χώρας Αποστολής / Παράδοσης</value>
+  </data>
+  <data name="ai4308" xml:space="preserve">
+    <value>Τηλεφωνικός αριθμός Αποστολής / Παράδοσης</value>
+  </data>
+  <data name="ai4309" xml:space="preserve">
+    <value>Γεωγραφική τοποθεσία Αποστολής / Παράδοσης</value>
+  </data>
+  <data name="ai4310" xml:space="preserve">
+    <value>Όνομα εταιρείας Επιστροφής</value>
+  </data>
+  <data name="ai4311" xml:space="preserve">
+    <value>Όνομα επαφής Επιστροφής</value>
+  </data>
+  <data name="ai4312" xml:space="preserve">
+    <value>Διεύθυνση γραμμής 1 Επιστροφής</value>
+  </data>
+  <data name="ai4313" xml:space="preserve">
+    <value>Διεύθυνση γραμμής 2 Επιστροφής</value>
+  </data>
+  <data name="ai4314" xml:space="preserve">
+    <value>Προάστιο Επιστροφής</value>
+  </data>
+  <data name="ai4315" xml:space="preserve">
+    <value>Τοπικότητα Επιστροφής</value>
+  </data>
+  <data name="ai4316" xml:space="preserve">
+    <value>Περιοχή Επιστροφής</value>
+  </data>
+  <data name="ai4317" xml:space="preserve">
+    <value>Κωδικός χώρας Επιστροφής</value>
+  </data>
+  <data name="ai4318" xml:space="preserve">
+    <value>Ταχυδρομικός κώδικας Επιστροφής</value>
+  </data>
+  <data name="ai4319" xml:space="preserve">
+    <value>Τηλεφωνικός αριθμός Επιστροφής</value>
+  </data>
+  <data name="ai4320" xml:space="preserve">
+    <value>Περιγραφή κωδικού υπηρεσίας</value>
+  </data>
+  <data name="ai4321" xml:space="preserve">
+    <value>Σημαία επικίνδυνων αγαθών</value>
+  </data>
+  <data name="ai4322" xml:space="preserve">
+    <value>Σημαία εξουσιοδότησης για αφήστε</value>
+  </data>
+  <data name="ai4323" xml:space="preserve">
+    <value>Σημαία απαιτούμενης υπογραφής</value>
+  </data>
+  <data name="ai4324" xml:space="preserve">
+    <value>Όχι πριν από ημερομηνία/ώρα παράδοσης</value>
+  </data>
+  <data name="ai4325" xml:space="preserve">
+    <value>Όχι μετά από ημερομηνία/ώρα παράδοσης</value>
+  </data>
+  <data name="ai4326" xml:space="preserve">
+    <value>Ημερομηνία κυκλοφορίας</value>
+  </data>
+  <data name="ai4330" xml:space="preserve">
+    <value>Μέγιστη θερμοκρασία σε Fahrenheit</value>
+  </data>
+  <data name="ai4331" xml:space="preserve">
+    <value>Μέγιστη θερμοκρασία σε Celsius</value>
+  </data>
+  <data name="ai4332" xml:space="preserve">
+    <value>Ελάχιστη θερμοκρασία σε Fahrenheit</value>
+  </data>
+  <data name="ai4333" xml:space="preserve">
+    <value>Ελάχιστη θερμοκρασία σε Celsius</value>
+  </data>
+  <data name="ai7001" xml:space="preserve">
+    <value>Αριθμός Αποθεμάτων ΝΑΤΟ (NSN)</value>
+  </data>
+  <data name="ai7002" xml:space="preserve">
+    <value>Ταξινόμηση UNECE καρκινώματα κρέατος και κοπές</value>
+  </data>
+  <data name="ai7003" xml:space="preserve">
+    <value>Ημερομηνία και ώρα λήξης</value>
+  </data>
+  <data name="ai7004" xml:space="preserve">
+    <value>Ενεργή δραστικότητα</value>
+  </data>
+  <data name="ai7005" xml:space="preserve">
+    <value>Περιοχή αλιείας</value>
+  </data>
+  <data name="ai7006" xml:space="preserve">
+    <value>Πρώτη ημερομηνία παγώματος</value>
+  </data>
+  <data name="ai7007" xml:space="preserve">
+    <value>Ημερομηνία συγκομιδής</value>
+  </data>
+  <data name="ai7008" xml:space="preserve">
+    <value>Είδη για αλιευτικούς σκοπούς</value>
+  </data>
+  <data name="ai7009" xml:space="preserve">
+    <value>Τύπος αλιευτικού εξοπλισμού</value>
+  </data>
+  <data name="ai7010" xml:space="preserve">
+    <value>Μέθοδος παραγωγής</value>
+  </data>
+  <data name="ai7011" xml:space="preserve">
+    <value>Ημερομηνία δοκιμής</value>
+  </data>
+  <data name="ai7020" xml:space="preserve">
+    <value>ID λοτ ανακαίνισης</value>
+  </data>
+  <data name="ai7021" xml:space="preserve">
+    <value>Λειτουργική κατάσταση</value>
+  </data>
+  <data name="ai7022" xml:space="preserve">
+    <value>Κατάσταση αναθεώρησης</value>
+  </data>
+  <data name="ai7023" xml:space="preserve">
+    <value>Παγκόσμιος Ατομικός Αναγνωριστικός Κωδικός Συναρμολόγησης</value>
+  </data>
+  <data name="ai703s" xml:space="preserve">
+    <value>Αριθμός επεξεργαστή με τριψήφιο κωδικό χώρας ISO</value>
+  </data>
+  <data name="ai7040" xml:space="preserve">
+    <value>GS1 UIC με Επέκταση 1 και Δείκτη Εισαγωγέα</value>
+  </data>
+  <data name="ai710" xml:space="preserve">
+    <value>Εθνικός Αριθμός Επιστροφής Υγειονομικής Φροντίδας (NHRN) - Ελλάδα PZN</value>
+  </data>
+  <data name="ai711" xml:space="preserve">
+    <value>Εθνικός Αριθμός Επιστροφής Υγειονομικής Φροντίδας (NHRN) - Γαλλία CIP</value>
+  </data>
+  <data name="ai712" xml:space="preserve">
+    <value>Εθνικός Αριθμός Επιστροφής Υγειονομικής Φροντίδας (NHRN) - Ισπανία CN</value>
+  </data>
+  <data name="ai713" xml:space="preserve">
+    <value>Εθνικός Αριθμός Επιστροφής Υγειονομικής Φροντίδας (NHRN) - Βραζιλία DRN</value>
+  </data>
+  <data name="ai714" xml:space="preserve">
+    <value>Εθνικός Αριθμός Επιστροφής Υγειονομικής Φροντίδας (NHRN) - Πορτογαλία AIM</value>
+  </data>
+  <data name="ai715" xml:space="preserve">
+    <value>Εθνικός Αριθμός Επιστροφής Υγειονομικής Φροντίδας (NHRN) - Ηνωμένες Πολιτείες Αμερικής NDC</value>
+  </data>
+  <data name="ai723s" xml:space="preserve">
+    <value>Αναφορά πιστοποίησης</value>
+  </data>
+  <data name="ai7240" xml:space="preserve">
+    <value>Ταυτότητα πρωτοκόλλου</value>
+  </data>
+  <data name="ai7241" xml:space="preserve">
+    <value>Τύπος μέσου AIDC</value>
+  </data>
+  <data name="ai7242" xml:space="preserve">
+    <value>Αριθμός Ελέγχου Έκδοσης (VCN)</value>
+  </data>
+  <data name="ai8001" xml:space="preserve">
+    <value>Προϊόντα ρολών - πλάτος, μήκος, διάμετρος πυρήνα, κατεύθυνση, συνδέσεις</value>
+  </data>
+  <data name="ai8002" xml:space="preserve">
+    <value>Αναγνωριστικό κινητού τηλεφώνου</value>
+  </data>
+  <data name="ai8003" xml:space="preserve">
+    <value>Παγκόσμιος Αναγνωριστικός Κωδικός Επιστρεφόμενης Περιουσίας (GRAI)</value>
+  </data>
+  <data name="ai8004" xml:space="preserve">
+    <value>Παγκόσμιος Ατομικός Αναγνωριστικός Κωδικός Περιουσίας (GIAI)</value>
+  </data>
+  <data name="ai8005" xml:space="preserve">
+    <value>Τιμή ανά μονάδα μέτρησης</value>
+  </data>
+  <data name="ai8006" xml:space="preserve">
+    <value>Αναγνώριση ενός ατομικού εμπορικού αντικειμένου (ITIP)</value>
+  </data>
+  <data name="ai8007" xml:space="preserve">
+    <value>Διεθνής Τραπεζικός Αριθμός Λογαριασμού (IBAN)</value>
+  </data>
+  <data name="ai8008" xml:space="preserve">
+    <value>Ημερομηνία και ώρα παραγωγής</value>
+  </data>
+  <data name="ai8009" xml:space="preserve">
+    <value>Οπτικά αναγνώσιμος δείκτης αισθητήρα</value>
+  </data>
+  <data name="ai8010" xml:space="preserve">
+    <value>Αναγνωριστικός Κωδικός Συστατικού/Μέρους (CPID)</value>
+  </data>
+  <data name="ai8011" xml:space="preserve">
+    <value>Σειριακός αριθμός Αναγνωριστικού Κωδικού Συστατικού/Μέρους</value>
+  </data>
+  <data name="ai8012" xml:space="preserve">
+    <value>Έκδοση λογισμικού</value>
+  </data>
+  <data name="ai8013" xml:space="preserve">
+    <value>Παγκόσμιος Αριθμός Μοντέλου (GMN)</value>
+  </data>
+  <data name="ai8017" xml:space="preserve">
+    <value>Παγκόσμιος Αριθμός Υπηρεσιακής Σχέσης (GSRN) για την ταυτοποίηση της σχέσης μεταξύ μιας οργάνωσης που προσφέρει υπηρεσίες και του παρόχου υπηρεσιών</value>
+  </data>
+  <data name="ai8018" xml:space="preserve">
+    <value>Παγκόσμιος Αριθμός Υπηρεσιακής Σχέσης (GSRN) για την ταυτοποίηση της σχέσης μεταξύ μιας οργάνωσης που προσφέρει υπηρεσίες και του δέκτη υπηρεσιών</value>
+  </data>
+  <data name="ai8019" xml:space="preserve">
+    <value>Αριθμός Υπόθεσης Υπηρεσιακής Σχέσης (SRIN)</value>
+  </data>
+  <data name="ai8020" xml:space="preserve">
+    <value>Αριθμός αναφοράς απόδειξης πληρωμής</value>
+  </data>
+  <data name="ai8026" xml:space="preserve">
+    <value>Αναγνώριση κομματιών ενός εμπορικού αντικειμένου (ITIP) που περιέχονται σε μια λογιστική μονάδα</value>
+  </data>
+  <data name="ai8030" xml:space="preserve">
+    <value>Ψηφιακή Υπογραφή (DigSig)</value>
+  </data>
+  <data name="ai8110" xml:space="preserve">
+    <value>Αναγνώριση κωδικού κουπονιού για χρήση στη Βόρεια Αμερική</value>
+  </data>
+  <data name="ai8111" xml:space="preserve">
+    <value>Πόντοι αφοσίωσης ενός κουπονιού</value>
+  </data>
+  <data name="ai8112" xml:space="preserve">
+    <value>Αναγνώριση κωδικού κουπονιού θετικής προσφοράς για χρήση στη Βόρεια Αμερική</value>
+  </data>
+  <data name="ai8200" xml:space="preserve">
+    <value>Επεκταμένο URL συσκευασίας</value>
+  </data>
+  <data name="ai90" xml:space="preserve">
+    <value>Πληροφορίες που συμφωνήθηκαν αμοιβαία μεταξύ εμπορικών συνεργατών</value>
+  </data>
+  <data name="ai91" xml:space="preserve">
+    <value>Εσωτερικές πληροφορίες εταιρείας</value>
+  </data>
+  <data name="ai92" xml:space="preserve">
+    <value>Εσωτερικές πληροφορίες εταιρείας</value>
+  </data>
+  <data name="ai93" xml:space="preserve">
+    <value>Εσωτερικές πληροφορίες εταιρείας</value>
+  </data>
+  <data name="ai94" xml:space="preserve">
+    <value>Εσωτερικές πληροφορίες εταιρείας</value>
+  </data>
+  <data name="ai95" xml:space="preserve">
+    <value>Εσωτερικές πληροφορίες εταιρείας</value>
+  </data>
+  <data name="ai96" xml:space="preserve">
+    <value>Εσωτερικές πληροφορίες εταιρείας</value>
+  </data>
+  <data name="ai97" xml:space="preserve">
+    <value>Εσωτερικές πληροφορίες εταιρείας</value>
+  </data>
+  <data name="ai98" xml:space="preserve">
+    <value>Εσωτερικές πληροφορίες εταιρείας</value>
+  </data>
+  <data name="ai99" xml:space="preserve">
+    <value>Εσωτερικές πληροφορίες εταιρείας</value>
+  </data>
+</root>

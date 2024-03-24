@@ -63,10 +63,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Properties\Gs1CountryCode.it.Designer.cs">
-      <DependentUpon>Gs1CountryCode.it.resx</DependentUpon>
+    <Compile Update="Properties\Gs1ApplicationIdentifier.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
     </Compile>
     <Compile Update="Properties\Gs1CountryCode.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -81,6 +81,85 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.es.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+    </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.fr.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.de.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.it.resx">
+	    <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+    </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.bg.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.cs.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.da.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.el.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.et.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.fi.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.ga.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.hr.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.hu.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.is.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.lt.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.lv.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.mt.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.nl.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.no.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.pl.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.pt.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.ro.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.sk.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.sl.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.sv.resx">
+      <DependentUpon>Gs1ApplicationIdentifier.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Gs1ApplicationIdentifier.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Gs1ApplicationIdentifier.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Properties\Gs1CountryCode.es.resx">
       <DependentUpon>Gs1CountryCode.resx</DependentUpon>
     </EmbeddedResource>

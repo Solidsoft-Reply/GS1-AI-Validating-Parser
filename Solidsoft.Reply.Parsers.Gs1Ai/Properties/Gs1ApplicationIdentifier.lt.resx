@@ -1,0 +1,705 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ai00" xml:space="preserve">
+    <value>Logistinės vieneto identifikavimas (SSCC)</value>
+  </data>
+  <data name="ai01" xml:space="preserve">
+    <value>Prekės identifikavimas (GTIN)</value>
+  </data>
+  <data name="ai02" xml:space="preserve">
+    <value>Logistiniame vienete esančių prekių identifikavimas</value>
+  </data>
+  <data name="ai10" xml:space="preserve">
+    <value>Serijos arba partijos numeris</value>
+  </data>
+  <data name="ai11" xml:space="preserve">
+    <value>Gamintojo data</value>
+  </data>
+  <data name="ai12" xml:space="preserve">
+    <value>Mokėjimo lapelyje nurodytos sumos terminas</value>
+  </data>
+  <data name="ai13" xml:space="preserve">
+    <value>Pakavimo data</value>
+  </data>
+  <data name="ai15" xml:space="preserve">
+    <value>Geriausia iki datos</value>
+  </data>
+  <data name="ai16" xml:space="preserve">
+    <value>Parduodama iki datos</value>
+  </data>
+  <data name="ai17" xml:space="preserve">
+    <value>Galiojimo pabaigos data</value>
+  </data>
+  <data name="ai20" xml:space="preserve">
+    <value>Vidinė produkto variantas</value>
+  </data>
+  <data name="ai21" xml:space="preserve">
+    <value>Serijinis numeris</value>
+  </data>
+  <data name="ai22" xml:space="preserve">
+    <value>Vartotojo produkto variantas</value>
+  </data>
+  <data name="ai235" xml:space="preserve">
+    <value>Trečiosios šalies kontroliuojamas, serializuotas Globalaus prekės numerio (GTIN) praplėtimas (TPX)</value>
+  </data>
+  <data name="ai240" xml:space="preserve">
+    <value>Gamintojo suteiktas papildomas produkto identifikavimas</value>
+  </data>
+  <data name="ai241" xml:space="preserve">
+    <value>Kliento dalies numeris</value>
+  </data>
+  <data name="ai242" xml:space="preserve">
+    <value>Pagal užsakymą pagamintas varianto numeris</value>
+  </data>
+  <data name="ai243" xml:space="preserve">
+    <value>Pakavimo komponento numeris</value>
+  </data>
+  <data name="ai250" xml:space="preserve">
+    <value>Antrinis serijinis numeris</value>
+  </data>
+  <data name="ai251" xml:space="preserve">
+    <value>Nuoroda į šaltinio subjektą</value>
+  </data>
+  <data name="ai253" xml:space="preserve">
+    <value>Globalaus dokumento tipo identifikatorius (GDTI)</value>
+  </data>
+  <data name="ai254" xml:space="preserve">
+    <value>Globalaus vietos numerio (GLN) papildoma komponentė</value>
+  </data>
+  <data name="ai255" xml:space="preserve">
+    <value>Globalus kupono numeris (GCN)</value>
+  </data>
+  <data name="ai30" xml:space="preserve">
+    <value>Kintamas prekių skaičius</value>
+  </data>
+  <data name="ai310n" xml:space="preserve">
+    <value>Neto svoris, kilogramai (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai311n" xml:space="preserve">
+    <value>Ilgis arba pirmas matmuo, metrai (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai312n" xml:space="preserve">
+    <value>Plotis, diametras arba antras matmuo, metrai (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai313n" xml:space="preserve">
+    <value>Gylis, storis, aukštis arba trečias matmuo, metrai (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai314n" xml:space="preserve">
+    <value>Plotas, kvadratiniai metrai (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai315n" xml:space="preserve">
+    <value>Neto tūris, litrai (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai316n" xml:space="preserve">
+    <value>Neto tūris, kubiniai metrai (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai320n" xml:space="preserve">
+    <value>Neto svoris, svarai (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai321n" xml:space="preserve">
+    <value>Ilgis arba pirmas matmuo, coliai (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai322n" xml:space="preserve">
+    <value>Ilgis arba pirmas matmuo, pėdos (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai323n" xml:space="preserve">
+    <value>Ilgis arba pirmas matmuo, jardai (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai324n" xml:space="preserve">
+    <value>Plotis, diametras arba antras matmuo, coliai (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai325n" xml:space="preserve">
+    <value>Plotis, diametras arba antras matmuo, pėdos (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai326n" xml:space="preserve">
+    <value>Plotis, diametras arba antras matmuo, jardai (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai327n" xml:space="preserve">
+    <value>Gylis, storis, aukštis arba trečias matmuo, coliai (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai328n" xml:space="preserve">
+    <value>Gylis, storis, aukštis arba trečias matmuo, pėdos (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai329n" xml:space="preserve">
+    <value>Gylis, storis, aukštis arba trečias matmuo, jardai (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai330n" xml:space="preserve">
+    <value>Logistinis svoris, kilogramai</value>
+  </data>
+  <data name="ai331n" xml:space="preserve">
+    <value>Ilgis arba pirmas matmuo, metrai</value>
+  </data>
+  <data name="ai332n" xml:space="preserve">
+    <value>Plotis, diametras arba antras matmuo, metrai</value>
+  </data>
+  <data name="ai333n" xml:space="preserve">
+    <value>Gylis, storis, aukštis arba trečias matmuo, metrai</value>
+  </data>
+  <data name="ai334n" xml:space="preserve">
+    <value>Plotas, kvadratiniai metrai</value>
+  </data>
+  <data name="ai335n" xml:space="preserve">
+    <value>Logistinis tūris, litrai</value>
+  </data>
+  <data name="ai336n" xml:space="preserve">
+    <value>Logistinis tūris, kubiniai metrai</value>
+  </data>
+  <data name="ai337n" xml:space="preserve">
+    <value>Kilogramai už kvadratinį metrą</value>
+  </data>
+  <data name="ai340n" xml:space="preserve">
+    <value>Logistinis svoris, svarai</value>
+  </data>
+  <data name="ai341n" xml:space="preserve">
+    <value>Ilgis arba pirmas matmuo, coliai</value>
+  </data>
+  <data name="ai342n" xml:space="preserve">
+    <value>Ilgis arba pirmas matmuo, pėdos</value>
+  </data>
+  <data name="ai343n" xml:space="preserve">
+    <value>Ilgis arba pirmas matmuo, jardai</value>
+  </data>
+  <data name="ai344n" xml:space="preserve">
+    <value>Plotis, diametras arba antras matmuo, coliai</value>
+  </data>
+  <data name="ai345n" xml:space="preserve">
+    <value>Plotis, diametras arba antras matmuo, pėdos</value>
+  </data>
+  <data name="ai346n" xml:space="preserve">
+    <value>Plotis, diametras arba antras matmuo, jardas</value>
+  </data>
+  <data name="ai347n" xml:space="preserve">
+    <value>Gylis, storis, aukštis arba trečias matmuo, coliai</value>
+  </data>
+  <data name="ai348n" xml:space="preserve">
+    <value>Gylis, storis, aukštis arba trečias matmuo, pėdos</value>
+  </data>
+  <data name="ai349n" xml:space="preserve">
+    <value>Gylis, storis, aukštis arba trečias matmuo, jardai</value>
+  </data>
+  <data name="ai350n" xml:space="preserve">
+    <value>Plotas, kvadratiniai coliai (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai351n" xml:space="preserve">
+    <value>Plotas, kvadratinės pėdos (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai352n" xml:space="preserve">
+    <value>Plotas, kvadratiniai jardai (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai353n" xml:space="preserve">
+    <value>Plotas, kvadratiniai coliai</value>
+  </data>
+  <data name="ai354n" xml:space="preserve">
+    <value>Plotas, kvadratinės pėdos</value>
+  </data>
+  <data name="ai355n" xml:space="preserve">
+    <value>Plotas, kvadratiniai jardai</value>
+  </data>
+  <data name="ai356n" xml:space="preserve">
+    <value>Neto svoris, Trojos uncijos (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai357n" xml:space="preserve">
+    <value>Neto svoris (arba tūris), uncijos (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai360n" xml:space="preserve">
+    <value>Neto tūris, kvartai (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai361n" xml:space="preserve">
+    <value>Neto tūris, JAV galonai (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai362n" xml:space="preserve">
+    <value>Logistinis tūris, kvartai</value>
+  </data>
+  <data name="ai363n" xml:space="preserve">
+    <value>Logistinis tūris, JAV galonai</value>
+  </data>
+  <data name="ai364n" xml:space="preserve">
+    <value>Neto tūris, kubiniai coliai (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai365n" xml:space="preserve">
+    <value>Neto tūris, kubinės pėdos (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai366n" xml:space="preserve">
+    <value>Neto tūris, kubiniai jardai (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai367n" xml:space="preserve">
+    <value>Logistinis tūris, kubiniai coliai</value>
+  </data>
+  <data name="ai368n" xml:space="preserve">
+    <value>Logistinis tūris, kubinės pėdos</value>
+  </data>
+  <data name="ai369n" xml:space="preserve">
+    <value>Logistinis tūris, kubiniai jardai</value>
+  </data>
+  <data name="ai37" xml:space="preserve">
+    <value>Prekių arba prekių dalių skaičius logistiniame vienete</value>
+  </data>
+  <data name="ai390n" xml:space="preserve">
+    <value>Mokėtina suma arba kupono vertė - Vienintelė pinigų sritis</value>
+  </data>
+  <data name="ai391n" xml:space="preserve">
+    <value>Mokėtina suma ir ISO valiutos kodas</value>
+  </data>
+  <data name="ai392n" xml:space="preserve">
+    <value>Mokėtina suma už kintamos matavimo prekę - Vienintelė pinigų sritis</value>
+  </data>
+  <data name="ai393n" xml:space="preserve">
+    <value>Mokėtina suma už kintamos matavimo prekę ir ISO valiutos kodas</value>
+  </data>
+  <data name="ai394n" xml:space="preserve">
+    <value>Kupono nuolaidos procentas</value>
+  </data>
+  <data name="ai395n" xml:space="preserve">
+    <value>Mokėtina suma už vienetą vienintelėje pinigų srityje (kintamos matavimo prekė)</value>
+  </data>
+  <data name="ai400" xml:space="preserve">
+    <value>Kliento užsakymo numeris</value>
+  </data>
+  <data name="ai401" xml:space="preserve">
+    <value>Konsignacijos globalus identifikavimo numeris (GINC)</value>
+  </data>
+  <data name="ai402" xml:space="preserve">
+    <value>Siuntos globalus identifikavimo numeris (GSIN)</value>
+  </data>
+  <data name="ai403" xml:space="preserve">
+    <value>Maršruto kodas</value>
+  </data>
+  <data name="ai410" xml:space="preserve">
+    <value>Siųsti į - Pristatyti į Globalaus vietos numerio (GLN)</value>
+  </data>
+  <data name="ai411" xml:space="preserve">
+    <value>Sąskaita į - Sąskaita faktūra į Globalaus vietos numerio (GLN)</value>
+  </data>
+  <data name="ai412" xml:space="preserve">
+    <value>Pirkta iš Globalaus vietos numerio (GLN)</value>
+  </data>
+  <data name="ai413" xml:space="preserve">
+    <value>Siųsti už - Pristatyti už - Persiųsti į Globalaus vietos numerio (GLN)</value>
+  </data>
+  <data name="ai414" xml:space="preserve">
+    <value>Fizinės vietos identifikavimas - Globalus vietos numeris (GLN)</value>
+  </data>
+  <data name="ai415" xml:space="preserve">
+    <value>Globalaus vietos numerio (GLN) sąskaitos išrašančios šalies</value>
+  </data>
+  <data name="ai416" xml:space="preserve">
+    <value>Globalaus vietos numerio (GLN) gamybos ar paslaugos vietos</value>
+  </data>
+  <data name="ai417" xml:space="preserve">
+    <value>Šalies globalaus vietos numerio (GLN)</value>
+  </data>
+  <data name="ai420" xml:space="preserve">
+    <value>Pristatymo / siuntimo pašto kodas vienos pašto valdžios teritorijoje</value>
+  </data>
+  <data name="ai421" xml:space="preserve">
+    <value>Pristatymo / siuntimo pašto kodas su trijų skaitmenų ISO šalies kodu</value>
+  </data>
+  <data name="ai422" xml:space="preserve">
+    <value>Prekės kilmės šalis</value>
+  </data>
+  <data name="ai423" xml:space="preserve">
+    <value>Pirminio apdirbimo šalis</value>
+  </data>
+  <data name="ai424" xml:space="preserve">
+    <value>Apdirbimo šalis</value>
+  </data>
+  <data name="ai425" xml:space="preserve">
+    <value>Išmontavimo šalis</value>
+  </data>
+  <data name="ai426" xml:space="preserve">
+    <value>Visą procesų grandinę apimanti šalis</value>
+  </data>
+  <data name="ai427" xml:space="preserve">
+    <value>Prekės kilmės šalies padalinio kodas</value>
+  </data>
+  <data name="ai4300" xml:space="preserve">
+    <value>Pristatymo / siuntimo įmonės pavadinimas</value>
+  </data>
+  <data name="ai4301" xml:space="preserve">
+    <value>Pristatymo / siuntimo kontakto vardas</value>
+  </data>
+  <data name="ai4302" xml:space="preserve">
+    <value>Pristatymo / siuntimo adreso eilutė 1</value>
+  </data>
+  <data name="ai4303" xml:space="preserve">
+    <value>Pristatymo / siuntimo adreso eilutė 2</value>
+  </data>
+  <data name="ai4304" xml:space="preserve">
+    <value>Pristatymo / siuntimo priemiestis</value>
+  </data>
+  <data name="ai4305" xml:space="preserve">
+    <value>Pristatymo / siuntimo vietovė</value>
+  </data>
+  <data name="ai4306" xml:space="preserve">
+    <value>Pristatymo / siuntimo regionas</value>
+  </data>
+  <data name="ai4307" xml:space="preserve">
+    <value>Pristatymo / siuntimo šalies kodas</value>
+  </data>
+  <data name="ai4308" xml:space="preserve">
+    <value>Pristatymo / siuntimo telefono numeris</value>
+  </data>
+  <data name="ai4309" xml:space="preserve">
+    <value>Pristatymo / siuntimo GEO vieta</value>
+  </data>
+  <data name="ai4310" xml:space="preserve">
+    <value>Grąžinimo įmonės pavadinimas</value>
+  </data>
+  <data name="ai4311" xml:space="preserve">
+    <value>Grąžinimo kontakto vardas</value>
+  </data>
+  <data name="ai4312" xml:space="preserve">
+    <value>Grąžinimo adreso eilutė 1</value>
+  </data>
+  <data name="ai4313" xml:space="preserve">
+    <value>Grąžinimo adreso eilutė 2</value>
+  </data>
+  <data name="ai4314" xml:space="preserve">
+    <value>Grąžinimo priemiestis</value>
+  </data>
+  <data name="ai4315" xml:space="preserve">
+    <value>Grąžinimo vietovė</value>
+  </data>
+  <data name="ai4316" xml:space="preserve">
+    <value>Grąžinimo regionas</value>
+  </data>
+  <data name="ai4317" xml:space="preserve">
+    <value>Grąžinimo šalies kodas</value>
+  </data>
+  <data name="ai4318" xml:space="preserve">
+    <value>Grąžinimo pašto kodas</value>
+  </data>
+  <data name="ai4319" xml:space="preserve">
+    <value>Grąžinimo telefono numeris</value>
+  </data>
+  <data name="ai4320" xml:space="preserve">
+    <value>Paslaugos kodo aprašymas</value>
+  </data>
+  <data name="ai4321" xml:space="preserve">
+    <value>Pavojingų prekių vėliava</value>
+  </data>
+  <data name="ai4322" xml:space="preserve">
+    <value>Leidimo palikti vėliava</value>
+  </data>
+  <data name="ai4323" xml:space="preserve">
+    <value>Parašo reikalaujanti vėliava</value>
+  </data>
+  <data name="ai4324" xml:space="preserve">
+    <value>Ne anksčiau kaip pristatymo data/laikas</value>
+  </data>
+  <data name="ai4325" xml:space="preserve">
+    <value>Ne vėliau kaip pristatymo data/laikas</value>
+  </data>
+  <data name="ai4326" xml:space="preserve">
+    <value>Išleidimo data</value>
+  </data>
+  <data name="ai4330" xml:space="preserve">
+    <value>Maksimali temperatūra Farenheito</value>
+  </data>
+  <data name="ai4331" xml:space="preserve">
+    <value>Maksimali temperatūra Celsijaus</value>
+  </data>
+  <data name="ai4332" xml:space="preserve">
+    <value>Minimali temperatūra Farenheito</value>
+  </data>
+  <data name="ai4333" xml:space="preserve">
+    <value>Minimali temperatūra Celsijaus</value>
+  </data>
+  <data name="ai7001" xml:space="preserve">
+    <value>NATO atsargų numeris (NSN)</value>
+  </data>
+  <data name="ai7002" xml:space="preserve">
+    <value>UNECE mėsos skerdenų ir gabalų klasifikacija</value>
+  </data>
+  <data name="ai7003" xml:space="preserve">
+    <value>Galiojimo pabaigos data ir laikas</value>
+  </data>
+  <data name="ai7004" xml:space="preserve">
+    <value>Aktyvus stiprumas</value>
+  </data>
+  <data name="ai7005" xml:space="preserve">
+    <value>Gaudymo plotas</value>
+  </data>
+  <data name="ai7006" xml:space="preserve">
+    <value>Pirmojo šaldymo data</value>
+  </data>
+  <data name="ai7007" xml:space="preserve">
+    <value>Derliaus nuėmimo data</value>
+  </data>
+  <data name="ai7008" xml:space="preserve">
+    <value>Rūšys žvejybos tikslams</value>
+  </data>
+  <data name="ai7009" xml:space="preserve">
+    <value>Žvejybos įrangos tipas</value>
+  </data>
+  <data name="ai7010" xml:space="preserve">
+    <value>Gamintojo metodas</value>
+  </data>
+  <data name="ai7011" xml:space="preserve">
+    <value>Testavimo data</value>
+  </data>
+  <data name="ai7020" xml:space="preserve">
+    <value>Atnaujinimo partijos ID</value>
+  </data>
+  <data name="ai7021" xml:space="preserve">
+    <value>Funkcinis statusas</value>
+  </data>
+  <data name="ai7022" xml:space="preserve">
+    <value>Peržiūros statusas</value>
+  </data>
+  <data name="ai7023" xml:space="preserve">
+    <value>Pasaulinio individualaus turto identifikatorius surinkimo</value>
+  </data>
+  <data name="ai703s" xml:space="preserve">
+    <value>Procesoriaus skaičius su trijų skaitmenų ISO šalies kodu</value>
+  </data>
+  <data name="ai7040" xml:space="preserve">
+    <value>GS1 UIC su pailginimu 1 ir importuotojo indeksu</value>
+  </data>
+  <data name="ai710" xml:space="preserve">
+    <value>Nacionalinis sveikatos priežiūros išmokų numeris (NHRN) - Vokietijos PZN</value>
+  </data>
+  <data name="ai711" xml:space="preserve">
+    <value>Nacionalinis sveikatos priežiūros išmokų numeris (NHRN) - Prancūzijos CIP</value>
+  </data>
+  <data name="ai712" xml:space="preserve">
+    <value>Nacionalinis sveikatos priežiūros išmokų numeris (NHRN) - Ispanijos CN</value>
+  </data>
+  <data name="ai713" xml:space="preserve">
+    <value>Nacionalinis sveikatos priežiūros išmokų numeris (NHRN) - Brazilijos DRN</value>
+  </data>
+  <data name="ai714" xml:space="preserve">
+    <value>Nacionalinis sveikatos priežiūros išmokų numeris (NHRN) - Portugalijos AIM</value>
+  </data>
+  <data name="ai715" xml:space="preserve">
+    <value>Nacionalinis sveikatos priežiūros išmokų numeris (NHRN) - Jungtinių Amerikos Valstijų NDC</value>
+  </data>
+  <data name="ai723s" xml:space="preserve">
+    <value>Sertifikavimo nuoroda</value>
+  </data>
+  <data name="ai7240" xml:space="preserve">
+    <value>Protokolo ID</value>
+  </data>
+  <data name="ai7241" xml:space="preserve">
+    <value>AIDC medijos tipas</value>
+  </data>
+  <data name="ai7242" xml:space="preserve">
+    <value>Versijos kontrolės numeris (VCN)</value>
+  </data>
+  <data name="ai8001" xml:space="preserve">
+    <value>Rulonų produktai - plotis, ilgis, branduolio skersmuo, kryptis, sujungimai</value>
+  </data>
+  <data name="ai8002" xml:space="preserve">
+    <value>Mobiliojo telefono identifikatorius</value>
+  </data>
+  <data name="ai8003" xml:space="preserve">
+    <value>Pasaulinio grąžinamo turto identifikatorius (GRAI)</value>
+  </data>
+  <data name="ai8004" xml:space="preserve">
+    <value>Pasaulinio individualaus turto identifikatorius (GIAI)</value>
+  </data>
+  <data name="ai8005" xml:space="preserve">
+    <value>Kaina už vienetą</value>
+  </data>
+  <data name="ai8006" xml:space="preserve">
+    <value>Individualaus prekės vieneto (ITIP) identifikavimas</value>
+  </data>
+  <data name="ai8007" xml:space="preserve">
+    <value>Tarptautinis banko sąskaitos numeris (IBAN)</value>
+  </data>
+  <data name="ai8008" xml:space="preserve">
+    <value>Gamintojo data ir laikas</value>
+  </data>
+  <data name="ai8009" xml:space="preserve">
+    <value>Optiškai skaitomas jutiklio indikatorius</value>
+  </data>
+  <data name="ai8010" xml:space="preserve">
+    <value>Komponento/dalies identifikatorius (CPID)</value>
+  </data>
+  <data name="ai8011" xml:space="preserve">
+    <value>Komponento/dalies identifikatorius serijos numeris</value>
+  </data>
+  <data name="ai8012" xml:space="preserve">
+    <value>Programinės įrangos versija</value>
+  </data>
+  <data name="ai8013" xml:space="preserve">
+    <value>Pasaulinio modelio numeris (GMN)</value>
+  </data>
+  <data name="ai8017" xml:space="preserve">
+    <value>Pasaulinio paslaugų santykio numeris (GSRN) identifikuoti ryšį tarp paslaugas teikiančios organizacijos ir paslaugų teikėjo</value>
+  </data>
+  <data name="ai8018" xml:space="preserve">
+    <value>Pasaulinio paslaugų santykio numeris (GSRN) identifikuoti ryšį tarp paslaugas teikiančios organizacijos ir paslaugų gavėjo</value>
+  </data>
+  <data name="ai8019" xml:space="preserve">
+    <value>Paslaugų santykio egzemplioriaus numeris (SRIN)</value>
+  </data>
+  <data name="ai8020" xml:space="preserve">
+    <value>Mokėjimo lapelio nuorodos numeris</value>
+  </data>
+  <data name="ai8026" xml:space="preserve">
+    <value>Prekių dalių, esančių logistiniame vienete (ITIP), identifikavimas</value>
+  </data>
+  <data name="ai8030" xml:space="preserve">
+    <value>Skaitmeninis parašas (DigSig)</value>
+  </data>
+  <data name="ai8110" xml:space="preserve">
+    <value>Kupono kodo identifikavimas naudojimui Šiaurės Amerikoje</value>
+  </data>
+  <data name="ai8111" xml:space="preserve">
+    <value>Kupono lojalumo taškai</value>
+  </data>
+  <data name="ai8112" xml:space="preserve">
+    <value>Teigiamo pasiūlymo failo kupono kodo identifikavimas naudojimui Šiaurės Amerikoje</value>
+  </data>
+  <data name="ai8200" xml:space="preserve">
+    <value>Pratęstas pakavimo URL</value>
+  </data>
+  <data name="ai90" xml:space="preserve">
+    <value>Informacija, dėl kurios susitarė prekybos partneriai</value>
+  </data>
+  <data name="ai91" xml:space="preserve">
+    <value>Įmonės vidinė informacija</value>
+  </data>
+  <data name="ai92" xml:space="preserve">
+    <value>Įmonės vidinė informacija</value>
+  </data>
+  <data name="ai93" xml:space="preserve">
+    <value>Įmonės vidinė informacija</value>
+  </data>
+  <data name="ai94" xml:space="preserve">
+    <value>Įmonės vidinė informacija</value>
+  </data>
+  <data name="ai95" xml:space="preserve">
+    <value>Įmonės vidinė informacija</value>
+  </data>
+  <data name="ai96" xml:space="preserve">
+    <value>Įmonės vidinė informacija</value>
+  </data>
+  <data name="ai97" xml:space="preserve">
+    <value>Įmonės vidinė informacija</value>
+  </data>
+  <data name="ai98" xml:space="preserve">
+    <value>Įmonės vidinė informacija</value>
+  </data>
+  <data name="ai99" xml:space="preserve">
+    <value>Įmonės vidinė informacija</value>
+  </data>
+</root>

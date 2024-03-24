@@ -1,0 +1,705 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ai00" xml:space="preserve">
+    <value>Identificação de uma unidade logística (SSCC)</value>
+  </data>
+  <data name="ai01" xml:space="preserve">
+    <value>Identificação de um item comercial (GTIN)</value>
+  </data>
+  <data name="ai02" xml:space="preserve">
+    <value>Identificação de itens comerciais contidos em uma unidade logística</value>
+  </data>
+  <data name="ai10" xml:space="preserve">
+    <value>Número de lote ou partida</value>
+  </data>
+  <data name="ai11" xml:space="preserve">
+    <value>Data de produção</value>
+  </data>
+  <data name="ai12" xml:space="preserve">
+    <value>Data de vencimento para o valor no boleto de pagamento</value>
+  </data>
+  <data name="ai13" xml:space="preserve">
+    <value>Data de embalagem</value>
+  </data>
+  <data name="ai15" xml:space="preserve">
+    <value>Data de validade</value>
+  </data>
+  <data name="ai16" xml:space="preserve">
+    <value>Data de venda</value>
+  </data>
+  <data name="ai17" xml:space="preserve">
+    <value>Data de expiração</value>
+  </data>
+  <data name="ai20" xml:space="preserve">
+    <value>Variante interna do produto</value>
+  </data>
+  <data name="ai21" xml:space="preserve">
+    <value>Número de série</value>
+  </data>
+  <data name="ai22" xml:space="preserve">
+    <value>Variante de produto para o consumidor</value>
+  </data>
+  <data name="ai235" xml:space="preserve">
+    <value>Controlado por terceiros, Extensão serializada do Número Global de Item Comercial (GTIN) (TPX)</value>
+  </data>
+  <data name="ai240" xml:space="preserve">
+    <value>Identificação adicional do produto atribuída pelo fabricante</value>
+  </data>
+  <data name="ai241" xml:space="preserve">
+    <value>Número da peça do cliente</value>
+  </data>
+  <data name="ai242" xml:space="preserve">
+    <value>Número da variação sob encomenda</value>
+  </data>
+  <data name="ai243" xml:space="preserve">
+    <value>Número do componente da embalagem</value>
+  </data>
+  <data name="ai250" xml:space="preserve">
+    <value>Número de série secundário</value>
+  </data>
+  <data name="ai251" xml:space="preserve">
+    <value>Referência à entidade de origem</value>
+  </data>
+  <data name="ai253" xml:space="preserve">
+    <value>Identificador Global do Tipo de Documento (GDTI)</value>
+  </data>
+  <data name="ai254" xml:space="preserve">
+    <value>Componente de extensão do Número Global de Localização (GLN)</value>
+  </data>
+  <data name="ai255" xml:space="preserve">
+    <value>Número Global de Cupom (GCN)</value>
+  </data>
+  <data name="ai30" xml:space="preserve">
+    <value>Contagem variável de itens</value>
+  </data>
+  <data name="ai310n" xml:space="preserve">
+    <value>Peso líquido, quilogramas (item comercial de medida variável)</value>
+  </data>
+  <data name="ai311n" xml:space="preserve">
+    <value>Comprimento ou primeira dimensão, metros (item comercial de medida variável)</value>
+  </data>
+  <data name="ai312n" xml:space="preserve">
+    <value>Largura, diâmetro ou segunda dimensão, metros (item comercial de medida variável)</value>
+  </data>
+  <data name="ai313n" xml:space="preserve">
+    <value>Profundidade, espessura, altura ou terceira dimensão, metros (item comercial de medida variável)</value>
+  </data>
+  <data name="ai314n" xml:space="preserve">
+    <value>Área, metros quadrados (item comercial de medida variável)</value>
+  </data>
+  <data name="ai315n" xml:space="preserve">
+    <value>Volume líquido, litros (item comercial de medida variável)</value>
+  </data>
+  <data name="ai316n" xml:space="preserve">
+    <value>Volume líquido, metros cúbicos (item comercial de medida variável)</value>
+  </data>
+  <data name="ai320n" xml:space="preserve">
+    <value>Peso líquido, libras (item comercial de medida variável)</value>
+  </data>
+  <data name="ai321n" xml:space="preserve">
+    <value>Comprimento ou primeira dimensão, polegadas (item comercial de medida variável)</value>
+  </data>
+  <data name="ai322n" xml:space="preserve">
+    <value>Comprimento ou primeira dimensão, pés (item comercial de medida variável)</value>
+  </data>
+  <data name="ai323n" xml:space="preserve">
+    <value>Comprimento ou primeira dimensão, jardas (item comercial de medida variável)</value>
+  </data>
+  <data name="ai324n" xml:space="preserve">
+    <value>Largura, diâmetro ou segunda dimensão, polegadas (item comercial de medida variável)</value>
+  </data>
+  <data name="ai325n" xml:space="preserve">
+    <value>Largura, diâmetro ou segunda dimensão, pés (item comercial de medida variável)</value>
+  </data>
+  <data name="ai326n" xml:space="preserve">
+    <value>Largura, diâmetro ou segunda dimensão, jardas (item comercial de medida variável)</value>
+  </data>
+  <data name="ai327n" xml:space="preserve">
+    <value>Profundidade, espessura, altura ou terceira dimensão, polegadas (item comercial de medida variável)</value>
+  </data>
+  <data name="ai328n" xml:space="preserve">
+    <value>Profundidade, espessura, altura ou terceira dimensão, pés (item comercial de medida variável)</value>
+  </data>
+  <data name="ai329n" xml:space="preserve">
+    <value>Profundidade, espessura, altura ou terceira dimensão, jardas (item comercial de medida variável)</value>
+  </data>
+  <data name="ai330n" xml:space="preserve">
+    <value>Peso logístico, quilogramas</value>
+  </data>
+  <data name="ai331n" xml:space="preserve">
+    <value>Comprimento ou primeira dimensão, metros</value>
+  </data>
+  <data name="ai332n" xml:space="preserve">
+    <value>Largura, diâmetro ou segunda dimensão, metros</value>
+  </data>
+  <data name="ai333n" xml:space="preserve">
+    <value>Profundidade, espessura, altura ou terceira dimensão, metros</value>
+  </data>
+  <data name="ai334n" xml:space="preserve">
+    <value>Área, metros quadrados</value>
+  </data>
+  <data name="ai335n" xml:space="preserve">
+    <value>Volume logístico, litros</value>
+  </data>
+  <data name="ai336n" xml:space="preserve">
+    <value>Volume logístico, metros cúbicos</value>
+  </data>
+  <data name="ai337n" xml:space="preserve">
+    <value>Quilogramas por metro quadrado</value>
+  </data>
+  <data name="ai340n" xml:space="preserve">
+    <value>Peso logístico, libras</value>
+  </data>
+  <data name="ai341n" xml:space="preserve">
+    <value>Comprimento ou primeira dimensão, polegadas</value>
+  </data>
+  <data name="ai342n" xml:space="preserve">
+    <value>Comprimento ou primeira dimensão, pés</value>
+  </data>
+  <data name="ai343n" xml:space="preserve">
+    <value>Comprimento ou primeira dimensão, jardas</value>
+  </data>
+  <data name="ai344n" xml:space="preserve">
+    <value>Largura, diâmetro ou segunda dimensão, polegadas</value>
+  </data>
+  <data name="ai345n" xml:space="preserve">
+    <value>Largura, diâmetro ou segunda dimensão, pés</value>
+  </data>
+  <data name="ai346n" xml:space="preserve">
+    <value>Largura, diâmetro ou segunda dimensão, jarda</value>
+  </data>
+  <data name="ai347n" xml:space="preserve">
+    <value>Profundidade, espessura, altura ou terceira dimensão, polegadas</value>
+  </data>
+  <data name="ai348n" xml:space="preserve">
+    <value>Profundidade, espessura, altura ou terceira dimensão, pés</value>
+  </data>
+  <data name="ai349n" xml:space="preserve">
+    <value>Profundidade, espessura, altura ou terceira dimensão, jardas</value>
+  </data>
+  <data name="ai350n" xml:space="preserve">
+    <value>Área, polegadas quadradas (item comercial de medida variável)</value>
+  </data>
+  <data name="ai351n" xml:space="preserve">
+    <value>Área, pés quadrados (item comercial de medida variável)</value>
+  </data>
+  <data name="ai352n" xml:space="preserve">
+    <value>Área, jardas quadradas (item comercial de medida variável)</value>
+  </data>
+  <data name="ai353n" xml:space="preserve">
+    <value>Área, polegadas quadradas</value>
+  </data>
+  <data name="ai354n" xml:space="preserve">
+    <value>Área, pés quadrados</value>
+  </data>
+  <data name="ai355n" xml:space="preserve">
+    <value>Área, jardas quadradas</value>
+  </data>
+  <data name="ai356n" xml:space="preserve">
+    <value>Peso líquido, onças troy (item comercial de medida variável)</value>
+  </data>
+  <data name="ai357n" xml:space="preserve">
+    <value>Peso líquido (ou volume), onças (item comercial de medida variável)</value>
+  </data>
+  <data name="ai360n" xml:space="preserve">
+    <value>Volume líquido, quartos (item comercial de medida variável)</value>
+  </data>
+  <data name="ai361n" xml:space="preserve">
+    <value>Volume líquido, galões EUA (item comercial de medida variável)</value>
+  </data>
+  <data name="ai362n" xml:space="preserve">
+    <value>Volume logístico, quartos</value>
+  </data>
+  <data name="ai363n" xml:space="preserve">
+    <value>Volume logístico, galões EUA</value>
+  </data>
+  <data name="ai364n" xml:space="preserve">
+    <value>Volume líquido, polegadas cúbicas (item comercial de medida variável)</value>
+  </data>
+  <data name="ai365n" xml:space="preserve">
+    <value>Volume líquido, pés cúbicos (item comercial de medida variável)</value>
+  </data>
+  <data name="ai366n" xml:space="preserve">
+    <value>Volume líquido, jardas cúbicas (item comercial de medida variável)</value>
+  </data>
+  <data name="ai367n" xml:space="preserve">
+    <value>Volume logístico, polegadas cúbicas</value>
+  </data>
+  <data name="ai368n" xml:space="preserve">
+    <value>Volume logístico, pés cúbicos</value>
+  </data>
+  <data name="ai369n" xml:space="preserve">
+    <value>Volume logístico, jardas cúbicas</value>
+  </data>
+  <data name="ai37" xml:space="preserve">
+    <value>Contagem de itens comerciais ou peças de itens comerciais contidos em uma unidade logística</value>
+  </data>
+  <data name="ai390n" xml:space="preserve">
+    <value>Valor a pagar ou valor do cupom - Área monetária única</value>
+  </data>
+  <data name="ai391n" xml:space="preserve">
+    <value>Valor a pagar e código de moeda ISO</value>
+  </data>
+  <data name="ai392n" xml:space="preserve">
+    <value>Valor a pagar por um item comercial de medida variável - Área monetária única</value>
+  </data>
+  <data name="ai393n" xml:space="preserve">
+    <value>Valor a pagar por um item comercial de medida variável e código de moeda ISO</value>
+  </data>
+  <data name="ai394n" xml:space="preserve">
+    <value>Desconto percentual de um cupom</value>
+  </data>
+  <data name="ai395n" xml:space="preserve">
+    <value>Valor a pagar por unidade de medida área monetária única (item comercial de medida variável)</value>
+  </data>
+  <data name="ai400" xml:space="preserve">
+    <value>Número do pedido de compra do cliente</value>
+  </data>
+  <data name="ai401" xml:space="preserve">
+    <value>Número Global de Identificação para Consignação (GINC)</value>
+  </data>
+  <data name="ai402" xml:space="preserve">
+    <value>Número Global de Identificação de Remessa (GSIN)</value>
+  </data>
+  <data name="ai403" xml:space="preserve">
+    <value>Código de roteamento</value>
+  </data>
+  <data name="ai410" xml:space="preserve">
+    <value>Enviar para - Entregar para Número Global de Localização (GLN)</value>
+  </data>
+  <data name="ai411" xml:space="preserve">
+    <value>Faturar para - Número Global de Localização (GLN) da fatura</value>
+  </data>
+  <data name="ai412" xml:space="preserve">
+    <value>Comprado de Número Global de Localização (GLN)</value>
+  </data>
+  <data name="ai413" xml:space="preserve">
+    <value>Enviar para - Entregar para - Encaminhar para Número Global de Localização (GLN)</value>
+  </data>
+  <data name="ai414" xml:space="preserve">
+    <value>Identificação de um local físico - Número Global de Localização (GLN)</value>
+  </data>
+  <data name="ai415" xml:space="preserve">
+    <value>Número Global de Localização (GLN) da parte faturante</value>
+  </data>
+  <data name="ai416" xml:space="preserve">
+    <value>Número Global de Localização (GLN) do local de produção ou serviço</value>
+  </data>
+  <data name="ai417" xml:space="preserve">
+    <value>Número Global de Localização (GLN) da parte</value>
+  </data>
+  <data name="ai420" xml:space="preserve">
+    <value>Código postal de Envio para / Entrega para dentro de uma única autoridade postal</value>
+  </data>
+  <data name="ai421" xml:space="preserve">
+    <value>Código postal de Envio para / Entrega para com código de país ISO de três dígitos</value>
+  </data>
+  <data name="ai422" xml:space="preserve">
+    <value>País de origem de um item comercial</value>
+  </data>
+  <data name="ai423" xml:space="preserve">
+    <value>País de processamento inicial</value>
+  </data>
+  <data name="ai424" xml:space="preserve">
+    <value>País de processamento</value>
+  </data>
+  <data name="ai425" xml:space="preserve">
+    <value>País de desmontagem</value>
+  </data>
+  <data name="ai426" xml:space="preserve">
+    <value>País cobrindo toda a cadeia de processos</value>
+  </data>
+  <data name="ai427" xml:space="preserve">
+    <value>Subdivisão do país do código de origem para um item comercial</value>
+  </data>
+  <data name="ai4300" xml:space="preserve">
+    <value>Nome da empresa de Envio para / Entrega para</value>
+  </data>
+  <data name="ai4301" xml:space="preserve">
+    <value>Nome de contato de Envio para / Entrega para</value>
+  </data>
+  <data name="ai4302" xml:space="preserve">
+    <value>Linha de endereço 1 de Envio para / Entrega para</value>
+  </data>
+  <data name="ai4303" xml:space="preserve">
+    <value>Linha de endereço 2 de Envio para / Entrega para</value>
+  </data>
+  <data name="ai4304" xml:space="preserve">
+    <value>Subúrbio de Envio para / Entrega para</value>
+  </data>
+  <data name="ai4305" xml:space="preserve">
+    <value>Localidade de Envio para / Entrega para</value>
+  </data>
+  <data name="ai4306" xml:space="preserve">
+    <value>Região de Envio para / Entrega para</value>
+  </data>
+  <data name="ai4307" xml:space="preserve">
+    <value>Código do país de Envio para / Entrega para</value>
+  </data>
+  <data name="ai4308" xml:space="preserve">
+    <value>Número de telefone de Envio para / Entrega para</value>
+  </data>
+  <data name="ai4309" xml:space="preserve">
+    <value>Localização GEO de Envio para / Entrega para</value>
+  </data>
+  <data name="ai4310" xml:space="preserve">
+    <value>Nome da empresa de Retorno para</value>
+  </data>
+  <data name="ai4311" xml:space="preserve">
+    <value>Nome de contato de Retorno para</value>
+  </data>
+  <data name="ai4312" xml:space="preserve">
+    <value>Linha de endereço 1 de Retorno para</value>
+  </data>
+  <data name="ai4313" xml:space="preserve">
+    <value>Linha de endereço 2 de Retorno para</value>
+  </data>
+  <data name="ai4314" xml:space="preserve">
+    <value>Subúrbio de Retorno para</value>
+  </data>
+  <data name="ai4315" xml:space="preserve">
+    <value>Localidade de Retorno para</value>
+  </data>
+  <data name="ai4316" xml:space="preserve">
+    <value>Região de Retorno para</value>
+  </data>
+  <data name="ai4317" xml:space="preserve">
+    <value>Código do país de Retorno para</value>
+  </data>
+  <data name="ai4318" xml:space="preserve">
+    <value>Código postal de Retorno para</value>
+  </data>
+  <data name="ai4319" xml:space="preserve">
+    <value>Número de telefone de Retorno para</value>
+  </data>
+  <data name="ai4320" xml:space="preserve">
+    <value>Descrição do código de serviço</value>
+  </data>
+  <data name="ai4321" xml:space="preserve">
+    <value>Bandeira de mercadorias perigosas</value>
+  </data>
+  <data name="ai4322" xml:space="preserve">
+    <value>Bandeira de autorização para deixar</value>
+  </data>
+  <data name="ai4323" xml:space="preserve">
+    <value>Bandeira de assinatura necessária</value>
+  </data>
+  <data name="ai4324" xml:space="preserve">
+    <value>Não antes da data/hora de entrega</value>
+  </data>
+  <data name="ai4325" xml:space="preserve">
+    <value>Não depois da data/hora de entrega</value>
+  </data>
+  <data name="ai4326" xml:space="preserve">
+    <value>Data de lançamento</value>
+  </data>
+  <data name="ai4330" xml:space="preserve">
+    <value>Temperatura máxima em Fahrenheit</value>
+  </data>
+  <data name="ai4331" xml:space="preserve">
+    <value>Temperatura máxima em Celsius</value>
+  </data>
+  <data name="ai4332" xml:space="preserve">
+    <value>Temperatura mínima em Fahrenheit</value>
+  </data>
+  <data name="ai4333" xml:space="preserve">
+    <value>Temperatura mínima em Celsius</value>
+  </data>
+  <data name="ai7001" xml:space="preserve">
+    <value>Número de Estoque da OTAN (NSN)</value>
+  </data>
+  <data name="ai7002" xml:space="preserve">
+    <value>Classificação UNECE de carcaças de carne e cortes</value>
+  </data>
+  <data name="ai7003" xml:space="preserve">
+    <value>Data e hora de expiração</value>
+  </data>
+  <data name="ai7004" xml:space="preserve">
+    <value>Potência ativa</value>
+  </data>
+  <data name="ai7005" xml:space="preserve">
+    <value>Área de captura</value>
+  </data>
+  <data name="ai7006" xml:space="preserve">
+    <value>Primeira data de congelamento</value>
+  </data>
+  <data name="ai7007" xml:space="preserve">
+    <value>Data da colheita</value>
+  </data>
+  <data name="ai7008" xml:space="preserve">
+    <value>Espécies para fins de pesca</value>
+  </data>
+  <data name="ai7009" xml:space="preserve">
+    <value>Tipo de equipamento de pesca</value>
+  </data>
+  <data name="ai7010" xml:space="preserve">
+    <value>Método de produção</value>
+  </data>
+  <data name="ai7011" xml:space="preserve">
+    <value>Data do teste</value>
+  </data>
+  <data name="ai7020" xml:space="preserve">
+    <value>ID do lote de reforma</value>
+  </data>
+  <data name="ai7021" xml:space="preserve">
+    <value>Status funcional</value>
+  </data>
+  <data name="ai7022" xml:space="preserve">
+    <value>Status de revisão</value>
+  </data>
+  <data name="ai7023" xml:space="preserve">
+    <value>Identificador Global de Ativo Individual de uma montagem</value>
+  </data>
+  <data name="ai703s" xml:space="preserve">
+    <value>Número do processador com código de país ISO de três dígitos</value>
+  </data>
+  <data name="ai7040" xml:space="preserve">
+    <value>GS1 UIC com Extensão 1 e índice de importador</value>
+  </data>
+  <data name="ai710" xml:space="preserve">
+    <value>Número Nacional de Reembolso de Saúde (NHRN) - Português PZN</value>
+  </data>
+  <data name="ai711" xml:space="preserve">
+    <value>Número Nacional de Reembolso de Saúde (NHRN) - França CIP</value>
+  </data>
+  <data name="ai712" xml:space="preserve">
+    <value>Número Nacional de Reembolso de Saúde (NHRN) - Espanha CN</value>
+  </data>
+  <data name="ai713" xml:space="preserve">
+    <value>Número Nacional de Reembolso de Saúde (NHRN) - Brasil DRN</value>
+  </data>
+  <data name="ai714" xml:space="preserve">
+    <value>Número Nacional de Reembolso de Saúde (NHRN) - Portugal AIM</value>
+  </data>
+  <data name="ai715" xml:space="preserve">
+    <value>Número Nacional de Reembolso de Saúde (NHRN) - Estados Unidos da América NDC</value>
+  </data>
+  <data name="ai723s" xml:space="preserve">
+    <value>Referência de certificação</value>
+  </data>
+  <data name="ai7240" xml:space="preserve">
+    <value>ID do protocolo</value>
+  </data>
+  <data name="ai7241" xml:space="preserve">
+    <value>Tipo de mídia AIDC</value>
+  </data>
+  <data name="ai7242" xml:space="preserve">
+    <value>Número de Controle de Versão (VCN)</value>
+  </data>
+  <data name="ai8001" xml:space="preserve">
+    <value>Produtos em rolo - largura, comprimento, diâmetro do núcleo, direção, emendas</value>
+  </data>
+  <data name="ai8002" xml:space="preserve">
+    <value>Identificador de telefone celular móvel</value>
+  </data>
+  <data name="ai8003" xml:space="preserve">
+    <value>Identificador Global de Ativo Retornável (GRAI)</value>
+  </data>
+  <data name="ai8004" xml:space="preserve">
+    <value>Identificador Global de Ativo Individual (GIAI)</value>
+  </data>
+  <data name="ai8005" xml:space="preserve">
+    <value>Preço por unidade de medida</value>
+  </data>
+  <data name="ai8006" xml:space="preserve">
+    <value>Identificação de uma peça individual de item comercial (ITIP)</value>
+  </data>
+  <data name="ai8007" xml:space="preserve">
+    <value>Número Internacional de Conta Bancária (IBAN)</value>
+  </data>
+  <data name="ai8008" xml:space="preserve">
+    <value>Data e hora de produção</value>
+  </data>
+  <data name="ai8009" xml:space="preserve">
+    <value>Indicador de sensor opticamente legível</value>
+  </data>
+  <data name="ai8010" xml:space="preserve">
+    <value>Identificador de Componente/Peça (CPID)</value>
+  </data>
+  <data name="ai8011" xml:space="preserve">
+    <value>Número de série do Identificador de Componente/Peça</value>
+  </data>
+  <data name="ai8012" xml:space="preserve">
+    <value>Versão do software</value>
+  </data>
+  <data name="ai8013" xml:space="preserve">
+    <value>Número Global do Modelo (GMN)</value>
+  </data>
+  <data name="ai8017" xml:space="preserve">
+    <value>Número Global de Relação de Serviço (GSRN) para identificar a relação entre uma organização que oferece serviços e o prestador de serviços</value>
+  </data>
+  <data name="ai8018" xml:space="preserve">
+    <value>Número Global de Relação de Serviço (GSRN) para identificar a relação entre uma organização que oferece serviços e o receptor dos serviços</value>
+  </data>
+  <data name="ai8019" xml:space="preserve">
+    <value>Número de Instância de Relação de Serviço (SRIN)</value>
+  </data>
+  <data name="ai8020" xml:space="preserve">
+    <value>Número de referência do boleto de pagamento</value>
+  </data>
+  <data name="ai8026" xml:space="preserve">
+    <value>Identificação das peças de um item comercial (ITIP) contidas em uma unidade logística</value>
+  </data>
+  <data name="ai8030" xml:space="preserve">
+    <value>Assinatura Digital (DigSig)</value>
+  </data>
+  <data name="ai8110" xml:space="preserve">
+    <value>Identificação de código de cupom para uso na América do Norte</value>
+  </data>
+  <data name="ai8111" xml:space="preserve">
+    <value>Pontos de fidelidade de um cupom</value>
+  </data>
+  <data name="ai8112" xml:space="preserve">
+    <value>Identificação de código de cupom de oferta positiva para uso na América do Norte</value>
+  </data>
+  <data name="ai8200" xml:space="preserve">
+    <value>URL de embalagem estendida</value>
+  </data>
+  <data name="ai90" xml:space="preserve">
+    <value>Informações acordadas mutuamente entre parceiros comerciais</value>
+  </data>
+  <data name="ai91" xml:space="preserve">
+    <value>Informações internas da empresa</value>
+  </data>
+  <data name="ai92" xml:space="preserve">
+    <value>Informações internas da empresa</value>
+  </data>
+  <data name="ai93" xml:space="preserve">
+    <value>Informações internas da empresa</value>
+  </data>
+  <data name="ai94" xml:space="preserve">
+    <value>Informações internas da empresa</value>
+  </data>
+  <data name="ai95" xml:space="preserve">
+    <value>Informações internas da empresa</value>
+  </data>
+  <data name="ai96" xml:space="preserve">
+    <value>Informações internas da empresa</value>
+  </data>
+  <data name="ai97" xml:space="preserve">
+    <value>Informações internas da empresa</value>
+  </data>
+  <data name="ai98" xml:space="preserve">
+    <value>Informações internas da empresa</value>
+  </data>
+  <data name="ai99" xml:space="preserve">
+    <value>Informações internas da empresa</value>
+  </data>
+</root>

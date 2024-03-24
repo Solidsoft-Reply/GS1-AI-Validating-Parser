@@ -1,0 +1,705 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ai00" xml:space="preserve">
+    <value>Auðkenning á lógistík einingu (SSCC)</value>
+  </data>
+  <data name="ai01" xml:space="preserve">
+    <value>Auðkenning á viðskiptavöru (GTIN)</value>
+  </data>
+  <data name="ai02" xml:space="preserve">
+    <value>Auðkenning á viðskiptavörum í lógistík einingu</value>
+  </data>
+  <data name="ai10" xml:space="preserve">
+    <value>Skrá eða lota númer</value>
+  </data>
+  <data name="ai11" xml:space="preserve">
+    <value>Framleiðsludagur</value>
+  </data>
+  <data name="ai12" xml:space="preserve">
+    <value>Gjalddagi fyrir upphæð á greiðslukvittun</value>
+  </data>
+  <data name="ai13" xml:space="preserve">
+    <value>Pökkunardagur</value>
+  </data>
+  <data name="ai15" xml:space="preserve">
+    <value>Best fyrir dagsetningu</value>
+  </data>
+  <data name="ai16" xml:space="preserve">
+    <value>Selja fyrir dagsetningu</value>
+  </data>
+  <data name="ai17" xml:space="preserve">
+    <value>Rennur út dagsetning</value>
+  </data>
+  <data name="ai20" xml:space="preserve">
+    <value>Innri afbrigði vöru</value>
+  </data>
+  <data name="ai21" xml:space="preserve">
+    <value>Raðnúmer</value>
+  </data>
+  <data name="ai22" xml:space="preserve">
+    <value>Neysluvara afbrigði</value>
+  </data>
+  <data name="ai235" xml:space="preserve">
+    <value>Þriðja aðila stjórnað, Seríalíseruð framlenging á Global Trade Item Number (GTIN) (TPX)</value>
+  </data>
+  <data name="ai240" xml:space="preserve">
+    <value>Viðbótar vara auðkenni veitt af framleiðanda</value>
+  </data>
+  <data name="ai241" xml:space="preserve">
+    <value>Hluta númer viðskiptavinar</value>
+  </data>
+  <data name="ai242" xml:space="preserve">
+    <value>Sérpöntun afbrigði númer</value>
+  </data>
+  <data name="ai243" xml:space="preserve">
+    <value>Pökkunarhluti númer</value>
+  </data>
+  <data name="ai250" xml:space="preserve">
+    <value>Aukaraðnúmer</value>
+  </data>
+  <data name="ai251" xml:space="preserve">
+    <value>Tilvísun til uppruna aðila</value>
+  </data>
+  <data name="ai253" xml:space="preserve">
+    <value>Global Document Type Identifier (GDTI)</value>
+  </data>
+  <data name="ai254" xml:space="preserve">
+    <value>Global Location Number (GLN) viðbótarhluti</value>
+  </data>
+  <data name="ai255" xml:space="preserve">
+    <value>Global Coupon Number (GCN)</value>
+  </data>
+  <data name="ai30" xml:space="preserve">
+    <value>Breytilegur fjöldi hluta</value>
+  </data>
+  <data name="ai310n" xml:space="preserve">
+    <value>Nettóþyngd, kíló (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai311n" xml:space="preserve">
+    <value>Lengd eða fyrsta mál, metrar (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai312n" xml:space="preserve">
+    <value>Breidd, þvermál, eða önnur mál, metrar (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai313n" xml:space="preserve">
+    <value>Dýpt, þykkt, hæð, eða þriðja mál, metrar (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai314n" xml:space="preserve">
+    <value>Flatarmál, fermetrar (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai315n" xml:space="preserve">
+    <value>Nettó rúmmál, lítrar (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai316n" xml:space="preserve">
+    <value>Nettó rúmmál, rúmmetrar (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai320n" xml:space="preserve">
+    <value>Nettóþyngd, pund (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai321n" xml:space="preserve">
+    <value>Lengd eða fyrsta mál, tommur (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai322n" xml:space="preserve">
+    <value>Lengd eða fyrsta mál, fet (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai323n" xml:space="preserve">
+    <value>Lengd eða fyrsta mál, jardar (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai324n" xml:space="preserve">
+    <value>Breidd, þvermál, eða önnur mál, tommur (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai325n" xml:space="preserve">
+    <value>Breidd, þvermál, eða önnur mál, fet (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai326n" xml:space="preserve">
+    <value>Breidd, þvermál, eða önnur mál, jardar (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai327n" xml:space="preserve">
+    <value>Dýpt, þykkt, hæð, eða þriðja mál, tommur (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai328n" xml:space="preserve">
+    <value>Dýpt, þykkt, hæð, eða þriðja mál, fet (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai329n" xml:space="preserve">
+    <value>Dýpt, þykkt, hæð, eða þriðja mál, jardar (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai330n" xml:space="preserve">
+    <value>Lógistísk þyngd, kíló</value>
+  </data>
+  <data name="ai331n" xml:space="preserve">
+    <value>Lengd eða fyrsta mál, metrar</value>
+  </data>
+  <data name="ai332n" xml:space="preserve">
+    <value>Breidd, þvermál, eða önnur mál, metrar</value>
+  </data>
+  <data name="ai333n" xml:space="preserve">
+    <value>Dýpt, þykkt, hæð, eða þriðja mál, metrar</value>
+  </data>
+  <data name="ai334n" xml:space="preserve">
+    <value>Flatarmál, fermetrar</value>
+  </data>
+  <data name="ai335n" xml:space="preserve">
+    <value>Lógistísk rúmmál, lítrar</value>
+  </data>
+  <data name="ai336n" xml:space="preserve">
+    <value>Lógistísk rúmmál, rúmmetrar</value>
+  </data>
+  <data name="ai337n" xml:space="preserve">
+    <value>Kíló á fermetra</value>
+  </data>
+  <data name="ai340n" xml:space="preserve">
+    <value>Lógistísk þyngd, pund</value>
+  </data>
+  <data name="ai341n" xml:space="preserve">
+    <value>Lengd eða fyrsta mál, tommur</value>
+  </data>
+  <data name="ai342n" xml:space="preserve">
+    <value>Lengd eða fyrsta mál, fet</value>
+  </data>
+  <data name="ai343n" xml:space="preserve">
+    <value>Lengd eða fyrsta mál, jardar</value>
+  </data>
+  <data name="ai344n" xml:space="preserve">
+    <value>Breidd, þvermál, eða önnur mál, tommur</value>
+  </data>
+  <data name="ai345n" xml:space="preserve">
+    <value>Breidd, þvermál, eða önnur mál, fet</value>
+  </data>
+  <data name="ai346n" xml:space="preserve">
+    <value>Breidd, þvermál, eða önnur mál, jardar</value>
+  </data>
+  <data name="ai347n" xml:space="preserve">
+    <value>Dýpt, þykkt, hæð, eða þriðja mál, tommur</value>
+  </data>
+  <data name="ai348n" xml:space="preserve">
+    <value>Dýpt, þykkt, hæð, eða þriðja mál, fet</value>
+  </data>
+  <data name="ai349n" xml:space="preserve">
+    <value>Dýpt, þykkt, hæð, eða þriðja mál, jardar</value>
+  </data>
+  <data name="ai350n" xml:space="preserve">
+    <value>Flatarmál, fer tommur (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai351n" xml:space="preserve">
+    <value>Flatarmál, fer fet (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai352n" xml:space="preserve">
+    <value>Flatarmál, fer jardar (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai353n" xml:space="preserve">
+    <value>Flatarmál, fer tommur</value>
+  </data>
+  <data name="ai354n" xml:space="preserve">
+    <value>Flatarmál, fer fet</value>
+  </data>
+  <data name="ai355n" xml:space="preserve">
+    <value>Flatarmál, fer jardar</value>
+  </data>
+  <data name="ai356n" xml:space="preserve">
+    <value>Nettóþyngd, Troy unnsi (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai357n" xml:space="preserve">
+    <value>Nettóþyngd (eða rúmmál), unnsi (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai360n" xml:space="preserve">
+    <value>Nettó rúmmál, kvarðar (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai361n" xml:space="preserve">
+    <value>Nettó rúmmál, Bandarískir gallónar (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai362n" xml:space="preserve">
+    <value>Lógistísk rúmmál, kvarðar</value>
+  </data>
+  <data name="ai363n" xml:space="preserve">
+    <value>Lógistísk rúmmál, Bandarískir gallónar</value>
+  </data>
+  <data name="ai364n" xml:space="preserve">
+    <value>Nettó rúmmál, fer tommur (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai365n" xml:space="preserve">
+    <value>Nettó rúmmál, fer fet (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai366n" xml:space="preserve">
+    <value>Nettó rúmmál, fer jardar (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai367n" xml:space="preserve">
+    <value>Lógistísk rúmmál, fer tommur</value>
+  </data>
+  <data name="ai368n" xml:space="preserve">
+    <value>Lógistísk rúmmál, fer fet</value>
+  </data>
+  <data name="ai369n" xml:space="preserve">
+    <value>Lógistísk rúmmál, fer jardar</value>
+  </data>
+  <data name="ai37" xml:space="preserve">
+    <value>Fjöldi viðskiptavara eða viðskiptavöruhluta í lógistík einingu</value>
+  </data>
+  <data name="ai390n" xml:space="preserve">
+    <value>Upphæð sem greiða skal eða gildi afsláttarmiða - Einn peningasvæði</value>
+  </data>
+  <data name="ai391n" xml:space="preserve">
+    <value>Upphæð sem greiða skal og ISO gjaldmiðilskóði</value>
+  </data>
+  <data name="ai392n" xml:space="preserve">
+    <value>Upphæð sem greiða skal fyrir breytilega mæli einingu viðskiptavöru - Einn peningasvæði</value>
+  </data>
+  <data name="ai393n" xml:space="preserve">
+    <value>Upphæð sem greiða skal fyrir breytilega mæli einingu viðskiptavöru og ISO gjaldmiðilskóði</value>
+  </data>
+  <data name="ai394n" xml:space="preserve">
+    <value>Hlutfall afsláttar af afsláttarmiða</value>
+  </data>
+  <data name="ai395n" xml:space="preserve">
+    <value>Upphæð sem greiða skal fyrir hverja einingu af mælieiningu einn peningasvæði (breytileg mælieining viðskiptavöru)</value>
+  </data>
+  <data name="ai400" xml:space="preserve">
+    <value>Pöntunarnúmer viðskiptavinar</value>
+  </data>
+  <data name="ai401" xml:space="preserve">
+    <value>Global Identification Number fyrir Consignment (GINC)</value>
+  </data>
+  <data name="ai402" xml:space="preserve">
+    <value>Global Shipment Identification Number (GSIN)</value>
+  </data>
+  <data name="ai403" xml:space="preserve">
+    <value>Leiðbeiningarkóði</value>
+  </data>
+  <data name="ai410" xml:space="preserve">
+    <value>Sendu til - Afhenda til Global Location Number (GLN)</value>
+  </data>
+  <data name="ai411" xml:space="preserve">
+    <value>Reikning til - Faktúra til Global Location Number (GLN)</value>
+  </data>
+  <data name="ai412" xml:space="preserve">
+    <value>Keypt frá Global Location Number (GLN)</value>
+  </data>
+  <data name="ai413" xml:space="preserve">
+    <value>Sendu fyrir - Afhenda fyrir - Fram til Global Location Number (GLN)</value>
+  </data>
+  <data name="ai414" xml:space="preserve">
+    <value>Auðkenning á líkamlegri staðsetningu - Global Location Number (GLN)</value>
+  </data>
+  <data name="ai415" xml:space="preserve">
+    <value>Global Location Number (GLN) fyrir reikningssala</value>
+  </data>
+  <data name="ai416" xml:space="preserve">
+    <value>Global Location Number (GLN) fyrir framleiðslu eða þjónustustað</value>
+  </data>
+  <data name="ai417" xml:space="preserve">
+    <value>Party Global Location Number (GLN)</value>
+  </data>
+  <data name="ai420" xml:space="preserve">
+    <value>Sendu til / Afhenda til póstnúmer innan eins póstsvæðis</value>
+  </data>
+  <data name="ai421" xml:space="preserve">
+    <value>Sendu til / Afhenda til póstnúmer með þriggja stafa ISO landakóða</value>
+  </data>
+  <data name="ai422" xml:space="preserve">
+    <value>Upprunaland viðskiptavöru</value>
+  </data>
+  <data name="ai423" xml:space="preserve">
+    <value>Land upphaflegrar vinnslu</value>
+  </data>
+  <data name="ai424" xml:space="preserve">
+    <value>Land vinnslu</value>
+  </data>
+  <data name="ai425" xml:space="preserve">
+    <value>Land sundrunar</value>
+  </data>
+  <data name="ai426" xml:space="preserve">
+    <value>Land sem nær yfir allt ferli</value>
+  </data>
+  <data name="ai427" xml:space="preserve">
+    <value>Undirdeild upprunalandskóða fyrir viðskiptavöru</value>
+  </data>
+  <data name="ai4300" xml:space="preserve">
+    <value>Sendu til / Afhenda til fyrirtækjaheiti</value>
+  </data>
+  <data name="ai4301" xml:space="preserve">
+    <value>Sendu til / Afhenda til tengiliðs nafn</value>
+  </data>
+  <data name="ai4302" xml:space="preserve">
+    <value>Sendu til / Afhenda til heimilisfangslínu 1</value>
+  </data>
+  <data name="ai4303" xml:space="preserve">
+    <value>Sendu til / Afhenda til heimilisfangslínu 2</value>
+  </data>
+  <data name="ai4304" xml:space="preserve">
+    <value>Sendu til / Afhenda til úthverfi</value>
+  </data>
+  <data name="ai4305" xml:space="preserve">
+    <value>Sendu til / Afhenda til staðar</value>
+  </data>
+  <data name="ai4306" xml:space="preserve">
+    <value>Sendu til / Afhenda til svæðis</value>
+  </data>
+  <data name="ai4307" xml:space="preserve">
+    <value>Sendu til / Afhenda til landakóða</value>
+  </data>
+  <data name="ai4308" xml:space="preserve">
+    <value>Sendu til / Afhenda til símanúmer</value>
+  </data>
+  <data name="ai4309" xml:space="preserve">
+    <value>Sendu til / Afhenda til GEO staðsetningu</value>
+  </data>
+  <data name="ai4310" xml:space="preserve">
+    <value>Skila til fyrirtækjanafn</value>
+  </data>
+  <data name="ai4311" xml:space="preserve">
+    <value>Skila til tengiliðsnafn</value>
+  </data>
+  <data name="ai4312" xml:space="preserve">
+    <value>Skila til heimilisfangslínu 1</value>
+  </data>
+  <data name="ai4313" xml:space="preserve">
+    <value>Skila til heimilisfangslínu 2</value>
+  </data>
+  <data name="ai4314" xml:space="preserve">
+    <value>Skila til úthverfi</value>
+  </data>
+  <data name="ai4315" xml:space="preserve">
+    <value>Skila til staðar</value>
+  </data>
+  <data name="ai4316" xml:space="preserve">
+    <value>Skila til svæðis</value>
+  </data>
+  <data name="ai4317" xml:space="preserve">
+    <value>Skila til landakóða</value>
+  </data>
+  <data name="ai4318" xml:space="preserve">
+    <value>Skila til póstnúmer</value>
+  </data>
+  <data name="ai4319" xml:space="preserve">
+    <value>Skila til símanúmer</value>
+  </data>
+  <data name="ai4320" xml:space="preserve">
+    <value>Lýsing á þjónustukóða</value>
+  </data>
+  <data name="ai4321" xml:space="preserve">
+    <value>Hættulegar vörur merki</value>
+  </data>
+  <data name="ai4322" xml:space="preserve">
+    <value>Heimild til að skilja eftir merki</value>
+  </data>
+  <data name="ai4323" xml:space="preserve">
+    <value>Undirskrift krafist merki</value>
+  </data>
+  <data name="ai4324" xml:space="preserve">
+    <value>Ekki fyrir afhendingardagsetningu / tíma</value>
+  </data>
+  <data name="ai4325" xml:space="preserve">
+    <value>Ekki eftir afhendingardagsetningu / tíma</value>
+  </data>
+  <data name="ai4326" xml:space="preserve">
+    <value>Útgáfudagur</value>
+  </data>
+  <data name="ai4330" xml:space="preserve">
+    <value>Hámarkshitastig í Fahrenheit</value>
+  </data>
+  <data name="ai4331" xml:space="preserve">
+    <value>Hámarkshitastig í Celsius</value>
+  </data>
+  <data name="ai4332" xml:space="preserve">
+    <value>Lágmarkshitastig í Fahrenheit</value>
+  </data>
+  <data name="ai4333" xml:space="preserve">
+    <value>Lágmarkshitastig í Celsius</value>
+  </data>
+  <data name="ai7001" xml:space="preserve">
+    <value>NATO vörulisti númer (NSN)</value>
+  </data>
+  <data name="ai7002" xml:space="preserve">
+    <value>UNECE kjötkjarnar og sneiðar flokkun</value>
+  </data>
+  <data name="ai7003" xml:space="preserve">
+    <value>Rennur út dagsetning og tími</value>
+  </data>
+  <data name="ai7004" xml:space="preserve">
+    <value>Virkni styrkur</value>
+  </data>
+  <data name="ai7005" xml:space="preserve">
+    <value>Fangasvæði</value>
+  </data>
+  <data name="ai7006" xml:space="preserve">
+    <value>Fyrsta frost dagsetning</value>
+  </data>
+  <data name="ai7007" xml:space="preserve">
+    <value>Uppskerudagur</value>
+  </data>
+  <data name="ai7008" xml:space="preserve">
+    <value>Tegundir fyrir fiskveiðar</value>
+  </data>
+  <data name="ai7009" xml:space="preserve">
+    <value>Fiskveiði tækjategund</value>
+  </data>
+  <data name="ai7010" xml:space="preserve">
+    <value>Framleiðsluaðferð</value>
+  </data>
+  <data name="ai7011" xml:space="preserve">
+    <value>Prófadagur</value>
+  </data>
+  <data name="ai7020" xml:space="preserve">
+    <value>Endurbætur lota auðkenni</value>
+  </data>
+  <data name="ai7021" xml:space="preserve">
+    <value>Virkni staða</value>
+  </data>
+  <data name="ai7022" xml:space="preserve">
+    <value>Endurskoðunar staða</value>
+  </data>
+  <data name="ai7023" xml:space="preserve">
+    <value>Global Individual Asset Identifier fyrir samsetningu</value>
+  </data>
+  <data name="ai703s" xml:space="preserve">
+    <value>Fjöldi vinnslueininga með þriggja stafa ISO landakóða</value>
+  </data>
+  <data name="ai7040" xml:space="preserve">
+    <value>GS1 UIC með Extension 1 og Innflytjandi vísitölu</value>
+  </data>
+  <data name="ai710" xml:space="preserve">
+    <value>National Healthcare Reimbursement Number (NHRN) - Þýska PZN</value>
+  </data>
+  <data name="ai711" xml:space="preserve">
+    <value>National Healthcare Reimbursement Number (NHRN) - Franska CIP</value>
+  </data>
+  <data name="ai712" xml:space="preserve">
+    <value>National Healthcare Reimbursement Number (NHRN) - Spænska CN</value>
+  </data>
+  <data name="ai713" xml:space="preserve">
+    <value>National Healthcare Reimbursement Number (NHRN) - Brasilía DRN</value>
+  </data>
+  <data name="ai714" xml:space="preserve">
+    <value>National Healthcare Reimbursement Number (NHRN) - Portúgal AIM</value>
+  </data>
+  <data name="ai715" xml:space="preserve">
+    <value>National Healthcare Reimbursement Number (NHRN) - Bandaríkin NDC</value>
+  </data>
+  <data name="ai723s" xml:space="preserve">
+    <value>Vottun vísa</value>
+  </data>
+  <data name="ai7240" xml:space="preserve">
+    <value>Prótókoll auðkenni</value>
+  </data>
+  <data name="ai7241" xml:space="preserve">
+    <value>AIDC fjölmiðla týpa</value>
+  </data>
+  <data name="ai7242" xml:space="preserve">
+    <value>Útgáfa stjórnunarnúmer (VCN)</value>
+  </data>
+  <data name="ai8001" xml:space="preserve">
+    <value>Rúllu vörur - breidd, lengd, kjarna þvermál, stefna, tengingar</value>
+  </data>
+  <data name="ai8002" xml:space="preserve">
+    <value>Farsími auðkenni</value>
+  </data>
+  <data name="ai8003" xml:space="preserve">
+    <value>Global Returnable Asset Identifier (GRAI)</value>
+  </data>
+  <data name="ai8004" xml:space="preserve">
+    <value>Global Individual Asset Identifier (GIAI)</value>
+  </data>
+  <data name="ai8005" xml:space="preserve">
+    <value>Verð á einingu mælieiningar</value>
+  </data>
+  <data name="ai8006" xml:space="preserve">
+    <value>Auðkenning á einstakri viðskiptavöru (ITIP) hluta</value>
+  </data>
+  <data name="ai8007" xml:space="preserve">
+    <value>Alþjóðlegur bankareikningsnúmer (IBAN)</value>
+  </data>
+  <data name="ai8008" xml:space="preserve">
+    <value>Framleiðsludagur og tími</value>
+  </data>
+  <data name="ai8009" xml:space="preserve">
+    <value>Sjónrænt lesanlegur skynjari vísir</value>
+  </data>
+  <data name="ai8010" xml:space="preserve">
+    <value>Hluta/Komponenta auðkennari (CPID)</value>
+  </data>
+  <data name="ai8011" xml:space="preserve">
+    <value>Hluta/Komponenta auðkennari raðnúmer</value>
+  </data>
+  <data name="ai8012" xml:space="preserve">
+    <value>Hugbúnaðarútgáfa</value>
+  </data>
+  <data name="ai8013" xml:space="preserve">
+    <value>Global Model Number (GMN)</value>
+  </data>
+  <data name="ai8017" xml:space="preserve">
+    <value>Global Service Relation Number (GSRN) til að auðkenna samband milli fyrirtækis sem býður upp á þjónustu og þjónustuveitanda</value>
+  </data>
+  <data name="ai8018" xml:space="preserve">
+    <value>Global Service Relation Number (GSRN) til að auðkenna samband milli fyrirtækis sem býður upp á þjónustu og þjónustuþega</value>
+  </data>
+  <data name="ai8019" xml:space="preserve">
+    <value>Service Relation Instance Number (SRIN)</value>
+  </data>
+  <data name="ai8020" xml:space="preserve">
+    <value>Tilvísunarnúmer greiðsluseðils</value>
+  </data>
+  <data name="ai8026" xml:space="preserve">
+    <value>Auðkenning á hlutum viðskiptavöru (ITIP) í lógistík einingu</value>
+  </data>
+  <data name="ai8030" xml:space="preserve">
+    <value>Stafræn undirskrift (DigSig)</value>
+  </data>
+  <data name="ai8110" xml:space="preserve">
+    <value>Kóða auðkenning fyrir afsláttarmiða til notkunar í Norður-Ameríku</value>
+  </data>
+  <data name="ai8111" xml:space="preserve">
+    <value>Stig lojalitetar af afsláttarmiða</value>
+  </data>
+  <data name="ai8112" xml:space="preserve">
+    <value>Jákvæða tilboðsskrá afsláttarmiða kóða auðkenning fyrir notkun í Norður-Ameríku</value>
+  </data>
+  <data name="ai8200" xml:space="preserve">
+    <value>Útvíkkuð pökkunarslóð</value>
+  </data>
+  <data name="ai90" xml:space="preserve">
+    <value>Upplýsingar sem eru gagnkvæmt samþykktar milli viðskiptaaðila</value>
+  </data>
+  <data name="ai91" xml:space="preserve">
+    <value>Innanfyrirtækjaupplýsingar</value>
+  </data>
+  <data name="ai92" xml:space="preserve">
+    <value>Innanfyrirtækjaupplýsingar</value>
+  </data>
+  <data name="ai93" xml:space="preserve">
+    <value>Innanfyrirtækjaupplýsingar</value>
+  </data>
+  <data name="ai94" xml:space="preserve">
+    <value>Innanfyrirtækjaupplýsingar</value>
+  </data>
+  <data name="ai95" xml:space="preserve">
+    <value>Innanfyrirtækjaupplýsingar</value>
+  </data>
+  <data name="ai96" xml:space="preserve">
+    <value>Innanfyrirtækjaupplýsingar</value>
+  </data>
+  <data name="ai97" xml:space="preserve">
+    <value>Innanfyrirtækjaupplýsingar</value>
+  </data>
+  <data name="ai98" xml:space="preserve">
+    <value>Innanfyrirtækjaupplýsingar</value>
+  </data>
+  <data name="ai99" xml:space="preserve">
+    <value>Innanfyrirtækjaupplýsingar</value>
+  </data>
+</root>

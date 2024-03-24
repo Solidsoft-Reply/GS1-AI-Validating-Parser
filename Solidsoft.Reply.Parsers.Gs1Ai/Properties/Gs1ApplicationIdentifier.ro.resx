@@ -1,0 +1,705 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ai00" xml:space="preserve">
+    <value>Identificarea unei unități logistice (SSCC)</value>
+  </data>
+  <data name="ai01" xml:space="preserve">
+    <value>Identificarea unui articol comercial (GTIN)</value>
+  </data>
+  <data name="ai02" xml:space="preserve">
+    <value>Identificarea articolelor comerciale conținute într-o unitate logistică</value>
+  </data>
+  <data name="ai10" xml:space="preserve">
+    <value>Număr de lot sau serie</value>
+  </data>
+  <data name="ai11" xml:space="preserve">
+    <value>Data producției</value>
+  </data>
+  <data name="ai12" xml:space="preserve">
+    <value>Data scadentă pentru suma de pe chitanța de plată</value>
+  </data>
+  <data name="ai13" xml:space="preserve">
+    <value>Data ambalării</value>
+  </data>
+  <data name="ai15" xml:space="preserve">
+    <value>Data optimă de consum</value>
+  </data>
+  <data name="ai16" xml:space="preserve">
+    <value>Data limită de vânzare</value>
+  </data>
+  <data name="ai17" xml:space="preserve">
+    <value>Data de expirare</value>
+  </data>
+  <data name="ai20" xml:space="preserve">
+    <value>Variantă internă a produsului</value>
+  </data>
+  <data name="ai21" xml:space="preserve">
+    <value>Număr de serie</value>
+  </data>
+  <data name="ai22" xml:space="preserve">
+    <value>Variantă a produsului pentru consumatori</value>
+  </data>
+  <data name="ai235" xml:space="preserve">
+    <value>Controlat de Terță Parte, Extensie Serializată a Numărului Global de Articol Comercial (GTIN) (TPX)</value>
+  </data>
+  <data name="ai240" xml:space="preserve">
+    <value>Identificare suplimentară a produsului atribuită de producător</value>
+  </data>
+  <data name="ai241" xml:space="preserve">
+    <value>Numărul piesei clientului</value>
+  </data>
+  <data name="ai242" xml:space="preserve">
+    <value>Număr de variație fabricat la comandă</value>
+  </data>
+  <data name="ai243" xml:space="preserve">
+    <value>Numărul componentei de ambalare</value>
+  </data>
+  <data name="ai250" xml:space="preserve">
+    <value>Număr secundar de serie</value>
+  </data>
+  <data name="ai251" xml:space="preserve">
+    <value>Referință la entitatea sursă</value>
+  </data>
+  <data name="ai253" xml:space="preserve">
+    <value>Identificator Global de Tip Document (GDTI)</value>
+  </data>
+  <data name="ai254" xml:space="preserve">
+    <value>Componentă de extensie a Numărului Global de Locație (GLN)</value>
+  </data>
+  <data name="ai255" xml:space="preserve">
+    <value>Număr Global de Cupon (GCN)</value>
+  </data>
+  <data name="ai30" xml:space="preserve">
+    <value>Număr variabil de articole</value>
+  </data>
+  <data name="ai310n" xml:space="preserve">
+    <value>Greutate netă, kilograme (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai311n" xml:space="preserve">
+    <value>Lungime sau prima dimensiune, metri (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai312n" xml:space="preserve">
+    <value>Lățime, diametru sau a doua dimensiune, metri (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai313n" xml:space="preserve">
+    <value>Adâncime, grosime, înălțime sau a treia dimensiune, metri (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai314n" xml:space="preserve">
+    <value>Suprafață, metri pătrați (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai315n" xml:space="preserve">
+    <value>Volum net, litri (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai316n" xml:space="preserve">
+    <value>Volum net, metri cubi (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai320n" xml:space="preserve">
+    <value>Greutate netă, livre (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai321n" xml:space="preserve">
+    <value>Lungime sau prima dimensiune, inci (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai322n" xml:space="preserve">
+    <value>Lungime sau prima dimensiune, picioare (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai323n" xml:space="preserve">
+    <value>Lungime sau prima dimensiune, yarzi (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai324n" xml:space="preserve">
+    <value>Lățime, diametru sau a doua dimensiune, inci (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai325n" xml:space="preserve">
+    <value>Lățime, diametru sau a doua dimensiune, picioare (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai326n" xml:space="preserve">
+    <value>Lățime, diametru sau a doua dimensiune, yarzi (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai327n" xml:space="preserve">
+    <value>Adâncime, grosime, înălțime sau a treia dimensiune, inci (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai328n" xml:space="preserve">
+    <value>Adâncime, grosime, înălțime sau a treia dimensiune, picioare (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai329n" xml:space="preserve">
+    <value>Adâncime, grosime, înălțime sau a treia dimensiune, yarzi (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai330n" xml:space="preserve">
+    <value>Greutate logistică, kilograme</value>
+  </data>
+  <data name="ai331n" xml:space="preserve">
+    <value>Lungime sau prima dimensiune, metri</value>
+  </data>
+  <data name="ai332n" xml:space="preserve">
+    <value>Lățime, diametru sau a doua dimensiune, metri</value>
+  </data>
+  <data name="ai333n" xml:space="preserve">
+    <value>Adâncime, grosime, înălțime sau a treia dimensiune, metri</value>
+  </data>
+  <data name="ai334n" xml:space="preserve">
+    <value>Suprafață, metri pătrați</value>
+  </data>
+  <data name="ai335n" xml:space="preserve">
+    <value>Volum logistic, litri</value>
+  </data>
+  <data name="ai336n" xml:space="preserve">
+    <value>Volum logistic, metri cubi</value>
+  </data>
+  <data name="ai337n" xml:space="preserve">
+    <value>Kilograme pe metru pătrat</value>
+  </data>
+  <data name="ai340n" xml:space="preserve">
+    <value>Greutate logistică, livre</value>
+  </data>
+  <data name="ai341n" xml:space="preserve">
+    <value>Lungime sau prima dimensiune, inci</value>
+  </data>
+  <data name="ai342n" xml:space="preserve">
+    <value>Lungime sau prima dimensiune, picioare</value>
+  </data>
+  <data name="ai343n" xml:space="preserve">
+    <value>Lungime sau prima dimensiune, yarzi</value>
+  </data>
+  <data name="ai344n" xml:space="preserve">
+    <value>Lățime, diametru sau a doua dimensiune, inci</value>
+  </data>
+  <data name="ai345n" xml:space="preserve">
+    <value>Lățime, diametru sau a doua dimensiune, picioare</value>
+  </data>
+  <data name="ai346n" xml:space="preserve">
+    <value>Lățime, diametru sau a doua dimensiune, yard</value>
+  </data>
+  <data name="ai347n" xml:space="preserve">
+    <value>Adâncime, grosime, înălțime sau a treia dimensiune, inci</value>
+  </data>
+  <data name="ai348n" xml:space="preserve">
+    <value>Adâncime, grosime, înălțime sau a treia dimensiune, picioare</value>
+  </data>
+  <data name="ai349n" xml:space="preserve">
+    <value>Adâncime, grosime, înălțime sau a treia dimensiune, yarzi</value>
+  </data>
+  <data name="ai350n" xml:space="preserve">
+    <value>Suprafață, inci pătrați (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai351n" xml:space="preserve">
+    <value>Suprafață, picioare pătrate (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai352n" xml:space="preserve">
+    <value>Suprafață, yarzi pătrați (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai353n" xml:space="preserve">
+    <value>Suprafață, inci pătrați</value>
+  </data>
+  <data name="ai354n" xml:space="preserve">
+    <value>Suprafață, picioare pătrate</value>
+  </data>
+  <data name="ai355n" xml:space="preserve">
+    <value>Suprafață, yarzi pătrați</value>
+  </data>
+  <data name="ai356n" xml:space="preserve">
+    <value>Greutate netă, uncii troy (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai357n" xml:space="preserve">
+    <value>Greutate netă (sau volum), uncii (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai360n" xml:space="preserve">
+    <value>Volum net, quarți (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai361n" xml:space="preserve">
+    <value>Volum net, galoni U.S. (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai362n" xml:space="preserve">
+    <value>Volum logistic, quarți</value>
+  </data>
+  <data name="ai363n" xml:space="preserve">
+    <value>Volum logistic, galoni U.S.</value>
+  </data>
+  <data name="ai364n" xml:space="preserve">
+    <value>Volum net, inci cubici (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai365n" xml:space="preserve">
+    <value>Volum net, picioare cubice (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai366n" xml:space="preserve">
+    <value>Volum net, yarzi cubici (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai367n" xml:space="preserve">
+    <value>Volum logistic, inci cubici</value>
+  </data>
+  <data name="ai368n" xml:space="preserve">
+    <value>Volum logistic, picioare cubice</value>
+  </data>
+  <data name="ai369n" xml:space="preserve">
+    <value>Volum logistic, yarzi cubici</value>
+  </data>
+  <data name="ai37" xml:space="preserve">
+    <value>Numărul de articole comerciale sau piese de articole comerciale conținute într-o unitate logistică</value>
+  </data>
+  <data name="ai390n" xml:space="preserve">
+    <value>Suma de plată sau valoarea cuponului - Zonă monetară unică</value>
+  </data>
+  <data name="ai391n" xml:space="preserve">
+    <value>Suma de plată și codul valutar ISO</value>
+  </data>
+  <data name="ai392n" xml:space="preserve">
+    <value>Suma de plată pentru un articol comercial cu măsură variabilă - Zonă monetară unică</value>
+  </data>
+  <data name="ai393n" xml:space="preserve">
+    <value>Suma de plată pentru un articol comercial cu măsură variabilă și codul valutar ISO</value>
+  </data>
+  <data name="ai394n" xml:space="preserve">
+    <value>Reducere procentuală a unui cupon</value>
+  </data>
+  <data name="ai395n" xml:space="preserve">
+    <value>Suma de plată pe unitate de măsură zonă monetară unică (articol comercial cu măsură variabilă)</value>
+  </data>
+  <data name="ai400" xml:space="preserve">
+    <value>Numărul de comandă de cumpărare al clientului</value>
+  </data>
+  <data name="ai401" xml:space="preserve">
+    <value>Număr Global de Identificare pentru Consignație (GINC)</value>
+  </data>
+  <data name="ai402" xml:space="preserve">
+    <value>Număr Global de Identificare a Expediției (GSIN)</value>
+  </data>
+  <data name="ai403" xml:space="preserve">
+    <value>Cod de rutare</value>
+  </data>
+  <data name="ai410" xml:space="preserve">
+    <value>Livrează la - Număr Global de Localizare (GLN)</value>
+  </data>
+  <data name="ai411" xml:space="preserve">
+    <value>Facturează la - Factură la Număr Global de Localizare (GLN)</value>
+  </data>
+  <data name="ai412" xml:space="preserve">
+    <value>Achiziționat de la Număr Global de Localizare (GLN)</value>
+  </data>
+  <data name="ai413" xml:space="preserve">
+    <value>Expediază pentru - Livrează pentru - Redirecționează la Număr Global de Localizare (GLN)</value>
+  </data>
+  <data name="ai414" xml:space="preserve">
+    <value>Identificarea unei locații fizice - Număr Global de Localizare (GLN)</value>
+  </data>
+  <data name="ai415" xml:space="preserve">
+    <value>Număr Global de Localizare (GLN) al părții care facturează</value>
+  </data>
+  <data name="ai416" xml:space="preserve">
+    <value>Număr Global de Localizare (GLN) al locului de producție sau servicii</value>
+  </data>
+  <data name="ai417" xml:space="preserve">
+    <value>Număr Global de Localizare (GLN) al părții</value>
+  </data>
+  <data name="ai420" xml:space="preserve">
+    <value>Cod poștal Livrează la / Livrează la în cadrul unei singure autorități poștale</value>
+  </data>
+  <data name="ai421" xml:space="preserve">
+    <value>Cod poștal Livrează la / Livrează la cu cod de țară ISO de trei cifre</value>
+  </data>
+  <data name="ai422" xml:space="preserve">
+    <value>Țara de origine a articolului comercial</value>
+  </data>
+  <data name="ai423" xml:space="preserve">
+    <value>Țara procesării inițiale</value>
+  </data>
+  <data name="ai424" xml:space="preserve">
+    <value>Țara procesării</value>
+  </data>
+  <data name="ai425" xml:space="preserve">
+    <value>Țara demontării</value>
+  </data>
+  <data name="ai426" xml:space="preserve">
+    <value>Țara care acoperă întregul lanț de procesare</value>
+  </data>
+  <data name="ai427" xml:space="preserve">
+    <value>Subdiviziunea țării de origine cod pentru un articol comercial</value>
+  </data>
+  <data name="ai4300" xml:space="preserve">
+    <value>Numele companiei Livrează la / Livrează la</value>
+  </data>
+  <data name="ai4301" xml:space="preserve">
+    <value>Numele de contact Livrează la / Livrează la</value>
+  </data>
+  <data name="ai4302" xml:space="preserve">
+    <value>Linia adresei 1 Livrează la / Livrează la</value>
+  </data>
+  <data name="ai4303" xml:space="preserve">
+    <value>Linia adresei 2 Livrează la / Livrează la</value>
+  </data>
+  <data name="ai4304" xml:space="preserve">
+    <value>Suburbie Livrează la / Livrează la</value>
+  </data>
+  <data name="ai4305" xml:space="preserve">
+    <value>Localitatea Livrează la / Livrează la</value>
+  </data>
+  <data name="ai4306" xml:space="preserve">
+    <value>Regiunea Livrează la / Livrează la</value>
+  </data>
+  <data name="ai4307" xml:space="preserve">
+    <value>Codul țării Livrează la / Livrează la</value>
+  </data>
+  <data name="ai4308" xml:space="preserve">
+    <value>Numărul de telefon Livrează la / Livrează la</value>
+  </data>
+  <data name="ai4309" xml:space="preserve">
+    <value>Locația GEO Livrează la / Livrează la</value>
+  </data>
+  <data name="ai4310" xml:space="preserve">
+    <value>Numele companiei Returnează la</value>
+  </data>
+  <data name="ai4311" xml:space="preserve">
+    <value>Numele de contact Returnează la</value>
+  </data>
+  <data name="ai4312" xml:space="preserve">
+    <value>Linia adresei 1 Returnează la</value>
+  </data>
+  <data name="ai4313" xml:space="preserve">
+    <value>Linia adresei 2 Returnează la</value>
+  </data>
+  <data name="ai4314" xml:space="preserve">
+    <value>Suburbie Returnează la</value>
+  </data>
+  <data name="ai4315" xml:space="preserve">
+    <value>Localitatea Returnează la</value>
+  </data>
+  <data name="ai4316" xml:space="preserve">
+    <value>Regiunea Returnează la</value>
+  </data>
+  <data name="ai4317" xml:space="preserve">
+    <value>Codul țării Returnează la</value>
+  </data>
+  <data name="ai4318" xml:space="preserve">
+    <value>Codul poștal Returnează la</value>
+  </data>
+  <data name="ai4319" xml:space="preserve">
+    <value>Numărul de telefon Returnează la</value>
+  </data>
+  <data name="ai4320" xml:space="preserve">
+    <value>Descrierea codului serviciului</value>
+  </data>
+  <data name="ai4321" xml:space="preserve">
+    <value>Steagul pentru mărfuri periculoase</value>
+  </data>
+  <data name="ai4322" xml:space="preserve">
+    <value>Steagul pentru autorizarea de a lăsa</value>
+  </data>
+  <data name="ai4323" xml:space="preserve">
+    <value>Steagul pentru semnătură obligatorie</value>
+  </data>
+  <data name="ai4324" xml:space="preserve">
+    <value>Nu înainte de data/ora livrării</value>
+  </data>
+  <data name="ai4325" xml:space="preserve">
+    <value>Nu după data/ora livrării</value>
+  </data>
+  <data name="ai4326" xml:space="preserve">
+    <value>Data lansării</value>
+  </data>
+  <data name="ai4330" xml:space="preserve">
+    <value>Temperatura maximă în Fahrenheit</value>
+  </data>
+  <data name="ai4331" xml:space="preserve">
+    <value>Temperatura maximă în Celsius</value>
+  </data>
+  <data name="ai4332" xml:space="preserve">
+    <value>Temperatura minimă în Fahrenheit</value>
+  </data>
+  <data name="ai4333" xml:space="preserve">
+    <value>Temperatura minimă în Celsius</value>
+  </data>
+  <data name="ai7001" xml:space="preserve">
+    <value>Numărul de Stoc NATO (NSN)</value>
+  </data>
+  <data name="ai7002" xml:space="preserve">
+    <value>Clasificarea UNECE a carcaselor și tăieturilor de carne</value>
+  </data>
+  <data name="ai7003" xml:space="preserve">
+    <value>Data și ora expirării</value>
+  </data>
+  <data name="ai7004" xml:space="preserve">
+    <value>Potența activă</value>
+  </data>
+  <data name="ai7005" xml:space="preserve">
+    <value>Zona de captură</value>
+  </data>
+  <data name="ai7006" xml:space="preserve">
+    <value>Prima dată de îngheț</value>
+  </data>
+  <data name="ai7007" xml:space="preserve">
+    <value>Data recoltării</value>
+  </data>
+  <data name="ai7008" xml:space="preserve">
+    <value>Speciile pentru scopuri pescărești</value>
+  </data>
+  <data name="ai7009" xml:space="preserve">
+    <value>Tipul echipamentului de pescuit</value>
+  </data>
+  <data name="ai7010" xml:space="preserve">
+    <value>Metoda de producție</value>
+  </data>
+  <data name="ai7011" xml:space="preserve">
+    <value>Data testului</value>
+  </data>
+  <data name="ai7020" xml:space="preserve">
+    <value>ID-ul lotului de recondiționare</value>
+  </data>
+  <data name="ai7021" xml:space="preserve">
+    <value>Starea funcțională</value>
+  </data>
+  <data name="ai7022" xml:space="preserve">
+    <value>Starea reviziei</value>
+  </data>
+  <data name="ai7023" xml:space="preserve">
+    <value>Identificator Global Individual de Activ al unui ansamblu</value>
+  </data>
+  <data name="ai703s" xml:space="preserve">
+    <value>Numărul procesorului cu cod de țară ISO de trei cifre</value>
+  </data>
+  <data name="ai7040" xml:space="preserve">
+    <value>GS1 UIC cu Extensia 1 și indicele importatorului</value>
+  </data>
+  <data name="ai710" xml:space="preserve">
+    <value>Numărul Național de Rambursare a Îngrijirilor Medicale (NHRN) - România PZN</value>
+  </data>
+  <data name="ai711" xml:space="preserve">
+    <value>Numărul Național de Rambursare a Îngrijirilor Medicale (NHRN) - Franța CIP</value>
+  </data>
+  <data name="ai712" xml:space="preserve">
+    <value>Numărul Național de Rambursare a Îngrijirilor Medicale (NHRN) - Spania CN</value>
+  </data>
+  <data name="ai713" xml:space="preserve">
+    <value>Numărul Național de Rambursare a Îngrijirilor Medicale (NHRN) - Brazilia DRN</value>
+  </data>
+  <data name="ai714" xml:space="preserve">
+    <value>Numărul Național de Rambursare a Îngrijirilor Medicale (NHRN) - Portugalia AIM</value>
+  </data>
+  <data name="ai715" xml:space="preserve">
+    <value>Numărul Național de Rambursare a Îngrijirilor Medicale (NHRN) - Statele Unite ale Americii NDC</value>
+  </data>
+  <data name="ai723s" xml:space="preserve">
+    <value>Referința de certificare</value>
+  </data>
+  <data name="ai7240" xml:space="preserve">
+    <value>ID-ul protocolului</value>
+  </data>
+  <data name="ai7241" xml:space="preserve">
+    <value>Tipul de mediu AIDC</value>
+  </data>
+  <data name="ai7242" xml:space="preserve">
+    <value>Numărul de Control al Versiunii (VCN)</value>
+  </data>
+  <data name="ai8001" xml:space="preserve">
+    <value>Produse pe rolă - lățime, lungime, diametrul miezului, direcție, îmbinări</value>
+  </data>
+  <data name="ai8002" xml:space="preserve">
+    <value>Identificator de telefon mobil celular</value>
+  </data>
+  <data name="ai8003" xml:space="preserve">
+    <value>Identificator Global de Activ Returnabil (GRAI)</value>
+  </data>
+  <data name="ai8004" xml:space="preserve">
+    <value>Identificator Global Individual de Activ (GIAI)</value>
+  </data>
+  <data name="ai8005" xml:space="preserve">
+    <value>Prețul pe unitate de măsură</value>
+  </data>
+  <data name="ai8006" xml:space="preserve">
+    <value>Identificarea unui articol comercial individual (ITIP)</value>
+  </data>
+  <data name="ai8007" xml:space="preserve">
+    <value>Numărul Internațional de Cont Bancar (IBAN)</value>
+  </data>
+  <data name="ai8008" xml:space="preserve">
+    <value>Data și ora producției</value>
+  </data>
+  <data name="ai8009" xml:space="preserve">
+    <value>Indicator de senzor citibil optic</value>
+  </data>
+  <data name="ai8010" xml:space="preserve">
+    <value>Identificator de Componentă/Piesă (CPID)</value>
+  </data>
+  <data name="ai8011" xml:space="preserve">
+    <value>Numărul de serie al Identificatorului de Componentă/Piesă</value>
+  </data>
+  <data name="ai8012" xml:space="preserve">
+    <value>Versiunea software-ului</value>
+  </data>
+  <data name="ai8013" xml:space="preserve">
+    <value>Numărul Global de Model (GMN)</value>
+  </data>
+  <data name="ai8017" xml:space="preserve">
+    <value>Numărul Global de Relație de Serviciu (GSRN) pentru identificarea relației dintre o organizație care oferă servicii și furnizorul de servicii</value>
+  </data>
+  <data name="ai8018" xml:space="preserve">
+    <value>Numărul Global de Relație de Serviciu (GSRN) pentru identificarea relației dintre o organizație care oferă servicii și destinatarul serviciilor</value>
+  </data>
+  <data name="ai8019" xml:space="preserve">
+    <value>Numărul de Instanță a Relației de Serviciu (SRIN)</value>
+  </data>
+  <data name="ai8020" xml:space="preserve">
+    <value>Numărul de referință al chitanței de plată</value>
+  </data>
+  <data name="ai8026" xml:space="preserve">
+    <value>Identificarea pieselor unui articol comercial (ITIP) conținute într-o unitate logistică</value>
+  </data>
+  <data name="ai8030" xml:space="preserve">
+    <value>Semnătura Digitală (DigSig)</value>
+  </data>
+  <data name="ai8110" xml:space="preserve">
+    <value>Identificarea codului de cupon pentru utilizare în America de Nord</value>
+  </data>
+  <data name="ai8111" xml:space="preserve">
+    <value>Punctele de loialitate ale unui cupon</value>
+  </data>
+  <data name="ai8112" xml:space="preserve">
+    <value>Identificarea codului de cupon pentru ofertă pozitivă pentru utilizare în America de Nord</value>
+  </data>
+  <data name="ai8200" xml:space="preserve">
+    <value>URL-ul extins al ambalajului</value>
+  </data>
+  <data name="ai90" xml:space="preserve">
+    <value>Informații convenite reciproc între partenerii comerciali</value>
+  </data>
+  <data name="ai91" xml:space="preserve">
+    <value>Informații interne ale companiei</value>
+  </data>
+  <data name="ai92" xml:space="preserve">
+    <value>Informații interne ale companiei</value>
+  </data>
+  <data name="ai93" xml:space="preserve">
+    <value>Informații interne ale companiei</value>
+  </data>
+  <data name="ai94" xml:space="preserve">
+    <value>Informații interne ale companiei</value>
+  </data>
+  <data name="ai95" xml:space="preserve">
+    <value>Informații interne ale companiei</value>
+  </data>
+  <data name="ai96" xml:space="preserve">
+    <value>Informații interne ale companiei</value>
+  </data>
+  <data name="ai97" xml:space="preserve">
+    <value>Informații interne ale companiei</value>
+  </data>
+  <data name="ai98" xml:space="preserve">
+    <value>Informații interne ale companiei</value>
+  </data>
+  <data name="ai99" xml:space="preserve">
+    <value>Informații interne ale companiei</value>
+  </data>
+</root>

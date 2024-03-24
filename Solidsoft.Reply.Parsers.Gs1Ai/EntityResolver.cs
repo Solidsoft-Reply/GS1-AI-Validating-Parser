@@ -866,7 +866,7 @@ internal static class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "SSCC",
-                    "Identification of a logistic unit (SSCC)",
+                    Gs1ApplicationIdentifier.ai00  ,
 #if NET7_0_OR_GREATER
                     SsccRegex(),
 #else 
@@ -878,7 +878,7 @@ internal static class EntityResolver {
                 1,
                 new IdentifierWithFinalChecksumDescriptor(
                     "GTIN",
-                    "Identification of a trade item (GTIN)",
+                    Gs1ApplicationIdentifier.ai01,
 #if NET7_0_OR_GREATER
                     GtinRegex(),
 #else 
@@ -889,7 +889,7 @@ internal static class EntityResolver {
             {
                 2, new IdentifierWithFinalChecksumDescriptor(
                     "CONTENT",
-                    "Identification of trade items contained in a logistic unit",
+                    Gs1ApplicationIdentifier.ai02,
 #if NET7_0_OR_GREATER
                     GtinRegex(),
 #else 
@@ -900,7 +900,7 @@ internal static class EntityResolver {
             {
                 10, new EntityDescriptor(
                     "BATCH/LOT",
-                    "Batch or lot number",
+                    Gs1ApplicationIdentifier.ai10,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else 
@@ -913,7 +913,7 @@ internal static class EntityResolver {
                     "PROD DATE",
 
                     // ReSharper disable once StringLiteralTypo
-                    "Production date",
+                    Gs1ApplicationIdentifier.ai11,
 #if NET7_0_OR_GREATER
                     DatePatternZerosRegex(),
 #else 
@@ -926,7 +926,7 @@ internal static class EntityResolver {
                     "DUE DATE",
 
                     // ReSharper disable once StringLiteralTypo
-                    "Due date for amount on payment slip",
+                    Gs1ApplicationIdentifier.ai12,
 #if NET7_0_OR_GREATER
                     DatePatternZerosRegex(),
 #else 
@@ -939,7 +939,7 @@ internal static class EntityResolver {
                     "PACK DATE",
 
                     // ReSharper disable once StringLiteralTypo
-                    "Packaging date",
+                    Gs1ApplicationIdentifier.ai13,
 #if NET7_0_OR_GREATER
                     DatePatternZerosRegex(),
 #else 
@@ -952,7 +952,7 @@ internal static class EntityResolver {
                     "BEST BEFORE or BEST BY",
 
                     // ReSharper disable once StringLiteralTypo
-                    "Best before date",
+                    Gs1ApplicationIdentifier.ai15,
 #if NET7_0_OR_GREATER
                     DatePatternZerosRegex(),
 #else 
@@ -965,7 +965,7 @@ internal static class EntityResolver {
                     "SELL BY",
 
                     // ReSharper disable once StringLiteralTypo
-                    "Sell by date",
+                    Gs1ApplicationIdentifier.ai16,
 #if NET7_0_OR_GREATER
                     DatePatternZerosRegex(),
 #else 
@@ -978,7 +978,7 @@ internal static class EntityResolver {
                     "USE BY OR EXPIRY",
 
                     // ReSharper disable once StringLiteralTypo
-                    "Expiration date",
+                    Gs1ApplicationIdentifier.ai17,
 #if NET7_0_OR_GREATER
                     DatePatternZerosRegex(),
 #else 
@@ -990,7 +990,7 @@ internal static class EntityResolver {
                 20,
                 new EntityDescriptor(
                     "VARIANT",
-                    "Internal product variant",
+                    Gs1ApplicationIdentifier.ai20,
 #if NET7_0_OR_GREATER
                     TwoDigitValueRegex(),
 #else 
@@ -1002,7 +1002,7 @@ internal static class EntityResolver {
                 21,
                 new EntityDescriptor(
                     "SERIAL",
-                    "Serial number",
+                    Gs1ApplicationIdentifier.ai21,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else 
@@ -1013,7 +1013,7 @@ internal static class EntityResolver {
             {
                 22, new EntityDescriptor(
                     "CPV",
-                    "Consumer product variant",
+                    Gs1ApplicationIdentifier.ai22,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else 
@@ -1024,7 +1024,7 @@ internal static class EntityResolver {
             {
                 235, new EntityDescriptor(
                     "TPX",
-                    "Third Party Controlled, Serialised Extension of Global Trade Item Number (GTIN) (TPX)",
+                    Gs1ApplicationIdentifier.ai235,
 #if NET7_0_OR_GREATER
                     CharacterSet8228CharsRegex(),
 #else 
@@ -1035,7 +1035,7 @@ internal static class EntityResolver {
             {
                 240, new EntityDescriptor(
                     "ADDITIONAL ID",
-                    "Additional product identification assigned by the manufacturer",
+                    Gs1ApplicationIdentifier.ai240,
 #if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
 #else 
@@ -1048,7 +1048,7 @@ internal static class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "CUST. PART No.",
-                    "Customer part number",
+                    Gs1ApplicationIdentifier.ai241,
 #if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
 #else 
@@ -1060,7 +1060,7 @@ internal static class EntityResolver {
                 242,
                 new EntityDescriptor(
                     "MTO VARIANT",
-                    "Made-to-Order variation number",
+                    Gs1ApplicationIdentifier.ai242,
 #if NET7_0_OR_GREATER
                     MaxSixDigitValueRegex(),
 #else 
@@ -1071,7 +1071,7 @@ internal static class EntityResolver {
             {
                 243, new EntityDescriptor(
                     "PCN",
-                    "Packaging component number",
+                    Gs1ApplicationIdentifier.ai243,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else 
@@ -1082,7 +1082,7 @@ internal static class EntityResolver {
             {
                 250, new EntityDescriptor(
                     "SECONDARY SERIAL",
-                    "Secondary serial number",
+                    Gs1ApplicationIdentifier.ai250,
 #if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
 #else 
@@ -1093,7 +1093,7 @@ internal static class EntityResolver {
             {
                 251, new EntityDescriptor(
                     "REF. TO SOURCE",
-                    "Reference to source entity",
+                    Gs1ApplicationIdentifier.ai251,
 #if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
 #else 
@@ -1106,7 +1106,7 @@ internal static class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "GDTI",
-                    "Global Document Type Identifier (GDTI)",
+                    Gs1ApplicationIdentifier.ai253,
 #if NET7_0_OR_GREATER
                     GdtiRegex(),
 #else 
@@ -1117,7 +1117,7 @@ internal static class EntityResolver {
             {
                 254, new EntityDescriptor(
                     "GLN EXTENSION COMPONENT",
-                    "Global Location Number (GLN) extension component",
+                    Gs1ApplicationIdentifier.ai254,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else 
@@ -1128,7 +1128,7 @@ internal static class EntityResolver {
             {
                 255, new IdentifierWithPos13ChecksumDescriptor(
                     "GCN",
-                    "Global Coupon Number (GCN)",
+                    Gs1ApplicationIdentifier.ai255,
 #if NET7_0_OR_GREATER
                     GcnRegex(),
 #else 
@@ -1139,7 +1139,7 @@ internal static class EntityResolver {
             {
                 30, new EntityDescriptor(
                     "VAR. COUNT",
-                    "Variable count of items",
+                    Gs1ApplicationIdentifier.ai30,
 #if NET7_0_OR_GREATER
                     MaxEightDigitValueRegex(),
 #else 
@@ -1150,7 +1150,7 @@ internal static class EntityResolver {
             {
                 310, new EntityDescriptor(
                     "NET WEIGHT (kg)",
-                    "Net weight, kilograms (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai310n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1161,7 +1161,7 @@ internal static class EntityResolver {
             {
                 311, new EntityDescriptor(
                     "LENGTH (m)",
-                    "Length or first dimension, metres (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai311n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1172,7 +1172,7 @@ internal static class EntityResolver {
             {
                 312, new EntityDescriptor(
                     "WIDTH (m)",
-                    "Width, diameter, or second dimension, metres (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai312n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1183,7 +1183,7 @@ internal static class EntityResolver {
             {
                 313, new EntityDescriptor(
                     "HEIGHT (m)",
-                    "Depth, thickness, height, or third dimension, metres (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai313n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1194,7 +1194,7 @@ internal static class EntityResolver {
             {
                 314, new EntityDescriptor(
                     "AREA (m²)",
-                    "Area, square metres (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai314n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1205,7 +1205,7 @@ internal static class EntityResolver {
             {
                 315, new EntityDescriptor(
                     "NET VOLUME (l)",
-                    "Net volume, litres (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai315n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1216,7 +1216,7 @@ internal static class EntityResolver {
             {
                 316, new EntityDescriptor(
                     "NET VOLUME (m³)",
-                    "Net volume, cubic metres (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai316n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1227,7 +1227,7 @@ internal static class EntityResolver {
             {
                 320, new EntityDescriptor(
                     "NET WEIGHT (lb)",
-                    "Net weight, pounds (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai320n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1238,7 +1238,7 @@ internal static class EntityResolver {
             {
                 321, new EntityDescriptor(
                     "LENGTH (i)",
-                    "Length or first dimension, inches (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai321n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1249,7 +1249,7 @@ internal static class EntityResolver {
             {
                 322, new EntityDescriptor(
                     "LENGTH (f)",
-                    "Length or first dimension, feet (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai322n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1260,7 +1260,7 @@ internal static class EntityResolver {
             {
                 323, new EntityDescriptor(
                     "LENGTH (y)",
-                    "Length or first dimension, yards (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai323n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1271,7 +1271,7 @@ internal static class EntityResolver {
             {
                 324, new EntityDescriptor(
                     "WIDTH (i)",
-                    "Width, diameter, or second dimension, inches (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai324n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1282,7 +1282,7 @@ internal static class EntityResolver {
             {
                 325, new EntityDescriptor(
                     "WIDTH (f)",
-                    "Width, diameter, or second dimension, feet (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai325n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1293,7 +1293,7 @@ internal static class EntityResolver {
             {
                 326, new EntityDescriptor(
                     "WIDTH (y)",
-                    "Width, diameter, or second dimension, yards (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai326n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1304,7 +1304,7 @@ internal static class EntityResolver {
             {
                 327, new EntityDescriptor(
                     "HEIGHT (i)",
-                    "Depth, thickness, height, or third dimension, inches (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai327n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1315,7 +1315,7 @@ internal static class EntityResolver {
             {
                 328, new EntityDescriptor(
                     "HEIGHT (f)",
-                    "Depth, thickness, height, or third dimension, feet (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai328n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1326,7 +1326,7 @@ internal static class EntityResolver {
             {
                 329, new EntityDescriptor(
                     "HEIGHT (y)",
-                    "Depth, thickness, height, or third dimension, yards (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai329n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1338,7 +1338,7 @@ internal static class EntityResolver {
                 330,
                 new EntityDescriptor(
                     "GROSS WEIGHT (kg)",
-                    "Logistic weight, kilograms",
+                    Gs1ApplicationIdentifier.ai390n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1350,7 +1350,7 @@ internal static class EntityResolver {
                 331,
                 new EntityDescriptor(
                     "LENGTH (m), log",
-                    "Length or first dimension, metres",
+                    Gs1ApplicationIdentifier.ai331n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1361,7 +1361,7 @@ internal static class EntityResolver {
             {
                 332, new EntityDescriptor(
                     "WIDTH (m), log",
-                    "Width, diameter, or second dimension, metres",
+                    Gs1ApplicationIdentifier.ai332n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1372,7 +1372,7 @@ internal static class EntityResolver {
             {
                 333, new EntityDescriptor(
                     "HEIGHT (m), log",
-                    "Depth, thickness, height, or third dimension, metres",
+                    Gs1ApplicationIdentifier.ai333n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1384,7 +1384,7 @@ internal static class EntityResolver {
                 334,
                 new EntityDescriptor(
                     "AREA (m²), log",
-                    "Area, square metres",
+                    Gs1ApplicationIdentifier.ai334n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1396,7 +1396,7 @@ internal static class EntityResolver {
                 335,
                 new EntityDescriptor(
                     "VOLUME (l), log",
-                    "Logistic volume, litres",
+                    Gs1ApplicationIdentifier.ai335n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1408,7 +1408,7 @@ internal static class EntityResolver {
                 336,
                 new EntityDescriptor(
                     "VOLUME (m³), log",
-                    "Logistic volume, cubic metres",
+                    Gs1ApplicationIdentifier.ai336n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1420,7 +1420,7 @@ internal static class EntityResolver {
                 337,
                 new EntityDescriptor(
                     "KG PER m²",
-                    "Kilograms per square metre",
+                    Gs1ApplicationIdentifier.ai337n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1432,7 +1432,7 @@ internal static class EntityResolver {
                 340,
                 new EntityDescriptor(
                     "GROSS WEIGHT (lb)",
-                    "Logistic weight, pounds",
+                    Gs1ApplicationIdentifier.ai340n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1444,7 +1444,7 @@ internal static class EntityResolver {
                 341,
                 new EntityDescriptor(
                     "LENGTH (i), log",
-                    "Length or first dimension, inches",
+                    Gs1ApplicationIdentifier.ai341n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1456,7 +1456,7 @@ internal static class EntityResolver {
                 342,
                 new EntityDescriptor(
                     "LENGTH (f), log",
-                    "Length or first dimension, feet",
+                    Gs1ApplicationIdentifier.ai342n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1468,7 +1468,7 @@ internal static class EntityResolver {
                 343,
                 new EntityDescriptor(
                     "LENGTH (y), log",
-                    "Length or first dimension, yards",
+                    Gs1ApplicationIdentifier.ai343n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1479,7 +1479,7 @@ internal static class EntityResolver {
             {
                 344, new EntityDescriptor(
                     "WIDTH (i), log",
-                    "Width, diameter, or second dimension, inches",
+                    Gs1ApplicationIdentifier.ai344n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1490,7 +1490,7 @@ internal static class EntityResolver {
             {
                 345, new EntityDescriptor(
                     "WIDTH (f), log",
-                    "Width, diameter, or second dimension, feet",
+                    Gs1ApplicationIdentifier.ai345n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1501,7 +1501,7 @@ internal static class EntityResolver {
             {
                 346, new EntityDescriptor(
                     "WIDTH (y), log",
-                    "Width, diameter, or second dimension, yard",
+                    Gs1ApplicationIdentifier.ai346n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1512,7 +1512,7 @@ internal static class EntityResolver {
             {
                 347, new EntityDescriptor(
                     "HEIGHT (i), log",
-                    "Depth, thickness, height, or third dimension, inches",
+                    Gs1ApplicationIdentifier.ai347n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1523,7 +1523,7 @@ internal static class EntityResolver {
             {
                 348, new EntityDescriptor(
                     "HEIGHT (f), log",
-                    "Depth, thickness, height, or third dimension, feet",
+                    Gs1ApplicationIdentifier.ai348n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1534,7 +1534,7 @@ internal static class EntityResolver {
             {
                 349, new EntityDescriptor(
                     "HEIGHT (y), log",
-                    "Depth, thickness, height, or third dimension, yards",
+                    Gs1ApplicationIdentifier.ai349n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1545,7 +1545,7 @@ internal static class EntityResolver {
             {
                 350, new EntityDescriptor(
                     "AREA (i²)",
-                    "Area, square inches (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai350n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1556,7 +1556,7 @@ internal static class EntityResolver {
             {
                 351, new EntityDescriptor(
                     "AREA (f²)",
-                    "Area, square feet (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai351n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1567,7 +1567,7 @@ internal static class EntityResolver {
             {
                 352, new EntityDescriptor(
                     "AREA (y²)",
-                    "Area, square yards (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai352n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1579,7 +1579,7 @@ internal static class EntityResolver {
                 353,
                 new EntityDescriptor(
                     "AREA (i²), log",
-                    "Area, square inches",
+                    Gs1ApplicationIdentifier.ai353n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1591,7 +1591,7 @@ internal static class EntityResolver {
                 354,
                 new EntityDescriptor(
                     "AREA (f²), log",
-                    "Area, square feet",
+                    Gs1ApplicationIdentifier.ai354n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1603,7 +1603,7 @@ internal static class EntityResolver {
                 355,
                 new EntityDescriptor(
                     "AREA (y²), log",
-                    "Area, square yards",
+                    Gs1ApplicationIdentifier.ai355n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1615,7 +1615,7 @@ internal static class EntityResolver {
                 356,
                 new EntityDescriptor(
                     "NET WEIGHT (t)",
-                    "Net weight, troy ounces (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai356n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1627,7 +1627,7 @@ internal static class EntityResolver {
                 357,
                 new EntityDescriptor(
                     "NET VOLUME (oz)",
-                    "Net weight (or volume), ounces (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai357n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1639,7 +1639,7 @@ internal static class EntityResolver {
                 360,
                 new EntityDescriptor(
                     "NET VOLUME (q)",
-                    "Net volume, quarts (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai360n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1651,7 +1651,7 @@ internal static class EntityResolver {
                 361,
                 new EntityDescriptor(
                     "NET VOLUME (g)",
-                    "Net volume, gallons U.S. (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai361n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1663,7 +1663,7 @@ internal static class EntityResolver {
                 362,
                 new EntityDescriptor(
                     "VOLUME (q), log",
-                    "Logistic volume, quarts",
+                    Gs1ApplicationIdentifier.ai362n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1675,7 +1675,7 @@ internal static class EntityResolver {
                 363,
                 new EntityDescriptor(
                     "VOLUME (g), log",
-                    "Logistic volume, gallons U.S.",
+                    Gs1ApplicationIdentifier.ai363n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1686,7 +1686,7 @@ internal static class EntityResolver {
             {
                 364, new EntityDescriptor(
                     "VOLUME (i³)",
-                    "Net volume, cubic inches (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai364n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1697,7 +1697,7 @@ internal static class EntityResolver {
             {
                 365, new EntityDescriptor(
                     "VOLUME (f³)",
-                    "Net volume, cubic feet (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai365n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1708,7 +1708,7 @@ internal static class EntityResolver {
             {
                 366, new EntityDescriptor(
                     "VOLUME (y³)",
-                    "Net volume, cubic yards (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai366n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
 #else 
@@ -1720,7 +1720,7 @@ internal static class EntityResolver {
                 367,
                 new EntityDescriptor(
                     "VOLUME (i³), log",
-                    "Logistic volume, cubic inches",
+                    Gs1ApplicationIdentifier.ai367n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1732,7 +1732,7 @@ internal static class EntityResolver {
                 368,
                 new EntityDescriptor(
                     "VOLUME (f³), log",
-                    "Logistic volume, cubic feet",
+                    Gs1ApplicationIdentifier.ai368n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1744,7 +1744,7 @@ internal static class EntityResolver {
                 369,
                 new EntityDescriptor(
                     "VOLUME (y³), log",
-                    "Logistic volume, cubic yards",
+                    Gs1ApplicationIdentifier.ai369n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -1756,7 +1756,7 @@ internal static class EntityResolver {
                 37,
                 new EntityDescriptor(
                     "COUNT",
-                    "Count of trade items or trade item pieces contained in a logistic unit",
+                    Gs1ApplicationIdentifier.ai37,
 #if NET7_0_OR_GREATER
                     MaxEightDigitValueRegex(),
 #else 
@@ -1768,7 +1768,7 @@ internal static class EntityResolver {
                 390,
                 new EntityDescriptor(
                     "AMOUNT",
-                    "Amount payable or coupon value - Single monetary area",
+                    Gs1ApplicationIdentifier.ai390n,
 #if NET7_0_OR_GREATER
                     MaxFifteenDigitValueRegex(),
 #else 
@@ -1780,7 +1780,7 @@ internal static class EntityResolver {
                 391,
                 new EntityDescriptor(
                     "AMOUNT",
-                    "Amount payable and ISO currency code",
+                    Gs1ApplicationIdentifier.ai391n,
 #if NET7_0_OR_GREATER
                     MaxFifteenDigitAmountWithIso4217CodeRegex(),
 #else 
@@ -1792,7 +1792,7 @@ internal static class EntityResolver {
                 392,
                 new EntityDescriptor(
                     "PRICE",
-                    "Amount payable for a variable measure trade item – Single monetary area",
+                    Gs1ApplicationIdentifier.ai392n,
 #if NET7_0_OR_GREATER
                     MaxFifteenDigitValueRegex(),
 #else 
@@ -1804,7 +1804,7 @@ internal static class EntityResolver {
                 393,
                 new EntityDescriptor(
                     "PRICE",
-                    "Amount payable for a variable measure trade item and ISO currency code",
+                    Gs1ApplicationIdentifier.ai393n,
 #if NET7_0_OR_GREATER
                     MaxFifteenDigitAmountWithIso4217CodeRegex(),
 #else 
@@ -1818,7 +1818,7 @@ internal static class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "PRCNT OFF",
-                    "Percentage discount of a coupon",
+                    Gs1ApplicationIdentifier.ai394n,
 #if NET7_0_OR_GREATER
                     FourDigitValueRegex(),
 #else 
@@ -1832,7 +1832,7 @@ internal static class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "PRICE/UoM",
-                    "Amount payable per unit of measure single monetary area (variable measure trade item)",
+                    Gs1ApplicationIdentifier.ai395n,
 #if NET7_0_OR_GREATER
                     SixDigitMonetaryValueRegex(),
 #else 
@@ -1844,7 +1844,7 @@ internal static class EntityResolver {
                 400,
                 new EntityDescriptor(
                     "ORDER NUMBER",
-                    "Customer’s purchase order number",
+                    Gs1ApplicationIdentifier.ai400,
 #if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
 #else 
@@ -1860,7 +1860,7 @@ internal static class EntityResolver {
                     "GINC",
 
                     // ReSharper disable once StringLiteralTypo
-                    "Global Identification Number for Consignment (GINC)",
+                    Gs1ApplicationIdentifier.ai401,
 #if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
 #else 
@@ -1876,7 +1876,7 @@ internal static class EntityResolver {
                     "GSIN",
 
                     // ReSharper disable once StringLiteralTypo
-                    "Global Shipment Identification Number (GSIN)",
+                    Gs1ApplicationIdentifier.ai402,
 #if NET7_0_OR_GREATER
                     SeventeenDigitValueRegex(),
 #else 
@@ -1888,7 +1888,7 @@ internal static class EntityResolver {
                 403,
                 new EntityDescriptor(
                     "ROUTE",
-                    "Routing code",
+                    Gs1ApplicationIdentifier.ai403,
 #if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
 #else 
@@ -1899,7 +1899,7 @@ internal static class EntityResolver {
             {
                 410, new IdentifierWithFinalChecksumDescriptor(
                     "SHIP TO LOC",
-                    "Ship to - Deliver to Global Location Number (GLN)",
+                    Gs1ApplicationIdentifier.ai410,
 #if NET7_0_OR_GREATER
                     ThirteenDigitValueRegex(),
 #else 
@@ -1910,7 +1910,7 @@ internal static class EntityResolver {
             {
                 411, new IdentifierWithFinalChecksumDescriptor(
                     "BILL TO",
-                    "Bill to - Invoice to Global Location Number (GLN)",
+                    Gs1ApplicationIdentifier.ai411,
 #if NET7_0_OR_GREATER
                     ThirteenDigitValueRegex(),
 #else 
@@ -1921,7 +1921,7 @@ internal static class EntityResolver {
             {
                 412, new IdentifierWithFinalChecksumDescriptor(
                     "PURCHASE FROM",
-                    "Purchased from Global Location Number (GLN)",
+                    Gs1ApplicationIdentifier.ai412,
 #if NET7_0_OR_GREATER
                     ThirteenDigitValueRegex(),
 #else 
@@ -1932,7 +1932,7 @@ internal static class EntityResolver {
             {
                 413, new IdentifierWithFinalChecksumDescriptor(
                     "SHIP FOR LOC",
-                    "Ship for - Deliver for - Forward to Global Location Number (GLN)",
+                    Gs1ApplicationIdentifier.ai413,
 #if NET7_0_OR_GREATER
                     ThirteenDigitValueRegex(),
 #else 
@@ -1943,7 +1943,7 @@ internal static class EntityResolver {
             {
                 414, new IdentifierWithFinalChecksumDescriptor(
                     "LOC No.",
-                    "Identification of a physical location - Global Location Number (GLN)",
+                    Gs1ApplicationIdentifier.ai414,
 #if NET7_0_OR_GREATER
                     ThirteenDigitValueRegex(),
 #else 
@@ -1954,7 +1954,7 @@ internal static class EntityResolver {
             {
                 415, new IdentifierWithFinalChecksumDescriptor(
                     "PAY TO",
-                    "Global Location Number (GLN) of the invoicing party",
+                    Gs1ApplicationIdentifier.ai415,
 #if NET7_0_OR_GREATER
                     ThirteenDigitValueRegex(),
 #else 
@@ -1967,7 +1967,7 @@ internal static class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "PROD/SERV LOC",
-                    "Global Location Number (GLN) of the production or service location",
+                    Gs1ApplicationIdentifier.ai416,
 #if NET7_0_OR_GREATER
                     ThirteenDigitValueRegex(),
 #else 
@@ -1980,7 +1980,7 @@ internal static class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "PARTY",
-                    "Party Global Location Number (GLN)",
+                    Gs1ApplicationIdentifier.ai417,
 #if NET7_0_OR_GREATER
                     ThirteenDigitValueRegex(),
 #else 
@@ -1991,7 +1991,7 @@ internal static class EntityResolver {
             {
                 420, new EntityDescriptor(
                     "SHIP TO POST",
-                    "Ship-to / Deliver-to postal code within a single postal authority",
+                    Gs1ApplicationIdentifier.ai420,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else 
@@ -2002,7 +2002,7 @@ internal static class EntityResolver {
             {
                 421, new EntityDescriptor(
                     "SHIP TO POST",
-                    "Ship-to / Deliver-to postal code with three-digit ISO country code",
+                    Gs1ApplicationIdentifier.ai421,
 #if NET7_0_OR_GREATER
                     PostalCodeWithIsoCountryCodeRegex(),
 #else 
@@ -2014,7 +2014,7 @@ internal static class EntityResolver {
                 422,
                 new EntityDescriptor(
                     "ORIGIN",
-                    "Country of origin of a trade item",
+                    Gs1ApplicationIdentifier.ai422,
 #if NET7_0_OR_GREATER
                     ThreeDigitValueRegex(),
 #else 
@@ -2025,7 +2025,7 @@ internal static class EntityResolver {
             {
                 423, new EntityDescriptor(
                     "COUNTRY - INITIAL PROCESS",
-                    "Country of initial processing",
+                    Gs1ApplicationIdentifier.ai423,
 #if NET7_0_OR_GREATER
                     MaxFiveIsoCountryCodesRegex(),
 #else 
@@ -2037,7 +2037,7 @@ internal static class EntityResolver {
                 424,
                 new EntityDescriptor(
                     "COUNTRY - PROCESS",
-                    "Country of processing",
+                    Gs1ApplicationIdentifier.ai424,
 #if NET7_0_OR_GREATER
                     ThreeDigitValueRegex(),
 #else 
@@ -2052,7 +2052,7 @@ internal static class EntityResolver {
                     "COUNTRY - DISASSEMBLY",
 
                     // ReSharper disable once StringLiteralTypo
-                    "Country of disassembly",
+                    Gs1ApplicationIdentifier.ai425,
 #if NET7_0_OR_GREATER
                     MaxFiveIsoCountryCodesRegex(),
 #else 
@@ -2063,7 +2063,7 @@ internal static class EntityResolver {
             {
                 426, new EntityDescriptor(
                     "COUNTRY – FULL PROCESS",
-                    "Country covering full process chain",
+                    Gs1ApplicationIdentifier.ai426,
 #if NET7_0_OR_GREATER
                     ThreeDigitValueRegex(),
 #else 
@@ -2074,7 +2074,7 @@ internal static class EntityResolver {
             {
                 427, new EntityDescriptor(
                     "ORIGIN SUBDIVISION",
-                    "Country subdivision of origin code for a trade item",
+                    Gs1ApplicationIdentifier.ai427,
 #if NET7_0_OR_GREATER
                     CharacterSet8203CharsRegex(),
 #else 
@@ -2086,7 +2086,7 @@ internal static class EntityResolver {
                 4300,
                 new EntityDescriptor(
                     "SHIP TO COMP",
-                    "Ship-to / Deliver-to Company name",
+                    Gs1ApplicationIdentifier.ai4300,
 #if NET7_0_OR_GREATER
                     CharacterSet8235CharsPercEncRegex(),
 #else 
@@ -2097,7 +2097,7 @@ internal static class EntityResolver {
             {
                 4301,
                 new EntityDescriptor("SHIP TO NAME",
-                    "Ship-to / Deliver-to contact name",
+                    Gs1ApplicationIdentifier.ai4301,
 #if NET7_0_OR_GREATER
                     CharacterSet8235CharsPercEncRegex(),
 #else 
@@ -2108,7 +2108,7 @@ internal static class EntityResolver {
             {
                 4302,
                 new EntityDescriptor("SHIP TO ADD1",
-                    "Ship-to / Deliver-to address line 1",
+                    Gs1ApplicationIdentifier.ai4302,
 #if NET7_0_OR_GREATER
                     CharacterSet8270CharsPercEncRegex(),
 #else 
@@ -2119,7 +2119,7 @@ internal static class EntityResolver {
             {
                 4303,
                 new EntityDescriptor("SHIP TO ADD2",
-                    "Ship-to / Deliver-to address line 2",
+                    Gs1ApplicationIdentifier.ai4303,
 #if NET7_0_OR_GREATER
                     CharacterSet8270CharsPercEncRegex(),
 #else 
@@ -2130,7 +2130,7 @@ internal static class EntityResolver {
             {
                 4304,
                 new EntityDescriptor("SHIP TO SUB",
-                    "Ship-to / Deliver-to suburb",
+                    Gs1ApplicationIdentifier.ai4304,
 #if NET7_0_OR_GREATER
                     CharacterSet8270CharsPercEncRegex(),
 #else 
@@ -2141,7 +2141,7 @@ internal static class EntityResolver {
             {
                 4305,
                 new EntityDescriptor("SHIP TO LOC",
-                    "Ship-to / Deliver-to locality",
+                    Gs1ApplicationIdentifier.ai4305,
 #if NET7_0_OR_GREATER
                     CharacterSet8270CharsPercEncRegex(),
 #else 
@@ -2152,7 +2152,7 @@ internal static class EntityResolver {
             {
                 4306,
                 new EntityDescriptor("SHIP TO REG",
-                    "Ship-to / Deliver-to region",
+                    Gs1ApplicationIdentifier.ai4306,
 #if NET7_0_OR_GREATER
                     CharacterSet8270CharsPercEncRegex(),
 #else 
@@ -2163,7 +2163,7 @@ internal static class EntityResolver {
             {
                 4307,
                 new EntityDescriptor("SHIP TO COUNTRY",
-                    "Ship-to / Deliver-to country code",
+                    Gs1ApplicationIdentifier.ai4307,
 #if NET7_0_OR_GREATER
                     CharacterSet820202CharsRegex(),
 #else 
@@ -2174,7 +2174,7 @@ internal static class EntityResolver {
             {
                 4308,
                 new EntityDescriptor("SHIP TO PHONE",
-                    "Ship-to / Deliver-to telephone number",
+                    Gs1ApplicationIdentifier.ai4308,
 #if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
 #else 
@@ -2185,7 +2185,7 @@ internal static class EntityResolver {
             {
                 4309,
                 new EntityDescriptor("SHIP TO GEO",
-                    "Ship-to / Deliver-to GEO location",
+                    Gs1ApplicationIdentifier.ai4309,
 #if NET7_0_OR_GREATER
                     TwentyDigitGeoLocationValueRegex(),
 #else 
@@ -2196,7 +2196,7 @@ internal static class EntityResolver {
             {
                 4310,
                 new EntityDescriptor("RTN TO COMP",
-                    "Return-to company name",
+                    Gs1ApplicationIdentifier.ai4310,
 #if NET7_0_OR_GREATER
                     CharacterSet8235CharsPercEncRegex(),
 #else 
@@ -2207,7 +2207,7 @@ internal static class EntityResolver {
             {
                 4311,
                 new EntityDescriptor("RTN TO NAME",
-                    "Return-to contact name",
+                    Gs1ApplicationIdentifier.ai4311,
 #if NET7_0_OR_GREATER
                     CharacterSet8235CharsPercEncRegex(),
 #else 
@@ -2218,7 +2218,7 @@ internal static class EntityResolver {
             {
                 4312,
                 new EntityDescriptor("RTN TO ADD1",
-                    "Return-to address line 1",
+                    Gs1ApplicationIdentifier.ai4312,
 #if NET7_0_OR_GREATER
                     CharacterSet8270CharsPercEncRegex(),
 #else 
@@ -2229,7 +2229,7 @@ internal static class EntityResolver {
             {
                 4313,
                 new EntityDescriptor("RTN TO ADD2",
-                    "Return-to address line 2",
+                    Gs1ApplicationIdentifier.ai4313,
 #if NET7_0_OR_GREATER
                     CharacterSet8270CharsPercEncRegex(),
 #else 
@@ -2240,7 +2240,7 @@ internal static class EntityResolver {
             {
                 4314,
                 new EntityDescriptor("RTN TO SUB",
-                    "Return-to suburb",
+                    Gs1ApplicationIdentifier.ai4314,
 #if NET7_0_OR_GREATER
                     CharacterSet8270CharsPercEncRegex(),
 #else 
@@ -2251,7 +2251,7 @@ internal static class EntityResolver {
             {
                 4315,
                 new EntityDescriptor("RTN TO LOC",
-                    "Return-to locality",
+                    Gs1ApplicationIdentifier.ai4315,
 #if NET7_0_OR_GREATER
                     CharacterSet8270CharsPercEncRegex(),
 #else 
@@ -2262,7 +2262,7 @@ internal static class EntityResolver {
             {
                 4316,
                 new EntityDescriptor("RTN TO REG",
-                    "Return-to region",
+                    Gs1ApplicationIdentifier.ai4316,
 #if NET7_0_OR_GREATER
                     CharacterSet8270CharsPercEncRegex(),
 #else 
@@ -2273,7 +2273,7 @@ internal static class EntityResolver {
             {
                 4317,
                 new EntityDescriptor("RTN TO COUNTRY",
-                    "Return-to country code",
+                    Gs1ApplicationIdentifier.ai4317,
 #if NET7_0_OR_GREATER
                     CharacterSet820202CharsRegex(),
 #else 
@@ -2284,7 +2284,7 @@ internal static class EntityResolver {
             {
                 4318,
                 new EntityDescriptor("RTN TO POST",
-                    "Return-to postal code",
+                    Gs1ApplicationIdentifier.ai4318,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else 
@@ -2295,7 +2295,7 @@ internal static class EntityResolver {
             {
                 4319,
                 new EntityDescriptor("RTN TO PHONE",
-                    "Return-to telephone number",
+                    Gs1ApplicationIdentifier.ai4319,
 #if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
 #else 
@@ -2306,7 +2306,7 @@ internal static class EntityResolver {
             {
                 4320,
                 new EntityDescriptor("SRV DESCRIPTION",
-                    "Service code description",
+                    Gs1ApplicationIdentifier.ai4320,
 #if NET7_0_OR_GREATER
                     CharacterSet8235CharsPercEncRegex(),
 #else 
@@ -2317,7 +2317,7 @@ internal static class EntityResolver {
             {
                 4321,
                 new EntityDescriptor("DANGEROUS GOODS",
-                    "Dangerous goods flag",
+                    Gs1ApplicationIdentifier.ai4321,
 #if NET7_0_OR_GREATER
                     BinaryFlagRegex(),
 #else 
@@ -2328,7 +2328,7 @@ internal static class EntityResolver {
             {
                 4322,
                 new EntityDescriptor("AUTH LEAVE",
-                    "Authority to leave flag",
+                    Gs1ApplicationIdentifier.ai4322,
 #if NET7_0_OR_GREATER
                     BinaryFlagRegex(),
 #else 
@@ -2339,7 +2339,7 @@ internal static class EntityResolver {
             {
                 4323,
                 new EntityDescriptor("SIG REQUIRED",
-                    "Signature required flag",
+                    Gs1ApplicationIdentifier.ai4323,
 #if NET7_0_OR_GREATER
                     BinaryFlagRegex(),
 #else 
@@ -2350,7 +2350,7 @@ internal static class EntityResolver {
             {
                 4324,
                 new EntityDescriptor("NBEF DEL DT",
-                    "Not before delivery date/time",
+                    Gs1ApplicationIdentifier.ai4324,
 #if NET7_0_OR_GREATER
                     DateTimePatternZerosAnd9SRegex(),
 #else 
@@ -2362,7 +2362,7 @@ internal static class EntityResolver {
                 4325,
                 new EntityDescriptor(
                     "NAFT DEL DT",
-                    "Not after delivery date/time",
+                    Gs1ApplicationIdentifier.ai4325,
 #if NET7_0_OR_GREATER
                     DateTimePatternZerosAnd9SRegex(),
 #else 
@@ -2374,7 +2374,7 @@ internal static class EntityResolver {
                 4326,
                 new EntityDescriptor(
                     "REL DATE",
-                    "Release date",
+                    Gs1ApplicationIdentifier.ai4326,
 #if NET7_0_OR_GREATER
                     DatePatternRegex(),
 #else 
@@ -2386,7 +2386,7 @@ internal static class EntityResolver {
                 4330,
                 new EntityDescriptor(
                     "MAX TEMP F",
-                    "Maximum temperature in Fahrenheit",
+                    Gs1ApplicationIdentifier.ai4330,
 #if NET7_0_OR_GREATER
                     Scan4TransportTemperature(),
 #else 
@@ -2398,7 +2398,7 @@ internal static class EntityResolver {
                 4331,
                 new EntityDescriptor(
                     "MAX TEMP C",
-                    "Maximum temperature in Celsius",
+                    Gs1ApplicationIdentifier.ai4331,
 #if NET7_0_OR_GREATER
                     Scan4TransportTemperature(),
 #else 
@@ -2410,7 +2410,7 @@ internal static class EntityResolver {
                 4332,
                 new EntityDescriptor(
                     "MIN TEMP F",
-                    "Minimum temperature in Fahrenheit",
+                    Gs1ApplicationIdentifier.ai4332,
 #if NET7_0_OR_GREATER
                     Scan4TransportTemperature(),
 #else 
@@ -2422,7 +2422,7 @@ internal static class EntityResolver {
                 4333,
                 new EntityDescriptor(
                     "MIN TEMP C",
-                    "Minimum temperature in Celsius",
+                    Gs1ApplicationIdentifier.ai4333,
 #if NET7_0_OR_GREATER
                     Scan4TransportTemperature(),
 #else 
@@ -2430,10 +2430,11 @@ internal static class EntityResolver {
 #endif
                     false)
             },
-            {                7001,
+            {
+                7001,
                 new EntityDescriptor(
                     "NSN",
-                    "NATO Stock Number (NSN)",
+                    Gs1ApplicationIdentifier.ai7001,
 #if NET7_0_OR_GREATER
                     ThirteenDigitValueRegex(),
 #else
@@ -2444,7 +2445,7 @@ internal static class EntityResolver {
             {
                 7002, new EntityDescriptor(
                     "MEAT CUT",
-                    "UNECE meat carcasses and cuts classification",
+                    Gs1ApplicationIdentifier.ai7002,
 #if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
 #else
@@ -2456,7 +2457,7 @@ internal static class EntityResolver {
                 7003,
                 new EntityDescriptor(
                     "EXPIRY TIME",
-                    "Expiration date and time",
+                    Gs1ApplicationIdentifier.ai7003,
 #if NET7_0_OR_GREATER
                     DateTimePatternRegex(),
 #else
@@ -2467,7 +2468,7 @@ internal static class EntityResolver {
                 7004,
                 new EntityDescriptor(
                     "ACTIVE POTENCY",
-                    "Active potency",
+                    Gs1ApplicationIdentifier.ai7004,
 #if NET7_0_OR_GREATER
                     MaxFourDigitValueRegex(),
 #else
@@ -2478,7 +2479,7 @@ internal static class EntityResolver {
                 7005,
                 new EntityDescriptor(
                     "CATCH AREA",
-                    "Catch area",
+                    Gs1ApplicationIdentifier.ai7005,
 #if NET7_0_OR_GREATER
                     CharacterSet8212CharsRegex(),
 #else
@@ -2489,7 +2490,7 @@ internal static class EntityResolver {
                 7006,
                 new EntityDescriptor(
                     "FIRST FREEZE DATE",
-                    "First freeze date",
+                    Gs1ApplicationIdentifier.ai7006,
 #if NET7_0_OR_GREATER
                     DatePatternRegex(),
 #else
@@ -2500,7 +2501,7 @@ internal static class EntityResolver {
                 7007,
                 new EntityDescriptor(
                     "HARVEST DATE",
-                    "Harvest date",
+                    Gs1ApplicationIdentifier.ai7007,
 #if NET7_0_OR_GREATER
                     HarvestDateRegex(),
 #else
@@ -2512,7 +2513,7 @@ internal static class EntityResolver {
                 7008,
                 new EntityDescriptor(
                     "AQUATIC SPECIES",
-                    "Species for fishery purposes",
+                    Gs1ApplicationIdentifier.ai7008,
 #if NET7_0_OR_GREATER
                     CharacterSet8203CharsRegex(),
 #else
@@ -2524,7 +2525,7 @@ internal static class EntityResolver {
                 7009,
                 new EntityDescriptor(
                     "FISHING GEAR TYPE",
-                    "Fishing gear type",
+                    Gs1ApplicationIdentifier.ai7009,
 #if NET7_0_OR_GREATER
                     CharacterSet8210CharsRegex(),
 #else
@@ -2536,7 +2537,7 @@ internal static class EntityResolver {
                 7010,
                 new EntityDescriptor(
                     "PROD METHOD",
-                    "Production method",
+                    Gs1ApplicationIdentifier.ai7010,
 #if NET7_0_OR_GREATER
                     CharacterSet8202CharsRegex(),
 #else
@@ -2548,7 +2549,7 @@ internal static class EntityResolver {
                 7011,
                 new EntityDescriptor(
                     "TEST BY DATE",
-                    "Test by date",
+                    Gs1ApplicationIdentifier.ai7011,
 #if NET7_0_OR_GREATER
                     DateOptionalTimePatternRegex(),
 #else
@@ -2562,7 +2563,7 @@ internal static class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "REFURB LOT",
-                    "Refurbishment lot ID",
+                    Gs1ApplicationIdentifier.ai7022,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else
@@ -2574,7 +2575,7 @@ internal static class EntityResolver {
                 7021,
                 new EntityDescriptor(
                     "FUNC STAT",
-                    "Functional status",
+                    Gs1ApplicationIdentifier.ai7021,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else
@@ -2586,7 +2587,7 @@ internal static class EntityResolver {
                 7022,
                 new EntityDescriptor(
                     "REV STAT",
-                    "Revision status",
+                    Gs1ApplicationIdentifier.ai7022,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else
@@ -2602,7 +2603,7 @@ internal static class EntityResolver {
                     "GIAI – ASSEMBLY",
 
                     // ReSharper disable once StringLiteralTypo
-                    "Global Individual Asset Identifier of an assembly",
+                    Gs1ApplicationIdentifier.ai7023,
 #if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
 #else
@@ -2614,7 +2615,7 @@ internal static class EntityResolver {
                 703,
                 new EntityDescriptor(
                     "PROCESSOR # s",
-                    "Number of processor with three-digit ISO country code",
+                    Gs1ApplicationIdentifier.ai703s,
 #if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
 #else
@@ -2626,7 +2627,7 @@ internal static class EntityResolver {
                 7031,
                 new EntityDescriptor(
                     "PROCESSOR # 1",
-                    "Number of processor with ISO Country Code",
+                    Gs1ApplicationIdentifier.ai703s,
 #if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
 #else
@@ -2638,7 +2639,7 @@ internal static class EntityResolver {
                 7032,
                 new EntityDescriptor(
                     "PROCESSOR # 2",
-                    "Number of processor with ISO Country Code",
+                    Gs1ApplicationIdentifier.ai703s,
 #if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
 #else
@@ -2650,7 +2651,7 @@ internal static class EntityResolver {
                 7033,
                 new EntityDescriptor(
                     "PROCESSOR # 3",
-                    "Number of processor with ISO Country Code",
+                    Gs1ApplicationIdentifier.ai703s,
 #if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
 #else
@@ -2662,7 +2663,7 @@ internal static class EntityResolver {
                 7034,
                 new EntityDescriptor(
                     "PROCESSOR # 4",
-                    "Number of processor with ISO Country Code",
+                    Gs1ApplicationIdentifier.ai703s,
 #if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
 #else
@@ -2674,7 +2675,7 @@ internal static class EntityResolver {
                 7035,
                 new EntityDescriptor(
                     "PROCESSOR # 5",
-                    "Number of processor with ISO Country Code",
+                    Gs1ApplicationIdentifier.ai703s,
 #if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
 #else
@@ -2686,7 +2687,7 @@ internal static class EntityResolver {
                 7036,
                 new EntityDescriptor(
                     "PROCESSOR # 6",
-                    "Number of processor with ISO Country Code",
+                    Gs1ApplicationIdentifier.ai703s,
 #if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
 #else
@@ -2698,7 +2699,7 @@ internal static class EntityResolver {
                 7037,
                 new EntityDescriptor(
                     "PROCESSOR # 7",
-                    "Number of processor with ISO Country Code",
+                    Gs1ApplicationIdentifier.ai703s,
 #if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
 #else
@@ -2710,7 +2711,7 @@ internal static class EntityResolver {
                 7038,
                 new EntityDescriptor(
                     "PROCESSOR # 8",
-                    "Number of processor with ISO Country Code",
+                    Gs1ApplicationIdentifier.ai703s,
 #if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
 #else
@@ -2722,7 +2723,7 @@ internal static class EntityResolver {
                 7039,
                 new EntityDescriptor(
                     "PROCESSOR # 9",
-                    "Number of processor with ISO Country Code",
+                    Gs1ApplicationIdentifier.ai703s,
 #if NET7_0_OR_GREATER
                     ProcessorWithIsoCountryCodeRegex(),
 #else
@@ -2734,7 +2735,7 @@ internal static class EntityResolver {
                 7040,
                 new EntityDescriptor(
                     "UIC+EXT",
-                    "GS1 UIC with Extension 1 and Importer index",
+                    Gs1ApplicationIdentifier.ai7040,
 #if NET7_0_OR_GREATER
                     Gs1UicWithExtension1AndImportedIndexRegex(),
 #else
@@ -2746,7 +2747,7 @@ internal static class EntityResolver {
                 710,
                 new EntityDescriptor(
                     "NHRN PZN",
-                    "National Healthcare Reimbursement Number (NHRN) – Germany PZN",
+                    Gs1ApplicationIdentifier.ai710,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else
@@ -2758,7 +2759,7 @@ internal static class EntityResolver {
                 711,
                 new EntityDescriptor(
                     "NHRN CIP",
-                    "National Healthcare Reimbursement Number (NHRN) – France CIP",
+                    Gs1ApplicationIdentifier.ai711,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else
@@ -2770,7 +2771,7 @@ internal static class EntityResolver {
                 712,
                 new EntityDescriptor(
                     "NHRN CN",
-                    "National Healthcare Reimbursement Number (NHRN) – Spain CN",
+                    Gs1ApplicationIdentifier.ai712,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else
@@ -2784,7 +2785,7 @@ internal static class EntityResolver {
                     "NHRN DRN",
 
                     // ReSharper disable once StringLiteralTypo
-                    "National Healthcare Reimbursement Number (NHRN) – Brasil DRN",
+                    Gs1ApplicationIdentifier.ai713,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else
@@ -2796,7 +2797,7 @@ internal static class EntityResolver {
                 714,
                 new EntityDescriptor(
                     "NHRN AIM",
-                    "National Healthcare Reimbursement Number (NHRN) – Portugal AIM",
+                    Gs1ApplicationIdentifier.ai714,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else
@@ -2808,7 +2809,7 @@ internal static class EntityResolver {
                 715,
                 new EntityDescriptor(
                     "NHRN NDC",
-                    "National Healthcare Reimbursement Number (NHRN) – United States of America NDC",
+                    Gs1ApplicationIdentifier.ai715,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else
@@ -2820,7 +2821,7 @@ internal static class EntityResolver {
                 723,
                 new EntityDescriptor(
                     "CERT # s",
-                    "Certification reference",
+                    Gs1ApplicationIdentifier.ai723s,
 #if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
 #else
@@ -2832,7 +2833,7 @@ internal static class EntityResolver {
                 7231,
                 new EntityDescriptor(
                     "CERT # 1",
-                    "Certification reference",
+                    Gs1ApplicationIdentifier.ai723s,
 #if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
 #else
@@ -2844,7 +2845,7 @@ internal static class EntityResolver {
                 7232,
                 new EntityDescriptor(
                     "CERT # 2",
-                    "Certification reference",
+                    Gs1ApplicationIdentifier.ai723s,
 #if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
 #else
@@ -2856,7 +2857,7 @@ internal static class EntityResolver {
                 7233,
                 new EntityDescriptor(
                     "CERT # 3",
-                    "Certification reference",
+                    Gs1ApplicationIdentifier.ai723s,
 #if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
 #else
@@ -2868,7 +2869,7 @@ internal static class EntityResolver {
                 7234,
                 new EntityDescriptor(
                     "CERT # 4",
-                    "Certification reference",
+                    Gs1ApplicationIdentifier.ai723s,
 #if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
 #else
@@ -2880,7 +2881,7 @@ internal static class EntityResolver {
                 7235,
                 new EntityDescriptor(
                     "CERT # 5",
-                    "Certification reference",
+                    Gs1ApplicationIdentifier.ai723s,
 #if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
 #else
@@ -2892,7 +2893,7 @@ internal static class EntityResolver {
                 7236,
                 new EntityDescriptor(
                     "CERT # 6",
-                    "Certification reference",
+                    Gs1ApplicationIdentifier.ai723s,
 #if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
 #else
@@ -2904,7 +2905,7 @@ internal static class EntityResolver {
                 7237,
                 new EntityDescriptor(
                     "CERT # 7",
-                    "Certification reference",
+                    Gs1ApplicationIdentifier.ai723s,
 #if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
 #else
@@ -2916,7 +2917,7 @@ internal static class EntityResolver {
                 7238,
                 new EntityDescriptor(
                     "CERT # 8",
-                    "Certification reference",
+                    Gs1ApplicationIdentifier.ai723s,
 #if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
 #else
@@ -2928,7 +2929,7 @@ internal static class EntityResolver {
                 7239,
                 new EntityDescriptor(
                     "CERT # 9",
-                    "Certification reference",
+                    Gs1ApplicationIdentifier.ai723s,
 #if NET7_0_OR_GREATER
                     CharacterSet820330CharsRegex(),
 #else
@@ -2940,7 +2941,7 @@ internal static class EntityResolver {
                 7240,
                 new EntityDescriptor(
                     "PROTOCOL",
-                    "Protocol ID",
+                    Gs1ApplicationIdentifier.ai7240,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else
@@ -2952,7 +2953,7 @@ internal static class EntityResolver {
                 7241,
                 new EntityDescriptor(
                     "AIDC MEDIA TYPE",
-                    "AIDC media type",
+                    Gs1ApplicationIdentifier.ai7241,
 #if NET7_0_OR_GREATER
                     TwoDigitAidcMediaType(),
 #else
@@ -2964,7 +2965,7 @@ internal static class EntityResolver {
                 7242,
                 new EntityDescriptor(
                     "VCN",
-                    "Version Control Number (VCN)",
+                    Gs1ApplicationIdentifier.ai7242,
 #if NET7_0_OR_GREATER
                     CharacterSet8225CharsRegex(),
 #else
@@ -2976,7 +2977,7 @@ internal static class EntityResolver {
                 8001,
                 new EntityDescriptor(
                     "DIMENSIONS",
-                    "Roll products - width, length, core diameter, direction, splices",
+                    Gs1ApplicationIdentifier.ai8001,
 #if NET7_0_OR_GREATER
                     FourteenDigitRollProductValueRegex(),
 #else
@@ -2988,7 +2989,7 @@ internal static class EntityResolver {
                 8002,
                 new EntityDescriptor(
                     "CMT No.",
-                    "Cellular mobile telephone identifier",
+                    Gs1ApplicationIdentifier.ai8002,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else
@@ -3004,7 +3005,7 @@ internal static class EntityResolver {
                     "GRAI",
 
                     // ReSharper disable once StringLiteralTypo
-                    "Global Returnable Asset Identifier (GRAI)",
+                    Gs1ApplicationIdentifier.ai8003,
 #if NET7_0_OR_GREATER
                     GraiRegex(),
 #else
@@ -3020,7 +3021,7 @@ internal static class EntityResolver {
                     "GIAI",
 
                     // ReSharper disable once StringLiteralTypo
-                    "Global Individual Asset Identifier (GIAI)",
+                    Gs1ApplicationIdentifier.ai8004,
 #if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
 #else
@@ -3032,7 +3033,7 @@ internal static class EntityResolver {
                 8005,
                 new EntityDescriptor(
                     "PRICE PER UNIT",
-                    "Price per unit of measure",
+                    Gs1ApplicationIdentifier.ai8005,
 #if NET7_0_OR_GREATER
                     SixDigitValueRegex(),
 #else
@@ -3046,7 +3047,7 @@ internal static class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "ITIP",
-                    "Identification of an individual trade item (ITIP) piece",
+                    Gs1ApplicationIdentifier.ai8006,
 #if NET7_0_OR_GREATER
                     ItipRegex(),
 #else
@@ -3062,7 +3063,7 @@ internal static class EntityResolver {
                     "IBAN",
 
                     // ReSharper disable once StringLiteralTypo
-                    "International Bank Account Number (IBAN)",
+                    Gs1ApplicationIdentifier.ai8007,
 #if NET7_0_OR_GREATER
                     CharacterSet8234CharsRegex(),
 #else
@@ -3074,7 +3075,7 @@ internal static class EntityResolver {
                 8008,
                 new EntityDescriptor(
                     "PROD TIME",
-                    "Date and time of production",
+                    Gs1ApplicationIdentifier.ai8008,
 #if NET7_0_OR_GREATER
                     DateAndTimeOfProductionRegex(),
 #else
@@ -3087,7 +3088,7 @@ internal static class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "OPTSEN",
-                    "Optically readable sensor indicator",
+                    Gs1ApplicationIdentifier.ai8009,
 #if NET7_0_OR_GREATER
                     CharacterSet8250CharsRegex(),
 #else
@@ -3101,7 +3102,7 @@ internal static class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "CPID",
-                    "Component/Part Identifier (CPID)",
+                    Gs1ApplicationIdentifier.ai8010,
 #if NET7_0_OR_GREATER
                     CharacterSet3930CharsRegex(),
 #else
@@ -3117,7 +3118,7 @@ internal static class EntityResolver {
                     "CPID SERIAL",
 
                     // ReSharper disable once StringLiteralTypo
-                    "Component/Part Identifier serial number",
+                    Gs1ApplicationIdentifier.ai8011,
 #if NET7_0_OR_GREATER
                     MaxTwelveDigitValueZeroOrNonZeroFirstRegex(),
 #else
@@ -3129,7 +3130,7 @@ internal static class EntityResolver {
                 8012,
                 new EntityDescriptor(
                     "VERSION",
-                    "Software version",
+                    Gs1ApplicationIdentifier.ai8012,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else
@@ -3141,7 +3142,7 @@ internal static class EntityResolver {
                 8013,
                 new AlphanumericKeyWithCheckCharacterPairDescriptor(
                     "GMN",
-                    "Global Model Number (GMN)",
+                    Gs1ApplicationIdentifier.ai8013,
 #if NET7_0_OR_GREATER
                     GcpWithCharacterSet8219CharsAndCheckCharacterPairRegex(),
 #else
@@ -3155,7 +3156,7 @@ internal static class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "GSRN - PROVIDER",
-                    "Global Service Relation Number (GSRN) to identify the relationship between an organisation offering services and the provider of services",
+                    Gs1ApplicationIdentifier.ai8017,
 #if NET7_0_OR_GREATER
                     EighteenDigitValueRegex(),
 #else
@@ -3169,7 +3170,7 @@ internal static class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "GSRN - RECIPIENT",
-                    "Global Service Relation Number (GSRN) to identify the relationship between an organisation offering services and the recipient of services",
+                    Gs1ApplicationIdentifier.ai8018,
 #if NET7_0_OR_GREATER
                     EighteenDigitValueRegex(),
 #else
@@ -3185,7 +3186,7 @@ internal static class EntityResolver {
                     "SRIN",
 
                     // ReSharper disable once StringLiteralTypo
-                    "Service Relation Instance Number (SRIN)",
+                    Gs1ApplicationIdentifier.ai8019,
 #if NET7_0_OR_GREATER
                     MaxTenDigitValueRegex(),
 #else
@@ -3197,7 +3198,7 @@ internal static class EntityResolver {
                 8020,
                 new EntityDescriptor(
                     "REF No.",
-                    "Payment slip reference number",
+                    Gs1ApplicationIdentifier.ai8020,
 #if NET7_0_OR_GREATER
                     CharacterSet8225CharsRegex(),
 #else
@@ -3209,7 +3210,7 @@ internal static class EntityResolver {
                 8026,
                 new IdentifierWithPos14ChecksumDescriptor(
                     "ITIP CONTENT",
-                    "Identification of pieces of a trade item (ITIP) contained in a logistic unit",
+                    Gs1ApplicationIdentifier.ai8026,
 #if NET7_0_OR_GREATER
                     EighteenDigitValueRegex(),
 #else
@@ -3221,7 +3222,7 @@ internal static class EntityResolver {
                 8030,
                 new EntityDescriptor(
                     "DIGSIG",
-                    "Digital Signature (DigSig)",
+                    Gs1ApplicationIdentifier.ai8030,
 #if NET7_0_OR_GREATER
                     CharacterSet6490CharsRegex(),
 #else
@@ -3233,7 +3234,7 @@ internal static class EntityResolver {
                 8110,
                 new CouponCodeDescriptor(
                     "-",
-                    "Coupon code identification for use in North America",
+                    Gs1ApplicationIdentifier.ai8110,
 #if NET7_0_OR_GREATER
                     CharacterSet8270CharsRegex(),
 #else
@@ -3245,7 +3246,7 @@ internal static class EntityResolver {
                 8111,
                 new EntityDescriptor(
                     "POINTS",
-                    "Loyalty points of a coupon",
+                    Gs1ApplicationIdentifier.ai8111,
 #if NET7_0_OR_GREATER
                     FourDigitValueRegex(),
 #else
@@ -3257,7 +3258,7 @@ internal static class EntityResolver {
                 8112,
                 new EntityDescriptor(
                     "-",
-                    "Positive offer file coupon code identification for use in North America",
+                    Gs1ApplicationIdentifier.ai8112,
 #if NET7_0_OR_GREATER
                     CharacterSet8270CharsRegex(),
 #else
@@ -3269,7 +3270,7 @@ internal static class EntityResolver {
                 8200,
                 new EntityDescriptor(
                     "PRODUCT URL",
-                    "Extended packaging URL",
+                    Gs1ApplicationIdentifier.ai8200,
 #if NET7_0_OR_GREATER
                     CharacterSet8270CharsRegex(),
 #else
@@ -3281,7 +3282,7 @@ internal static class EntityResolver {
                 90,
                 new EntityDescriptor(
                     "INTERNAL",
-                    "Information mutually agreed between trading partners",
+                    Gs1ApplicationIdentifier.ai90,
 #if NET7_0_OR_GREATER
                     CharacterSet8230CharsRegex(),
 #else
@@ -3293,7 +3294,7 @@ internal static class EntityResolver {
                 91,
                 new EntityDescriptor(
                     "INTERNAL",
-                    "Company internal information",
+                    Gs1ApplicationIdentifier.ai91,
 #if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
 #else
@@ -3305,7 +3306,7 @@ internal static class EntityResolver {
                 92,
                 new EntityDescriptor(
                     "INTERNAL",
-                    "Company internal information",
+                    Gs1ApplicationIdentifier.ai92,
 #if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
 #else
@@ -3317,7 +3318,7 @@ internal static class EntityResolver {
                 93,
                 new EntityDescriptor(
                     "INTERNAL",
-                    "Company internal information",
+                    Gs1ApplicationIdentifier.ai93,
 #if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
 #else
@@ -3329,7 +3330,7 @@ internal static class EntityResolver {
                 94,
                 new EntityDescriptor(
                     "INTERNAL",
-                    "Company internal information",
+                    Gs1ApplicationIdentifier.ai94,
 #if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
 #else
@@ -3341,7 +3342,7 @@ internal static class EntityResolver {
                 95,
                 new EntityDescriptor(
                     "INTERNAL",
-                    "Company internal information",
+                    Gs1ApplicationIdentifier.ai95,
 #if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
 #else
@@ -3353,7 +3354,7 @@ internal static class EntityResolver {
                 96,
                 new EntityDescriptor(
                     "INTERNAL",
-                    "Company internal information",
+                    Gs1ApplicationIdentifier.ai96,
 #if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
 #else
@@ -3365,7 +3366,7 @@ internal static class EntityResolver {
                 97,
                 new EntityDescriptor(
                     "INTERNAL",
-                    "Company internal information",
+                    Gs1ApplicationIdentifier.ai97,
 #if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
 #else
@@ -3377,7 +3378,7 @@ internal static class EntityResolver {
                 98,
                 new EntityDescriptor(
                     "INTERNAL",
-                    "Company internal information",
+                    Gs1ApplicationIdentifier.ai98,
 #if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
 #else
@@ -3389,7 +3390,7 @@ internal static class EntityResolver {
                 99,
                 new EntityDescriptor(
                     "INTERNAL",
-                    "Company internal information",
+                    Gs1ApplicationIdentifier.ai99,
 #if NET7_0_OR_GREATER
                     CharacterSet8290CharsRegex(),
 #else

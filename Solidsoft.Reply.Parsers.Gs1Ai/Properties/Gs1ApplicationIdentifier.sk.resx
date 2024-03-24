@@ -1,0 +1,705 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ai00" xml:space="preserve">
+    <value>Identifikácia logistickej jednotky (SSCC)</value>
+  </data>
+  <data name="ai01" xml:space="preserve">
+    <value>Identifikácia obchodnej položky (GTIN)</value>
+  </data>
+  <data name="ai02" xml:space="preserve">
+    <value>Identifikácia obchodných položiek obsiahnutých v logistickej jednotke</value>
+  </data>
+  <data name="ai10" xml:space="preserve">
+    <value>Číslo šarže alebo lotu</value>
+  </data>
+  <data name="ai11" xml:space="preserve">
+    <value>Dátum výroby</value>
+  </data>
+  <data name="ai12" xml:space="preserve">
+    <value>Dátum splatnosti sumy na platobnom doklade</value>
+  </data>
+  <data name="ai13" xml:space="preserve">
+    <value>Dátum balenia</value>
+  </data>
+  <data name="ai15" xml:space="preserve">
+    <value>Dátum minimálnej trvanlivosti</value>
+  </data>
+  <data name="ai16" xml:space="preserve">
+    <value>Dátum predaja</value>
+  </data>
+  <data name="ai17" xml:space="preserve">
+    <value>Dátum expirácie</value>
+  </data>
+  <data name="ai20" xml:space="preserve">
+    <value>Interná varianta produktu</value>
+  </data>
+  <data name="ai21" xml:space="preserve">
+    <value>Sériové číslo</value>
+  </data>
+  <data name="ai22" xml:space="preserve">
+    <value>Variant produktu pre spotrebiteľa</value>
+  </data>
+  <data name="ai235" xml:space="preserve">
+    <value>Kontrolované tretími stranami, Serializované rozšírenie Globálneho čísla obchodnej položky (GTIN) (TPX)</value>
+  </data>
+  <data name="ai240" xml:space="preserve">
+    <value>Dodatočná identifikácia produktu pridelená výrobcom</value>
+  </data>
+  <data name="ai241" xml:space="preserve">
+    <value>Číslo dielu zákazníka</value>
+  </data>
+  <data name="ai242" xml:space="preserve">
+    <value>Číslo variantu na objednávku</value>
+  </data>
+  <data name="ai243" xml:space="preserve">
+    <value>Číslo komponentu balenia</value>
+  </data>
+  <data name="ai250" xml:space="preserve">
+    <value>Sekundárne sériové číslo</value>
+  </data>
+  <data name="ai251" xml:space="preserve">
+    <value>Odkaz na zdrojovú entitu</value>
+  </data>
+  <data name="ai253" xml:space="preserve">
+    <value>Globálny identifikátor typu dokumentu (GDTI)</value>
+  </data>
+  <data name="ai254" xml:space="preserve">
+    <value>Globálne číslo umiestnenia (GLN) rozširujúca komponenta</value>
+  </data>
+  <data name="ai255" xml:space="preserve">
+    <value>Globálne číslo kupónu (GCN)</value>
+  </data>
+  <data name="ai30" xml:space="preserve">
+    <value>Premenný počet položiek</value>
+  </data>
+  <data name="ai310n" xml:space="preserve">
+    <value>Netto hmotnosť, kilogramy (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai311n" xml:space="preserve">
+    <value>Dĺžka alebo prvý rozmer, metre (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai312n" xml:space="preserve">
+    <value>Šírka, priemer alebo druhý rozmer, metre (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai313n" xml:space="preserve">
+    <value>Hĺbka, hrúbka, výška alebo tretí rozmer, metre (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai314n" xml:space="preserve">
+    <value>Plocha, štvorcové metre (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai315n" xml:space="preserve">
+    <value>Netto objem, litre (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai316n" xml:space="preserve">
+    <value>Netto objem, kubické metre (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai320n" xml:space="preserve">
+    <value>Netto hmotnosť, libry (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai321n" xml:space="preserve">
+    <value>Dĺžka alebo prvý rozmer, palce (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai322n" xml:space="preserve">
+    <value>Dĺžka alebo prvý rozmer, stopy (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai323n" xml:space="preserve">
+    <value>Dĺžka alebo prvý rozmer, yardy (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai324n" xml:space="preserve">
+    <value>Šírka, priemer alebo druhý rozmer, palce (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai325n" xml:space="preserve">
+    <value>Šírka, priemer alebo druhý rozmer, stopy (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai326n" xml:space="preserve">
+    <value>Šírka, priemer alebo druhý rozmer, yardy (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai327n" xml:space="preserve">
+    <value>Hĺbka, hrúbka, výška alebo tretí rozmer, palce (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai328n" xml:space="preserve">
+    <value>Hĺbka, hrúbka, výška alebo tretí rozmer, stopy (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai329n" xml:space="preserve">
+    <value>Hĺbka, hrúbka, výška alebo tretí rozmer, yardy (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai330n" xml:space="preserve">
+    <value>Logistická hmotnosť, kilogramy</value>
+  </data>
+  <data name="ai331n" xml:space="preserve">
+    <value>Dĺžka alebo prvý rozmer, metre</value>
+  </data>
+  <data name="ai332n" xml:space="preserve">
+    <value>Šírka, priemer alebo druhý rozmer, metre</value>
+  </data>
+  <data name="ai333n" xml:space="preserve">
+    <value>Hĺbka, hrúbka, výška alebo tretí rozmer, metre</value>
+  </data>
+  <data name="ai334n" xml:space="preserve">
+    <value>Plocha, štvorcové metre</value>
+  </data>
+  <data name="ai335n" xml:space="preserve">
+    <value>Logistický objem, litre</value>
+  </data>
+  <data name="ai336n" xml:space="preserve">
+    <value>Logistický objem, kubické metre</value>
+  </data>
+  <data name="ai337n" xml:space="preserve">
+    <value>Kilogramy na štvorcový meter</value>
+  </data>
+  <data name="ai340n" xml:space="preserve">
+    <value>Logistická hmotnosť, libry</value>
+  </data>
+  <data name="ai341n" xml:space="preserve">
+    <value>Dĺžka alebo prvý rozmer, palce</value>
+  </data>
+  <data name="ai342n" xml:space="preserve">
+    <value>Dĺžka alebo prvý rozmer, stopy</value>
+  </data>
+  <data name="ai343n" xml:space="preserve">
+    <value>Dĺžka alebo prvý rozmer, yardy</value>
+  </data>
+  <data name="ai344n" xml:space="preserve">
+    <value>Šírka, priemer alebo druhý rozmer, palce</value>
+  </data>
+  <data name="ai345n" xml:space="preserve">
+    <value>Šírka, priemer alebo druhý rozmer, stopy</value>
+  </data>
+  <data name="ai346n" xml:space="preserve">
+    <value>Šírka, priemer alebo druhý rozmer, yard</value>
+  </data>
+  <data name="ai347n" xml:space="preserve">
+    <value>Hĺbka, hrúbka, výška alebo tretí rozmer, palce</value>
+  </data>
+  <data name="ai348n" xml:space="preserve">
+    <value>Hĺbka, hrúbka, výška alebo tretí rozmer, stopy</value>
+  </data>
+  <data name="ai349n" xml:space="preserve">
+    <value>Hĺbka, hrúbka, výška alebo tretí rozmer, yardy</value>
+  </data>
+  <data name="ai350n" xml:space="preserve">
+    <value>Plocha, štvorcové palce (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai351n" xml:space="preserve">
+    <value>Plocha, štvorcové stopy (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai352n" xml:space="preserve">
+    <value>Plocha, štvorcové yardy (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai353n" xml:space="preserve">
+    <value>Plocha, štvorcové palce</value>
+  </data>
+  <data name="ai354n" xml:space="preserve">
+    <value>Plocha, štvorcové stopy</value>
+  </data>
+  <data name="ai355n" xml:space="preserve">
+    <value>Plocha, štvorcové yardy</value>
+  </data>
+  <data name="ai356n" xml:space="preserve">
+    <value>Netto hmotnosť, troy unce (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai357n" xml:space="preserve">
+    <value>Netto hmotnosť (alebo objem), unce (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai360n" xml:space="preserve">
+    <value>Netto objem, quarty (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai361n" xml:space="preserve">
+    <value>Netto objem, americké galóny (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai362n" xml:space="preserve">
+    <value>Logistický objem, quarty</value>
+  </data>
+  <data name="ai363n" xml:space="preserve">
+    <value>Logistický objem, americké galóny</value>
+  </data>
+  <data name="ai364n" xml:space="preserve">
+    <value>Netto objem, kubické palce (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai365n" xml:space="preserve">
+    <value>Netto objem, kubické stopy (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai366n" xml:space="preserve">
+    <value>Netto objem, kubické yardy (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai367n" xml:space="preserve">
+    <value>Logistický objem, kubické palce</value>
+  </data>
+  <data name="ai368n" xml:space="preserve">
+    <value>Logistický objem, kubické stopy</value>
+  </data>
+  <data name="ai369n" xml:space="preserve">
+    <value>Logistický objem, kubické yardy</value>
+  </data>
+  <data name="ai37" xml:space="preserve">
+    <value>Počet obchodných položiek alebo kusov obchodnej položky obsiahnutých v logistickej jednotke</value>
+  </data>
+  <data name="ai390n" xml:space="preserve">
+    <value>Splatená suma alebo hodnota kupónu - Jedna menová oblasť</value>
+  </data>
+  <data name="ai391n" xml:space="preserve">
+    <value>Splatená suma a ISO kód meny</value>
+  </data>
+  <data name="ai392n" xml:space="preserve">
+    <value>Splatená suma za položku obchodovanú s variabilným meraním - Jedna menová oblasť</value>
+  </data>
+  <data name="ai393n" xml:space="preserve">
+    <value>Splatená suma za položku obchodovanú s variabilným meraním a ISO kód meny</value>
+  </data>
+  <data name="ai394n" xml:space="preserve">
+    <value>Percentuálna zľava z kupónu</value>
+  </data>
+  <data name="ai395n" xml:space="preserve">
+    <value>Splatená suma za jednotku merania jedna menová oblasť (položka obchodovaná s variabilným meraním)</value>
+  </data>
+  <data name="ai400" xml:space="preserve">
+    <value>Číslo objednávky zákazníka</value>
+  </data>
+  <data name="ai401" xml:space="preserve">
+    <value>Globálne identifikačné číslo pre zásielku (GINC)</value>
+  </data>
+  <data name="ai402" xml:space="preserve">
+    <value>Globálne identifikačné číslo pre zásielku (GSIN)</value>
+  </data>
+  <data name="ai403" xml:space="preserve">
+    <value>Smerovací kód</value>
+  </data>
+  <data name="ai410" xml:space="preserve">
+    <value>Doručiť do - Globálne číslo umiestnenia (GLN)</value>
+  </data>
+  <data name="ai411" xml:space="preserve">
+    <value>Fakturovať do - Globálne číslo umiestnenia (GLN)</value>
+  </data>
+  <data name="ai412" xml:space="preserve">
+    <value>Zakúpené z Globálneho čísla umiestnenia (GLN)</value>
+  </data>
+  <data name="ai413" xml:space="preserve">
+    <value>Prepraviť pre - Doručiť pre - Preposlať do Globálneho čísla umiestnenia (GLN)</value>
+  </data>
+  <data name="ai414" xml:space="preserve">
+    <value>Identifikácia fyzickej lokality - Globálne číslo umiestnenia (GLN)</value>
+  </data>
+  <data name="ai415" xml:space="preserve">
+    <value>Globálne číslo umiestnenia (GLN) fakturačnej strany</value>
+  </data>
+  <data name="ai416" xml:space="preserve">
+    <value>Globálne číslo umiestnenia (GLN) výrobného alebo servisného miesta</value>
+  </data>
+  <data name="ai417" xml:space="preserve">
+    <value>Globálne číslo umiestnenia (GLN) strany</value>
+  </data>
+  <data name="ai420" xml:space="preserve">
+    <value>Poštové smerovacie číslo doručenia/vyzdvihnutia v rámci jednej poštovej autority</value>
+  </data>
+  <data name="ai421" xml:space="preserve">
+    <value>Poštové smerovacie číslo doručenia/vyzdvihnutia s trojmiestnym ISO kódom krajiny</value>
+  </data>
+  <data name="ai422" xml:space="preserve">
+    <value>Krajina pôvodu obchodnej položky</value>
+  </data>
+  <data name="ai423" xml:space="preserve">
+    <value>Krajina počiatočného spracovania</value>
+  </data>
+  <data name="ai424" xml:space="preserve">
+    <value>Krajina spracovania</value>
+  </data>
+  <data name="ai425" xml:space="preserve">
+    <value>Krajina demontáže</value>
+  </data>
+  <data name="ai426" xml:space="preserve">
+    <value>Krajina pokrývajúca celý procesný reťazec</value>
+  </data>
+  <data name="ai427" xml:space="preserve">
+    <value>Podkód krajiny pôvodu obchodnej položky</value>
+  </data>
+  <data name="ai4300" xml:space="preserve">
+    <value>Názov spoločnosti doručenia/vyzdvihnutia</value>
+  </data>
+  <data name="ai4301" xml:space="preserve">
+    <value>Kontaktné meno doručenia/vyzdvihnutia</value>
+  </data>
+  <data name="ai4302" xml:space="preserve">
+    <value>Adresný riadok 1 doručenia/vyzdvihnutia</value>
+  </data>
+  <data name="ai4303" xml:space="preserve">
+    <value>Adresný riadok 2 doručenia/vyzdvihnutia</value>
+  </data>
+  <data name="ai4304" xml:space="preserve">
+    <value>Predmestie doručenia/vyzdvihnutia</value>
+  </data>
+  <data name="ai4305" xml:space="preserve">
+    <value>Lokalita doručenia/vyzdvihnutia</value>
+  </data>
+  <data name="ai4306" xml:space="preserve">
+    <value>Región doručenia/vyzdvihnutia</value>
+  </data>
+  <data name="ai4307" xml:space="preserve">
+    <value>Kód krajiny doručenia/vyzdvihnutia</value>
+  </data>
+  <data name="ai4308" xml:space="preserve">
+    <value>Telefónne číslo doručenia/vyzdvihnutia</value>
+  </data>
+  <data name="ai4309" xml:space="preserve">
+    <value>GEO poloha doručenia/vyzdvihnutia</value>
+  </data>
+  <data name="ai4310" xml:space="preserve">
+    <value>Názov spoločnosti na vrátenie</value>
+  </data>
+  <data name="ai4311" xml:space="preserve">
+    <value>Kontaktné meno na vrátenie</value>
+  </data>
+  <data name="ai4312" xml:space="preserve">
+    <value>Adresný riadok 1 na vrátenie</value>
+  </data>
+  <data name="ai4313" xml:space="preserve">
+    <value>Adresný riadok 2 na vrátenie</value>
+  </data>
+  <data name="ai4314" xml:space="preserve">
+    <value>Predmestie na vrátenie</value>
+  </data>
+  <data name="ai4315" xml:space="preserve">
+    <value>Lokalita na vrátenie</value>
+  </data>
+  <data name="ai4316" xml:space="preserve">
+    <value>Región na vrátenie</value>
+  </data>
+  <data name="ai4317" xml:space="preserve">
+    <value>Kód krajiny na vrátenie</value>
+  </data>
+  <data name="ai4318" xml:space="preserve">
+    <value>Poštové smerovacie číslo na vrátenie</value>
+  </data>
+  <data name="ai4319" xml:space="preserve">
+    <value>Telefónne číslo na vrátenie</value>
+  </data>
+  <data name="ai4320" xml:space="preserve">
+    <value>Popis kódu služby</value>
+  </data>
+  <data name="ai4321" xml:space="preserve">
+    <value>Vlajka nebezpečného tovaru</value>
+  </data>
+  <data name="ai4322" xml:space="preserve">
+    <value>Vlajka oprávnenia na odloženie</value>
+  </data>
+  <data name="ai4323" xml:space="preserve">
+    <value>Vlajka vyžadujúca podpis</value>
+  </data>
+  <data name="ai4324" xml:space="preserve">
+    <value>Nie pred dátumom/časom doručenia</value>
+  </data>
+  <data name="ai4325" xml:space="preserve">
+    <value>Nie po dátum/čas doručenia</value>
+  </data>
+  <data name="ai4326" xml:space="preserve">
+    <value>Dátum vydania</value>
+  </data>
+  <data name="ai4330" xml:space="preserve">
+    <value>Maximálna teplota vo Fahrenheitoch</value>
+  </data>
+  <data name="ai4331" xml:space="preserve">
+    <value>Maximálna teplota v Celzioch</value>
+  </data>
+  <data name="ai4332" xml:space="preserve">
+    <value>Minimálna teplota vo Fahrenheitoch</value>
+  </data>
+  <data name="ai4333" xml:space="preserve">
+    <value>Minimálna teplota v Celzioch</value>
+  </data>
+  <data name="ai7001" xml:space="preserve">
+    <value>NATO skladové číslo (NSN)</value>
+  </data>
+  <data name="ai7002" xml:space="preserve">
+    <value>Klasifikácia mäsových telies a rezie podľa UNECE</value>
+  </data>
+  <data name="ai7003" xml:space="preserve">
+    <value>Dátum a čas expirácie</value>
+  </data>
+  <data name="ai7004" xml:space="preserve">
+    <value>Aktívna potencia</value>
+  </data>
+  <data name="ai7005" xml:space="preserve">
+    <value>Oblasť úlovku</value>
+  </data>
+  <data name="ai7006" xml:space="preserve">
+    <value>Dátum prvého zamrznutia</value>
+  </data>
+  <data name="ai7007" xml:space="preserve">
+    <value>Dátum zberu</value>
+  </data>
+  <data name="ai7008" xml:space="preserve">
+    <value>Druhy pre rybárske účely</value>
+  </data>
+  <data name="ai7009" xml:space="preserve">
+    <value>Typ rybárskeho náradia</value>
+  </data>
+  <data name="ai7010" xml:space="preserve">
+    <value>Spôsob výroby</value>
+  </data>
+  <data name="ai7011" xml:space="preserve">
+    <value>Dátum testovania</value>
+  </data>
+  <data name="ai7020" xml:space="preserve">
+    <value>ID šarže renovácie</value>
+  </data>
+  <data name="ai7021" xml:space="preserve">
+    <value>Funkčný stav</value>
+  </data>
+  <data name="ai7022" xml:space="preserve">
+    <value>Stav revízie</value>
+  </data>
+  <data name="ai7023" xml:space="preserve">
+    <value>Globálne identifikačné číslo jednotlivého majetku zostavy</value>
+  </data>
+  <data name="ai703s" xml:space="preserve">
+    <value>Počet procesorov s trojmiestnym ISO kódom krajiny</value>
+  </data>
+  <data name="ai7040" xml:space="preserve">
+    <value>GS1 UIC s rozšírením 1 a indexom dovozcu</value>
+  </data>
+  <data name="ai710" xml:space="preserve">
+    <value>Národné číslo zdravotnej starostlivosti (NHRN) - Nemecký PZN</value>
+  </data>
+  <data name="ai711" xml:space="preserve">
+    <value>Národné číslo zdravotnej starostlivosti (NHRN) - Francúzsky CIP</value>
+  </data>
+  <data name="ai712" xml:space="preserve">
+    <value>Národné číslo zdravotnej starostlivosti (NHRN) - Španielsky CN</value>
+  </data>
+  <data name="ai713" xml:space="preserve">
+    <value>Národné číslo zdravotnej starostlivosti (NHRN) - Brazílsky DRN</value>
+  </data>
+  <data name="ai714" xml:space="preserve">
+    <value>Národné číslo zdravotnej starostlivosti (NHRN) - Portugalský AIM</value>
+  </data>
+  <data name="ai715" xml:space="preserve">
+    <value>Národné číslo zdravotnej starostlivosti (NHRN) - Americký NDC</value>
+  </data>
+  <data name="ai723s" xml:space="preserve">
+    <value>Referencia certifikácie</value>
+  </data>
+  <data name="ai7240" xml:space="preserve">
+    <value>Identifikačný kód protokolu</value>
+  </data>
+  <data name="ai7241" xml:space="preserve">
+    <value>Typ média AIDC</value>
+  </data>
+  <data name="ai7242" xml:space="preserve">
+    <value>Kontrolné číslo verzie (VCN)</value>
+  </data>
+  <data name="ai8001" xml:space="preserve">
+    <value>Rozmery rolkových produktov - šírka, dĺžka, priemer jadra, smer, spoje</value>
+  </data>
+  <data name="ai8002" xml:space="preserve">
+    <value>Identifikátor mobilného telefónu</value>
+  </data>
+  <data name="ai8003" xml:space="preserve">
+    <value>Globálne identifikačné číslo vrátiteľného majetku (GRAI)</value>
+  </data>
+  <data name="ai8004" xml:space="preserve">
+    <value>Globálne identifikačné číslo jednotlivého majetku (GIAI)</value>
+  </data>
+  <data name="ai8005" xml:space="preserve">
+    <value>Cena za jednotku merania</value>
+  </data>
+  <data name="ai8006" xml:space="preserve">
+    <value>Identifikácia jednotlivého obchodného predmetu (ITIP)</value>
+  </data>
+  <data name="ai8007" xml:space="preserve">
+    <value>Medzinárodné bankové číslo účtu (IBAN)</value>
+  </data>
+  <data name="ai8008" xml:space="preserve">
+    <value>Dátum a čas výroby</value>
+  </data>
+  <data name="ai8009" xml:space="preserve">
+    <value>Indikátor opticky čitateľného senzora</value>
+  </data>
+  <data name="ai8010" xml:space="preserve">
+    <value>Identifikátor komponentu/časti (CPID)</value>
+  </data>
+  <data name="ai8011" xml:space="preserve">
+    <value>Sériové číslo identifikátora komponentu/časti</value>
+  </data>
+  <data name="ai8012" xml:space="preserve">
+    <value>Verzia softvéru</value>
+  </data>
+  <data name="ai8013" xml:space="preserve">
+    <value>Globálne modelové číslo (GMN)</value>
+  </data>
+  <data name="ai8017" xml:space="preserve">
+    <value>Globálne číslo vzťahu k službám (GSRN) na identifikáciu vzťahu medzi organizáciou poskytujúcou služby a poskytovateľom služieb</value>
+  </data>
+  <data name="ai8018" xml:space="preserve">
+    <value>Globálne číslo vzťahu k službám (GSRN) na identifikáciu vzťahu medzi organizáciou poskytujúcou služby a príjemcom služieb</value>
+  </data>
+  <data name="ai8019" xml:space="preserve">
+    <value>Číslo inštancie vzťahu k službám (SRIN)</value>
+  </data>
+  <data name="ai8020" xml:space="preserve">
+    <value>Referenčné číslo platobného dokladu</value>
+  </data>
+  <data name="ai8026" xml:space="preserve">
+    <value>Identifikácia častí obchodnej položky (ITIP) obsiahnutých v logistickej jednotke</value>
+  </data>
+  <data name="ai8030" xml:space="preserve">
+    <value>Digitálny podpis (DigSig)</value>
+  </data>
+  <data name="ai8110" xml:space="preserve">
+    <value>Identifikácia kódu kupónu pre použitie v Severnej Amerike</value>
+  </data>
+  <data name="ai8111" xml:space="preserve">
+    <value>Body vernosti kupónu</value>
+  </data>
+  <data name="ai8112" xml:space="preserve">
+    <value>Identifikácia kódu kupónu pozitívneho ponukového súboru pre použitie v Severnej Amerike</value>
+  </data>
+  <data name="ai8200" xml:space="preserve">
+    <value>Rozšírená URL balenia</value>
+  </data>
+  <data name="ai90" xml:space="preserve">
+    <value>Informácie vzájomne dohodnuté medzi obchodnými partnermi</value>
+  </data>
+  <data name="ai91" xml:space="preserve">
+    <value>Interné informácie spoločnosti</value>
+  </data>
+  <data name="ai92" xml:space="preserve">
+    <value>Interné informácie spoločnosti</value>
+  </data>
+  <data name="ai93" xml:space="preserve">
+    <value>Interné informácie spoločnosti</value>
+  </data>
+  <data name="ai94" xml:space="preserve">
+    <value>Interné informácie spoločnosti</value>
+  </data>
+  <data name="ai95" xml:space="preserve">
+    <value>Interné informácie spoločnosti</value>
+  </data>
+  <data name="ai96" xml:space="preserve">
+    <value>Interné informácie spoločnosti</value>
+  </data>
+  <data name="ai97" xml:space="preserve">
+    <value>Interné informácie spoločnosti</value>
+  </data>
+  <data name="ai98" xml:space="preserve">
+    <value>Interné informácie spoločnosti</value>
+  </data>
+  <data name="ai99" xml:space="preserve">
+    <value>Interné informácie spoločnosti</value>
+  </data>
+</root>

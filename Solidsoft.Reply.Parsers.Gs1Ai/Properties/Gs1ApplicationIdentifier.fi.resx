@@ -1,0 +1,705 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ai00" xml:space="preserve">
+    <value>Logistiikkayksikön tunnistus (SSCC)</value>
+  </data>
+  <data name="ai01" xml:space="preserve">
+    <value>Kauppatavaran tunnistus (GTIN)</value>
+  </data>
+  <data name="ai02" xml:space="preserve">
+    <value>Logistiikkayksikössä olevien kauppatavaroiden tunnistus</value>
+  </data>
+  <data name="ai10" xml:space="preserve">
+    <value>Erä- tai lohkonumero</value>
+  </data>
+  <data name="ai11" xml:space="preserve">
+    <value>Valmistuspäivämäärä</value>
+  </data>
+  <data name="ai12" xml:space="preserve">
+    <value>Maksupäivämäärä maksulipussa</value>
+  </data>
+  <data name="ai13" xml:space="preserve">
+    <value>Pakkauspäivämäärä</value>
+  </data>
+  <data name="ai15" xml:space="preserve">
+    <value>Parasta ennen -päivämäärä</value>
+  </data>
+  <data name="ai16" xml:space="preserve">
+    <value>Myydään viimeistään -päivämäärä</value>
+  </data>
+  <data name="ai17" xml:space="preserve">
+    <value>Vanhentumispäivämäärä</value>
+  </data>
+  <data name="ai20" xml:space="preserve">
+    <value>Sisäinen tuotevariantti</value>
+  </data>
+  <data name="ai21" xml:space="preserve">
+    <value>Sarjanumero</value>
+  </data>
+  <data name="ai22" xml:space="preserve">
+    <value>Kuluttajatuotevariantti</value>
+  </data>
+  <data name="ai235" xml:space="preserve">
+    <value>Kolmannen osapuolen hallinnoima, sarjallistettu laajennus globaalille kauppatavaranumerolle (GTIN) (TPX)</value>
+  </data>
+  <data name="ai240" xml:space="preserve">
+    <value>Valmistajan antama lisätuoteidentifikaatio</value>
+  </data>
+  <data name="ai241" xml:space="preserve">
+    <value>Asiakkaan osanumero</value>
+  </data>
+  <data name="ai242" xml:space="preserve">
+    <value>Tilauksesta valmistettu varianttinumero</value>
+  </data>
+  <data name="ai243" xml:space="preserve">
+    <value>Pakkauskomponentin numero</value>
+  </data>
+  <data name="ai250" xml:space="preserve">
+    <value>Toissijainen sarjanumero</value>
+  </data>
+  <data name="ai251" xml:space="preserve">
+    <value>Viittaus lähteeseen</value>
+  </data>
+  <data name="ai253" xml:space="preserve">
+    <value>Globaali asiakirjatyypin tunniste (GDTI)</value>
+  </data>
+  <data name="ai254" xml:space="preserve">
+    <value>Globaalin sijaintinumeron (GLN) laajennusosa</value>
+  </data>
+  <data name="ai255" xml:space="preserve">
+    <value>Globaali kuponkinumero (GCN)</value>
+  </data>
+  <data name="ai30" xml:space="preserve">
+    <value>Muuttuva tuotteiden määrä</value>
+  </data>
+  <data name="ai310n" xml:space="preserve">
+    <value>Nettopaino, kilogrammat (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai311n" xml:space="preserve">
+    <value>Pituus tai ensimmäinen ulottuvuus, metrit (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai312n" xml:space="preserve">
+    <value>Leveys, halkaisija tai toinen ulottuvuus, metrit (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai313n" xml:space="preserve">
+    <value>Syvyys, paksuus, korkeus tai kolmas ulottuvuus, metrit (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai314n" xml:space="preserve">
+    <value>Pinta-ala, neliömetrit (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai315n" xml:space="preserve">
+    <value>Nettotilavuus, litrat (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai316n" xml:space="preserve">
+    <value>Nettotilavuus, kuutiometrit (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai320n" xml:space="preserve">
+    <value>Nettopaino, paunat (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai321n" xml:space="preserve">
+    <value>Pituus tai ensimmäinen ulottuvuus, tuumat (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai322n" xml:space="preserve">
+    <value>Pituus tai ensimmäinen ulottuvuus, jalat (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai323n" xml:space="preserve">
+    <value>Pituus tai ensimmäinen ulottuvuus, jaardit (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai324n" xml:space="preserve">
+    <value>Leveys, halkaisija tai toinen ulottuvuus, tuumat (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai325n" xml:space="preserve">
+    <value>Leveys, halkaisija tai toinen ulottuvuus, jalat (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai326n" xml:space="preserve">
+    <value>Leveys, halkaisija tai toinen ulottuvuus, jaardit (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai327n" xml:space="preserve">
+    <value>Syvyys, paksuus, korkeus tai kolmas ulottuvuus, tuumat (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai328n" xml:space="preserve">
+    <value>Syvyys, paksuus, korkeus tai kolmas ulottuvuus, jalat (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai329n" xml:space="preserve">
+    <value>Syvyys, paksuus, korkeus tai kolmas ulottuvuus, jaardit (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai330n" xml:space="preserve">
+    <value>Logistinen paino, kilogrammat</value>
+  </data>
+  <data name="ai331n" xml:space="preserve">
+    <value>Pituus tai ensimmäinen ulottuvuus, metrit</value>
+  </data>
+  <data name="ai332n" xml:space="preserve">
+    <value>Leveys, halkaisija tai toinen ulottuvuus, metrit</value>
+  </data>
+  <data name="ai333n" xml:space="preserve">
+    <value>Syvyys, paksuus, korkeus tai kolmas ulottuvuus, metrit</value>
+  </data>
+  <data name="ai334n" xml:space="preserve">
+    <value>Pinta-ala, neliömetrit</value>
+  </data>
+  <data name="ai335n" xml:space="preserve">
+    <value>Logistinen tilavuus, litrat</value>
+  </data>
+  <data name="ai336n" xml:space="preserve">
+    <value>Logistinen tilavuus, kuutiometrit</value>
+  </data>
+  <data name="ai337n" xml:space="preserve">
+    <value>Kilogrammat neliömetriä kohden</value>
+  </data>
+  <data name="ai340n" xml:space="preserve">
+    <value>Logistinen paino, paunat</value>
+  </data>
+  <data name="ai341n" xml:space="preserve">
+    <value>Pituus tai ensimmäinen ulottuvuus, tuumat</value>
+  </data>
+  <data name="ai342n" xml:space="preserve">
+    <value>Pituus tai ensimmäinen ulottuvuus, jalat</value>
+  </data>
+  <data name="ai343n" xml:space="preserve">
+    <value>Pituus tai ensimmäinen ulottuvuus, jaardit</value>
+  </data>
+  <data name="ai344n" xml:space="preserve">
+    <value>Leveys, halkaisija tai toinen ulottuvuus, tuumat</value>
+  </data>
+  <data name="ai345n" xml:space="preserve">
+    <value>Leveys, halkaisija tai toinen ulottuvuus, jalat</value>
+  </data>
+  <data name="ai346n" xml:space="preserve">
+    <value>Leveys, halkaisija tai toinen ulottuvuus, jaardit</value>
+  </data>
+  <data name="ai347n" xml:space="preserve">
+    <value>Syvyys, paksuus, korkeus tai kolmas ulottuvuus, tuumat</value>
+  </data>
+  <data name="ai348n" xml:space="preserve">
+    <value>Syvyys, paksuus, korkeus tai kolmas ulottuvuus, jalat</value>
+  </data>
+  <data name="ai349n" xml:space="preserve">
+    <value>Syvyys, paksuus, korkeus tai kolmas ulottuvuus, jaardit</value>
+  </data>
+  <data name="ai350n" xml:space="preserve">
+    <value>Pinta-ala, neliötuumat (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai351n" xml:space="preserve">
+    <value>Pinta-ala, neliöjalat (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai352n" xml:space="preserve">
+    <value>Pinta-ala, neliöjaardit (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai353n" xml:space="preserve">
+    <value>Pinta-ala, neliötuumat</value>
+  </data>
+  <data name="ai354n" xml:space="preserve">
+    <value>Pinta-ala, neliöjalat</value>
+  </data>
+  <data name="ai355n" xml:space="preserve">
+    <value>Pinta-ala, neliöjaardit</value>
+  </data>
+  <data name="ai356n" xml:space="preserve">
+    <value>Nettopaino, troy-unssit (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai357n" xml:space="preserve">
+    <value>Nettopaino (tai tilavuus), unssit (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai360n" xml:space="preserve">
+    <value>Nettotilavuus, quartit (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai361n" xml:space="preserve">
+    <value>Nettotilavuus, gallonat U.S. (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai362n" xml:space="preserve">
+    <value>Logistinen tilavuus, quartit</value>
+  </data>
+  <data name="ai363n" xml:space="preserve">
+    <value>Logistinen tilavuus, gallonat U.S.</value>
+  </data>
+  <data name="ai364n" xml:space="preserve">
+    <value>Nettotilavuus, kuutiotuumat (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai365n" xml:space="preserve">
+    <value>Nettotilavuus, kuutiojalat (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai366n" xml:space="preserve">
+    <value>Nettotilavuus, kuutiojaardit (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai367n" xml:space="preserve">
+    <value>Logistinen tilavuus, kuutiotuumat</value>
+  </data>
+  <data name="ai368n" xml:space="preserve">
+    <value>Logistinen tilavuus, kuutiojalat</value>
+  </data>
+  <data name="ai369n" xml:space="preserve">
+    <value>Logistinen tilavuus, kuutiojaardit</value>
+  </data>
+  <data name="ai37" xml:space="preserve">
+    <value>Logistiikkayksikössä olevien kauppatavaroiden tai kauppatavaran palasten määrä</value>
+  </data>
+  <data name="ai390n" xml:space="preserve">
+    <value>Maksettava summa tai kuponin arvo - Yksi rahayksikköalue</value>
+  </data>
+  <data name="ai391n" xml:space="preserve">
+    <value>Maksettava summa ja ISO-valuuttakoodi</value>
+  </data>
+  <data name="ai392n" xml:space="preserve">
+    <value>Muuttuvan mittakaavan kauppatavaralle maksettava summa - Yksi rahayksikköalue</value>
+  </data>
+  <data name="ai393n" xml:space="preserve">
+    <value>Muuttuvan mittakaavan kauppatavaralle maksettava summa ja ISO-valuuttakoodi</value>
+  </data>
+  <data name="ai394n" xml:space="preserve">
+    <value>Kuponin prosenttialennus</value>
+  </data>
+  <data name="ai395n" xml:space="preserve">
+    <value>Maksettava summa mittayksikköä kohden yksi rahayksikköalue (muuttuva mittakauppatavara)</value>
+  </data>
+  <data name="ai400" xml:space="preserve">
+    <value>Asiakkaan ostotilausnumero</value>
+  </data>
+  <data name="ai401" xml:space="preserve">
+    <value>Maailmanlaajuinen tunnusnumero kuljetukselle (GINC)</value>
+  </data>
+  <data name="ai402" xml:space="preserve">
+    <value>Maailmanlaajuinen lähetystunnistenumero (GSIN)</value>
+  </data>
+  <data name="ai403" xml:space="preserve">
+    <value>Reitityskoodi</value>
+  </data>
+  <data name="ai410" xml:space="preserve">
+    <value>Toimita - Toimita maailmanlaajuiseen sijaintinumeroon (GLN)</value>
+  </data>
+  <data name="ai411" xml:space="preserve">
+    <value>Laskuta - Laskuta maailmanlaajuiseen sijaintinumeroon (GLN)</value>
+  </data>
+  <data name="ai412" xml:space="preserve">
+    <value>Ostettu maailmanlaajuisesta sijaintinumerosta (GLN)</value>
+  </data>
+  <data name="ai413" xml:space="preserve">
+    <value>Lähetä - Toimita - Edelleenlähetä maailmanlaajuiseen sijaintinumeroon (GLN)</value>
+  </data>
+  <data name="ai414" xml:space="preserve">
+    <value>Fyysisen sijainnin tunnistus - Maailmanlaajuinen sijaintinumero (GLN)</value>
+  </data>
+  <data name="ai415" xml:space="preserve">
+    <value>Laskuttavan osapuolen maailmanlaajuinen sijaintinumero (GLN)</value>
+  </data>
+  <data name="ai416" xml:space="preserve">
+    <value>Tuotanto- tai palvelupaikan maailmanlaajuinen sijaintinumero (GLN)</value>
+  </data>
+  <data name="ai417" xml:space="preserve">
+    <value>Osapuolen maailmanlaajuinen sijaintinumero (GLN)</value>
+  </data>
+  <data name="ai420" xml:space="preserve">
+    <value>Toimita/postita yhden postiviranomaisen sisällä olevaan postinumeroon</value>
+  </data>
+  <data name="ai421" xml:space="preserve">
+    <value>Toimita/postita postinumero kolminumeroisella ISO-maakoodilla</value>
+  </data>
+  <data name="ai422" xml:space="preserve">
+    <value>Kauppatavaran alkuperämaa</value>
+  </data>
+  <data name="ai423" xml:space="preserve">
+    <value>Alkuperäinen prosessointimaa</value>
+  </data>
+  <data name="ai424" xml:space="preserve">
+    <value>Prosessointimaa</value>
+  </data>
+  <data name="ai425" xml:space="preserve">
+    <value>Purkamismaa</value>
+  </data>
+  <data name="ai426" xml:space="preserve">
+    <value>Koko prosessiketjun kattava maa</value>
+  </data>
+  <data name="ai427" xml:space="preserve">
+    <value>Kauppatavaran alkuperäalakoodi</value>
+  </data>
+  <data name="ai4300" xml:space="preserve">
+    <value>Toimita - Toimita yrityksen nimi</value>
+  </data>
+  <data name="ai4301" xml:space="preserve">
+    <value>Toimita - Toimita yhteyshenkilön nimi</value>
+  </data>
+  <data name="ai4302" xml:space="preserve">
+    <value>Toimita - Toimita osoiterivi 1</value>
+  </data>
+  <data name="ai4303" xml:space="preserve">
+    <value>Toimita - Toimita osoiterivi 2</value>
+  </data>
+  <data name="ai4304" xml:space="preserve">
+    <value>Toimita - Toimita esikaupunkialue</value>
+  </data>
+  <data name="ai4305" xml:space="preserve">
+    <value>Toimita - Toimita paikallisuus</value>
+  </data>
+  <data name="ai4306" xml:space="preserve">
+    <value>Toimita - Toimita alue</value>
+  </data>
+  <data name="ai4307" xml:space="preserve">
+    <value>Toimita - Toimita maakoodi</value>
+  </data>
+  <data name="ai4308" xml:space="preserve">
+    <value>Toimita - Toimita puhelinnumero</value>
+  </data>
+  <data name="ai4309" xml:space="preserve">
+    <value>Toimita - Toimita GEO-sijainti</value>
+  </data>
+  <data name="ai4310" xml:space="preserve">
+    <value>Palauta yrityksen nimi</value>
+  </data>
+  <data name="ai4311" xml:space="preserve">
+    <value>Palauta yhteyshenkilön nimi</value>
+  </data>
+  <data name="ai4312" xml:space="preserve">
+    <value>Palauta osoiterivi 1</value>
+  </data>
+  <data name="ai4313" xml:space="preserve">
+    <value>Palauta osoiterivi 2</value>
+  </data>
+  <data name="ai4314" xml:space="preserve">
+    <value>Palauta esikaupunkialue</value>
+  </data>
+  <data name="ai4315" xml:space="preserve">
+    <value>Palauta paikallisuus</value>
+  </data>
+  <data name="ai4316" xml:space="preserve">
+    <value>Palauta alue</value>
+  </data>
+  <data name="ai4317" xml:space="preserve">
+    <value>Palauta maakoodi</value>
+  </data>
+  <data name="ai4318" xml:space="preserve">
+    <value>Palauta postinumero</value>
+  </data>
+  <data name="ai4319" xml:space="preserve">
+    <value>Palauta puhelinnumero</value>
+  </data>
+  <data name="ai4320" xml:space="preserve">
+    <value>Palvelukoodin kuvaus</value>
+  </data>
+  <data name="ai4321" xml:space="preserve">
+    <value>Vaarallisten aineiden lippu</value>
+  </data>
+  <data name="ai4322" xml:space="preserve">
+    <value>Jätä lippu</value>
+  </data>
+  <data name="ai4323" xml:space="preserve">
+    <value>Allekirjoitus vaaditaan -lippu</value>
+  </data>
+  <data name="ai4324" xml:space="preserve">
+    <value>Ei ennen toimituspäivämäärää/aikaa</value>
+  </data>
+  <data name="ai4325" xml:space="preserve">
+    <value>Ei toimituksen jälkeen päivämäärä/aika</value>
+  </data>
+  <data name="ai4326" xml:space="preserve">
+    <value>Julkaisupäivämäärä</value>
+  </data>
+  <data name="ai4330" xml:space="preserve">
+    <value>Maksimilämpötila Fahrenheit-asteina</value>
+  </data>
+  <data name="ai4331" xml:space="preserve">
+    <value>Maksimilämpötila Celsius-asteina</value>
+  </data>
+  <data name="ai4332" xml:space="preserve">
+    <value>Minimilämpötila Fahrenheit-asteina</value>
+  </data>
+  <data name="ai4333" xml:space="preserve">
+    <value>Minimilämpötila Celsius-asteina</value>
+  </data>
+  <data name="ai7001" xml:space="preserve">
+    <value>NATO:n varastonumero (NSN)</value>
+  </data>
+  <data name="ai7002" xml:space="preserve">
+    <value>UNECE:n lihakroppien ja leikkausten luokitus</value>
+  </data>
+  <data name="ai7003" xml:space="preserve">
+    <value>Vanhentumispäivämäärä ja -aika</value>
+  </data>
+  <data name="ai7004" xml:space="preserve">
+    <value>Aktiivinen teho</value>
+  </data>
+  <data name="ai7005" xml:space="preserve">
+    <value>Pyynnin alue</value>
+  </data>
+  <data name="ai7006" xml:space="preserve">
+    <value>Ensimmäisen jäädytyksen päivämäärä</value>
+  </data>
+  <data name="ai7007" xml:space="preserve">
+    <value>Korjuupäivämäärä</value>
+  </data>
+  <data name="ai7008" xml:space="preserve">
+    <value>Kalalajit kalastustarkoituksiin</value>
+  </data>
+  <data name="ai7009" xml:space="preserve">
+    <value>Kalastusvälineiden tyyppi</value>
+  </data>
+  <data name="ai7010" xml:space="preserve">
+    <value>Valmistusmenetelmä</value>
+  </data>
+  <data name="ai7011" xml:space="preserve">
+    <value>Testipäivämäärä</value>
+  </data>
+  <data name="ai7020" xml:space="preserve">
+    <value>Kunnostuslohkon tunnus</value>
+  </data>
+  <data name="ai7021" xml:space="preserve">
+    <value>Toiminnallinen tila</value>
+  </data>
+  <data name="ai7022" xml:space="preserve">
+    <value>Tarkistus tila</value>
+  </data>
+  <data name="ai7023" xml:space="preserve">
+    <value>Kokoonpanon maailmanlaajuinen yksittäisen omaisuuden tunnistenumero</value>
+  </data>
+  <data name="ai703s" xml:space="preserve">
+    <value>Prosessorin määrä kolminumeroisella ISO-maakoodilla</value>
+  </data>
+  <data name="ai7040" xml:space="preserve">
+    <value>GS1 UIC laajennuksella 1 ja tuojaindeksillä</value>
+  </data>
+  <data name="ai710" xml:space="preserve">
+    <value>Kansallinen terveydenhuollon korvausnumero (NHRN) - Saksan PZN</value>
+  </data>
+  <data name="ai711" xml:space="preserve">
+    <value>Kansallinen terveydenhuollon korvausnumero (NHRN) - Ranskan CIP</value>
+  </data>
+  <data name="ai712" xml:space="preserve">
+    <value>Kansallinen terveydenhuollon korvausnumero (NHRN) - Espanjan CN</value>
+  </data>
+  <data name="ai713" xml:space="preserve">
+    <value>Kansallinen terveydenhuollon korvausnumero (NHRN) - Brasilian DRN</value>
+  </data>
+  <data name="ai714" xml:space="preserve">
+    <value>Kansallinen terveydenhuollon korvausnumero (NHRN) - Portugalin AIM</value>
+  </data>
+  <data name="ai715" xml:space="preserve">
+    <value>Kansallinen terveydenhuollon korvausnumero (NHRN) - Yhdysvaltojen NDC</value>
+  </data>
+  <data name="ai723s" xml:space="preserve">
+    <value>Sertifiointiviite</value>
+  </data>
+  <data name="ai7240" xml:space="preserve">
+    <value>Protokollan tunnus</value>
+  </data>
+  <data name="ai7241" xml:space="preserve">
+    <value>AIDC-mediatyyppi</value>
+  </data>
+  <data name="ai7242" xml:space="preserve">
+    <value>Versionhallintanumero (VCN)</value>
+  </data>
+  <data name="ai8001" xml:space="preserve">
+    <value>Rullatuotteet - leveys, pituus, ydinhalkaisija, suunta, liitokset</value>
+  </data>
+  <data name="ai8002" xml:space="preserve">
+    <value>Matkapuhelimen tunniste</value>
+  </data>
+  <data name="ai8003" xml:space="preserve">
+    <value>Globaali palautettavan omaisuuden tunnistenumero (GRAI)</value>
+  </data>
+  <data name="ai8004" xml:space="preserve">
+    <value>Globaali yksittäisen omaisuuden tunnistenumero (GIAI)</value>
+  </data>
+  <data name="ai8005" xml:space="preserve">
+    <value>Hinta mittayksikköä kohden</value>
+  </data>
+  <data name="ai8006" xml:space="preserve">
+    <value>Yksittäisen kauppatavaran (ITIP) kappaleen tunnistus</value>
+  </data>
+  <data name="ai8007" xml:space="preserve">
+    <value>Kansainvälinen pankkitilinumero (IBAN)</value>
+  </data>
+  <data name="ai8008" xml:space="preserve">
+    <value>Tuotantopäivämäärä ja -aika</value>
+  </data>
+  <data name="ai8009" xml:space="preserve">
+    <value>Optisesti luettava anturin ilmaisin</value>
+  </data>
+  <data name="ai8010" xml:space="preserve">
+    <value>Komponentin/Osan tunnistenumero (CPID)</value>
+  </data>
+  <data name="ai8011" xml:space="preserve">
+    <value>Komponentin/Osan tunnistenumero sarjanumero</value>
+  </data>
+  <data name="ai8012" xml:space="preserve">
+    <value>Ohjelmistoversio</value>
+  </data>
+  <data name="ai8013" xml:space="preserve">
+    <value>Globaali mallinumero (GMN)</value>
+  </data>
+  <data name="ai8017" xml:space="preserve">
+    <value>Globaali palvelusuhteenumero (GSRN) palveluja tarjoavan organisaation ja palvelujen tarjoajan välisen suhteen tunnistamiseen</value>
+  </data>
+  <data name="ai8018" xml:space="preserve">
+    <value>Globaali palvelusuhteenumero (GSRN) palveluja tarjoavan organisaation ja palvelujen vastaanottajan välisen suhteen tunnistamiseen</value>
+  </data>
+  <data name="ai8019" xml:space="preserve">
+    <value>Palvelusuhteen tapausnumero (SRIN)</value>
+  </data>
+  <data name="ai8020" xml:space="preserve">
+    <value>Maksulipun viitenumero</value>
+  </data>
+  <data name="ai8026" xml:space="preserve">
+    <value>Logistiikkayksikössä olevien kauppatavaran palasten tunnistus (ITIP)</value>
+  </data>
+  <data name="ai8030" xml:space="preserve">
+    <value>Digitaalinen allekirjoitus (DigSig)</value>
+  </data>
+  <data name="ai8110" xml:space="preserve">
+    <value>Kuponkikoodin tunnistus Pohjois-Amerikassa käytettäväksi</value>
+  </data>
+  <data name="ai8111" xml:space="preserve">
+    <value>Kupongin lojaliteettipisteet</value>
+  </data>
+  <data name="ai8112" xml:space="preserve">
+    <value>Pohjois-Amerikassa käytettävän positiivisen tarjouskoodin tunnistus</value>
+  </data>
+  <data name="ai8200" xml:space="preserve">
+    <value>Laajennettu pakkaus-URL</value>
+  </data>
+  <data name="ai90" xml:space="preserve">
+    <value>Kaupan osapuolten keskinäisesti sopima tieto</value>
+  </data>
+  <data name="ai91" xml:space="preserve">
+    <value>Yrityksen sisäinen tieto</value>
+  </data>
+  <data name="ai92" xml:space="preserve">
+    <value>Yrityksen sisäinen tieto</value>
+  </data>
+  <data name="ai93" xml:space="preserve">
+    <value>Yrityksen sisäinen tieto</value>
+  </data>
+  <data name="ai94" xml:space="preserve">
+    <value>Yrityksen sisäinen tieto</value>
+  </data>
+  <data name="ai95" xml:space="preserve">
+    <value>Yrityksen sisäinen tieto</value>
+  </data>
+  <data name="ai96" xml:space="preserve">
+    <value>Yrityksen sisäinen tieto</value>
+  </data>
+  <data name="ai97" xml:space="preserve">
+    <value>Yrityksen sisäinen tieto</value>
+  </data>
+  <data name="ai98" xml:space="preserve">
+    <value>Yrityksen sisäinen tieto</value>
+  </data>
+  <data name="ai99" xml:space="preserve">
+    <value>Yrityksen sisäinen tieto</value>
+  </data>
+</root>
