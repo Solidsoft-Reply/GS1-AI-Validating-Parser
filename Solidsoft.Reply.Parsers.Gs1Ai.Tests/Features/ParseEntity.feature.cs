@@ -4384,7 +4384,7 @@ this.ScenarioInitialize(scenarioInfo);
   testRunner.And("the data value should be PRICE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 1031
-  testRunner.And("the description should be Amount payable for a variable measure trade item – Sing" +
+  testRunner.And("the description should be Amount payable for a variable measure trade item - Sing" +
                         "le monetary area", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 1032
@@ -4600,7 +4600,7 @@ this.ScenarioInitialize(scenarioInfo);
   testRunner.And("the data value should be ORDER NUMBER", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 1082
-  testRunner.And("the description should be Customer’s purchase order number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the description should be Customer\'s purchase order number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 1083
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -8280,7 +8280,7 @@ this.ScenarioInitialize(scenarioInfo);
   testRunner.And("the data value should be NHRN PZN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 1947
-  testRunner.And("the description should be National Healthcare Reimbursement Number (NHRN) – Germa" +
+  testRunner.And("the description should be National Healthcare Reimbursement Number (NHRN) - Germa" +
                         "ny PZN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 1948
@@ -8332,7 +8332,7 @@ this.ScenarioInitialize(scenarioInfo);
   testRunner.And("the data value should be NHRN CIP", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 1959
-  testRunner.And("the description should be National Healthcare Reimbursement Number (NHRN) – Franc" +
+  testRunner.And("the description should be National Healthcare Reimbursement Number (NHRN) - Franc" +
                         "e CIP", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 1960
@@ -8384,7 +8384,7 @@ this.ScenarioInitialize(scenarioInfo);
   testRunner.And("the data value should be NHRN CN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 1971
-  testRunner.And("the description should be National Healthcare Reimbursement Number (NHRN) – Spain" +
+  testRunner.And("the description should be National Healthcare Reimbursement Number (NHRN) - Spain" +
                         " CN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 1972
@@ -8436,7 +8436,7 @@ this.ScenarioInitialize(scenarioInfo);
   testRunner.And("the data value should be NHRN DRN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 1983
-  testRunner.And("the description should be National Healthcare Reimbursement Number (NHRN) – Brasi" +
+  testRunner.And("the description should be National Healthcare Reimbursement Number (NHRN) - Brasi" +
                         "l DRN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 1984
@@ -8488,7 +8488,7 @@ this.ScenarioInitialize(scenarioInfo);
   testRunner.And("the data value should be NHRN AIM", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 1995
-  testRunner.And("the description should be National Healthcare Reimbursement Number (NHRN) – Portu" +
+  testRunner.And("the description should be National Healthcare Reimbursement Number (NHRN) - Portu" +
                         "gal AIM", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 1996
@@ -8540,7 +8540,7 @@ this.ScenarioInitialize(scenarioInfo);
   testRunner.And("the data value should be NHRN NDC", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 2007
-  testRunner.And("the description should be National Healthcare Reimbursement Number (NHRN) – Unite" +
+  testRunner.And("the description should be National Healthcare Reimbursement Number (NHRN) - Unite" +
                         "d States of America NDC", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 2008

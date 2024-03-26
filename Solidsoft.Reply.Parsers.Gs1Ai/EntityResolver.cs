@@ -1338,7 +1338,7 @@ internal static class EntityResolver {
                 330,
                 new EntityDescriptor(
                     "GROSS WEIGHT (kg)",
-                    Gs1ApplicationIdentifier.ai390n,
+                    Gs1ApplicationIdentifier.ai330n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
 #else 
@@ -2563,7 +2563,7 @@ internal static class EntityResolver {
 
                     // ReSharper disable once StringLiteralTypo
                     "REFURB LOT",
-                    Gs1ApplicationIdentifier.ai7022,
+                    Gs1ApplicationIdentifier.ai7020,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else

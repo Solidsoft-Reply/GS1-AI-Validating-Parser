@@ -1028,7 +1028,7 @@ Scenario: Parse PRICE
 		And the inverse exponent should be 2
 		And the value should be 123456789012345
 		And the data value should be PRICE
-		And the description should be Amount payable for a variable measure trade item – Single monetary area
+		And the description should be Amount payable for a variable measure trade item - Single monetary area
 		And the length of the value should be variable
 		And there should be no errors
 
@@ -1079,7 +1079,7 @@ Scenario: Parse ORDER NUMBER
 	    And the AI should be 400
 		And the value should be 1234567890
 		And the data value should be ORDER NUMBER
-		And the description should be Customer’s purchase order number
+		And the description should be Customer's purchase order number
 		And the length of the value should be variable
 		And there should be no errors
 
@@ -1944,7 +1944,7 @@ Scenario: Parse NHRN PZN
 	    And the AI should be 710
 		And the value should be 3675419
 		And the data value should be NHRN PZN
-		And the description should be National Healthcare Reimbursement Number (NHRN) – Germany PZN
+		And the description should be National Healthcare Reimbursement Number (NHRN) - Germany PZN
 		And the length of the value should be variable
 		And there should be no errors
 
@@ -1956,7 +1956,7 @@ Scenario: Parse NHRN CIP
 	    And the AI should be 711
 		And the value should be 3400935974419
 		And the data value should be NHRN CIP
-		And the description should be National Healthcare Reimbursement Number (NHRN) – France CIP
+		And the description should be National Healthcare Reimbursement Number (NHRN) - France CIP
 		And the length of the value should be variable
 		And there should be no errors
 
@@ -1968,7 +1968,7 @@ Scenario: Parse NHRN CN
 	    And the AI should be 712
 		And the value should be 384756.8
 		And the data value should be NHRN CN
-		And the description should be National Healthcare Reimbursement Number (NHRN) – Spain CN
+		And the description should be National Healthcare Reimbursement Number (NHRN) - Spain CN
 		And the length of the value should be variable
 		And there should be no errors
 
@@ -1980,7 +1980,7 @@ Scenario: Parse NHRN DRN
 	    And the AI should be 713
 		And the value should be 40056320000011
 		And the data value should be NHRN DRN
-		And the description should be National Healthcare Reimbursement Number (NHRN) – Brasil DRN
+		And the description should be National Healthcare Reimbursement Number (NHRN) - Brasil DRN
 		And the length of the value should be variable
 		And there should be no errors
 
@@ -1992,7 +1992,7 @@ Scenario: Parse NHRN AIM
 	    And the AI should be 714
 		And the value should be 142199
 		And the data value should be NHRN AIM
-		And the description should be National Healthcare Reimbursement Number (NHRN) – Portugal AIM
+		And the description should be National Healthcare Reimbursement Number (NHRN) - Portugal AIM
 		And the length of the value should be variable
 		And there should be no errors
 
@@ -2004,7 +2004,7 @@ Scenario: Parse NHRN NDC
 	    And the AI should be 715
 		And the value should be 0777310502
 		And the data value should be NHRN NDC
-		And the description should be National Healthcare Reimbursement Number (NHRN) – United States of America NDC
+		And the description should be National Healthcare Reimbursement Number (NHRN) - United States of America NDC
 		And the length of the value should be variable
 		And there should be no errors
 

@@ -17,7 +17,9 @@
 	<PackageTags>gs1;ai;parser;barcode;datamatrix;qr;code-128</PackageTags>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 	<PackageReleaseNotes>
-		1) Added Italian language support.
+		1) Includes translations for all entity descriptions.
+		2) Provides language support for all EU official languages and Norwegian and Icelandic.
+		3) Fixes bugs for AIs 330n and 7020.
 	</PackageReleaseNotes>
     <Description>
 		A comprehensive validating parser for GS1 Application Identifiers (AIs).
@@ -26,7 +28,7 @@
 		--------------
 		$(PackageReleaseNotes)
 	</Description>
-	<Version>1.0.3</Version>
+	<Version>1.0.4</Version>
 	<AssemblyName>$(MSBuildProjectName)</AssemblyName>
     <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
 	<NeutralLanguage>en</NeutralLanguage>
