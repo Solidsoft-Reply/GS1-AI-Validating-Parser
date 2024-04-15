@@ -1,8 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IdentifierWithFinalChecksumDescriptor.cs" company="Solidsoft Reply Ltd.">
-//   (c) 2018-2024 Solidsoft Reply Ltd.  All rights reserved.
-// </copyright>
-// <license>
+// <copyright file="IdentifierWithFinalChecksumDescriptor.cs" company="Solidsoft Reply Ltd">
+// Copyright (c) 2018-2024 Solidsoft Reply Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -14,7 +12,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-// </license>
+// </copyright>
 // <summary>
 // A descriptor for a GS1 identifiers whose last digit is checksum.
 // </summary>
@@ -33,30 +31,27 @@ using Common;
 /// <summary>
 ///     A descriptor for a GS1 identifiers whose last digit is checksum.
 /// </summary>
-internal class IdentifierWithFinalChecksumDescriptor : EntityDescriptor {
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="IdentifierWithFinalChecksumDescriptor" /> class.
-    /// </summary>
-    /// <param name="dataTitle">
-    ///     The data title.
-    /// </param>
-    /// <param name="description">
-    ///     The description.
-    /// </param>
-    /// <param name="pattern">
-    ///     The pattern.
-    /// </param>
-    /// <param name="isFixedWidth">
-    ///     Indicates whether the value associated with the Application Identifier is fixed-width.
-    /// </param>
-    public IdentifierWithFinalChecksumDescriptor(
+/// <remarks>
+///     Initializes a new instance of the <see cref="IdentifierWithFinalChecksumDescriptor" /> class.
+/// </remarks>
+/// <param name="dataTitle">
+///     The data title.
+/// </param>
+/// <param name="description">
+///     The description.
+/// </param>
+/// <param name="pattern">
+///     The pattern.
+/// </param>
+/// <param name="isFixedWidth">
+///     Indicates whether the value associated with the Application Identifier is fixed-width.
+/// </param>
+internal class IdentifierWithFinalChecksumDescriptor(
         string dataTitle,
         string description,
         Regex pattern,
         bool isFixedWidth)
-        : base(dataTitle, description, pattern, isFixedWidth) {
-    }
-
+    : EntityDescriptor(dataTitle, description, pattern, isFixedWidth) {
     /// <summary>
     ///     Validate data against the descriptor.
     /// </summary>

@@ -1,8 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Parser.cs" company="Solidsoft Reply Ltd.">
-//   (c) 2018-2024 Solidsoft Reply Ltd.  All rights reserved.
-// </copyright>
-// <license>
+// <copyright file="Parser.cs" company="Solidsoft Reply Ltd">
+// Copyright (c) 2018-2024 Solidsoft Reply Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -14,7 +12,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-// </license>
+// </copyright>
 // <summary>
 //  Parser for element strings encoded in any GS1 symbology that uses GS1 Application Identifiers, such as GS1-128,
 // GS1 DataMatrix, GS1 DataBar, GS1 QR Code and GS1 Composite.
@@ -22,6 +20,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 [assembly: CLSCompliant(true)]
+
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
 using Properties;
@@ -63,7 +62,7 @@ public static class Parser {
                                                                               { "34", 10 },
                                                                               { "35", 10 },
                                                                               { "36", 10 },
-                                                                              { "41", 16 }
+                                                                              { "41", 16 },
                                                                           };
 
     /// <summary>
@@ -135,6 +134,7 @@ public static class Parser {
                         var bufferContents = workingBuffer.ToString() ?? string.Empty;
 
                         // Handle errors
+#pragma warning disable SA1118 // Parameter should not span multiple lines
                         processResolvedEntity?.Invoke(
                             new ResolvedApplicationIdentifier(
                                 new ParserException(2003, Resources.GS1_Error_004, false),
@@ -142,6 +142,7 @@ public static class Parser {
                                     Convert.ToChar(29).ToInvariantString(),
                                     StringComparison.Ordinal),
                                 new string(workingBuffer).Resolve(firstTwoDigits, currentPosition)));
+#pragma warning restore SA1118 // Parameter should not span multiple lines
                         return;
                     }
 

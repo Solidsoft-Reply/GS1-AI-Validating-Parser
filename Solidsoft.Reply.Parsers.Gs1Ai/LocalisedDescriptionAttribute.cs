@@ -1,8 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="LocalisedDescriptionAttribute.cs" company="Solidsoft Reply Ltd.">
-//   (c) 2018-2024 Solidsoft Reply Ltd.  All rights reserved.
-// </copyright>
-// <license>
+// <copyright file="LocalisedDescriptionAttribute.cs" company="Solidsoft Reply Ltd">
+// Copyright (c) 2018-2024 Solidsoft Reply Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -14,39 +12,33 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-// </license>
+// </copyright>
 // <summary>
 // Specifies a localised description for a property or event.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System.ComponentModel;
-using Solidsoft.Reply.Parsers.Gs1Ai.Properties;
-
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
+
+using System.ComponentModel;
+
+using Properties;
 
 /// <summary>
 ///   Specifies a localised description for a property or event.
 /// </summary>
-public class LocalisedDescriptionAttribute : DescriptionAttribute
-{
-    /// <summary>
-    /// Initializes a new instance of the <see cref="LocalisedDescriptionAttribute"/> class.
-    /// </summary>
-    /// <param name="key">The description key.</param>
-    public LocalisedDescriptionAttribute(string key)
-        : base(Localise(key))
-    {
-    }
-    
+/// <remarks>
+/// Initializes a new instance of the <see cref="LocalisedDescriptionAttribute"/> class.
+/// </remarks>
+/// <param name="key">The description key.</param>
+public class LocalisedDescriptionAttribute(string key)
+    : DescriptionAttribute(Localise(key)) {
     /// <summary>
     /// Return the localised string for a given description key.
     /// </summary>
-    /// <param name="key"></param>
-    /// <returns></returns>
-    private static string Localise(string key)
-    {
+    /// <param name="key">The descriptor key.</param>
+    /// <returns>The localised descriptor.</returns>
+    private static string Localise(string key) {
         return Gs1CountryCode.ResourceManager.GetString(key) ?? string.Empty;
     }
-
 }

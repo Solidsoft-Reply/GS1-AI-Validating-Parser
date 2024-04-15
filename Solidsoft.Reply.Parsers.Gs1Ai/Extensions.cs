@@ -1,8 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Extensions.cs" company="Solidsoft Reply Ltd.">
-//   (c) 2018-2024 Solidsoft Reply Ltd.  All rights reserved.
-// </copyright>
-// <license>
+// <copyright file="Extensions.cs" company="Solidsoft Reply Ltd">
+// Copyright (c) 2018-2024 Solidsoft Reply Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -14,14 +12,13 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-// </license>
+// </copyright>
 // <summary>
 // Extension methods.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 // ReSharper disable BadListLineBreaks
-
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
 using System;
@@ -35,41 +32,15 @@ using System.Text.RegularExpressions;
 /// </summary>
 #if NET7_0_OR_GREATER
 public static partial class Extensions {
-
-    /// <summary>
-    ///     UPC-A Compatible regular expression.
-    /// </summary>
-    /// <returns></returns>
-    [GeneratedRegex("^\\d*$")]
-    private static partial Regex UpcACompatibleRegex();
-
-    /// <summary>
-    ///    UPC-A Compatible UnitedStates and Canada regular expression.
-    /// </summary>
-    /// <returns></returns>
-    [GeneratedRegex("^\\d((0000[1-9])|(000[1-9])|(0[01][0-9]))\\d*$")]
-    private static partial Regex UpcaCompatibleUnitedStatesAndCanadaRegex();
 #else
 public static class Extensions {
-
-    /// <summary>
-    ///     UPC-A Compatible regular expression.
-    /// </summary>
-    /// <returns></returns>
-    private static Regex UpcACompatibleRegex = new("^\\d*$");
-
-    /// <summary>
-    ///     UPC-A Compatible UnitedStates and Canada regular expression.
-    /// </summary>
-    /// <returns></returns>
-    private static Regex UpcaCompatibleUnitedStatesAndCanadaRegex = new("^\\d((0000[1-9])|(000[1-9])|(0[01][0-9]))\\d*$");
 #endif
 
     /// <summary>
     ///     A character array containing all invariant characters.
     /// </summary>
     private const string Invariants = "!\"%&'()*+,-./0123456789:;<=>?ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz";
-    
+
     /// <summary>
     ///     A character array containing all characters used in alphanumeric check character pairs.
     /// </summary>
@@ -690,8 +661,89 @@ public static class Extensions {
             { 996, CountryCode.CouponIdentification },
             { 997, CountryCode.CouponIdentification },
             { 998, CountryCode.CouponIdentification },
-            { 999, CountryCode.CouponIdentification }
+            { 999, CountryCode.CouponIdentification },
         };
+
+#if !NET7_0_OR_GREATER
+    /// <summary>
+    ///     UPC-A Compatible regular expression.
+    /// </summary>
+    private static readonly Regex UpcACompatibleRegex = new("^\\d*$");
+
+    /// <summary>
+    ///     UPC-A Compatible UnitedStates and Canada regular expression.
+    /// </summary>
+    private static readonly Regex UpcaCompatibleUnitedStatesAndCanadaRegex = new("^\\d((0000[1-9])|(000[1-9])|(0[01][0-9]))\\d*$");
+#endif
+
+    /// <summary>
+    ///     Resolve a GTIN or NTIN to a GS1 country code.
+    /// </summary>
+    /// <param name="productCode">The product code.</param>
+    /// <returns>A GS1 country code.</returns>
+    public static CountryCode ResolveGtinNtinToGs1Country(this string productCode) {
+        return string.IsNullOrWhiteSpace(productCode)
+                   ? CountryCode.Unknown
+                   : TestProductCodeLengthGt3();
+
+#pragma warning disable SA1001 // Commas should be spaced correctly
+#pragma warning disable SA1113 // Comma should be on the same line as previous parameter
+#pragma warning disable SA1115 // Parameter should follow comma
+        CountryCode TestSheetMusicSpecifier() =>
+
+#if NET6_0_OR_GREATER
+            int.TryParse(productCode[4..5], out var sheetMusicSpecifier)
+#else
+            int.TryParse(productCode.Substring(4, 1), out var sheetMusicSpecifier)
+#endif
+                ? sheetMusicSpecifier switch {
+                    0 => CountryCode.BooklandIsbnIsmn,
+                    _ => CountryCode.BooklandIsbn
+                }
+                : CountryCode.Unknown;
+        CountryCode TestCountryCode() =>
+
+#if NET6_0_OR_GREATER
+            int.TryParse(productCode[1..4], out var countryCode)
+#else
+            int.TryParse(productCode.Substring(1, 3), out var countryCode)
+#endif
+                ? countryCode switch {
+                    <= 99 and >= 0 => ResolveToGs1UpcACompatible(productCode),
+                    979 => TestSheetMusicSpecifier(),
+                    _ => countryCode.ResolveToGs1Country()
+                }
+                : CountryCode.Unknown;
+#pragma warning restore SA1115 // Parameter should follow comma
+#pragma warning restore SA1113 // Comma should be on the same line as previous parameter
+#pragma warning restore SA1001 // Commas should be spaced correctly
+
+        CountryCode TestProductCodeLengthGt3() =>
+            productCode.Length > 3
+                ? TestCountryCode()
+                : CountryCode.Unknown;
+    }
+
+    /// <summary>
+    ///     Gets the description of an enumerated value.
+    /// </summary>
+    /// <param name="value">The Company Prefix value.</param>
+    /// <returns>The description of the company prefix value.</returns>
+    public static string GetCompanyPrefixDescription(this CountryCode value) {
+        var type = typeof(CountryCode);
+        var name = Enum.GetNames(type)
+            .Where(f => f.Equals(value.ToString(), StringComparison.Ordinal))
+            .Select(d => d)
+            .FirstOrDefault();
+
+        if (name is null) {
+            return string.Empty;
+        }
+
+        var field = type.GetField(name);
+        var customAttribute = field?.GetCustomAttributes(typeof(LocalisedDescriptionAttribute), false);
+        return customAttribute is { Length: > 0 } ? ((LocalisedDescriptionAttribute)customAttribute[0]).Description : name;
+    }
 
     /// <summary>
     ///     Converts the value of this instance to its equivalent string representation using culture-invariant format
@@ -725,27 +777,6 @@ public static class Extensions {
     }
 
     /// <summary>
-    ///     Gets the description of an enumerated value.
-    /// </summary>
-    /// <param name="value">The Company Prefix value.</param>
-    /// <returns>The description of the company prefix value.</returns>
-    public static string GetCompanyPrefixDescription(this CountryCode value) {
-        var type = typeof(CountryCode);
-        var name = Enum.GetNames(type)
-                       .Where(f => f.Equals(value.ToString(), StringComparison.Ordinal))
-                       .Select(d => d)
-                       .FirstOrDefault();
-
-        if (name is null) {
-            return string.Empty;
-        }
-
-        var field = type.GetField(name);
-        var customAttribute = field?.GetCustomAttributes(typeof(LocalisedDescriptionAttribute), false);
-        return customAttribute is { Length: > 0 } ? ((LocalisedDescriptionAttribute)customAttribute[0]).Description : name;
-    }
-
-    /// <summary>
     ///     Determines if a GS1 key has a correct checksum digit. Include the checksum in the
     ///     key value.
     /// </summary>
@@ -755,7 +786,7 @@ public static class Extensions {
         if (string.IsNullOrWhiteSpace(key)) {
             return false;
         }
-        
+
         // Ensure that the string contains only integer values.
         if (key.Any(c => (int)char.GetNumericValue(c) == -1)) {
             return false;
@@ -778,77 +809,21 @@ public static class Extensions {
         if (string.IsNullOrWhiteSpace(key)) return false;
         if (key.Length < 2) return false;
 
-        var keyData = key
 #if NET6_0_OR_GREATER
-                [..^2]
+        var keyData = key[..^2];
+        var checkCharacterPair = key[^2..];
 #else
-                .Substring(0, key.Length - 2)
+        var keyData = key.Substring(0, key.Length - 2);
+        var checkCharacterPair = key.Substring(key.Length - 2);
 #endif
-            ;
-
-        var checkCharacterPair = key
-#if NET6_0_OR_GREATER
-                [^2..]
-#else
-                .Substring(key.Length - 2)
-#endif
-            ;
-
         var checkCharacterRefValue = 0;
-        
+
         for (var idx = keyData.Length - 1; idx >= 0; idx--) {
             checkCharacterRefValue += Invariants.IndexOf(keyData[idx]) * PrimeNumbers[keyData.Length - idx - 1];
         }
 
         checkCharacterRefValue %= 1021;
-        return checkCharacterPair ==  AlphanumericCheckCharacters[checkCharacterRefValue / 32].ToInvariantString() + AlphanumericCheckCharacters[checkCharacterRefValue % 32]; 
-    }
-
-    /// <summary>
-    ///     Resolve a GTIN or NTIN to a GS1 country code.
-    /// </summary>
-    /// <param name="productCode">The product code.</param>
-    /// <returns>A GS1 country code.</returns>
-    public static CountryCode ResolveGtinNtinToGs1Country(this string productCode) {
-        return string.IsNullOrWhiteSpace(productCode)
-                   ? CountryCode.Unknown
-                   : TestProductCodeLengthGt3();
-
-        CountryCode TestSheetMusicSpecifier() =>
-            int.TryParse(productCode
-#if NET6_0_OR_GREATER
-                [4..5]
-#else
-                .Substring(4, 1)
-#endif
-                ,
-                out var sheetMusicSpecifier)
-                ? sheetMusicSpecifier switch {
-                    0 => CountryCode.BooklandIsbnIsmn,
-                    _ => CountryCode.BooklandIsbn
-                }
-                : CountryCode.Unknown;
-
-        CountryCode TestCountryCode() =>
-            int.TryParse(productCode
-#if NET6_0_OR_GREATER
-            [1..4]
-#else
-            .Substring(1, 3)
-#endif
-                ,
-            out var countryCode)
-                ? countryCode switch {
-                    <= 99 and >= 0 => ResolveToGs1UpcACompatible(productCode),
-                    979 => TestSheetMusicSpecifier(),
-                    _ => countryCode.ResolveToGs1Country()
-                }
-                : CountryCode.Unknown;
-
-        CountryCode TestProductCodeLengthGt3() =>
-            productCode.Length > 3
-                ? TestCountryCode()
-                : CountryCode.Unknown;
+        return checkCharacterPair == AlphanumericCheckCharacters[checkCharacterRefValue / 32].ToInvariantString() + AlphanumericCheckCharacters[checkCharacterRefValue % 32];
     }
 
     /// <summary>
@@ -856,7 +831,6 @@ public static class Extensions {
     /// </summary>
     /// <param name="countryCode">The integer prefix representing the country code.</param>
     /// <returns>A GS1 country code.</returns>
-
     // ReSharper disable once UnusedMember.Global
     internal static CountryCode ResolveToGs1Country(this string countryCode) {
         return string.IsNullOrWhiteSpace(countryCode)
@@ -874,7 +848,6 @@ public static class Extensions {
     /// </summary>
     /// <param name="countryCode">The integer prefix representing the country code.</param>
     /// <returns>A GS1 country code.</returns>
-
     // ReSharper disable once MemberCanBePrivate.Global
     internal static CountryCode ResolveToGs1Country(this int countryCode) {
         if (CompanyPrefixes.TryGetValue(countryCode, out var prefix)) {
@@ -891,6 +864,22 @@ public static class Extensions {
                    : CountryCode.Unknown;
     }
 
+#if NET7_0_OR_GREATER
+    /// <summary>
+    ///     UPC-A Compatible regular expression.
+    /// </summary>
+    /// <returns></returns>
+    [GeneratedRegex("^\\d*$")]
+    private static partial Regex UpcACompatibleRegex();
+
+    /// <summary>
+    ///    UPC-A Compatible UnitedStates and Canada regular expression.
+    /// </summary>
+    /// <returns></returns>
+    [GeneratedRegex("^\\d((0000[1-9])|(000[1-9])|(0[01][0-9]))\\d*$")]
+    private static partial Regex UpcaCompatibleUnitedStatesAndCanadaRegex();
+#endif
+
     /// <summary>
     ///     Resolve a product code to a UPC-A Compatible company prefix.
     /// </summary>
@@ -903,7 +892,7 @@ public static class Extensions {
 #else
             !UpcACompatibleRegex
 #endif
-            .IsMatch(productCode) || 
+            .IsMatch(productCode) ||
             productCode.Length > 14) {
             return CountryCode.Unknown;
         }
@@ -922,23 +911,29 @@ public static class Extensions {
                 ? CountryCode.UpcACompatibleUnitedStatesDrugs
                 : TestForUpcACompatibleUnitedStatesReserved();
 
-        int GetCountryCode()
-        {
+        int GetCountryCode() {
             if (int.TryParse(
 #if NET6_0_OR_GREATER
-                productCode[1..4]
+#pragma warning disable SA1114
+                    productCode[1..4]
 #else
-                productCode.Substring(1,3)
+                    productCode.Substring(1, 3)
 #endif
-                .Trim(), NumberStyles.None, CultureInfo.InvariantCulture, out var countryCode))
+                    .Trim(),
+                    NumberStyles.None,
+                    CultureInfo.InvariantCulture,
+                    out var countryCode))
+#pragma warning restore SA1114
+            {
                 return countryCode;
+            }
 
             return (int)CountryCode.Unknown;
         }
-        
+
         CountryCode GetCompanyPrefix() =>
 #if NET6_0_OR_GREATER
-            productCode[1..4] 
+            productCode[1..4]
 #else
             productCode.Substring(1, 3)
 #endif
@@ -950,7 +945,7 @@ public static class Extensions {
 #if NET6_0_OR_GREATER
             productCode[1..6]
 #else
-            productCode.Substring(1,5)
+            productCode.Substring(1, 5)
 #endif
             == "00000"
                 ? CountryCode.UpcACompatibleGtin8
@@ -964,9 +959,9 @@ public static class Extensions {
 #endif
             .IsMatch(productCode) ||
 #if NET6_0_OR_GREATER
-            productCode[1..3] 
+            productCode[1..3]
 #else
-            productCode.Substring(1,2)
+            productCode.Substring(1, 2)
 #endif
             == "06"
                 ? CountryCode.UpcACompatibleUnitedStatesAndCanada
@@ -974,15 +969,15 @@ public static class Extensions {
 
         CountryCode TestForUpcACompatibleRestrictedCirculation() =>
 #if NET6_0_OR_GREATER
-            productCode[1..3] 
+            productCode[1..3]
 #else
-            productCode.Substring(1,2)
+            productCode.Substring(1, 2)
 #endif
             == "02" ||
 #if NET6_0_OR_GREATER
-            productCode[1..3] 
+            productCode[1..3]
 #else
-            productCode.Substring(1,2)
+            productCode.Substring(1, 2)
 #endif
             == "04"
                 ? CountryCode.UpcACompatibleRestrictedCirculation
@@ -990,15 +985,17 @@ public static class Extensions {
 
         CountryCode TestForUpcACompatibleUnitedStatesReserved() =>
 #if NET6_0_OR_GREATER
-            productCode[1..3] 
+            productCode[1..3]
 #else
-            productCode.Substring(1,2)
+            productCode.Substring(1, 2)
 #endif
             == "05"
                 ? CountryCode.UpcACompatibleUnitedStatesReserved
                 : int.Parse(
 #if NET6_0_OR_GREATER
+#pragma warning disable SA1114
                         productCode[1..4],
+#pragma warning restore SA1114
 #else
                         productCode.Substring(1, 3),
 #endif

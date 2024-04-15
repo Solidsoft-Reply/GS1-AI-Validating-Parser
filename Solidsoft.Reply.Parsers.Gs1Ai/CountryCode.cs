@@ -1,8 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="CompanyPrefix.cs" company="Solidsoft Reply Ltd.">
-//   (c) 2018-2024 Solidsoft Reply Ltd.  All rights reserved.
-// </copyright>
-// <license>
+// <copyright file="CountryCode.cs" company="Solidsoft Reply Ltd">
+// Copyright (c) 2018-2024 Solidsoft Reply Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -14,14 +12,13 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-// </license>
+// </copyright>
 // <summary>
 // List of countries for which GS1 assign country codes.   These codes are used as the prefix to GS1
 // GTINs, but cannot be used as dependable identifiers of the country of origin of the pharmaceutical
 // product.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
-
 // ReSharper disable UnusedMember.Global
 
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
@@ -838,5 +835,5 @@ public enum CountryCode {
     ///     Coupon identification.
     /// </summary>
     [LocalisedDescription(nameof(CouponIdentification))]
-    CouponIdentification = 990
+    CouponIdentification = 990,
 }

@@ -1,8 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ResolvedApplicationIdentifier.cs" company="Solidsoft Reply Ltd.">
-//   (c) 2018-2024 Solidsoft Reply Ltd.  All rights reserved.
-// </copyright>
-// <license>
+// <copyright file="ResolvedApplicationIdentifier.cs" company="Solidsoft Reply Ltd">
+// Copyright (c) 2018-2024 Solidsoft Reply Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -14,7 +12,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-// </license>
+// </copyright>
 // <summary>
 // Represents a resolved GS1 application identifier and its associated data.
 // </summary>
@@ -130,8 +128,7 @@ public record ResolvedApplicationIdentifier : IResolvedEntity {
         Description = ai.Description;
         CharacterPosition = currentPosition;
 
-        foreach (var e in ai.Exceptions)
-        {
+        foreach (var e in ai.Exceptions) {
             AddException(e);
         }
 
@@ -169,7 +166,7 @@ public record ResolvedApplicationIdentifier : IResolvedEntity {
     public int? Sequence { get; }
 
     /// <summary>
-    ///     The exceptions raised during attempted entity resolution.
+    ///     Gets the exceptions raised during attempted entity resolution.
     /// </summary>
     public IEnumerable<ParserException> Exceptions => _exceptions;
 
@@ -193,7 +190,7 @@ public record ResolvedApplicationIdentifier : IResolvedEntity {
     }
 
     /// <summary>
-    ///     Gets a value indicating whether the application identifier is a fixed-width field,
+    ///     Gets a value indicating whether the application identifier is a fixed-width field,.
     /// </summary>
     // ReSharper disable once MemberCanBePrivate.Global
     public bool IsFixedWidth { get; }

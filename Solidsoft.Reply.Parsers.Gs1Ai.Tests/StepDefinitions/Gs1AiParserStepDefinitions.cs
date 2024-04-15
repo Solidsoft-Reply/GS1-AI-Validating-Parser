@@ -79,6 +79,7 @@ public sealed class Gs1AiParserStepDefinitions {
 
     [Given("a request to parse data")]
     public static void GivenARequestToParseData() {
+        // Intentionally empty - this is provided for semantics, only.
     }
 
     [When("the input submitted to the parser is empty")]

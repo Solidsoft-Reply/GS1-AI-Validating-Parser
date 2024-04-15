@@ -1,8 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="PositiveOfferFileCouponDescriptor.cs" company="Solidsoft Reply Ltd.">
-//   (c) 2018-2024 Solidsoft Reply Ltd.  All rights reserved.
-// </copyright>
-// <license>
+// <copyright file="PositiveOfferFileCouponCodeDescriptor.cs" company="Solidsoft Reply Ltd">
+// Copyright (c) 2018-2024 Solidsoft Reply Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -14,7 +12,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-// </license>
+// </copyright>
 // <summary>
 // A descriptor for North American Positive Offer File coupon codes.
 // </summary>
@@ -56,33 +54,8 @@ internal
         string dataTitle,
         string description,
         Regex pattern,
-        bool isFixedWidth) : EntityDescriptor(dataTitle, description, pattern, isFixedWidth) {
-
-    /// <summary>
-    ///     A regular expression for six-digit date representation - YYMMDD.
-    /// </summary>
-    private const string DatePattern = @"(((\d{2})(0[13578]|1[02])(0[1-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[1-9]|[12]\d|30))|((\d{2})02(0[1-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))";
-
-#if NET7_0_OR_GREATER
-
-    /// <summary>
-    ///     A regular expression for North American positive offer file coupon codes.
-    /// </summary>
-    /// <returns>A regular expression.</returns>
-    [GeneratedRegex(
-		@"^[01][0-6]\d{6,12}\d{6}[0-9]\d{6,15}$",
-        RegexOptions.None,
-        "en-US")]
-    private static partial Regex PositiveOfferFileCouponCodeRegex();
-#else
-
-    /// <summary>
-    ///     A regular expression for North American positive offer file coupon codes.
-    /// </summary>
-    private static readonly Regex PositiveOfferFileCouponCodeRegex = new (@"^[01][0-6]\d{6,12}\d{6}[0-9]\d{6,15}$");
-
-#endif
-
+        bool isFixedWidth)
+    : EntityDescriptor(dataTitle, description, pattern, isFixedWidth) {
     /// <summary>
     ///     Validate data against the descriptor.
     /// </summary>
@@ -98,13 +71,17 @@ internal
             return result;
         }
 
+#pragma warning disable SA1008 // Opening parenthesis should be spaced correctly
         if (PositiveOfferFileCouponCodeRegex
 #if NET7_0_OR_GREATER
-			()
+#pragma warning disable SA1110
+                ()
+#pragma warning restore SA1110
 #endif
-                .IsMatch(value)) {
+            .IsMatch(value)) {
             return true;
         }
+#pragma warning restore SA1008 // Opening parenthesis should be spaced correctly
 
         validationErrors.Add(AddException(2017, Resources.GS1_Error_016));
         return false;
@@ -119,4 +96,22 @@ internal
                 offset);
         }
     }
+#if NET7_0_OR_GREATER
+    /// <summary>
+    ///     A regular expression for North American positive offer file coupon codes.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex(
+        @"^[01][0-6]\d{6,12}\d{6}[0-9]\d{6,15}$",
+        RegexOptions.None,
+        "en-US")]
+    private static partial Regex PositiveOfferFileCouponCodeRegex();
+#else
+
+    /// <summary>
+    ///     A regular expression for North American positive offer file coupon codes.
+    /// </summary>
+    private static readonly Regex PositiveOfferFileCouponCodeRegex = new(@"^[01][0-6]\d{6,12}\d{6}[0-9]\d{6,15}$");
+
+#endif
 }
