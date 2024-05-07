@@ -18,7 +18,6 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-#pragma warning disable SA1101
 namespace Solidsoft.Reply.Parsers.Gs1Ai.Descriptors;
 
 using Properties;

@@ -23,17 +23,11 @@
 
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
-using System.Diagnostics.CodeAnalysis;
-
 /// <summary>
 ///     List of countries for which GS1 assign country codes.   These codes are used as the prefix to GS1
 ///     GTINs, but cannot be used as dependable identifiers of the country of origin of the pharmaceutical
 ///     product.
 /// </summary>
-[SuppressMessage(
-    "StyleCop.CSharp.DocumentationRules",
-    "SA1630:DocumentationTextMustContainWhitespace",
-    Justification = "Reviewed. Suppression is OK here.")]
 public enum CountryCode {
     /// <summary>
     ///     Unknown country.
@@ -802,20 +796,12 @@ public enum CountryCode {
     /// <summary>
     ///     Bookland (ISBN)
     /// </summary>
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1650:ElementDocumentationMustBeSpelledCorrectly",
-        Justification = "Reviewed. Suppression is OK here.")]
     [LocalisedDescription(nameof(BooklandIsbn))]
     BooklandIsbn = 978,
 
     /// <summary>
     ///     Bookland (ISBN) - sheet music (ISMN-13).
     /// </summary>
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1650:ElementDocumentationMustBeSpelledCorrectly",
-        Justification = "Reviewed. Suppression is OK here.")]
     [LocalisedDescription(nameof(BooklandIsbnIsmn))]
     BooklandIsbnIsmn = 979,
 

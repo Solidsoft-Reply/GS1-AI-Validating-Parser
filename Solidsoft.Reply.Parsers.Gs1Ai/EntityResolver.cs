@@ -18,8 +18,6 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-#pragma warning disable S3358
-
 // ReSharper disable CommentTypo
 // ReSharper disable BadListLineBreaks
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
@@ -30,7 +28,6 @@ using Properties;
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
@@ -39,7 +36,6 @@ using Common;
 /// <summary>
 ///     Resolves GS1 entities, validating the entity value and providing descriptors.
 /// </summary>
-[SuppressMessage("ReSharper", "StringLiteralTypo", Justification = "String literals are dictated by GS1 standard.")]
 #if NET7_0_OR_GREATER
 internal static partial class EntityResolver {
 #else
@@ -453,7 +449,6 @@ internal static class EntityResolver {
     /// <summary>
     ///     A dictionary of application identifier descriptors.
     /// </summary>
-#pragma warning disable S3263
     private static readonly IDictionary<int, EntityDescriptor> Descriptors =
         new Dictionary<int, EntityDescriptor>
         {
@@ -2964,7 +2959,6 @@ internal static class EntityResolver {
                     false)
             },
         };
-#pragma warning restore S3263
 
     /// <summary>
     ///     Resolve a first two digits of the application identifier into an entity.
@@ -3890,7 +3884,7 @@ internal static class EntityResolver {
         return data.Length >= startIndex + length
             && int.TryParse(
 #if NET6_0_OR_GREATER
-                data[startIndex..(length + startIndex)],
+                data[startIndex.. (length + startIndex)],
 #else
                 data.Substring(startIndex, length + startIndex - 1),
 #endif

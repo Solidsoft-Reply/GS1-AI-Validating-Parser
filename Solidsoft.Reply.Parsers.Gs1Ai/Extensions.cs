@@ -59,7 +59,7 @@ public static class Extensions {
     ///     A dictionary of GS1 company prefixes.
     /// </summary>
     private static readonly Dictionary<int, CountryCode> CompanyPrefixes =
-        new()
+        new ()
         {
             { 100, CountryCode.UnitedStates },
             { 101, CountryCode.UnitedStates },
@@ -668,12 +668,12 @@ public static class Extensions {
     /// <summary>
     ///     UPC-A Compatible regular expression.
     /// </summary>
-    private static readonly Regex UpcACompatibleRegex = new("^\\d*$");
+    private static readonly Regex UpcACompatibleRegex = new ("^\\d*$");
 
     /// <summary>
     ///     UPC-A Compatible UnitedStates and Canada regular expression.
     /// </summary>
-    private static readonly Regex UpcaCompatibleUnitedStatesAndCanadaRegex = new("^\\d((0000[1-9])|(000[1-9])|(0[01][0-9]))\\d*$");
+    private static readonly Regex UpcaCompatibleUnitedStatesAndCanadaRegex = new ("^\\d((0000[1-9])|(000[1-9])|(0[01][0-9]))\\d*$");
 #endif
 
     /// <summary>
@@ -684,11 +684,18 @@ public static class Extensions {
     public static CountryCode ResolveGtinNtinToGs1Country(this string productCode) {
         return string.IsNullOrWhiteSpace(productCode)
                    ? CountryCode.Unknown
+
+/* Unmerged change from project 'Solidsoft.Reply.Parsers.Gs1Ai (netstandard2.0)'
+Before:
                    : TestProductCodeLengthGt3();
 
 #pragma warning disable SA1001 // Commas should be spaced correctly
 #pragma warning disable SA1113 // Comma should be on the same line as previous parameter
 #pragma warning disable SA1115 // Parameter should follow comma
+After:
+                   : TestProductCodeLengthGt3();
+*/
+                   : TestProductCodeLengthGt3();
         CountryCode TestSheetMusicSpecifier() =>
 
 #if NET6_0_OR_GREATER
@@ -714,10 +721,6 @@ public static class Extensions {
                     _ => countryCode.ResolveToGs1Country()
                 }
                 : CountryCode.Unknown;
-#pragma warning restore SA1115 // Parameter should follow comma
-#pragma warning restore SA1113 // Comma should be on the same line as previous parameter
-#pragma warning restore SA1001 // Commas should be spaced correctly
-
         CountryCode TestProductCodeLengthGt3() =>
             productCode.Length > 3
                 ? TestCountryCode()
@@ -914,7 +917,6 @@ public static class Extensions {
         int GetCountryCode() {
             if (int.TryParse(
 #if NET6_0_OR_GREATER
-#pragma warning disable SA1114
                     productCode[1..4]
 #else
                     productCode.Substring(1, 3)
@@ -922,9 +924,7 @@ public static class Extensions {
                     .Trim(),
                     NumberStyles.None,
                     CultureInfo.InvariantCulture,
-                    out var countryCode))
-#pragma warning restore SA1114
-            {
+                    out var countryCode)) {
                 return countryCode;
             }
 
@@ -993,9 +993,7 @@ public static class Extensions {
                 ? CountryCode.UpcACompatibleUnitedStatesReserved
                 : int.Parse(
 #if NET6_0_OR_GREATER
-#pragma warning disable SA1114
                         productCode[1..4],
-#pragma warning restore SA1114
 #else
                         productCode.Substring(1, 3),
 #endif

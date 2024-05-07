@@ -39,7 +39,7 @@ public static class Parser {
     /// <summary>
     ///     Dictionary of AI values (the first two digits in an entity) of elements with a pre-defined length.
     /// </summary>
-    private static readonly Dictionary<string, int> FirstTwoDigitsTable = new()
+    private static readonly Dictionary<string, int> FirstTwoDigitsTable = new ()
                                                                           {
                                                                               { "00", 20 },
                                                                               { "01", 16 },

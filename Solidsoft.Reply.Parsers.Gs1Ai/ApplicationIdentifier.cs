@@ -24,8 +24,6 @@
 // ReSharper disable GrammarMistakeInComment
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
-using System.Diagnostics.CodeAnalysis;
-
 /// <summary>
 ///     GS1 Identification identifiers.
 /// </summary>
@@ -33,10 +31,6 @@ public enum ApplicationIdentifier {
     /// <summary>
     ///     Unrecognised entity.
     /// </summary>
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1650:ElementDocumentationMustBeSpelledCorrectly",
-        Justification = "Reviewed. Suppression is OK here.")]
     Unrecognised = -1,
 
     /// <summary>
@@ -193,70 +187,42 @@ public enum ApplicationIdentifier {
     ///     Length or first dimension, metres (variable measure trade item) (LENGTH (m)).
     /// </summary>
     /// <remarks>Format: N4+N6</remarks>
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1650:ElementDocumentationMustBeSpelledCorrectly",
-        Justification = "Reviewed. Suppression is OK here.")]
     LengthOrFirstDimensionMetresVariableMeasureTradeItem = 311,
 
     /// <summary>
     ///     Width, diameter, or second dimension, metres (variable measure trade item) (WIDTH (m)).
     /// </summary>
     /// <remarks>Format: N4+N6</remarks>
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1650:ElementDocumentationMustBeSpelledCorrectly",
-        Justification = "Reviewed. Suppression is OK here.")]
     WidthDiameterOrSecondDimensionMetresVariableMeasureTradeItem = 312,
 
     /// <summary>
     ///     Depth, thickness, height, or third dimension, metres (variable measure trade item) (HEIGHT (m)).
     /// </summary>
     /// <remarks>Format: N4+N6</remarks>
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1650:ElementDocumentationMustBeSpelledCorrectly",
-        Justification = "Reviewed. Suppression is OK here.")]
     DepthThicknessHeightOrThirdDimensionMetresVariableMeasureTradeItem = 313,
 
     /// <summary>
     ///     Area, square metres (variable measure trade item) (AREA (m²)).
     /// </summary>
     /// <remarks>Format: N4+N6</remarks>
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1650:ElementDocumentationMustBeSpelledCorrectly",
-        Justification = "Reviewed. Suppression is OK here.")]
     AreaSquareMetresVariableMeasureTradeItem = 314,
 
     /// <summary>
     ///     Net volume, litres (variable measure trade item) (NET VOLUME (l)).
     /// </summary>
     /// <remarks>Format: N4+N6</remarks>
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1650:ElementDocumentationMustBeSpelledCorrectly",
-        Justification = "Reviewed. Suppression is OK here.")]
     NetVolumeLitresVariableMeasureTradeItem = 315,
 
     /// <summary>
     ///     Net volume, cubic metres (variable measure trade item) (NET VOLUME (m³)).
     /// </summary>
     /// <remarks>Format: N4+N6</remarks>
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1650:ElementDocumentationMustBeSpelledCorrectly",
-        Justification = "Reviewed. Suppression is OK here.")]
     NetVolumeCubicMetresVariableMeasureTradeItem = 316,
 
     /// <summary>
     ///     Net weight, pounds (variable measure trade item) (NET WEIGHT (lb)).
     /// </summary>
     /// <remarks>Format: N4+N6</remarks>
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1650:ElementDocumentationMustBeSpelledCorrectly",
-        Justification = "Reviewed. Suppression is OK here.")]
     NetWeightPoundsVariableMeasureTradeItem = 320,
 
     /// <summary>
@@ -323,80 +289,48 @@ public enum ApplicationIdentifier {
     ///     Length or first dimension, metres (LENGTH (m), log).
     /// </summary>
     /// <remarks>Format: N4+N6</remarks>
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1650:ElementDocumentationMustBeSpelledCorrectly",
-        Justification = "Reviewed. Suppression is OK here.")]
     LengthOrFirstDimensionMetres = 331,
 
     /// <summary>
     ///     Width, diameter, or second dimension, metres (WIDTH (m), log).
     /// </summary>
     /// <remarks>Format: N4+N6</remarks>
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1650:ElementDocumentationMustBeSpelledCorrectly",
-        Justification = "Reviewed. Suppression is OK here.")]
     WidthDiameterOrSecondDimensionMetres = 332,
 
     /// <summary>
     ///     Depth, thickness, height, or third dimension, metres (HEIGHT (m), log).
     /// </summary>
     /// <remarks>Format: N4+N6</remarks>
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1650:ElementDocumentationMustBeSpelledCorrectly",
-        Justification = "Reviewed. Suppression is OK here.")]
     DepthThicknessHeightOrThirdDimensionMetres = 333,
 
     /// <summary>
     ///     Area, square metres (AREA (m²), log).
     /// </summary>
     /// <remarks>Format: N4+N6</remarks>
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1650:ElementDocumentationMustBeSpelledCorrectly",
-        Justification = "Reviewed. Suppression is OK here.")]
     AreaSquareMetres = 334,
 
     /// <summary>
     ///     Logistic volume, litres (VOLUME (l), log).
     /// </summary>
     /// <remarks>Format: N4+N6</remarks>
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1650:ElementDocumentationMustBeSpelledCorrectly",
-        Justification = "Reviewed. Suppression is OK here.")]
     LogisticVolumeLitres = 335,
 
     /// <summary>
     ///     Logistic volume, cubic metres (VOLUME (m³), log).
     /// </summary>
     /// <remarks>Format: N4+N6</remarks>
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1650:ElementDocumentationMustBeSpelledCorrectly",
-        Justification = "Reviewed. Suppression is OK here.")]
     LogisticVolumeCubicMetres = 336,
 
     /// <summary>
     ///     Kilograms per square metre (KG PER m²).
     /// </summary>
     /// <remarks>Format: N4+N6</remarks>
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1650:ElementDocumentationMustBeSpelledCorrectly",
-        Justification = "Reviewed. Suppression is OK here.")]
     KilogramPerSquareMetre = 337,
 
     /// <summary>
     ///     Logistic weight, pounds (GROSS WEIGHT (lb)).
     /// </summary>
     /// <remarks>Format: N4+N6</remarks>
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1650:ElementDocumentationMustBeSpelledCorrectly",
-        Justification = "Reviewed. Suppression is OK here.")]
     LogisticWeightPounds = 340,
 
     /// <summary>
@@ -1120,12 +1054,8 @@ public enum ApplicationIdentifier {
     ///     provider of services (GSRN - PROVIDER).
     /// </summary>
     /// <remarks>Format: N4+N18 (FNC1)</remarks>
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1650:ElementDocumentationMustBeSpelledCorrectly",
-        Justification = "Reviewed. Suppression is OK here.")]
     GlobalServiceRelationNumberToIdentifyTheRelationshipBetweenAnOrganisationOfferingServicesAndTheProviderOfServices
-        = 8017,
+    = 8017,
 
     /// <summary>
     ///     Global Service Relation Number to identify the relationship between an organisation offering services and the
@@ -1133,12 +1063,8 @@ public enum ApplicationIdentifier {
     /// </summary>
     /// 8017
     /// <remarks>Format: N4+N18 (FNC1)</remarks>
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1650:ElementDocumentationMustBeSpelledCorrectly",
-        Justification = "Reviewed. Suppression is OK here.")]
     GlobalServiceRelationNumberToIdentifyTheRelationshipBetweenAnOrganisationOfferingServicesAndTheRecipientOfServices
-        = 8018,
+    = 8018,
 
     /// <summary>
     ///     Service Relation Instance Number (SRIN) (SRIN).

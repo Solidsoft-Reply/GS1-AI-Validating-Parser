@@ -71,17 +71,13 @@ internal
             return result;
         }
 
-#pragma warning disable SA1008 // Opening parenthesis should be spaced correctly
-        if (PositiveOfferFileCouponCodeRegex
 #if NET7_0_OR_GREATER
-#pragma warning disable SA1110
-                ()
-#pragma warning restore SA1110
+        if (PositiveOfferFileCouponCodeRegex().IsMatch(value)) {
+#else
+        if (PositiveOfferFileCouponCodeRegex.IsMatch(value)) {
 #endif
-            .IsMatch(value)) {
             return true;
         }
-#pragma warning restore SA1008 // Opening parenthesis should be spaced correctly
 
         validationErrors.Add(AddException(2017, Resources.GS1_Error_016));
         return false;

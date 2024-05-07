@@ -464,7 +464,7 @@ internal
     /// Regular expression for British Virgin Islands.
     /// </summary>
     private static readonly Regex BritishVirginIslandsIbanRegex = new(@"^VG\d{2}[A-Z]{4}\d{16}$", RegexOptions.None);
-    
+
     /*
      * Aspirational
      */
