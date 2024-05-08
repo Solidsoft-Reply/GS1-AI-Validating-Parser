@@ -60,6 +60,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Solidsoft.Reply.Parsers.Common\Solidsoft.Reply.Parsers.Common\Solidsoft.Reply.Parsers.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="LICENSE.txt">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
