@@ -71,3 +71,10 @@ Scenario: Trigger a 'the value{0} does not match the specified pattern for the d
 	When the input to submitted to the parser 
 	Then there should be errors
 	    And the errors should include a non-fatal 2100 error
+
+Scenario: Trigger a 'the implied decimal point position (inverse exponent) is specified incorrectly' error
+	Given the input is 310A234567
+	When the input to submitted to the parser 
+	Then the entity should be 310
+	    And there should be errors
+	    And the errors should include a non-fatal 2011 error
