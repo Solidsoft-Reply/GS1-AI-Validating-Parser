@@ -3884,7 +3884,7 @@ internal static class EntityResolver {
         return data.Length >= startIndex + length
             && int.TryParse(
 #if NET6_0_OR_GREATER
-                data[startIndex.. (length + startIndex)],
+                data[startIndex..(length + startIndex)],
 #else
                 data.Substring(startIndex, length + startIndex - 1),
 #endif

@@ -59,7 +59,7 @@ public static class Extensions {
     ///     A dictionary of GS1 company prefixes.
     /// </summary>
     private static readonly Dictionary<int, CountryCode> CompanyPrefixes =
-        new ()
+        new()
         {
             { 100, CountryCode.UnitedStates },
             { 101, CountryCode.UnitedStates },
@@ -668,12 +668,12 @@ public static class Extensions {
     /// <summary>
     ///     UPC-A Compatible regular expression.
     /// </summary>
-    private static readonly Regex UpcACompatibleRegex = new ("^\\d*$");
+    private static readonly Regex UpcACompatibleRegex = new("^\\d*$");
 
     /// <summary>
     ///     UPC-A Compatible UnitedStates and Canada regular expression.
     /// </summary>
-    private static readonly Regex UpcaCompatibleUnitedStatesAndCanadaRegex = new ("^\\d((0000[1-9])|(000[1-9])|(0[01][0-9]))\\d*$");
+    private static readonly Regex UpcaCompatibleUnitedStatesAndCanadaRegex = new("^\\d((0000[1-9])|(000[1-9])|(0[01][0-9]))\\d*$");
 #endif
 
     /// <summary>
@@ -685,16 +685,16 @@ public static class Extensions {
         return string.IsNullOrWhiteSpace(productCode)
                    ? CountryCode.Unknown
 
-/* Unmerged change from project 'Solidsoft.Reply.Parsers.Gs1Ai (netstandard2.0)'
-Before:
-                   : TestProductCodeLengthGt3();
+                   /* Unmerged change from project 'Solidsoft.Reply.Parsers.Gs1Ai (netstandard2.0)'
+                   Before:
+                                      : TestProductCodeLengthGt3();
 
-#pragma warning disable SA1001 // Commas should be spaced correctly
-#pragma warning disable SA1113 // Comma should be on the same line as previous parameter
-#pragma warning disable SA1115 // Parameter should follow comma
-After:
-                   : TestProductCodeLengthGt3();
-*/
+                   #pragma warning disable SA1001 // Commas should be spaced correctly
+                   #pragma warning disable SA1113 // Comma should be on the same line as previous parameter
+                   #pragma warning disable SA1115 // Parameter should follow comma
+                   After:
+                                      : TestProductCodeLengthGt3();
+                   */
                    : TestProductCodeLengthGt3();
         CountryCode TestSheetMusicSpecifier() =>
 
