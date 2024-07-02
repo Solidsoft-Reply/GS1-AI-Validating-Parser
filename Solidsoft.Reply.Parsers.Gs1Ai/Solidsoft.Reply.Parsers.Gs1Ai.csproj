@@ -41,8 +41,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="LICENSE.txt" />
-    <None Remove="README.md" />
     <None Remove="Solidsoft Reply - LOGO Square_small.jpg" />
     <None Remove="stylecop.json" />
   </ItemGroup>
@@ -52,11 +50,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="..\DEVELOPER-NOTICE.txt" Link="LicenceAndNotices\DEVELOPER-NOTICE.txt" />
-    <Content Include="..\LICENSE.txt" Link="LicenceAndNotices\LICENSE.txt" />
+    <Content Include="..\DEVELOPER-NOTICE.txt" Link="Notices\DEVELOPER-NOTICE.txt" />
   </ItemGroup>
 
-  <ItemGroup>
+	<ItemGroup>
+		<None Include="../LICENSE.txt" Pack="true" PackagePath="" />
+		<None Include="../README.md" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+	<ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>
@@ -337,11 +339,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="LicenceAndNotices\" />
+    <Folder Include="Notices\" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\README.md" Link="LicenceAndNotices\README.md" />
+    <None Include="..\README.md" Link="README.md" />
   </ItemGroup>
 
 </Project>
