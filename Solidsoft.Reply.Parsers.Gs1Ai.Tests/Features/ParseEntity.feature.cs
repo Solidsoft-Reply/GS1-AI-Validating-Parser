@@ -234,16 +234,16 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Parse BATCH/LOT")]
+        [Xunit.SkippableFactAttribute(DisplayName="Parse MTO GTIN")]
         [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse BATCH/LOT")]
-        [Xunit.TraitAttribute("Category", "N2+X..20")]
-        public void ParseBATCHLOT()
+        [Xunit.TraitAttribute("Description", "Parse MTO GTIN")]
+        [Xunit.TraitAttribute("Category", "N2+N14")]
+        public void ParseMTOGTIN()
         {
             string[] tagsOfScenario = new string[] {
-                    "N2+X..20"};
+                    "N2+N14"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse BATCH/LOT", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse MTO GTIN", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 42
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -255,30 +255,82 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 43
- testRunner.Given("the input is 10ABC123D", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("the input is 0312345678901231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 44
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 45
- testRunner.Then("the entity should be 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the entity should be 03", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 46
-     testRunner.And("the AI should be 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+     testRunner.And("the AI should be 03", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 47
-  testRunner.And("the value should be ABC123D", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the value should be 12345678901231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 48
-  testRunner.And("the data value should be BATCH/LOT", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the data value should be MTO GTIN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 49
-  testRunner.And("the description should be Batch or lot number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the description should be Identification of a Made-to-Order (MtO) trade item (GTI" +
+                        "N)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 50
-  testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 51
+  testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse BATCH/LOT")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse BATCH/LOT")]
+        [Xunit.TraitAttribute("Category", "N2+X..20")]
+        public void ParseBATCHLOT()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N2+X..20"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse BATCH/LOT", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 54
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 55
+ testRunner.Given("the input is 10ABC123D", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 56
+ testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 57
+ testRunner.Then("the entity should be 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 58
+     testRunner.And("the AI should be 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 59
+  testRunner.And("the value should be ABC123D", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 60
+  testRunner.And("the data value should be BATCH/LOT", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 61
+  testRunner.And("the description should be Batch or lot number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 62
+  testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 63
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -295,7 +347,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse PROD DATE", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 54
+#line 66
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -305,31 +357,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 55
+#line 67
  testRunner.Given("the input is 11231231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 56
+#line 68
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 57
+#line 69
  testRunner.Then("the entity should be 11", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 58
+#line 70
      testRunner.And("the AI should be 11", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 59
+#line 71
   testRunner.And("the value should be 231231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 60
+#line 72
   testRunner.And("the data value should be PROD DATE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 61
+#line 73
   testRunner.And("the description should be Production date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 62
+#line 74
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 63
+#line 75
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -346,7 +398,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse DUE DATE", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 66
+#line 78
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -356,31 +408,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 67
+#line 79
  testRunner.Given("the input is 12231231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 68
+#line 80
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 69
+#line 81
  testRunner.Then("the entity should be 12", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 70
+#line 82
      testRunner.And("the AI should be 12", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 71
+#line 83
   testRunner.And("the value should be 231231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 72
+#line 84
   testRunner.And("the data value should be DUE DATE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 73
+#line 85
   testRunner.And("the description should be Due date for amount on payment slip", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 74
+#line 86
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 75
+#line 87
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -397,7 +449,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse PACK DATE", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 78
+#line 90
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -407,31 +459,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 79
+#line 91
  testRunner.Given("the input is 13231231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 80
+#line 92
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 81
+#line 93
  testRunner.Then("the entity should be 13", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 82
+#line 94
      testRunner.And("the AI should be 13", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 83
+#line 95
   testRunner.And("the value should be 231231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 84
+#line 96
   testRunner.And("the data value should be PACK DATE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 85
+#line 97
   testRunner.And("the description should be Packaging date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 86
+#line 98
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 87
+#line 99
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -448,7 +500,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse BEST BEFORE or BEST BY", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 90
+#line 102
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -458,31 +510,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 91
+#line 103
  testRunner.Given("the input is 15231231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 92
+#line 104
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 93
+#line 105
  testRunner.Then("the entity should be 15", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 94
+#line 106
      testRunner.And("the AI should be 15", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 95
+#line 107
   testRunner.And("the value should be 231231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 96
+#line 108
   testRunner.And("the data value should be BEST BEFORE or BEST BY", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 97
+#line 109
   testRunner.And("the description should be Best before date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 98
+#line 110
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 99
+#line 111
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -499,7 +551,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SELL BY", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 102
+#line 114
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -509,31 +561,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 103
+#line 115
  testRunner.Given("the input is 16231231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 104
+#line 116
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 105
+#line 117
  testRunner.Then("the entity should be 16", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 106
+#line 118
      testRunner.And("the AI should be 16", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 107
+#line 119
   testRunner.And("the value should be 231231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 108
+#line 120
   testRunner.And("the data value should be SELL BY", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 109
+#line 121
   testRunner.And("the description should be Sell by date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 110
+#line 122
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 111
+#line 123
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -550,7 +602,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse USE BY OR EXPIRY", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 114
+#line 126
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -560,31 +612,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 115
+#line 127
  testRunner.Given("the input is 17231231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 116
+#line 128
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 117
+#line 129
  testRunner.Then("the entity should be 17", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 118
+#line 130
      testRunner.And("the AI should be 17", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 119
+#line 131
   testRunner.And("the value should be 231231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 120
+#line 132
   testRunner.And("the data value should be USE BY OR EXPIRY", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 121
+#line 133
   testRunner.And("the description should be Expiration date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 122
+#line 134
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 123
+#line 135
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -601,7 +653,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+N2"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse VARIANT", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 126
+#line 138
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -611,31 +663,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 127
+#line 139
  testRunner.Given("the input is 2001", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 128
+#line 140
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 129
+#line 141
  testRunner.Then("the entity should be 20", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 130
+#line 142
      testRunner.And("the AI should be 20", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 131
+#line 143
   testRunner.And("the value should be 01", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 132
+#line 144
   testRunner.And("the data value should be VARIANT", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 133
+#line 145
   testRunner.And("the description should be Internal product variant", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 134
+#line 146
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 135
+#line 147
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -652,7 +704,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SERIAL", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 138
+#line 150
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -662,31 +714,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 139
+#line 151
  testRunner.Given("the input is 217337203174393624", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 140
+#line 152
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 141
+#line 153
  testRunner.Then("the entity should be 21", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 142
+#line 154
      testRunner.And("the AI should be 21", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 143
+#line 155
   testRunner.And("the value should be 7337203174393624", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 144
+#line 156
   testRunner.And("the data value should be SERIAL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 145
+#line 157
   testRunner.And("the description should be Serial number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 146
+#line 158
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 147
+#line 159
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -703,7 +755,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse CPV", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 150
+#line 162
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -713,31 +765,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 151
+#line 163
  testRunner.Given("the input is 22733AC720317439R3624", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 152
+#line 164
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 153
+#line 165
  testRunner.Then("the entity should be 22", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 154
+#line 166
      testRunner.And("the AI should be 22", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 155
+#line 167
   testRunner.And("the value should be 733AC720317439R3624", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 156
+#line 168
   testRunner.And("the data value should be CPV", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 157
+#line 169
   testRunner.And("the description should be Consumer product variant", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 158
+#line 170
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 159
+#line 171
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -754,7 +806,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+X..28"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse TPX", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 162
+#line 174
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -764,32 +816,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 163
+#line 175
  testRunner.Given("the input is 235733AC720317439R3624", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 164
+#line 176
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 165
+#line 177
  testRunner.Then("the entity should be 235", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 166
+#line 178
      testRunner.And("the AI should be 235", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 167
+#line 179
   testRunner.And("the value should be 733AC720317439R3624", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 168
+#line 180
   testRunner.And("the data value should be TPX", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 169
+#line 181
   testRunner.And("the description should be Third Party Controlled, Serialised Extension of Global " +
                         "Trade Item Number (GTIN) (TPX)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 170
+#line 182
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 171
+#line 183
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -806,7 +858,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+X..30"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse ADDITIONAL ID", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 174
+#line 186
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -816,32 +868,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 175
+#line 187
  testRunner.Given("the input is 240This+is+some+identifier+1234", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 176
+#line 188
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 177
+#line 189
  testRunner.Then("the entity should be 240", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 178
+#line 190
      testRunner.And("the AI should be 240", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 179
+#line 191
   testRunner.And("the value should be This+is+some+identifier+1234", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 180
+#line 192
   testRunner.And("the data value should be ADDITIONAL ID", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 181
+#line 193
   testRunner.And("the description should be Additional product identification assigned by the manuf" +
                         "acturer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 182
+#line 194
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 183
+#line 195
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -858,7 +910,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+X..30"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse CUST. PART No.", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 186
+#line 198
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -868,31 +920,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 187
+#line 199
  testRunner.Given("the input is 241This+is+some+part+no+1234", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 188
+#line 200
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 189
+#line 201
  testRunner.Then("the entity should be 241", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 190
+#line 202
      testRunner.And("the AI should be 241", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 191
+#line 203
   testRunner.And("the value should be This+is+some+part+no+1234", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 192
+#line 204
   testRunner.And("the data value should be CUST. PART No.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 193
+#line 205
   testRunner.And("the description should be Customer part number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 194
+#line 206
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 195
+#line 207
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -909,7 +961,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+N..6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse MTO VARIANT", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 198
+#line 210
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -919,31 +971,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 199
+#line 211
  testRunner.Given("the input is 2421234", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 200
+#line 212
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 201
+#line 213
  testRunner.Then("the entity should be 242", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 202
+#line 214
      testRunner.And("the AI should be 242", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 203
+#line 215
   testRunner.And("the value should be 1234", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 204
+#line 216
   testRunner.And("the data value should be MTO VARIANT", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 205
+#line 217
   testRunner.And("the description should be Made-to-Order variation number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 206
+#line 218
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 207
+#line 219
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -960,7 +1012,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse PCN", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 210
+#line 222
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -970,31 +1022,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 211
+#line 223
  testRunner.Given("the input is 243This+is+some+pcn+123", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 212
+#line 224
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 213
+#line 225
  testRunner.Then("the entity should be 243", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 214
+#line 226
      testRunner.And("the AI should be 243", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 215
+#line 227
   testRunner.And("the value should be This+is+some+pcn+123", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 216
+#line 228
   testRunner.And("the data value should be PCN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 217
+#line 229
   testRunner.And("the description should be Packaging component number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 218
+#line 230
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 219
+#line 231
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -1011,7 +1063,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+X..30"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SECONDARY SERIAL", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 222
+#line 234
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1021,31 +1073,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 223
+#line 235
  testRunner.Given("the input is 250733AC720317439R3624", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 224
+#line 236
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 225
+#line 237
  testRunner.Then("the entity should be 250", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 226
+#line 238
      testRunner.And("the AI should be 250", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 227
+#line 239
   testRunner.And("the value should be 733AC720317439R3624", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 228
+#line 240
   testRunner.And("the data value should be SECONDARY SERIAL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 229
+#line 241
   testRunner.And("the description should be Secondary serial number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 230
+#line 242
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 231
+#line 243
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -1062,7 +1114,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+X..30"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse REF. TO SOURCE", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 234
+#line 246
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1072,31 +1124,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 235
+#line 247
  testRunner.Given("the input is 251This+is+some+reference+1234", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 236
+#line 248
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 237
+#line 249
  testRunner.Then("the entity should be 251", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 238
+#line 250
      testRunner.And("the AI should be 251", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 239
+#line 251
   testRunner.And("the value should be This+is+some+reference+1234", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 240
+#line 252
   testRunner.And("the data value should be REF. TO SOURCE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 241
+#line 253
   testRunner.And("the description should be Reference to source entity", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 242
+#line 254
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 243
+#line 255
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -1113,7 +1165,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+N13[+X..17]"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse GDTI", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 246
+#line 258
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1123,31 +1175,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 247
+#line 259
  testRunner.Given("the input is 2531234567890128733AC720317439R36", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 248
+#line 260
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 249
+#line 261
  testRunner.Then("the entity should be 253", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 250
+#line 262
      testRunner.And("the AI should be 253", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 251
+#line 263
   testRunner.And("the value should be 1234567890128733AC720317439R36", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 252
+#line 264
   testRunner.And("the data value should be GDTI", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 253
+#line 265
   testRunner.And("the description should be Global Document Type Identifier (GDTI)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 254
+#line 266
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 255
+#line 267
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -1164,7 +1216,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse GLN EXTENSION COMPONENT", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 258
+#line 270
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1174,31 +1226,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 259
+#line 271
  testRunner.Given("the input is 254Gln+Extension+254", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 260
+#line 272
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 261
+#line 273
  testRunner.Then("the entity should be 254", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 262
+#line 274
      testRunner.And("the AI should be 254", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 263
+#line 275
   testRunner.And("the value should be Gln+Extension+254", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 264
+#line 276
   testRunner.And("the data value should be GLN EXTENSION COMPONENT", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 265
+#line 277
   testRunner.And("the description should be Global Location Number (GLN) extension component", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 266
+#line 278
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 267
+#line 279
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -1215,7 +1267,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+N13[+N..12]"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse Global Coupon Number (GCN)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 270
+#line 282
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1225,31 +1277,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 271
+#line 283
  testRunner.Given("the input is 2551234567890128733720317439", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 272
+#line 284
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 273
+#line 285
  testRunner.Then("the entity should be 255", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 274
+#line 286
      testRunner.And("the AI should be 255", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 275
+#line 287
   testRunner.And("the value should be 1234567890128733720317439", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 276
+#line 288
   testRunner.And("the data value should be GCN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 277
+#line 289
   testRunner.And("the description should be Global Coupon Number (GCN)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 278
+#line 290
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 279
+#line 291
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -1266,7 +1318,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+N..8"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse VAR. COUNT", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 282
+#line 294
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1276,31 +1328,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 283
+#line 295
  testRunner.Given("the input is 30000999", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 284
+#line 296
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 285
+#line 297
  testRunner.Then("the entity should be 30", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 286
+#line 298
      testRunner.And("the AI should be 30", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 287
+#line 299
   testRunner.And("the value should be 000999", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 288
+#line 300
   testRunner.And("the data value should be VAR. COUNT", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 289
+#line 301
   testRunner.And("the description should be Variable count of items", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 290
+#line 302
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 291
+#line 303
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -1317,7 +1369,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse NET WEIGHT (kg)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 294
+#line 306
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1327,34 +1379,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 295
+#line 307
  testRunner.Given("the input is 3102123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 296
+#line 308
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 297
+#line 309
  testRunner.Then("the entity should be 310", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 298
+#line 310
      testRunner.And("the AI should be 3102", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 299
+#line 311
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 300
+#line 312
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 301
+#line 313
   testRunner.And("the data value should be NET WEIGHT (kg)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 302
+#line 314
   testRunner.And("the description should be Net weight, kilograms (variable measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 303
+#line 315
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 304
+#line 316
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -1371,7 +1423,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse LENGTH (m)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 307
+#line 319
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1381,35 +1433,35 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 308
+#line 320
  testRunner.Given("the input is 3112123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 309
+#line 321
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 310
+#line 322
  testRunner.Then("the entity should be 311", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 311
+#line 323
      testRunner.And("the AI should be 3112", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 312
+#line 324
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 313
+#line 325
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 314
+#line 326
   testRunner.And("the data value should be LENGTH (m)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 315
+#line 327
   testRunner.And("the description should be Length or first dimension, metres (variable measure tra" +
                         "de item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 316
+#line 328
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 317
+#line 329
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -1426,7 +1478,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse WIDTH (m)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 320
+#line 332
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1436,35 +1488,35 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 321
+#line 333
  testRunner.Given("the input is 3122123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 322
+#line 334
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 323
+#line 335
  testRunner.Then("the entity should be 312", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 324
+#line 336
      testRunner.And("the AI should be 3122", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 325
+#line 337
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 326
+#line 338
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 327
+#line 339
   testRunner.And("the data value should be WIDTH (m)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 328
+#line 340
   testRunner.And("the description should be Width, diameter, or second dimension, metres (variable " +
                         "measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 329
+#line 341
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 330
+#line 342
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -1481,7 +1533,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse HEIGHT (m)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 333
+#line 345
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1491,35 +1543,35 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 334
+#line 346
  testRunner.Given("the input is 3132123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 335
+#line 347
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 336
+#line 348
  testRunner.Then("the entity should be 313", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 337
+#line 349
      testRunner.And("the AI should be 3132", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 338
+#line 350
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 339
+#line 351
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 340
+#line 352
   testRunner.And("the data value should be HEIGHT (m)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 341
+#line 353
   testRunner.And("the description should be Depth, thickness, height, or third dimension, metres (v" +
                         "ariable measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 342
+#line 354
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 343
+#line 355
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -1536,7 +1588,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse AREA (m²)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 346
+#line 358
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1546,34 +1598,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 347
+#line 359
  testRunner.Given("the input is 3142123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 348
+#line 360
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 349
+#line 361
  testRunner.Then("the entity should be 314", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 350
+#line 362
      testRunner.And("the AI should be 3142", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 351
+#line 363
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 352
+#line 364
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 353
+#line 365
   testRunner.And("the data value should be AREA (m²)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 354
+#line 366
   testRunner.And("the description should be Area, square metres (variable measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 355
+#line 367
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 356
+#line 368
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -1590,7 +1642,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse NET VOLUME (l)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 359
+#line 371
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1600,34 +1652,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 360
+#line 372
  testRunner.Given("the input is 3152123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 361
+#line 373
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 362
+#line 374
  testRunner.Then("the entity should be 315", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 363
+#line 375
      testRunner.And("the AI should be 3152", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 364
+#line 376
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 365
+#line 377
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 366
+#line 378
   testRunner.And("the data value should be NET VOLUME (l)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 367
+#line 379
   testRunner.And("the description should be Net volume, litres (variable measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 368
+#line 380
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 369
+#line 381
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -1644,7 +1696,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse NET VOLUME (m³)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 372
+#line 384
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1654,34 +1706,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 373
+#line 385
  testRunner.Given("the input is 3162123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 374
+#line 386
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 375
+#line 387
  testRunner.Then("the entity should be 316", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 376
+#line 388
      testRunner.And("the AI should be 3162", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 377
+#line 389
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 378
+#line 390
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 379
+#line 391
   testRunner.And("the data value should be NET VOLUME (m³)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 380
+#line 392
   testRunner.And("the description should be Net volume, cubic metres (variable measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 381
+#line 393
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 382
+#line 394
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -1698,7 +1750,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse NET WEIGHT (lb)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 385
+#line 397
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1708,34 +1760,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 386
+#line 398
  testRunner.Given("the input is 3202123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 387
+#line 399
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 388
+#line 400
  testRunner.Then("the entity should be 320", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 389
+#line 401
      testRunner.And("the AI should be 3202", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 390
+#line 402
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 391
+#line 403
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 392
+#line 404
   testRunner.And("the data value should be NET WEIGHT (lb)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 393
+#line 405
   testRunner.And("the description should be Net weight, pounds (variable measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 394
+#line 406
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 395
+#line 407
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -1752,7 +1804,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse LENGTH (i)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 398
+#line 410
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1762,35 +1814,35 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 399
+#line 411
  testRunner.Given("the input is 3212123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 400
+#line 412
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 401
+#line 413
  testRunner.Then("the entity should be 321", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 402
+#line 414
      testRunner.And("the AI should be 3212", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 403
+#line 415
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 404
+#line 416
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 405
+#line 417
   testRunner.And("the data value should be LENGTH (i)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 406
+#line 418
   testRunner.And("the description should be Length or first dimension, inches (variable measure tra" +
                         "de item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 407
+#line 419
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 408
+#line 420
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -1807,7 +1859,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse LENGTH (f)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 411
+#line 423
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1817,35 +1869,35 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 412
+#line 424
  testRunner.Given("the input is 3222123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 413
+#line 425
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 414
+#line 426
  testRunner.Then("the entity should be 322", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 415
+#line 427
      testRunner.And("the AI should be 3222", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 416
+#line 428
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 417
+#line 429
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 418
+#line 430
   testRunner.And("the data value should be LENGTH (f)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 419
+#line 431
   testRunner.And("the description should be Length or first dimension, feet (variable measure trade" +
                         " item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 420
+#line 432
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 421
+#line 433
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -1862,7 +1914,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse LENGTH (y)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 424
+#line 436
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1872,35 +1924,35 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 425
+#line 437
  testRunner.Given("the input is 3232123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 426
+#line 438
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 427
+#line 439
  testRunner.Then("the entity should be 323", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 428
+#line 440
      testRunner.And("the AI should be 3232", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 429
+#line 441
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 430
+#line 442
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 431
+#line 443
   testRunner.And("the data value should be LENGTH (y)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 432
+#line 444
   testRunner.And("the description should be Length or first dimension, yards (variable measure trad" +
                         "e item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 433
+#line 445
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 434
+#line 446
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -1917,7 +1969,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse WIDTH (i)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 437
+#line 449
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1927,35 +1979,35 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 438
+#line 450
  testRunner.Given("the input is 3242123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 439
+#line 451
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 440
+#line 452
  testRunner.Then("the entity should be 324", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 441
+#line 453
      testRunner.And("the AI should be 3242", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 442
+#line 454
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 443
+#line 455
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 444
+#line 456
   testRunner.And("the data value should be WIDTH (i)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 445
+#line 457
   testRunner.And("the description should be Width, diameter, or second dimension, inches (variable " +
                         "measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 446
+#line 458
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 447
+#line 459
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -1972,7 +2024,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse WIDTH (f)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 450
+#line 462
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1982,35 +2034,35 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 451
+#line 463
  testRunner.Given("the input is 3252123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 452
+#line 464
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 453
+#line 465
  testRunner.Then("the entity should be 325", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 454
+#line 466
      testRunner.And("the AI should be 3252", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 455
+#line 467
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 456
+#line 468
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 457
+#line 469
   testRunner.And("the data value should be WIDTH (f)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 458
+#line 470
   testRunner.And("the description should be Width, diameter, or second dimension, feet (variable me" +
                         "asure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 459
+#line 471
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 460
+#line 472
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -2027,7 +2079,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse WIDTH (y)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 463
+#line 475
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -2037,35 +2089,35 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 464
+#line 476
  testRunner.Given("the input is 3262123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 465
+#line 477
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 466
+#line 478
  testRunner.Then("the entity should be 326", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 467
+#line 479
      testRunner.And("the AI should be 3262", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 468
+#line 480
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 469
+#line 481
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 470
+#line 482
   testRunner.And("the data value should be WIDTH (y)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 471
+#line 483
   testRunner.And("the description should be Width, diameter, or second dimension, yards (variable m" +
                         "easure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 472
+#line 484
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 473
+#line 485
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -2082,7 +2134,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse HEIGHT (i)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 476
+#line 488
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -2092,35 +2144,35 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 477
+#line 489
  testRunner.Given("the input is 3272123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 478
+#line 490
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 479
+#line 491
  testRunner.Then("the entity should be 327", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 480
+#line 492
      testRunner.And("the AI should be 3272", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 481
+#line 493
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 482
+#line 494
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 483
+#line 495
   testRunner.And("the data value should be HEIGHT (i)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 484
+#line 496
   testRunner.And("the description should be Depth, thickness, height, or third dimension, inches (v" +
                         "ariable measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 485
+#line 497
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 486
+#line 498
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -2137,7 +2189,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse HEIGHT (f)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 489
+#line 501
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -2147,35 +2199,35 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 490
+#line 502
  testRunner.Given("the input is 3282123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 491
+#line 503
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 492
+#line 504
  testRunner.Then("the entity should be 328", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 493
+#line 505
      testRunner.And("the AI should be 3282", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 494
+#line 506
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 495
+#line 507
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 496
+#line 508
   testRunner.And("the data value should be HEIGHT (f)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 497
+#line 509
   testRunner.And("the description should be Depth, thickness, height, or third dimension, feet (var" +
                         "iable measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 498
+#line 510
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 499
+#line 511
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -2192,7 +2244,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse HEIGHT (y)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 502
+#line 514
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -2202,35 +2254,35 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 503
+#line 515
  testRunner.Given("the input is 3292123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 504
+#line 516
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 505
+#line 517
  testRunner.Then("the entity should be 329", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 506
+#line 518
      testRunner.And("the AI should be 3292", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 507
+#line 519
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 508
+#line 520
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 509
+#line 521
   testRunner.And("the data value should be HEIGHT (y)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 510
+#line 522
   testRunner.And("the description should be Depth, thickness, height, or third dimension, yards (va" +
                         "riable measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 511
+#line 523
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 512
+#line 524
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -2247,7 +2299,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse GROSS WEIGHT (kg)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 515
+#line 527
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -2257,34 +2309,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 516
+#line 528
  testRunner.Given("the input is 3302123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 517
+#line 529
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 518
+#line 530
  testRunner.Then("the entity should be 330", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 519
+#line 531
      testRunner.And("the AI should be 3302", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 520
+#line 532
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 521
+#line 533
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 522
+#line 534
   testRunner.And("the data value should be GROSS WEIGHT (kg)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 523
+#line 535
   testRunner.And("the description should be Logistic weight, kilograms", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 524
+#line 536
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 525
+#line 537
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -2301,7 +2353,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse LENGTH (m), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 528
+#line 540
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -2311,34 +2363,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 529
+#line 541
  testRunner.Given("the input is 3312123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 530
+#line 542
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 531
+#line 543
  testRunner.Then("the entity should be 331", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 532
+#line 544
      testRunner.And("the AI should be 3312", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 533
+#line 545
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 534
+#line 546
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 535
+#line 547
   testRunner.And("the data value should be LENGTH (m), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 536
+#line 548
   testRunner.And("the description should be Length or first dimension, metres", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 537
+#line 549
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 538
+#line 550
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -2355,7 +2407,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse WIDTH (m), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 541
+#line 553
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -2365,34 +2417,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 542
+#line 554
  testRunner.Given("the input is 3322123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 543
+#line 555
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 544
+#line 556
  testRunner.Then("the entity should be 332", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 545
+#line 557
      testRunner.And("the AI should be 3322", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 546
+#line 558
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 547
+#line 559
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 548
+#line 560
   testRunner.And("the data value should be WIDTH (m), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 549
+#line 561
   testRunner.And("the description should be Width, diameter, or second dimension, metres", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 550
+#line 562
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 551
+#line 563
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -2409,7 +2461,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse HEIGHT (m), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 554
+#line 566
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -2419,34 +2471,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 555
+#line 567
  testRunner.Given("the input is 3332123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 556
+#line 568
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 557
+#line 569
  testRunner.Then("the entity should be 333", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 558
+#line 570
      testRunner.And("the AI should be 3332", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 559
+#line 571
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 560
+#line 572
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 561
+#line 573
   testRunner.And("the data value should be HEIGHT (m), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 562
+#line 574
   testRunner.And("the description should be Depth, thickness, height, or third dimension, metres", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 563
+#line 575
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 564
+#line 576
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -2463,7 +2515,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse AREA (m²), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 567
+#line 579
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -2473,34 +2525,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 568
+#line 580
  testRunner.Given("the input is 3342123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 569
+#line 581
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 570
+#line 582
  testRunner.Then("the entity should be 334", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 571
+#line 583
      testRunner.And("the AI should be 3342", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 572
+#line 584
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 573
+#line 585
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 574
+#line 586
   testRunner.And("the data value should be AREA (m²), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 575
+#line 587
   testRunner.And("the description should be Area, square metres", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 576
+#line 588
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 577
+#line 589
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -2517,7 +2569,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse VOLUME (l), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 580
+#line 592
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -2527,34 +2579,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 581
+#line 593
  testRunner.Given("the input is 3352123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 582
+#line 594
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 583
+#line 595
  testRunner.Then("the entity should be 335", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 584
+#line 596
      testRunner.And("the AI should be 3352", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 585
+#line 597
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 586
+#line 598
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 587
+#line 599
   testRunner.And("the data value should be VOLUME (l), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 588
+#line 600
   testRunner.And("the description should be Logistic volume, litres", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 589
+#line 601
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 590
+#line 602
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -2571,7 +2623,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse VOLUME (m³), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 593
+#line 605
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -2581,34 +2633,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 594
+#line 606
  testRunner.Given("the input is 3362123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 595
+#line 607
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 596
+#line 608
  testRunner.Then("the entity should be 336", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 597
+#line 609
      testRunner.And("the AI should be 3362", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 598
+#line 610
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 599
+#line 611
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 600
+#line 612
   testRunner.And("the data value should be VOLUME (m³), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 601
+#line 613
   testRunner.And("the description should be Logistic volume, cubic metres", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 602
+#line 614
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 603
+#line 615
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -2625,7 +2677,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse KG PER m²", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 606
+#line 618
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -2635,34 +2687,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 607
+#line 619
  testRunner.Given("the input is 3372123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 608
+#line 620
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 609
+#line 621
  testRunner.Then("the entity should be 337", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 610
+#line 622
      testRunner.And("the AI should be 3372", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 611
+#line 623
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 612
+#line 624
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 613
+#line 625
   testRunner.And("the data value should be KG PER m²", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 614
+#line 626
   testRunner.And("the description should be Kilograms per square metre", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 615
+#line 627
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 616
+#line 628
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -2679,7 +2731,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse GROSS WEIGHT (lb)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 619
+#line 631
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -2689,34 +2741,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 620
+#line 632
  testRunner.Given("the input is 3402123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 621
+#line 633
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 622
+#line 634
  testRunner.Then("the entity should be 340", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 623
+#line 635
      testRunner.And("the AI should be 3402", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 624
+#line 636
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 625
+#line 637
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 626
+#line 638
   testRunner.And("the data value should be GROSS WEIGHT (lb)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 627
+#line 639
   testRunner.And("the description should be Logistic weight, pounds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 628
+#line 640
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 629
+#line 641
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -2733,7 +2785,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse LENGTH (i), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 632
+#line 644
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -2743,34 +2795,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 633
+#line 645
  testRunner.Given("the input is 3412123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 634
+#line 646
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 635
+#line 647
  testRunner.Then("the entity should be 341", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 636
+#line 648
      testRunner.And("the AI should be 3412", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 637
+#line 649
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 638
+#line 650
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 639
+#line 651
   testRunner.And("the data value should be LENGTH (i), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 640
+#line 652
   testRunner.And("the description should be Length or first dimension, inches", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 641
+#line 653
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 642
+#line 654
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -2787,7 +2839,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse LENGTH (f), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 645
+#line 657
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -2797,34 +2849,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 646
+#line 658
  testRunner.Given("the input is 3422123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 647
+#line 659
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 648
+#line 660
  testRunner.Then("the entity should be 342", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 649
+#line 661
      testRunner.And("the AI should be 3422", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 650
+#line 662
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 651
+#line 663
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 652
+#line 664
   testRunner.And("the data value should be LENGTH (f), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 653
+#line 665
   testRunner.And("the description should be Length or first dimension, feet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 654
+#line 666
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 655
+#line 667
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -2841,7 +2893,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse LENGTH (y), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 658
+#line 670
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -2851,34 +2903,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 659
+#line 671
  testRunner.Given("the input is 3432123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 660
+#line 672
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 661
+#line 673
  testRunner.Then("the entity should be 343", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 662
+#line 674
      testRunner.And("the AI should be 3432", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 663
+#line 675
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 664
+#line 676
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 665
+#line 677
   testRunner.And("the data value should be LENGTH (y), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 666
+#line 678
   testRunner.And("the description should be Length or first dimension, yards", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 667
+#line 679
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 668
+#line 680
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -2895,7 +2947,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse WIDTH (i), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 671
+#line 683
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -2905,34 +2957,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 672
+#line 684
  testRunner.Given("the input is 3442123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 673
+#line 685
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 674
+#line 686
  testRunner.Then("the entity should be 344", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 675
+#line 687
      testRunner.And("the AI should be 3442", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 676
+#line 688
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 677
+#line 689
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 678
+#line 690
   testRunner.And("the data value should be WIDTH (i), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 679
+#line 691
   testRunner.And("the description should be Width, diameter, or second dimension, inches", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 680
+#line 692
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 681
+#line 693
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -2949,7 +3001,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse WIDTH (f), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 686
+#line 698
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -2959,34 +3011,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 687
+#line 699
  testRunner.Given("the input is 3452123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 688
+#line 700
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 689
+#line 701
  testRunner.Then("the entity should be 345", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 690
+#line 702
      testRunner.And("the AI should be 3452", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 691
+#line 703
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 692
+#line 704
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 693
+#line 705
   testRunner.And("the data value should be WIDTH (f), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 694
+#line 706
   testRunner.And("the description should be Width, diameter, or second dimension, feet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 695
+#line 707
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 696
+#line 708
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -3003,7 +3055,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse WIDTH (y), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 699
+#line 711
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -3013,34 +3065,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 700
+#line 712
  testRunner.Given("the input is 3462123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 701
+#line 713
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 702
+#line 714
  testRunner.Then("the entity should be 346", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 703
+#line 715
      testRunner.And("the AI should be 3462", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 704
+#line 716
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 705
+#line 717
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 706
+#line 718
   testRunner.And("the data value should be WIDTH (y), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 707
+#line 719
   testRunner.And("the description should be Width, diameter, or second dimension, yard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 708
+#line 720
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 709
+#line 721
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -3057,7 +3109,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse HEIGHT (i), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 712
+#line 724
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -3067,34 +3119,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 713
+#line 725
  testRunner.Given("the input is 3472123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 714
+#line 726
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 715
+#line 727
  testRunner.Then("the entity should be 347", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 716
+#line 728
      testRunner.And("the AI should be 3472", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 717
+#line 729
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 718
+#line 730
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 719
+#line 731
   testRunner.And("the data value should be HEIGHT (i), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 720
+#line 732
   testRunner.And("the description should be Depth, thickness, height, or third dimension, inches", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 721
+#line 733
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 722
+#line 734
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -3111,7 +3163,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse HEIGHT (f), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 725
+#line 737
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -3121,34 +3173,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 726
+#line 738
  testRunner.Given("the input is 3482123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 727
+#line 739
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 728
+#line 740
  testRunner.Then("the entity should be 348", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 729
+#line 741
      testRunner.And("the AI should be 3482", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 730
+#line 742
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 731
+#line 743
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 732
+#line 744
   testRunner.And("the data value should be HEIGHT (f), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 733
+#line 745
   testRunner.And("the description should be Depth, thickness, height, or third dimension, feet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 734
+#line 746
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 735
+#line 747
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -3165,7 +3217,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse HEIGHT (y), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 738
+#line 750
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -3175,34 +3227,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 739
+#line 751
  testRunner.Given("the input is 3492123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 740
+#line 752
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 741
+#line 753
  testRunner.Then("the entity should be 349", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 742
+#line 754
      testRunner.And("the AI should be 3492", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 743
+#line 755
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 744
+#line 756
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 745
+#line 757
   testRunner.And("the data value should be HEIGHT (y), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 746
+#line 758
   testRunner.And("the description should be Depth, thickness, height, or third dimension, yards", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 747
+#line 759
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 748
+#line 760
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -3219,7 +3271,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse AREA (i²)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 751
+#line 763
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -3229,34 +3281,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 752
+#line 764
  testRunner.Given("the input is 3502123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 753
+#line 765
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 754
+#line 766
  testRunner.Then("the entity should be 350", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 755
+#line 767
      testRunner.And("the AI should be 3502", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 756
+#line 768
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 757
+#line 769
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 758
+#line 770
   testRunner.And("the data value should be AREA (i²)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 759
+#line 771
   testRunner.And("the description should be Area, square inches (variable measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 760
+#line 772
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 761
+#line 773
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -3273,7 +3325,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse AREA (f²)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 764
+#line 776
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -3283,34 +3335,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 765
+#line 777
  testRunner.Given("the input is 3512123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 766
+#line 778
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 767
+#line 779
  testRunner.Then("the entity should be 351", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 768
+#line 780
      testRunner.And("the AI should be 3512", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 769
+#line 781
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 770
+#line 782
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 771
+#line 783
   testRunner.And("the data value should be AREA (f²)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 772
+#line 784
   testRunner.And("the description should be Area, square feet (variable measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 773
+#line 785
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 774
+#line 786
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -3327,7 +3379,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse AREA (y²)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 777
+#line 789
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -3337,34 +3389,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 778
+#line 790
  testRunner.Given("the input is 3522123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 779
+#line 791
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 780
+#line 792
  testRunner.Then("the entity should be 352", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 781
+#line 793
      testRunner.And("the AI should be 3522", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 782
+#line 794
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 783
+#line 795
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 784
+#line 796
   testRunner.And("the data value should be AREA (y²)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 785
+#line 797
   testRunner.And("the description should be Area, square yards (variable measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 786
+#line 798
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 787
+#line 799
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -3381,7 +3433,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse AREA (i²), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 790
+#line 802
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -3391,34 +3443,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 791
+#line 803
  testRunner.Given("the input is 3532123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 792
+#line 804
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 793
+#line 805
  testRunner.Then("the entity should be 353", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 794
+#line 806
      testRunner.And("the AI should be 3532", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 795
+#line 807
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 796
+#line 808
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 797
+#line 809
   testRunner.And("the data value should be AREA (i²), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 798
+#line 810
   testRunner.And("the description should be Area, square inches", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 799
+#line 811
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 800
+#line 812
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -3435,7 +3487,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse AREA (f²), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 803
+#line 815
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -3445,34 +3497,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 804
+#line 816
  testRunner.Given("the input is 3542123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 805
+#line 817
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 806
+#line 818
  testRunner.Then("the entity should be 354", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 807
+#line 819
      testRunner.And("the AI should be 3542", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 808
+#line 820
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 809
+#line 821
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 810
+#line 822
   testRunner.And("the data value should be AREA (f²), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 811
+#line 823
   testRunner.And("the description should be Area, square feet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 812
+#line 824
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 813
+#line 825
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -3489,7 +3541,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse AREA (y²), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 816
+#line 828
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -3499,34 +3551,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 817
+#line 829
  testRunner.Given("the input is 3552123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 818
+#line 830
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 819
+#line 831
  testRunner.Then("the entity should be 355", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 820
+#line 832
      testRunner.And("the AI should be 3552", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 821
+#line 833
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 822
+#line 834
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 823
+#line 835
   testRunner.And("the data value should be AREA (y²), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 824
+#line 836
   testRunner.And("the description should be Area, square yards", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 825
+#line 837
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 826
+#line 838
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -3543,7 +3595,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse NET WEIGHT (t)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 829
+#line 841
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -3553,34 +3605,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 830
+#line 842
  testRunner.Given("the input is 3562123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 831
+#line 843
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 832
+#line 844
  testRunner.Then("the entity should be 356", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 833
+#line 845
      testRunner.And("the AI should be 3562", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 834
+#line 846
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 835
+#line 847
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 836
+#line 848
   testRunner.And("the data value should be NET WEIGHT (t)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 837
+#line 849
   testRunner.And("the description should be Net weight, troy ounces (variable measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 838
+#line 850
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 839
+#line 851
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -3597,7 +3649,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse NET VOLUME (oz)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 842
+#line 854
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -3607,35 +3659,35 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 843
+#line 855
  testRunner.Given("the input is 3572123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 844
+#line 856
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 845
+#line 857
  testRunner.Then("the entity should be 357", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 846
+#line 858
      testRunner.And("the AI should be 3572", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 847
+#line 859
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 848
+#line 860
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 849
+#line 861
   testRunner.And("the data value should be NET VOLUME (oz)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 850
+#line 862
   testRunner.And("the description should be Net weight (or volume), ounces (variable measure trade " +
                         "item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 851
+#line 863
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 852
+#line 864
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -3652,7 +3704,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse NET VOLUME (q)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 855
+#line 867
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -3662,34 +3714,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 856
+#line 868
  testRunner.Given("the input is 3602123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 857
+#line 869
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 858
+#line 870
  testRunner.Then("the entity should be 360", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 859
+#line 871
      testRunner.And("the AI should be 3602", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 860
+#line 872
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 861
+#line 873
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 862
+#line 874
   testRunner.And("the data value should be NET VOLUME (q)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 863
+#line 875
   testRunner.And("the description should be Net volume, quarts (variable measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 864
+#line 876
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 865
+#line 877
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -3706,7 +3758,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse NET VOLUME (g)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 868
+#line 880
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -3716,34 +3768,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 869
+#line 881
  testRunner.Given("the input is 3612123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 870
+#line 882
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 871
+#line 883
  testRunner.Then("the entity should be 361", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 872
+#line 884
      testRunner.And("the AI should be 3612", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 873
+#line 885
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 874
+#line 886
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 875
+#line 887
   testRunner.And("the data value should be NET VOLUME (g)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 876
+#line 888
   testRunner.And("the description should be Net volume, gallons U.S. (variable measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 877
+#line 889
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 878
+#line 890
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -3760,7 +3812,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse VOLUME (q), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 881
+#line 893
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -3770,34 +3822,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 882
+#line 894
  testRunner.Given("the input is 3622123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 883
+#line 895
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 884
+#line 896
  testRunner.Then("the entity should be 362", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 885
+#line 897
      testRunner.And("the AI should be 3622", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 886
+#line 898
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 887
+#line 899
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 888
+#line 900
   testRunner.And("the data value should be VOLUME (q), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 889
+#line 901
   testRunner.And("the description should be Logistic volume, quarts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 890
+#line 902
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 891
+#line 903
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -3814,7 +3866,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse VOLUME (g), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 894
+#line 906
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -3824,34 +3876,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 895
+#line 907
  testRunner.Given("the input is 3632123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 896
+#line 908
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 897
+#line 909
  testRunner.Then("the entity should be 363", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 898
+#line 910
      testRunner.And("the AI should be 3632", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 899
+#line 911
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 900
+#line 912
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 901
+#line 913
   testRunner.And("the data value should be VOLUME (g), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 902
+#line 914
   testRunner.And("the description should be Logistic volume, gallons U.S.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 903
+#line 915
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 904
+#line 916
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -3868,7 +3920,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse VOLUME (i³)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 907
+#line 919
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -3878,34 +3930,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 908
+#line 920
  testRunner.Given("the input is 3642123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 909
+#line 921
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 910
+#line 922
  testRunner.Then("the entity should be 364", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 911
+#line 923
      testRunner.And("the AI should be 3642", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 912
+#line 924
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 913
+#line 925
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 914
+#line 926
   testRunner.And("the data value should be VOLUME (i³)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 915
+#line 927
   testRunner.And("the description should be Net volume, cubic inches (variable measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 916
+#line 928
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 917
+#line 929
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -3922,7 +3974,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse VOLUME (f³)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 920
+#line 932
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -3932,34 +3984,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 921
+#line 933
  testRunner.Given("the input is 3652123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 922
+#line 934
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 923
+#line 935
  testRunner.Then("the entity should be 365", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 924
+#line 936
      testRunner.And("the AI should be 3652", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 925
+#line 937
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 926
+#line 938
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 927
+#line 939
   testRunner.And("the data value should be VOLUME (f³)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 928
+#line 940
   testRunner.And("the description should be Net volume, cubic feet (variable measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 929
+#line 941
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 930
+#line 942
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -3976,7 +4028,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse VOLUME (y³)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 933
+#line 945
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -3986,34 +4038,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 934
+#line 946
  testRunner.Given("the input is 3662123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 935
+#line 947
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 936
+#line 948
  testRunner.Then("the entity should be 366", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 937
+#line 949
      testRunner.And("the AI should be 3662", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 938
+#line 950
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 939
+#line 951
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 940
+#line 952
   testRunner.And("the data value should be VOLUME (y³)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 941
+#line 953
   testRunner.And("the description should be Net volume, cubic yards (variable measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 942
+#line 954
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 943
+#line 955
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -4030,7 +4082,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse VOLUME (i³), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 946
+#line 958
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -4040,34 +4092,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 947
+#line 959
  testRunner.Given("the input is 3672123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 948
+#line 960
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 949
+#line 961
  testRunner.Then("the entity should be 367", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 950
+#line 962
      testRunner.And("the AI should be 3672", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 951
+#line 963
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 952
+#line 964
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 953
+#line 965
   testRunner.And("the data value should be VOLUME (i³), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 954
+#line 966
   testRunner.And("the description should be Logistic volume, cubic inches", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 955
+#line 967
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 956
+#line 968
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -4084,7 +4136,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse VOLUME (f³), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 959
+#line 971
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -4094,34 +4146,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 960
+#line 972
  testRunner.Given("the input is 3682123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 961
+#line 973
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 962
+#line 974
  testRunner.Then("the entity should be 368", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 963
+#line 975
      testRunner.And("the AI should be 3682", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 964
+#line 976
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 965
+#line 977
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 966
+#line 978
   testRunner.And("the data value should be VOLUME (f³), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 967
+#line 979
   testRunner.And("the description should be Logistic volume, cubic feet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 968
+#line 980
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 969
+#line 981
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -4138,7 +4190,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse VOLUME (y³), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 972
+#line 984
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -4148,34 +4200,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 973
+#line 985
  testRunner.Given("the input is 3692123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 974
+#line 986
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 975
+#line 987
  testRunner.Then("the entity should be 369", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 976
+#line 988
      testRunner.And("the AI should be 3692", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 977
+#line 989
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 978
+#line 990
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 979
+#line 991
   testRunner.And("the data value should be VOLUME (y³), log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 980
+#line 992
   testRunner.And("the description should be Logistic volume, cubic yards", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 981
+#line 993
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 982
+#line 994
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -4192,7 +4244,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+N..8"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse COUNT", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 985
+#line 997
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -4202,32 +4254,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 986
+#line 998
  testRunner.Given("the input is 3712345678", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 987
+#line 999
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 988
+#line 1000
  testRunner.Then("the entity should be 37", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 989
+#line 1001
      testRunner.And("the AI should be 37", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 990
+#line 1002
   testRunner.And("the value should be 12345678", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 991
+#line 1003
   testRunner.And("the data value should be COUNT", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 992
+#line 1004
   testRunner.And("the description should be Count of trade items or trade item pieces contained in " +
                         "a logistic unit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 993
+#line 1005
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 994
+#line 1006
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -4244,7 +4296,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N..15"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse AMOUNT", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 997
+#line 1009
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -4254,34 +4306,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 998
+#line 1010
  testRunner.Given("the input is 3902123456789012345", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 999
+#line 1011
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1000
+#line 1012
  testRunner.Then("the entity should be 390", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1001
+#line 1013
      testRunner.And("the AI should be 3902", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1002
+#line 1014
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1003
+#line 1015
   testRunner.And("the value should be 123456789012345", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1004
+#line 1016
   testRunner.And("the data value should be AMOUNT", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1005
+#line 1017
   testRunner.And("the description should be Amount payable or coupon value - Single monetary area", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1006
+#line 1018
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1007
+#line 1019
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -4298,7 +4350,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N3+N..15"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse AMOUNT (ISO)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1010
+#line 1022
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -4308,34 +4360,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1011
+#line 1023
  testRunner.Given("the input is 3912826123456789012345", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1012
+#line 1024
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1013
+#line 1025
  testRunner.Then("the entity should be 391", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1014
+#line 1026
      testRunner.And("the AI should be 3912", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1015
+#line 1027
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1016
+#line 1028
   testRunner.And("the value should be 826123456789012345", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1017
+#line 1029
   testRunner.And("the data value should be AMOUNT", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1018
+#line 1030
   testRunner.And("the description should be Amount payable and ISO currency code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1019
+#line 1031
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1020
+#line 1032
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -4352,7 +4404,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N..15"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse PRICE", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1023
+#line 1035
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -4362,35 +4414,35 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1024
+#line 1036
  testRunner.Given("the input is 3922123456789012345", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1025
+#line 1037
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1026
+#line 1038
  testRunner.Then("the entity should be 392", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1027
+#line 1039
      testRunner.And("the AI should be 3922", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1028
+#line 1040
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1029
+#line 1041
   testRunner.And("the value should be 123456789012345", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1030
+#line 1042
   testRunner.And("the data value should be PRICE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1031
+#line 1043
   testRunner.And("the description should be Amount payable for a variable measure trade item - Sing" +
                         "le monetary area", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1032
+#line 1044
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1033
+#line 1045
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -4407,7 +4459,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N3+N..15"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse PRICE (ISO)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1036
+#line 1048
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -4417,35 +4469,35 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1037
+#line 1049
  testRunner.Given("the input is 3932826123456789012345", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1038
+#line 1050
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1039
+#line 1051
  testRunner.Then("the entity should be 393", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1040
+#line 1052
      testRunner.And("the AI should be 3932", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1041
+#line 1053
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1042
+#line 1054
   testRunner.And("the value should be 826123456789012345", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1043
+#line 1055
   testRunner.And("the data value should be PRICE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1044
+#line 1056
   testRunner.And("the description should be Amount payable for a variable measure trade item and IS" +
                         "O currency code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1045
+#line 1057
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1046
+#line 1058
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -4462,7 +4514,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N4"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse PRCNT OFF", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1049
+#line 1061
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -4472,34 +4524,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1050
+#line 1062
  testRunner.Given("the input is 39421234", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1051
+#line 1063
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1052
+#line 1064
  testRunner.Then("the entity should be 394", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1053
+#line 1065
      testRunner.And("the AI should be 3942", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1054
+#line 1066
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1055
+#line 1067
   testRunner.And("the value should be 1234", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1056
+#line 1068
   testRunner.And("the data value should be PRCNT OFF", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1057
+#line 1069
   testRunner.And("the description should be Percentage discount of a coupon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1058
+#line 1070
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1059
+#line 1071
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -4516,7 +4568,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse PRICE/UoM", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1062
+#line 1074
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -4526,35 +4578,35 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1063
+#line 1075
  testRunner.Given("the input is 3952123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1064
+#line 1076
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1065
+#line 1077
  testRunner.Then("the entity should be 395", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1066
+#line 1078
      testRunner.And("the AI should be 3952", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1067
+#line 1079
   testRunner.And("the inverse exponent should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1068
+#line 1080
   testRunner.And("the value should be 123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1069
+#line 1081
   testRunner.And("the data value should be PRICE/UoM", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1070
+#line 1082
   testRunner.And("the description should be Amount payable per unit of measure single monetary area" +
                         " (variable measure trade item)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1071
+#line 1083
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1072
+#line 1084
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -4571,7 +4623,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+X..30"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse ORDER NUMBER", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1075
+#line 1087
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -4581,31 +4633,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1076
+#line 1088
  testRunner.Given("the input is 4001234567890", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1077
+#line 1089
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1078
+#line 1090
  testRunner.Then("the entity should be 400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1079
+#line 1091
      testRunner.And("the AI should be 400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1080
+#line 1092
   testRunner.And("the value should be 1234567890", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1081
+#line 1093
   testRunner.And("the data value should be ORDER NUMBER", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1082
+#line 1094
   testRunner.And("the description should be Customer\'s purchase order number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1083
+#line 1095
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1084
+#line 1096
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -4622,7 +4674,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+X..30"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse GINC", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1087
+#line 1099
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -4632,31 +4684,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1088
+#line 1100
  testRunner.Given("the input is 401506091751123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1089
+#line 1101
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1090
+#line 1102
  testRunner.Then("the entity should be 401", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1091
+#line 1103
      testRunner.And("the AI should be 401", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1092
+#line 1104
   testRunner.And("the value should be 506091751123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1093
+#line 1105
   testRunner.And("the data value should be GINC", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1094
+#line 1106
   testRunner.And("the description should be Global Identification Number for Consignment (GINC)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1095
+#line 1107
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1096
+#line 1108
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -4673,7 +4725,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+N17"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse GSIN", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1099
+#line 1111
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -4683,31 +4735,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1100
+#line 1112
  testRunner.Given("the input is 40250609175112345629", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1101
+#line 1113
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1102
+#line 1114
  testRunner.Then("the entity should be 402", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1103
+#line 1115
      testRunner.And("the AI should be 402", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1104
+#line 1116
   testRunner.And("the value should be 50609175112345629", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1105
+#line 1117
   testRunner.And("the data value should be GSIN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1106
+#line 1118
   testRunner.And("the description should be Global Shipment Identification Number (GSIN)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1107
+#line 1119
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1108
+#line 1120
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -4724,7 +4776,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+X..30"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse ROUTE", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1111
+#line 1123
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -4734,31 +4786,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1112
+#line 1124
  testRunner.Given("the input is 403Routing+Code+1234", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1113
+#line 1125
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1114
+#line 1126
  testRunner.Then("the entity should be 403", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1115
+#line 1127
      testRunner.And("the AI should be 403", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1116
+#line 1128
   testRunner.And("the value should be Routing+Code+1234", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1117
+#line 1129
   testRunner.And("the data value should be ROUTE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1118
+#line 1130
   testRunner.And("the description should be Routing code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1119
+#line 1131
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1120
+#line 1132
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -4775,7 +4827,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+N13"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SHIP TO LOC", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1123
+#line 1135
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -4785,31 +4837,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1124
+#line 1136
  testRunner.Given("the input is 4105060917510004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1125
+#line 1137
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1126
+#line 1138
  testRunner.Then("the entity should be 410", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1127
+#line 1139
      testRunner.And("the AI should be 410", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1128
+#line 1140
   testRunner.And("the value should be 5060917510004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1129
+#line 1141
   testRunner.And("the data value should be SHIP TO LOC", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1130
+#line 1142
   testRunner.And("the description should be Ship to - Deliver to Global Location Number (GLN)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1131
+#line 1143
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1132
+#line 1144
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -4826,7 +4878,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+N13"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse BILL TO", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1135
+#line 1147
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -4836,31 +4888,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1136
+#line 1148
  testRunner.Given("the input is 4115060917510004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1137
+#line 1149
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1138
+#line 1150
  testRunner.Then("the entity should be 411", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1139
+#line 1151
      testRunner.And("the AI should be 411", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1140
+#line 1152
   testRunner.And("the value should be 5060917510004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1141
+#line 1153
   testRunner.And("the data value should be BILL TO", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1142
+#line 1154
   testRunner.And("the description should be Bill to - Invoice to Global Location Number (GLN)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1143
+#line 1155
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1144
+#line 1156
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -4877,7 +4929,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+N13"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse PURCHASE FROM", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1147
+#line 1159
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -4887,31 +4939,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1148
+#line 1160
  testRunner.Given("the input is 4125060917510004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1149
+#line 1161
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1150
+#line 1162
  testRunner.Then("the entity should be 412", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1151
+#line 1163
      testRunner.And("the AI should be 412", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1152
+#line 1164
   testRunner.And("the value should be 5060917510004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1153
+#line 1165
   testRunner.And("the data value should be PURCHASE FROM", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1154
+#line 1166
   testRunner.And("the description should be Purchased from Global Location Number (GLN)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1155
+#line 1167
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1156
+#line 1168
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -4928,7 +4980,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+N13"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SHIP FOR LOC", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1159
+#line 1171
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -4938,32 +4990,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1160
+#line 1172
  testRunner.Given("the input is 4135060917510004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1161
+#line 1173
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1162
+#line 1174
  testRunner.Then("the entity should be 413", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1163
+#line 1175
      testRunner.And("the AI should be 413", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1164
+#line 1176
   testRunner.And("the value should be 5060917510004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1165
+#line 1177
   testRunner.And("the data value should be SHIP FOR LOC", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1166
+#line 1178
   testRunner.And("the description should be Ship for - Deliver for - Forward to Global Location Num" +
                         "ber (GLN)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1167
+#line 1179
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1168
+#line 1180
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -4980,7 +5032,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+N13"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse LOC No.", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1171
+#line 1183
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -4990,32 +5042,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1172
+#line 1184
  testRunner.Given("the input is 4145060917510004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1173
+#line 1185
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1174
+#line 1186
  testRunner.Then("the entity should be 414", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1175
+#line 1187
      testRunner.And("the AI should be 414", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1176
+#line 1188
   testRunner.And("the value should be 5060917510004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1177
+#line 1189
   testRunner.And("the data value should be LOC No.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1178
+#line 1190
   testRunner.And("the description should be Identification of a physical location - Global Location" +
                         " Number (GLN)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1179
+#line 1191
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1180
+#line 1192
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -5032,7 +5084,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+N13"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse PAY TO", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1183
+#line 1195
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -5042,31 +5094,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1184
+#line 1196
  testRunner.Given("the input is 4155060917510004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1185
+#line 1197
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1186
+#line 1198
  testRunner.Then("the entity should be 415", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1187
+#line 1199
      testRunner.And("the AI should be 415", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1188
+#line 1200
   testRunner.And("the value should be 5060917510004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1189
+#line 1201
   testRunner.And("the data value should be PAY TO", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1190
+#line 1202
   testRunner.And("the description should be Global Location Number (GLN) of the invoicing party", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1191
+#line 1203
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1192
+#line 1204
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -5083,7 +5135,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+N13"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse PROD/SERV LOC", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1195
+#line 1207
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -5093,32 +5145,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1196
+#line 1208
  testRunner.Given("the input is 4165060917510004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1197
+#line 1209
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1198
+#line 1210
  testRunner.Then("the entity should be 416", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1199
+#line 1211
      testRunner.And("the AI should be 416", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1200
+#line 1212
   testRunner.And("the value should be 5060917510004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1201
+#line 1213
   testRunner.And("the data value should be PROD/SERV LOC", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1202
+#line 1214
   testRunner.And("the description should be Global Location Number (GLN) of the production or servi" +
                         "ce location", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1203
+#line 1215
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1204
+#line 1216
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -5135,7 +5187,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+N13"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse PARTY", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1207
+#line 1219
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -5145,31 +5197,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1208
+#line 1220
  testRunner.Given("the input is 4175060917510004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1209
+#line 1221
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1210
+#line 1222
  testRunner.Then("the entity should be 417", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1211
+#line 1223
      testRunner.And("the AI should be 417", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1212
+#line 1224
   testRunner.And("the value should be 5060917510004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1213
+#line 1225
   testRunner.And("the data value should be PARTY", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1214
+#line 1226
   testRunner.And("the description should be Party Global Location Number (GLN)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1215
+#line 1227
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1216
+#line 1228
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -5186,7 +5238,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SHIP TO POST", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1219
+#line 1231
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -5196,32 +5248,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1220
+#line 1232
  testRunner.Given("the input is 420SE220PF", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1221
+#line 1233
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1222
+#line 1234
  testRunner.Then("the entity should be 420", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1223
+#line 1235
      testRunner.And("the AI should be 420", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1224
+#line 1236
   testRunner.And("the value should be SE220PF", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1225
+#line 1237
   testRunner.And("the data value should be SHIP TO POST", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1226
+#line 1238
   testRunner.And("the description should be Ship-to / Deliver-to postal code within a single postal" +
                         " authority", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1227
+#line 1239
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1228
+#line 1240
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -5238,7 +5290,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+N3+X..9"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SHIP TO POST ISO", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1231
+#line 1243
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -5248,32 +5300,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1232
+#line 1244
  testRunner.Given("the input is 421826SE220PF", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1233
+#line 1245
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1234
+#line 1246
  testRunner.Then("the entity should be 421", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1235
+#line 1247
      testRunner.And("the AI should be 421", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1236
+#line 1248
   testRunner.And("the value should be 826SE220PF", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1237
+#line 1249
   testRunner.And("the data value should be SHIP TO POST", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1238
+#line 1250
   testRunner.And("the description should be Ship-to / Deliver-to postal code with three-digit ISO c" +
                         "ountry code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1239
+#line 1251
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1240
+#line 1252
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -5290,7 +5342,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+N3"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse ORIGIN", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1243
+#line 1255
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -5300,31 +5352,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1244
+#line 1256
  testRunner.Given("the input is 422826", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1245
+#line 1257
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1246
+#line 1258
  testRunner.Then("the entity should be 422", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1247
+#line 1259
      testRunner.And("the AI should be 422", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1248
+#line 1260
   testRunner.And("the value should be 826", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1249
+#line 1261
   testRunner.And("the data value should be ORIGIN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1250
+#line 1262
   testRunner.And("the description should be Country of origin of a trade item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1251
+#line 1263
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1252
+#line 1264
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -5341,7 +5393,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+N3+N..12"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse COUNTRY - INITIAL PROCESS", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1255
+#line 1267
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -5351,31 +5403,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1256
+#line 1268
  testRunner.Given("the input is 423826", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1257
+#line 1269
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1258
+#line 1270
  testRunner.Then("the entity should be 423", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1259
+#line 1271
      testRunner.And("the AI should be 423", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1260
+#line 1272
   testRunner.And("the value should be 826", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1261
+#line 1273
   testRunner.And("the data value should be COUNTRY - INITIAL PROCESS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1262
+#line 1274
   testRunner.And("the description should be Country of initial processing", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1263
+#line 1275
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1264
+#line 1276
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -5392,7 +5444,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+N3"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse COUNTRY - PROCESS", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1267
+#line 1279
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -5402,31 +5454,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1268
+#line 1280
  testRunner.Given("the input is 424826", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1269
+#line 1281
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1270
+#line 1282
  testRunner.Then("the entity should be 424", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1271
+#line 1283
      testRunner.And("the AI should be 424", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1272
+#line 1284
   testRunner.And("the value should be 826", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1273
+#line 1285
   testRunner.And("the data value should be COUNTRY - PROCESS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1274
+#line 1286
   testRunner.And("the description should be Country of processing", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1275
+#line 1287
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1276
+#line 1288
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -5443,7 +5495,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+N3+N..12"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse COUNTRY - DISASSEMBLY", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1279
+#line 1291
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -5453,31 +5505,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1280
+#line 1292
  testRunner.Given("the input is 425826", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1281
+#line 1293
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1282
+#line 1294
  testRunner.Then("the entity should be 425", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1283
+#line 1295
      testRunner.And("the AI should be 425", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1284
+#line 1296
   testRunner.And("the value should be 826", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1285
+#line 1297
   testRunner.And("the data value should be COUNTRY - DISASSEMBLY", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1286
+#line 1298
   testRunner.And("the description should be Country of disassembly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1287
+#line 1299
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1288
+#line 1300
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -5494,7 +5546,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+N3"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse COUNTRY – FULL PROCESS", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1291
+#line 1303
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -5504,31 +5556,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1292
+#line 1304
  testRunner.Given("the input is 426826", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1293
+#line 1305
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1294
+#line 1306
  testRunner.Then("the entity should be 426", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1295
+#line 1307
      testRunner.And("the AI should be 426", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1296
+#line 1308
   testRunner.And("the value should be 826", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1297
+#line 1309
   testRunner.And("the data value should be COUNTRY – FULL PROCESS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1298
+#line 1310
   testRunner.And("the description should be Country covering full process chain", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1299
+#line 1311
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1300
+#line 1312
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -5545,7 +5597,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+X..3"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse ORIGIN SUBDIVISION", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1303
+#line 1315
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -5555,31 +5607,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1304
+#line 1316
  testRunner.Given("the input is 427ENG", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1305
+#line 1317
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1306
+#line 1318
  testRunner.Then("the entity should be 427", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1307
+#line 1319
      testRunner.And("the AI should be 427", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1308
+#line 1320
   testRunner.And("the value should be ENG", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1309
+#line 1321
   testRunner.And("the data value should be ORIGIN SUBDIVISION", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1310
+#line 1322
   testRunner.And("the description should be Country subdivision of origin code for a trade item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1311
+#line 1323
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1312
+#line 1324
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -5596,7 +5648,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..35"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SHIP TO COMP", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1315
+#line 1327
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -5606,31 +5658,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1316
+#line 1328
  testRunner.Given("the input is 4300Acme+Corp", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1317
+#line 1329
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1318
+#line 1330
  testRunner.Then("the entity should be 4300", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1319
+#line 1331
      testRunner.And("the AI should be 4300", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1320
+#line 1332
   testRunner.And("the value should be Acme+Corp", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1321
+#line 1333
   testRunner.And("the data value should be SHIP TO COMP", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1322
+#line 1334
   testRunner.And("the description should be Ship-to / Deliver-to Company name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1323
+#line 1335
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1324
+#line 1336
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -5647,7 +5699,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..35"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SHIP TO NAME", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1327
+#line 1339
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -5657,31 +5709,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1328
+#line 1340
  testRunner.Given("the input is 4301John+Smith", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1329
+#line 1341
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1330
+#line 1342
  testRunner.Then("the entity should be 4301", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1331
+#line 1343
      testRunner.And("the AI should be 4301", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1332
+#line 1344
   testRunner.And("the value should be John+Smith", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1333
+#line 1345
   testRunner.And("the data value should be SHIP TO NAME", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1334
+#line 1346
   testRunner.And("the description should be Ship-to / Deliver-to contact name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1335
+#line 1347
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1336
+#line 1348
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -5698,7 +5750,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SHIP TO ADD1", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1339
+#line 1351
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -5708,31 +5760,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1340
+#line 1352
  testRunner.Given("the input is 4302100+Acadia+Avenue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1341
+#line 1353
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1342
+#line 1354
  testRunner.Then("the entity should be 4302", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1343
+#line 1355
      testRunner.And("the AI should be 4302", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1344
+#line 1356
   testRunner.And("the value should be 100+Acadia+Avenue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1345
+#line 1357
   testRunner.And("the data value should be SHIP TO ADD1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1346
+#line 1358
   testRunner.And("the description should be Ship-to / Deliver-to address line 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1347
+#line 1359
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1348
+#line 1360
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -5749,7 +5801,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SHIP TO ADD2", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1351
+#line 1363
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -5759,31 +5811,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1352
+#line 1364
  testRunner.Given("the input is 4303Noborough", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1353
+#line 1365
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1354
+#line 1366
  testRunner.Then("the entity should be 4303", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1355
+#line 1367
      testRunner.And("the AI should be 4303", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1356
+#line 1368
   testRunner.And("the value should be Noborough", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1357
+#line 1369
   testRunner.And("the data value should be SHIP TO ADD2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1358
+#line 1370
   testRunner.And("the description should be Ship-to / Deliver-to address line 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1359
+#line 1371
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1360
+#line 1372
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -5800,7 +5852,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SHIP TO SUB", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1363
+#line 1375
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -5810,31 +5862,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1364
+#line 1376
  testRunner.Given("the input is 4304Lower+District", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1365
+#line 1377
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1366
+#line 1378
  testRunner.Then("the entity should be 4304", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1367
+#line 1379
      testRunner.And("the AI should be 4304", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1368
+#line 1380
   testRunner.And("the value should be Lower+District", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1369
+#line 1381
   testRunner.And("the data value should be SHIP TO SUB", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1370
+#line 1382
   testRunner.And("the description should be Ship-to / Deliver-to suburb", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1371
+#line 1383
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1372
+#line 1384
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -5851,7 +5903,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SHIP TO LOCALITY", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1375
+#line 1387
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -5861,31 +5913,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1376
+#line 1388
  testRunner.Given("the input is 4305Anytown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1377
+#line 1389
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1378
+#line 1390
  testRunner.Then("the entity should be 4305", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1379
+#line 1391
      testRunner.And("the AI should be 4305", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1380
+#line 1392
   testRunner.And("the value should be Anytown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1381
+#line 1393
   testRunner.And("the data value should be SHIP TO LOC", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1382
+#line 1394
   testRunner.And("the description should be Ship-to / Deliver-to locality", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1383
+#line 1395
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1384
+#line 1396
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -5902,7 +5954,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SHIP TO REG", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1387
+#line 1399
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -5912,31 +5964,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1388
+#line 1400
  testRunner.Given("the input is 4306United+Kingdom", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1389
+#line 1401
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1390
+#line 1402
  testRunner.Then("the entity should be 4306", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1391
+#line 1403
      testRunner.And("the AI should be 4306", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1392
+#line 1404
   testRunner.And("the value should be United+Kingdom", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1393
+#line 1405
   testRunner.And("the data value should be SHIP TO REG", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1394
+#line 1406
   testRunner.And("the description should be Ship-to / Deliver-to region", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1395
+#line 1407
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1396
+#line 1408
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -5953,7 +6005,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X2"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SHIP TO COUNTRY", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1399
+#line 1411
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -5963,31 +6015,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1400
+#line 1412
  testRunner.Given("the input is 4307GB", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1401
+#line 1413
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1402
+#line 1414
  testRunner.Then("the entity should be 4307", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1403
+#line 1415
      testRunner.And("the AI should be 4307", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1404
+#line 1416
   testRunner.And("the value should be GB", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1405
+#line 1417
   testRunner.And("the data value should be SHIP TO COUNTRY", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1406
+#line 1418
   testRunner.And("the description should be Ship-to / Deliver-to country code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1407
+#line 1419
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1408
+#line 1420
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -6004,7 +6056,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..30"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SHIP TO PHONE", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1411
+#line 1423
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -6014,31 +6066,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1412
+#line 1424
  testRunner.Given("the input is 4308+32-2-788-78-00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1413
+#line 1425
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1414
+#line 1426
  testRunner.Then("the entity should be 4308", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1415
+#line 1427
      testRunner.And("the AI should be 4308", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1416
+#line 1428
   testRunner.And("the value should be +32-2-788-78-00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1417
+#line 1429
   testRunner.And("the data value should be SHIP TO PHONE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1418
+#line 1430
   testRunner.And("the description should be Ship-to / Deliver-to telephone number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1419
+#line 1431
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1420
+#line 1432
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -6055,7 +6107,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SHIP TO GEO", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1423
+#line 1435
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -6065,31 +6117,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1424
+#line 1436
  testRunner.Given("the input is 430902790858483015297971", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1425
+#line 1437
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1426
+#line 1438
  testRunner.Then("the entity should be 4309", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1427
+#line 1439
      testRunner.And("the AI should be 4309", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1428
+#line 1440
   testRunner.And("the value should be 02790858483015297971", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1429
+#line 1441
   testRunner.And("the data value should be SHIP TO GEO", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1430
+#line 1442
   testRunner.And("the description should be Ship-to / Deliver-to GEO location", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1431
+#line 1443
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1432
+#line 1444
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -6106,7 +6158,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..35"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse RTN TO COMP", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1435
+#line 1447
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -6116,31 +6168,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1436
+#line 1448
  testRunner.Given("the input is 4310Acme+Corp", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1437
+#line 1449
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1438
+#line 1450
  testRunner.Then("the entity should be 4310", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1439
+#line 1451
      testRunner.And("the AI should be 4310", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1440
+#line 1452
   testRunner.And("the value should be Acme+Corp", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1441
+#line 1453
   testRunner.And("the data value should be RTN TO COMP", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1442
+#line 1454
   testRunner.And("the description should be Return-to company name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1443
+#line 1455
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1444
+#line 1456
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -6157,7 +6209,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..35"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse RTN TO NAME", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1447
+#line 1459
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -6167,31 +6219,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1448
+#line 1460
  testRunner.Given("the input is 4311John+Smith", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1449
+#line 1461
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1450
+#line 1462
  testRunner.Then("the entity should be 4311", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1451
+#line 1463
      testRunner.And("the AI should be 4311", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1452
+#line 1464
   testRunner.And("the value should be John+Smith", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1453
+#line 1465
   testRunner.And("the data value should be RTN TO NAME", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1454
+#line 1466
   testRunner.And("the description should be Return-to contact name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1455
+#line 1467
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1456
+#line 1468
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -6208,7 +6260,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse RTN TO ADD1", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1459
+#line 1471
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -6218,31 +6270,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1460
+#line 1472
  testRunner.Given("the input is 4312100+Acadia+Avenue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1461
+#line 1473
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1462
+#line 1474
  testRunner.Then("the entity should be 4312", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1463
+#line 1475
      testRunner.And("the AI should be 4312", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1464
+#line 1476
   testRunner.And("the value should be 100+Acadia+Avenue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1465
+#line 1477
   testRunner.And("the data value should be RTN TO ADD1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1466
+#line 1478
   testRunner.And("the description should be Return-to address line 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1467
+#line 1479
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1468
+#line 1480
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -6259,7 +6311,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse RTN TO ADD2", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1471
+#line 1483
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -6269,31 +6321,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1472
+#line 1484
  testRunner.Given("the input is 4313Noborough", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1473
+#line 1485
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1474
+#line 1486
  testRunner.Then("the entity should be 4313", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1475
+#line 1487
      testRunner.And("the AI should be 4313", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1476
+#line 1488
   testRunner.And("the value should be Noborough", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1477
+#line 1489
   testRunner.And("the data value should be RTN TO ADD2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1478
+#line 1490
   testRunner.And("the description should be Return-to address line 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1479
+#line 1491
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1480
+#line 1492
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -6310,7 +6362,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse RTN TO SUB", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1483
+#line 1495
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -6320,31 +6372,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1484
+#line 1496
  testRunner.Given("the input is 4314Lower+District", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1485
+#line 1497
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1486
+#line 1498
  testRunner.Then("the entity should be 4314", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1487
+#line 1499
      testRunner.And("the AI should be 4314", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1488
+#line 1500
   testRunner.And("the value should be Lower+District", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1489
+#line 1501
   testRunner.And("the data value should be RTN TO SUB", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1490
+#line 1502
   testRunner.And("the description should be Return-to suburb", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1491
+#line 1503
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1492
+#line 1504
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -6361,7 +6413,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse RTN TO LOC", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1495
+#line 1507
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -6371,31 +6423,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1496
+#line 1508
  testRunner.Given("the input is 4315Anytown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1497
+#line 1509
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1498
+#line 1510
  testRunner.Then("the entity should be 4315", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1499
+#line 1511
      testRunner.And("the AI should be 4315", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1500
+#line 1512
   testRunner.And("the value should be Anytown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1501
+#line 1513
   testRunner.And("the data value should be RTN TO LOC", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1502
+#line 1514
   testRunner.And("the description should be Return-to locality", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1503
+#line 1515
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1504
+#line 1516
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -6412,7 +6464,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse RTN TO REG", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1507
+#line 1519
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -6422,31 +6474,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1508
+#line 1520
  testRunner.Given("the input is 4316United+Kingdom", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1509
+#line 1521
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1510
+#line 1522
  testRunner.Then("the entity should be 4316", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1511
+#line 1523
      testRunner.And("the AI should be 4316", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1512
+#line 1524
   testRunner.And("the value should be United+Kingdom", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1513
+#line 1525
   testRunner.And("the data value should be RTN TO REG", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1514
+#line 1526
   testRunner.And("the description should be Return-to region", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1515
+#line 1527
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1516
+#line 1528
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -6463,7 +6515,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X2"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse RTN TO COUNTRY", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1519
+#line 1531
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -6473,31 +6525,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1520
+#line 1532
  testRunner.Given("the input is 4317GB", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1521
+#line 1533
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1522
+#line 1534
  testRunner.Then("the entity should be 4317", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1523
+#line 1535
      testRunner.And("the AI should be 4317", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1524
+#line 1536
   testRunner.And("the value should be GB", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1525
+#line 1537
   testRunner.And("the data value should be RTN TO COUNTRY", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1526
+#line 1538
   testRunner.And("the description should be Return-to country code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1527
+#line 1539
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1528
+#line 1540
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -6514,7 +6566,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse RTN TO POST", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1531
+#line 1543
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -6524,31 +6576,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1532
+#line 1544
  testRunner.Given("the input is 4318SE220PF", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1533
+#line 1545
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1534
+#line 1546
  testRunner.Then("the entity should be 4318", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1535
+#line 1547
      testRunner.And("the AI should be 4318", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1536
+#line 1548
   testRunner.And("the value should be SE220PF", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1537
+#line 1549
   testRunner.And("the data value should be RTN TO POST", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1538
+#line 1550
   testRunner.And("the description should be Return-to postal code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1539
+#line 1551
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1540
+#line 1552
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -6565,7 +6617,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..30"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse RTN TO PHONE", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1543
+#line 1555
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -6575,31 +6627,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1544
+#line 1556
  testRunner.Given("the input is 4319+32-2-788-78-00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1545
+#line 1557
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1546
+#line 1558
  testRunner.Then("the entity should be 4319", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1547
+#line 1559
      testRunner.And("the AI should be 4319", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1548
+#line 1560
   testRunner.And("the value should be +32-2-788-78-00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1549
+#line 1561
   testRunner.And("the data value should be RTN TO PHONE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1550
+#line 1562
   testRunner.And("the description should be Return-to telephone number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1551
+#line 1563
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1552
+#line 1564
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -6616,7 +6668,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..35"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SRV DESCRIPTION", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1555
+#line 1567
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -6626,31 +6678,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1556
+#line 1568
  testRunner.Given("the input is 4320Service+code+description+12345", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1557
+#line 1569
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1558
+#line 1570
  testRunner.Then("the entity should be 4320", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1559
+#line 1571
      testRunner.And("the AI should be 4320", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1560
+#line 1572
   testRunner.And("the value should be Service+code+description+12345", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1561
+#line 1573
   testRunner.And("the data value should be SRV DESCRIPTION", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1562
+#line 1574
   testRunner.And("the description should be Service code description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1563
+#line 1575
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1564
+#line 1576
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -6667,7 +6719,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N1"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse DANGEROUS GOODS", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1567
+#line 1579
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -6677,31 +6729,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1568
+#line 1580
  testRunner.Given("the input is 43211", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1569
+#line 1581
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1570
+#line 1582
  testRunner.Then("the entity should be 4321", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1571
+#line 1583
      testRunner.And("the AI should be 4321", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1572
+#line 1584
   testRunner.And("the value should be 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1573
+#line 1585
   testRunner.And("the data value should be DANGEROUS GOODS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1574
+#line 1586
   testRunner.And("the description should be Dangerous goods flag", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1575
+#line 1587
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1576
+#line 1588
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -6718,7 +6770,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N1"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse AUTH LEAVE", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1579
+#line 1591
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -6728,31 +6780,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1580
+#line 1592
  testRunner.Given("the input is 43221", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1581
+#line 1593
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1582
+#line 1594
  testRunner.Then("the entity should be 4322", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1583
+#line 1595
      testRunner.And("the AI should be 4322", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1584
+#line 1596
   testRunner.And("the value should be 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1585
+#line 1597
   testRunner.And("the data value should be AUTH LEAVE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1586
+#line 1598
   testRunner.And("the description should be Authority to leave flag", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1587
+#line 1599
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1588
+#line 1600
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -6769,7 +6821,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N1"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SIG REQUIRED", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1591
+#line 1603
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -6779,31 +6831,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1592
+#line 1604
  testRunner.Given("the input is 43231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1593
+#line 1605
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1594
+#line 1606
  testRunner.Then("the entity should be 4323", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1595
+#line 1607
      testRunner.And("the AI should be 4323", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1596
+#line 1608
   testRunner.And("the value should be 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1597
+#line 1609
   testRunner.And("the data value should be SIG REQUIRED", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1598
+#line 1610
   testRunner.And("the description should be Signature required flag", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1599
+#line 1611
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1600
+#line 1612
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -6820,7 +6872,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N10"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse NBEF DEL DT", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1603
+#line 1615
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -6830,31 +6882,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1604
+#line 1616
  testRunner.Given("the input is 43242312310900", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1605
+#line 1617
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1606
+#line 1618
  testRunner.Then("the entity should be 4324", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1607
+#line 1619
      testRunner.And("the AI should be 4324", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1608
+#line 1620
   testRunner.And("the value should be 2312310900", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1609
+#line 1621
   testRunner.And("the data value should be NBEF DEL DT", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1610
+#line 1622
   testRunner.And("the description should be Not before delivery date/time", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1611
+#line 1623
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1612
+#line 1624
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -6871,7 +6923,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N10"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse NAFT DEL DT", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1615
+#line 1627
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -6881,31 +6933,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1616
+#line 1628
  testRunner.Given("the input is 43252312311700", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1617
+#line 1629
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1618
+#line 1630
  testRunner.Then("the entity should be 4325", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1619
+#line 1631
      testRunner.And("the AI should be 4325", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1620
+#line 1632
   testRunner.And("the value should be 2312311700", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1621
+#line 1633
   testRunner.And("the data value should be NAFT DEL DT", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1622
+#line 1634
   testRunner.And("the description should be Not after delivery date/time", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1623
+#line 1635
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1624
+#line 1636
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -6922,7 +6974,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse REL DATE", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1627
+#line 1639
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -6932,31 +6984,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1628
+#line 1640
  testRunner.Given("the input is 4326231231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1629
+#line 1641
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1630
+#line 1642
  testRunner.Then("the entity should be 4326", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1631
+#line 1643
      testRunner.And("the AI should be 4326", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1632
+#line 1644
   testRunner.And("the value should be 231231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1633
+#line 1645
   testRunner.And("the data value should be REL DATE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1634
+#line 1646
   testRunner.And("the description should be Release date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1635
+#line 1647
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1636
+#line 1648
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -6973,7 +7025,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6+[-]"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse MAX TEMP F", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1639
+#line 1651
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -6983,31 +7035,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1640
+#line 1652
  testRunner.Given("the input is 4330023020", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1641
+#line 1653
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1642
+#line 1654
  testRunner.Then("the entity should be 4330", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1643
+#line 1655
      testRunner.And("the AI should be 4330", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1644
+#line 1656
   testRunner.And("the value should be 023020", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1645
+#line 1657
   testRunner.And("the data value should be MAX TEMP F", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1646
+#line 1658
   testRunner.And("the description should be Maximum temperature in Fahrenheit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1647
+#line 1659
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1648
+#line 1660
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -7024,7 +7076,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6+[-]"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse MAX TEMP C", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1651
+#line 1663
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -7034,31 +7086,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1652
+#line 1664
  testRunner.Given("the input is 4331000090", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1653
+#line 1665
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1654
+#line 1666
  testRunner.Then("the entity should be 4331", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1655
+#line 1667
      testRunner.And("the AI should be 4331", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1656
+#line 1668
   testRunner.And("the value should be 000090", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1657
+#line 1669
   testRunner.And("the data value should be MAX TEMP C", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1658
+#line 1670
   testRunner.And("the description should be Maximum temperature in Celsius", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1659
+#line 1671
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1660
+#line 1672
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -7075,7 +7127,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6+[-]"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse MIN TEMP F", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1663
+#line 1675
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -7085,31 +7137,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1664
+#line 1676
  testRunner.Given("the input is 4332023020", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1665
+#line 1677
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1666
+#line 1678
  testRunner.Then("the entity should be 4332", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1667
+#line 1679
      testRunner.And("the AI should be 4332", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1668
+#line 1680
   testRunner.And("the value should be 023020", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1669
+#line 1681
   testRunner.And("the data value should be MIN TEMP F", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1670
+#line 1682
   testRunner.And("the description should be Minimum temperature in Fahrenheit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1671
+#line 1683
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1672
+#line 1684
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -7126,7 +7178,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6+[-]"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse MIN TEMP C", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1675
+#line 1687
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -7136,31 +7188,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1676
+#line 1688
  testRunner.Given("the input is 4333000090", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1677
+#line 1689
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1678
+#line 1690
  testRunner.Then("the entity should be 4333", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1679
+#line 1691
      testRunner.And("the AI should be 4333", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1680
+#line 1692
   testRunner.And("the value should be 000090", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1681
+#line 1693
   testRunner.And("the data value should be MIN TEMP C", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1682
+#line 1694
   testRunner.And("the description should be Minimum temperature in Celsius", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1683
+#line 1695
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1684
+#line 1696
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -7177,7 +7229,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6+[-]"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse negative MAX TEMP F", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1687
+#line 1699
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -7187,31 +7239,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1688
+#line 1700
  testRunner.Given("the input is 4330000250-", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1689
+#line 1701
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1690
+#line 1702
  testRunner.Then("the entity should be 4330", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1691
+#line 1703
      testRunner.And("the AI should be 4330", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1692
+#line 1704
   testRunner.And("the value should be 000250-", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1693
+#line 1705
   testRunner.And("the data value should be MAX TEMP F", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1694
+#line 1706
   testRunner.And("the description should be Maximum temperature in Fahrenheit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1695
+#line 1707
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1696
+#line 1708
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -7228,7 +7280,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6+[-]"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse negative MAX TEMP C", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1699
+#line 1711
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -7238,31 +7290,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1700
+#line 1712
  testRunner.Given("the input is 4331001000-", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1701
+#line 1713
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1702
+#line 1714
  testRunner.Then("the entity should be 4331", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1703
+#line 1715
      testRunner.And("the AI should be 4331", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1704
+#line 1716
   testRunner.And("the value should be 001000-", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1705
+#line 1717
   testRunner.And("the data value should be MAX TEMP C", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1706
+#line 1718
   testRunner.And("the description should be Maximum temperature in Celsius", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1707
+#line 1719
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1708
+#line 1720
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -7279,7 +7331,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6+[-]"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse negative MIN TEMP F", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1711
+#line 1723
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -7289,31 +7341,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1712
+#line 1724
  testRunner.Given("the input is 4332000250-", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1713
+#line 1725
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1714
+#line 1726
  testRunner.Then("the entity should be 4332", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1715
+#line 1727
      testRunner.And("the AI should be 4332", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1716
+#line 1728
   testRunner.And("the value should be 000250-", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1717
+#line 1729
   testRunner.And("the data value should be MIN TEMP F", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1718
+#line 1730
   testRunner.And("the description should be Minimum temperature in Fahrenheit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1719
+#line 1731
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1720
+#line 1732
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -7330,7 +7382,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6+[-]"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse negative MIN TEMP C", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1723
+#line 1735
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -7340,31 +7392,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1724
+#line 1736
  testRunner.Given("the input is 4333001000-", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1725
+#line 1737
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1726
+#line 1738
  testRunner.Then("the entity should be 4333", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1727
+#line 1739
      testRunner.And("the AI should be 4333", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1728
+#line 1740
   testRunner.And("the value should be 001000-", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1729
+#line 1741
   testRunner.And("the data value should be MIN TEMP C", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1730
+#line 1742
   testRunner.And("the description should be Minimum temperature in Celsius", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1731
+#line 1743
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1732
+#line 1744
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -7381,7 +7433,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N13"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse NSN", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1735
+#line 1747
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -7391,31 +7443,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1736
+#line 1748
  testRunner.Given("the input is 70015310997032519", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1737
+#line 1749
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1738
+#line 1750
  testRunner.Then("the entity should be 7001", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1739
+#line 1751
      testRunner.And("the AI should be 7001", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1740
+#line 1752
   testRunner.And("the value should be 5310997032519", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1741
+#line 1753
   testRunner.And("the data value should be NSN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1742
+#line 1754
   testRunner.And("the description should be NATO Stock Number (NSN)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1743
+#line 1755
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1744
+#line 1756
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -7432,7 +7484,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..30"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse MEAT CUT", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1747
+#line 1759
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -7442,31 +7494,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1748
+#line 1760
  testRunner.Given("the input is 700244932211340000145100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1749
+#line 1761
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1750
+#line 1762
  testRunner.Then("the entity should be 7002", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1751
+#line 1763
      testRunner.And("the AI should be 7002", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1752
+#line 1764
   testRunner.And("the value should be 44932211340000145100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1753
+#line 1765
   testRunner.And("the data value should be MEAT CUT", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1754
+#line 1766
   testRunner.And("the description should be UNECE meat carcasses and cuts classification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1755
+#line 1767
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1756
+#line 1768
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -7483,7 +7535,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N10"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse EXPIRY TIME", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1759
+#line 1771
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -7493,31 +7545,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1760
+#line 1772
  testRunner.Given("the input is 70032312312359", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1761
+#line 1773
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1762
+#line 1774
  testRunner.Then("the entity should be 7003", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1763
+#line 1775
      testRunner.And("the AI should be 7003", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1764
+#line 1776
   testRunner.And("the value should be 2312312359", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1765
+#line 1777
   testRunner.And("the data value should be EXPIRY TIME", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1766
+#line 1778
   testRunner.And("the description should be Expiration date and time", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1767
+#line 1779
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1768
+#line 1780
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -7534,7 +7586,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N..4"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse ACTIVE POTENCY", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1771
+#line 1783
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -7544,31 +7596,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1772
+#line 1784
  testRunner.Given("the input is 70043001", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1773
+#line 1785
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1774
+#line 1786
  testRunner.Then("the entity should be 7004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1775
+#line 1787
      testRunner.And("the AI should be 7004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1776
+#line 1788
   testRunner.And("the value should be 3001", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1777
+#line 1789
   testRunner.And("the data value should be ACTIVE POTENCY", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1778
+#line 1790
   testRunner.And("the description should be Active potency", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1779
+#line 1791
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1780
+#line 1792
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -7585,7 +7637,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..12"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse CATCH AREA", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1783
+#line 1795
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -7595,31 +7647,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1784
+#line 1796
  testRunner.Given("the input is 700527.6.b.1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1785
+#line 1797
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1786
+#line 1798
  testRunner.Then("the entity should be 7005", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1787
+#line 1799
      testRunner.And("the AI should be 7005", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1788
+#line 1800
   testRunner.And("the value should be 27.6.b.1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1789
+#line 1801
   testRunner.And("the data value should be CATCH AREA", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1790
+#line 1802
   testRunner.And("the description should be Catch area", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1791
+#line 1803
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1792
+#line 1804
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -7636,7 +7688,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse FIRST FREEZE DATE", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1795
+#line 1807
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -7646,31 +7698,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1796
+#line 1808
  testRunner.Given("the input is 7006231231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1797
+#line 1809
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1798
+#line 1810
  testRunner.Then("the entity should be 7006", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1799
+#line 1811
      testRunner.And("the AI should be 7006", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1800
+#line 1812
   testRunner.And("the value should be 231231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1801
+#line 1813
   testRunner.And("the data value should be FIRST FREEZE DATE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1802
+#line 1814
   testRunner.And("the description should be First freeze date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1803
+#line 1815
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1804
+#line 1816
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -7687,7 +7739,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6[+N6]"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse HARVEST DATE", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1807
+#line 1819
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -7697,31 +7749,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1808
+#line 1820
  testRunner.Given("the input is 7007230801230831", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1809
+#line 1821
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1810
+#line 1822
  testRunner.Then("the entity should be 7007", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1811
+#line 1823
      testRunner.And("the AI should be 7007", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1812
+#line 1824
   testRunner.And("the value should be 230801230831", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1813
+#line 1825
   testRunner.And("the data value should be HARVEST DATE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1814
+#line 1826
   testRunner.And("the description should be Harvest date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1815
+#line 1827
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1816
+#line 1828
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -7738,7 +7790,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..3"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse AQUATIC SPECIES", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1819
+#line 1831
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -7748,31 +7800,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1820
+#line 1832
  testRunner.Given("the input is 7008BWQ", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1821
+#line 1833
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1822
+#line 1834
  testRunner.Then("the entity should be 7008", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1823
+#line 1835
      testRunner.And("the AI should be 7008", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1824
+#line 1836
   testRunner.And("the value should be BWQ", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1825
+#line 1837
   testRunner.And("the data value should be AQUATIC SPECIES", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1826
+#line 1838
   testRunner.And("the description should be Species for fishery purposes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1827
+#line 1839
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1828
+#line 1840
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -7789,7 +7841,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..10"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse FISHING GEAR TYPE", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1831
+#line 1843
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -7799,31 +7851,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1832
+#line 1844
  testRunner.Given("the input is 700901.1.1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1833
+#line 1845
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1834
+#line 1846
  testRunner.Then("the entity should be 7009", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1835
+#line 1847
      testRunner.And("the AI should be 7009", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1836
+#line 1848
   testRunner.And("the value should be 01.1.1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1837
+#line 1849
   testRunner.And("the data value should be FISHING GEAR TYPE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1838
+#line 1850
   testRunner.And("the description should be Fishing gear type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1839
+#line 1851
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1840
+#line 1852
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -7840,7 +7892,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..2"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse PROD METHOD", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1843
+#line 1855
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -7850,31 +7902,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1844
+#line 1856
  testRunner.Given("the input is 701001", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1845
+#line 1857
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1846
+#line 1858
  testRunner.Then("the entity should be 7010", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1847
+#line 1859
      testRunner.And("the AI should be 7010", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1848
+#line 1860
   testRunner.And("the value should be 01", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1849
+#line 1861
   testRunner.And("the data value should be PROD METHOD", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1850
+#line 1862
   testRunner.And("the description should be Production method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1851
+#line 1863
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1852
+#line 1864
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -7891,7 +7943,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6[+N4]"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse TEST BY DATE", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1855
+#line 1867
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -7901,31 +7953,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1856
+#line 1868
  testRunner.Given("the input is 70112312311200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1857
+#line 1869
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1858
+#line 1870
  testRunner.Then("the entity should be 7011", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1859
+#line 1871
      testRunner.And("the AI should be 7011", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1860
+#line 1872
   testRunner.And("the value should be 2312311200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1861
+#line 1873
   testRunner.And("the data value should be TEST BY DATE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1862
+#line 1874
   testRunner.And("the description should be Test by date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1863
+#line 1875
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1864
+#line 1876
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -7942,7 +7994,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse REFURB LOT", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1867
+#line 1879
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -7952,31 +8004,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1868
+#line 1880
  testRunner.Given("the input is 7020ABC123DE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1869
+#line 1881
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1870
+#line 1882
  testRunner.Then("the entity should be 7020", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1871
+#line 1883
      testRunner.And("the AI should be 7020", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1872
+#line 1884
   testRunner.And("the value should be ABC123DE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1873
+#line 1885
   testRunner.And("the data value should be REFURB LOT", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1874
+#line 1886
   testRunner.And("the description should be Refurbishment lot ID", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1875
+#line 1887
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1876
+#line 1888
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -7993,7 +8045,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse FUNC STAT", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1879
+#line 1891
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8003,31 +8055,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1880
+#line 1892
  testRunner.Given("the input is 7021Functional+status+01", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1881
+#line 1893
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1882
+#line 1894
  testRunner.Then("the entity should be 7021", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1883
+#line 1895
      testRunner.And("the AI should be 7021", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1884
+#line 1896
   testRunner.And("the value should be Functional+status+01", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1885
+#line 1897
   testRunner.And("the data value should be FUNC STAT", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1886
+#line 1898
   testRunner.And("the description should be Functional status", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1887
+#line 1899
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1888
+#line 1900
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -8044,7 +8096,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse REV STAT", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1891
+#line 1903
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8054,31 +8106,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1892
+#line 1904
  testRunner.Given("the input is 7022Revision+status+01", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1893
+#line 1905
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1894
+#line 1906
  testRunner.Then("the entity should be 7022", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1895
+#line 1907
      testRunner.And("the AI should be 7022", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1896
+#line 1908
   testRunner.And("the value should be Revision+status+01", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1897
+#line 1909
   testRunner.And("the data value should be REV STAT", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1898
+#line 1910
   testRunner.And("the description should be Revision status", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1899
+#line 1911
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1900
+#line 1912
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -8095,7 +8147,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..30"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse GIAI – ASSEMBLY", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1903
+#line 1915
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8105,31 +8157,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1904
+#line 1916
  testRunner.Given("the input is 7023506091751ASSET+0001", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1905
+#line 1917
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1906
+#line 1918
  testRunner.Then("the entity should be 7023", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1907
+#line 1919
      testRunner.And("the AI should be 7023", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1908
+#line 1920
   testRunner.And("the value should be 506091751ASSET+0001", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1909
+#line 1921
   testRunner.And("the data value should be GIAI – ASSEMBLY", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1910
+#line 1922
   testRunner.And("the description should be Global Individual Asset Identifier of an assembly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1911
+#line 1923
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1912
+#line 1924
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -8146,7 +8198,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N3+X..27"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse PROCESSOR # s", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1915
+#line 1927
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8156,34 +8208,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1916
+#line 1928
  testRunner.Given("the input is 7030826FSSC+22000+-+00020281", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1917
+#line 1929
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1918
+#line 1930
  testRunner.Then("the entity should be 703", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1919
+#line 1931
      testRunner.And("the AI should be 7030", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1920
+#line 1932
   testRunner.And("the sequence number should be 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1921
+#line 1933
   testRunner.And("the value should be 826FSSC+22000+-+00020281", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1922
+#line 1934
   testRunner.And("the data value should be PROCESSOR # s", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1923
+#line 1935
   testRunner.And("the description should be Number of processor with three-digit ISO country code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1924
+#line 1936
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1925
+#line 1937
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -8200,7 +8252,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N1+X3"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse UIC+EXT", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1928
+#line 1940
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8210,31 +8262,82 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1929
+#line 1941
  testRunner.Given("the input is 70403PA_", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1930
+#line 1942
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1931
+#line 1943
  testRunner.Then("the entity should be 7040", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1932
+#line 1944
      testRunner.And("the AI should be 7040", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1933
+#line 1945
   testRunner.And("the value should be 3PA_", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1934
+#line 1946
   testRunner.And("the data value should be UIC+EXT", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1935
+#line 1947
   testRunner.And("the description should be GS1 UIC with Extension 1 and Importer index", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1936
+#line 1948
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1937
+#line 1949
+  testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse UFRGT UNIT TYPE")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse UFRGT UNIT TYPE")]
+        [Xunit.TraitAttribute("Category", "N4+N1..X4")]
+        public void ParseUFRGTUNITTYPE()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+N1..X4"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse UFRGT UNIT TYPE", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 1952
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 1953
+ testRunner.Given("the input is 70411A", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 1954
+ testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 1955
+ testRunner.Then("the entity should be 7041", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 1956
+     testRunner.And("the AI should be 7041", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 1957
+  testRunner.And("the value should be 1A", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 1958
+  testRunner.And("the data value should be UFRGT UNIT TYPE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 1959
+  testRunner.And("the description should be UN/CEFACT freight unit type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 1960
+  testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 1961
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -8251,7 +8354,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse NHRN PZN", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1940
+#line 1964
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8261,32 +8364,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1941
+#line 1965
  testRunner.Given("the input is 7103675419", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1942
+#line 1966
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1943
+#line 1967
  testRunner.Then("the entity should be 710", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1944
+#line 1968
      testRunner.And("the AI should be 710", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1945
+#line 1969
   testRunner.And("the value should be 3675419", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1946
+#line 1970
   testRunner.And("the data value should be NHRN PZN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1947
+#line 1971
   testRunner.And("the description should be National Healthcare Reimbursement Number (NHRN) - Germa" +
                         "ny PZN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1948
+#line 1972
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1949
+#line 1973
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -8303,7 +8406,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse NHRN CIP", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1952
+#line 1976
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8313,32 +8416,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1953
+#line 1977
  testRunner.Given("the input is 7113400935974419", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1954
+#line 1978
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1955
+#line 1979
  testRunner.Then("the entity should be 711", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1956
+#line 1980
      testRunner.And("the AI should be 711", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1957
+#line 1981
   testRunner.And("the value should be 3400935974419", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1958
+#line 1982
   testRunner.And("the data value should be NHRN CIP", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1959
+#line 1983
   testRunner.And("the description should be National Healthcare Reimbursement Number (NHRN) - Franc" +
                         "e CIP", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1960
+#line 1984
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1961
+#line 1985
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -8355,7 +8458,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse NHRN CN", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1964
+#line 1988
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8365,32 +8468,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1965
+#line 1989
  testRunner.Given("the input is 712384756.8", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1966
+#line 1990
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1967
+#line 1991
  testRunner.Then("the entity should be 712", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1968
+#line 1992
      testRunner.And("the AI should be 712", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1969
+#line 1993
   testRunner.And("the value should be 384756.8", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1970
+#line 1994
   testRunner.And("the data value should be NHRN CN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1971
+#line 1995
   testRunner.And("the description should be National Healthcare Reimbursement Number (NHRN) - Spain" +
                         " CN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1972
+#line 1996
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1973
+#line 1997
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -8407,7 +8510,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse NHRN DRN", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1976
+#line 2000
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8417,32 +8520,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1977
+#line 2001
  testRunner.Given("the input is 71340056320000011", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1978
+#line 2002
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1979
+#line 2003
  testRunner.Then("the entity should be 713", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1980
+#line 2004
      testRunner.And("the AI should be 713", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1981
+#line 2005
   testRunner.And("the value should be 40056320000011", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1982
+#line 2006
   testRunner.And("the data value should be NHRN DRN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1983
+#line 2007
   testRunner.And("the description should be National Healthcare Reimbursement Number (NHRN) - Brasi" +
                         "l DRN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1984
+#line 2008
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1985
+#line 2009
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -8459,7 +8562,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse NHRN AIM", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 1988
+#line 2012
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8469,32 +8572,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 1989
+#line 2013
  testRunner.Given("the input is 714142199", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 1990
+#line 2014
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 1991
+#line 2015
  testRunner.Then("the entity should be 714", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 1992
+#line 2016
      testRunner.And("the AI should be 714", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1993
+#line 2017
   testRunner.And("the value should be 142199", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1994
+#line 2018
   testRunner.And("the data value should be NHRN AIM", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1995
+#line 2019
   testRunner.And("the description should be National Healthcare Reimbursement Number (NHRN) - Portu" +
                         "gal AIM", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1996
+#line 2020
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 1997
+#line 2021
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -8511,7 +8614,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N3+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse NHRN NDC", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2000
+#line 2024
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8521,32 +8624,84 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2001
+#line 2025
  testRunner.Given("the input is 7150777310502", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2002
+#line 2026
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2003
+#line 2027
  testRunner.Then("the entity should be 715", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2004
+#line 2028
      testRunner.And("the AI should be 715", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2005
+#line 2029
   testRunner.And("the value should be 0777310502", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2006
+#line 2030
   testRunner.And("the data value should be NHRN NDC", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2007
+#line 2031
   testRunner.And("the description should be National Healthcare Reimbursement Number (NHRN) - Unite" +
                         "d States of America NDC", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2008
+#line 2032
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2009
+#line 2033
+  testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse NHRN AIC")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse NHRN AIC")]
+        [Xunit.TraitAttribute("Category", "N3+X..20")]
+        public void ParseNHRNAIC()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N3+X..20"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse NHRN AIC", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2036
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 2037
+ testRunner.Given("the input is 716A012345676", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 2038
+ testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 2039
+ testRunner.Then("the entity should be 716", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 2040
+     testRunner.And("the AI should be 716", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2041
+  testRunner.And("the value should be A012345676", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2042
+  testRunner.And("the data value should be NHRN AIC", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2043
+  testRunner.And("the description should be National Healthcare Reimbursement Number (NHRN) – Italy" +
+                        " AIC", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2044
+  testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2045
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -8563,7 +8718,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X2+X..28"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse CERT # s", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2012
+#line 2048
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8573,34 +8728,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2013
+#line 2049
  testRunner.Given("the input is 7230EMBABT-MED00108", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2014
+#line 2050
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2015
+#line 2051
  testRunner.Then("the entity should be 723", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2016
+#line 2052
      testRunner.And("the AI should be 7230", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2017
+#line 2053
   testRunner.And("the sequence number should be 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2018
+#line 2054
   testRunner.And("the value should be EMBABT-MED00108", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2019
+#line 2055
   testRunner.And("the data value should be CERT # s", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2020
+#line 2056
   testRunner.And("the description should be Certification reference", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2021
+#line 2057
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2022
+#line 2058
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -8617,7 +8772,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse PROTOCOL", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2025
+#line 2061
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8627,31 +8782,541 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2026
+#line 2062
  testRunner.Given("the input is 7240CACZ885N2301E2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2027
+#line 2063
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2028
+#line 2064
  testRunner.Then("the entity should be 7240", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2029
+#line 2065
      testRunner.And("the AI should be 7240", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2030
+#line 2066
   testRunner.And("the value should be CACZ885N2301E2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2031
+#line 2067
   testRunner.And("the data value should be PROTOCOL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2032
+#line 2068
   testRunner.And("the description should be Protocol ID", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2033
+#line 2069
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2034
+#line 2070
+  testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse DOB")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse DOB")]
+        [Xunit.TraitAttribute("Category", "N4+N8")]
+        public void ParseDOB()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+N8"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse DOB", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2073
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 2074
+ testRunner.Given("the input is 725020240214", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 2075
+ testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 2076
+ testRunner.Then("the entity should be 7250", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 2077
+     testRunner.And("the AI should be 7250", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2078
+  testRunner.And("the value should be 20240214", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2079
+  testRunner.And("the data value should be DOB", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2080
+  testRunner.And("the description should be Date of birth", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2081
+  testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2082
+  testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse DOB TIME")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse DOB TIME")]
+        [Xunit.TraitAttribute("Category", "N4+N12")]
+        public void ParseDOBTIME()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+N12"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse DOB TIME", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2085
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 2086
+ testRunner.Given("the input is 7251202402141743", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 2087
+ testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 2088
+ testRunner.Then("the entity should be 7251", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 2089
+     testRunner.And("the AI should be 7251", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2090
+  testRunner.And("the value should be 202402141743", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2091
+  testRunner.And("the data value should be DOB TIME", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2092
+  testRunner.And("the description should be Date and time of birth", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2093
+  testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2094
+  testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse BIO SEX")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse BIO SEX")]
+        [Xunit.TraitAttribute("Category", "N4+N1")]
+        public void ParseBIOSEX()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+N1"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse BIO SEX", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2097
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 2098
+ testRunner.Given("the input is 72521", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 2099
+ testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 2100
+ testRunner.Then("the entity should be 7252", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 2101
+     testRunner.And("the AI should be 7252", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2102
+  testRunner.And("the value should be 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2103
+  testRunner.And("the data value should be BIO SEX", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2104
+  testRunner.And("the description should be Biological sex", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2105
+  testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2106
+  testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse FAMILY NAME")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse FAMILY NAME")]
+        [Xunit.TraitAttribute("Category", "N4+X..40")]
+        public void ParseFAMILYNAME()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+X..40"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse FAMILY NAME", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2109
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 2110
+ testRunner.Given("the input is 7253Doe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 2111
+ testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 2112
+ testRunner.Then("the entity should be 7253", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 2113
+     testRunner.And("the AI should be 7253", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2114
+  testRunner.And("the value should be Doe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2115
+  testRunner.And("the data value should be FAMILY NAME", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2116
+  testRunner.And("the description should be Family name of person", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2117
+  testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2118
+  testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse GIVEN NAME")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse GIVEN NAME")]
+        [Xunit.TraitAttribute("Category", "N4+X..40")]
+        public void ParseGIVENNAME()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+X..40"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse GIVEN NAME", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2121
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 2122
+ testRunner.Given("the input is 7254John", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 2123
+ testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 2124
+ testRunner.Then("the entity should be 7254", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 2125
+     testRunner.And("the AI should be 7254", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2126
+  testRunner.And("the value should be John", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2127
+  testRunner.And("the data value should be GIVEN NAME", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2128
+  testRunner.And("the description should be Given name of person", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2129
+  testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2130
+  testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse SUFFIX")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse SUFFIX")]
+        [Xunit.TraitAttribute("Category", "N4+X..10")]
+        public void ParseSUFFIX()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+X..10"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SUFFIX", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2133
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 2134
+ testRunner.Given("the input is 7255Junior", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 2135
+ testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 2136
+ testRunner.Then("the entity should be 7255", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 2137
+     testRunner.And("the AI should be 7255", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2138
+  testRunner.And("the value should be Junior", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2139
+  testRunner.And("the data value should be SUFFIX", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2140
+  testRunner.And("the description should be Name suffix of person", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2141
+  testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2142
+  testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse FULL NAME")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse FULL NAME")]
+        [Xunit.TraitAttribute("Category", "N4+X..90")]
+        public void ParseFULLNAME()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+X..90"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse FULL NAME", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2145
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 2146
+ testRunner.Given("the input is 7256Doe,John,Junior", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 2147
+ testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 2148
+ testRunner.Then("the entity should be 7256", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 2149
+     testRunner.And("the AI should be 7256", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2150
+  testRunner.And("the value should be Doe,John,Junior", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2151
+  testRunner.And("the data value should be FULL NAME", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2152
+  testRunner.And("the description should be Full name of person", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2153
+  testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2154
+  testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse PERSON ADDR")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse PERSON ADDR")]
+        [Xunit.TraitAttribute("Category", "N4+X..70")]
+        public void ParsePERSONADDR()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+X..70"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse PERSON ADDR", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2157
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 2158
+ testRunner.Given("the input is 7257123+Main+St,+Anytown,+Anyregion,+12345", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 2159
+ testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 2160
+ testRunner.Then("the entity should be 7257", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 2161
+     testRunner.And("the AI should be 7257", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2162
+  testRunner.And("the value should be 123+Main+St,+Anytown,+Anyregion,+12345", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2163
+  testRunner.And("the data value should be PERSON ADDR", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2164
+  testRunner.And("the description should be Address of person", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2165
+  testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2166
+  testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse BIRTH SEQUENCE")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse BIRTH SEQUENCE")]
+        [Xunit.TraitAttribute("Category", "N4+N1+X1+N1")]
+        public void ParseBIRTHSEQUENCE()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+N1+X1+N1"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse BIRTH SEQUENCE", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2169
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 2170
+ testRunner.Given("the input is 72582/3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 2171
+ testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 2172
+ testRunner.Then("the entity should be 7258", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 2173
+     testRunner.And("the AI should be 7258", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2174
+  testRunner.And("the value should be 2/3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2175
+  testRunner.And("the data value should be BIRTH SEQUENCE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2176
+  testRunner.And("the description should be Baby birth sequence indicator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2177
+  testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2178
+  testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse BABY")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse BABY")]
+        [Xunit.TraitAttribute("Category", "N4+X..40")]
+        public void ParseBABY()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+X..40"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse BABY", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2181
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 2182
+ testRunner.Given("the input is 7259Alice+Betty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 2183
+ testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 2184
+ testRunner.Then("the entity should be 7259", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 2185
+     testRunner.And("the AI should be 7259", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2186
+  testRunner.And("the value should be Alice+Betty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2187
+  testRunner.And("the data value should be BABY", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2188
+  testRunner.And("the description should be Baby of family name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2189
+  testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2190
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -8668,7 +9333,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N2"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse AIDC MEDIA TYPE", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2037
+#line 2193
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8678,31 +9343,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2038
+#line 2194
  testRunner.Given("the input is 724105", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2039
+#line 2195
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2040
+#line 2196
  testRunner.Then("the entity should be 7241", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2041
+#line 2197
      testRunner.And("the AI should be 7241", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2042
+#line 2198
   testRunner.And("the value should be 05", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2043
+#line 2199
   testRunner.And("the data value should be AIDC MEDIA TYPE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2044
+#line 2200
   testRunner.And("the description should be AIDC media type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2045
+#line 2201
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2046
+#line 2202
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -8719,7 +9384,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..25"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse VCN", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2049
+#line 2205
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8729,31 +9394,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2050
+#line 2206
  testRunner.Given("the input is 7242094672AG22L44", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2051
+#line 2207
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2052
+#line 2208
  testRunner.Then("the entity should be 7242", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2053
+#line 2209
      testRunner.And("the AI should be 7242", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2054
+#line 2210
   testRunner.And("the value should be 094672AG22L44", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2055
+#line 2211
   testRunner.And("the data value should be VCN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2056
+#line 2212
   testRunner.And("the description should be Version Control Number (VCN)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2057
+#line 2213
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2058
+#line 2214
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -8770,7 +9435,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N14"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse DIMENSIONS", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2061
+#line 2217
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8780,32 +9445,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2062
+#line 2218
  testRunner.Given("the input is 800115000003056000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2063
+#line 2219
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2064
+#line 2220
  testRunner.Then("the entity should be 8001", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2065
+#line 2221
      testRunner.And("the AI should be 8001", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2066
+#line 2222
   testRunner.And("the value should be 15000003056000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2067
+#line 2223
   testRunner.And("the data value should be DIMENSIONS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2068
+#line 2224
   testRunner.And("the description should be Roll products - width, length, core diameter, direction" +
                         ", splices", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2069
+#line 2225
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2070
+#line 2226
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -8822,7 +9487,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse CMT No.", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2073
+#line 2229
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8832,31 +9497,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2074
+#line 2230
  testRunner.Given("the input is 8002RF1DB6K177Y", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2075
+#line 2231
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2076
+#line 2232
  testRunner.Then("the entity should be 8002", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2077
+#line 2233
      testRunner.And("the AI should be 8002", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2078
+#line 2234
   testRunner.And("the value should be RF1DB6K177Y", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2079
+#line 2235
   testRunner.And("the data value should be CMT No.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2080
+#line 2236
   testRunner.And("the description should be Cellular mobile telephone identifier", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2081
+#line 2237
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2082
+#line 2238
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -8873,7 +9538,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N14[+X..16]"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse GRAI", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2085
+#line 2241
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8883,31 +9548,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2086
+#line 2242
  testRunner.Given("the input is 80030506091751000434B1UL09036", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2087
+#line 2243
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2088
+#line 2244
  testRunner.Then("the entity should be 8003", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2089
+#line 2245
      testRunner.And("the AI should be 8003", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2090
+#line 2246
   testRunner.And("the value should be 0506091751000434B1UL09036", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2091
+#line 2247
   testRunner.And("the data value should be GRAI", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2092
+#line 2248
   testRunner.And("the description should be Global Returnable Asset Identifier (GRAI)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2093
+#line 2249
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2094
+#line 2250
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -8924,7 +9589,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..30"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse GIAI", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2097
+#line 2253
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8934,31 +9599,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2098
+#line 2254
  testRunner.Given("the input is 80045060917ASSET+0001", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2099
+#line 2255
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2100
+#line 2256
  testRunner.Then("the entity should be 8004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2101
+#line 2257
      testRunner.And("the AI should be 8004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2102
+#line 2258
   testRunner.And("the value should be 5060917ASSET+0001", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2103
+#line 2259
   testRunner.And("the data value should be GIAI", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2104
+#line 2260
   testRunner.And("the description should be Global Individual Asset Identifier (GIAI)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2105
+#line 2261
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2106
+#line 2262
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -8975,7 +9640,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse PRICE PER UNIT", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2109
+#line 2265
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8985,31 +9650,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2110
+#line 2266
  testRunner.Given("the input is 8005000150", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2111
+#line 2267
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2112
+#line 2268
  testRunner.Then("the entity should be 8005", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2113
+#line 2269
      testRunner.And("the AI should be 8005", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2114
+#line 2270
   testRunner.And("the value should be 000150", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2115
+#line 2271
   testRunner.And("the data value should be PRICE PER UNIT", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2116
+#line 2272
   testRunner.And("the description should be Price per unit of measure", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2117
+#line 2273
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2118
+#line 2274
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -9026,7 +9691,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N14+N2+N2"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse ITIP", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2121
+#line 2277
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9036,32 +9701,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2122
+#line 2278
  testRunner.Given("the input is 8006050609175100040102", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2123
+#line 2279
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2124
+#line 2280
  testRunner.Then("the entity should be 8006", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2125
+#line 2281
      testRunner.And("the AI should be 8006", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2126
+#line 2282
   testRunner.And("the value should be 050609175100040102", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2127
+#line 2283
   testRunner.And("the data value should be ITIP", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2128
+#line 2284
   testRunner.And("the description should be Identification of an individual trade item (ITIP) piece" +
                         "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2129
+#line 2285
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2130
+#line 2286
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -9078,7 +9743,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..34"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse IBAN", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2133
+#line 2289
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9088,31 +9753,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2134
+#line 2290
  testRunner.Given("the input is 8007GB82WEST12345698765432", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2135
+#line 2291
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2136
+#line 2292
  testRunner.Then("the entity should be 8007", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2137
+#line 2293
      testRunner.And("the AI should be 8007", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2138
+#line 2294
   testRunner.And("the value should be GB82WEST12345698765432", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2139
+#line 2295
   testRunner.And("the data value should be IBAN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2140
+#line 2296
   testRunner.And("the description should be International Bank Account Number (IBAN)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2141
+#line 2297
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2142
+#line 2298
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -9129,7 +9794,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N8[+N..4]"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse PROD TIME", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2145
+#line 2301
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9139,31 +9804,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2146
+#line 2302
  testRunner.Given("the input is 8008231231142652", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2147
+#line 2303
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2148
+#line 2304
  testRunner.Then("the entity should be 8008", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2149
+#line 2305
      testRunner.And("the AI should be 8008", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2150
+#line 2306
   testRunner.And("the value should be 231231142652", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2151
+#line 2307
   testRunner.And("the data value should be PROD TIME", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2152
+#line 2308
   testRunner.And("the description should be Date and time of production", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2153
+#line 2309
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2154
+#line 2310
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -9180,7 +9845,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..50"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse OPTSEN", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2157
+#line 2313
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9190,31 +9855,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2158
+#line 2314
  testRunner.Given("the input is 800901190531", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2159
+#line 2315
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2160
+#line 2316
  testRunner.Then("the entity should be 8009", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2161
+#line 2317
      testRunner.And("the AI should be 8009", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2162
+#line 2318
   testRunner.And("the value should be 01190531", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2163
+#line 2319
   testRunner.And("the data value should be OPTSEN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2164
+#line 2320
   testRunner.And("the description should be Optically readable sensor indicator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2165
+#line 2321
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2166
+#line 2322
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -9231,7 +9896,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+Y..30"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse CPID", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2169
+#line 2325
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9241,31 +9906,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2170
+#line 2326
  testRunner.Given("the input is 8010506091751DR4529P327", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2171
+#line 2327
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2172
+#line 2328
  testRunner.Then("the entity should be 8010", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2173
+#line 2329
      testRunner.And("the AI should be 8010", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2174
+#line 2330
   testRunner.And("the value should be 506091751DR4529P327", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2175
+#line 2331
   testRunner.And("the data value should be CPID", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2176
+#line 2332
   testRunner.And("the description should be Component/Part Identifier (CPID)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2177
+#line 2333
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2178
+#line 2334
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -9282,7 +9947,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N..12"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse CPID SERIAL", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2181
+#line 2337
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9292,31 +9957,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2182
+#line 2338
  testRunner.Given("the input is 8011422393761701", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2183
+#line 2339
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2184
+#line 2340
  testRunner.Then("the entity should be 8011", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2185
+#line 2341
      testRunner.And("the AI should be 8011", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2186
+#line 2342
   testRunner.And("the value should be 422393761701", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2187
+#line 2343
   testRunner.And("the data value should be CPID SERIAL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2188
+#line 2344
   testRunner.And("the description should be Component/Part Identifier serial number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2189
+#line 2345
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2190
+#line 2346
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -9333,7 +9998,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse VERSION", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2193
+#line 2349
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9343,31 +10008,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2194
+#line 2350
  testRunner.Given("the input is 801215.0.4701.1001", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2195
+#line 2351
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2196
+#line 2352
  testRunner.Then("the entity should be 8012", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2197
+#line 2353
      testRunner.And("the AI should be 8012", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2198
+#line 2354
   testRunner.And("the value should be 15.0.4701.1001", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2199
+#line 2355
   testRunner.And("the data value should be VERSION", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2200
+#line 2356
   testRunner.And("the description should be Software version", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2201
+#line 2357
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2202
+#line 2358
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -9384,7 +10049,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..25"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse GMN", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2205
+#line 2361
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9394,31 +10059,83 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2206
+#line 2362
  testRunner.Given("the input is 80131987654Ad4X4bL5ttr2310c2K", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2207
+#line 2363
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2208
+#line 2364
  testRunner.Then("the entity should be 8013", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2209
+#line 2365
      testRunner.And("the AI should be 8013", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2210
+#line 2366
   testRunner.And("the value should be 1987654Ad4X4bL5ttr2310c2K", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2211
+#line 2367
   testRunner.And("the data value should be GMN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2212
+#line 2368
   testRunner.And("the description should be Global Model Number (GMN)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2213
+#line 2369
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2214
+#line 2370
+  testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse MUDI")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse MUDI")]
+        [Xunit.TraitAttribute("Category", "N4+X..25")]
+        public void ParseMUDI()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+X..25"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse MUDI", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2373
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 2374
+ testRunner.Given("the input is 80141987654Ad4X4bL5ttr2310c2K", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 2375
+ testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 2376
+ testRunner.Then("the entity should be 8014", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 2377
+     testRunner.And("the AI should be 8014", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2378
+  testRunner.And("the value should be 1987654Ad4X4bL5ttr2310c2K", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2379
+  testRunner.And("the data value should be MUDI", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2380
+  testRunner.And("the description should be Highly Individualised Device Registration Identifier (H" +
+                        "IDRI)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2381
+  testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 2382
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -9435,7 +10152,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N18"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse GSRN - PROVIDER", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2217
+#line 2385
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9445,33 +10162,33 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2218
+#line 2386
  testRunner.Given("the input is 8017506091751000315180", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2219
+#line 2387
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2220
+#line 2388
  testRunner.Then("the entity should be 8017", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2221
+#line 2389
      testRunner.And("the AI should be 8017", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2222
+#line 2390
   testRunner.And("the value should be 506091751000315180", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2223
+#line 2391
   testRunner.And("the data value should be GSRN - PROVIDER", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2224
+#line 2392
   testRunner.And("the description should be Global Service Relation Number (GSRN) to identify the r" +
                         "elationship between an organisation offering services and the provider of servic" +
                         "es", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2225
+#line 2393
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2226
+#line 2394
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -9488,7 +10205,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N18"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse GSRN - RECIPIENT", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2229
+#line 2397
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9498,33 +10215,33 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2230
+#line 2398
  testRunner.Given("the input is 8018506091751000315180", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2231
+#line 2399
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2232
+#line 2400
  testRunner.Then("the entity should be 8018", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2233
+#line 2401
      testRunner.And("the AI should be 8018", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2234
+#line 2402
   testRunner.And("the value should be 506091751000315180", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2235
+#line 2403
   testRunner.And("the data value should be GSRN - RECIPIENT", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2236
+#line 2404
   testRunner.And("the description should be Global Service Relation Number (GSRN) to identify the r" +
                         "elationship between an organisation offering services and the recipient of servi" +
                         "ces", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2237
+#line 2405
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2238
+#line 2406
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -9541,7 +10258,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N..10"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse SRIN", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2241
+#line 2409
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9551,31 +10268,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2242
+#line 2410
  testRunner.Given("the input is 801900499427", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2243
+#line 2411
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2244
+#line 2412
  testRunner.Then("the entity should be 8019", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2245
+#line 2413
      testRunner.And("the AI should be 8019", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2246
+#line 2414
   testRunner.And("the value should be 00499427", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2247
+#line 2415
   testRunner.And("the data value should be SRIN", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2248
+#line 2416
   testRunner.And("the description should be Service Relation Instance Number (SRIN)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2249
+#line 2417
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2250
+#line 2418
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -9592,7 +10309,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..25"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse REF No.", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2253
+#line 2421
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9602,31 +10319,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2254
+#line 2422
  testRunner.Given("the input is 8020000B231297726310000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2255
+#line 2423
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2256
+#line 2424
  testRunner.Then("the entity should be 8020", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2257
+#line 2425
      testRunner.And("the AI should be 8020", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2258
+#line 2426
   testRunner.And("the value should be 000B231297726310000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2259
+#line 2427
   testRunner.And("the data value should be REF No.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2260
+#line 2428
   testRunner.And("the description should be Payment slip reference number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2261
+#line 2429
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2262
+#line 2430
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -9643,7 +10360,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N14+N2+N2"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse ITIP CONTENT", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2265
+#line 2433
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9653,32 +10370,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2266
+#line 2434
  testRunner.Given("the input is 8026050609175100040102", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2267
+#line 2435
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2268
+#line 2436
  testRunner.Then("the entity should be 8026", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2269
+#line 2437
      testRunner.And("the AI should be 8026", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2270
+#line 2438
   testRunner.And("the value should be 050609175100040102", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2271
+#line 2439
   testRunner.And("the data value should be ITIP CONTENT", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2272
+#line 2440
   testRunner.And("the description should be Identification of pieces of a trade item (ITIP) contain" +
                         "ed in a logistic unit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2273
+#line 2441
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2274
+#line 2442
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -9695,7 +10412,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+Z..90"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse DIGSIG", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2277
+#line 2445
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9705,33 +10422,33 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2278
+#line 2446
  testRunner.Given("the input is 80304170331922217434118608698152571122942338540538607194206986432366" +
                         "5892369845781264435120798=", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2279
+#line 2447
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2280
+#line 2448
  testRunner.Then("the entity should be 8030", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2281
+#line 2449
      testRunner.And("the AI should be 8030", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2282
+#line 2450
   testRunner.And("the value should be 4170331922217434118608698152571122942338540538607194206986432" +
                         "3665892369845781264435120798=", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2283
+#line 2451
   testRunner.And("the data value should be DIGSIG", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2284
+#line 2452
   testRunner.And("the description should be Digital Signature (DigSig)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2285
+#line 2453
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2286
+#line 2454
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -9748,7 +10465,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse COUPON 1a", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2289
+#line 2457
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9758,31 +10475,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2290
+#line 2458
  testRunner.Given("the input is 8110106141416543213500110000310123196000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2291
+#line 2459
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2292
+#line 2460
  testRunner.Then("the entity should be 8110", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2293
+#line 2461
      testRunner.And("the AI should be 8110", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2294
+#line 2462
   testRunner.And("the value should be 106141416543213500110000310123196000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2295
+#line 2463
   testRunner.And("the data value should be -", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2296
+#line 2464
   testRunner.And("the description should be Coupon code identification for use in North America", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2297
+#line 2465
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2298
+#line 2466
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -9799,7 +10516,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse COUPON 1b", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2301
+#line 2469
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9809,31 +10526,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2302
+#line 2470
  testRunner.Given("the input is 81101061414165432131501101201211014092110256100126663101231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2303
+#line 2471
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2304
+#line 2472
  testRunner.Then("the entity should be 8110", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2305
+#line 2473
      testRunner.And("the AI should be 8110", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2306
+#line 2474
   testRunner.And("the value should be 1061414165432131501101201211014092110256100126663101231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2307
+#line 2475
   testRunner.And("the data value should be -", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2308
+#line 2476
   testRunner.And("the description should be Coupon code identification for use in North America", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2309
+#line 2477
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2310
+#line 2478
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -9850,7 +10567,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse COUPON 1c", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2313
+#line 2481
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9860,31 +10577,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2314
+#line 2482
  testRunner.Given("the input is 8110106141410012342501106501013085093101231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2315
+#line 2483
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2316
+#line 2484
  testRunner.Then("the entity should be 8110", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2317
+#line 2485
      testRunner.And("the AI should be 8110", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2318
+#line 2486
   testRunner.And("the value should be 106141410012342501106501013085093101231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2319
+#line 2487
   testRunner.And("the data value should be -", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2320
+#line 2488
   testRunner.And("the description should be Coupon code identification for use in North America", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2321
+#line 2489
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2322
+#line 2490
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -9901,7 +10618,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse COUPON 1d", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2325
+#line 2493
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9911,31 +10628,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2326
+#line 2494
  testRunner.Given("the input is 8110106141410012471011076011110850921108609310123191000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2327
+#line 2495
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2328
+#line 2496
  testRunner.Then("the entity should be 8110", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2329
+#line 2497
      testRunner.And("the AI should be 8110", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2330
+#line 2498
   testRunner.And("the value should be 106141410012471011076011110850921108609310123191000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2331
+#line 2499
   testRunner.And("the data value should be -", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2332
+#line 2500
   testRunner.And("the description should be Coupon code identification for use in North America", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2333
+#line 2501
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2334
+#line 2502
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -9952,7 +10669,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse COUPON 1e", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2337
+#line 2505
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9962,31 +10679,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2338
+#line 2506
  testRunner.Given("the input is 81101061414154321031501101201211014092110256100126663101231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2339
+#line 2507
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2340
+#line 2508
  testRunner.Then("the entity should be 8110", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2341
+#line 2509
      testRunner.And("the AI should be 8110", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2342
+#line 2510
   testRunner.And("the value should be 1061414154321031501101201211014092110256100126663101231", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2343
+#line 2511
   testRunner.And("the data value should be -", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2344
+#line 2512
   testRunner.And("the description should be Coupon code identification for use in North America", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2345
+#line 2513
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2346
+#line 2514
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -10003,7 +10720,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse COUPON 1f", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2349
+#line 2517
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10013,31 +10730,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2350
+#line 2518
  testRunner.Given("the input is 8110106141416543213500110000310123196000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2351
+#line 2519
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2352
+#line 2520
  testRunner.Then("the entity should be 8110", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2353
+#line 2521
      testRunner.And("the AI should be 8110", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2354
+#line 2522
   testRunner.And("the value should be 106141416543213500110000310123196000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2355
+#line 2523
   testRunner.And("the data value should be -", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2356
+#line 2524
   testRunner.And("the description should be Coupon code identification for use in North America", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2357
+#line 2525
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2358
+#line 2526
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -10054,7 +10771,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N4"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse POINTS", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2361
+#line 2529
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10064,31 +10781,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2362
+#line 2530
  testRunner.Given("the input is 81110310", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2363
+#line 2531
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2364
+#line 2532
  testRunner.Then("the entity should be 8111", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2365
+#line 2533
      testRunner.And("the AI should be 8111", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2366
+#line 2534
   testRunner.And("the value should be 0310", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2367
+#line 2535
   testRunner.And("the data value should be POINTS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2368
+#line 2536
   testRunner.And("the description should be Loyalty points of a coupon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2369
+#line 2537
   testRunner.And("the length of the value should be fixed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2370
+#line 2538
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -10105,7 +10822,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse COUPON 2", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2373
+#line 2541
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10115,32 +10832,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2374
+#line 2542
  testRunner.Given("the input is 8112106141416543213500110000310123196000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2375
+#line 2543
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2376
+#line 2544
  testRunner.Then("the entity should be 8112", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2377
+#line 2545
      testRunner.And("the AI should be 8112", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2378
+#line 2546
   testRunner.And("the value should be 106141416543213500110000310123196000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2379
+#line 2547
   testRunner.And("the data value should be -", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2380
+#line 2548
   testRunner.And("the description should be Positive offer file coupon code identification for use " +
                         "in North America", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2381
+#line 2549
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2382
+#line 2550
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -10157,7 +10874,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse PRODUCT URL", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2385
+#line 2553
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10167,31 +10884,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2386
+#line 2554
  testRunner.Given("the input is 8200https://acme.com/", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2387
+#line 2555
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2388
+#line 2556
  testRunner.Then("the entity should be 8200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2389
+#line 2557
      testRunner.And("the AI should be 8200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2390
+#line 2558
   testRunner.And("the value should be https://acme.com/", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2391
+#line 2559
   testRunner.And("the data value should be PRODUCT URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2392
+#line 2560
   testRunner.And("the description should be Extended packaging URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2393
+#line 2561
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2394
+#line 2562
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -10208,7 +10925,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+X..30"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse INTERNAL 90", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2397
+#line 2565
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10218,31 +10935,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2398
+#line 2566
  testRunner.Given("the input is 90Some+information+1234", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2399
+#line 2567
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2400
+#line 2568
  testRunner.Then("the entity should be 90", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2401
+#line 2569
      testRunner.And("the AI should be 90", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2402
+#line 2570
   testRunner.And("the value should be Some+information+1234", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2403
+#line 2571
   testRunner.And("the data value should be INTERNAL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2404
+#line 2572
   testRunner.And("the description should be Information mutually agreed between trading partners", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2405
+#line 2573
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2406
+#line 2574
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -10259,7 +10976,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+X..90"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse INTERNAL 91", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2409
+#line 2577
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10269,32 +10986,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2410
+#line 2578
  testRunner.Given("the input is 91The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2411
+#line 2579
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2412
+#line 2580
  testRunner.Then("the entity should be 91", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2413
+#line 2581
      testRunner.And("the AI should be 91", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2414
+#line 2582
   testRunner.And("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
                         "90", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2415
+#line 2583
   testRunner.And("the data value should be INTERNAL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2416
+#line 2584
   testRunner.And("the description should be Company internal information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2417
+#line 2585
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2418
+#line 2586
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -10311,7 +11028,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+X..90"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse INTERNAL 92", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2421
+#line 2589
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10321,32 +11038,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2422
+#line 2590
  testRunner.Given("the input is 92The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2423
+#line 2591
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2424
+#line 2592
  testRunner.Then("the entity should be 92", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2425
+#line 2593
      testRunner.And("the AI should be 92", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2426
+#line 2594
   testRunner.And("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
                         "90", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2427
+#line 2595
   testRunner.And("the data value should be INTERNAL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2428
+#line 2596
   testRunner.And("the description should be Company internal information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2429
+#line 2597
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2430
+#line 2598
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -10363,7 +11080,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+X..90"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse INTERNAL 93", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2433
+#line 2601
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10373,32 +11090,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2434
+#line 2602
  testRunner.Given("the input is 93The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2435
+#line 2603
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2436
+#line 2604
  testRunner.Then("the entity should be 93", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2437
+#line 2605
      testRunner.And("the AI should be 93", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2438
+#line 2606
   testRunner.And("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
                         "90", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2439
+#line 2607
   testRunner.And("the data value should be INTERNAL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2440
+#line 2608
   testRunner.And("the description should be Company internal information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2441
+#line 2609
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2442
+#line 2610
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -10415,7 +11132,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+X..90"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse INTERNAL 94", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2445
+#line 2613
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10425,32 +11142,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2446
+#line 2614
  testRunner.Given("the input is 94The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2447
+#line 2615
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2448
+#line 2616
  testRunner.Then("the entity should be 94", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2449
+#line 2617
      testRunner.And("the AI should be 94", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2450
+#line 2618
   testRunner.And("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
                         "90", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2451
+#line 2619
   testRunner.And("the data value should be INTERNAL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2452
+#line 2620
   testRunner.And("the description should be Company internal information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2453
+#line 2621
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2454
+#line 2622
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -10467,7 +11184,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+X..90"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse INTERNAL 95", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2457
+#line 2625
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10477,32 +11194,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2458
+#line 2626
  testRunner.Given("the input is 95The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2459
+#line 2627
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2460
+#line 2628
  testRunner.Then("the entity should be 95", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2461
+#line 2629
      testRunner.And("the AI should be 95", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2462
+#line 2630
   testRunner.And("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
                         "90", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2463
+#line 2631
   testRunner.And("the data value should be INTERNAL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2464
+#line 2632
   testRunner.And("the description should be Company internal information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2465
+#line 2633
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2466
+#line 2634
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -10519,7 +11236,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+X..90"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse INTERNAL 96", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2469
+#line 2637
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10529,32 +11246,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2470
+#line 2638
  testRunner.Given("the input is 96The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2471
+#line 2639
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2472
+#line 2640
  testRunner.Then("the entity should be 96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2473
+#line 2641
      testRunner.And("the AI should be 96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2474
+#line 2642
   testRunner.And("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
                         "90", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2475
+#line 2643
   testRunner.And("the data value should be INTERNAL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2476
+#line 2644
   testRunner.And("the description should be Company internal information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2477
+#line 2645
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2478
+#line 2646
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -10571,7 +11288,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+X..90"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse INTERNAL 97", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2481
+#line 2649
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10581,32 +11298,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2482
+#line 2650
  testRunner.Given("the input is 97The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2483
+#line 2651
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2484
+#line 2652
  testRunner.Then("the entity should be 97", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2485
+#line 2653
      testRunner.And("the AI should be 97", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2486
+#line 2654
   testRunner.And("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
                         "90", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2487
+#line 2655
   testRunner.And("the data value should be INTERNAL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2488
+#line 2656
   testRunner.And("the description should be Company internal information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2489
+#line 2657
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2490
+#line 2658
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -10623,7 +11340,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+X..90"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse INTERNAL 98", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2493
+#line 2661
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10633,32 +11350,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2494
+#line 2662
  testRunner.Given("the input is 98The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2495
+#line 2663
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2496
+#line 2664
  testRunner.Then("the entity should be 98", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2497
+#line 2665
      testRunner.And("the AI should be 98", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2498
+#line 2666
   testRunner.And("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
                         "90", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2499
+#line 2667
   testRunner.And("the data value should be INTERNAL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2500
+#line 2668
   testRunner.And("the description should be Company internal information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2501
+#line 2669
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2502
+#line 2670
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -10675,7 +11392,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+X..90"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse INTERNAL 99", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2505
+#line 2673
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10685,32 +11402,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 2506
+#line 2674
  testRunner.Given("the input is 99The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 2507
+#line 2675
  testRunner.When("the input to submitted to the parser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 2508
+#line 2676
  testRunner.Then("the entity should be 99", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 2509
+#line 2677
      testRunner.And("the AI should be 99", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2510
+#line 2678
   testRunner.And("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
                         "90", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2511
+#line 2679
   testRunner.And("the data value should be INTERNAL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2512
+#line 2680
   testRunner.And("the description should be Company internal information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2513
+#line 2681
   testRunner.And("the length of the value should be variable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 2514
+#line 2682
   testRunner.And("there should be no errors", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }

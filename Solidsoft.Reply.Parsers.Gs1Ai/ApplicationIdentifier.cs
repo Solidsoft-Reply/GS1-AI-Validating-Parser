@@ -52,6 +52,12 @@ public enum ApplicationIdentifier {
     GtinOfContainedTradeItems = 2,
 
     /// <summary>
+    ///     Identification of a Made-to-Order trade item (MTO GTIN).
+    /// </summary>
+    /// <remarks>Format: N2+N14</remarks>
+    MadeToOrderTradeItemGtin = 3,
+
+    /// <summary>
     ///     Batch or lot number (BATCH/LOT).
     /// </summary>
     /// <remarks>Format: N2+X..20 (FNC1)</remarks>
@@ -922,6 +928,12 @@ public enum ApplicationIdentifier {
     Gs1UicWithExtensionOneAndImporterIndex = 7040,
 
     /// <summary>
+    ///     UN/CEFACT freight unit type (UFRGT UNIT TYPE).
+    /// </summary>
+    /// <remarks>Format: N4+X1..X4 (FNC1)</remarks>
+    UnCefactFreightUnitType = 7041,
+
+    /// <summary>
     ///     National Healthcare Reimbursement Number (NHRN) – Germany PZN (NHRN PZN).
     /// </summary>
     /// <remarks>Format: N3+X..20 (FNC1)</remarks>
@@ -957,6 +969,12 @@ public enum ApplicationIdentifier {
     /// <remarks>Format: N3+X..20 (FNC1)</remarks>
     NationalHealthcareReimbursementNumberUnitedStatesNdc = 715,
 
+    /// <summary>
+    ///     National Healthcare Reimbursement Number (NHRN) – Italy AIC (NHRN AIC).
+    /// </summary>
+    /// <remarks>Format: N3+X..20 (FNC1)</remarks>
+    NationalHealthcareReimbursementNumberItalyAic = 716,
+
     // ... (*****) National Healthcare Reimbursement Number (NHRN) – Country “A” NHRN N3+X..20 (FNC1) NHRN xxx
 
     /// <summary>
@@ -970,6 +988,66 @@ public enum ApplicationIdentifier {
     /// </summary>
     /// <remarks>Format: N4+X..20 (FNC1)</remarks>
     ProtocolId = 7240,
+
+    /// <summary>
+    ///     Date of birth (DOB).
+    /// </summary>
+    /// <remarks>Format: N4+N8 (FNC1)</remarks>
+    DateOfBirth = 7250,
+
+    /// <summary>
+    ///     Date and time of birth (DOB TIME).
+    /// </summary>
+    /// <remarks>Format: N4+N12 (FNC1)</remarks>
+    DateAndTimeOfBirth = 7251,
+
+    /// <summary>
+    ///     Biological sex (BIO SEX).
+    /// </summary>
+    /// <remarks>Format: N4+N1 (FNC1)</remarks>
+    BiologicalSex = 7252,
+
+    /// <summary>
+    ///     Family name of person (FAMILY NAME).
+    /// </summary>
+    /// <remarks>Format: N4+X..40 (FNC1)</remarks>
+    FamilyNameOfPerson = 7253,
+
+    /// <summary>
+    ///     Given name of person (GIVEN NAME).
+    /// </summary>
+    /// <remarks>Format: N4+X..40 (FNC1)</remarks>
+    GivenNameOfPerson = 7254,
+
+    /// <summary>
+    ///     Name suffix of person (SUFFIX).
+    /// </summary>
+    /// <remarks>Format: N4+X..10 (FNC1)</remarks>
+    NameSuffixOfPerson = 7255,
+
+    /// <summary>
+    ///     Full name of person (FULL NAME).
+    /// </summary>
+    /// <remarks>Format: N4+X..90 (FNC1)</remarks>
+    FullNameOfPerson = 7256,
+
+    /// <summary>
+    ///     Address of person (PERSON ADDR).
+    /// </summary>
+    /// <remarks>Format: N4+X..70 (FNC1)</remarks>
+    AddressOfPerson = 7257,
+
+    /// <summary>
+    ///     Baby birth sequence indicator (BIRTH SEQUENCE).
+    /// </summary>
+    /// <remarks>Format: N4+N1+X1+N1 (FNC1)</remarks>
+    BabyBirthSequenceIndicator = 7258,
+
+    /// <summary>
+    ///     Baby of family name (BABY).
+    /// </summary>
+    /// <remarks>Format: N4+X..40 (FNC1)</remarks>
+    BabyOfFamilyName = 7259,
 
     /// <summary>
     ///     Roll products (width, length, core diameter, direction, splices) (DIMENSIONS).
@@ -1048,6 +1126,12 @@ public enum ApplicationIdentifier {
     /// </summary>
     /// <remarks>Format: N4 + X..30 (FNC1)</remarks>
     GlobalModelNumber = 8013,
+
+    /// <summary>
+    ///    Highly Individualised Device Registration Identifier (MUDI).
+    /// </summary>
+    /// <remarks>Format: N4+X..25 (FNC1)</remarks>
+    HighlyIndividualisedDeviceRegistrationIdentifier = 8014,
 
     /// <summary>
     ///     Global Service Relation Number to identify the relationship between an organisation offering services and the

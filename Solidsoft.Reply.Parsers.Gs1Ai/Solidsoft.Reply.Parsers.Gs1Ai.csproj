@@ -17,9 +17,22 @@
 	<PackageTags>gs1;ai;parser;barcode;datamatrix;qr;code-128</PackageTags>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 	<PackageReleaseNotes>
-		1) Includes translations for all entity descriptions.
-		2) Provides language support for all EU official languages and Norwegian and Icelandic.
-		3) Fixes bugs for AIs 330n and 7020.
+		1) Includes support for AI 03 - Identification of a Made-to-Order (MtO) trade item (GTIN)
+		2) Includes support for AI 8014 - Highly Individualised Device Registration Identifier (HIDRI)
+		3) Includes support for AI 7041 - UN/CEFACT freight unit type
+		4) Includes support for AI 7250 - Date of birth
+		5) Includes support for AI 7251 - Date and time of birth
+		6) Includes support for AI 7252 - Biological sex
+		7) Includes support for AI 7253 - Family name of person
+		8) Includes support for AI 7254 - Given name of person
+		9) Includes support for AI 7255 - Name suffix of person
+		10) Includes support for AI 7256 - Full name of person
+		11) Includes support for AI 7257 - Address of person
+		12) Includes support for AI 7258 - Baby birth sequence indicator
+		13) Includes support for AI 7259 - Baby of family name
+		14) Includes support for AI 716 - National Healthcare Reimbursement Number (NHRN) – Italy AIC
+
+		The general cadence for releases is to provide a new version reflecting updates to General Specifications once a year (January). However, an exception is made for this release. This was prompted by the introduction of AI 716 for Italian AICs in August 2024.
 	</PackageReleaseNotes>
     <Description>
 		A comprehensive validating parser for GS1 Application Identifiers (AIs).
@@ -28,7 +41,7 @@
 		--------------
 		$(PackageReleaseNotes)
 	</Description>
-	<Version>1.0.4</Version>
+	<Version>1.0.5</Version>
 	<AssemblyName>$(MSBuildProjectName)</AssemblyName>
     <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
 	<NeutralLanguage>en</NeutralLanguage>

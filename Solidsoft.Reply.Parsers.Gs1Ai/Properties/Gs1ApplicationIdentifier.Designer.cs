@@ -88,6 +88,15 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Identification of a Made-to-Order (MtO) trade item (GTIN).
+        /// </summary>
+        internal static string ai03 {
+            get {
+                return ResourceManager.GetString("ai03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Batch or lot number.
         /// </summary>
         internal static string ai10 {
@@ -1429,6 +1438,15 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to UN/CEFACT freight unit type.
+        /// </summary>
+        internal static string ai7041 {
+            get {
+                return ResourceManager.GetString("ai7041", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to National Healthcare Reimbursement Number (NHRN) - Germany PZN.
         /// </summary>
         internal static string ai710 {
@@ -1483,6 +1501,15 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to National Healthcare Reimbursement Number (NHRN) – Italy AIC.
+        /// </summary>
+        internal static string ai716 {
+            get {
+                return ResourceManager.GetString("ai716", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Certification reference.
         /// </summary>
         internal static string ai723s {
@@ -1515,6 +1542,96 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
         internal static string ai7242 {
             get {
                 return ResourceManager.GetString("ai7242", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date of birth.
+        /// </summary>
+        internal static string ai7250 {
+            get {
+                return ResourceManager.GetString("ai7250", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date and time of birth.
+        /// </summary>
+        internal static string ai7251 {
+            get {
+                return ResourceManager.GetString("ai7251", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Biological sex.
+        /// </summary>
+        internal static string ai7252 {
+            get {
+                return ResourceManager.GetString("ai7252", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Family name of person.
+        /// </summary>
+        internal static string ai7253 {
+            get {
+                return ResourceManager.GetString("ai7253", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Given name of person.
+        /// </summary>
+        internal static string ai7254 {
+            get {
+                return ResourceManager.GetString("ai7254", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name suffix of person.
+        /// </summary>
+        internal static string ai7255 {
+            get {
+                return ResourceManager.GetString("ai7255", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full name of person.
+        /// </summary>
+        internal static string ai7256 {
+            get {
+                return ResourceManager.GetString("ai7256", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address of person.
+        /// </summary>
+        internal static string ai7257 {
+            get {
+                return ResourceManager.GetString("ai7257", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Baby birth sequence indicator.
+        /// </summary>
+        internal static string ai7258 {
+            get {
+                return ResourceManager.GetString("ai7258", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Baby of family name.
+        /// </summary>
+        internal static string ai7259 {
+            get {
+                return ResourceManager.GetString("ai7259", resourceCulture);
             }
         }
         
@@ -1632,6 +1749,15 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
         internal static string ai8013 {
             get {
                 return ResourceManager.GetString("ai8013", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Highly Individualised Device Registration Identifier (HIDRI).
+        /// </summary>
+        internal static string ai8014 {
+            get {
+                return ResourceManager.GetString("ai8014", resourceCulture);
             }
         }
         

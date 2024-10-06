@@ -22,6 +22,8 @@
 // ReSharper disable BadListLineBreaks
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
+using Common;
+
 using Descriptors;
 
 using Properties;
@@ -30,8 +32,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text.RegularExpressions;
-
-using Common;
 
 /// <summary>
 ///     Resolves GS1 entities, validating the entity value and providing descriptors.
@@ -117,6 +117,48 @@ internal static class EntityResolver {
         "977|978|979|980|981|984|985|986|990|994|997|999)";
 
     /// <summary>
+    /// GS1 Package Type Codes. These are based on UN/CEFACT alphanumeric codes
+    /// extended with additional GS1 codes.
+    /// Last checked August 2024.
+    /// </summary>
+    private const string PackageTypeCodes =
+        "(1A|1B|1D|1F|1G|1W|200|201|202|203|204|205|206|" +
+        "210|211|212|2C|3A|3H|43|44|4A|4B|4C|4D|4F|4G|4H|" +
+        "5H|5L|5M|6H|6P|7A|7B|8|8A|8B|8C|9|AA|AB|AC|AD|AF|" +
+        "AG|AH|AI|AJ|AL|AM|AP|APE|AT|AV|B4|BB|BC|BD|BE|BF|" +
+        "BG|BGE|BH|BI|BJ|BK|BL|BM|BME|BN|BO|BP|BQ|BR|BRI|" +
+        "BS|BT|BU|BV|BW|BX|BY|BZ|CA|CB|CBL|CC|CCE|CD|CE|" +
+        "CF|CG|CH|CI|CJ|CK|CL|CM|CN|CO|CP|CQ|CR|CS|CT|CU|" +
+        "CV|CW|CX|CY|CZ|DA|DB|DC|DG|DH|DI|DJ|DK|DL|DM|DN|" +
+        "DP|DPE|DR|DS|DT|DU|DV|DW|DX|DY|E1|E2|E3|EC|ED|EE|" +
+        "EF|EG|EH|EI|EN|FB|FC|FD|FE|FI|FL|FO|FOB|FP|FPE|" +
+        "FR|FT|FW|FX|GB|GI|GL|GR|GU|GY|GZ|HA|HB|HC|HG|HN|" +
+        "HR|IA|IB|IC|ID|IE|IF|IG|IH|IK|IL|IN|IZ|JB|JC|JG|" +
+        "JR|JT|JY|KG|KI|LAB|LE|LG|LT|LU|LV|LZ|MA|MB|MC|ME|" +
+        "MPE|MR|MS|MT|MW|MX|NA|NE|NF|NG|NS|NT|NU|NV|OA|OB|" +
+        "OC|OD|OE|OF|OK|OPE|OT|OU|P2|PA|PAE|PB|PC|PD|PE|" +
+        "PF|PG|PH|PI|PJ|PK|PL|PLP|PN|PO|POP|PP|PPE|PR|PT|" +
+        "PU|PUE|PV|PX|PY|PZ|QA|QB|QC|QD|QF|QG|QH|QJ|QK|QL|" +
+        "QM|QN|QP|QQ|QR|QS|RB1|RB2|RB3|RCB|RD|RG|RJ|RK|RL|" +
+        "RO|RT|RZ|S1|SA|SB|SC|SD|SE|SEC|SH|SI|SK|SL|SM|SO|" +
+        "SP|SS|ST|STL|SU|SV|SW|SX|SY|SZ|T1|TB|TC|TD|TE|" +
+        "TEV|TG|THE|TI|TK|TL|TN|TO|TR|TRE|TS|TT|TTE|TU|TV|" +
+        "TW|TWE|TY|TZ|UC|UN|UUE|VA|VG|VI|VK|VL|VN|VO|VP|" +
+        "VQ|VR|VS|VY|WA|WB|WC|WD|WF|WG|WH|WJ|WK|WL|WM|WN|" +
+        "WP|WQ|WR|WRP|WS|WT|WU|WV|WW|WX|WY|WZ|X11|X12|X15|" +
+        "X16|X17|X18|X19|X20|X3|XA|XB|XC|XD|XF|XG|XH|XJ|" +
+        "XK|YA|YB|YC|YD|YF|YG|YH|YJ|YK|YL|YM|YN|YP|YQ|YR|" +
+        "YS|YT|YV|YW|YX|YY|YZ|ZA|ZB|ZC|ZD|ZF|ZG|ZH|ZJ|ZK|" +
+        "ZL|ZM|ZN|ZP|ZQ|ZR|ZS|ZT|ZU|ZV|ZW|ZX|ZY|ZZ|)";
+
+    /// <summary>
+    /// “ISO/IEC 5218 Sex Codes.
+    /// Last checked August 2024.
+    /// </summary>
+    private const string BiologicalSexCode =
+        "[0129]";
+
+    /// <summary>
     /// Character Set for check characters for alphanumeric values.
     /// </summary>
     private const string AlphanumericCheckCharacterSet = "[2-9A-Z]";
@@ -178,9 +220,14 @@ internal static class EntityResolver {
     private static readonly Regex CharacterSet8202CharsRegex = new("^" + CharacterSet82 + @"{1,2}$", RegexOptions.None);
 
     /// <summary>
-    ///     Returns a regular expression for matching a 2-2 character value of characters taken from Character Set 82.
+    ///     Returns a regular expression for matching an Alpha-2 country code value.
     /// </summary>
-    private static readonly Regex CharacterSet820202CharsRegex = new($"^{Iso3166Alpha2CountryCodes}$", RegexOptions.None);
+    private static readonly Regex Alpha2CountryCodesRegex = new($"^{Iso3166Alpha2CountryCodes}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a GS1 Package Type Code value.
+    /// </summary>
+    private static readonly Regex PackageTypeCodesRegex = new($"^{PackageTypeCodes}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-3 character value of characters taken from Character Set 82.
@@ -246,12 +293,19 @@ internal static class EntityResolver {
     private static readonly Regex CharacterSet8235CharsPercEncRegex = new($"^({CharacterSet82}" + @"|%(?=[0-9a-fA-F]{2})){1,35}$", RegexOptions.None);
 
     /// <summary>
+    ///     Returns a regular expression for matching a 1-40 character value of characters taken from Character Set 82.
+    ///     The strings use percent encoding (hexadecimal octets) to encode characters that are not included in Character Set 82.
+    /// </summary>
+    private static readonly Regex CharacterSet8240CharsPercEncRegex = new($"^({CharacterSet82}" + @"|%(?=[0-9a-fA-F]{2})){1,40}$", RegexOptions.None);
+
+    /// <summary>
     ///     Returns a regular expression for matching a 1-50 character value of characters taken from Character Set 82.
     /// </summary>
     private static readonly Regex CharacterSet8250CharsRegex = new("^" + CharacterSet82 + @"{1,50}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-70 character value of characters taken from Character Set 82.
+    ///     The strings use percent encoding (hexadecimal octets) to encode characters that are not included in Character Set 82.
     /// </summary>
     private static readonly Regex CharacterSet8270CharsPercEncRegex = new(@"^(" + CharacterSet82 + @"|%(?=[0-9a-fA-F]{2})){1,70}$", RegexOptions.None);
 
@@ -262,8 +316,15 @@ internal static class EntityResolver {
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-90 character value of characters taken from Character Set 82.
+    ///     The strings use percent encoding (hexadecimal octets) to encode characters that are not included in Character Set 82.
     /// </summary>
     private static readonly Regex CharacterSet8290CharsRegex = new("^" + CharacterSet82 + @"{1,90}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-90 character value of characters taken from Character Set 82.
+    ///     The strings use percent encoding (hexadecimal octets) to encode characters that are not included in Character Set 82.
+    /// </summary>
+    private static readonly Regex CharacterSet8290CharsPercEncRegex = new(@"^(" + CharacterSet82 + @"|%(?=[0-9a-fA-F]{2})){1,90}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a processor with an ISO country code.
@@ -302,6 +363,11 @@ internal static class EntityResolver {
     private static readonly Regex SixDigitMonetaryValueRegex = new(@"^\d{6}$", RegexOptions.None);
 
     /// <summary>
+    ///     Returns a regular expression for matching 1-digit ISO/IEC 5218 biological sex codes.
+    /// </summary>
+    private static readonly Regex IsoIec5218SexCodeRegex = new($"^{BiologicalSexCode}$", RegexOptions.None);
+
+    /// <summary>
     ///     Returns a regular expression for matching 2-digit values.
     /// </summary>
     private static readonly Regex TwoDigitValueRegex = new(@"^\d{2}$", RegexOptions.None);
@@ -320,6 +386,16 @@ internal static class EntityResolver {
     ///     Returns a regular expression for matching 6-digit values.
     /// </summary>
     private static readonly Regex SixDigitValueRegex = new(@"^\d{6}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching 8-digit values.
+    /// </summary>
+    private static readonly Regex EightDigitValueRegex = new(@"^\d{8}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching 12-digit values.
+    /// </summary>
+    private static readonly Regex TwelveDigitValueRegex = new(@"^\d{12}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 13-digit values.
@@ -432,18 +508,24 @@ internal static class EntityResolver {
     ///     requirement. If there is a final -, this represents a negative
     ///     temerature value.
     /// </summary>
-    private static readonly Regex Scan4TransportTemperature = new(@"^\d{6}-?$", RegexOptions.None);
+    private static readonly Regex Scan4TransportTemperatureRegex = new(@"^\d{6}-?$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 2-digit AIDC media types.
     /// </summary>
-    private static readonly Regex TwoDigitAidcMediaType = new(@"^(0[1-9]|10|[89][0-9])$", RegexOptions.None);
+    private static readonly Regex TwoDigitAidcMediaTypeRegex = new(@"^(0[1-9]|10|[89][0-9])$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-90 character value of
     ///     characters taken from Character Set 64 (RFC 4648 Section 5).
     /// </summary>
     private static readonly Regex CharacterSet6490CharsRegex = new($"^{CharacterSet64}" + @"{1,90}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for a sequence of digit-solidus-digit (e.g., 3/6).
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    private static readonly Regex SequenceRegex = new($@"^\d/\d$", RegexOptions.None);
 #endif
 
     /// <summary>
@@ -479,6 +561,17 @@ internal static class EntityResolver {
                 2, new IdentifierWithFinalChecksumDescriptor(
                     "CONTENT",
                     Gs1ApplicationIdentifier.ai02,
+#if NET7_0_OR_GREATER
+                    GtinRegex(),
+#else
+                    GtinRegex,
+#endif
+                    true)
+            },
+            {
+                3, new IdentifierWithFinalChecksumDescriptor(
+                    "MTO GTIN",
+                    Gs1ApplicationIdentifier.ai03,
 #if NET7_0_OR_GREATER
                     GtinRegex(),
 #else
@@ -1741,9 +1834,9 @@ internal static class EntityResolver {
                     "SHIP TO COUNTRY",
                     Gs1ApplicationIdentifier.ai4307,
 #if NET7_0_OR_GREATER
-                    CharacterSet820202CharsRegex(),
+                    Alpha2CountryCodesRegex(),
 #else
-                    CharacterSet820202CharsRegex,
+                    Alpha2CountryCodesRegex,
 #endif
                     true)
             },
@@ -1861,9 +1954,9 @@ internal static class EntityResolver {
                     "RTN TO COUNTRY",
                     Gs1ApplicationIdentifier.ai4317,
 #if NET7_0_OR_GREATER
-                    CharacterSet820202CharsRegex(),
+                    Alpha2CountryCodesRegex(),
 #else
-                    CharacterSet820202CharsRegex,
+                    Alpha2CountryCodesRegex,
 #endif
                     true)
             },
@@ -1981,9 +2074,9 @@ internal static class EntityResolver {
                     "MAX TEMP F",
                     Gs1ApplicationIdentifier.ai4330,
 #if NET7_0_OR_GREATER
-                    Scan4TransportTemperature(),
+                    Scan4TransportTemperatureRegex(),
 #else
-                    Scan4TransportTemperature,
+                    Scan4TransportTemperatureRegex,
 #endif
                     false)
             },
@@ -1993,9 +2086,9 @@ internal static class EntityResolver {
                     "MAX TEMP C",
                     Gs1ApplicationIdentifier.ai4331,
 #if NET7_0_OR_GREATER
-                    Scan4TransportTemperature(),
+                    Scan4TransportTemperatureRegex(),
 #else
-                    Scan4TransportTemperature,
+                    Scan4TransportTemperatureRegex,
 #endif
                     false)
             },
@@ -2005,9 +2098,9 @@ internal static class EntityResolver {
                     "MIN TEMP F",
                     Gs1ApplicationIdentifier.ai4332,
 #if NET7_0_OR_GREATER
-                    Scan4TransportTemperature(),
+                    Scan4TransportTemperatureRegex(),
 #else
-                    Scan4TransportTemperature,
+                    Scan4TransportTemperatureRegex,
 #endif
                     false)
             },
@@ -2017,9 +2110,9 @@ internal static class EntityResolver {
                     "MIN TEMP C",
                     Gs1ApplicationIdentifier.ai4333,
 #if NET7_0_OR_GREATER
-                    Scan4TransportTemperature(),
+                    Scan4TransportTemperatureRegex(),
 #else
-                    Scan4TransportTemperature,
+                    Scan4TransportTemperatureRegex,
 #endif
                     false)
             },
@@ -2335,6 +2428,18 @@ internal static class EntityResolver {
                     true)
             },
             {
+                7041,
+                new EntityDescriptor(
+                    "UFRGT UNIT TYPE",
+                    Gs1ApplicationIdentifier.ai7041,
+#if NET7_0_OR_GREATER
+                    PackageTypeCodesRegex(),
+#else
+                    PackageTypeCodesRegex,
+#endif
+                    false)
+            },
+            {
                 710,
                 new EntityDescriptor(
                     "NHRN PZN",
@@ -2399,6 +2504,18 @@ internal static class EntityResolver {
                 new EntityDescriptor(
                     "NHRN NDC",
                     Gs1ApplicationIdentifier.ai715,
+#if NET7_0_OR_GREATER
+                    CharacterSet8220CharsRegex(),
+#else
+                    CharacterSet8220CharsRegex,
+#endif
+                    false)
+            },
+            {
+                716,
+                new EntityDescriptor(
+                    "NHRN AIC",
+                    Gs1ApplicationIdentifier.ai716,
 #if NET7_0_OR_GREATER
                     CharacterSet8220CharsRegex(),
 #else
@@ -2544,9 +2661,9 @@ internal static class EntityResolver {
                     "AIDC MEDIA TYPE",
                     Gs1ApplicationIdentifier.ai7241,
 #if NET7_0_OR_GREATER
-                    TwoDigitAidcMediaType(),
+                    TwoDigitAidcMediaTypeRegex(),
 #else
-                    TwoDigitAidcMediaType,
+                    TwoDigitAidcMediaTypeRegex,
 #endif
                     true)
             },
@@ -2559,6 +2676,126 @@ internal static class EntityResolver {
                     CharacterSet8225CharsRegex(),
 #else
                     CharacterSet8225CharsRegex,
+#endif
+                    false)
+            },
+            {
+                7250,
+                new EntityDescriptor(
+                    "DOB",
+                    Gs1ApplicationIdentifier.ai7250,
+#if NET7_0_OR_GREATER
+                    EightDigitValueRegex(),
+#else
+                    EightDigitValueRegex,
+#endif
+                    true)
+            },
+            {
+                7251,
+                new EntityDescriptor(
+                    "DOB TIME",
+                    Gs1ApplicationIdentifier.ai7251,
+#if NET7_0_OR_GREATER
+                    TwelveDigitValueRegex(),
+#else
+                    TwelveDigitValueRegex,
+#endif
+                    true)
+            },
+            {
+                7252,
+                new EntityDescriptor(
+                    "BIO SEX",
+                    Gs1ApplicationIdentifier.ai7252,
+#if NET7_0_OR_GREATER
+                    IsoIec5218SexCodeRegex(),
+#else
+                    IsoIec5218SexCodeRegex,
+#endif
+                    true)
+            },
+            {
+                7253,
+                new EntityDescriptor(
+                    "FAMILY NAME",
+                    Gs1ApplicationIdentifier.ai7253,
+#if NET7_0_OR_GREATER
+                    CharacterSet8240CharsPercEncRegex(),
+#else
+                    CharacterSet8240CharsPercEncRegex,
+#endif
+                    false)
+            },
+            {
+                7254,
+                new EntityDescriptor(
+                    "GIVEN NAME",
+                    Gs1ApplicationIdentifier.ai7254,
+#if NET7_0_OR_GREATER
+                    CharacterSet8240CharsPercEncRegex(),
+#else
+                    CharacterSet8240CharsPercEncRegex,
+#endif
+                    false)
+            },
+            {
+                7255,
+                new EntityDescriptor(
+                    "SUFFIX",
+                    Gs1ApplicationIdentifier.ai7255,
+#if NET7_0_OR_GREATER
+                    CharacterSet8210CharsRegex(),
+#else
+                    CharacterSet8210CharsRegex,
+#endif
+                    false)
+            },
+            {
+                7256,
+                new EntityDescriptor(
+                    "FULL NAME",
+                    Gs1ApplicationIdentifier.ai7256,
+#if NET7_0_OR_GREATER
+                    CharacterSet8290CharsPercEncRegex(),
+#else
+                    CharacterSet8290CharsPercEncRegex,
+#endif
+                    false)
+            },
+            {
+                7257,
+                new EntityDescriptor(
+                    "PERSON ADDR",
+                    Gs1ApplicationIdentifier.ai7257,
+#if NET7_0_OR_GREATER
+                    CharacterSet8270CharsPercEncRegex(),
+#else
+                    CharacterSet8270CharsPercEncRegex,
+#endif
+                    false)
+            },
+            {
+                7258,
+                new EntityDescriptor(
+                    "BIRTH SEQUENCE",
+                    Gs1ApplicationIdentifier.ai7258,
+#if NET7_0_OR_GREATER
+                    SequenceRegex(),
+#else
+                    SequenceRegex,
+#endif
+                    true)
+            },
+            {
+                7259,
+                new EntityDescriptor(
+                    "BABY",
+                    Gs1ApplicationIdentifier.ai7259,
+#if NET7_0_OR_GREATER
+                    CharacterSet8240CharsPercEncRegex(),
+#else
+                    CharacterSet8240CharsPercEncRegex,
 #endif
                     false)
             },
@@ -2711,6 +2948,17 @@ internal static class EntityResolver {
                 new AlphanumericKeyWithCheckCharacterPairDescriptor(
                     "GMN",
                     Gs1ApplicationIdentifier.ai8013,
+#if NET7_0_OR_GREATER
+                    GcpWithCharacterSet8219CharsAndCheckCharacterPairRegex(),
+#else
+                    GcpWithCharacterSet8219CharsAndCheckCharacterPairRegex,
+#endif
+                    false)
+            },
+            {
+                8014, new AlphanumericKeyWithCheckCharacterPairDescriptor(
+                    "MUDI",
+                    Gs1ApplicationIdentifier.ai8014,
 #if NET7_0_OR_GREATER
                     GcpWithCharacterSet8219CharsAndCheckCharacterPairRegex(),
 #else
@@ -3004,6 +3252,7 @@ internal static class EntityResolver {
             case "21":
             case "00":
             case "02":
+            case "03":
             case "11":
             case "12":
             case "13":
@@ -3066,8 +3315,8 @@ internal static class EntityResolver {
 
                 break;
             case "71":
-                // 0..5
-                entity = data.IsNumberInRange(2, 1, 0, 5)
+                // 0..6
+                entity = data.IsNumberInRange(2, 1, 0, 6)
                              ? data.GetEntity3()
                              : ApplicationIdentifier.Unrecognised;
                 if (entity == ApplicationIdentifier.Unrecognised) {
@@ -3169,10 +3418,11 @@ internal static class EntityResolver {
 
                 break;
             case "70":
-                // 01..11, 20..23, 3s, 40
-                entity = data.IsNumberInRange(2, 2, 1, 11) || data.IsNumberInRange(2, 2, 20, 23)
-                                                           || data.IsNumberEqual(2, 1, 3)
-                                                           || data.IsNumberEqual(2, 2, 40)
+                // 01..11, 20..23, 3s, 40..41
+                entity = data.IsNumberInRange(2, 2, 1, 11)
+                         || data.IsNumberInRange(2, 2, 20, 23)
+                         || data.IsNumberEqual(2, 1, 3)
+                         || data.IsNumberInRange(2, 2, 40, 41)
                              ? data[2] == '3' ? data.GetEntity3() : data.GetEntity4()
                              : ApplicationIdentifier.Unrecognised;
                 if (entity == ApplicationIdentifier.Unrecognised) {
@@ -3191,8 +3441,10 @@ internal static class EntityResolver {
 
                 break;
             case "72":
-                // 3s, 40
-                entity = data.IsNumberEqual(2, 1, 3) || data.IsNumberInRange(2, 2, 40, 42)
+                // 3s, 40, 50-59
+                entity = data.IsNumberEqual(2, 1, 3)
+                         || data.IsNumberInRange(2, 2, 40, 42)
+                         || data.IsNumberInRange(2, 2, 50, 59)
                              ? data[2] == '3' ? data.GetEntity3() : data.GetEntity4()
                              : ApplicationIdentifier.Unrecognised;
                 if (entity == ApplicationIdentifier.Unrecognised) {
@@ -3211,8 +3463,8 @@ internal static class EntityResolver {
 
                 break;
             case "80":
-                // 01..09, 10..13, 17..20, 26, 30
-                entity = data.IsNumberInRange(2, 2, 1, 9) || data.IsNumberInRange(2, 2, 10, 13)
+                // 01..09, 10..14, 17..20, 26, 30
+                entity = data.IsNumberInRange(2, 2, 1, 9) || data.IsNumberInRange(2, 2, 10, 14)
                                                           || data.IsNumberInRange(2, 2, 17, 20)
                                                           || data.IsNumberEqual(2, 2, 26)
                                                           || data.IsNumberEqual(2, 2, 30)
@@ -3357,11 +3609,18 @@ internal static class EntityResolver {
     private static partial Regex CharacterSet8202CharsRegex();
 
     /// <summary>
-    ///     Returns a regular expression for matching a 2-2 character value of characters taken from Character Set 82.
+    ///     Returns a regular expression for matching an Alpha-2 country code value.
     /// </summary>
     /// <returns>A regular expression.</returns>
     [GeneratedRegex($"^{Iso3166Alpha2CountryCodes}$", RegexOptions.None, "en-US")]
-    private static partial Regex CharacterSet820202CharsRegex();
+    private static partial Regex Alpha2CountryCodesRegex();
+
+    /// <summary>
+    ///     Returns a regular expression for matching a Package Type Code value.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex($"^{PackageTypeCodes}$", RegexOptions.None, "en-US")]
+    private static partial Regex PackageTypeCodesRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-3 character value of characters taken from Character Set 82.
@@ -3452,6 +3711,16 @@ internal static class EntityResolver {
     private static partial Regex CharacterSet8235CharsPercEncRegex();
 
     /// <summary>
+    ///     Returns a regular expression for matching a 1-40 character value of characters taken from Character Set 82.
+    ///     The strings use percent encoding (hexadecimal octets) to encode characters that are not included in Character Set 82.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex($"^({CharacterSet82}" + @"|%(?=[0-9a-fA-F]{2})){1,40}$", RegexOptions.None, "en-US")]
+
+    // ReSharper disable once IdentifierTypo
+    private static partial Regex CharacterSet8240CharsPercEncRegex();
+
+    /// <summary>
     ///     Returns a regular expression for matching a 1-50 character value of characters taken from Character Set 82.
     /// </summary>
     /// <returns>A regular expression.</returns>
@@ -3479,6 +3748,14 @@ internal static class EntityResolver {
     /// <returns>A regular expression.</returns>
     [GeneratedRegex("^" + CharacterSet82 + @"{1,90}$", RegexOptions.None, "en-US")]
     private static partial Regex CharacterSet8290CharsRegex();
+
+    /// <summary>
+    ///     Returns a regular expression for matching a 1-90 character value of characters taken from Character Set 82.
+    ///     The strings use percent encoding (hexadecimal octets) to encode characters that are not included in Character Set 82.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex("^(" + CharacterSet82 + @"|%(?=[0-9a-fA-F]{2})){1,90}$", RegexOptions.None, "en-US")]
+    private static partial Regex CharacterSet8290CharsPercEncRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching a processor with an ISO country code.
@@ -3531,6 +3808,13 @@ internal static class EntityResolver {
     private static partial Regex SixDigitMonetaryValueRegex();
 
     /// <summary>
+    ///     Returns a regular expression for matching 1-digit ISO/IEC 5218 biological sex codes.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex($"^{BiologicalSexCode}$", RegexOptions.None, "en-US")]
+    private static partial Regex IsoIec5218SexCodeRegex();
+
+    /// <summary>
     ///     Returns a regular expression for matching 2-digit values.
     /// </summary>
     /// <returns>A regular expression.</returns>
@@ -3557,6 +3841,20 @@ internal static class EntityResolver {
     /// <returns>A regular expression.</returns>
     [GeneratedRegex(@"^\d{6}$", RegexOptions.None, "en-US")]
     private static partial Regex SixDigitValueRegex();
+
+    /// <summary>
+    ///     Returns a regular expression for matching 8-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex(@"^\d{8}$", RegexOptions.None, "en-US")]
+    private static partial Regex EightDigitValueRegex();
+
+    /// <summary>
+    ///     Returns a regular expression for matching 12-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex(@"^\d{12}$", RegexOptions.None, "en-US")]
+    private static partial Regex TwelveDigitValueRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching 13-digit values.
@@ -3704,14 +4002,14 @@ internal static class EntityResolver {
     ///     temerature value.
     /// </summary>
     [GeneratedRegex(@"^\d{6}-?$", RegexOptions.None, "en-US")]
-    private static partial Regex Scan4TransportTemperature();
+    private static partial Regex Scan4TransportTemperatureRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching 2-digit AIDC media types.
     /// </summary>
     /// <returns>A regular expression.</returns>
     [GeneratedRegex(@"^(0[1-9]|10|[89][0-9])$", RegexOptions.None, "en-US")]
-    private static partial Regex TwoDigitAidcMediaType();
+    private static partial Regex TwoDigitAidcMediaTypeRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-90 character value of
@@ -3720,6 +4018,13 @@ internal static class EntityResolver {
     /// <returns>A regular expression.</returns>
     [GeneratedRegex($"^{CharacterSet64}" + @"{1,90}$", RegexOptions.None, "en-US")]
     private static partial Regex CharacterSet6490CharsRegex();
+
+    /// <summary>
+    ///     Returns a regular expression for a sequence of digit-solidus-digit (e.g., 3/6).
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex(@"^\d/\d$", RegexOptions.None, "en-US")]
+    private static partial Regex SequenceRegex();
 
 #endif
 

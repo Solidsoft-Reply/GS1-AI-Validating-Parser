@@ -38,6 +38,18 @@ Scenario: Parse CONTENT
 		And the length of the value should be fixed
 		And there should be no errors
 
+@N2+N14
+Scenario: Parse MTO GTIN
+	Given the input is 0312345678901231
+	When the input to submitted to the parser
+	Then the entity should be 03
+	    And the AI should be 03
+		And the value should be 12345678901231
+		And the data value should be MTO GTIN
+		And the description should be Identification of a Made-to-Order (MtO) trade item (GTIN)
+		And the length of the value should be fixed
+		And there should be no errors
+
 @N2+X..20
 Scenario: Parse BATCH/LOT
 	Given the input is 10ABC123D
@@ -1936,6 +1948,18 @@ Scenario: Parse UIC+EXT
 		And the length of the value should be fixed
 		And there should be no errors
 
+@N4+N1..X4
+Scenario: Parse UFRGT UNIT TYPE
+	Given the input is 70411A
+	When the input to submitted to the parser
+	Then the entity should be 7041
+	    And the AI should be 7041
+		And the value should be 1A
+		And the data value should be UFRGT UNIT TYPE
+		And the description should be UN/CEFACT freight unit type
+		And the length of the value should be variable
+		And there should be no errors
+
 @N3+X..20
 Scenario: Parse NHRN PZN
 	Given the input is 7103675419
@@ -2008,6 +2032,18 @@ Scenario: Parse NHRN NDC
 		And the length of the value should be variable
 		And there should be no errors
 
+@N3+X..20
+Scenario: Parse NHRN AIC
+	Given the input is 716A012345676
+	When the input to submitted to the parser
+	Then the entity should be 716
+	    And the AI should be 716
+		And the value should be A012345676
+		And the data value should be NHRN AIC
+		And the description should be National Healthcare Reimbursement Number (NHRN) – Italy AIC
+		And the length of the value should be variable
+		And there should be no errors
+
 @N4+X2+X..28
 Scenario: Parse CERT # s
 	Given the input is 7230EMBABT-MED00108
@@ -2030,6 +2066,126 @@ Scenario: Parse PROTOCOL
 		And the value should be CACZ885N2301E2
 		And the data value should be PROTOCOL
 		And the description should be Protocol ID
+		And the length of the value should be variable
+		And there should be no errors
+
+@N4+N8
+Scenario: Parse DOB
+	Given the input is 725020240214
+	When the input to submitted to the parser
+	Then the entity should be 7250
+	    And the AI should be 7250
+		And the value should be 20240214
+		And the data value should be DOB
+		And the description should be Date of birth
+		And the length of the value should be fixed
+		And there should be no errors
+
+@N4+N12
+Scenario: Parse DOB TIME
+	Given the input is 7251202402141743
+	When the input to submitted to the parser
+	Then the entity should be 7251
+	    And the AI should be 7251
+		And the value should be 202402141743
+		And the data value should be DOB TIME
+		And the description should be Date and time of birth
+		And the length of the value should be fixed
+		And there should be no errors
+
+@N4+N1
+Scenario: Parse BIO SEX
+	Given the input is 72521
+	When the input to submitted to the parser
+	Then the entity should be 7252
+	    And the AI should be 7252
+		And the value should be 1
+		And the data value should be BIO SEX
+		And the description should be Biological sex
+		And the length of the value should be fixed
+		And there should be no errors
+
+@N4+X..40
+Scenario: Parse FAMILY NAME
+	Given the input is 7253Doe
+	When the input to submitted to the parser
+	Then the entity should be 7253
+	    And the AI should be 7253
+		And the value should be Doe
+		And the data value should be FAMILY NAME
+		And the description should be Family name of person
+		And the length of the value should be variable
+		And there should be no errors
+
+@N4+X..40
+Scenario: Parse GIVEN NAME
+	Given the input is 7254John
+	When the input to submitted to the parser
+	Then the entity should be 7254
+	    And the AI should be 7254
+		And the value should be John
+		And the data value should be GIVEN NAME
+		And the description should be Given name of person
+		And the length of the value should be variable
+		And there should be no errors
+
+@N4+X..10
+Scenario: Parse SUFFIX
+	Given the input is 7255Junior
+	When the input to submitted to the parser
+	Then the entity should be 7255
+	    And the AI should be 7255
+		And the value should be Junior
+		And the data value should be SUFFIX
+		And the description should be Name suffix of person
+		And the length of the value should be variable
+		And there should be no errors
+
+@N4+X..90
+Scenario: Parse FULL NAME
+	Given the input is 7256Doe,John,Junior
+	When the input to submitted to the parser
+	Then the entity should be 7256
+	    And the AI should be 7256
+		And the value should be Doe,John,Junior
+		And the data value should be FULL NAME
+		And the description should be Full name of person
+		And the length of the value should be variable
+		And there should be no errors
+
+@N4+X..70
+Scenario: Parse PERSON ADDR
+	Given the input is 7257123+Main+St,+Anytown,+Anyregion,+12345
+	When the input to submitted to the parser
+	Then the entity should be 7257
+	    And the AI should be 7257
+		And the value should be 123+Main+St,+Anytown,+Anyregion,+12345
+		And the data value should be PERSON ADDR
+		And the description should be Address of person
+		And the length of the value should be variable
+		And there should be no errors
+
+@N4+N1+X1+N1
+Scenario: Parse BIRTH SEQUENCE
+	Given the input is 72582/3
+	When the input to submitted to the parser
+	Then the entity should be 7258
+	    And the AI should be 7258
+		And the value should be 2/3
+		And the data value should be BIRTH SEQUENCE
+		And the description should be Baby birth sequence indicator
+		And the length of the value should be fixed
+		And there should be no errors
+
+@N4+X..40
+Scenario: Parse BABY
+	Given the input is 7259Alice+Betty
+	When the input to submitted to the parser
+	Then the entity should be 7259
+	    And the AI should be 7259
+		And the value should be Alice+Betty
+		And the data value should be BABY
+		And the description should be Baby of family name
 		And the length of the value should be variable
 		And there should be no errors
 
@@ -2210,6 +2366,18 @@ Scenario: Parse GMN
 		And the value should be 1987654Ad4X4bL5ttr2310c2K
 		And the data value should be GMN
 		And the description should be Global Model Number (GMN)
+		And the length of the value should be variable
+		And there should be no errors
+
+@N4+X..25
+Scenario: Parse MUDI
+	Given the input is 80141987654Ad4X4bL5ttr2310c2K
+	When the input to submitted to the parser
+	Then the entity should be 8014
+	    And the AI should be 8014
+		And the value should be 1987654Ad4X4bL5ttr2310c2K
+		And the data value should be MUDI
+		And the description should be Highly Individualised Device Registration Identifier (HIDRI)
 		And the length of the value should be variable
 		And there should be no errors
 

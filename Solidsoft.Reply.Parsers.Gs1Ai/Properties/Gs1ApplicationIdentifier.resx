@@ -126,6 +126,9 @@
   <data name="ai02" xml:space="preserve">
     <value>Identification of trade items contained in a logistic unit</value>
   </data>
+  <data name="ai03" xml:space="preserve">
+    <value>Identification of a Made-to-Order (MtO) trade item (GTIN)</value>
+  </data>
   <data name="ai10" xml:space="preserve">
     <value>Batch or lot number</value>
   </data>
@@ -573,6 +576,9 @@
   <data name="ai7040" xml:space="preserve">
     <value>GS1 UIC with Extension 1 and Importer index</value>
   </data>
+  <data name="ai7041" xml:space="preserve">
+    <value>UN/CEFACT freight unit type</value>
+  </data>
   <data name="ai710" xml:space="preserve">
     <value>National Healthcare Reimbursement Number (NHRN) - Germany PZN</value>
   </data>
@@ -591,6 +597,9 @@
   <data name="ai715" xml:space="preserve">
     <value>National Healthcare Reimbursement Number (NHRN) - United States of America NDC</value>
   </data>
+  <data name="ai716" xml:space="preserve">
+    <value>National Healthcare Reimbursement Number (NHRN) – Italy AIC</value>
+  </data>
   <data name="ai723s" xml:space="preserve">
     <value>Certification reference</value>
   </data>
@@ -602,6 +611,36 @@
   </data>
   <data name="ai7242" xml:space="preserve">
     <value>Version Control Number (VCN)</value>
+  </data>
+  <data name="ai7250" xml:space="preserve">
+    <value>Date of birth</value>
+  </data>
+  <data name="ai7251" xml:space="preserve">
+    <value>Date and time of birth</value>
+  </data>
+  <data name="ai7252" xml:space="preserve">
+    <value>Biological sex</value>
+  </data>
+  <data name="ai7253" xml:space="preserve">
+    <value>Family name of person</value>
+  </data>
+  <data name="ai7254" xml:space="preserve">
+    <value>Given name of person</value>
+  </data>
+  <data name="ai7255" xml:space="preserve">
+    <value>Name suffix of person</value>
+  </data>
+  <data name="ai7256" xml:space="preserve">
+    <value>Full name of person</value>
+  </data>
+  <data name="ai7257" xml:space="preserve">
+    <value>Address of person</value>
+  </data>
+  <data name="ai7258" xml:space="preserve">
+    <value>Baby birth sequence indicator</value>
+  </data>
+  <data name="ai7259" xml:space="preserve">
+    <value>Baby of family name</value>
   </data>
   <data name="ai8001" xml:space="preserve">
     <value>Roll products - width, length, core diameter, direction, splices</value>
@@ -641,6 +680,9 @@
   </data>
   <data name="ai8013" xml:space="preserve">
     <value>Global Model Number (GMN)</value>
+  </data>
+  <data name="ai8014" xml:space="preserve">
+    <value>Highly Individualised Device Registration Identifier (HIDRI)</value>
   </data>
   <data name="ai8017" xml:space="preserve">
     <value>Global Service Relation Number (GSRN) to identify the relationship between an organisation offering services and the provider of services</value>
