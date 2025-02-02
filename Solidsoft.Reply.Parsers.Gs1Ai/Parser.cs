@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="Parser.cs" company="Solidsoft Reply Ltd">
-// Copyright (c) 2018-2024 Solidsoft Reply Ltd. All rights reserved.
+// Copyright (c) 2018-2025 Solidsoft Reply Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -39,7 +39,7 @@ public static class Parser {
     /// <summary>
     ///     Dictionary of AI values (the first two digits in an entity) of elements with a pre-defined length.
     /// </summary>
-    private static readonly Dictionary<string, int> FirstTwoDigitsTable = new()
+    private static readonly Dictionary<string, int> FirstTwoDigitsTable = new ()
                                                                           {
                                                                               { "00", 20 },
                                                                               { "01", 16 },

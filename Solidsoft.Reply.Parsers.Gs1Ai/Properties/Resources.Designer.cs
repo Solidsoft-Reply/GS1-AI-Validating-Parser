@@ -203,5 +203,14 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
                 return ResourceManager.GetString("GS1_Error_016", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value{0} is not a recognised UN/ECE or GS1 package type code..
+        /// </summary>
+        internal static string GS1_Warning_001 {
+            get {
+                return ResourceManager.GetString("GS1_Warning_001", resourceCulture);
+            }
+        }
     }
 }

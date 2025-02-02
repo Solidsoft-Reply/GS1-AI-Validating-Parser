@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="EntityResolver.cs" company="Solidsoft Reply Ltd">
-// Copyright (c) 2018-2024 Solidsoft Reply Ltd. All rights reserved.
+// Copyright (c) 2018-2025 Solidsoft Reply Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -187,345 +187,345 @@ internal static class EntityResolver {
     /// <summary>
     ///     Returns a regular expression for matching a Serial Shipping Container Code.
     /// </summary>
-    private static readonly Regex SsccRegex = new(@"^\d{18}$", RegexOptions.None);
+    private static readonly Regex SsccRegex = new (@"^\d{18}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a Global Trade Item Number.
     /// </summary>
-    private static readonly Regex GtinRegex = new(@"^\d{14}$", RegexOptions.None);
+    private static readonly Regex GtinRegex = new (@"^\d{14}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a Global Document Type Identifier.
     /// </summary>
-    private static readonly Regex GdtiRegex = new(@"^\d{13}(" + CharacterSet82 + @"{1,17})?$", RegexOptions.None);
+    private static readonly Regex GdtiRegex = new (@"^\d{13}(" + CharacterSet82 + @"{1,17})?$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a Global Coupon Number.
     /// </summary>
-    private static readonly Regex GcnRegex = new(@"^\d{13}(\d{1,12})?$", RegexOptions.None);
+    private static readonly Regex GcnRegex = new (@"^\d{13}(\d{1,12})?$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a Global Returnable Asset Identifier (GRAI).
     /// </summary>
-    private static readonly Regex GraiRegex = new(@"^0\d{13}(" + CharacterSet82 + @"{1,16})?$", RegexOptions.None);
+    private static readonly Regex GraiRegex = new (@"^0\d{13}(" + CharacterSet82 + @"{1,16})?$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for an identification of an individual trade item piece (ITIP).
     /// </summary>
-    private static readonly Regex ItipRegex = new(@"^\d{14}\d{2}\d{2}$", RegexOptions.None);
+    private static readonly Regex ItipRegex = new (@"^\d{14}\d{2}\d{2}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-2 character value of characters taken from Character Set 82.
     /// </summary>
-    private static readonly Regex CharacterSet8202CharsRegex = new("^" + CharacterSet82 + @"{1,2}$", RegexOptions.None);
+    private static readonly Regex CharacterSet8202CharsRegex = new ("^" + CharacterSet82 + @"{1,2}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching an Alpha-2 country code value.
     /// </summary>
-    private static readonly Regex Alpha2CountryCodesRegex = new($"^{Iso3166Alpha2CountryCodes}$", RegexOptions.None);
+    private static readonly Regex Alpha2CountryCodesRegex = new ($"^{Iso3166Alpha2CountryCodes}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a GS1 Package Type Code value.
     /// </summary>
-    private static readonly Regex PackageTypeCodesRegex = new($"^{PackageTypeCodes}$", RegexOptions.None);
+    private static readonly Regex PackageTypeCodesRegex = new ($"^{PackageTypeCodes}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-3 character value of characters taken from Character Set 82.
     /// </summary>
-    private static readonly Regex CharacterSet8203CharsRegex = new("^" + CharacterSet82 + @"{1,3}$", RegexOptions.None);
+    private static readonly Regex CharacterSet8203CharsRegex = new ("^" + CharacterSet82 + @"{1,3}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-10 character value of characters taken from Character Set 82.
     /// </summary>
-    private static readonly Regex CharacterSet8210CharsRegex = new("^" + CharacterSet82 + @"{1,10}$", RegexOptions.None);
+    private static readonly Regex CharacterSet8210CharsRegex = new ("^" + CharacterSet82 + @"{1,10}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-12 character value of characters taken from Character Set 82.
     /// </summary>
-    private static readonly Regex CharacterSet8212CharsRegex = new("^" + CharacterSet82 + @"{1,12}$", RegexOptions.None);
+    private static readonly Regex CharacterSet8212CharsRegex = new ("^" + CharacterSet82 + @"{1,12}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-20 character value of characters taken from Character Set 82.
     /// </summary>
-    private static readonly Regex CharacterSet8220CharsRegex = new("^" + CharacterSet82 + @"{1,20}$", RegexOptions.None);
+    private static readonly Regex CharacterSet8220CharsRegex = new ("^" + CharacterSet82 + @"{1,20}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a GCP with 1-19 character value of characters taken from
     ///     Character Set 82 and a check character pair.
     /// </summary>
-    private static readonly Regex GcpWithCharacterSet8219CharsAndCheckCharacterPairRegex = new(@"^[0-9]{4}" +
+    private static readonly Regex GcpWithCharacterSet8219CharsAndCheckCharacterPairRegex = new (@"^[0-9]{4}" +
         CharacterSet82 + @"{1,19}" + $"{AlphanumericCheckCharacterSet}" + @"{2}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-25 character value of characters taken from Character Set 82.
     /// </summary>
-    private static readonly Regex CharacterSet8225CharsRegex = new("^" + CharacterSet82 + @"{1,25}$", RegexOptions.None);
+    private static readonly Regex CharacterSet8225CharsRegex = new ("^" + CharacterSet82 + @"{1,25}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-28 character value of characters taken from Character Set 82.
     /// </summary>
-    private static readonly Regex CharacterSet8228CharsRegex = new("^" + CharacterSet82 + @"{1,28}$", RegexOptions.None);
+    private static readonly Regex CharacterSet8228CharsRegex = new ("^" + CharacterSet82 + @"{1,28}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 3-30 character value of characters taken from Character Set 82.
     /// </summary>
-    private static readonly Regex CharacterSet820330CharsRegex = new("^" + CharacterSet82 + @"{3,30}$", RegexOptions.None);
+    private static readonly Regex CharacterSet820330CharsRegex = new ("^" + CharacterSet82 + @"{3,30}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-30 character value of characters taken from Character Set 82.
     /// </summary>
-    private static readonly Regex CharacterSet8230CharsRegex = new("^" + CharacterSet82 + @"{1,30}$", RegexOptions.None);
+    private static readonly Regex CharacterSet8230CharsRegex = new ("^" + CharacterSet82 + @"{1,30}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-30 character value of characters taken from Character Set 39.
     /// </summary>
-    private static readonly Regex CharacterSet3930CharsRegex = new($"^{CharacterSet39}" + @"{1,30}$", RegexOptions.None);
+    private static readonly Regex CharacterSet3930CharsRegex = new ($"^{CharacterSet39}" + @"{1,30}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-34 character value of characters taken from Character Set 82.
     /// </summary>
-    private static readonly Regex CharacterSet8234CharsRegex = new("^" + CharacterSet82 + @"{1,34}$", RegexOptions.None);
+    private static readonly Regex CharacterSet8234CharsRegex = new ("^" + CharacterSet82 + @"{1,34}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-35 character value of characters taken from Character Set 82.
     ///     The strings use percent encoding (hexadecimal octets) to encode characters that are not included in Character Set 82.
     /// </summary>
-    private static readonly Regex CharacterSet8235CharsPercEncRegex = new($"^({CharacterSet82}" + @"|%(?=[0-9a-fA-F]{2})){1,35}$", RegexOptions.None);
+    private static readonly Regex CharacterSet8235CharsPercEncRegex = new ($"^({CharacterSet82}" + @"|%(?=[0-9a-fA-F]{2})){1,35}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-40 character value of characters taken from Character Set 82.
     ///     The strings use percent encoding (hexadecimal octets) to encode characters that are not included in Character Set 82.
     /// </summary>
-    private static readonly Regex CharacterSet8240CharsPercEncRegex = new($"^({CharacterSet82}" + @"|%(?=[0-9a-fA-F]{2})){1,40}$", RegexOptions.None);
+    private static readonly Regex CharacterSet8240CharsPercEncRegex = new ($"^({CharacterSet82}" + @"|%(?=[0-9a-fA-F]{2})){1,40}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-50 character value of characters taken from Character Set 82.
     /// </summary>
-    private static readonly Regex CharacterSet8250CharsRegex = new("^" + CharacterSet82 + @"{1,50}$", RegexOptions.None);
+    private static readonly Regex CharacterSet8250CharsRegex = new ("^" + CharacterSet82 + @"{1,50}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-70 character value of characters taken from Character Set 82.
     ///     The strings use percent encoding (hexadecimal octets) to encode characters that are not included in Character Set 82.
     /// </summary>
-    private static readonly Regex CharacterSet8270CharsPercEncRegex = new(@"^(" + CharacterSet82 + @"|%(?=[0-9a-fA-F]{2})){1,70}$", RegexOptions.None);
+    private static readonly Regex CharacterSet8270CharsPercEncRegex = new (@"^(" + CharacterSet82 + @"|%(?=[0-9a-fA-F]{2})){1,70}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-70 character value of characters taken from Character Set 82.
     /// </summary>
-    private static readonly Regex CharacterSet8270CharsRegex = new("^" + CharacterSet82 + @"{1,70}$", RegexOptions.None);
+    private static readonly Regex CharacterSet8270CharsRegex = new ("^" + CharacterSet82 + @"{1,70}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-90 character value of characters taken from Character Set 82.
     ///     The strings use percent encoding (hexadecimal octets) to encode characters that are not included in Character Set 82.
     /// </summary>
-    private static readonly Regex CharacterSet8290CharsRegex = new("^" + CharacterSet82 + @"{1,90}$", RegexOptions.None);
+    private static readonly Regex CharacterSet8290CharsRegex = new ("^" + CharacterSet82 + @"{1,90}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-90 character value of characters taken from Character Set 82.
     ///     The strings use percent encoding (hexadecimal octets) to encode characters that are not included in Character Set 82.
     /// </summary>
-    private static readonly Regex CharacterSet8290CharsPercEncRegex = new(@"^(" + CharacterSet82 + @"|%(?=[0-9a-fA-F]{2})){1,90}$", RegexOptions.None);
+    private static readonly Regex CharacterSet8290CharsPercEncRegex = new (@"^(" + CharacterSet82 + @"|%(?=[0-9a-fA-F]{2})){1,90}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a processor with an ISO country code.
     /// </summary>
-    private static readonly Regex ProcessorWithIsoCountryCodeRegex = new($"^{Iso3166CountryCodes}{CharacterSet82}" + @"{1,27}$", RegexOptions.None);
+    private static readonly Regex ProcessorWithIsoCountryCodeRegex = new ($"^{Iso3166CountryCodes}{CharacterSet82}" + @"{1,27}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a processor with an ISO country code.
     /// </summary>
-    private static readonly Regex PostalCodeWithIsoCountryCodeRegex = new(@"^\d{3}" + CharacterSet82 + @"{1,9}$", RegexOptions.None);
+    private static readonly Regex PostalCodeWithIsoCountryCodeRegex = new (@"^\d{3}" + CharacterSet82 + @"{1,9}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a GS1 UIC with Extension 1 and Imported index.
     /// </summary>
-    private static readonly Regex Gs1UicWithExtension1AndImportedIndexRegex = new(@"^\d" + CharacterSet82 + $"{Eu2018574ImporterIndexCharacterSet}$", RegexOptions.None);
+    private static readonly Regex Gs1UicWithExtension1AndImportedIndexRegex = new (@"^\d" + CharacterSet82 + $"{Eu2018574ImporterIndexCharacterSet}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for six-digit date representation - YYMMDD.
     ///     If it is not necessary to specify the day, the day field can be filled with two zeros.
     /// </summary>
-    private static readonly Regex DatePatternZerosRegex = new(@"^(((\d{2})(0[13578]|1[02])(0[0-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[0-9]|[12]\d|30))|((\d{2})02(0[0-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))$", RegexOptions.None);
+    private static readonly Regex DatePatternZerosRegex = new (@"^(((\d{2})(0[13578]|1[02])(0[0-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[0-9]|[12]\d|30))|((\d{2})02(0[0-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 6-digit trade measures.
     /// </summary>
-    private static readonly Regex SixDigitTradeMeasureRegex = new(@"^\d{6}$", RegexOptions.None);
+    private static readonly Regex SixDigitTradeMeasureRegex = new (@"^\d{6}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 6-digit logistics measures.
     /// </summary>
-    private static readonly Regex SixDigitLogisticsMeasureRegex = new(@"^\d{6}$", RegexOptions.None);
+    private static readonly Regex SixDigitLogisticsMeasureRegex = new (@"^\d{6}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 6-digit monetary values.
     /// </summary>
-    private static readonly Regex SixDigitMonetaryValueRegex = new(@"^\d{6}$", RegexOptions.None);
+    private static readonly Regex SixDigitMonetaryValueRegex = new (@"^\d{6}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 1-digit ISO/IEC 5218 biological sex codes.
     /// </summary>
-    private static readonly Regex IsoIec5218SexCodeRegex = new($"^{BiologicalSexCode}$", RegexOptions.None);
+    private static readonly Regex IsoIec5218SexCodeRegex = new ($"^{BiologicalSexCode}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 2-digit values.
     /// </summary>
-    private static readonly Regex TwoDigitValueRegex = new(@"^\d{2}$", RegexOptions.None);
+    private static readonly Regex TwoDigitValueRegex = new (@"^\d{2}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 3-digit values.
     /// </summary>
-    private static readonly Regex ThreeDigitValueRegex = new($"^{Iso3166CountryCodes}$", RegexOptions.None);
+    private static readonly Regex ThreeDigitValueRegex = new ($"^{Iso3166CountryCodes}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 4-digit values.
     /// </summary>
-    private static readonly Regex FourDigitValueRegex = new(@"^\d{4}$", RegexOptions.None);
+    private static readonly Regex FourDigitValueRegex = new (@"^\d{4}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 6-digit values.
     /// </summary>
-    private static readonly Regex SixDigitValueRegex = new(@"^\d{6}$", RegexOptions.None);
+    private static readonly Regex SixDigitValueRegex = new (@"^\d{6}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 8-digit values.
     /// </summary>
-    private static readonly Regex EightDigitValueRegex = new(@"^\d{8}$", RegexOptions.None);
+    private static readonly Regex EightDigitValueRegex = new (@"^\d{8}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 12-digit values.
     /// </summary>
-    private static readonly Regex TwelveDigitValueRegex = new(@"^\d{12}$", RegexOptions.None);
+    private static readonly Regex TwelveDigitValueRegex = new (@"^\d{12}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 13-digit values.
     /// </summary>
-    private static readonly Regex ThirteenDigitValueRegex = new(@"^\d{13}$", RegexOptions.None);
+    private static readonly Regex ThirteenDigitValueRegex = new (@"^\d{13}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 14-digit roll product values.
     /// </summary>
-    private static readonly Regex FourteenDigitRollProductValueRegex = new(@"^\d{12}[019]\d$", RegexOptions.None);
+    private static readonly Regex FourteenDigitRollProductValueRegex = new (@"^\d{12}[019]\d$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 17-digit values.
     /// </summary>
-    private static readonly Regex SeventeenDigitValueRegex = new(@"^\d{17}$", RegexOptions.None);
+    private static readonly Regex SeventeenDigitValueRegex = new (@"^\d{17}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 18-digit values.
     /// </summary>
-    private static readonly Regex EighteenDigitValueRegex = new(@"^\d{18}$", RegexOptions.None);
+    private static readonly Regex EighteenDigitValueRegex = new (@"^\d{18}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching up to 4-digit values.
     /// </summary>
-    private static readonly Regex MaxFourDigitValueRegex = new(@"^\d{1,4}$", RegexOptions.None);
+    private static readonly Regex MaxFourDigitValueRegex = new (@"^\d{1,4}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching up to 6-digit values.
     /// </summary>
-    private static readonly Regex MaxSixDigitValueRegex = new(@"^\d{1,6}$", RegexOptions.None);
+    private static readonly Regex MaxSixDigitValueRegex = new (@"^\d{1,6}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching up to 8-digit values.
     /// </summary>
-    private static readonly Regex MaxEightDigitValueRegex = new(@"^\d{1,8}$", RegexOptions.None);
+    private static readonly Regex MaxEightDigitValueRegex = new (@"^\d{1,8}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching up to 10-digit values.
     /// </summary>
-    private static readonly Regex MaxTenDigitValueRegex = new(@"^\d{1,10}$", RegexOptions.None);
+    private static readonly Regex MaxTenDigitValueRegex = new (@"^\d{1,10}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching up to 12-digit values.
     ///     The first digit must be non-zero unless the value is a single 0.
     /// </summary>
-    private static readonly Regex MaxTwelveDigitValueZeroOrNonZeroFirstRegex = new(@"^(0|[^0]\d{0,11})$", RegexOptions.None);
+    private static readonly Regex MaxTwelveDigitValueZeroOrNonZeroFirstRegex = new (@"^(0|[^0]\d{0,11})$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching up to 15-digit values.
     /// </summary>
-    private static readonly Regex MaxFifteenDigitValueRegex = new(@"^\d{1,15}$", RegexOptions.None);
+    private static readonly Regex MaxFifteenDigitValueRegex = new (@"^\d{1,15}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching geographic locations as 20-digit values.
     /// </summary>
-    private static readonly Regex TwentyDigitGeoLocationValueRegex = new(@"^((0\d{9}|1[0-7]\d{8}|180{8})([0-2]\d{9}|3[0-5]\d{8}|360{8}))$", RegexOptions.None);
+    private static readonly Regex TwentyDigitGeoLocationValueRegex = new (@"^((0\d{9}|1[0-7]\d{8}|180{8})([0-2]\d{9}|3[0-5]\d{8}|360{8}))$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching up to 15-digit values with ISO 4217 code.
     /// </summary>
-    private static readonly Regex MaxFifteenDigitAmountWithIso4217CodeRegex = new($"^{Iso4217CurrencyCodes}" + @"\d{1,15}$", RegexOptions.None);
+    private static readonly Regex MaxFifteenDigitAmountWithIso4217CodeRegex = new ($"^{Iso4217CurrencyCodes}" + @"\d{1,15}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching up to 15-digit values.
     /// </summary>
-    private static readonly Regex MaxFiveIsoCountryCodesRegex = new($"^{Iso3166CountryCodes}{{1,5}}$", RegexOptions.None);
+    private static readonly Regex MaxFiveIsoCountryCodesRegex = new ($"^{Iso3166CountryCodes}{{1,5}}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a binary flag (1 or 0).
     /// </summary>
-    private static readonly Regex BinaryFlagRegex = new(@"^[01]$", RegexOptions.None);
+    private static readonly Regex BinaryFlagRegex = new (@"^[01]$", RegexOptions.None);
 
     /// <summary>
     ///     A regular expression for six-digit date representation - YYMMDD.
     /// </summary>
-    private static readonly Regex DatePatternRegex = new(@"(((\d{2})(0[13578]|1[02])(0[1-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[1-9]|[12]\d|30))|((\d{2})02(0[1-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))", RegexOptions.None);
+    private static readonly Regex DatePatternRegex = new (@"(((\d{2})(0[13578]|1[02])(0[1-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[1-9]|[12]\d|30))|((\d{2})02(0[1-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for ten-digit date and time representation - YYMMDDHHMM.
     /// </summary>
-    private static readonly Regex DateTimePatternRegex = new(@"(((\d{2})(0[13578]|1[02])(0[1-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[1-9]|[12]\d|30))|((\d{2})02(0[1-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))((0\d|1\d|2[0-3])([0-5]\d))", RegexOptions.None);
+    private static readonly Regex DateTimePatternRegex = new (@"(((\d{2})(0[13578]|1[02])(0[1-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[1-9]|[12]\d|30))|((\d{2})02(0[1-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))((0\d|1\d|2[0-3])([0-5]\d))", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for ten-digit date and time representation - YYMMDDHHMM.
     ///     The time copmponent is optional.
     /// </summary>
-    private static readonly Regex DateOptionalTimePatternRegex = new(@"(((\d{2})(0[13578]|1[02])(0[1-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[1-9]|[12]\d|30))|((\d{2})02(0[1-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))((0\d|1\d|2[0-3])([0-5]\d))?", RegexOptions.None);
+    private static readonly Regex DateOptionalTimePatternRegex = new (@"(((\d{2})(0[13578]|1[02])(0[1-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[1-9]|[12]\d|30))|((\d{2})02(0[1-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))((0\d|1\d|2[0-3])([0-5]\d))?", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for the harvest date.
     ///     The second (end) date is optional.
     /// </summary>
-    private static readonly Regex HarvestDateRegex = new(@"((0\d|1[012])([0-5]\d))((0\d|1[012])([0-5]\d))?", RegexOptions.None);
+    private static readonly Regex HarvestDateRegex = new (@"((0\d|1[012])([0-5]\d))((0\d|1[012])([0-5]\d))?", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for ten-digit date and time representation - YYMMDDHHMM.
     ///     If it is not necessary to specify the day, the day field can be filled with two zeros.
     ///     If it is not necessary to specify a time, the hour and minutes are filled with 9s.
     /// </summary>
-    private static readonly Regex DateTimePatternZerosAnd9SRegex = new(@"(((\d{2})(0[13578]|1[02])(0[0-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[0-9]|[12]\d|30))|((\d{2})02(0[0-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))(((0\d|1\d|2[0-3])([0-5]\d))|9999)", RegexOptions.None);
+    private static readonly Regex DateTimePatternZerosAnd9SRegex = new (@"(((\d{2})(0[13578]|1[02])(0[0-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[0-9]|[12]\d|30))|((\d{2})02(0[0-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))(((0\d|1\d|2[0-3])([0-5]\d))|9999)", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for the date and time of production:.
     ///     If it is not necessary to specify the minutes or the seconds.
     /// </summary>
-    private static readonly Regex DateAndTimeOfProductionRegex = new(@"(((\d{2})(0[13578]|1[02])(0[0-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[0-9]|[12]\d|30))|((\d{2})02(0[0-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))(((0\d|1\d|2[0-3])([0-5]\d)?([0-5]\d)?))", RegexOptions.None);
+    private static readonly Regex DateAndTimeOfProductionRegex = new (@"(((\d{2})(0[13578]|1[02])(0[0-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[0-9]|[12]\d|30))|((\d{2})02(0[0-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))(((0\d|1\d|2[0-3])([0-5]\d)?([0-5]\d)?))", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for the Scan4Transport temperature
     ///     requirement. If there is a final -, this represents a negative
     ///     temerature value.
     /// </summary>
-    private static readonly Regex Scan4TransportTemperatureRegex = new(@"^\d{6}-?$", RegexOptions.None);
+    private static readonly Regex Scan4TransportTemperatureRegex = new (@"^\d{6}-?$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching 2-digit AIDC media types.
     /// </summary>
-    private static readonly Regex TwoDigitAidcMediaTypeRegex = new(@"^(0[1-9]|10|[89][0-9])$", RegexOptions.None);
+    private static readonly Regex TwoDigitAidcMediaTypeRegex = new (@"^(0[1-9]|10|[89][0-9])$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for matching a 1-90 character value of
     ///     characters taken from Character Set 64 (RFC 4648 Section 5).
     /// </summary>
-    private static readonly Regex CharacterSet6490CharsRegex = new($"^{CharacterSet64}" + @"{1,90}$", RegexOptions.None);
+    private static readonly Regex CharacterSet6490CharsRegex = new ($"^{CharacterSet64}" + @"{1,90}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for a sequence of digit-solidus-digit (e.g., 3/6).
     /// </summary>
     /// <returns>A regular expression.</returns>
-    private static readonly Regex SequenceRegex = new($@"^\d/\d$", RegexOptions.None);
+    private static readonly Regex SequenceRegex = new ($@"^\d/\d$", RegexOptions.None);
 #endif
 
     /// <summary>
@@ -2429,7 +2429,7 @@ internal static class EntityResolver {
             },
             {
                 7041,
-                new EntityDescriptor(
+                new UnCefactFreightUnitTypeDescriptor(
                     "UFRGT UNIT TYPE",
                     Gs1ApplicationIdentifier.ai7041,
 #if NET7_0_OR_GREATER

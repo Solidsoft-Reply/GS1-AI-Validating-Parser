@@ -181,4 +181,8 @@
     <value>The value{0} does not match the pattern specified for North American positive offer file coupons.</value>
     <comment>Error</comment>
   </data>
+  <data name="GS1_Warning_001" xml:space="preserve">
+    <value>The value{0} is not a recognised UN/ECE or GS1 package type code.</value>
+    <comment>Warning</comment>
+  </data>
 </root>

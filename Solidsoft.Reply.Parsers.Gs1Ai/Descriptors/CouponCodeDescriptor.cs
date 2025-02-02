@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="CouponCodeDescriptor.cs" company="Solidsoft Reply Ltd">
-// Copyright (c) 2018-2024 Solidsoft Reply Ltd. All rights reserved.
+// Copyright (c) 2018-2025 Solidsoft Reply Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -60,7 +60,7 @@ internal
     /// <summary>
     ///     A regular expression for North American coupon codes.
     /// </summary>
-    private static readonly Regex CouponCodeRegex = new(@"^[0-6]\d{6,12}\d{6}[1-5]\d{1,5}[1-5]\d{1,5}[0-49]\d{3}(1[0-3][1-5]\d{1,5}[0-49]\d{3}[0-6]\d{6,12}(2[1-5]\d{1,5}[0-49]\d{3}[0-6]\d{6,12})?)?" + $"(3{DatePattern})?(4{DatePattern})?" + @"(5[0-9]\d{6,15})?(6[1-7]\d{7,13})?(9[0-256][0-2]\d[01])?$");
+    private static readonly Regex CouponCodeRegex = new (@"^[0-6]\d{6,12}\d{6}[1-5]\d{1,5}[1-5]\d{1,5}[0-49]\d{3}(1[0-3][1-5]\d{1,5}[0-49]\d{3}[0-6]\d{6,12}(2[1-5]\d{1,5}[0-49]\d{3}[0-6]\d{6,12})?)?" + $"(3{DatePattern})?(4{DatePattern})?" + @"(5[0-9]\d{6,15})?(6[1-7]\d{7,13})?(9[0-256][0-2]\d[01])?$");
 #endif
 
     /// <summary>

@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="Extensions.cs" company="Solidsoft Reply Ltd">
-// Copyright (c) 2018-2024 Solidsoft Reply Ltd. All rights reserved.
+// Copyright (c) 2018-2025 Solidsoft Reply Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -59,7 +59,7 @@ public static class Extensions {
     ///     A dictionary of GS1 company prefixes.
     /// </summary>
     private static readonly Dictionary<int, CountryCode> CompanyPrefixes =
-        new()
+        new ()
         {
             { 100, CountryCode.UnitedStates },
             { 101, CountryCode.UnitedStates },
@@ -668,12 +668,12 @@ public static class Extensions {
     /// <summary>
     ///     UPC-A Compatible regular expression.
     /// </summary>
-    private static readonly Regex UpcACompatibleRegex = new("^\\d*$");
+    private static readonly Regex UpcACompatibleRegex = new ("^\\d*$");
 
     /// <summary>
     ///     UPC-A Compatible UnitedStates and Canada regular expression.
     /// </summary>
-    private static readonly Regex UpcaCompatibleUnitedStatesAndCanadaRegex = new("^\\d((0000[1-9])|(000[1-9])|(0[01][0-9]))\\d*$");
+    private static readonly Regex UpcaCompatibleUnitedStatesAndCanadaRegex = new ("^\\d((0000[1-9])|(000[1-9])|(0[01][0-9]))\\d*$");
 #endif
 
     /// <summary>

@@ -7,7 +7,7 @@
 	<Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>GS1 AI Validating Parser</Title>
-    <Copyright>© 2018-2024 Solidsoft Reply</Copyright>
+    <Copyright>© 2018-2025 Solidsoft Reply</Copyright>
     <Authors>cnayoung</Authors>
     <Company>Solidsoft Reply Ltd.</Company>
     <RepositoryUrl>https://github.com/Solidsoft-Reply/Solidsoft.Reply.Parsers.Gs1Ai</RepositoryUrl>
@@ -17,22 +17,10 @@
 	<PackageTags>gs1;ai;parser;barcode;datamatrix;qr;code-128</PackageTags>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 	<PackageReleaseNotes>
-		1) Includes support for AI 03 - Identification of a Made-to-Order (MtO) trade item (GTIN)
-		2) Includes support for AI 8014 - Highly Individualised Device Registration Identifier (HIDRI)
-		3) Includes support for AI 7041 - UN/CEFACT freight unit type
-		4) Includes support for AI 7250 - Date of birth
-		5) Includes support for AI 7251 - Date and time of birth
-		6) Includes support for AI 7252 - Biological sex
-		7) Includes support for AI 7253 - Family name of person
-		8) Includes support for AI 7254 - Given name of person
-		9) Includes support for AI 7255 - Name suffix of person
-		10) Includes support for AI 7256 - Full name of person
-		11) Includes support for AI 7257 - Address of person
-		12) Includes support for AI 7258 - Baby birth sequence indicator
-		13) Includes support for AI 7259 - Baby of family name
-		14) Includes support for AI 716 - National Healthcare Reimbursement Number (NHRN) – Italy AIC
+		1) Added a descriptor for AI 7041 - UN/CEFACT freight unit type
 
-		The general cadence for releases is to provide a new version reflecting updates to General Specifications once a year (January). However, an exception is made for this release. This was prompted by the introduction of AI 716 for Italian AICs in August 2024.
+		Please note that version 1.0.5 provided updates for changes to GS1 General Specifications 25. This release improves
+		handling for one of the AIs introduced in GS1 General Specifications 25.
 	</PackageReleaseNotes>
     <Description>
 		A comprehensive validating parser for GS1 Application Identifiers (AIs).
@@ -41,7 +29,7 @@
 		--------------
 		$(PackageReleaseNotes)
 	</Description>
-	<Version>1.0.5</Version>
+	<Version>1.0.6</Version>
 	<AssemblyName>$(MSBuildProjectName)</AssemblyName>
     <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
 	<NeutralLanguage>en</NeutralLanguage>

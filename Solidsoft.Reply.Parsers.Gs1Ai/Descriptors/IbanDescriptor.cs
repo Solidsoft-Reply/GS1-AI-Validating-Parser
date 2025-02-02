@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="IbanDescriptor.cs" company="Solidsoft Reply Ltd">
-// Copyright (c) 2018-2024 Solidsoft Reply Ltd. All rights reserved.
+// Copyright (c) 2018-2025 Solidsoft Reply Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -63,407 +63,407 @@ internal
     /// <summary>
     /// Regular expression for IBAN.
     /// </summary>
-    private static readonly Regex IbanRegex = new(@"^[A-Z]{2}\d{2}[A-Za-z0-9]{1,30}$", RegexOptions.None);
+    private static readonly Regex IbanRegex = new (@"^[A-Z]{2}\d{2}[A-Za-z0-9]{1,30}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Albanian IBAN.
     /// </summary>
-    private static readonly Regex AlbaniaIbanRegex = new(@"^AL\d{2}\d{8}[A-Za-z0-9]{16}$", RegexOptions.None);
+    private static readonly Regex AlbaniaIbanRegex = new (@"^AL\d{2}\d{8}[A-Za-z0-9]{16}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Andorra IBAN.
     /// </summary>
-    private static readonly Regex AndorraIbanRegex = new(@"^AD\d{2}\d{8}[A-Za-z0-9]{12}$", RegexOptions.None);
+    private static readonly Regex AndorraIbanRegex = new (@"^AD\d{2}\d{8}[A-Za-z0-9]{12}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Austria IBAN.
     /// </summary>
-    private static readonly Regex AustriaIbanRegex = new(@"^AT\d{2}[A-Za-z0-9]{16}$", RegexOptions.None);
+    private static readonly Regex AustriaIbanRegex = new (@"^AT\d{2}[A-Za-z0-9]{16}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Azerbaijan IBAN.
     /// </summary>
-    private static readonly Regex AzerbaijanIbanRegex = new(@"^AZ\d{2}[A-Z]{4}[A-Za-z0-9]{20}$", RegexOptions.None);
+    private static readonly Regex AzerbaijanIbanRegex = new (@"^AZ\d{2}[A-Z]{4}[A-Za-z0-9]{20}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Bahrain IBAN.
     /// </summary>
-    private static readonly Regex BahrainIbanRegex = new(@"^BH\d{2}[A-Z]{4}[A-Za-z0-9]{14}$", RegexOptions.None);
+    private static readonly Regex BahrainIbanRegex = new (@"^BH\d{2}[A-Z]{4}[A-Za-z0-9]{14}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Belarus IBAN.
     /// </summary>
-    private static readonly Regex BelarusIbanRegex = new(@"^BY\d{2}[A-Za-z0-9]{4}\d{4}[A-Za-z0-9]{16}$", RegexOptions.None);
+    private static readonly Regex BelarusIbanRegex = new (@"^BY\d{2}[A-Za-z0-9]{4}\d{4}[A-Za-z0-9]{16}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Belgium IBAN.
     /// </summary>
-    private static readonly Regex BelgiumIbanRegex = new(@"^BE\d{2}\d{12}$", RegexOptions.None);
+    private static readonly Regex BelgiumIbanRegex = new (@"^BE\d{2}\d{12}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Bosnia and Herzegovina IBAN.
     /// </summary>
-    private static readonly Regex BosniaAndHerzegovinaIbanRegex = new(@"^BE\d{2}\d{16}$", RegexOptions.None);
+    private static readonly Regex BosniaAndHerzegovinaIbanRegex = new (@"^BE\d{2}\d{16}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Brazil IBAN.
     /// </summary>
-    private static readonly Regex BrazilIbanRegex = new(@"^BR\d{2}\d{23}[A-Z][A-Za-z0-9]$", RegexOptions.None);
+    private static readonly Regex BrazilIbanRegex = new (@"^BR\d{2}\d{23}[A-Z][A-Za-z0-9]$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Bulgaria IBAN.
     /// </summary>
-    private static readonly Regex BulgariaIbanRegex = new(@"^BG\d{2}[A-Z]{4}\d{6}[A-Za-z0-9]{8}$", RegexOptions.None);
+    private static readonly Regex BulgariaIbanRegex = new (@"^BG\d{2}[A-Z]{4}\d{6}[A-Za-z0-9]{8}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Costa Rica IBAN.
     /// </summary>
-    private static readonly Regex CostaRicaIbanRegex = new(@"^CR\d{2}\d{18}$", RegexOptions.None);
+    private static readonly Regex CostaRicaIbanRegex = new (@"^CR\d{2}\d{18}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Croatia IBAN.
     /// </summary>
-    private static readonly Regex CroatiaIbanRegex = new(@"^HR\d{2}\d{17}$", RegexOptions.None);
+    private static readonly Regex CroatiaIbanRegex = new (@"^HR\d{2}\d{17}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Cyprus IBAN.
     /// </summary>
-    private static readonly Regex CyprusIbanRegex = new(@"^CY\d{2}\d{8}[A-Za-z0-9]{16}$", RegexOptions.None);
+    private static readonly Regex CyprusIbanRegex = new (@"^CY\d{2}\d{8}[A-Za-z0-9]{16}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Czech Republic IBAN.
     /// </summary>
-    private static readonly Regex CzechRepublicIbanRegex = new(@"^CZ\d{2}\d{20}$", RegexOptions.None);
+    private static readonly Regex CzechRepublicIbanRegex = new (@"^CZ\d{2}\d{20}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Denmark IBAN.
     /// </summary>
-    private static readonly Regex DenmarkIbanRegex = new(@"^DK\d{2}\d{14}$", RegexOptions.None);
+    private static readonly Regex DenmarkIbanRegex = new (@"^DK\d{2}\d{14}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Dominican Republic IBAN.
     /// </summary>
-    private static readonly Regex DominicanRepublicIbanRegex = new(@"^DO\d{2}[A-Za-z0-9]{4}\d{20}$", RegexOptions.None);
+    private static readonly Regex DominicanRepublicIbanRegex = new (@"^DO\d{2}[A-Za-z0-9]{4}\d{20}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for East Timor IBAN.
     /// </summary>
-    private static readonly Regex EastTimorIbanRegex = new(@"^TL\d{2}\d{19}$", RegexOptions.None);
+    private static readonly Regex EastTimorIbanRegex = new (@"^TL\d{2}\d{19}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Egypt IBAN.
     /// </summary>
-    private static readonly Regex EgyptIbanRegex = new(@"^EG\d{2}\d{25}$", RegexOptions.None);
+    private static readonly Regex EgyptIbanRegex = new (@"^EG\d{2}\d{25}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for El Salvador IBAN.
     /// </summary>
-    private static readonly Regex ElSalvadorIbanRegex = new(@"^SV\d{2}[A-Z]{4}\d{20}$", RegexOptions.None);
+    private static readonly Regex ElSalvadorIbanRegex = new (@"^SV\d{2}[A-Z]{4}\d{20}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Estonia IBAN.
     /// </summary>
-    private static readonly Regex EstoniaIbanRegex = new(@"^EE\d{2}\d{16}$", RegexOptions.None);
+    private static readonly Regex EstoniaIbanRegex = new (@"^EE\d{2}\d{16}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Faroe Islands IBAN.
     /// </summary>
-    private static readonly Regex FaroeIslandsIbanRegex = new(@"^FO\d{2}\d{14}$", RegexOptions.None);
+    private static readonly Regex FaroeIslandsIbanRegex = new (@"^FO\d{2}\d{14}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Finland IBAN.
     /// </summary>
-    private static readonly Regex FinlandIbanRegex = new(@"^FI\d{2}\d{14}$", RegexOptions.None);
+    private static readonly Regex FinlandIbanRegex = new (@"^FI\d{2}\d{14}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for France IBAN.
     /// </summary>
-    private static readonly Regex FranceIbanRegex = new(@"^FR\d{2}\d{10}[A-Za-z0-9]{11}\d{2}$", RegexOptions.None);
+    private static readonly Regex FranceIbanRegex = new (@"^FR\d{2}\d{10}[A-Za-z0-9]{11}\d{2}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Georgia IBAN.
     /// </summary>
-    private static readonly Regex GeorgiaIbanRegex = new(@"^GE\d{2}[A-Z]{2}\d{16}$", RegexOptions.None);
+    private static readonly Regex GeorgiaIbanRegex = new (@"^GE\d{2}[A-Z]{2}\d{16}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Germany IBAN.
     /// </summary>
-    private static readonly Regex GermanyIbanRegex = new(@"^DE\d{2}\d{18}$", RegexOptions.None);
+    private static readonly Regex GermanyIbanRegex = new (@"^DE\d{2}\d{18}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Gibraltar IBAN.
     /// </summary>
-    private static readonly Regex GibraltarIbanRegex = new(@"^GI\d{2}[A-Z]{4}[A-Za-z0-9]{15}$", RegexOptions.None);
+    private static readonly Regex GibraltarIbanRegex = new (@"^GI\d{2}[A-Z]{4}[A-Za-z0-9]{15}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Greece IBAN.
     /// </summary>
-    private static readonly Regex GreeceIbanRegex = new(@"^GR\d{2}\d{7}[A-Za-z0-9]{16}$", RegexOptions.None);
+    private static readonly Regex GreeceIbanRegex = new (@"^GR\d{2}\d{7}[A-Za-z0-9]{16}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Greenland IBAN.
     /// </summary>
-    private static readonly Regex GreenlandIbanRegex = new(@"^GL\d{2}\d{14}$", RegexOptions.None);
+    private static readonly Regex GreenlandIbanRegex = new (@"^GL\d{2}\d{14}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Guatemala IBAN.
     /// </summary>
-    private static readonly Regex GuatemalaIbanRegex = new(@"^GT\d{2}[A-Za-z0-9]{24}$", RegexOptions.None);
+    private static readonly Regex GuatemalaIbanRegex = new (@"^GT\d{2}[A-Za-z0-9]{24}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Hungary IBAN.
     /// </summary>
-    private static readonly Regex HungaryIbanRegex = new(@"^HU\d{2}\d{24}$", RegexOptions.None);
+    private static readonly Regex HungaryIbanRegex = new (@"^HU\d{2}\d{24}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Iceland IBAN.
     /// </summary>
-    private static readonly Regex IcelandIbanRegex = new(@"^IS\d{2}\d{22}$", RegexOptions.None);
+    private static readonly Regex IcelandIbanRegex = new (@"^IS\d{2}\d{22}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Iraq IBAN.
     /// </summary>
-    private static readonly Regex IraqIbanRegex = new(@"^IQ\d{2}[A-Z]{4}\d{15}$", RegexOptions.None);
+    private static readonly Regex IraqIbanRegex = new (@"^IQ\d{2}[A-Z]{4}\d{15}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Ireland IBAN.
     /// </summary>
-    private static readonly Regex IrelandIbanRegex = new(@"^IE\d{2}[A-Z]{4}\d{14}$", RegexOptions.None);
+    private static readonly Regex IrelandIbanRegex = new (@"^IE\d{2}[A-Z]{4}\d{14}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Israel IBAN.
     /// </summary>
-    private static readonly Regex IsraelIbanRegex = new(@"^IL\d{2}\d{19}$", RegexOptions.None);
+    private static readonly Regex IsraelIbanRegex = new (@"^IL\d{2}\d{19}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Italy IBAN.
     /// </summary>
-    private static readonly Regex ItalyIbanRegex = new(@"^IT\d{2}[A-Z]{1}\d{10}[A-Za-z0-9]{12}$", RegexOptions.None);
+    private static readonly Regex ItalyIbanRegex = new (@"^IT\d{2}[A-Z]{1}\d{10}[A-Za-z0-9]{12}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Jordan IBAN.
     /// </summary>
-    private static readonly Regex JordanIbanRegex = new(@"^JO\d{2}[A-Z]{4}\d{4}[A-Za-z0-9]{18}$", RegexOptions.None);
+    private static readonly Regex JordanIbanRegex = new (@"^JO\d{2}[A-Z]{4}\d{4}[A-Za-z0-9]{18}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Kazakhstan IBAN.
     /// </summary>
-    private static readonly Regex KazakhstanIbanRegex = new(@"^KZ\d{2}\d{3}[A-Za-z0-9]{13}$", RegexOptions.None);
+    private static readonly Regex KazakhstanIbanRegex = new (@"^KZ\d{2}\d{3}[A-Za-z0-9]{13}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Kosovo IBAN.
     /// </summary>
-    private static readonly Regex KosovoIbanRegex = new(@"^XK\d{2}\d{4}\d{12}$", RegexOptions.None);
+    private static readonly Regex KosovoIbanRegex = new (@"^XK\d{2}\d{4}\d{12}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Kuwait IBAN.
     /// </summary>
-    private static readonly Regex KuwaitIbanRegex = new(@"^KW\d{2}[A-Z]{4}[A-Za-z0-9]{22}$", RegexOptions.None);
+    private static readonly Regex KuwaitIbanRegex = new (@"^KW\d{2}[A-Z]{4}[A-Za-z0-9]{22}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Latvia IBAN.
     /// </summary>
-    private static readonly Regex LatviaIbanRegex = new(@"^LV\d{2}[A-Z]{4}[A-Za-z0-9]{13}$", RegexOptions.None);
+    private static readonly Regex LatviaIbanRegex = new (@"^LV\d{2}[A-Z]{4}[A-Za-z0-9]{13}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Lebanon IBAN.
     /// </summary>
-    private static readonly Regex LebanonIbanRegex = new(@"^LB\d{2}\d{4}[A-Za-z0-9]{20}$", RegexOptions.None);
+    private static readonly Regex LebanonIbanRegex = new (@"^LB\d{2}\d{4}[A-Za-z0-9]{20}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Libya IBAN.
     /// </summary>
-    private static readonly Regex LibyaIbanRegex = new(@"^LY\d{2}\d{21}$", RegexOptions.None);
+    private static readonly Regex LibyaIbanRegex = new (@"^LY\d{2}\d{21}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Liechtenstein IBAN.
     /// </summary>
-    private static readonly Regex LiechtensteinIbanRegex = new(@"^LI\d{2}\d{5}[A-Za-z0-9]{12}$", RegexOptions.None);
+    private static readonly Regex LiechtensteinIbanRegex = new (@"^LI\d{2}\d{5}[A-Za-z0-9]{12}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Lithuania IBAN.
     /// </summary>
-    private static readonly Regex LithuaniaIbanRegex = new(@"^LT\d{2}\d{16}$", RegexOptions.None);
+    private static readonly Regex LithuaniaIbanRegex = new (@"^LT\d{2}\d{16}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Luxembourg IBAN.
     /// </summary>
-    private static readonly Regex LuxembourgIbanRegex = new(@"^LU\d{2}\d{3}[A-Za-z0-9]{13}$", RegexOptions.None);
+    private static readonly Regex LuxembourgIbanRegex = new (@"^LU\d{2}\d{3}[A-Za-z0-9]{13}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Malta IBAN.
     /// </summary>
-    private static readonly Regex MaltaIbanRegex = new(@"^MT\d{2}[A-Z]{4}\d{5}[A-Za-z0-9]{18}$", RegexOptions.None);
+    private static readonly Regex MaltaIbanRegex = new (@"^MT\d{2}[A-Z]{4}\d{5}[A-Za-z0-9]{18}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Mauritania IBAN.
     /// </summary>
-    private static readonly Regex MauritaniaIbanRegex = new(@"^MR\d{2}\d{23}$", RegexOptions.None);
+    private static readonly Regex MauritaniaIbanRegex = new (@"^MR\d{2}\d{23}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Mauritius IBAN.
     /// </summary>
-    private static readonly Regex MauritiusIbanRegex = new(@"^MU\d{2}[A-Z]{4}\d{19}[A-Z]{3}$", RegexOptions.None);
+    private static readonly Regex MauritiusIbanRegex = new (@"^MU\d{2}[A-Z]{4}\d{19}[A-Z]{3}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Monaco IBAN.
     /// </summary>
-    private static readonly Regex MonacoIbanRegex = new(@"^MC\d{2}\d{10}[A-Za-z0-9]{11}\d{2}$", RegexOptions.None);
+    private static readonly Regex MonacoIbanRegex = new (@"^MC\d{2}\d{10}[A-Za-z0-9]{11}\d{2}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Moldova IBAN.
     /// </summary>
-    private static readonly Regex MoldovaIbanRegex = new(@"^MD\d{2}[A-Za-z0-9]{2}[A-Za-z0-9]{18}$", RegexOptions.None);
+    private static readonly Regex MoldovaIbanRegex = new (@"^MD\d{2}[A-Za-z0-9]{2}[A-Za-z0-9]{18}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Montenegro IBAN.
     /// </summary>
-    private static readonly Regex MontenegroIbanRegex = new(@"^ME\d{2}\d{18}$", RegexOptions.None);
+    private static readonly Regex MontenegroIbanRegex = new (@"^ME\d{2}\d{18}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Netherlands IBAN.
     /// </summary>
-    private static readonly Regex NetherlandsIbanRegex = new(@"^NL\d{2}[A-Z]{4}\d{10}$", RegexOptions.None);
+    private static readonly Regex NetherlandsIbanRegex = new (@"^NL\d{2}[A-Z]{4}\d{10}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for North Macedonia IBAN.
     /// </summary>
-    private static readonly Regex NorthMacedoniaIbanRegex = new(@"^MK\d{2}\d{3}[A-Za-z0-9]{10}\d{2}$", RegexOptions.None);
+    private static readonly Regex NorthMacedoniaIbanRegex = new (@"^MK\d{2}\d{3}[A-Za-z0-9]{10}\d{2}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Norway IBAN.
     /// </summary>
-    private static readonly Regex NorwayIbanRegex = new(@"^NO\d{2}\d{11}$", RegexOptions.None);
+    private static readonly Regex NorwayIbanRegex = new (@"^NO\d{2}\d{11}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Pakistan IBAN.
     /// </summary>
-    private static readonly Regex PakistanIbanRegex = new(@"^PK\d{2}[A-Z]{4}[A-Za-z0-9]{16}$", RegexOptions.None);
+    private static readonly Regex PakistanIbanRegex = new (@"^PK\d{2}[A-Z]{4}[A-Za-z0-9]{16}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Palestinian Territories IBAN.
     /// </summary>
-    private static readonly Regex PalestinianterritoriesIbanRegex = new(@"^PS\d{2}[A-Z]{4}[A-Za-z0-9]{21}$", RegexOptions.None);
+    private static readonly Regex PalestinianterritoriesIbanRegex = new (@"^PS\d{2}[A-Z]{4}[A-Za-z0-9]{21}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Poland IBAN.
     /// </summary>
-    private static readonly Regex PolandIbanRegex = new(@"^PL\d{2}\d{24}$", RegexOptions.None);
+    private static readonly Regex PolandIbanRegex = new (@"^PL\d{2}\d{24}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Portugal IBAN.
     /// </summary>
-    private static readonly Regex PortugalIbanRegex = new(@"^PT\d{2}\d{21}$", RegexOptions.None);
+    private static readonly Regex PortugalIbanRegex = new (@"^PT\d{2}\d{21}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Qatar IBAN.
     /// </summary>
-    private static readonly Regex QatarIbanRegex = new(@"^QA\d{2}[A-Z]{4}[A-Za-z0-9]{21}$", RegexOptions.None);
+    private static readonly Regex QatarIbanRegex = new (@"^QA\d{2}[A-Z]{4}[A-Za-z0-9]{21}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Romania IBAN.
     /// </summary>
-    private static readonly Regex RomaniaIbanRegex = new(@"^RO\d{2}[A-Z]{4}[A-Za-z0-9]{16}$", RegexOptions.None);
+    private static readonly Regex RomaniaIbanRegex = new (@"^RO\d{2}[A-Z]{4}[A-Za-z0-9]{16}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Russia IBAN.
     /// </summary>
-    private static readonly Regex RussiaIbanRegex = new(@"^RU\d{2}\d{14}[A-Za-z0-9]{15}$", RegexOptions.None);
+    private static readonly Regex RussiaIbanRegex = new (@"^RU\d{2}\d{14}[A-Za-z0-9]{15}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Saint Lucia IBAN.
     /// </summary>
-    private static readonly Regex SaintLuciaIbanRegex = new(@"^LC\d{2}[A-Z]{4}[A-Za-z0-9]{24}$", RegexOptions.None);
+    private static readonly Regex SaintLuciaIbanRegex = new (@"^LC\d{2}[A-Z]{4}[A-Za-z0-9]{24}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for San Marino IBAN.
     /// </summary>
-    private static readonly Regex SanMarinoIbanRegex = new(@"^SM\d{2}[A-Z]{1}\d{10}[A-Za-z0-9]{12}$", RegexOptions.None);
+    private static readonly Regex SanMarinoIbanRegex = new (@"^SM\d{2}[A-Z]{1}\d{10}[A-Za-z0-9]{12}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for São Tomé and Príncipe IBAN.
     /// </summary>
-    private static readonly Regex SãoToméandPríncipeIbanRegex = new(@"^ST\d{2}\d{21}$", RegexOptions.None);
+    private static readonly Regex SãoToméandPríncipeIbanRegex = new (@"^ST\d{2}\d{21}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Saudi Arabia IBAN.
     /// </summary>
-    private static readonly Regex SaudiArabiaIbanRegex = new(@"^SA\d{2}\d{2}[A-Za-z0-9]{18}$", RegexOptions.None);
+    private static readonly Regex SaudiArabiaIbanRegex = new (@"^SA\d{2}\d{2}[A-Za-z0-9]{18}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Serbia IBAN.
     /// </summary>
-    private static readonly Regex SerbiaIbanRegex = new(@"^RS\d{2}\d{18}$", RegexOptions.None);
+    private static readonly Regex SerbiaIbanRegex = new (@"^RS\d{2}\d{18}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Seychelles IBAN.
     /// </summary>
-    private static readonly Regex SeychellesIbanRegex = new(@"^SC\d{2}[A-Z]{4}\d{20}[A-Z]{3}$", RegexOptions.None);
+    private static readonly Regex SeychellesIbanRegex = new (@"^SC\d{2}[A-Z]{4}\d{20}[A-Z]{3}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Slovakia IBAN.
     /// </summary>
-    private static readonly Regex SlovakiaIbanRegex = new(@"^SK\d{2}\d{20}$", RegexOptions.None);
+    private static readonly Regex SlovakiaIbanRegex = new (@"^SK\d{2}\d{20}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Slovenia IBAN.
     /// </summary>
-    private static readonly Regex SloveniaIbanRegex = new(@"^SI\d{2}\d{15}$", RegexOptions.None);
+    private static readonly Regex SloveniaIbanRegex = new (@"^SI\d{2}\d{15}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Spain IBAN.
     /// </summary>
-    private static readonly Regex SpainIbanRegex = new(@"^ES\d{2}\d{20}$", RegexOptions.None);
+    private static readonly Regex SpainIbanRegex = new (@"^ES\d{2}\d{20}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Sudan IBAN.
     /// </summary>
-    private static readonly Regex SudanIbanRegex = new(@"^SD\d{2}\d{14}$", RegexOptions.None);
+    private static readonly Regex SudanIbanRegex = new (@"^SD\d{2}\d{14}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Sweden IBAN.
     /// </summary>
-    private static readonly Regex SwedenIbanRegex = new(@"^SE\d{2}\d{20}$", RegexOptions.None);
+    private static readonly Regex SwedenIbanRegex = new (@"^SE\d{2}\d{20}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Switzerland IBAN.
     /// </summary>
-    private static readonly Regex SwitzerlandIbanRegex = new(@"^CH\d{2}\d{5}[A-Za-z0-9]{12}$", RegexOptions.None);
+    private static readonly Regex SwitzerlandIbanRegex = new (@"^CH\d{2}\d{5}[A-Za-z0-9]{12}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Tunisia IBAN.
     /// </summary>
-    private static readonly Regex TunisiaIbanRegex = new(@"^TN\d{2}\d{20}$", RegexOptions.None);
+    private static readonly Regex TunisiaIbanRegex = new (@"^TN\d{2}\d{20}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Turkey IBAN.
     /// </summary>
-    private static readonly Regex TurkeyIbanRegex = new(@"^TR\d{2}\d{6}[A-Za-z0-9]{16}$", RegexOptions.None);
+    private static readonly Regex TurkeyIbanRegex = new (@"^TR\d{2}\d{6}[A-Za-z0-9]{16}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Ukraine IBAN.
     /// </summary>
-    private static readonly Regex UkraineIbanRegex = new(@"^UA\d{2}\d{6}[A-Za-z0-9]{ 1}$", RegexOptions.None);
+    private static readonly Regex UkraineIbanRegex = new (@"^UA\d{2}\d{6}[A-Za-z0-9]{ 1}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for United Arab Emirates IBAN.
     /// </summary>
-    private static readonly Regex UnitedArabEmiratesIbanRegex = new(@"^AE\d{2}\d{3}\d{16}$", RegexOptions.None);
+    private static readonly Regex UnitedArabEmiratesIbanRegex = new (@"^AE\d{2}\d{3}\d{16}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for United Kingdom IBAN.
     /// </summary>
-    private static readonly Regex UnitedKingdomIbanRegex = new(@"^GB\d{2}[A-Z]{4}\d{14}$", RegexOptions.None);
+    private static readonly Regex UnitedKingdomIbanRegex = new (@"^GB\d{2}[A-Z]{4}\d{14}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Vatican City IBAN.
     /// </summary>
-    private static readonly Regex VaticanCityIbanRegex = new(@"^VA\d{2}\d{3}\d{15}$", RegexOptions.None);
+    private static readonly Regex VaticanCityIbanRegex = new (@"^VA\d{2}\d{3}\d{15}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for British Virgin Islands.
     /// </summary>
-    private static readonly Regex BritishVirginIslandsIbanRegex = new(@"^VG\d{2}[A-Z]{4}\d{16}$", RegexOptions.None);
+    private static readonly Regex BritishVirginIslandsIbanRegex = new (@"^VG\d{2}[A-Z]{4}\d{16}$", RegexOptions.None);
 
     /*
      * Aspirational
@@ -472,132 +472,132 @@ internal
     /// <summary>
     /// Regular expression for Algeria - aspirational.
     /// </summary>
-    private static readonly Regex AlgeriaIbanRegex = new(@"^DZ\d{2}\d{22}$", RegexOptions.None);
+    private static readonly Regex AlgeriaIbanRegex = new (@"^DZ\d{2}\d{22}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Angola - aspirational.
     /// </summary>
-    private static readonly Regex AngolaIbanRegex = new(@"^AO\d{2}\d{21}$", RegexOptions.None);
+    private static readonly Regex AngolaIbanRegex = new (@"^AO\d{2}\d{21}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Benin - aspirational.
     /// </summary>
-    private static readonly Regex BeninIbanRegex = new(@"^BJ\d{2}[A-Za-z0-9]{2}\d{22}$", RegexOptions.None);
+    private static readonly Regex BeninIbanRegex = new (@"^BJ\d{2}[A-Za-z0-9]{2}\d{22}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Burkina Faso - aspirational.
     /// </summary>
-    private static readonly Regex BurkinaFasoIbanRegex = new(@"^BF\d{2}[A-Za-z0-9]{2}\d{22}$", RegexOptions.None);
+    private static readonly Regex BurkinaFasoIbanRegex = new (@"^BF\d{2}[A-Za-z0-9]{2}\d{22}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Burundi - aspirational.
     /// </summary>
-    private static readonly Regex BurundiIbanRegex = new(@"^BI\d{2}\d{23}$", RegexOptions.None);
+    private static readonly Regex BurundiIbanRegex = new (@"^BI\d{2}\d{23}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Cabo - aspirational.
     /// </summary>
-    private static readonly Regex CaboVerdeIbanRegex = new(@"^CV\d{2}\d{21}$", RegexOptions.None);
+    private static readonly Regex CaboVerdeIbanRegex = new (@"^CV\d{2}\d{21}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Cameroon - aspirational.
     /// </summary>
-    private static readonly Regex CameroonIbanRegex = new(@"^CM\d{2}\d{23}$", RegexOptions.None);
+    private static readonly Regex CameroonIbanRegex = new (@"^CM\d{2}\d{23}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for the Central African Republic - aspirational.
     /// </summary>
-    private static readonly Regex CentralAfricanRepublicIbanRegex = new(@"^CF\d{2}\d{23}$", RegexOptions.None);
+    private static readonly Regex CentralAfricanRepublicIbanRegex = new (@"^CF\d{2}\d{23}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Chad - aspirational.
     /// </summary>
-    private static readonly Regex ChadIbanRegex = new(@"^TD\d{2}\d{23}$", RegexOptions.None);
+    private static readonly Regex ChadIbanRegex = new (@"^TD\d{2}\d{23}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Comoros - aspirational.
     /// </summary>
-    private static readonly Regex ComorosIbanRegex = new(@"^KM\d{2}\d{23}$", RegexOptions.None);
+    private static readonly Regex ComorosIbanRegex = new (@"^KM\d{2}\d{23}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Republic of the Congo - aspirational.
     /// </summary>
-    private static readonly Regex RepublicOfTheCongoIbanRegex = new(@"^CG\d{2}\d{23}$", RegexOptions.None);
+    private static readonly Regex RepublicOfTheCongoIbanRegex = new (@"^CG\d{2}\d{23}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Côte d'Ivoire - aspirational.
     /// </summary>
-    private static readonly Regex CôtedIvoireIbanRegex = new(@"^CI\d{2}[A-Z]{1}\d{23}$", RegexOptions.None);
+    private static readonly Regex CôtedIvoireIbanRegex = new (@"^CI\d{2}[A-Z]{1}\d{23}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Djibouti - aspirational.
     /// </summary>
-    private static readonly Regex DjiboutiIbanRegex = new(@"^DJ\d{2}\d{23}$", RegexOptions.None);
+    private static readonly Regex DjiboutiIbanRegex = new (@"^DJ\d{2}\d{23}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Equatorial Guinea - aspirational.
     /// </summary>
-    private static readonly Regex EquatorialGuineaIbanRegex = new(@"^GQ\d{2}\d{23}$", RegexOptions.None);
+    private static readonly Regex EquatorialGuineaIbanRegex = new (@"^GQ\d{2}\d{23}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Gabon - aspirational.
     /// </summary>
-    private static readonly Regex GabonIbanRegex = new(@"^GA\d{2}\d{23}$", RegexOptions.None);
+    private static readonly Regex GabonIbanRegex = new (@"^GA\d{2}\d{23}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Guinea Bissau - aspirational.
     /// </summary>
-    private static readonly Regex GuineaBissauIbanRegex = new(@"^GW\d{2}[A-Za-z0-9]{2}\d{19}$", RegexOptions.None);
+    private static readonly Regex GuineaBissauIbanRegex = new (@"^GW\d{2}[A-Za-z0-9]{2}\d{19}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Honduras - aspirational.
     /// </summary>
-    private static readonly Regex HondurasIbanRegex = new(@"^HN\d{2}[A-Z]{4}\d{20}$", RegexOptions.None);
+    private static readonly Regex HondurasIbanRegex = new (@"^HN\d{2}[A-Z]{4}\d{20}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Iran - aspirational.
     /// </summary>
-    private static readonly Regex IranIbanRegex = new(@"^IR\d{2}\d{22}$", RegexOptions.None);
+    private static readonly Regex IranIbanRegex = new (@"^IR\d{2}\d{22}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Madagascar - aspirational.
     /// </summary>
-    private static readonly Regex MadagascarIbanRegex = new(@"^MG\d{2}\d{23}$", RegexOptions.None);
+    private static readonly Regex MadagascarIbanRegex = new (@"^MG\d{2}\d{23}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Mali - aspirational.
     /// </summary>
-    private static readonly Regex MaliIbanRegex = new(@"^ML\d{2}[A-Za-z0-9]{2}\d{22}$", RegexOptions.None);
+    private static readonly Regex MaliIbanRegex = new (@"^ML\d{2}[A-Za-z0-9]{2}\d{22}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Morocco - aspirational.
     /// </summary>
-    private static readonly Regex MoroccoIbanRegex = new(@"^MA\d{2}\d{24}$", RegexOptions.None);
+    private static readonly Regex MoroccoIbanRegex = new (@"^MA\d{2}\d{24}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Mozambique - aspirational.
     /// </summary>
-    private static readonly Regex MozambiqueIbanRegex = new(@"^MZ\d{2}\d{21}$", RegexOptions.None);
+    private static readonly Regex MozambiqueIbanRegex = new (@"^MZ\d{2}\d{21}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Nicaragua - aspirational.
     /// </summary>
-    private static readonly Regex NicaraguaIbanRegex = new(@"^NI\d{2}[A-Z]{4}\d{24}$", RegexOptions.None);
+    private static readonly Regex NicaraguaIbanRegex = new (@"^NI\d{2}[A-Z]{4}\d{24}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Niger - aspirational.
     /// </summary>
-    private static readonly Regex NigerIbanRegex = new(@"^NE\d{2}[A-Z]{2}\d{22}$", RegexOptions.None);
+    private static readonly Regex NigerIbanRegex = new (@"^NE\d{2}[A-Z]{2}\d{22}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Senegal - aspirational.
     /// </summary>
-    private static readonly Regex SenegalIbanRegex = new(@"^SN\d{2}[A-Z]{2}\d{22}$", RegexOptions.None);
+    private static readonly Regex SenegalIbanRegex = new (@"^SN\d{2}[A-Z]{2}\d{22}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Togo - aspirational.
     /// </summary>
-    private static readonly Regex TogoIbanRegex = new(@"^TG\d{2}[A-Z]{2}\d{22}$", RegexOptions.None);
+    private static readonly Regex TogoIbanRegex = new (@"^TG\d{2}[A-Z]{2}\d{22}$", RegexOptions.None);
 #endif
 
     /// <summary>
