@@ -103,7 +103,7 @@ internal
     /// <summary>
     /// Regular expression for Bosnia and Herzegovina IBAN.
     /// </summary>
-    private static readonly Regex BosniaAndHerzegovinaIbanRegex = new (@"^BE\d{2}\d{16}$", RegexOptions.None);
+    private static readonly Regex BosniaAndHerzegovinaIbanRegex = new (@"^BA\d{2}\d{16}$", RegexOptions.None);
 
     /// <summary>
     /// Regular expression for Brazil IBAN.

@@ -339,7 +339,7 @@ internal static class EntityResolver {
     /// <summary>
     ///     Returns a regular expression for matching a GS1 UIC with Extension 1 and Imported index.
     /// </summary>
-    private static readonly Regex Gs1UicWithExtension1AndImportedIndexRegex = new (@"^\d" + CharacterSet82 + $"{Eu2018574ImporterIndexCharacterSet}$", RegexOptions.None);
+    private static readonly Regex Gs1UicWithExtension1AndImportedIndexRegex = new (@"^\d" + CharacterSet82 + @"{2}" + $"{Eu2018574ImporterIndexCharacterSet}$", RegexOptions.None);
 
     /// <summary>
     ///     Returns a regular expression for six-digit date representation - YYMMDD.
