@@ -17,10 +17,7 @@
 	<PackageTags>gs1;ai;parser;barcode;datamatrix;qr;code-128</PackageTags>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 	<PackageReleaseNotes>
-		1) Added a descriptor for AI 7041 - UN/CEFACT freight unit type
-
-		Please note that version 1.0.5 provided updates for changes to GS1 General Specifications 25. This release improves
-		handling for one of the AIs introduced in GS1 General Specifications 25.
+		1) Fixed two issues with string parsing in version of .NET prior to 6.0.
 	</PackageReleaseNotes>
     <Description>
 		A comprehensive validating parser for GS1 Application Identifiers (AIs).
@@ -29,7 +26,7 @@
 		--------------
 		$(PackageReleaseNotes)
 	</Description>
-	<Version>1.0.6</Version>
+	<Version>1.0.7</Version>
 	<AssemblyName>$(MSBuildProjectName)</AssemblyName>
     <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
 	<NeutralLanguage>en</NeutralLanguage>
