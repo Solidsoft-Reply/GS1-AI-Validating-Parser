@@ -17,7 +17,9 @@
 	<PackageTags>gs1;ai;parser;barcode;datamatrix;qr;code-128</PackageTags>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 	<PackageReleaseNotes>
-		1) Fixed two issues with string parsing in version of .NET prior to 6.0.
+		1) Fixed issues with parsing AI 7040 in versions of .NET prior to 7.0.
+
+		2) Fixed issues with parsing AI 8007 for Bosnia and Herzegovina IBANs in versions of .NET prior to 7.0.
 	</PackageReleaseNotes>
     <Description>
 		A comprehensive validating parser for GS1 Application Identifiers (AIs).
@@ -26,7 +28,7 @@
 		--------------
 		$(PackageReleaseNotes)
 	</Description>
-	<Version>1.0.7</Version>
+	<Version>1.0.8</Version>
 	<AssemblyName>$(MSBuildProjectName)</AssemblyName>
     <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
 	<NeutralLanguage>en</NeutralLanguage>
