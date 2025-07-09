@@ -1,4 +1,8 @@
-﻿This library provides a comprehensive validating parser for GS1 Application Identifiers (AIs).  GS1 defines AIs as part of its general specifications.  See [GS1 General Specifications - Standards | GS1]( https://www.gs1.org/standards/barcodes-epcrfid-id-keys/gs1-general-specifications)
+**NuGet package**
+
+dotnet add package Solidsoft.Reply.Parsers.Gs1Ai
+ 
+This library provides a comprehensive validating parser for GS1 Application Identifiers (AIs).  GS1 defines AIs as part of its general specifications.  See [GS1 General Specifications - Standards | GS1]( https://www.gs1.org/standards/barcodes-epcrfid-id-keys/gs1-general-specifications)
 The parser validates each AI against the format defined for that AI.  It calls back into an Action for each AI reported to it.  For each AI, parsed data is reported as a Resolved Entity object.  Each Resolved Entity includes a collection of all errors reported while parsing the AI.
 The library depends on the Solidsoft.Reply.Parsers.Common library.
 
