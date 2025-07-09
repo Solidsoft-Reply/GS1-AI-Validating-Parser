@@ -4057,7 +4057,7 @@ internal static class EntityResolver {
 #if NET6_0_OR_GREATER
                     data[..length],
 #else
-                    data.Substring(length),
+                    data.Substring(0, length),
 #endif
                     true,
                     out ApplicationIdentifier applicationIdentifier)
@@ -4191,7 +4191,7 @@ internal static class EntityResolver {
 #if NET6_0_OR_GREATER
                 data[startIndex..(length + startIndex)],
 #else
-                data.Substring(startIndex, length + startIndex - 1),
+                data.Substring(startIndex, length),
 #endif
                 out var number)
             && number.IsNumberInRange(lowerBound, upperBound);
