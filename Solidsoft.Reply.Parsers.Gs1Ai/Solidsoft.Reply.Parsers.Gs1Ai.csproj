@@ -17,6 +17,8 @@
 	<PackageTags>gs1;ai;parser;barcode;datamatrix;qr;code-128</PackageTags>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 	<PackageReleaseNotes>
+		The following changes were made in this release.
+
 		1) Fixed issues with parsing AI 7040 in versions of .NET prior to 7.0.
 
 		2) Fixed issues with parsing AI 8007 for Bosnia and Herzegovina IBANs in versions of .NET prior to 7.0.
