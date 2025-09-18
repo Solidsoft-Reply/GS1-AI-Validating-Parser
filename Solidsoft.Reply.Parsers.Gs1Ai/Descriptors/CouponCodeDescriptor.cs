@@ -76,21 +76,57 @@ internal
     /// <returns>True, if valid.  Otherwise, false.</returns>
     // ReSharper disable once CommentTypo
     // ReSharper disable once InheritdocConsiderUsage
-    public override bool IsValid(string value, out IList<ParserException> validationErrors) {
+#if NET7_0_OR_GREATER
+    public override bool IsValid(ReadOnlySpan<char> value, out IList<ParserException>? validationErrors) {
+        var result = base.IsValid(value, out validationErrors);
+
+        if (value.IsNull() || value.IsEmpty) {
+            return result;
+        }
+
+        if (CouponCodeRegex().IsMatch(value)) {
+            return true;
+        }
+
+        value = value.TrimEnd('\0');
+        validationErrors ??= [];
+        validationErrors.Add(AddException(value, 2016, Resources.GS1_Error_015));
+        return false;
+
+        ParserException AddException(ReadOnlySpan<char> value, int errorNumber, string message, string country = "") {
+            var valueString = value.Length > 0 ? " " + value.ToString() : string.Empty;
+            var offset = valueString.Length > 0 ? valueString.Trim().Length - 1 : 0;
+            return new ParserException(
+                errorNumber,
+                string.Format(CultureInfo.CurrentCulture, message, valueString, country),
+                false,
+                offset);
+        }
+    }
+
+    // ReSharper disable once InvalidXmlDocComment
+    /// <summary>
+    ///     A regular expression for North American coupon codes.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex(
+        @"^[0-6]\d{6,12}\d{6}[1-5]\d{1,5}[1-5]\d{1,5}[0-49]\d{3}(1[0-3][1-5]\d{1,5}[0-49]\d{3}[0-6](\d{6,12})?(2[1-5]\d{1,5}[0-49]\d{3}[0-6](\d{6,12})?)?)?" + $"(3{DatePattern})?(4{DatePattern})?" + @"(5[0-9]\d{6,15})?(6[1-7]\d{7,13})?(9[0-256][0-2]\d[01])?$",
+        RegexOptions.None,
+        "en-US")]
+    private static partial Regex CouponCodeRegex();
+#else
+    public override bool IsValid(string value, out IList<ParserException>? validationErrors) {
         var result = base.IsValid(value, out validationErrors);
 
         if (string.IsNullOrEmpty(value)) {
             return result;
         }
 
-#if NET7_0_OR_GREATER
-        if (CouponCodeRegex().IsMatch(value)) {
-#else
         if (CouponCodeRegex.IsMatch(value)) {
-#endif
             return true;
         }
 
+        validationErrors ??= [];
         validationErrors.Add(AddException(2016, Resources.GS1_Error_015));
         return false;
 
@@ -104,17 +140,5 @@ internal
                 offset);
         }
     }
-
-#if NET7_0_OR_GREATER
-    // ReSharper disable once InvalidXmlDocComment
-    /// <summary>
-    ///     A regular expression for North American coupon codes.
-    /// </summary>
-    /// <returns>A regular expression.</returns>
-    [GeneratedRegex(
-        @"^[0-6]\d{6,12}\d{6}[1-5]\d{1,5}[1-5]\d{1,5}[0-49]\d{3}(1[0-3][1-5]\d{1,5}[0-49]\d{3}[0-6](\d{6,12})?(2[1-5]\d{1,5}[0-49]\d{3}[0-6](\d{6,12})?)?)?" + $"(3{DatePattern})?(4{DatePattern})?" + @"(5[0-9]\d{6,15})?(6[1-7]\d{7,13})?(9[0-256][0-2]\d[01])?$",
-        RegexOptions.None,
-        "en-US")]
-    private static partial Regex CouponCodeRegex();
 #endif
 }

@@ -975,7 +975,7 @@ public enum ApplicationIdentifier {
     /// <remarks>Format: N3+X..20 (FNC1)</remarks>
     NationalHealthcareReimbursementNumberItalyAic = 716,
 
-    // ... (*****) National Healthcare Reimbursement Number (NHRN) – Country “A” NHRN N3+X..20 (FNC1) NHRN xxx
+    // ... (*****) National Healthcare Reimbursement Number (NHRN) – Country “A” NHRN N3+X..20 (FNC1) NHRN ResolveEntity
 
     /// <summary>
     ///     Certification reference (CERT # s).

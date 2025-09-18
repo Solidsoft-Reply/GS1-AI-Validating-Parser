@@ -55,6 +55,7 @@ internal class EntityDescriptor(
     Regex? pattern,
     bool isFixedWidth,
     Regex? validator = null) {
+
     /// <summary>
     ///     Gets the data title of the entity.
     /// </summary>
@@ -86,10 +87,38 @@ internal class EntityDescriptor(
     /// <param name="value">The data to be validated.</param>
     /// <param name="validationErrors">A list of validation errors.</param>
     /// <returns>True, if valid.  Otherwise, false.</returns>
-    public virtual bool IsValid(string value, out IList<ParserException> validationErrors) {
-#pragma warning disable IDE0028 // Simplify collection initialization
-        validationErrors = new List<ParserException>();
-#pragma warning restore IDE0028 // Simplify collection initialization
+#if NET7_0_OR_GREATER
+    public virtual bool IsValid(ReadOnlySpan<char> value, out IList<ParserException>? validationErrors) {
+        validationErrors = null;
+
+        if (value.IsNullOrWhiteSpace()) {
+            throw new ArgumentNullException(nameof(value));
+        }
+
+        if (Pattern == null) {
+            return true;
+        }
+
+        value = value.TrimEnd('\0');
+        var result = Pattern.IsMatch(value);
+
+        if (result) {
+            return true;
+        }
+
+        validationErrors = [];
+
+        var valueString = value.Length > 0 ? " " + value.ToString() : string.Empty;
+        validationErrors.Add(
+            new ParserException(
+                2100,
+                string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_009, valueString),
+                false));
+        return false;
+    }
+#else
+    public virtual bool IsValid(string value, out IList<ParserException>? validationErrors) {
+        validationErrors = null;
 
         if (string.IsNullOrWhiteSpace(value)) {
             throw new ArgumentNullException(nameof(value));
@@ -105,6 +134,10 @@ internal class EntityDescriptor(
             return true;
         }
 
+#pragma warning disable IDE0028 // Simplify collection initialization
+        validationErrors = new List<ParserException>();
+#pragma warning restore IDE0028 // Simplify collection initialization
+
         var valueString = value.Length > 0 ? " " + value : string.Empty;
         validationErrors.Add(
             new ParserException(
@@ -113,4 +146,5 @@ internal class EntityDescriptor(
                 false));
         return false;
     }
+#endif
 }

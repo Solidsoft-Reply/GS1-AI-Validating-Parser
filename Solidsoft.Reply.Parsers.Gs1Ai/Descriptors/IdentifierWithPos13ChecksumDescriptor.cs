@@ -60,7 +60,40 @@ internal class IdentifierWithPos13ChecksumDescriptor(
     /// <returns>True, if valid.  Otherwise, false.</returns>
     // ReSharper disable once CommentTypo
     // ReSharper disable once InheritdocConsiderUsage
-    public override bool IsValid(string value, out IList<ParserException> validationErrors) {
+#if NET7_0_OR_GREATER
+    public override bool IsValid(ReadOnlySpan<char> value, out IList<ParserException>? validationErrors) {
+        var result = base.IsValid(value, out validationErrors);
+
+        if (value.IsNull() || value.IsEmpty) {
+            return result;
+        }
+
+        // Check the length is at least 13 characters
+        if (value.Length < 13) {
+            return result;
+        }
+
+        // Get first 13 characters
+        if (value[..13].Gs1ChecksumIsValid()) {
+            return result;
+        }
+
+        value = value.TrimEnd('\0');
+        var valueString = value.Length > 0 ? " " + value.ToString() : string.Empty;
+        var offset = valueString.Length > 0 ? valueString.Trim().Length - 1 : 0;
+
+        // ReSharper disable once StringLiteralTypo
+        validationErrors ??= [];
+        validationErrors.Add(
+            new ParserException(
+                2009,
+                string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_008, valueString),
+                false,
+                offset));
+        return false;
+    }
+#else
+    public override bool IsValid(string value, out IList<ParserException>? validationErrors) {
         var result = base.IsValid(value, out validationErrors);
 
         if (string.IsNullOrEmpty(value)) {
@@ -75,7 +108,7 @@ internal class IdentifierWithPos13ChecksumDescriptor(
         // Get first 13 characters
         if (
 #if NET6_0_OR_GREATER
-            value[..13]
+            value.AsSpan()[..13]
 #else
             value.Substring(0, 13)
 #endif
@@ -85,6 +118,7 @@ internal class IdentifierWithPos13ChecksumDescriptor(
 
         var valueString = value.Length > 0 ? " " + value : string.Empty;
         var offset = valueString.Length > 0 ? valueString.Trim().Length - 1 : 0;
+        validationErrors ??= [];
 
         // ReSharper disable once StringLiteralTypo
         validationErrors.Add(
@@ -95,4 +129,5 @@ internal class IdentifierWithPos13ChecksumDescriptor(
                 offset));
         return false;
     }
+#endif
 }

@@ -56,6 +56,8 @@ internal
         Regex pattern,
         bool isFixedWidth)
     : EntityDescriptor(dataTitle, description, pattern, isFixedWidth) {
+
+#if NET7_0_OR_GREATER
     /// <summary>
     ///     Validate data against the descriptor.
     /// </summary>
@@ -64,21 +66,69 @@ internal
     /// <returns>True, if valid.  Otherwise, false.</returns>
     // ReSharper disable once CommentTypo
     // ReSharper disable once InheritdocConsiderUsage
-    public override bool IsValid(string value, out IList<ParserException> validationErrors) {
+    public override bool IsValid(ReadOnlySpan<char> value, out IList<ParserException>? validationErrors) {
+        var result = base.IsValid(value, out validationErrors);
+
+        if (value.IsNull() || value.IsEmpty) {
+            return result;
+        }
+
+        value = value.TrimEnd('\0');
+        value = value.TrimEnd('\0');
+        if (PositiveOfferFileCouponCodeRegex().IsMatch(value)) {
+            return true;
+        }
+
+        validationErrors ??= [];
+        validationErrors.Add(AddException(value.ToString(), 2017, Resources.GS1_Error_016));
+        return false;
+
+        ParserException AddException(string value, int errorNumber, string message, string country = "") {
+            var valueString = value.Length > 0 ? " " + value : string.Empty;
+            var offset = valueString.Length > 0 ? valueString.Trim().Length - 1 : 0;
+            return new ParserException(
+                errorNumber,
+                string.Format(CultureInfo.CurrentCulture, message, valueString, country),
+                false,
+                offset);
+        }
+    }
+
+    /// <summary>
+    ///     A regular expression for North American positive offer file coupon codes.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex(
+        @"^[01][0-6]\d{6,12}\d{6}[0-9]\d{6,15}$",
+        RegexOptions.None,
+        "en-US")]
+    private static partial Regex PositiveOfferFileCouponCodeRegex();
+#else
+    /// <summary>
+    ///     A regular expression for North American positive offer file coupon codes.
+    /// </summary>
+    private static readonly Regex PositiveOfferFileCouponCodeRegex = new (@"^[01][0-6]\d{6,12}\d{6}[0-9]\d{6,15}$");
+
+    /// <summary>
+    ///     Validate data against the descriptor.
+    /// </summary>
+    /// <param name="value">The GS1 identifier to be validated.</param>
+    /// <param name="validationErrors">A list of validation errors.</param>
+    /// <returns>True, if valid.  Otherwise, false.</returns>
+    // ReSharper disable once CommentTypo
+    // ReSharper disable once InheritdocConsiderUsage
+    public override bool IsValid(string value, out IList<ParserException>? validationErrors) {
         var result = base.IsValid(value, out validationErrors);
 
         if (string.IsNullOrEmpty(value)) {
             return result;
         }
 
-#if NET7_0_OR_GREATER
-        if (PositiveOfferFileCouponCodeRegex().IsMatch(value)) {
-#else
         if (PositiveOfferFileCouponCodeRegex.IsMatch(value)) {
-#endif
             return true;
         }
 
+        validationErrors ??= [];
         validationErrors.Add(AddException(2017, Resources.GS1_Error_016));
         return false;
 
@@ -92,22 +142,5 @@ internal
                 offset);
         }
     }
-#if NET7_0_OR_GREATER
-    /// <summary>
-    ///     A regular expression for North American positive offer file coupon codes.
-    /// </summary>
-    /// <returns>A regular expression.</returns>
-    [GeneratedRegex(
-        @"^[01][0-6]\d{6,12}\d{6}[0-9]\d{6,15}$",
-        RegexOptions.None,
-        "en-US")]
-    private static partial Regex PositiveOfferFileCouponCodeRegex();
-#else
-
-    /// <summary>
-    ///     A regular expression for North American positive offer file coupon codes.
-    /// </summary>
-    private static readonly Regex PositiveOfferFileCouponCodeRegex = new (@"^[01][0-6]\d{6,12}\d{6}[0-9]\d{6,15}$");
-
 #endif
 }

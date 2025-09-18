@@ -20,9 +20,11 @@
 
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
-using System.Collections.Generic;
-using Properties;
 using Common;
+
+using Properties;
+
+using System.Collections.Generic;
 
 /// <summary>
 ///     Represents a resolved GS1 application identifier and its associated data.
@@ -71,17 +73,18 @@ public record ResolvedApplicationIdentifier : IResolvedEntity {
         string? dataTitle,
         string? description,
         int currentPosition) {
-        Entity = entity;
-        Identifier = identifier;
-        InverseExponent = inverseExponent;
-        Sequence = sequence;
-        Value = value;
-        IsFixedWidth = isFixedWidth;
-        DataTitle = dataTitle ?? string.Empty;
-        Description = description ?? string.Empty;
-        CharacterPosition = currentPosition;
+        (Entity, Identifier, InverseExponent, Sequence, Value, IsFixedWidth, DataTitle, Description, CharacterPosition)
+            = (entity,
+               identifier,
+               inverseExponent,
+               sequence,
+               value,
+               isFixedWidth,
+               dataTitle ?? string.Empty,
+               description ?? string.Empty,
+               currentPosition);
 
-        if (inverseExponent < -1) {
+        if (inverseExponent < 0) {
             AddException(new ParserException(2011, Resources.GS1_Error_010, false));
         }
     }
@@ -91,18 +94,19 @@ public record ResolvedApplicationIdentifier : IResolvedEntity {
     /// </summary>
     /// <param name="exception">The resolver exception.</param>
     /// <param name="currentPosition">
-    ///     he current character position at which parsing has occurred.
+    ///     The current character position at which parsing has occurred.
     /// </param>
     public ResolvedApplicationIdentifier(ParserException exception, int currentPosition) {
-        Entity = -1;
-        Identifier = string.Empty;
-        InverseExponent = null;
-        Sequence = null;
-        Value = string.Empty;
-        IsFixedWidth = false;
-        DataTitle = string.Empty;
-        Description = string.Empty;
-        CharacterPosition = currentPosition;
+        (Entity, Identifier, InverseExponent, Sequence, Value, IsFixedWidth, DataTitle, Description, CharacterPosition)
+            = (-1,
+               string.Empty,
+               null,
+               null,
+               string.Empty,
+               false,
+               string.Empty,
+               string.Empty,
+               currentPosition);
         AddException(exception);
     }
 
@@ -120,13 +124,14 @@ public record ResolvedApplicationIdentifier : IResolvedEntity {
         ParserException exception,
         int currentPosition,
         ResolvedApplicationIdentifier ai) {
-        Entity = -1;
-        Identifier = ai.Identifier;
-        Value = ai.Value;
-        IsFixedWidth = ai.IsFixedWidth;
-        DataTitle = ai.DataTitle;
-        Description = ai.Description;
-        CharacterPosition = currentPosition;
+        (Entity, Identifier, Value, IsFixedWidth, DataTitle, Description, CharacterPosition)
+            = (-1,
+               ai.Identifier,
+               ai.Value,
+               ai.IsFixedWidth,
+               ai.DataTitle,
+               ai.Description,
+               currentPosition);
 
         foreach (var e in ai.Exceptions) {
             AddException(e);

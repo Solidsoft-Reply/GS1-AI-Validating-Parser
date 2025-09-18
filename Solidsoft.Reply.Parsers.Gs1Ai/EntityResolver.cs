@@ -3208,6 +3208,223 @@ internal static class EntityResolver {
             },
         };
 
+#if NET7_0_OR_GREATER
+    /// <summary>
+    ///     Resolve a first two digits of the application identifier into an entity.
+    /// </summary>
+    /// <param name="data">
+    ///     The data buffer.
+    /// </param>
+    /// <param name="aiRef">
+    ///     An existing resolved application identifier reference to populate.
+    /// </param>
+    /// <param name="firstTwoDigits">
+    ///     The first two digits of the AI.
+    /// </param>
+    /// <param name="currentPosition">
+    ///     The position of the application identifier for the current field.
+    /// </param>
+    /// <param name="includeDescriptors">
+    ///     Indicates whether the descriptors should be included in the resolved identifier.
+    /// </param>
+    /// <returns>
+    ///     An entity.
+    /// </returns>
+    public static ResolvedApplicationIdentifierRef ResolveEx(
+        this ReadOnlySpan<char> data,
+        ResolvedApplicationIdentifierRef aiRef,
+        ReadOnlySpan<char> firstTwoDigits,
+        int currentPosition,
+        bool includeDescriptors = true) {
+        if (data.IsEmpty || data.IsWhiteSpace()) {
+            throw new ArgumentException(Resources.GS1_Error_001, nameof(data));
+        }
+
+        Span<char> dataCopy = stackalloc char[data.Length];
+        data.CopyTo(dataCopy);
+        Span<char> identifier = stackalloc char[4];
+        Span<char> value = stackalloc char[ResolvedApplicationIdentifierRef.ValueMaxLength];
+        Span<int> parameters = stackalloc int[3];
+
+        ResolveEntity(dataCopy, firstTwoDigits, currentPosition, identifier, value, parameters);
+        value = value.Trim('\0');
+        ApplicationIdentifier entity = (ApplicationIdentifier)parameters[0];
+        int numberOfDecimalPlaces = parameters[1];
+        int sequenceNumber = parameters[2];
+
+        if (!includeDescriptors) {
+            aiRef.Entity = (int)entity;
+            identifier.GetIdentifierIfNull((int)entity).CopyTo(aiRef.Identifier);
+            aiRef.InverseExponent = numberOfDecimalPlaces == -1 ? null : numberOfDecimalPlaces;
+            aiRef.Sequence = sequenceNumber == -1 ? null : sequenceNumber;
+            value.CopyTo(aiRef.Value);
+            aiRef.IsFixedWidth = false;
+            Span<char>.Empty.CopyTo(aiRef.DataTitle);
+            Span<char>.Empty.CopyTo(aiRef.Description);
+            aiRef.CharacterPosition = currentPosition;
+            return Validate(aiRef);
+        }
+
+        if (entity == ApplicationIdentifier.Unrecognised) {
+            aiRef.Entity = -1;
+            firstTwoDigits.CopyTo(aiRef.Identifier);
+            aiRef.InverseExponent = null;
+            aiRef.Sequence = null;
+            value.CopyTo(aiRef.Value);
+            aiRef.IsFixedWidth = false;
+            Span<char>.Empty.CopyTo(aiRef.DataTitle);
+            Span<char>.Empty.CopyTo(aiRef.Description);
+            aiRef.CharacterPosition = currentPosition;
+            return new ResolvedApplicationIdentifierRef(
+                new ParserException(
+                    2002,
+                    string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_007, firstTwoDigits.ToString()),
+                    true),
+                currentPosition,
+                aiRef);
+        }
+
+        var descriptors = entity.GetDescriptors();
+
+        aiRef.Entity = (int)entity;
+        identifier.GetIdentifierIfNull((int)entity).CopyTo(aiRef.Identifier);
+        aiRef.InverseExponent = numberOfDecimalPlaces == -1 ? null : numberOfDecimalPlaces;
+        aiRef.Sequence = sequenceNumber == -1 ? null : sequenceNumber;
+        value.CopyTo(aiRef.Value);
+        aiRef.IsFixedWidth = descriptors.IsFixedWidth;
+
+        if (descriptors.DataTitle?.Length > ResolvedApplicationIdentifierRef.DataTitleMaxLength) {
+            descriptors.DataTitle.AsSpan()[..ResolvedApplicationIdentifierRef.DataTitleMaxLength].CopyTo(aiRef.DataTitle);
+        }
+        else {
+            descriptors.Description?.CopyTo(aiRef.Description);
+        }
+
+        if (descriptors.Description?.Length > ResolvedApplicationIdentifierRef.DescriptionMaxLength) {
+            descriptors.Description.AsSpan()[..ResolvedApplicationIdentifierRef.DescriptionMaxLength].CopyTo(aiRef.Description);
+        }
+        else {
+            descriptors.Description?.CopyTo(aiRef.Description);
+        }
+
+        aiRef.CharacterPosition = currentPosition;
+        return Validate(aiRef);
+    }
+#endif
+
+#if NET6_0_OR_GREATER
+    /// <summary>
+    ///     Resolve a first two digits of the application identifier into an entity.
+    /// </summary>
+    /// <param name="data">
+    ///     The data buffer.
+    /// </param>
+    /// <param name="firstTwoDigits">
+    ///     The first two digits of the AI.
+    /// </param>
+    /// <param name="currentPosition">
+    ///     The position of the application identifier for the current field.
+    /// </param>
+    /// <param name="includeDescriptors">
+    ///     Indicates whether the descriptors should be included in the resolved identifier.
+    /// </param>
+    /// <returns>
+    ///     An entity.
+    /// </returns>
+    public static ResolvedApplicationIdentifier Resolve(
+        this string data,
+        string firstTwoDigits,
+        int currentPosition,
+        bool includeDescriptors = true) =>
+            Resolve(data.AsSpan(), firstTwoDigits.AsSpan(), currentPosition, includeDescriptors);
+
+    /// <summary>
+    ///     Resolve a first two digits of the application identifier into an entity.
+    /// </summary>
+    /// <param name="data">
+    ///     The data buffer.
+    /// </param>
+    /// <param name="firstTwoDigits">
+    ///     The first two digits of the AI.
+    /// </param>
+    /// <param name="currentPosition">
+    ///     The position of the application identifier for the current field.
+    /// </param>
+    /// <param name="includeDescriptors">
+    ///     Indicates whether the descriptors should be included in the resolved identifier.
+    /// </param>
+    /// <returns>
+    ///     An entity.
+    /// </returns>
+    public static ResolvedApplicationIdentifier Resolve(
+        this ReadOnlySpan<char> data,
+        ReadOnlySpan<char> firstTwoDigits,
+        int currentPosition,
+        bool includeDescriptors = true) {
+        if (data.IsEmpty || data.IsWhiteSpace()) {
+            throw new ArgumentException(Resources.GS1_Error_001, nameof(data));
+        }
+
+        Span<char> dataCopy = stackalloc char[data.Length];
+        data.CopyTo(dataCopy);
+        Span<char> identifier = stackalloc char[4];
+        Span<char> value = stackalloc char[90];
+        Span<int> parameters = stackalloc int[3];
+
+        ResolveEntity(dataCopy, firstTwoDigits, currentPosition, identifier, value, parameters);
+        value = value.Trim('\0');
+        ApplicationIdentifier entity = (ApplicationIdentifier)parameters[0];
+        int numberOfDecimalPlaces = parameters[1];
+        int sequenceNumber = parameters[2];
+
+        if (!includeDescriptors) {
+            return Validate(
+                new ResolvedApplicationIdentifier(
+                    (int)entity,
+                    identifier.GetIdentifierIfNull((int)entity).ToString(),
+                    numberOfDecimalPlaces == -1 ? null : numberOfDecimalPlaces,
+                    sequenceNumber == -1 ? null : sequenceNumber,
+                    value.ToString(),
+                    false,
+                    string.Empty,
+                    string.Empty,
+                    currentPosition));
+        }
+
+        if (entity == ApplicationIdentifier.Unrecognised) {
+            return new ResolvedApplicationIdentifier(
+                new ParserException(
+                    2002,
+                    string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_007, firstTwoDigits.ToString()),
+                    true),
+                currentPosition,
+                new ResolvedApplicationIdentifier(
+                    -1,
+                    firstTwoDigits.ToString(),
+                    null,
+                    null,
+                    value.ToString(),
+                    false,
+                    string.Empty,
+                    string.Empty,
+                    currentPosition));
+        }
+
+        var descriptors = entity.GetDescriptors();
+
+        return Validate(
+            new ResolvedApplicationIdentifier(
+                (int)entity,
+                identifier.GetIdentifierIfNull((int)entity).ToString(),
+                numberOfDecimalPlaces == -1 ? null : numberOfDecimalPlaces,
+                sequenceNumber == -1 ? null : sequenceNumber,
+                value.ToString(),
+                descriptors.IsFixedWidth,
+                descriptors.DataTitle,
+                descriptors.Description,
+                currentPosition));
+    }
+#else
     /// <summary>
     ///     Resolve a first two digits of the application identifier into an entity.
     /// </summary>
@@ -3558,6 +3775,295 @@ internal static class EntityResolver {
                 descriptors.Description,
                 currentPosition));
     }
+#endif
+
+#if NET6_0_OR_GREATER
+    private static void ResolveEntity(
+        Span<char> data,
+        ReadOnlySpan<char> firstTwoDigits,
+        int currentPosition,
+        Span<char> identifier,
+        Span<char> value,
+        Span<int> parameters) {
+        ApplicationIdentifier entity;
+        int numberOfDecimalPlaces = -1;
+        int sequenceNumber = -1;
+
+        Span<char> extractedValue = stackalloc char[value.Length];
+
+        switch (firstTwoDigits) {
+            case "01":
+            case "10":
+            case "17":
+            case "21":
+            case "00":
+            case "02":
+            case "03":
+            case "11":
+            case "12":
+            case "13":
+            case "15":
+            case "16":
+            case "20":
+            case "22":
+            case "30":
+            case "37":
+            case "90":
+            case "91":
+            case "92":
+            case "93":
+            case "94":
+            case "95":
+            case "96":
+            case "97":
+            case "98":
+            case "99":
+                entity = data.GetEntity2();
+                extractedValue = data.GetValue(2);
+                break;
+            case "23":
+                // 5
+                entity = data.IsNumberEqual(2, 1, 5) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
+                if (entity == ApplicationIdentifier.Unrecognised) {
+                    extractedValue = data.GetValue(2);
+                }
+                else {
+                    extractedValue = data.GetValue(3);
+                    currentPosition++;
+                }
+
+                break;
+            case "25":
+                // 0..1, 3..5
+                entity = data.IsDigitInRange(2, 1) || data.IsNumberInRange(2, 1, 3, 5)
+                             ? data.GetEntity3()
+                             : ApplicationIdentifier.Unrecognised;
+                if (entity == ApplicationIdentifier.Unrecognised) {
+                    extractedValue = data.GetValue(2);
+                }
+                else {
+                    extractedValue = data.GetValue(3);
+                    currentPosition++;
+                }
+
+                break;
+            case "24":
+            case "40":
+                // 0..3
+                entity = data.IsDigitInRange(2, 3) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
+                if (entity == ApplicationIdentifier.Unrecognised) {
+                    extractedValue = data.GetValue(2);
+                }
+                else {
+                    extractedValue = data.GetValue(3);
+                    currentPosition++;
+                }
+
+                break;
+            case "71":
+                // 0..6
+                entity = data.IsNumberInRange(2, 1, 0, 6)
+                             ? data.GetEntity3()
+                             : ApplicationIdentifier.Unrecognised;
+                if (entity == ApplicationIdentifier.Unrecognised) {
+                    extractedValue = data.GetValue(2);
+                }
+                else {
+                    extractedValue = data.GetValue(3);
+                    currentPosition++;
+                }
+
+                break;
+            case "41":
+            case "42":
+                // 0..7
+                entity = data.IsDigitInRange(2, 7) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
+                if (entity == ApplicationIdentifier.Unrecognised) {
+                    extractedValue = data.GetValue(2);
+                }
+                else {
+                    extractedValue = data.GetValue(3);
+                    currentPosition++;
+                }
+
+                break;
+            case "39":
+                // 0n..5n
+                entity = data.IsDigitInRange(2, 5) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
+                if (entity == ApplicationIdentifier.Unrecognised) {
+                    extractedValue = data.GetValue(2);
+                }
+                else {
+                    identifier = ((int)data.GetEntity4()).ToInvariantSpan(identifier, "##00");
+                    extractedValue = data.GetValue(4);
+                    numberOfDecimalPlaces = data.GetInverseExponent(3);
+                    currentPosition += 2;
+                }
+
+                break;
+            case "31":
+                // 0n..6n
+                entity = data.IsDigitInRange(2, 6) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
+                if (entity == ApplicationIdentifier.Unrecognised) {
+                    extractedValue = data.GetValue(2);
+                }
+                else {
+                    identifier = ((int)data.GetEntity4()).ToInvariantSpan(identifier, "##00");
+                    extractedValue = data.GetValue(4);
+                    numberOfDecimalPlaces = data.GetInverseExponent(3);
+                    currentPosition += 2;
+                }
+
+                break;
+            case "33":
+            case "35":
+                // 0n..7n
+                entity = data.IsDigitInRange(2, 7) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
+                if (entity == ApplicationIdentifier.Unrecognised) {
+                    extractedValue = data.GetValue(2);
+                }
+                else {
+                    identifier = ((int)data.GetEntity4()).ToInvariantSpan(identifier, "##00");
+                    extractedValue = data.GetValue(4);
+                    numberOfDecimalPlaces = data.GetInverseExponent(3);
+                    currentPosition += 2;
+                }
+
+                break;
+            case "32":
+            case "34":
+            case "36":
+                // 0n..9n
+                entity = data.IsDigitInRange(2, 9) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
+                if (entity == ApplicationIdentifier.Unrecognised) {
+                    extractedValue = data.GetValue(2);
+                }
+                else {
+                    identifier = ((int)data.GetEntity4()).ToInvariantSpan(identifier, "##00");
+                    extractedValue = data.GetValue(4);
+                    numberOfDecimalPlaces = data.GetInverseExponent(3);
+                    currentPosition += 2;
+                }
+
+                break;
+
+            case "43":
+                // 00..26, 30..33
+                entity = data.IsNumberInRange(2, 2, 0, 26) || data.IsNumberInRange(2, 2, 30, 33)
+                    ? data.GetEntity4()
+                    : ApplicationIdentifier.Unrecognised;
+
+                if (entity == ApplicationIdentifier.Unrecognised) {
+                    extractedValue = data.GetValue(2);
+                }
+                else {
+                    extractedValue = data.GetValue(4);
+                    numberOfDecimalPlaces = data.IsNumberInRange(2, 2, 30, 33) ? 2 : -1;
+                    currentPosition += 2;
+                }
+
+                break;
+            case "70":
+                // 01..11, 20..23, 3s, 40..41
+                entity = data.IsNumberInRange(2, 2, 1, 11)
+                         || data.IsNumberInRange(2, 2, 20, 23)
+                         || data.IsNumberEqual(2, 1, 3)
+                         || data.IsNumberInRange(2, 2, 40, 41)
+                             ? data[2] == '3' ? data.GetEntity3() : data.GetEntity4()
+                             : ApplicationIdentifier.Unrecognised;
+                if (entity == ApplicationIdentifier.Unrecognised) {
+                    extractedValue = data.GetValue(2);
+                }
+                else {
+                    extractedValue = data.GetValue(4);
+
+                    if (entity == ApplicationIdentifier.NumberOfProcessorWithIsoCountryCode) {
+                        identifier = ((int)data.GetEntity4()).ToInvariantSpan(identifier, "##00");
+                        sequenceNumber = data.GetSequenceNumber(3);
+                    }
+
+                    currentPosition += 2;
+                }
+
+                break;
+            case "72":
+                // 3s, 40, 50-59
+                entity = data.IsNumberEqual(2, 1, 3)
+                         || data.IsNumberInRange(2, 2, 40, 42)
+                         || data.IsNumberInRange(2, 2, 50, 59)
+                             ? data[2] == '3' ? data.GetEntity3() : data.GetEntity4()
+                             : ApplicationIdentifier.Unrecognised;
+                if (entity == ApplicationIdentifier.Unrecognised) {
+                    extractedValue = data.GetValue(2);
+                }
+                else {
+                    extractedValue = data.GetValue(4);
+
+                    if (entity == ApplicationIdentifier.CertificationReference) {
+                        identifier = ((int)data.GetEntity4()).ToInvariantSpan(identifier, "##00");
+                        sequenceNumber = data.GetSequenceNumber(3);
+                    }
+
+                    currentPosition += 2;
+                }
+
+                break;
+            case "80":
+                // 01..09, 10..14, 17..20, 26, 30
+                entity = data.IsNumberInRange(2, 2, 1, 9) || data.IsNumberInRange(2, 2, 10, 14)
+                                                          || data.IsNumberInRange(2, 2, 17, 20)
+                                                          || data.IsNumberEqual(2, 2, 26)
+                                                          || data.IsNumberEqual(2, 2, 30)
+                             ? data.GetEntity4()
+                             : ApplicationIdentifier.Unrecognised;
+                if (entity == ApplicationIdentifier.Unrecognised) {
+                    extractedValue = data.GetValue(2);
+                }
+                else {
+                    extractedValue = data.GetValue(4);
+                    currentPosition += 2;
+                }
+
+                break;
+            case "81":
+                // 10..12
+                entity = data.IsNumberInRange(2, 2, 10, 12)
+                             ? data.GetEntity4()
+                             : ApplicationIdentifier.Unrecognised;
+                if (entity == ApplicationIdentifier.Unrecognised) {
+                    extractedValue = data.GetValue(2);
+                }
+                else {
+                    extractedValue = data.GetValue(4);
+                    currentPosition += 2;
+                }
+
+                break;
+            case "82":
+                // 00
+                entity = data.IsNumberEqual(2, 2, 0) ? data.GetEntity4() : ApplicationIdentifier.Unrecognised;
+                if (entity == ApplicationIdentifier.Unrecognised) {
+                    extractedValue = data.GetValue(2);
+                }
+                else {
+                    extractedValue = data.GetValue(4);
+                    currentPosition += 2;
+                }
+
+                break;
+            default:
+                entity = ApplicationIdentifier.Unrecognised;
+                extractedValue = data.GetValue(2);
+                break;
+        }
+
+        extractedValue.TrimEnd().CopyTo(value);
+
+        parameters[0] = (int)entity;
+        parameters[1] = numberOfDecimalPlaces;
+        parameters[2] = sequenceNumber;
+    }
+#endif
 
 #if NET7_0_OR_GREATER
     /// <summary>
@@ -4039,6 +4545,191 @@ internal static class EntityResolver {
                    : Descriptors[(int)entity];
     }
 
+#if NET6_0_OR_GREATER
+    /// <summary>
+    ///     Returns an entity from the given data based on a given number of characters.
+    /// </summary>
+    /// <param name="data">
+    ///     The data containing the entity identifier.
+    /// </param>
+    /// <param name="length">
+    ///     The length of the entity identifier.
+    /// </param>
+    /// <returns>
+    ///     An entity.
+    /// </returns>
+    private static ApplicationIdentifier GetEntity(this ReadOnlySpan<char> data, int length) {
+#pragma warning disable SA1114 // Parameter list should follow declaration
+        return !data.IsNull() && data.Length >= length && Enum.TryParse(
+            data[..length],
+            true,
+            out ApplicationIdentifier applicationIdentifier)
+                ? applicationIdentifier
+                : ApplicationIdentifier.Unrecognised;
+#pragma warning restore SA1114 // Parameter list should follow declaration
+    }
+
+    /// <summary>
+    ///     Returns an entity from the given data based on the first two characters.
+    /// </summary>
+    /// <param name="data">The data containing the entity identifier.</param>
+    /// <returns>An entity.</returns>
+    private static ApplicationIdentifier GetEntity2(this ReadOnlySpan<char> data) {
+        return GetEntity(data, 2);
+    }
+
+    /// <summary>
+    ///     Returns an entity from the given data based on the first three characters.
+    /// </summary>
+    /// <param name="data">The data containing the entity identifier.</param>
+    /// <returns>An entity.</returns>
+    private static ApplicationIdentifier GetEntity3(this ReadOnlySpan<char> data) {
+        return GetEntity(data, 3);
+    }
+
+    /// <summary>
+    ///     Returns an entity from the given data based on the first four characters.
+    /// </summary>
+    /// <param name="data">The data containing the entity identifier.</param>
+    /// <returns>An entity.</returns>
+    private static ApplicationIdentifier GetEntity4(this ReadOnlySpan<char> data) {
+        return GetEntity(data, 4);
+    }
+
+    /// <summary>
+    ///     Returns the value associated with the application identifier.
+    /// </summary>
+    /// <param name="data">The data buffer.</param>
+    /// <param name="applicationIdentifierLength">The length of the application identifier.</param>
+    /// <returns>The value associated wit the application identifier.</returns>
+    private static Span<char> GetValue(this Span<char> data, int applicationIdentifierLength) {
+        return applicationIdentifierLength >= data.Length
+            ? []
+            : data[applicationIdentifierLength..];
+    }
+
+    /// <summary>
+    ///     Tests if a character in the data is a digit within a given range.
+    /// </summary>
+    /// <param name="data">The data.</param>
+    /// <param name="index">The index of the character.</param>
+    /// <param name="upperBound">The upper bound of the range.  The lower bound is 0.</param>
+    /// <returns>True, if the character is a digit and is within range; otherwise false.</returns>
+    private static bool IsDigitInRange(this ReadOnlySpan<char> data, int index, int upperBound) {
+        return IsNumberInRange(data, index, 1, 0, upperBound);
+    }
+
+    /// <summary>
+    ///     Tests if a string in the data is a number within a given range.
+    /// </summary>
+    /// <param name="data">The data.</param>
+    /// <param name="startIndex">The index of the start of the number.</param>
+    /// <param name="length">The length of the number.</param>
+    /// <param name="lowerBound">The lower bound of the range.</param>
+    /// <param name="upperBound">The upper bound of the range.</param>
+    /// <returns>True, if the string is a number and is within range; otherwise false.</returns>
+    private static bool IsNumberInRange(
+        this ReadOnlySpan<char> data,
+        int startIndex,
+        int length,
+        int lowerBound,
+        int upperBound) {
+#pragma warning disable SA1114 // Parameter list should follow declaration
+        return data.Length >= startIndex + length
+            && int.TryParse(
+                data[startIndex..(length + startIndex)],
+                out var number)
+            && number.IsNumberInRange(lowerBound, upperBound);
+#pragma warning restore SA1114 // Parameter list should follow declaration
+    }
+
+    /// <summary>
+    ///     Tests if a string in the data is a number equal to a given value.
+    /// </summary>
+    /// <param name="data">The data.</param>
+    /// <param name="startIndex">The index of the start of the number.</param>
+    /// <param name="length">The length of the number.</param>
+    /// <param name="value">The value to be tested.</param>
+    /// <returns>True, if the string is a number and is equal to the value; otherwise false.</returns>
+    private static bool IsNumberEqual(this ReadOnlySpan<char> data, int startIndex, int length, int value) {
+        return IsNumberInRange(data, startIndex, length, value, value);
+    }
+
+    /// <summary>
+    ///     Returns the number of decimal places.
+    /// </summary>
+    /// <param name="data">The data buffer.</param>
+    /// <param name="inverseExponentIndex">The index of the implied decimal point position digit.</param>
+    /// <returns>The number of decimal places.</returns>
+    private static int GetInverseExponent(this ReadOnlySpan<char> data, int inverseExponentIndex) {
+        var numberOfDecimalPlacesAsString =
+            inverseExponentIndex < data.Length
+                ? data[inverseExponentIndex].ToInvariantString()
+                : "0";
+
+        return int.TryParse(
+                   numberOfDecimalPlacesAsString,
+                   out var numberOfDecimalPlaces)
+                   ? numberOfDecimalPlaces
+                   : -99;
+    }
+
+    /// <summary>
+    ///     Returns the sequence number.
+    /// </summary>
+    /// <param name="data">The data buffer.</param>
+    /// <param name="sequenceNumberIndex">The index of the sequence number digit.</param>
+    /// <returns>The sequence number.</returns>
+    private static int GetSequenceNumber(this ReadOnlySpan<char> data, int sequenceNumberIndex) {
+        var sequenceNumberAsString =
+            sequenceNumberIndex < data.Length
+                ? data[sequenceNumberIndex].ToInvariantString()
+                : "0";
+
+        return int.TryParse(
+            sequenceNumberAsString,
+            out var sequenceNumber)
+            ? sequenceNumber
+            : -99;
+    }
+
+    /// <summary>
+    /// Formats the specified integer value into the provided span using the given format string and invariant culture.
+    /// </summary>
+    /// <remarks>The formatted value uses the invariant culture regardless of the current culture settings. If
+    /// formatting fails, the returned span will be cleared and contain only zeros.</remarks>
+    /// <param name="value">The integer value to format.</param>
+    /// <param name="span4">A span of at least 4 characters that receives the formatted value, padded with leading zeros if required.</param>
+    /// <param name="format">A standard or custom numeric format string that defines how the value is formatted.</param>
+    /// <returns>A slice of the input span containing the formatted value, padded with leading zeros if the formatted result is
+    /// shorter than 4 characters.</returns>
+    /// <exception cref="ArgumentException">Thrown when <paramref name="span4"/> is less than 4 characters in length.</exception>
+    private static Span<char> ToInvariantSpan(this int value, Span<char> span4, string format) {
+        if (span4.Length < 4)
+            throw new ArgumentException("Span must be at least 4 characters long.", nameof(span4));
+
+        span4.Clear();
+        Span<char> buffer = stackalloc char[4];
+        if (value.TryFormat(buffer, out int charsWritten, format, CultureInfo.InvariantCulture)) {
+            var startIndex = 4 - charsWritten;
+
+            for (var idx = 0; idx < startIndex; idx++)
+                span4[idx] = '0';
+
+            for (var idx = startIndex; idx < 4; idx++)
+                span4[idx] = buffer[idx - startIndex];
+
+            return span4[startIndex..];
+        }
+
+        return span4;
+    }
+
+    private static Span<char> GetIdentifierIfNull(this Span<char> identifier, int entity) =>
+        identifier.IsNull()
+            ? entity.ToInvariantSpan(identifier, "##00")
+            : identifier;
+#else
     /// <summary>
     ///     Returns an entity from the given data based on a given number of characters.
     /// </summary>
@@ -4094,6 +4785,65 @@ internal static class EntityResolver {
     }
 
     /// <summary>
+    ///     Returns the value associated with the application identifier.
+    /// </summary>
+    /// <param name="data">The data buffer.</param>
+    /// <param name="applicationIdentifierLength">The length of the application identifier.</param>
+    /// <returns>The value associated wit the application identifier.</returns>
+    private static string GetValue(this string data, int applicationIdentifierLength) {
+        return applicationIdentifierLength >= data.Length
+            ? string.Empty
+            : data.Substring(applicationIdentifierLength);
+    }
+
+    /// <summary>
+    ///     Tests if a character in the data is a digit within a given range.
+    /// </summary>
+    /// <param name="data">The data.</param>
+    /// <param name="index">The index of the character.</param>
+    /// <param name="upperBound">The upper bound of the range.  The lower bound is 0.</param>
+    /// <returns>True, if the character is a digit and is within range; otherwise false.</returns>
+    private static bool IsDigitInRange(this string data, int index, int upperBound) {
+        return IsNumberInRange(data, index, 1, 0, upperBound);
+    }
+
+    /// <summary>
+    ///     Tests if a string in the data is a number within a given range.
+    /// </summary>
+    /// <param name="data">The data.</param>
+    /// <param name="startIndex">The index of the start of the number.</param>
+    /// <param name="length">The length of the number.</param>
+    /// <param name="lowerBound">The lower bound of the range.</param>
+    /// <param name="upperBound">The upper bound of the range.</param>
+    /// <returns>True, if the string is a number and is within range; otherwise false.</returns>
+    private static bool IsNumberInRange(
+        this string data,
+        int startIndex,
+        int length,
+        int lowerBound,
+        int upperBound) {
+#pragma warning disable SA1114 // Parameter list should follow declaration
+        return data.Length >= startIndex + length
+            && int.TryParse(
+                data.Substring(startIndex, length),
+                out var number)
+            && number.IsNumberInRange(lowerBound, upperBound);
+#pragma warning restore SA1114 // Parameter list should follow declaration
+    }
+
+    /// <summary>
+    ///     Tests if a string in the data is a number equal to a given value.
+    /// </summary>
+    /// <param name="data">The data.</param>
+    /// <param name="startIndex">The index of the start of the number.</param>
+    /// <param name="length">The length of the number.</param>
+    /// <param name="value">The value to be tested.</param>
+    /// <returns>True, if the string is a number and is equal to the value; otherwise false.</returns>
+    private static bool IsNumberEqual(this string data, int startIndex, int length, int value) {
+        return IsNumberInRange(data, startIndex, length, value, value);
+    }
+
+    /// <summary>
     ///     Returns the number of decimal places.
     /// </summary>
     /// <param name="data">The data buffer.</param>
@@ -4130,73 +4880,7 @@ internal static class EntityResolver {
             ? sequenceNumber
             : -99;
     }
-
-    /// <summary>
-    ///     Returns the value associated with the application identifier.
-    /// </summary>
-    /// <param name="data">The data buffer.</param>
-    /// <param name="applicationIdentifierLength">The length of the application identifier.</param>
-    /// <returns>The value associated wit the application identifier.</returns>
-    private static string GetValue(this string data, int applicationIdentifierLength) {
-        return applicationIdentifierLength >= data.Length
-            ? string.Empty
-#if NET6_0_OR_GREATER
-            : data[applicationIdentifierLength..];
-#else
-            : data.Substring(applicationIdentifierLength);
 #endif
-    }
-
-    /// <summary>
-    ///     Tests if a character in the data is a digit within a given range.
-    /// </summary>
-    /// <param name="data">The data.</param>
-    /// <param name="index">The index of the character.</param>
-    /// <param name="upperBound">The upper bound of the range.  The lower bound is 0.</param>
-    /// <returns>True, if the character is a digit and is within range; otherwise false.</returns>
-    private static bool IsDigitInRange(this string data, int index, int upperBound) {
-        return IsNumberInRange(data, index, 1, 0, upperBound);
-    }
-
-    /// <summary>
-    ///     Tests if a string in the data is a number equal to a given value.
-    /// </summary>
-    /// <param name="data">The data.</param>
-    /// <param name="startIndex">The index of the start of the number.</param>
-    /// <param name="length">The length of the number.</param>
-    /// <param name="value">The value to be tested.</param>
-    /// <returns>True, if the string is a number and is equal to the value; otherwise false.</returns>
-    private static bool IsNumberEqual(this string data, int startIndex, int length, int value) {
-        return IsNumberInRange(data, startIndex, length, value, value);
-    }
-
-    /// <summary>
-    ///     Tests if a string in the data is a number within a given range.
-    /// </summary>
-    /// <param name="data">The data.</param>
-    /// <param name="startIndex">The index of the start of the number.</param>
-    /// <param name="length">The length of the number.</param>
-    /// <param name="lowerBound">The lower bound of the range.</param>
-    /// <param name="upperBound">The upper bound of the range.</param>
-    /// <returns>True, if the string is a number and is within range; otherwise false.</returns>
-    private static bool IsNumberInRange(
-        this string data,
-        int startIndex,
-        int length,
-        int lowerBound,
-        int upperBound) {
-#pragma warning disable SA1114 // Parameter list should follow declaration
-        return data.Length >= startIndex + length
-            && int.TryParse(
-#if NET6_0_OR_GREATER
-                data[startIndex..(length + startIndex)],
-#else
-                data.Substring(startIndex, length),
-#endif
-                out var number)
-            && number.IsNumberInRange(lowerBound, upperBound);
-#pragma warning restore SA1114 // Parameter list should follow declaration
-    }
 
     /// <summary>
     ///     Tests if a number is within a given range.
@@ -4216,10 +4900,6 @@ internal static class EntityResolver {
     /// <returns>A resolved entity object. If the value is invalid, the object records the error.</returns>
     private static ResolvedApplicationIdentifier Validate(ResolvedApplicationIdentifier resolvedEntity) {
         try {
-            var valueString = resolvedEntity.Value.Length > 0
-                                  ? " " + resolvedEntity.Value
-                                  : string.Empty;
-
             var identifier =
                 Descriptors[resolvedEntity.Entity].IsValid(
                     resolvedEntity.Value,
@@ -4231,13 +4911,15 @@ internal static class EntityResolver {
                             string.Format(
                                 CultureInfo.CurrentCulture,
                                 Resources.GS1_Error_006,
-                                valueString,
+                                resolvedEntity.Value.Length > 0 ? " " + resolvedEntity.Value : string.Empty,
                                 resolvedEntity.Identifier.Trim()),
                             true),
                         resolvedEntity.CharacterPosition,
                         resolvedEntity);
 
             // Add additional resolver exceptions to the collection
+            if (validationErrors == null || validationErrors.Count == 0) return identifier;
+
             foreach (var gs1ParserException in validationErrors) {
                 identifier.AddException(gs1ParserException);
             }
@@ -4269,4 +4951,67 @@ internal static class EntityResolver {
                 resolvedEntity);
         }
     }
+
+#if NET7_0_OR_GREATER
+    /// <summary>
+    ///     Validates a resolved entity.
+    /// </summary>
+    /// <param name="resolvedEntity">The resolved entity to be validated.</param>
+    /// <returns>A resolved entity object. If the value is invalid, the object records the error.</returns>
+    private static ResolvedApplicationIdentifierRef Validate(ResolvedApplicationIdentifierRef resolvedEntity) {
+        try {
+            var identifier =
+                Descriptors[resolvedEntity.Entity].IsValid(
+                    resolvedEntity.Value,
+                    out var validationErrors)
+                    ? resolvedEntity
+                    : new ResolvedApplicationIdentifierRef(
+                        new ParserException(
+                            2005,
+                            string.Format(
+                                CultureInfo.CurrentCulture,
+                                Resources.GS1_Error_006,
+                                resolvedEntity.Value.Length > 0 ? " " + resolvedEntity.Value.ToString() : string.Empty,
+                                resolvedEntity.Identifier.ToString().Trim()),
+                            true),
+                        resolvedEntity.CharacterPosition,
+                        resolvedEntity);
+
+            // Add additional resolver exceptions to the collection
+            if (validationErrors == null || validationErrors.Count == 0) return identifier;
+
+            foreach (var gs1ParserException in validationErrors) {
+                System.Diagnostics.Trace.WriteLine(gs1ParserException.Message);
+                System.Console.WriteLine(gs1ParserException.Message);
+                identifier.AddException(gs1ParserException);
+            }
+
+            return identifier;
+        }
+        catch (ArgumentNullException) {
+            return new ResolvedApplicationIdentifierRef(
+                new ParserException(
+                    2006,
+                    string.Format(
+                        CultureInfo.CurrentCulture,
+                        Resources.GS1_Error_003,
+                        resolvedEntity.Identifier.ToString().Trim()),
+                    true),
+                resolvedEntity.CharacterPosition,
+                resolvedEntity);
+        }
+        catch (RegexMatchTimeoutException) {
+            return new ResolvedApplicationIdentifierRef(
+                new ParserException(
+                    2007,
+                    string.Format(
+                        CultureInfo.CurrentCulture,
+                        Resources.GS1_Error_002,
+                        resolvedEntity.Identifier.ToString().Trim()),
+                    true),
+                resolvedEntity.CharacterPosition,
+                resolvedEntity);
+        }
+    }
+#endif
 }

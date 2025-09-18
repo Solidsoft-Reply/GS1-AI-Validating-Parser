@@ -60,7 +60,32 @@ internal class AlphanumericKeyWithCheckCharacterPairDescriptor(
     /// <returns>True, if valid.  Otherwise, false.</returns>
     // ReSharper disable once CommentTypo
     // ReSharper disable once InheritdocConsiderUsage
-    public override bool IsValid(string value, out IList<ParserException> validationErrors) {
+#if NET7_0_OR_GREATER
+    public override bool IsValid(ReadOnlySpan<char> value, out IList<ParserException>? validationErrors) {
+        var result = base.IsValid(value, out validationErrors);
+
+        if (value.IsNull() || value.IsEmpty) {
+            return result;
+        }
+
+        if (value.Gs1CheckCharactersPairIsValid()) {
+            return result;
+        }
+
+        var valueString = value.Length > 0 ? " " + value.ToString() : string.Empty;
+        var offset = valueString.Length > 0 ? valueString.Trim().Length - 1 : 0;
+        validationErrors ??= [];
+        validationErrors.Add(
+            new ParserException(
+                2008,
+                string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_008, valueString),
+                false,
+                offset));
+
+        return false;
+    }
+#else
+    public override bool IsValid(string value, out IList<ParserException>? validationErrors) {
         var result = base.IsValid(value, out validationErrors);
 
         if (string.IsNullOrEmpty(value)) {
@@ -73,6 +98,7 @@ internal class AlphanumericKeyWithCheckCharacterPairDescriptor(
 
         var valueString = value.Length > 0 ? " " + value : string.Empty;
         var offset = valueString.Length > 0 ? valueString.Trim().Length - 1 : 0;
+        validationErrors ??= [];
         validationErrors.Add(
             new ParserException(
                 2008,
@@ -82,4 +108,5 @@ internal class AlphanumericKeyWithCheckCharacterPairDescriptor(
 
         return false;
     }
+#endif
 }

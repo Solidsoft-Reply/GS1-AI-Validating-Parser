@@ -557,7 +557,24 @@ class UnCefactFreightUnitTypeDescriptor(
     /// for the <see cref="UnCefactFreightUnitTypeDescriptor"/> class.</remarks>
     // ReSharper disable once CommentTypo
     // ReSharper disable once InheritdocConsiderUsage
-    public override bool IsValid(string value, out IList<ParserException> validationErrors) {
+#if NET7_0_OR_GREATER
+    public override bool IsValid(ReadOnlySpan<char> value, out IList<ParserException>? validationErrors) {
+        if (!_freightUnitTypes.ContainsKey(value.ToString())) {
+            validationErrors = [
+                new (
+                    2017,
+                    string.Format(CultureInfo.CurrentCulture, Resources.GS1_Warning_001, value.ToString()),
+                    false),
+            ];
+
+            return false;
+        }
+
+        validationErrors = null;
+        return true;
+    }
+#else
+    public override bool IsValid(string value, out IList<ParserException>? validationErrors) {
         if (!_freightUnitTypes.ContainsKey(value)) {
             validationErrors = [
                 new (
@@ -569,7 +586,8 @@ class UnCefactFreightUnitTypeDescriptor(
             return false;
         }
 
-        validationErrors = [];
+        validationErrors = null;
         return true;
     }
+#endif
 }

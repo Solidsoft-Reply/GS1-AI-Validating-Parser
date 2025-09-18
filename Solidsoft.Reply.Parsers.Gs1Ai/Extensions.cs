@@ -785,6 +785,32 @@ public static class Extensions {
     /// </summary>
     /// <param name="key">The GS1 key.</param>
     /// <returns>True, if the product code contains a correct checksum; otherwise false.</returns>
+#if NET6_0_OR_GREATER
+    internal static bool Gs1ChecksumIsValid(this ReadOnlySpan<char> key) {
+        if (key.IsNullOrWhiteSpace()) {
+            return false;
+        }
+
+        key = key.Trim('\0');
+        // Ensure that the string contains only integer values.
+        foreach (var c in key) {
+            if ((int)char.GetNumericValue(c) == -1) {
+                return false;
+            }
+        }
+
+        // Test the checksum.
+        int sum = 0;
+        int length = key.Length;
+        for (int i = 0; i < length; i++) {
+            int digit = (int)char.GetNumericValue(key[length - 1 - i]);
+            sum += digit * (i % 2 == 0 ? 1 : 3);
+        }
+
+        // ReSharper disable once ArrangeRedundantParentheses
+        return (10 - sum % 10) % 10 == 0;
+    }
+#else
     internal static bool Gs1ChecksumIsValid(this string key) {
         if (string.IsNullOrWhiteSpace(key)) {
             return false;
@@ -801,6 +827,7 @@ public static class Extensions {
         // ReSharper disable once ArrangeRedundantParentheses
         return (10 - sum % 10) % 10 == 0;
     }
+#endif
 
     /// <summary>
     ///     Determines if a GS1 alphanumeric key has a correct check character pair. Include the
@@ -808,6 +835,27 @@ public static class Extensions {
     /// </summary>
     /// <param name="key">The GS1 alphanumeric key.</param>
     /// <returns>True, if the alphanumeric key contains a correct check character pair; otherwise false.</returns>
+#if NET7_0_OR_GREATER
+    internal static bool Gs1CheckCharactersPairIsValid(this ReadOnlySpan<char> key) {
+        if (key.IsNullOrWhiteSpace()) return false;
+        if (key.Length < 2) return false;
+
+        key = key.Trim('\0');
+        var keyData = key[..^2];
+        var checkCharacterPair = key[^2..];
+        var checkCharacterRefValue = 0;
+
+        for (var idx = keyData.Length - 1; idx >= 0; idx--) {
+            checkCharacterRefValue += Invariants.IndexOf(keyData[idx]) * PrimeNumbers[keyData.Length - idx - 1];
+        }
+
+        checkCharacterRefValue %= 1021;
+        char expectedFirst = AlphanumericCheckCharacters[checkCharacterRefValue / 32];
+        char expectedSecond = AlphanumericCheckCharacters[checkCharacterRefValue % 32];
+
+        return checkCharacterPair[0] == expectedFirst && checkCharacterPair[1] == expectedSecond;
+    }
+#else
     internal static bool Gs1CheckCharactersPairIsValid(this string key) {
         if (string.IsNullOrWhiteSpace(key)) return false;
         if (key.Length < 2) return false;
@@ -828,6 +876,7 @@ public static class Extensions {
         checkCharacterRefValue %= 1021;
         return checkCharacterPair == AlphanumericCheckCharacters[checkCharacterRefValue / 32].ToInvariantString() + AlphanumericCheckCharacters[checkCharacterRefValue % 32];
     }
+#endif
 
     /// <summary>
     ///     Resolve an integer prefix to a GS1 country code.
@@ -866,6 +915,39 @@ public static class Extensions {
                    }
                    : CountryCode.Unknown;
     }
+
+//#if NET6_0_OR_GREATER
+    internal static bool IsNullOrWhiteSpace(this ReadOnlySpan<char> span) {
+        foreach (var c in span) {
+            if (c != '\0' && !char.IsWhiteSpace(c)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    internal static bool IsNull(this ReadOnlySpan<char> span) {
+        foreach (var c in span) {
+            if (c != '\0') {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    internal static bool IsNull(this Span<char> span) {
+        foreach (var c in span) {
+            if (c != '\0') {
+                return false;
+            }
+        }
+
+        return true;
+    }
+//#endif
+
 
 #if NET7_0_OR_GREATER
     /// <summary>
