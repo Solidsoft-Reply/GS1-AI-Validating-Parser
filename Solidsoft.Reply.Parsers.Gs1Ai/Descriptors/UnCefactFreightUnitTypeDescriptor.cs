@@ -78,7 +78,7 @@ class UnCefactFreightUnitTypeDescriptor(
     string description,
     Regex pattern,
     bool isFixedWidth)
-: EntityDescriptor(dataTitle, description, pattern, isFixedWidth) {
+: EntityDescriptors(dataTitle, description, pattern, isFixedWidth) {
 
     private static Dictionary<string, (string, string)> _freightUnitTypes = new () {
         { "8", ("Oneway pallet (GS1 Code)", "Pallet need not be returned to the point of expedition") },

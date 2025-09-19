@@ -55,7 +55,7 @@ internal
         string description,
         Regex pattern,
         bool isFixedWidth)
-    : EntityDescriptor(dataTitle, description, pattern, isFixedWidth) {
+    : EntityDescriptors(dataTitle, description, pattern, isFixedWidth) {
 #if !NET7_0_OR_GREATER
     /// <summary>
     ///     A regular expression for North American coupon codes.

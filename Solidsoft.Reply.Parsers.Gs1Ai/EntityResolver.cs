@@ -531,8 +531,8 @@ internal static class EntityResolver {
     /// <summary>
     ///     A dictionary of application identifier descriptors.
     /// </summary>
-    private static readonly IDictionary<int, EntityDescriptor> Descriptors =
-        new Dictionary<int, EntityDescriptor>
+    private static readonly IDictionary<int, EntityDescriptors> Descriptors =
+        new Dictionary<int, EntityDescriptors>
         {
             {
                 0, new IdentifierWithFinalChecksumDescriptor(
@@ -580,7 +580,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                10, new EntityDescriptor(
+                10, new EntityDescriptors(
                     "BATCH/LOT",
                     Gs1ApplicationIdentifier.ai10,
 #if NET7_0_OR_GREATER
@@ -591,7 +591,7 @@ internal static class EntityResolver {
                     false)
             },
             {
-                11, new EntityDescriptor(
+                11, new EntityDescriptors(
                     "PROD DATE",
                     Gs1ApplicationIdentifier.ai11,
 #if NET7_0_OR_GREATER
@@ -602,7 +602,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                12, new EntityDescriptor(
+                12, new EntityDescriptors(
                     "DUE DATE",
 
                     // ReSharper disable once StringLiteralTypo
@@ -617,7 +617,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                13, new EntityDescriptor(
+                13, new EntityDescriptors(
                     "PACK DATE",
 
                     // ReSharper disable once StringLiteralTypo
@@ -632,7 +632,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                15, new EntityDescriptor(
+                15, new EntityDescriptors(
                     "BEST BEFORE or BEST BY",
 
                     // ReSharper disable once StringLiteralTypo
@@ -647,7 +647,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                16, new EntityDescriptor(
+                16, new EntityDescriptors(
                     "SELL BY",
 
                     // ReSharper disable once StringLiteralTypo
@@ -662,7 +662,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                17, new EntityDescriptor(
+                17, new EntityDescriptors(
                     "USE BY OR EXPIRY",
                     Gs1ApplicationIdentifier.ai17,
 #if NET7_0_OR_GREATER
@@ -674,7 +674,7 @@ internal static class EntityResolver {
             },
             {
                 20,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "VARIANT",
                     Gs1ApplicationIdentifier.ai20,
 #if NET7_0_OR_GREATER
@@ -686,7 +686,7 @@ internal static class EntityResolver {
             },
             {
                 21,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "SERIAL",
                     Gs1ApplicationIdentifier.ai21,
 #if NET7_0_OR_GREATER
@@ -697,7 +697,7 @@ internal static class EntityResolver {
                     false)
             },
             {
-                22, new EntityDescriptor(
+                22, new EntityDescriptors(
                     "CPV",
                     Gs1ApplicationIdentifier.ai22,
 #if NET7_0_OR_GREATER
@@ -708,7 +708,7 @@ internal static class EntityResolver {
                     false)
             },
             {
-                235, new EntityDescriptor(
+                235, new EntityDescriptors(
                     "TPX",
                     Gs1ApplicationIdentifier.ai235,
 #if NET7_0_OR_GREATER
@@ -719,7 +719,7 @@ internal static class EntityResolver {
                     false)
             },
             {
-                240, new EntityDescriptor(
+                240, new EntityDescriptors(
                     "ADDITIONAL ID",
                     Gs1ApplicationIdentifier.ai240,
 #if NET7_0_OR_GREATER
@@ -730,7 +730,7 @@ internal static class EntityResolver {
                     false)
             },
             {
-                241, new EntityDescriptor(
+                241, new EntityDescriptors(
                     "CUST. PART No.",
                     Gs1ApplicationIdentifier.ai241,
 #if NET7_0_OR_GREATER
@@ -742,7 +742,7 @@ internal static class EntityResolver {
             },
             {
                 242,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "MTO VARIANT",
                     Gs1ApplicationIdentifier.ai242,
 #if NET7_0_OR_GREATER
@@ -753,7 +753,7 @@ internal static class EntityResolver {
                     false)
             },
             {
-                243, new EntityDescriptor(
+                243, new EntityDescriptors(
                     "PCN",
                     Gs1ApplicationIdentifier.ai243,
 #if NET7_0_OR_GREATER
@@ -764,7 +764,7 @@ internal static class EntityResolver {
                     false)
             },
             {
-                250, new EntityDescriptor(
+                250, new EntityDescriptors(
                     "SECONDARY SERIAL",
                     Gs1ApplicationIdentifier.ai250,
 #if NET7_0_OR_GREATER
@@ -775,7 +775,7 @@ internal static class EntityResolver {
                     false)
             },
             {
-                251, new EntityDescriptor(
+                251, new EntityDescriptors(
                     "REF. TO SOURCE",
                     Gs1ApplicationIdentifier.ai251,
 #if NET7_0_OR_GREATER
@@ -797,7 +797,7 @@ internal static class EntityResolver {
                     false)
             },
             {
-                254, new EntityDescriptor(
+                254, new EntityDescriptors(
                     "GLN EXTENSION COMPONENT",
                     Gs1ApplicationIdentifier.ai254,
 #if NET7_0_OR_GREATER
@@ -819,7 +819,7 @@ internal static class EntityResolver {
                     false)
             },
             {
-                30, new EntityDescriptor(
+                30, new EntityDescriptors(
                     "VAR. COUNT",
                     Gs1ApplicationIdentifier.ai30,
 #if NET7_0_OR_GREATER
@@ -830,7 +830,7 @@ internal static class EntityResolver {
                     false)
             },
             {
-                310, new EntityDescriptor(
+                310, new EntityDescriptors(
                     "NET WEIGHT (kg)",
                     Gs1ApplicationIdentifier.ai310n,
 #if NET7_0_OR_GREATER
@@ -841,7 +841,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                311, new EntityDescriptor(
+                311, new EntityDescriptors(
                     "LENGTH (m)",
                     Gs1ApplicationIdentifier.ai311n,
 #if NET7_0_OR_GREATER
@@ -852,7 +852,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                312, new EntityDescriptor(
+                312, new EntityDescriptors(
                     "WIDTH (m)",
                     Gs1ApplicationIdentifier.ai312n,
 #if NET7_0_OR_GREATER
@@ -863,7 +863,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                313, new EntityDescriptor(
+                313, new EntityDescriptors(
                     "HEIGHT (m)",
                     Gs1ApplicationIdentifier.ai313n,
 #if NET7_0_OR_GREATER
@@ -874,7 +874,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                314, new EntityDescriptor(
+                314, new EntityDescriptors(
                     "AREA (m²)",
                     Gs1ApplicationIdentifier.ai314n,
 #if NET7_0_OR_GREATER
@@ -885,7 +885,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                315, new EntityDescriptor(
+                315, new EntityDescriptors(
                     "NET VOLUME (l)",
                     Gs1ApplicationIdentifier.ai315n,
 #if NET7_0_OR_GREATER
@@ -896,7 +896,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                316, new EntityDescriptor(
+                316, new EntityDescriptors(
                     "NET VOLUME (m³)",
                     Gs1ApplicationIdentifier.ai316n,
 #if NET7_0_OR_GREATER
@@ -907,7 +907,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                320, new EntityDescriptor(
+                320, new EntityDescriptors(
                     "NET WEIGHT (lb)",
                     Gs1ApplicationIdentifier.ai320n,
 #if NET7_0_OR_GREATER
@@ -918,7 +918,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                321, new EntityDescriptor(
+                321, new EntityDescriptors(
                     "LENGTH (i)",
                     Gs1ApplicationIdentifier.ai321n,
 #if NET7_0_OR_GREATER
@@ -929,7 +929,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                322, new EntityDescriptor(
+                322, new EntityDescriptors(
                     "LENGTH (f)",
                     Gs1ApplicationIdentifier.ai322n,
 #if NET7_0_OR_GREATER
@@ -940,7 +940,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                323, new EntityDescriptor(
+                323, new EntityDescriptors(
                     "LENGTH (y)",
                     Gs1ApplicationIdentifier.ai323n,
 #if NET7_0_OR_GREATER
@@ -951,7 +951,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                324, new EntityDescriptor(
+                324, new EntityDescriptors(
                     "WIDTH (i)",
                     Gs1ApplicationIdentifier.ai324n,
 #if NET7_0_OR_GREATER
@@ -962,7 +962,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                325, new EntityDescriptor(
+                325, new EntityDescriptors(
                     "WIDTH (f)",
                     Gs1ApplicationIdentifier.ai325n,
 #if NET7_0_OR_GREATER
@@ -973,7 +973,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                326, new EntityDescriptor(
+                326, new EntityDescriptors(
                     "WIDTH (y)",
                     Gs1ApplicationIdentifier.ai326n,
 #if NET7_0_OR_GREATER
@@ -984,7 +984,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                327, new EntityDescriptor(
+                327, new EntityDescriptors(
                     "HEIGHT (i)",
                     Gs1ApplicationIdentifier.ai327n,
 #if NET7_0_OR_GREATER
@@ -995,7 +995,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                328, new EntityDescriptor(
+                328, new EntityDescriptors(
                     "HEIGHT (f)",
                     Gs1ApplicationIdentifier.ai328n,
 #if NET7_0_OR_GREATER
@@ -1006,7 +1006,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                329, new EntityDescriptor(
+                329, new EntityDescriptors(
                     "HEIGHT (y)",
                     Gs1ApplicationIdentifier.ai329n,
 #if NET7_0_OR_GREATER
@@ -1018,7 +1018,7 @@ internal static class EntityResolver {
             },
             {
                 330,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "GROSS WEIGHT (kg)",
                     Gs1ApplicationIdentifier.ai330n,
 #if NET7_0_OR_GREATER
@@ -1030,7 +1030,7 @@ internal static class EntityResolver {
             },
             {
                 331,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "LENGTH (m), log",
                     Gs1ApplicationIdentifier.ai331n,
 #if NET7_0_OR_GREATER
@@ -1041,7 +1041,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                332, new EntityDescriptor(
+                332, new EntityDescriptors(
                     "WIDTH (m), log",
                     Gs1ApplicationIdentifier.ai332n,
 #if NET7_0_OR_GREATER
@@ -1052,7 +1052,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                333, new EntityDescriptor(
+                333, new EntityDescriptors(
                     "HEIGHT (m), log",
                     Gs1ApplicationIdentifier.ai333n,
 #if NET7_0_OR_GREATER
@@ -1064,7 +1064,7 @@ internal static class EntityResolver {
             },
             {
                 334,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "AREA (m²), log",
                     Gs1ApplicationIdentifier.ai334n,
 #if NET7_0_OR_GREATER
@@ -1076,7 +1076,7 @@ internal static class EntityResolver {
             },
             {
                 335,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "VOLUME (l), log",
                     Gs1ApplicationIdentifier.ai335n,
 #if NET7_0_OR_GREATER
@@ -1088,7 +1088,7 @@ internal static class EntityResolver {
             },
             {
                 336,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "VOLUME (m³), log",
                     Gs1ApplicationIdentifier.ai336n,
 #if NET7_0_OR_GREATER
@@ -1100,7 +1100,7 @@ internal static class EntityResolver {
             },
             {
                 337,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "KG PER m²",
                     Gs1ApplicationIdentifier.ai337n,
 #if NET7_0_OR_GREATER
@@ -1112,7 +1112,7 @@ internal static class EntityResolver {
             },
             {
                 340,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "GROSS WEIGHT (lb)",
                     Gs1ApplicationIdentifier.ai340n,
 #if NET7_0_OR_GREATER
@@ -1124,7 +1124,7 @@ internal static class EntityResolver {
             },
             {
                 341,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "LENGTH (i), log",
                     Gs1ApplicationIdentifier.ai341n,
 #if NET7_0_OR_GREATER
@@ -1136,7 +1136,7 @@ internal static class EntityResolver {
             },
             {
                 342,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "LENGTH (f), log",
                     Gs1ApplicationIdentifier.ai342n,
 #if NET7_0_OR_GREATER
@@ -1148,7 +1148,7 @@ internal static class EntityResolver {
             },
             {
                 343,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "LENGTH (y), log",
                     Gs1ApplicationIdentifier.ai343n,
 #if NET7_0_OR_GREATER
@@ -1159,7 +1159,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                344, new EntityDescriptor(
+                344, new EntityDescriptors(
                     "WIDTH (i), log",
                     Gs1ApplicationIdentifier.ai344n,
 #if NET7_0_OR_GREATER
@@ -1170,7 +1170,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                345, new EntityDescriptor(
+                345, new EntityDescriptors(
                     "WIDTH (f), log",
                     Gs1ApplicationIdentifier.ai345n,
 #if NET7_0_OR_GREATER
@@ -1181,7 +1181,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                346, new EntityDescriptor(
+                346, new EntityDescriptors(
                     "WIDTH (y), log",
                     Gs1ApplicationIdentifier.ai346n,
 #if NET7_0_OR_GREATER
@@ -1192,7 +1192,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                347, new EntityDescriptor(
+                347, new EntityDescriptors(
                     "HEIGHT (i), log",
                     Gs1ApplicationIdentifier.ai347n,
 #if NET7_0_OR_GREATER
@@ -1203,7 +1203,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                348, new EntityDescriptor(
+                348, new EntityDescriptors(
                     "HEIGHT (f), log",
                     Gs1ApplicationIdentifier.ai348n,
 #if NET7_0_OR_GREATER
@@ -1214,7 +1214,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                349, new EntityDescriptor(
+                349, new EntityDescriptors(
                     "HEIGHT (y), log",
                     Gs1ApplicationIdentifier.ai349n,
 #if NET7_0_OR_GREATER
@@ -1225,7 +1225,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                350, new EntityDescriptor(
+                350, new EntityDescriptors(
                     "AREA (i²)",
                     Gs1ApplicationIdentifier.ai350n,
 #if NET7_0_OR_GREATER
@@ -1236,7 +1236,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                351, new EntityDescriptor(
+                351, new EntityDescriptors(
                     "AREA (f²)",
                     Gs1ApplicationIdentifier.ai351n,
 #if NET7_0_OR_GREATER
@@ -1247,7 +1247,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                352, new EntityDescriptor(
+                352, new EntityDescriptors(
                     "AREA (y²)",
                     Gs1ApplicationIdentifier.ai352n,
 #if NET7_0_OR_GREATER
@@ -1259,7 +1259,7 @@ internal static class EntityResolver {
             },
             {
                 353,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "AREA (i²), log",
                     Gs1ApplicationIdentifier.ai353n,
 #if NET7_0_OR_GREATER
@@ -1271,7 +1271,7 @@ internal static class EntityResolver {
             },
             {
                 354,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "AREA (f²), log",
                     Gs1ApplicationIdentifier.ai354n,
 #if NET7_0_OR_GREATER
@@ -1283,7 +1283,7 @@ internal static class EntityResolver {
             },
             {
                 355,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "AREA (y²), log",
                     Gs1ApplicationIdentifier.ai355n,
 #if NET7_0_OR_GREATER
@@ -1295,7 +1295,7 @@ internal static class EntityResolver {
             },
             {
                 356,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "NET WEIGHT (t)",
                     Gs1ApplicationIdentifier.ai356n,
 #if NET7_0_OR_GREATER
@@ -1307,7 +1307,7 @@ internal static class EntityResolver {
             },
             {
                 357,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "NET VOLUME (oz)",
                     Gs1ApplicationIdentifier.ai357n,
 #if NET7_0_OR_GREATER
@@ -1319,7 +1319,7 @@ internal static class EntityResolver {
             },
             {
                 360,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "NET VOLUME (q)",
                     Gs1ApplicationIdentifier.ai360n,
 #if NET7_0_OR_GREATER
@@ -1331,7 +1331,7 @@ internal static class EntityResolver {
             },
             {
                 361,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "NET VOLUME (g)",
                     Gs1ApplicationIdentifier.ai361n,
 #if NET7_0_OR_GREATER
@@ -1343,7 +1343,7 @@ internal static class EntityResolver {
             },
             {
                 362,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "VOLUME (q), log",
                     Gs1ApplicationIdentifier.ai362n,
 #if NET7_0_OR_GREATER
@@ -1355,7 +1355,7 @@ internal static class EntityResolver {
             },
             {
                 363,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "VOLUME (g), log",
                     Gs1ApplicationIdentifier.ai363n,
 #if NET7_0_OR_GREATER
@@ -1366,7 +1366,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                364, new EntityDescriptor(
+                364, new EntityDescriptors(
                     "VOLUME (i³)",
                     Gs1ApplicationIdentifier.ai364n,
 #if NET7_0_OR_GREATER
@@ -1377,7 +1377,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                365, new EntityDescriptor(
+                365, new EntityDescriptors(
                     "VOLUME (f³)",
                     Gs1ApplicationIdentifier.ai365n,
 #if NET7_0_OR_GREATER
@@ -1388,7 +1388,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                366, new EntityDescriptor(
+                366, new EntityDescriptors(
                     "VOLUME (y³)",
                     Gs1ApplicationIdentifier.ai366n,
 #if NET7_0_OR_GREATER
@@ -1400,7 +1400,7 @@ internal static class EntityResolver {
             },
             {
                 367,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "VOLUME (i³), log",
                     Gs1ApplicationIdentifier.ai367n,
 #if NET7_0_OR_GREATER
@@ -1412,7 +1412,7 @@ internal static class EntityResolver {
             },
             {
                 368,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "VOLUME (f³), log",
                     Gs1ApplicationIdentifier.ai368n,
 #if NET7_0_OR_GREATER
@@ -1424,7 +1424,7 @@ internal static class EntityResolver {
             },
             {
                 369,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "VOLUME (y³), log",
                     Gs1ApplicationIdentifier.ai369n,
 #if NET7_0_OR_GREATER
@@ -1436,7 +1436,7 @@ internal static class EntityResolver {
             },
             {
                 37,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "COUNT",
                     Gs1ApplicationIdentifier.ai37,
 #if NET7_0_OR_GREATER
@@ -1448,7 +1448,7 @@ internal static class EntityResolver {
             },
             {
                 390,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "AMOUNT",
                     Gs1ApplicationIdentifier.ai390n,
 #if NET7_0_OR_GREATER
@@ -1460,7 +1460,7 @@ internal static class EntityResolver {
             },
             {
                 391,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "AMOUNT",
                     Gs1ApplicationIdentifier.ai391n,
 #if NET7_0_OR_GREATER
@@ -1472,7 +1472,7 @@ internal static class EntityResolver {
             },
             {
                 392,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "PRICE",
                     Gs1ApplicationIdentifier.ai392n,
 #if NET7_0_OR_GREATER
@@ -1484,7 +1484,7 @@ internal static class EntityResolver {
             },
             {
                 393,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "PRICE",
                     Gs1ApplicationIdentifier.ai393n,
 #if NET7_0_OR_GREATER
@@ -1496,7 +1496,7 @@ internal static class EntityResolver {
             },
             {
                 394,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "PRCNT OFF",
                     Gs1ApplicationIdentifier.ai394n,
 #if NET7_0_OR_GREATER
@@ -1508,7 +1508,7 @@ internal static class EntityResolver {
             },
             {
                 395,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "PRICE/UoM",
                     Gs1ApplicationIdentifier.ai395n,
 #if NET7_0_OR_GREATER
@@ -1520,7 +1520,7 @@ internal static class EntityResolver {
             },
             {
                 400,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "ORDER NUMBER",
                     Gs1ApplicationIdentifier.ai400,
 #if NET7_0_OR_GREATER
@@ -1532,7 +1532,7 @@ internal static class EntityResolver {
             },
             {
                 401,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "GINC",
                     Gs1ApplicationIdentifier.ai401,
 #if NET7_0_OR_GREATER
@@ -1556,7 +1556,7 @@ internal static class EntityResolver {
             },
             {
                 403,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "ROUTE",
                     Gs1ApplicationIdentifier.ai403,
 #if NET7_0_OR_GREATER
@@ -1655,7 +1655,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                420, new EntityDescriptor(
+                420, new EntityDescriptors(
                     "SHIP TO POST",
                     Gs1ApplicationIdentifier.ai420,
 #if NET7_0_OR_GREATER
@@ -1666,7 +1666,7 @@ internal static class EntityResolver {
                     false)
             },
             {
-                421, new EntityDescriptor(
+                421, new EntityDescriptors(
                     "SHIP TO POST",
                     Gs1ApplicationIdentifier.ai421,
 #if NET7_0_OR_GREATER
@@ -1678,7 +1678,7 @@ internal static class EntityResolver {
             },
             {
                 422,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "ORIGIN",
                     Gs1ApplicationIdentifier.ai422,
 #if NET7_0_OR_GREATER
@@ -1689,7 +1689,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                423, new EntityDescriptor(
+                423, new EntityDescriptors(
                     "COUNTRY - INITIAL PROCESS",
                     Gs1ApplicationIdentifier.ai423,
 #if NET7_0_OR_GREATER
@@ -1701,7 +1701,7 @@ internal static class EntityResolver {
             },
             {
                 424,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "COUNTRY - PROCESS",
                     Gs1ApplicationIdentifier.ai424,
 #if NET7_0_OR_GREATER
@@ -1712,7 +1712,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                425, new EntityDescriptor(
+                425, new EntityDescriptors(
                     "COUNTRY - DISASSEMBLY",
                     Gs1ApplicationIdentifier.ai425,
 #if NET7_0_OR_GREATER
@@ -1723,7 +1723,7 @@ internal static class EntityResolver {
                     false)
             },
             {
-                426, new EntityDescriptor(
+                426, new EntityDescriptors(
                     "COUNTRY – FULL PROCESS",
                     Gs1ApplicationIdentifier.ai426,
 #if NET7_0_OR_GREATER
@@ -1734,7 +1734,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                427, new EntityDescriptor(
+                427, new EntityDescriptors(
                     "ORIGIN SUBDIVISION",
                     Gs1ApplicationIdentifier.ai427,
 #if NET7_0_OR_GREATER
@@ -1746,7 +1746,7 @@ internal static class EntityResolver {
             },
             {
                 4300,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "SHIP TO COMP",
                     Gs1ApplicationIdentifier.ai4300,
 #if NET7_0_OR_GREATER
@@ -1758,7 +1758,7 @@ internal static class EntityResolver {
             },
             {
                 4301,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "SHIP TO NAME",
                     Gs1ApplicationIdentifier.ai4301,
 #if NET7_0_OR_GREATER
@@ -1770,7 +1770,7 @@ internal static class EntityResolver {
             },
             {
                 4302,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "SHIP TO ADD1",
                     Gs1ApplicationIdentifier.ai4302,
 #if NET7_0_OR_GREATER
@@ -1782,7 +1782,7 @@ internal static class EntityResolver {
             },
             {
                 4303,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "SHIP TO ADD2",
                     Gs1ApplicationIdentifier.ai4303,
 #if NET7_0_OR_GREATER
@@ -1794,7 +1794,7 @@ internal static class EntityResolver {
             },
             {
                 4304,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "SHIP TO SUB",
                     Gs1ApplicationIdentifier.ai4304,
 #if NET7_0_OR_GREATER
@@ -1806,7 +1806,7 @@ internal static class EntityResolver {
             },
             {
                 4305,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "SHIP TO LOC",
                     Gs1ApplicationIdentifier.ai4305,
 #if NET7_0_OR_GREATER
@@ -1818,7 +1818,7 @@ internal static class EntityResolver {
             },
             {
                 4306,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "SHIP TO REG",
                     Gs1ApplicationIdentifier.ai4306,
 #if NET7_0_OR_GREATER
@@ -1830,7 +1830,7 @@ internal static class EntityResolver {
             },
             {
                 4307,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "SHIP TO COUNTRY",
                     Gs1ApplicationIdentifier.ai4307,
 #if NET7_0_OR_GREATER
@@ -1842,7 +1842,7 @@ internal static class EntityResolver {
             },
             {
                 4308,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "SHIP TO PHONE",
                     Gs1ApplicationIdentifier.ai4308,
 #if NET7_0_OR_GREATER
@@ -1854,7 +1854,7 @@ internal static class EntityResolver {
             },
             {
                 4309,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "SHIP TO GEO",
                     Gs1ApplicationIdentifier.ai4309,
 #if NET7_0_OR_GREATER
@@ -1866,7 +1866,7 @@ internal static class EntityResolver {
             },
             {
                 4310,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "RTN TO COMP",
                     Gs1ApplicationIdentifier.ai4310,
 #if NET7_0_OR_GREATER
@@ -1878,7 +1878,7 @@ internal static class EntityResolver {
             },
             {
                 4311,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "RTN TO NAME",
                     Gs1ApplicationIdentifier.ai4311,
 #if NET7_0_OR_GREATER
@@ -1890,7 +1890,7 @@ internal static class EntityResolver {
             },
             {
                 4312,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "RTN TO ADD1",
                     Gs1ApplicationIdentifier.ai4312,
 #if NET7_0_OR_GREATER
@@ -1902,7 +1902,7 @@ internal static class EntityResolver {
             },
             {
                 4313,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "RTN TO ADD2",
                     Gs1ApplicationIdentifier.ai4313,
 #if NET7_0_OR_GREATER
@@ -1914,7 +1914,7 @@ internal static class EntityResolver {
             },
             {
                 4314,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "RTN TO SUB",
                     Gs1ApplicationIdentifier.ai4314,
 #if NET7_0_OR_GREATER
@@ -1926,7 +1926,7 @@ internal static class EntityResolver {
             },
             {
                 4315,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "RTN TO LOC",
                     Gs1ApplicationIdentifier.ai4315,
 #if NET7_0_OR_GREATER
@@ -1938,7 +1938,7 @@ internal static class EntityResolver {
             },
             {
                 4316,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "RTN TO REG",
                     Gs1ApplicationIdentifier.ai4316,
 #if NET7_0_OR_GREATER
@@ -1950,7 +1950,7 @@ internal static class EntityResolver {
             },
             {
                 4317,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "RTN TO COUNTRY",
                     Gs1ApplicationIdentifier.ai4317,
 #if NET7_0_OR_GREATER
@@ -1962,7 +1962,7 @@ internal static class EntityResolver {
             },
             {
                 4318,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "RTN TO POST",
                     Gs1ApplicationIdentifier.ai4318,
 #if NET7_0_OR_GREATER
@@ -1974,7 +1974,7 @@ internal static class EntityResolver {
             },
             {
                 4319,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "RTN TO PHONE",
                     Gs1ApplicationIdentifier.ai4319,
 #if NET7_0_OR_GREATER
@@ -1986,7 +1986,7 @@ internal static class EntityResolver {
             },
             {
                 4320,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "SRV DESCRIPTION",
                     Gs1ApplicationIdentifier.ai4320,
 #if NET7_0_OR_GREATER
@@ -1998,7 +1998,7 @@ internal static class EntityResolver {
             },
             {
                 4321,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "DANGEROUS GOODS",
                     Gs1ApplicationIdentifier.ai4321,
 #if NET7_0_OR_GREATER
@@ -2010,7 +2010,7 @@ internal static class EntityResolver {
             },
             {
                 4322,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "AUTH LEAVE",
                     Gs1ApplicationIdentifier.ai4322,
 #if NET7_0_OR_GREATER
@@ -2022,7 +2022,7 @@ internal static class EntityResolver {
             },
             {
                 4323,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "SIG REQUIRED",
                     Gs1ApplicationIdentifier.ai4323,
 #if NET7_0_OR_GREATER
@@ -2034,7 +2034,7 @@ internal static class EntityResolver {
             },
             {
                 4324,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "NBEF DEL DT",
                     Gs1ApplicationIdentifier.ai4324,
 #if NET7_0_OR_GREATER
@@ -2046,7 +2046,7 @@ internal static class EntityResolver {
             },
             {
                 4325,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "NAFT DEL DT",
                     Gs1ApplicationIdentifier.ai4325,
 #if NET7_0_OR_GREATER
@@ -2058,7 +2058,7 @@ internal static class EntityResolver {
             },
             {
                 4326,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "REL DATE",
                     Gs1ApplicationIdentifier.ai4326,
 #if NET7_0_OR_GREATER
@@ -2070,7 +2070,7 @@ internal static class EntityResolver {
             },
             {
                 4330,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "MAX TEMP F",
                     Gs1ApplicationIdentifier.ai4330,
 #if NET7_0_OR_GREATER
@@ -2082,7 +2082,7 @@ internal static class EntityResolver {
             },
             {
                 4331,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "MAX TEMP C",
                     Gs1ApplicationIdentifier.ai4331,
 #if NET7_0_OR_GREATER
@@ -2094,7 +2094,7 @@ internal static class EntityResolver {
             },
             {
                 4332,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "MIN TEMP F",
                     Gs1ApplicationIdentifier.ai4332,
 #if NET7_0_OR_GREATER
@@ -2106,7 +2106,7 @@ internal static class EntityResolver {
             },
             {
                 4333,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "MIN TEMP C",
                     Gs1ApplicationIdentifier.ai4333,
 #if NET7_0_OR_GREATER
@@ -2118,7 +2118,7 @@ internal static class EntityResolver {
             },
             {
                 7001,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "NSN",
                     Gs1ApplicationIdentifier.ai7001,
 #if NET7_0_OR_GREATER
@@ -2129,7 +2129,7 @@ internal static class EntityResolver {
                     true)
             },
             {
-                7002, new EntityDescriptor(
+                7002, new EntityDescriptors(
                     "MEAT CUT",
                     Gs1ApplicationIdentifier.ai7002,
 #if NET7_0_OR_GREATER
@@ -2141,7 +2141,7 @@ internal static class EntityResolver {
             },
             {
                 7003,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "EXPIRY TIME",
                     Gs1ApplicationIdentifier.ai7003,
 #if NET7_0_OR_GREATER
@@ -2153,7 +2153,7 @@ internal static class EntityResolver {
             },
             {
                 7004,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "ACTIVE POTENCY",
                     Gs1ApplicationIdentifier.ai7004,
 #if NET7_0_OR_GREATER
@@ -2165,7 +2165,7 @@ internal static class EntityResolver {
             },
             {
                 7005,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "CATCH AREA",
                     Gs1ApplicationIdentifier.ai7005,
 #if NET7_0_OR_GREATER
@@ -2177,7 +2177,7 @@ internal static class EntityResolver {
             },
             {
                 7006,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "FIRST FREEZE DATE",
                     Gs1ApplicationIdentifier.ai7006,
 #if NET7_0_OR_GREATER
@@ -2189,7 +2189,7 @@ internal static class EntityResolver {
             },
             {
                 7007,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "HARVEST DATE",
                     Gs1ApplicationIdentifier.ai7007,
 #if NET7_0_OR_GREATER
@@ -2201,7 +2201,7 @@ internal static class EntityResolver {
             },
             {
                 7008,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "AQUATIC SPECIES",
                     Gs1ApplicationIdentifier.ai7008,
 #if NET7_0_OR_GREATER
@@ -2213,7 +2213,7 @@ internal static class EntityResolver {
             },
             {
                 7009,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "FISHING GEAR TYPE",
                     Gs1ApplicationIdentifier.ai7009,
 #if NET7_0_OR_GREATER
@@ -2225,7 +2225,7 @@ internal static class EntityResolver {
             },
             {
                 7010,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "PROD METHOD",
                     Gs1ApplicationIdentifier.ai7010,
 #if NET7_0_OR_GREATER
@@ -2237,7 +2237,7 @@ internal static class EntityResolver {
             },
             {
                 7011,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "TEST BY DATE",
                     Gs1ApplicationIdentifier.ai7011,
 #if NET7_0_OR_GREATER
@@ -2249,7 +2249,7 @@ internal static class EntityResolver {
             },
             {
                 7020,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "REFURB LOT",
                     Gs1ApplicationIdentifier.ai7020,
 #if NET7_0_OR_GREATER
@@ -2261,7 +2261,7 @@ internal static class EntityResolver {
             },
             {
                 7021,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "FUNC STAT",
                     Gs1ApplicationIdentifier.ai7021,
 #if NET7_0_OR_GREATER
@@ -2273,7 +2273,7 @@ internal static class EntityResolver {
             },
             {
                 7022,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "REV STAT",
                     Gs1ApplicationIdentifier.ai7022,
 #if NET7_0_OR_GREATER
@@ -2285,7 +2285,7 @@ internal static class EntityResolver {
             },
             {
                 7023,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "GIAI – ASSEMBLY",
                     Gs1ApplicationIdentifier.ai7023,
 #if NET7_0_OR_GREATER
@@ -2297,7 +2297,7 @@ internal static class EntityResolver {
             },
             {
                 703,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "PROCESSOR # s",
                     Gs1ApplicationIdentifier.ai703s,
 #if NET7_0_OR_GREATER
@@ -2309,7 +2309,7 @@ internal static class EntityResolver {
             },
             {
                 7031,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "PROCESSOR # 1",
                     Gs1ApplicationIdentifier.ai703s,
 #if NET7_0_OR_GREATER
@@ -2321,7 +2321,7 @@ internal static class EntityResolver {
             },
             {
                 7032,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "PROCESSOR # 2",
                     Gs1ApplicationIdentifier.ai703s,
 #if NET7_0_OR_GREATER
@@ -2333,7 +2333,7 @@ internal static class EntityResolver {
             },
             {
                 7033,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "PROCESSOR # 3",
                     Gs1ApplicationIdentifier.ai703s,
 #if NET7_0_OR_GREATER
@@ -2345,7 +2345,7 @@ internal static class EntityResolver {
             },
             {
                 7034,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "PROCESSOR # 4",
                     Gs1ApplicationIdentifier.ai703s,
 #if NET7_0_OR_GREATER
@@ -2357,7 +2357,7 @@ internal static class EntityResolver {
             },
             {
                 7035,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "PROCESSOR # 5",
                     Gs1ApplicationIdentifier.ai703s,
 #if NET7_0_OR_GREATER
@@ -2369,7 +2369,7 @@ internal static class EntityResolver {
             },
             {
                 7036,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "PROCESSOR # 6",
                     Gs1ApplicationIdentifier.ai703s,
 #if NET7_0_OR_GREATER
@@ -2381,7 +2381,7 @@ internal static class EntityResolver {
             },
             {
                 7037,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "PROCESSOR # 7",
                     Gs1ApplicationIdentifier.ai703s,
 #if NET7_0_OR_GREATER
@@ -2393,7 +2393,7 @@ internal static class EntityResolver {
             },
             {
                 7038,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "PROCESSOR # 8",
                     Gs1ApplicationIdentifier.ai703s,
 #if NET7_0_OR_GREATER
@@ -2405,7 +2405,7 @@ internal static class EntityResolver {
             },
             {
                 7039,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "PROCESSOR # 9",
                     Gs1ApplicationIdentifier.ai703s,
 #if NET7_0_OR_GREATER
@@ -2417,7 +2417,7 @@ internal static class EntityResolver {
             },
             {
                 7040,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "UIC+EXT",
                     Gs1ApplicationIdentifier.ai7040,
 #if NET7_0_OR_GREATER
@@ -2441,7 +2441,7 @@ internal static class EntityResolver {
             },
             {
                 710,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "NHRN PZN",
                     Gs1ApplicationIdentifier.ai710,
 #if NET7_0_OR_GREATER
@@ -2453,7 +2453,7 @@ internal static class EntityResolver {
             },
             {
                 711,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "NHRN CIP",
                     Gs1ApplicationIdentifier.ai711,
 #if NET7_0_OR_GREATER
@@ -2465,7 +2465,7 @@ internal static class EntityResolver {
             },
             {
                 712,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "NHRN CN",
                     Gs1ApplicationIdentifier.ai712,
 #if NET7_0_OR_GREATER
@@ -2477,7 +2477,7 @@ internal static class EntityResolver {
             },
             {
                 713,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "NHRN DRN",
                     Gs1ApplicationIdentifier.ai713,
 #if NET7_0_OR_GREATER
@@ -2489,7 +2489,7 @@ internal static class EntityResolver {
             },
             {
                 714,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "NHRN AIM",
                     Gs1ApplicationIdentifier.ai714,
 #if NET7_0_OR_GREATER
@@ -2501,7 +2501,7 @@ internal static class EntityResolver {
             },
             {
                 715,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "NHRN NDC",
                     Gs1ApplicationIdentifier.ai715,
 #if NET7_0_OR_GREATER
@@ -2513,7 +2513,7 @@ internal static class EntityResolver {
             },
             {
                 716,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "NHRN AIC",
                     Gs1ApplicationIdentifier.ai716,
 #if NET7_0_OR_GREATER
@@ -2525,7 +2525,7 @@ internal static class EntityResolver {
             },
             {
                 723,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "CERT # s",
                     Gs1ApplicationIdentifier.ai723s,
 #if NET7_0_OR_GREATER
@@ -2537,7 +2537,7 @@ internal static class EntityResolver {
             },
             {
                 7231,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "CERT # 1",
                     Gs1ApplicationIdentifier.ai723s,
 #if NET7_0_OR_GREATER
@@ -2549,7 +2549,7 @@ internal static class EntityResolver {
             },
             {
                 7232,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "CERT # 2",
                     Gs1ApplicationIdentifier.ai723s,
 #if NET7_0_OR_GREATER
@@ -2561,7 +2561,7 @@ internal static class EntityResolver {
             },
             {
                 7233,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "CERT # 3",
                     Gs1ApplicationIdentifier.ai723s,
 #if NET7_0_OR_GREATER
@@ -2573,7 +2573,7 @@ internal static class EntityResolver {
             },
             {
                 7234,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "CERT # 4",
                     Gs1ApplicationIdentifier.ai723s,
 #if NET7_0_OR_GREATER
@@ -2585,7 +2585,7 @@ internal static class EntityResolver {
             },
             {
                 7235,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "CERT # 5",
                     Gs1ApplicationIdentifier.ai723s,
 #if NET7_0_OR_GREATER
@@ -2597,7 +2597,7 @@ internal static class EntityResolver {
             },
             {
                 7236,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "CERT # 6",
                     Gs1ApplicationIdentifier.ai723s,
 #if NET7_0_OR_GREATER
@@ -2609,7 +2609,7 @@ internal static class EntityResolver {
             },
             {
                 7237,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "CERT # 7",
                     Gs1ApplicationIdentifier.ai723s,
 #if NET7_0_OR_GREATER
@@ -2621,7 +2621,7 @@ internal static class EntityResolver {
             },
             {
                 7238,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "CERT # 8",
                     Gs1ApplicationIdentifier.ai723s,
 #if NET7_0_OR_GREATER
@@ -2633,7 +2633,7 @@ internal static class EntityResolver {
             },
             {
                 7239,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "CERT # 9",
                     Gs1ApplicationIdentifier.ai723s,
 #if NET7_0_OR_GREATER
@@ -2645,7 +2645,7 @@ internal static class EntityResolver {
             },
             {
                 7240,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "PROTOCOL",
                     Gs1ApplicationIdentifier.ai7240,
 #if NET7_0_OR_GREATER
@@ -2657,7 +2657,7 @@ internal static class EntityResolver {
             },
             {
                 7241,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "AIDC MEDIA TYPE",
                     Gs1ApplicationIdentifier.ai7241,
 #if NET7_0_OR_GREATER
@@ -2669,7 +2669,7 @@ internal static class EntityResolver {
             },
             {
                 7242,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "VCN",
                     Gs1ApplicationIdentifier.ai7242,
 #if NET7_0_OR_GREATER
@@ -2681,7 +2681,7 @@ internal static class EntityResolver {
             },
             {
                 7250,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "DOB",
                     Gs1ApplicationIdentifier.ai7250,
 #if NET7_0_OR_GREATER
@@ -2693,7 +2693,7 @@ internal static class EntityResolver {
             },
             {
                 7251,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "DOB TIME",
                     Gs1ApplicationIdentifier.ai7251,
 #if NET7_0_OR_GREATER
@@ -2705,7 +2705,7 @@ internal static class EntityResolver {
             },
             {
                 7252,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "BIO SEX",
                     Gs1ApplicationIdentifier.ai7252,
 #if NET7_0_OR_GREATER
@@ -2717,7 +2717,7 @@ internal static class EntityResolver {
             },
             {
                 7253,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "FAMILY NAME",
                     Gs1ApplicationIdentifier.ai7253,
 #if NET7_0_OR_GREATER
@@ -2729,7 +2729,7 @@ internal static class EntityResolver {
             },
             {
                 7254,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "GIVEN NAME",
                     Gs1ApplicationIdentifier.ai7254,
 #if NET7_0_OR_GREATER
@@ -2741,7 +2741,7 @@ internal static class EntityResolver {
             },
             {
                 7255,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "SUFFIX",
                     Gs1ApplicationIdentifier.ai7255,
 #if NET7_0_OR_GREATER
@@ -2753,7 +2753,7 @@ internal static class EntityResolver {
             },
             {
                 7256,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "FULL NAME",
                     Gs1ApplicationIdentifier.ai7256,
 #if NET7_0_OR_GREATER
@@ -2765,7 +2765,7 @@ internal static class EntityResolver {
             },
             {
                 7257,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "PERSON ADDR",
                     Gs1ApplicationIdentifier.ai7257,
 #if NET7_0_OR_GREATER
@@ -2777,7 +2777,7 @@ internal static class EntityResolver {
             },
             {
                 7258,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "BIRTH SEQUENCE",
                     Gs1ApplicationIdentifier.ai7258,
 #if NET7_0_OR_GREATER
@@ -2789,7 +2789,7 @@ internal static class EntityResolver {
             },
             {
                 7259,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "BABY",
                     Gs1ApplicationIdentifier.ai7259,
 #if NET7_0_OR_GREATER
@@ -2801,7 +2801,7 @@ internal static class EntityResolver {
             },
             {
                 8001,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "DIMENSIONS",
                     Gs1ApplicationIdentifier.ai8001,
 #if NET7_0_OR_GREATER
@@ -2813,7 +2813,7 @@ internal static class EntityResolver {
             },
             {
                 8002,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "CMT No.",
                     Gs1ApplicationIdentifier.ai8002,
 #if NET7_0_OR_GREATER
@@ -2837,7 +2837,7 @@ internal static class EntityResolver {
             },
             {
                 8004,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "GIAI",
                     Gs1ApplicationIdentifier.ai8004,
 #if NET7_0_OR_GREATER
@@ -2849,7 +2849,7 @@ internal static class EntityResolver {
             },
             {
                 8005,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "PRICE PER UNIT",
                     Gs1ApplicationIdentifier.ai8005,
 #if NET7_0_OR_GREATER
@@ -2885,7 +2885,7 @@ internal static class EntityResolver {
             },
             {
                 8008,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "PROD TIME",
                     Gs1ApplicationIdentifier.ai8008,
 #if NET7_0_OR_GREATER
@@ -2897,7 +2897,7 @@ internal static class EntityResolver {
             },
             {
                 8009,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "OPTSEN",
                     Gs1ApplicationIdentifier.ai8009,
 #if NET7_0_OR_GREATER
@@ -2909,7 +2909,7 @@ internal static class EntityResolver {
             },
             {
                 8010,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "CPID",
                     Gs1ApplicationIdentifier.ai8010,
 #if NET7_0_OR_GREATER
@@ -2921,7 +2921,7 @@ internal static class EntityResolver {
             },
             {
                 8011,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "CPID SERIAL",
                     Gs1ApplicationIdentifier.ai8011,
 #if NET7_0_OR_GREATER
@@ -2933,7 +2933,7 @@ internal static class EntityResolver {
             },
             {
                 8012,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "VERSION",
                     Gs1ApplicationIdentifier.ai8012,
 #if NET7_0_OR_GREATER
@@ -2992,7 +2992,7 @@ internal static class EntityResolver {
             },
             {
                 8019,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "SRIN",
                     Gs1ApplicationIdentifier.ai8019,
 #if NET7_0_OR_GREATER
@@ -3004,7 +3004,7 @@ internal static class EntityResolver {
             },
             {
                 8020,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "REF No.",
                     Gs1ApplicationIdentifier.ai8020,
 #if NET7_0_OR_GREATER
@@ -3028,7 +3028,7 @@ internal static class EntityResolver {
             },
             {
                 8030,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "DIGSIG",
                     Gs1ApplicationIdentifier.ai8030,
 #if NET7_0_OR_GREATER
@@ -3052,7 +3052,7 @@ internal static class EntityResolver {
             },
             {
                 8111,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "POINTS",
                     Gs1ApplicationIdentifier.ai8111,
 #if NET7_0_OR_GREATER
@@ -3064,7 +3064,7 @@ internal static class EntityResolver {
             },
             {
                 8112,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "-",
                     Gs1ApplicationIdentifier.ai8112,
 #if NET7_0_OR_GREATER
@@ -3076,7 +3076,7 @@ internal static class EntityResolver {
             },
             {
                 8200,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "PRODUCT URL",
                     Gs1ApplicationIdentifier.ai8200,
 #if NET7_0_OR_GREATER
@@ -3088,7 +3088,7 @@ internal static class EntityResolver {
             },
             {
                 90,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "INTERNAL",
                     Gs1ApplicationIdentifier.ai90,
 #if NET7_0_OR_GREATER
@@ -3100,7 +3100,7 @@ internal static class EntityResolver {
             },
             {
                 91,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "INTERNAL",
                     Gs1ApplicationIdentifier.ai91,
 #if NET7_0_OR_GREATER
@@ -3112,7 +3112,7 @@ internal static class EntityResolver {
             },
             {
                 92,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "INTERNAL",
                     Gs1ApplicationIdentifier.ai92,
 #if NET7_0_OR_GREATER
@@ -3124,7 +3124,7 @@ internal static class EntityResolver {
             },
             {
                 93,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "INTERNAL",
                     Gs1ApplicationIdentifier.ai93,
 #if NET7_0_OR_GREATER
@@ -3136,7 +3136,7 @@ internal static class EntityResolver {
             },
             {
                 94,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "INTERNAL",
                     Gs1ApplicationIdentifier.ai94,
 #if NET7_0_OR_GREATER
@@ -3148,7 +3148,7 @@ internal static class EntityResolver {
             },
             {
                 95,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "INTERNAL",
                     Gs1ApplicationIdentifier.ai95,
 #if NET7_0_OR_GREATER
@@ -3160,7 +3160,7 @@ internal static class EntityResolver {
             },
             {
                 96,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "INTERNAL",
                     Gs1ApplicationIdentifier.ai96,
 #if NET7_0_OR_GREATER
@@ -3172,7 +3172,7 @@ internal static class EntityResolver {
             },
             {
                 97,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "INTERNAL",
                     Gs1ApplicationIdentifier.ai97,
 #if NET7_0_OR_GREATER
@@ -3184,7 +3184,7 @@ internal static class EntityResolver {
             },
             {
                 98,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "INTERNAL",
                     Gs1ApplicationIdentifier.ai98,
 #if NET7_0_OR_GREATER
@@ -3196,7 +3196,7 @@ internal static class EntityResolver {
             },
             {
                 99,
-                new EntityDescriptor(
+                new EntityDescriptors(
                     "INTERNAL",
                     Gs1ApplicationIdentifier.ai99,
 #if NET7_0_OR_GREATER
@@ -3247,7 +3247,7 @@ internal static class EntityResolver {
         Span<int> parameters = stackalloc int[3];
 
         ResolveEntity(dataCopy, firstTwoDigits, currentPosition, identifier, value, parameters);
-        value = value.Trim('\0');
+        value = value.TrimEnd('\0');
         ApplicationIdentifier entity = (ApplicationIdentifier)parameters[0];
         int numberOfDecimalPlaces = parameters[1];
         int sequenceNumber = parameters[2];
@@ -3264,6 +3264,12 @@ internal static class EntityResolver {
             aiRef.CharacterPosition = currentPosition;
             return Validate(aiRef);
         }
+
+        var descriptors = entity.GetDescriptors();
+
+        entity = descriptors.DataTitle == string.Empty
+            ? ApplicationIdentifier.Unrecognised
+            : entity;
 
         if (entity == ApplicationIdentifier.Unrecognised) {
             aiRef.Entity = -1;
@@ -3283,8 +3289,6 @@ internal static class EntityResolver {
                 currentPosition,
                 aiRef);
         }
-
-        var descriptors = entity.GetDescriptors();
 
         aiRef.Entity = (int)entity;
         identifier.GetIdentifierIfNull((int)entity).CopyTo(aiRef.Identifier);
@@ -3312,7 +3316,7 @@ internal static class EntityResolver {
     }
 #endif
 
-#if NET6_0_OR_GREATER
+//#if NET6_0_OR_GREATER
     /// <summary>
     ///     Resolve a first two digits of the application identifier into an entity.
     /// </summary>
@@ -3372,7 +3376,6 @@ internal static class EntityResolver {
         Span<int> parameters = stackalloc int[3];
 
         ResolveEntity(dataCopy, firstTwoDigits, currentPosition, identifier, value, parameters);
-        value = value.Trim('\0');
         ApplicationIdentifier entity = (ApplicationIdentifier)parameters[0];
         int numberOfDecimalPlaces = parameters[1];
         int sequenceNumber = parameters[2];
@@ -3384,12 +3387,18 @@ internal static class EntityResolver {
                     identifier.GetIdentifierIfNull((int)entity).ToString(),
                     numberOfDecimalPlaces == -1 ? null : numberOfDecimalPlaces,
                     sequenceNumber == -1 ? null : sequenceNumber,
-                    value.ToString(),
+                    value.TrimEnd('\0').ToString(),
                     false,
                     string.Empty,
                     string.Empty,
                     currentPosition));
         }
+
+        var descriptors = entity.GetDescriptors();
+
+        entity = descriptors.DataTitle == string.Empty
+            ? ApplicationIdentifier.Unrecognised
+            : entity;
 
         if (entity == ApplicationIdentifier.Unrecognised) {
             return new ResolvedApplicationIdentifier(
@@ -3403,14 +3412,12 @@ internal static class EntityResolver {
                     firstTwoDigits.ToString(),
                     null,
                     null,
-                    value.ToString(),
+                    value.TrimEnd('\0').ToString(),
                     false,
                     string.Empty,
                     string.Empty,
                     currentPosition));
         }
-
-        var descriptors = entity.GetDescriptors();
 
         return Validate(
             new ResolvedApplicationIdentifier(
@@ -3418,366 +3425,13 @@ internal static class EntityResolver {
                 identifier.GetIdentifierIfNull((int)entity).ToString(),
                 numberOfDecimalPlaces == -1 ? null : numberOfDecimalPlaces,
                 sequenceNumber == -1 ? null : sequenceNumber,
-                value.ToString(),
+                value.TrimEnd('\0').ToString(),
                 descriptors.IsFixedWidth,
                 descriptors.DataTitle,
                 descriptors.Description,
                 currentPosition));
     }
-#else
-    /// <summary>
-    ///     Resolve a first two digits of the application identifier into an entity.
-    /// </summary>
-    /// <param name="data">
-    ///     The data buffer.
-    /// </param>
-    /// <param name="firstTwoDigits">
-    ///     The first two digits of the AI.
-    /// </param>
-    /// <param name="currentPosition">
-    ///     The position of the application identifier for the current field.
-    /// </param>
-    /// <param name="includeDescriptors">
-    ///     Indicates whether the descriptors should be included in the resolved identifier.
-    /// </param>
-    /// <returns>
-    ///     An entity.
-    /// </returns>
-    public static ResolvedApplicationIdentifier Resolve(
-        this string data,
-        string firstTwoDigits,
-        int currentPosition,
-        bool includeDescriptors = true) {
-#if NET6_0_OR_GREATER
-        ArgumentNullException.ThrowIfNull(data);
-#else
-        if (data is null) {
-            throw new ArgumentNullException(nameof(data));
-        }
-#endif
 
-        ApplicationIdentifier entity;
-        string? identifier = null;
-        string value;
-        int? numberOfDecimalPlaces = null;
-        int? sequenceNumber = null;
-
-        switch (firstTwoDigits) {
-            case "01":
-            case "10":
-            case "17":
-            case "21":
-            case "00":
-            case "02":
-            case "03":
-            case "11":
-            case "12":
-            case "13":
-            case "15":
-            case "16":
-            case "20":
-            case "22":
-            case "30":
-            case "37":
-            case "90":
-            case "91":
-            case "92":
-            case "93":
-            case "94":
-            case "95":
-            case "96":
-            case "97":
-            case "98":
-            case "99":
-                entity = data.GetEntity2();
-                value = data.GetValue(2);
-                break;
-            case "23":
-                // 5
-                entity = data.IsNumberEqual(2, 1, 5) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
-                if (entity == ApplicationIdentifier.Unrecognised) {
-                    value = data.GetValue(2);
-                }
-                else {
-                    value = data.GetValue(3);
-                    currentPosition++;
-                }
-
-                break;
-            case "25":
-                // 0..1, 3..5
-                entity = data.IsDigitInRange(2, 1) || data.IsNumberInRange(2, 1, 3, 5)
-                             ? data.GetEntity3()
-                             : ApplicationIdentifier.Unrecognised;
-                if (entity == ApplicationIdentifier.Unrecognised) {
-                    value = data.GetValue(2);
-                }
-                else {
-                    value = data.GetValue(3);
-                    currentPosition++;
-                }
-
-                break;
-            case "24":
-            case "40":
-                // 0..3
-                entity = data.IsDigitInRange(2, 3) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
-                if (entity == ApplicationIdentifier.Unrecognised) {
-                    value = data.GetValue(2);
-                }
-                else {
-                    value = data.GetValue(3);
-                    currentPosition++;
-                }
-
-                break;
-            case "71":
-                // 0..6
-                entity = data.IsNumberInRange(2, 1, 0, 6)
-                             ? data.GetEntity3()
-                             : ApplicationIdentifier.Unrecognised;
-                if (entity == ApplicationIdentifier.Unrecognised) {
-                    value = data.GetValue(2);
-                }
-                else {
-                    value = data.GetValue(3);
-                    currentPosition++;
-                }
-
-                break;
-            case "41":
-            case "42":
-                // 0..7
-                entity = data.IsDigitInRange(2, 7) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
-                if (entity == ApplicationIdentifier.Unrecognised) {
-                    value = data.GetValue(2);
-                }
-                else {
-                    value = data.GetValue(3);
-                    currentPosition++;
-                }
-
-                break;
-            case "39":
-                // 0n..5n
-                entity = data.IsDigitInRange(2, 5) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
-                if (entity == ApplicationIdentifier.Unrecognised) {
-                    value = data.GetValue(2);
-                }
-                else {
-                    identifier = ((int)data.GetEntity4()).ToInvariantString("##00");
-                    value = data.GetValue(4);
-                    numberOfDecimalPlaces = data.GetInverseExponent(3);
-                    currentPosition += 2;
-                }
-
-                break;
-            case "31":
-                // 0n..6n
-                entity = data.IsDigitInRange(2, 6) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
-                if (entity == ApplicationIdentifier.Unrecognised) {
-                    value = data.GetValue(2);
-                }
-                else {
-                    identifier = ((int)data.GetEntity4()).ToInvariantString("##00");
-                    value = data.GetValue(4);
-                    numberOfDecimalPlaces = data.GetInverseExponent(3);
-                    currentPosition += 2;
-                }
-
-                break;
-            case "33":
-            case "35":
-                // 0n..7n
-                entity = data.IsDigitInRange(2, 7) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
-                if (entity == ApplicationIdentifier.Unrecognised) {
-                    value = data.GetValue(2);
-                }
-                else {
-                    identifier = ((int)data.GetEntity4()).ToInvariantString("##00");
-                    value = data.GetValue(4);
-                    numberOfDecimalPlaces = data.GetInverseExponent(3);
-                    currentPosition += 2;
-                }
-
-                break;
-            case "32":
-            case "34":
-            case "36":
-                // 0n..9n
-                entity = data.IsDigitInRange(2, 9) ? data.GetEntity3() : ApplicationIdentifier.Unrecognised;
-                if (entity == ApplicationIdentifier.Unrecognised) {
-                    value = data.GetValue(2);
-                }
-                else {
-                    identifier = ((int)data.GetEntity4()).ToInvariantString("##00");
-                    value = data.GetValue(4);
-                    numberOfDecimalPlaces = data.GetInverseExponent(3);
-                    currentPosition += 2;
-                }
-
-                break;
-
-            case "43":
-                // 00..26, 30..33
-                entity = data.IsNumberInRange(2, 2, 0, 26) || data.IsNumberInRange(2, 2, 30, 33)
-                    ? data.GetEntity4()
-                    : ApplicationIdentifier.Unrecognised;
-
-                if (entity == ApplicationIdentifier.Unrecognised) {
-                    value = data.GetValue(2);
-                }
-                else {
-                    value = data.GetValue(4);
-                    numberOfDecimalPlaces = data.IsNumberInRange(2, 2, 30, 33) ? 2 : null;
-                    currentPosition += 2;
-                }
-
-                break;
-            case "70":
-                // 01..11, 20..23, 3s, 40..41
-                entity = data.IsNumberInRange(2, 2, 1, 11)
-                         || data.IsNumberInRange(2, 2, 20, 23)
-                         || data.IsNumberEqual(2, 1, 3)
-                         || data.IsNumberInRange(2, 2, 40, 41)
-                             ? data[2] == '3' ? data.GetEntity3() : data.GetEntity4()
-                             : ApplicationIdentifier.Unrecognised;
-                if (entity == ApplicationIdentifier.Unrecognised) {
-                    value = data.GetValue(2);
-                }
-                else {
-                    value = data.GetValue(4);
-
-                    if (entity == ApplicationIdentifier.NumberOfProcessorWithIsoCountryCode) {
-                        identifier = ((int)data.GetEntity4()).ToInvariantString("##00");
-                        sequenceNumber = data.GetSequenceNumber(3);
-                    }
-
-                    currentPosition += 2;
-                }
-
-                break;
-            case "72":
-                // 3s, 40, 50-59
-                entity = data.IsNumberEqual(2, 1, 3)
-                         || data.IsNumberInRange(2, 2, 40, 42)
-                         || data.IsNumberInRange(2, 2, 50, 59)
-                             ? data[2] == '3' ? data.GetEntity3() : data.GetEntity4()
-                             : ApplicationIdentifier.Unrecognised;
-                if (entity == ApplicationIdentifier.Unrecognised) {
-                    value = data.GetValue(2);
-                }
-                else {
-                    value = data.GetValue(4);
-
-                    if (entity == ApplicationIdentifier.CertificationReference) {
-                        identifier = ((int)data.GetEntity4()).ToInvariantString("##00");
-                        sequenceNumber = data.GetSequenceNumber(3);
-                    }
-
-                    currentPosition += 2;
-                }
-
-                break;
-            case "80":
-                // 01..09, 10..14, 17..20, 26, 30
-                entity = data.IsNumberInRange(2, 2, 1, 9) || data.IsNumberInRange(2, 2, 10, 14)
-                                                          || data.IsNumberInRange(2, 2, 17, 20)
-                                                          || data.IsNumberEqual(2, 2, 26)
-                                                          || data.IsNumberEqual(2, 2, 30)
-                             ? data.GetEntity4()
-                             : ApplicationIdentifier.Unrecognised;
-                if (entity == ApplicationIdentifier.Unrecognised) {
-                    value = data.GetValue(2);
-                }
-                else {
-                    value = data.GetValue(4);
-                    currentPosition += 2;
-                }
-
-                break;
-            case "81":
-                // 10..12
-                entity = data.IsNumberInRange(2, 2, 10, 12)
-                             ? data.GetEntity4()
-                             : ApplicationIdentifier.Unrecognised;
-                if (entity == ApplicationIdentifier.Unrecognised) {
-                    value = data.GetValue(2);
-                }
-                else {
-                    value = data.GetValue(4);
-                    currentPosition += 2;
-                }
-
-                break;
-            case "82":
-                // 00
-                entity = data.IsNumberEqual(2, 2, 0) ? data.GetEntity4() : ApplicationIdentifier.Unrecognised;
-                if (entity == ApplicationIdentifier.Unrecognised) {
-                    value = data.GetValue(2);
-                }
-                else {
-                    value = data.GetValue(4);
-                    currentPosition += 2;
-                }
-
-                break;
-            default:
-                entity = ApplicationIdentifier.Unrecognised;
-                value = data.GetValue(2);
-                break;
-        }
-
-        if (!includeDescriptors) {
-            return Validate(
-                new ResolvedApplicationIdentifier(
-                    (int)entity,
-                    identifier ?? ((int)entity).ToInvariantString("##00"),
-                    numberOfDecimalPlaces,
-                    sequenceNumber,
-                    value,
-                    false,
-                    string.Empty,
-                    string.Empty,
-                    currentPosition));
-        }
-
-        if (entity == ApplicationIdentifier.Unrecognised) {
-            return new ResolvedApplicationIdentifier(
-                new ParserException(
-                    2002,
-                    string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_007, firstTwoDigits),
-                    true),
-                currentPosition,
-                new ResolvedApplicationIdentifier(
-                    -1,
-                    firstTwoDigits,
-                    null,
-                    null,
-                    value,
-                    false,
-                    string.Empty,
-                    string.Empty,
-                    currentPosition));
-        }
-
-        var descriptors = entity.GetDescriptors();
-
-        return Validate(
-            new ResolvedApplicationIdentifier(
-                (int)entity,
-                identifier ?? ((int)entity).ToInvariantString("##00"),
-                numberOfDecimalPlaces,
-                sequenceNumber,
-                value,
-                descriptors.IsFixedWidth,
-                descriptors.DataTitle,
-                descriptors.Description,
-                currentPosition));
-    }
-#endif
-
-#if NET6_0_OR_GREATER
     private static void ResolveEntity(
         Span<char> data,
         ReadOnlySpan<char> firstTwoDigits,
@@ -4057,13 +3711,12 @@ internal static class EntityResolver {
                 break;
         }
 
-        extractedValue.TrimEnd().CopyTo(value);
+        extractedValue.TrimEnd('\0').CopyTo(value);
 
         parameters[0] = (int)entity;
         parameters[1] = numberOfDecimalPlaces;
         parameters[2] = sequenceNumber;
     }
-#endif
 
 #if NET7_0_OR_GREATER
     /// <summary>
@@ -4539,13 +4192,18 @@ internal static class EntityResolver {
     /// </summary>
     /// <param name="entity">The application identifier entity.</param>
     /// <returns>The descriptors tuple for the given application identifier.</returns>
-    private static EntityDescriptor GetDescriptors(this ApplicationIdentifier entity) {
+    private static EntityDescriptors GetDescriptors(this ApplicationIdentifier entity) {
         return entity == ApplicationIdentifier.Unrecognised
-                   ? new EntityDescriptor(null, null, null, false)
-                   : Descriptors[(int)entity];
+                   ? new EntityDescriptors(null, null, null, false)
+                   : GetDescriptor();
+
+        // In highly unusual circumstances, it is possible to obtain an invalid entity.
+        EntityDescriptors GetDescriptor() =>
+            Descriptors.TryGetValue((int)entity, out var descriptor)
+                ? descriptor
+                : new EntityDescriptors(string.Empty, null, null, false);
     }
 
-#if NET6_0_OR_GREATER
     /// <summary>
     ///     Returns an entity from the given data based on a given number of characters.
     /// </summary>
@@ -4561,7 +4219,11 @@ internal static class EntityResolver {
     private static ApplicationIdentifier GetEntity(this ReadOnlySpan<char> data, int length) {
 #pragma warning disable SA1114 // Parameter list should follow declaration
         return !data.IsNull() && data.Length >= length && Enum.TryParse(
+#if NET6_0_OR_GREATER
             data[..length],
+#else
+            data.Slice(0, length).ToString(),
+#endif
             true,
             out ApplicationIdentifier applicationIdentifier)
                 ? applicationIdentifier
@@ -4605,7 +4267,11 @@ internal static class EntityResolver {
     private static Span<char> GetValue(this Span<char> data, int applicationIdentifierLength) {
         return applicationIdentifierLength >= data.Length
             ? []
+#if NET6_0_OR_GREATER
             : data[applicationIdentifierLength..];
+#else
+            : data.Slice(applicationIdentifierLength);
+#endif
     }
 
     /// <summary>
@@ -4637,7 +4303,11 @@ internal static class EntityResolver {
 #pragma warning disable SA1114 // Parameter list should follow declaration
         return data.Length >= startIndex + length
             && int.TryParse(
+#if NET6_0_OR_GREATER
                 data[startIndex..(length + startIndex)],
+#else
+                data.Slice(startIndex, length).ToString(),
+#endif
                 out var number)
             && number.IsNumberInRange(lowerBound, upperBound);
 #pragma warning restore SA1114 // Parameter list should follow declaration
@@ -4710,6 +4380,7 @@ internal static class EntityResolver {
 
         span4.Clear();
         Span<char> buffer = stackalloc char[4];
+#if NET6_0_OR_GREATER
         if (value.TryFormat(buffer, out int charsWritten, format, CultureInfo.InvariantCulture)) {
             var startIndex = 4 - charsWritten;
 
@@ -4721,6 +4392,24 @@ internal static class EntityResolver {
 
             return span4[startIndex..];
         }
+#else
+        try {
+            var formattedString = value.ToString(format, CultureInfo.InvariantCulture);
+            var charsWritten = formattedString.Length;
+
+            var startIndex = 4 - charsWritten;
+
+            for (var idx = 0; idx < startIndex; idx++)
+                span4[idx] = '0';
+
+            for (var idx = startIndex; idx < 4; idx++)
+                span4[idx] = formattedString[idx - startIndex];
+
+            return span4.Slice(startIndex);
+        }
+        catch {
+        }
+#endif
 
         return span4;
     }
@@ -4729,158 +4418,6 @@ internal static class EntityResolver {
         identifier.IsNull()
             ? entity.ToInvariantSpan(identifier, "##00")
             : identifier;
-#else
-    /// <summary>
-    ///     Returns an entity from the given data based on a given number of characters.
-    /// </summary>
-    /// <param name="data">
-    ///     The data containing the entity identifier.
-    /// </param>
-    /// <param name="length">
-    ///     The length of the entity identifier.
-    /// </param>
-    /// <returns>
-    ///     An entity.
-    /// </returns>
-    private static ApplicationIdentifier GetEntity(this string data, int length) {
-#pragma warning disable SA1114 // Parameter list should follow declaration
-        return !string.IsNullOrEmpty(data) && data.Length >= length && Enum.TryParse(
-#if NET6_0_OR_GREATER
-                    data[..length],
-#else
-                    data.Substring(0, length),
-#endif
-                    true,
-                    out ApplicationIdentifier applicationIdentifier)
-                    ? applicationIdentifier
-                    : ApplicationIdentifier.Unrecognised;
-#pragma warning restore SA1114 // Parameter list should follow declaration
-    }
-
-    /// <summary>
-    ///     Returns an entity from the given data based on the first two characters.
-    /// </summary>
-    /// <param name="data">The data containing the entity identifier.</param>
-    /// <returns>An entity.</returns>
-    private static ApplicationIdentifier GetEntity2(this string data) {
-        return GetEntity(data, 2);
-    }
-
-    /// <summary>
-    ///     Returns an entity from the given data based on the first three characters.
-    /// </summary>
-    /// <param name="data">The data containing the entity identifier.</param>
-    /// <returns>An entity.</returns>
-    private static ApplicationIdentifier GetEntity3(this string data) {
-        return GetEntity(data, 3);
-    }
-
-    /// <summary>
-    ///     Returns an entity from the given data based on the first four characters.
-    /// </summary>
-    /// <param name="data">The data containing the entity identifier.</param>
-    /// <returns>An entity.</returns>
-    private static ApplicationIdentifier GetEntity4(this string data) {
-        return GetEntity(data, 4);
-    }
-
-    /// <summary>
-    ///     Returns the value associated with the application identifier.
-    /// </summary>
-    /// <param name="data">The data buffer.</param>
-    /// <param name="applicationIdentifierLength">The length of the application identifier.</param>
-    /// <returns>The value associated wit the application identifier.</returns>
-    private static string GetValue(this string data, int applicationIdentifierLength) {
-        return applicationIdentifierLength >= data.Length
-            ? string.Empty
-            : data.Substring(applicationIdentifierLength);
-    }
-
-    /// <summary>
-    ///     Tests if a character in the data is a digit within a given range.
-    /// </summary>
-    /// <param name="data">The data.</param>
-    /// <param name="index">The index of the character.</param>
-    /// <param name="upperBound">The upper bound of the range.  The lower bound is 0.</param>
-    /// <returns>True, if the character is a digit and is within range; otherwise false.</returns>
-    private static bool IsDigitInRange(this string data, int index, int upperBound) {
-        return IsNumberInRange(data, index, 1, 0, upperBound);
-    }
-
-    /// <summary>
-    ///     Tests if a string in the data is a number within a given range.
-    /// </summary>
-    /// <param name="data">The data.</param>
-    /// <param name="startIndex">The index of the start of the number.</param>
-    /// <param name="length">The length of the number.</param>
-    /// <param name="lowerBound">The lower bound of the range.</param>
-    /// <param name="upperBound">The upper bound of the range.</param>
-    /// <returns>True, if the string is a number and is within range; otherwise false.</returns>
-    private static bool IsNumberInRange(
-        this string data,
-        int startIndex,
-        int length,
-        int lowerBound,
-        int upperBound) {
-#pragma warning disable SA1114 // Parameter list should follow declaration
-        return data.Length >= startIndex + length
-            && int.TryParse(
-                data.Substring(startIndex, length),
-                out var number)
-            && number.IsNumberInRange(lowerBound, upperBound);
-#pragma warning restore SA1114 // Parameter list should follow declaration
-    }
-
-    /// <summary>
-    ///     Tests if a string in the data is a number equal to a given value.
-    /// </summary>
-    /// <param name="data">The data.</param>
-    /// <param name="startIndex">The index of the start of the number.</param>
-    /// <param name="length">The length of the number.</param>
-    /// <param name="value">The value to be tested.</param>
-    /// <returns>True, if the string is a number and is equal to the value; otherwise false.</returns>
-    private static bool IsNumberEqual(this string data, int startIndex, int length, int value) {
-        return IsNumberInRange(data, startIndex, length, value, value);
-    }
-
-    /// <summary>
-    ///     Returns the number of decimal places.
-    /// </summary>
-    /// <param name="data">The data buffer.</param>
-    /// <param name="inverseExponentIndex">The index of the implied decimal point position digit.</param>
-    /// <returns>The number of decimal places.</returns>
-    private static int GetInverseExponent(this string data, int inverseExponentIndex) {
-        var numberOfDecimalPlacesAsString =
-            inverseExponentIndex < data.Length
-                ? data[inverseExponentIndex].ToInvariantString()
-                : "0";
-
-        return int.TryParse(
-                   numberOfDecimalPlacesAsString,
-                   out var numberOfDecimalPlaces)
-                   ? numberOfDecimalPlaces
-                   : -99;
-    }
-
-    /// <summary>
-    ///     Returns the sequence number.
-    /// </summary>
-    /// <param name="data">The data buffer.</param>
-    /// <param name="sequenceNumberIndex">The index of the sequence number digit.</param>
-    /// <returns>The sequence number.</returns>
-    private static int GetSequenceNumber(this string data, int sequenceNumberIndex) {
-        var sequenceNumberAsString =
-            sequenceNumberIndex < data.Length
-                ? data[sequenceNumberIndex].ToInvariantString()
-                : "0";
-
-        return int.TryParse(
-            sequenceNumberAsString,
-            out var sequenceNumber)
-            ? sequenceNumber
-            : -99;
-    }
-#endif
 
     /// <summary>
     ///     Tests if a number is within a given range.

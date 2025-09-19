@@ -51,7 +51,7 @@ internal class IdentifierWithPos13ChecksumDescriptor(
         string description,
         Regex? pattern,
         bool isFixedWidth)
-    : EntityDescriptor(dataTitle, description, pattern, isFixedWidth) {
+    : EntityDescriptors(dataTitle, description, pattern, isFixedWidth) {
     /// <summary>
     ///     Validate data against the descriptor.
     /// </summary>

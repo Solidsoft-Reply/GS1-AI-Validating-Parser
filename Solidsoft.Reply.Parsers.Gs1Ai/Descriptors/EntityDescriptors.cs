@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="EntityDescriptor.cs" company="Solidsoft Reply Ltd">
+// <copyright file="EntityDescriptors.cs" company="Solidsoft Reply Ltd">
 // Copyright (c) 2018-2025 Solidsoft Reply Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ using Common;
 ///     A descriptor for a GS1 entity.
 /// </summary>
 /// <remarks>
-///     Initializes a new instance of the <see cref="EntityDescriptor" /> class.
+///     Initializes a new instance of the <see cref="EntityDescriptors" /> class.
 /// </remarks>
 /// <param name="dataTitle">
 ///     The data title.
@@ -49,7 +49,7 @@ using Common;
 /// <param name="validator">
 ///     An optional validator expression for additional validation of value.
 /// </param>
-internal class EntityDescriptor(
+internal class EntityDescriptors(
     string? dataTitle,
     string? description,
     Regex? pattern,

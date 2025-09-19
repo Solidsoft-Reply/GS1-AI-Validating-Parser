@@ -106,14 +106,10 @@ public static class Parser {
             return;
         }
 
-#if NET6_0_OR_GREATER
 #if NET7_0_OR_GREATER
         DoParse(data!.AsSpan(), processResolvedEntity, null, initialPosition);
 #else
         DoParse(data!.AsSpan(), processResolvedEntity, initialPosition);
-#endif
-#else
-        DoParse(data!.ToCharArray(), processResolvedEntity, initialPosition);
 #endif
     }
 
@@ -192,8 +188,6 @@ public static class Parser {
     }
 #endif
 
-#if NET6_0_OR_GREATER
-
 #pragma warning disable CS1587 // XML comment is not placed on a valid language element
     /// <summary>
     ///     Perform the parsing of the data.
@@ -229,8 +223,13 @@ public static class Parser {
             position += 2;
             if (hasPredefinedLength) {
                 if (characters.Length >= numberOfChars) {
+#if NET6_0_OR_GREATER
                     var workingBuffer = characters[..numberOfChars];
                     characters = characters[numberOfChars..];
+#else
+                    var workingBuffer = characters.Slice(0, numberOfChars);
+                    characters = characters.Slice(numberOfChars);
+#endif
                     int gsIndex = workingBuffer.IndexOf(Convert.ToChar(29));
                     if (gsIndex >= 0) {
 #if NET7_0_OR_GREATER
@@ -258,7 +257,11 @@ public static class Parser {
                                 new ResolvedApplicationIdentifier(
                                     new ParserException(2003, Resources.GS1_Error_004, false),
                                     position + gsIndex,
+#if NET6_0_OR_GREATER
                                     workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position)));
+#else
+                                    workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position)));
+#endif
                         }
 
                         return;
@@ -283,12 +286,20 @@ public static class Parser {
 #endif
                     {
                         processResolvedEntity?.Invoke(
+#if NET6_0_OR_GREATER
                             workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position));
+#else
+                            workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position));
+#endif
                     }
 
                     position += numberOfChars - 2;
                     if (characters.Length > 0 && characters[0] == Convert.ToChar(29)) {
+#if NET6_0_OR_GREATER
                         characters = characters[1..];
+#else
+                        characters = characters.Slice(1);
+#endif
                         position++;
                     }
 
@@ -340,7 +351,11 @@ public static class Parser {
                         new ResolvedApplicationIdentifier(
                             new ParserException(2004, Resources.GS1_Error_005, false),
                             position + numberOfChars,
+#if NET6_0_OR_GREATER
                             workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position)));
+#else
+                            workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position)));
+#endif
                     }
                 }
             } else {
@@ -366,10 +381,18 @@ public static class Parser {
 #endif
                     {
                         processResolvedEntity?.Invoke(
+#if NET6_0_OR_GREATER
                         workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position));
+#else
+                        workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position));
+#endif
                     }
                 } else {
+#if NET6_0_OR_GREATER
                     var workingBuffer = characters[..gsIndex];
+#else
+                    var workingBuffer = characters.Slice(0, gsIndex);
+#endif
 #if NET7_0_OR_GREATER
                     ResolvedApplicationIdentifierRef defaultEntity = new(
                         -1,
@@ -389,10 +412,18 @@ public static class Parser {
 #endif
                     {
                         processResolvedEntity?.Invoke(
+#if NET6_0_OR_GREATER
                         new string(workingBuffer.ToArray()).Resolve(workingBuffer[..2].ToString(), position));
+#else
+                        new string(workingBuffer.ToArray()).Resolve(workingBuffer.Slice(0, 2).ToString(), position));
+#endif
                     }
 
+#if NET6_0_OR_GREATER
                     characters = characters[(gsIndex + 1)..];
+#else
+                    characters = characters.Slice(gsIndex + 1);
+#endif
                     position += gsIndex - 1;
                     if (characters.Length > 1) {
                         continue;
@@ -421,87 +452,7 @@ public static class Parser {
             break;
         }
     }
-#else
-    private static void DoParse(
-    IEnumerable<char> characters,
-    Action<IResolvedEntity> processResolvedEntity,
-    int currentPosition) {
-        var characterBuffer = characters as char[] ?? characters.ToArray();
-        int position = currentPosition;
-        while (characterBuffer.Length >= 2) {
-            var firstTwoDigits = new string(characterBuffer.Take(2).ToArray());
-            position += 2;
-            if (FirstTwoDigitsTable.TryGetValue(firstTwoDigits, out var numberOfChars)) {
-                if (characterBuffer.Length >= numberOfChars) {
-                    var workingBuffer = characterBuffer.Take(numberOfChars).ToArray();
-                    characterBuffer = characterBuffer.Skip(numberOfChars).ToArray();
-                    int gsIndex = Array.IndexOf(workingBuffer, Convert.ToChar(29));
-                    if (gsIndex >= 0) {
-                        processResolvedEntity?.Invoke(
-                            new ResolvedApplicationIdentifier(
-                                new ParserException(2003, Resources.GS1_Error_004, false),
-                                position + gsIndex,
-                                new string(workingBuffer).Resolve(firstTwoDigits, position)));
-                        return;
-                    }
 
-                    processResolvedEntity?.Invoke(
-                        new string(workingBuffer).Resolve(firstTwoDigits, position));
-                    position += numberOfChars - 2;
-                    if (characterBuffer.Length > 0 && characterBuffer[0] == Convert.ToChar(29)) {
-                        characterBuffer = characterBuffer.Skip(1).ToArray();
-                        position++;
-                    }
-
-                    if (characterBuffer.Length > 1) {
-                        continue;
-                    }
-
-                    if (characterBuffer.Length == 1) {
-                        processResolvedEntity?.Invoke(
-                            new ResolvedApplicationIdentifier(
-                                new ParserException(2018, Resources.GS1_Error_007, true),
-                                position + 1));
-                    }
-                } else {
-                    var workingBuffer = characterBuffer;
-                    processResolvedEntity?.Invoke(
-                        new ResolvedApplicationIdentifier(
-                            new ParserException(2004, Resources.GS1_Error_005, false),
-                            position + numberOfChars,
-                            new string(workingBuffer).Resolve(firstTwoDigits, position)));
-                }
-            } else {
-                int gsIndex = Array.IndexOf(characterBuffer, Convert.ToChar(29));
-                if (gsIndex < 0) {
-                    var workingBuffer = characterBuffer;
-                    processResolvedEntity?.Invoke(
-                        new string(workingBuffer).Resolve(firstTwoDigits, position));
-                } else {
-                    var workingBuffer = characterBuffer.Take(gsIndex).ToArray();
-                    processResolvedEntity?.Invoke(
-                        new string(workingBuffer).Resolve(firstTwoDigits, position));
-                    characterBuffer = characterBuffer.Skip(gsIndex + 1).ToArray();
-                    position += gsIndex - 1;
-                    if (characterBuffer.Length > 1) {
-                        continue;
-                    }
-
-                    if (characterBuffer.Length == 1) {
-                        processResolvedEntity?.Invoke(
-                            new ResolvedApplicationIdentifier(
-                                new ParserException(2019, Resources.GS1_Error_007, true),
-                                position + 1));
-                    }
-                }
-            }
-
-            break;
-        }
-    }
-#endif
-
-#if NET6_0_OR_GREATER
     /// <summary>
     ///     Try to get the predefined length for the first two digits without allocating a string.
     /// </summary>
@@ -564,5 +515,4 @@ public static class Parser {
 
         return false;
     }
-#endif
 }

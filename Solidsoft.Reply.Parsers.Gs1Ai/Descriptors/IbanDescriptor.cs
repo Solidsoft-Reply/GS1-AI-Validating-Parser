@@ -58,7 +58,7 @@ internal
         string description,
         Regex pattern,
         bool isFixedWidth)
-    : EntityDescriptor(dataTitle, description, pattern, isFixedWidth) {
+    : EntityDescriptors(dataTitle, description, pattern, isFixedWidth) {
 #if !NET7_0_OR_GREATER
 
     /// <summary>
@@ -738,7 +738,7 @@ internal
             value[..4].CopyTo(normalisedValue[boundaryIdx..]);
             var builder = new StringBuilder();
 
-            foreach (var c in normalisedValue.Trim('\0')) {
+            foreach (var c in normalisedValue.TrimEnd('\0')) {
                 builder.Append(c switch {
                     _ when c >= 65 && c <= 90 => (c - 55).ToString("D2"),
                     _ => c

@@ -684,17 +684,6 @@ public static class Extensions {
     public static CountryCode ResolveGtinNtinToGs1Country(this string productCode) {
         return string.IsNullOrWhiteSpace(productCode)
                    ? CountryCode.Unknown
-
-                   /* Unmerged change from project 'Solidsoft.Reply.Parsers.Gs1Ai (netstandard2.0)'
-                   Before:
-                                      : TestProductCodeLengthGt3();
-
-                   #pragma warning disable SA1001 // Commas should be spaced correctly
-                   #pragma warning disable SA1113 // Comma should be on the same line as previous parameter
-                   #pragma warning disable SA1115 // Parameter should follow comma
-                   After:
-                                      : TestProductCodeLengthGt3();
-                   */
                    : TestProductCodeLengthGt3();
         CountryCode TestSheetMusicSpecifier() =>
 
@@ -785,13 +774,12 @@ public static class Extensions {
     /// </summary>
     /// <param name="key">The GS1 key.</param>
     /// <returns>True, if the product code contains a correct checksum; otherwise false.</returns>
-#if NET6_0_OR_GREATER
     internal static bool Gs1ChecksumIsValid(this ReadOnlySpan<char> key) {
         if (key.IsNullOrWhiteSpace()) {
             return false;
         }
 
-        key = key.Trim('\0');
+        key = key.TrimEnd('\0');
         // Ensure that the string contains only integer values.
         foreach (var c in key) {
             if ((int)char.GetNumericValue(c) == -1) {
@@ -810,24 +798,6 @@ public static class Extensions {
         // ReSharper disable once ArrangeRedundantParentheses
         return (10 - sum % 10) % 10 == 0;
     }
-#else
-    internal static bool Gs1ChecksumIsValid(this string key) {
-        if (string.IsNullOrWhiteSpace(key)) {
-            return false;
-        }
-
-        // Ensure that the string contains only integer values.
-        if (key.Any(c => (int)char.GetNumericValue(c) == -1)) {
-            return false;
-        }
-
-        // Test the checksum.
-        var sum = key.Reverse().Select((c, i) => (int)char.GetNumericValue(c) * (i % 2 == 0 ? 1 : 3)).Sum();
-
-        // ReSharper disable once ArrangeRedundantParentheses
-        return (10 - sum % 10) % 10 == 0;
-    }
-#endif
 
     /// <summary>
     ///     Determines if a GS1 alphanumeric key has a correct check character pair. Include the
@@ -840,7 +810,7 @@ public static class Extensions {
         if (key.IsNullOrWhiteSpace()) return false;
         if (key.Length < 2) return false;
 
-        key = key.Trim('\0');
+        key = key.TrimEnd('\0');
         var keyData = key[..^2];
         var checkCharacterPair = key[^2..];
         var checkCharacterRefValue = 0;
@@ -916,7 +886,6 @@ public static class Extensions {
                    : CountryCode.Unknown;
     }
 
-//#if NET6_0_OR_GREATER
     internal static bool IsNullOrWhiteSpace(this ReadOnlySpan<char> span) {
         foreach (var c in span) {
             if (c != '\0' && !char.IsWhiteSpace(c)) {
@@ -946,7 +915,6 @@ public static class Extensions {
 
         return true;
     }
-//#endif
 
 
 #if NET7_0_OR_GREATER
@@ -999,14 +967,14 @@ public static class Extensions {
         int GetCountryCode() {
             if (int.TryParse(
 #if NET6_0_OR_GREATER
-                    productCode[1..4]
+                productCode[1..4]
 #else
-                    productCode.Substring(1, 3)
+                productCode.Substring(1, 3)
 #endif
-                    .Trim(),
-                    NumberStyles.None,
-                    CultureInfo.InvariantCulture,
-                    out var countryCode)) {
+                .Trim(),
+                NumberStyles.None,
+                CultureInfo.InvariantCulture,
+                out var countryCode)) {
                 return countryCode;
             }
 
