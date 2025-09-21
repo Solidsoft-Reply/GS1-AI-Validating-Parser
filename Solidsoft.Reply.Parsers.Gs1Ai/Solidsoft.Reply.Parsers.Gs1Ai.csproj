@@ -20,11 +20,9 @@
 	<PackageReleaseNotes>
 		The following changes were made in this release.
 
-		1) Fixed bug when parsing malformed GS1 data.
-		
-		2) Fixed a bug that caused a failure looking up AIs in a dictionary under certain circumstances.
+		1) Fixed bugs that caused failures when handling malformed data under certain circumstances.
 
-		3) Introduced a high-performance zero-allocation (stack-only) model. This change introduces a new ParseEx method and an associated Delegate that receives a ref struct. These new features support the highest performance and are neccessary to acheive zero-allocation when parsing valid data. NB. memory will be allocated if the parser detects any errors.
+		2) Extended the high-performance zero-allocation (stack-only) model to include .NET Standard 2.0.
 	</PackageReleaseNotes>
     <Description>
 		A comprehensive validating parser for GS1 Application Identifiers (AIs).
@@ -33,7 +31,7 @@
 		--------------
 		$(PackageReleaseNotes)
 	</Description>
-	<Version>1.1.0</Version>
+	<Version>1.1.1</Version>
 	<AssemblyName>$(MSBuildProjectName)</AssemblyName>
     <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
 	<NeutralLanguage>en</NeutralLanguage>

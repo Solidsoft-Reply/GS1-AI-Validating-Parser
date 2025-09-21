@@ -3711,7 +3711,15 @@ internal static class EntityResolver {
                 break;
         }
 
-        extractedValue.TrimEnd('\0').CopyTo(value);
+        // value is sized appropraietly for GS1 elemnts, but it is possible for malformed data to be 
+        // longer, so in this case we 
+        var extractdValueLength = extractedValue.Length;
+        if (extractdValueLength > value.Length) {
+            extractedValue.Slice(0, value.Length).TrimEnd('\0').CopyTo(value);
+        }
+        else {
+            extractedValue.TrimEnd('\0').CopyTo(value);
+        }
 
         parameters[0] = (int)entity;
         parameters[1] = numberOfDecimalPlaces;

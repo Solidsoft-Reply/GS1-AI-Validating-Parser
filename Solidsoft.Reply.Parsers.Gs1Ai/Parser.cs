@@ -413,9 +413,11 @@ public static class Parser {
                     {
                         processResolvedEntity?.Invoke(
 #if NET6_0_OR_GREATER
-                        new string(workingBuffer.ToArray()).Resolve(workingBuffer[..2].ToString(), position));
+                        new string(workingBuffer.ToArray())
+                            .Resolve(workingBuffer[..(workingBuffer.Length >= 2 ? 2 : workingBuffer.Length)].ToString(), position));
 #else
-                        new string(workingBuffer.ToArray()).Resolve(workingBuffer.Slice(0, 2).ToString(), position));
+                        new string(workingBuffer.ToArray())
+                            .Resolve(workingBuffer.Slice(0, workingBuffer.Length >= 2 ? 2 : workingBuffer.Length).ToString(), position));
 #endif
                     }
 

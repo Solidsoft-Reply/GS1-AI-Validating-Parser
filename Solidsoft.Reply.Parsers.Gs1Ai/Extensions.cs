@@ -816,7 +816,11 @@ public static class Extensions {
         var checkCharacterRefValue = 0;
 
         for (var idx = keyData.Length - 1; idx >= 0; idx--) {
-            checkCharacterRefValue += Invariants.IndexOf(keyData[idx]) * PrimeNumbers[keyData.Length - idx - 1];
+            var indexOfChar = Invariants.IndexOf(keyData[idx]);
+            if (indexOfChar == -1) return false;
+            var primeNumberIndex = keyData.Length - idx - 1;
+            if (primeNumberIndex >= PrimeNumbers.Length) return false;
+            checkCharacterRefValue += indexOfChar * PrimeNumbers[primeNumberIndex];
         }
 
         checkCharacterRefValue %= 1021;
