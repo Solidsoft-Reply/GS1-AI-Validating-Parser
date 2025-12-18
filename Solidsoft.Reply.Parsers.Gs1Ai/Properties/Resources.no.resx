@@ -120,10 +120,10 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Ingen data oppgitt.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Validering for AI {0} tidsavbrutt.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
+  <data name="GS1_Error_007" xml:space="preserve">
     <value>Ingen enhetsverdi oppgitt for AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
@@ -135,13 +135,13 @@
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Verdien{0} er ugyldig for AI {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Ugyldig applikasjonsidentifikator {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
+  <data name="GS1_Error_009" xml:space="preserve">
     <value>Verdien{0} har en ugyldig sjekksum.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Verdien{0} samsvarer ikke med det spesifiserte mønsteret for datatelementet.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,8 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Verdien{0} samsvarer ikke med det spesifiserte mønsteret for nordamerikanske positive tilbudsfil-kuponger.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Verdien{0} er ikke en godkjent UN/ECE- eller GS1-emballasjetypekode.</value>
   </data>
 </root>

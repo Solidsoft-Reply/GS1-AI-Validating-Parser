@@ -780,6 +780,7 @@ public static class Extensions {
         }
 
         key = key.TrimEnd('\0');
+
         // Ensure that the string contains only integer values.
         foreach (var c in key) {
             if ((int)char.GetNumericValue(c) == -1) {
@@ -890,6 +891,14 @@ public static class Extensions {
                    : CountryCode.Unknown;
     }
 
+    /// <summary>
+    /// Determines whether the specified character span is null, empty, or consists only of white-space or null
+    /// characters.
+    /// </summary>
+    /// <remarks>This method treats null characters ('\0') as white-space for the purpose of evaluation. It is
+    /// intended for use with spans that may contain embedded nulls or be empty.</remarks>
+    /// <param name="span">The read-only character span to evaluate for null, empty, or white-space content.</param>
+    /// <returns>true if the span is empty or contains only white-space or null characters; otherwise, false.</returns>
     internal static bool IsNullOrWhiteSpace(this ReadOnlySpan<char> span) {
         foreach (var c in span) {
             if (c != '\0' && !char.IsWhiteSpace(c)) {
@@ -900,6 +909,13 @@ public static class Extensions {
         return true;
     }
 
+    /// <summary>
+    /// Determines whether all characters in the specified span are null characters ('\0').
+    /// </summary>
+    /// <remarks>This method does not check for empty spans. An empty span returns true, as it contains no
+    /// non-null characters.</remarks>
+    /// <param name="span">The read-only character span to examine for null characters.</param>
+    /// <returns>true if every character in the span is '\0'; otherwise, false.</returns>
     internal static bool IsNull(this ReadOnlySpan<char> span) {
         foreach (var c in span) {
             if (c != '\0') {
@@ -910,6 +926,14 @@ public static class Extensions {
         return true;
     }
 
+    /// <summary>
+    /// Determines whether all characters in the specified span are null characters ('\0').
+    /// </summary>
+    /// <remarks>This method does not check for reference nullity, but rather whether all elements in the span
+    /// are the null character. Useful for validating buffers or regions that are expected to be
+    /// zero-initialized.</remarks>
+    /// <param name="span">The span of characters to examine for null character content.</param>
+    /// <returns>true if every character in the span is '\0'; otherwise, false.</returns>
     internal static bool IsNull(this Span<char> span) {
         foreach (var c in span) {
             if (c != '\0') {
@@ -919,7 +943,6 @@ public static class Extensions {
 
         return true;
     }
-
 
 #if NET7_0_OR_GREATER
     /// <summary>

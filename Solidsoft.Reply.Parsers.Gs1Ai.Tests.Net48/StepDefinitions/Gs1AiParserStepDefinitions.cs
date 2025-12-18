@@ -8,6 +8,7 @@ public sealed class Gs1AiParserStepDefinitions {
 
     private string _data = string.Empty;
     private readonly IDictionary<int, IResolvedEntity> _resolvedEntites = new Dictionary<int, IResolvedEntity>();
+    private readonly List<IResolvedEntity> _dataRelationshipExceptions = new List<IResolvedEntity>();
     private int _ai = -1;
 
     [Given("the input is (.*)")]
@@ -18,10 +19,24 @@ public sealed class Gs1AiParserStepDefinitions {
     [When("the input to submitted to the parser")]
     public void WhenTheInputIsSubmittedToTheParser() {
         _resolvedEntites.Clear();
+        _dataRelationshipExceptions.Clear();
         Parser.Parse(_data, OnResolvedEntity);
     }
 
+    [When("the input to submitted to the parser and data relationship tests are required")]
+    public void WhenTheInputIsSubmittedToTheParserAndDataRelationshipTestsAreRequired() {
+        _resolvedEntites.Clear();
+        _dataRelationshipExceptions.Clear();
+        Parser.Parse(_data, OnResolvedEntity, relationshipTests: DataRelationshipTests.Yes);
+    }
+
     public void OnResolvedEntity(IResolvedEntity resolvedEntity) {
+        if (resolvedEntity.Entity < 0
+            && resolvedEntity.Exceptions.Any(e => e.ErrorNumber == 2201 || e.ErrorNumber == 2202)) {
+            _dataRelationshipExceptions.Add(resolvedEntity);
+            return;
+        }
+
         _resolvedEntites.Add(resolvedEntity.Entity, resolvedEntity);
     }
 
@@ -94,15 +109,22 @@ public sealed class Gs1AiParserStepDefinitions {
         Parser.Parse(null, OnResolvedEntity);
     }
 
-    [When("the AI of (.*) is incorrectly terminated with an FNC and the value is (.*)")]
+    [When("the AI of (.*) is incorrectly terminated with an FNC1 and the value is (.*)")]
     public void WhenTheAiOfIsIncorrectlyTerminatedWithAnFncAndTheValueIs(string ai, string value) {
         _resolvedEntites.Clear();
-        Parser.Parse(ai + (char)29 + value, OnResolvedEntity);
+        Parser.Parse(ai + value + (char)29, OnResolvedEntity);
     }
 
     [Then("there should be errors")]
     public void TheThereShouldBeErrors() {
         ((ResolvedApplicationIdentifier)_resolvedEntites[_ai]).IsError.Should().Be(true);
+    }
+
+    [Then("there should be invalid pairs")]
+    public void TheThereShouldBInvalidPairs() {
+        _dataRelationshipExceptions
+            .Should()
+            .Contain(ent => ent.Exceptions != null && ent.Exceptions.Any(ex => ex.ErrorNumber == 2201));
     }
 
     [Then("the errors should include a fatal (.*) error")]

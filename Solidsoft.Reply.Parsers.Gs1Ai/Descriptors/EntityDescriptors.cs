@@ -81,15 +81,16 @@ internal class EntityDescriptors(
     /// </summary>
     public Regex? Validator { get; } = validator;
 
+#if NET7_0_OR_GREATER
     /// <summary>
     ///     Validate data against the descriptor.
     /// </summary>
-    /// <param name="value">The data to be validated.</param>
+    /// <param name="resolvedEntity">The resolved entity to be validated.</param>
     /// <param name="validationErrors">A list of validation errors.</param>
     /// <returns>True, if valid.  Otherwise, false.</returns>
-#if NET7_0_OR_GREATER
-    public virtual bool IsValid(ReadOnlySpan<char> value, out IList<ParserException>? validationErrors) {
+    public virtual bool IsValid(ResolvedApplicationIdentifierRef resolvedEntity, out IList<ParserException>? validationErrors) {
         validationErrors = null;
+        var value = resolvedEntity.Value;
 
         if (value.IsNullOrWhiteSpace()) {
             throw new ArgumentNullException(nameof(value));
@@ -109,24 +110,33 @@ internal class EntityDescriptors(
         validationErrors = [];
 
         var valueString = value.Length > 0 ? " " + value.ToString() : string.Empty;
+        var offset = valueString.Length > 0 ? resolvedEntity.Identifier.TrimEnd('\0').Length + valueString.Length - 1 : 0;
         validationErrors.Add(
             new ParserException(
+                string.Empty,
                 2100,
-                string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_009, valueString),
-                false));
+                string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_100, valueString),
+                true,
+                offset));
         return false;
     }
-#else
-    public virtual bool IsValid(string value, out IList<ParserException>? validationErrors) {
+#endif
+
+    /// <summary>
+    ///     Validate data against the descriptor.
+    /// </summary>
+    /// <param name="resolvedEntity">The resolved entity to be validated.</param>
+    /// <param name="validationErrors">A list of validation errors.</param>
+    /// <returns>True, if valid.  Otherwise, false.</returns>
+    public virtual bool IsValid(ResolvedApplicationIdentifier resolvedEntity, out IList<ParserException>? validationErrors) {
         validationErrors = null;
+        var value = resolvedEntity.Value;
 
         if (string.IsNullOrWhiteSpace(value)) {
             throw new ArgumentNullException(nameof(value));
         }
 
-        if (Pattern == null) {
-            return true;
-        }
+        if (Pattern == null) return true;
 
         var result = Pattern.IsMatch(value);
 
@@ -139,12 +149,14 @@ internal class EntityDescriptors(
 #pragma warning restore IDE0028 // Simplify collection initialization
 
         var valueString = value.Length > 0 ? " " + value : string.Empty;
+        var offset = valueString.Length > 0 ? resolvedEntity.Identifier.Trim().Length + valueString.Trim().Length - 1 : 0;
         validationErrors.Add(
             new ParserException(
+                string.Empty,
                 2100,
-                string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_009, valueString),
-                false));
+                string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_100, valueString),
+                true,
+                offset));
         return false;
     }
-#endif
 }

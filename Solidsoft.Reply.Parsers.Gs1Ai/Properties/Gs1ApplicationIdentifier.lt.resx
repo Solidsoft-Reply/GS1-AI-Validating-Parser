@@ -126,6 +126,9 @@
   <data name="ai02" xml:space="preserve">
     <value>Logistiniame vienete esančių prekių identifikavimas</value>
   </data>
+  <data name="ai03" xml:space="preserve">
+    <value>Pagal užsakymą gaminamo prekės vieneto identifikavimas (GTIN)</value>
+  </data>
   <data name="ai10" xml:space="preserve">
     <value>Serijos arba partijos numeris</value>
   </data>
@@ -573,6 +576,9 @@
   <data name="ai7040" xml:space="preserve">
     <value>GS1 UIC su pailginimu 1 ir importuotojo indeksu</value>
   </data>
+  <data name="ai7041" xml:space="preserve">
+    <value>UN/CEFACT krovinio vieneto tipas</value>
+  </data>
   <data name="ai710" xml:space="preserve">
     <value>Nacionalinis sveikatos priežiūros išmokų numeris (NHRN) - Vokietijos PZN</value>
   </data>
@@ -591,6 +597,12 @@
   <data name="ai715" xml:space="preserve">
     <value>Nacionalinis sveikatos priežiūros išmokų numeris (NHRN) - Jungtinių Amerikos Valstijų NDC</value>
   </data>
+  <data name="ai716" xml:space="preserve">
+    <value>Nacionalinis sveikatos priežiūros išmokų numeris (NHRN) – Italija AIC</value>
+  </data>
+  <data name="ai717" xml:space="preserve">
+    <value>Nacionalinis sveikatos priežiūros išmokų numeris (NHRN) – Kosta Rikos sanitarinio registro numeris</value>
+  </data>
   <data name="ai723s" xml:space="preserve">
     <value>Sertifikavimo nuoroda</value>
   </data>
@@ -602,6 +614,36 @@
   </data>
   <data name="ai7242" xml:space="preserve">
     <value>Versijos kontrolės numeris (VCN)</value>
+  </data>
+  <data name="ai7250" xml:space="preserve">
+    <value>Gimimo data</value>
+  </data>
+  <data name="ai7251" xml:space="preserve">
+    <value>Gimimo data ir laikas</value>
+  </data>
+  <data name="ai7252" xml:space="preserve">
+    <value>Biologinė lytis</value>
+  </data>
+  <data name="ai7253" xml:space="preserve">
+    <value>Asmens pavardė</value>
+  </data>
+  <data name="ai7254" xml:space="preserve">
+    <value>Asmens vardas</value>
+  </data>
+  <data name="ai7255" xml:space="preserve">
+    <value>Vardo priesaga</value>
+  </data>
+  <data name="ai7256" xml:space="preserve">
+    <value>Pilnas asmens vardas</value>
+  </data>
+  <data name="ai7257" xml:space="preserve">
+    <value>Asmens adresas</value>
+  </data>
+  <data name="ai7258" xml:space="preserve">
+    <value>Kūdikio gimimo eiliškumo žymuo</value>
+  </data>
+  <data name="ai7259" xml:space="preserve">
+    <value>Šeimos pavardės kūdikis</value>
   </data>
   <data name="ai8001" xml:space="preserve">
     <value>Rulonų produktai - plotis, ilgis, branduolio skersmuo, kryptis, sujungimai</value>
@@ -641,6 +683,9 @@
   </data>
   <data name="ai8013" xml:space="preserve">
     <value>Pasaulinio modelio numeris (GMN)</value>
+  </data>
+  <data name="ai8014" xml:space="preserve">
+    <value>Labai individualizuoto prietaiso registracijos identifikatorius (HIDRI)</value>
   </data>
   <data name="ai8017" xml:space="preserve">
     <value>Pasaulinio paslaugų santykio numeris (GSRN) identifikuoti ryšį tarp paslaugas teikiančios organizacijos ir paslaugų teikėjo</value>
@@ -701,5 +746,17 @@
   </data>
   <data name="ai99" xml:space="preserve">
     <value>Įmonės vidinė informacija</value>
+  </data>
+  <data name="ai8040" xml:space="preserve">
+    <value>Tarptautinis mobiliojo įrenginio identifikatorius (IMEI)</value>
+  </data>
+  <data name="ai8041" xml:space="preserve">
+    <value>Tarptautinis mobiliojo įrenginio identifikatorius 2 (IMEI2)</value>
+  </data>
+  <data name="ai8042" xml:space="preserve">
+    <value>Integruota SIM (eSIM)</value>
+  </data>
+  <data name="ai8043" xml:space="preserve">
+    <value>Fizinė SIM kortelė</value>
   </data>
 </root>

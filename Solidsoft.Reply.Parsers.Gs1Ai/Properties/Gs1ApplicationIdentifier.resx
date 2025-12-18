@@ -600,6 +600,9 @@
   <data name="ai716" xml:space="preserve">
     <value>National Healthcare Reimbursement Number (NHRN) – Italy AIC</value>
   </data>
+  <data name="ai717" xml:space="preserve">
+    <value>National Healthcare Reimbursement Number (NHRN) – Costa Rica Sanitary Register Number</value>
+  </data>
   <data name="ai723s" xml:space="preserve">
     <value>Certification reference</value>
   </data>
@@ -701,6 +704,18 @@
   </data>
   <data name="ai8030" xml:space="preserve">
     <value>Digital Signature (DigSig)</value>
+  </data>
+  <data name="ai8040" xml:space="preserve">
+    <value>International Mobile Equipment Identity (IMEI)</value>
+  </data>
+  <data name="ai8041" xml:space="preserve">
+    <value>International Mobile Equipment Identity 2 (IMEI2)</value>
+  </data>
+  <data name="ai8042" xml:space="preserve">
+    <value>Embedded SIM</value>
+  </data>
+  <data name="ai8043" xml:space="preserve">
+    <value>Physical SIM</value>
   </data>
   <data name="ai8110" xml:space="preserve">
     <value>Coupon code identification for use in North America</value>

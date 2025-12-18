@@ -120,10 +120,10 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Nie dostarczono danych.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Walidacja dla identyfikatora AI {0} przekroczyła limit czasu.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
+  <data name="GS1_Error_007" xml:space="preserve">
     <value>Nie podano wartości jednostki dla identyfikatora AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
@@ -135,13 +135,13 @@
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Wartość{0} jest nieprawidłowa dla identyfikatora AI {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Nieprawidłowy identyfikator aplikacji {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
+  <data name="GS1_Error_009" xml:space="preserve">
     <value>Wartość{0} posiada nieprawidłową sumę kontrolną.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Wartość{0} nie odpowiada określonemu wzorcowi dla elementu danych.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,8 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Wartość{0} nie odpowiada wzorcowi określonemu dla północnoamerykańskich kuponów z ofertami pozytywnymi.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Wartość{0} nie jest rozpoznawanym kodem typu opakowania UN/ECE ani GS1.</value>
   </data>
 </root>

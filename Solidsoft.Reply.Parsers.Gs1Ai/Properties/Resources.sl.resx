@@ -120,10 +120,10 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Podatki niso bili podani.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Validacija za AI {0} je prekoračila časovno omejitev.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
+  <data name="GS1_Error_007" xml:space="preserve">
     <value>Vrednost entitete ni bila podana za AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
@@ -135,13 +135,13 @@
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Vrednost{0} ni veljavna za AI {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Neveljaven identifikator aplikacije {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
+  <data name="GS1_Error_009" xml:space="preserve">
     <value>Vrednost{0} ima neveljavno kontrolno vsoto.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Vrednost{0} se ne ujema z določenim vzorcem za podatkovni element.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,8 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Vrednost{0} se ne ujema z določenim vzorcem za severnoameriške kupone s pozitivno ponudbo.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Vrednost{0} ni priznana koda vrste embalaže UN/ECE ali GS1.</value>
   </data>
 </root>

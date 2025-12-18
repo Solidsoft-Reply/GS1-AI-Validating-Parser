@@ -604,14 +604,15 @@ internal
     /// <summary>
     ///     Validate data against the descriptor.
     /// </summary>
-    /// <param name="value">The GS1 identifier to be validated.</param>
+    /// <param name="resolvedEntity">The resolved entity to be validated.</param>
     /// <param name="validationErrors">A list of validation errors.</param>
     /// <returns>True, if valid.  Otherwise, false.</returns>
     // ReSharper disable once CommentTypo
     // ReSharper disable once InheritdocConsiderUsage
 #if NET7_0_OR_GREATER
-    public override bool IsValid(ReadOnlySpan<char> value, out IList<ParserException>? validationErrors) {
-        var result = base.IsValid(value, out validationErrors);
+    public override bool IsValid(ResolvedApplicationIdentifierRef resolvedEntity, out IList<ParserException>? validationErrors) {
+        var result = base.IsValid(resolvedEntity, out validationErrors);
+        var value = resolvedEntity.Value;
 
         if (value.IsNull() || value.IsEmpty) {
             return result;
@@ -620,7 +621,7 @@ internal
         value = value.TrimEnd('\0');
         if (!IbanRegex().IsMatch(value)) {
             validationErrors ??= [];
-            validationErrors.Add(AddException(value.ToString(), 2012, Resources.GS1_Error_011));
+            validationErrors.Add(AddException(resolvedEntity.Identifier.TrimEnd('\0').ToString(), value.ToString(), 2011, Resources.GS1_Error_011));
             return false;
         }
 
@@ -711,10 +712,14 @@ internal
 
         if (countrySpecificRegex is null) {
             var aspirationalCountryRegEx = CheckAspirational(countryCode);
+            validationErrors ??= [];
 
             if (aspirationalCountryRegEx?.IsMatch(value) ?? false) {
-                validationErrors ??= [];
-                validationErrors.Add(AddException(value.ToString(), 2014, Resources.GS1_Error_013, countryCode.ToString()));
+                validationErrors.Add(AddException(resolvedEntity.Identifier.TrimEnd('\0').ToString(), value.ToString(), 2013, Resources.GS1_Error_013, countryCode.ToString()));
+                return false;
+            }
+            else {
+                validationErrors.Add(AddException(resolvedEntity.Identifier.TrimEnd('\0').ToString(), value.ToString(), 2011, Resources.GS1_Error_011));
                 return false;
             }
         }
@@ -724,11 +729,11 @@ internal
             }
 
             validationErrors ??= [];
-            validationErrors.Add(AddException(value.ToString(), 2015, Resources.GS1_Error_014, countryCode.ToString()));
+            validationErrors.Add(AddException(resolvedEntity.Identifier.TrimEnd('\0').ToString(), value.ToString(), 2014, Resources.GS1_Error_014, countryCode.ToString()));
         }
 
         validationErrors ??= [];
-        validationErrors.Add(AddException(value.ToString(), 2013, Resources.GS1_Error_012, countryCode.ToString()));
+        validationErrors.Add(AddException(resolvedEntity.Identifier.TrimEnd('\0').ToString(), value.ToString(), 2012, Resources.GS1_Error_012, countryCode.ToString()));
         return false;
 
         bool ValidateCheckDigits(ReadOnlySpan<char> value) {
@@ -779,10 +784,319 @@ internal
                 _ => null
             };
 
-        ParserException AddException(string value, int errorNumber, string message, string country = "") {
+        static ParserException AddException(string identifier, string value, int errorNumber, string message, string country = "") {
             var valueString = value.Length > 0 ? " " + value : string.Empty;
-            var offset = valueString.Length > 0 ? valueString.Trim().Length - 1 : 0;
+            var offset = valueString.Length > 0 ? identifier.Trim().Length + valueString.Trim().Length - 1 : 0;
             return new ParserException(
+                string.Empty,
+                errorNumber,
+                string.Format(CultureInfo.CurrentCulture, message, valueString, country),
+                false,
+                offset);
+        }
+    }
+#endif
+
+    /// <summary>
+    /// Validates the specified resolved entity.
+    /// </summary>
+    /// <param name="resolvedEntity">The resolved entity to validate.</param>
+    /// <param name="validationErrors">A list of validation errors.</param>
+    /// <returns>True if the entity is valid; otherwise, false.</returns>
+    public override bool IsValid(ResolvedApplicationIdentifier resolvedEntity, out IList<ParserException>? validationErrors) {
+        var result = base.IsValid(resolvedEntity, out validationErrors);
+        var value = resolvedEntity.Value;
+
+        if (string.IsNullOrEmpty(value)) {
+            return result;
+        }
+
+#if NET7_0_OR_GREATER
+        if (!IbanRegex().IsMatch(value)) {
+#else
+        if (!IbanRegex.IsMatch(value)) {
+#endif
+            validationErrors ??= [];
+            validationErrors.Add(AddException(resolvedEntity.Identifier, 2011, Resources.GS1_Error_011));
+            return false;
+        }
+
+#if NET6_0_OR_GREATER
+        var countryCode = value[..2];
+#else
+        var countryCode = value.Substring(0, 2);
+#endif
+
+        var countrySpecificRegex = countryCode switch {
+#if NET7_0_OR_GREATER
+            "AL" => AlbaniaIbanRegex(),
+            "AD" => AndorraIbanRegex(),
+            "AT" => AustriaIbanRegex(),
+            "AZ" => AzerbaijanIbanRegex(),
+            "BH" => BahrainIbanRegex(),
+            "BY" => BelarusIbanRegex(),
+            "BE" => BelgiumIbanRegex(),
+            "BA" => BosniaAndHerzegovinaIbanRegex(),
+            "BR" => BrazilIbanRegex(),
+            "BG" => BulgariaIbanRegex(),
+            "CR" => CostaRicaIbanRegex(),
+            "HR" => CroatiaIbanRegex(),
+            "CY" => CyprusIbanRegex(),
+            "CZ" => CzechRepublicIbanRegex(),
+            "DK" => DenmarkIbanRegex(),
+            "DO" => DominicanRepublicIbanRegex(),
+            "TL" => EastTimorIbanRegex(),
+            "EG" => EgyptIbanRegex(),
+            "SV" => ElSalvadorIbanRegex(),
+            "EE" => EstoniaIbanRegex(),
+            "FO" => FaroeIslandsIbanRegex(),
+            "FI" => FinlandIbanRegex(),
+            "FR" => FranceIbanRegex(),
+            "GE" => GeorgiaIbanRegex(),
+            "DE" => GermanyIbanRegex(),
+            "GI" => GibraltarIbanRegex(),
+            "GR" => GreeceIbanRegex(),
+            "GL" => GreenlandIbanRegex(),
+            "GT" => GuatemalaIbanRegex(),
+            "HU" => HungaryIbanRegex(),
+            "IS" => IcelandIbanRegex(),
+            "IQ" => IraqIbanRegex(),
+            "IE" => IrelandIbanRegex(),
+            "IL" => IsraelIbanRegex(),
+            "IT" => ItalyIbanRegex(),
+            "JO" => JordanIbanRegex(),
+            "KZ" => KazakhstanIbanRegex(),
+            "XK" => KosovoIbanRegex(),
+            "KW" => KuwaitIbanRegex(),
+            "LV" => LatviaIbanRegex(),
+            "LB" => LebanonIbanRegex(),
+            "LY" => LibyaIbanRegex(),
+            "LI" => LiechtensteinIbanRegex(),
+            "LT" => LithuaniaIbanRegex(),
+            "LU" => LuxembourgIbanRegex(),
+            "MT" => MaltaIbanRegex(),
+            "MR" => MauritaniaIbanRegex(),
+            "MU" => MauritiusIbanRegex(),
+            "MC" => MonacoIbanRegex(),
+            "MD" => MoldovaIbanRegex(),
+            "ME" => MontenegroIbanRegex(),
+            "NL" => NetherlandsIbanRegex(),
+            "MK" => NorthMacedoniaIbanRegex(),
+            "NO" => NorwayIbanRegex(),
+            "PK" => PakistanIbanRegex(),
+            "PS" => PalestinianTerritoriesIbanRegex(),
+            "PL" => PolandIbanRegex(),
+            "PT" => PortugalIbanRegex(),
+            "QA" => QatarIbanRegex(),
+            "RO" => RomaniaIbanRegex(),
+            "RU" => RussiaIbanRegex(),
+            "LC" => SaintLuciaIbanRegex(),
+            "SM" => SanMarinoIbanRegex(),
+            "ST" => SãoToméAndPríncipeIbanRegex(),
+            "SA" => SaudiArabiaIbanRegex(),
+            "RS" => SerbiaIbanRegex(),
+            "SC" => SeychellesIbanRegex(),
+            "SK" => SlovakiaIbanRegex(),
+            "SI" => SloveniaIbanRegex(),
+            "ES" => SpainIbanRegex(),
+            "SD" => SudanIbanRegex(),
+            "SE" => SwedenIbanRegex(),
+            "CH" => SwitzerlandIbanRegex(),
+            "TN" => TunisiaIbanRegex(),
+            "TR" => TurkeyIbanRegex(),
+            "UA" => UkraineIbanRegex(),
+            "AE" => UnitedArabEmiratesIbanRegex(),
+            "GB" => UnitedKingdomIbanRegex(),
+            "VA" => VaticanCityIbanRegex(),
+            "VG" => BritishVirginIslandsIbanRegex(),
+#else
+            "AL" => AlbaniaIbanRegex,
+            "AD" => AndorraIbanRegex,
+            "AT" => AustriaIbanRegex,
+            "AZ" => AzerbaijanIbanRegex,
+            "BH" => BahrainIbanRegex,
+            "BY" => BelarusIbanRegex,
+            "BE" => BelgiumIbanRegex,
+            "BA" => BosniaAndHerzegovinaIbanRegex,
+            "BR" => BrazilIbanRegex,
+            "BG" => BulgariaIbanRegex,
+            "CR" => CostaRicaIbanRegex,
+            "HR" => CroatiaIbanRegex,
+            "CY" => CyprusIbanRegex,
+            "CZ" => CzechRepublicIbanRegex,
+            "DK" => DenmarkIbanRegex,
+            "DO" => DominicanRepublicIbanRegex,
+            "TL" => EastTimorIbanRegex,
+            "EG" => EgyptIbanRegex,
+            "SV" => ElSalvadorIbanRegex,
+            "EE" => EstoniaIbanRegex,
+            "FO" => FaroeIslandsIbanRegex,
+            "FI" => FinlandIbanRegex,
+            "FR" => FranceIbanRegex,
+            "GE" => GeorgiaIbanRegex,
+            "DE" => GermanyIbanRegex,
+            "GI" => GibraltarIbanRegex,
+            "GR" => GreeceIbanRegex,
+            "GL" => GreenlandIbanRegex,
+            "GT" => GuatemalaIbanRegex,
+            "HU" => HungaryIbanRegex,
+            "IS" => IcelandIbanRegex,
+            "IQ" => IraqIbanRegex,
+            "IE" => IrelandIbanRegex,
+            "IL" => IsraelIbanRegex,
+            "IT" => ItalyIbanRegex,
+            "JO" => JordanIbanRegex,
+            "KZ" => KazakhstanIbanRegex,
+            "XK" => KosovoIbanRegex,
+            "KW" => KuwaitIbanRegex,
+            "LV" => LatviaIbanRegex,
+            "LB" => LebanonIbanRegex,
+            "LY" => LibyaIbanRegex,
+            "LI" => LiechtensteinIbanRegex,
+            "LT" => LithuaniaIbanRegex,
+            "LU" => LuxembourgIbanRegex,
+            "MT" => MaltaIbanRegex,
+            "MR" => MauritaniaIbanRegex,
+            "MU" => MauritiusIbanRegex,
+            "MC" => MonacoIbanRegex,
+            "MD" => MoldovaIbanRegex,
+            "ME" => MontenegroIbanRegex,
+            "NL" => NetherlandsIbanRegex,
+            "MK" => NorthMacedoniaIbanRegex,
+            "NO" => NorwayIbanRegex,
+            "PK" => PakistanIbanRegex,
+            "PS" => PalestinianterritoriesIbanRegex,
+            "PL" => PolandIbanRegex,
+            "PT" => PortugalIbanRegex,
+            "QA" => QatarIbanRegex,
+            "RO" => RomaniaIbanRegex,
+            "RU" => RussiaIbanRegex,
+            "LC" => SaintLuciaIbanRegex,
+            "SM" => SanMarinoIbanRegex,
+            "ST" => SãoToméandPríncipeIbanRegex,
+            "SA" => SaudiArabiaIbanRegex,
+            "RS" => SerbiaIbanRegex,
+            "SC" => SeychellesIbanRegex,
+            "SK" => SlovakiaIbanRegex,
+            "SI" => SloveniaIbanRegex,
+            "ES" => SpainIbanRegex,
+            "SD" => SudanIbanRegex,
+            "SE" => SwedenIbanRegex,
+            "CH" => SwitzerlandIbanRegex,
+            "TN" => TunisiaIbanRegex,
+            "TR" => TurkeyIbanRegex,
+            "UA" => UkraineIbanRegex,
+            "AE" => UnitedArabEmiratesIbanRegex,
+            "GB" => UnitedKingdomIbanRegex,
+            "VA" => VaticanCityIbanRegex,
+            "VG" => BritishVirginIslandsIbanRegex,
+#endif
+            _ => null
+        };
+
+        if (countrySpecificRegex is null) {
+            var aspirationalCountryRegEx = CheckAspirational();
+
+            if (aspirationalCountryRegEx?.IsMatch(value) ?? false) {
+                validationErrors?.Add(AddException(resolvedEntity.Identifier, 2013, Resources.GS1_Error_013, countryCode));
+                return false;
+            }
+        }
+        else if (countrySpecificRegex.IsMatch(value)) {
+            if (ValidateCheckDigits()) {
+                return result;
+            }
+
+            validationErrors?.Add(AddException(resolvedEntity.Identifier, 2014, Resources.GS1_Error_014, countryCode));
+        }
+
+        validationErrors?.Add(AddException(resolvedEntity.Identifier, 2012, Resources.GS1_Error_012, countryCode));
+        return false;
+
+        bool ValidateCheckDigits() {
+            var normalisedValue = value.Substring(4) + value.Substring(0, 4);
+
+            var builder = new StringBuilder();
+
+#if NETCOREAPP3_0_OR_GREATER
+            foreach (var c in normalisedValue.AsSpan()) {
+#else
+            foreach (var c in normalisedValue) {
+#endif
+                builder.Append(c switch {
+                    _ when c >= 65 && c <= 90 => (c - 55).ToString("D2"),
+                    _ => c
+                });
+            }
+
+            return (BigInteger.Parse(builder.ToString(), CultureInfo.InvariantCulture) % 97) == 1;
+        }
+
+        Regex? CheckAspirational() =>
+            countryCode switch {
+#if NET7_0_OR_GREATER
+                "DZ" => AlgeriaIbanRegex(),
+                "AO" => AngolaIbanRegex(),
+                "BJ" => BeninIbanRegex(),
+                "BF" => BurkinaFasoIbanRegex(),
+                "BI" => BurundiIbanRegex(),
+                "CV" => CaboVerdeIbanRegex(),
+                "CM" => CameroonIbanRegex(),
+                "CF" => CentralAfricanRepublicIbanRegex(),
+                "TD" => ChadIbanRegex(),
+                "KM" => ComorosIbanRegex(),
+                "CG" => RepublicOfTheCongoIbanRegex(),
+                "CI" => CôtedIvoireIbanRegex(),
+                "DJ" => DjiboutiIbanRegex(),
+                "GQ" => EquatorialGuineaIbanRegex(),
+                "GA" => GabonIbanRegex(),
+                "GW" => GuineaBissauIbanRegex(),
+                "HN" => HondurasIbanRegex(),
+                "IR" => IranIbanRegex(),
+                "MG" => MadagascarIbanRegex(),
+                "ML" => MaliIbanRegex(),
+                "MA" => MoroccoIbanRegex(),
+                "MZ" => MozambiqueIbanRegex(),
+                "NI" => NicaraguaIbanRegex(),
+                "NE" => NigerIbanRegex(),
+                "SN" => SenegalIbanRegex(),
+                "TG" => TogoIbanRegex(),
+#else
+                "DZ" => AlgeriaIbanRegex,
+                "AO" => AngolaIbanRegex,
+                "BJ" => BeninIbanRegex,
+                "BF" => BurkinaFasoIbanRegex,
+                "BI" => BurundiIbanRegex,
+                "CV" => CaboVerdeIbanRegex,
+                "CM" => CameroonIbanRegex,
+                "CF" => CentralAfricanRepublicIbanRegex,
+                "TD" => ChadIbanRegex,
+                "KM" => ComorosIbanRegex,
+                "CG" => RepublicOfTheCongoIbanRegex,
+                "CI" => CôtedIvoireIbanRegex,
+                "DJ" => DjiboutiIbanRegex,
+                "GQ" => EquatorialGuineaIbanRegex,
+                "GA" => GabonIbanRegex,
+                "GW" => GuineaBissauIbanRegex,
+                "HN" => HondurasIbanRegex,
+                "IR" => IranIbanRegex,
+                "MG" => MadagascarIbanRegex,
+                "ML" => MaliIbanRegex,
+                "MA" => MoroccoIbanRegex,
+                "MZ" => MozambiqueIbanRegex,
+                "NI" => NicaraguaIbanRegex,
+                "NE" => NigerIbanRegex,
+                "SN" => SenegalIbanRegex,
+                "TG" => TogoIbanRegex,
+#endif
+                _ => null
+            };
+
+        ParserException AddException(string identifier, int errorNumber, string message, string country = "") {
+            var valueString = value.Length > 0 ? " " + value : string.Empty;
+            var offset = valueString.Length > 0 ? identifier.Trim().Length + valueString.Trim().Length - 1 : 0;
+            return new ParserException(
+                string.Empty,
                 errorNumber,
                 string.Format(CultureInfo.CurrentCulture, message, valueString, country),
                 false,
@@ -790,6 +1104,7 @@ internal
         }
     }
 
+#if NET7_0_OR_GREATER
     /// <summary>
     /// Regular expression for IBAN.
     /// </summary>
@@ -1542,188 +1857,5 @@ internal
     /// <returns>A regular expression.</returns>
     [GeneratedRegex(@"^TG\d{2}[A-Z]{2}\d{22}$", RegexOptions.None, "en-US")]
     private static partial Regex TogoIbanRegex();
-#else
-    public override bool IsValid(string value, out IList<ParserException>? validationErrors) {
-        var result = base.IsValid(value, out validationErrors);
-
-        if (string.IsNullOrEmpty(value)) {
-            return result;
-        }
-
-        if (!IbanRegex.IsMatch(value)) {
-            validationErrors ??= [];
-            validationErrors.Add(AddException(2012, Resources.GS1_Error_011));
-            return false;
-        }
-
-#if NET6_0_OR_GREATER
-        var countryCode = value[..2];
-#else
-        var countryCode = value.Substring(0, 2);
-#endif
-
-        var countrySpecificRegex = countryCode switch {
-            "AL" => AlbaniaIbanRegex,
-            "AD" => AndorraIbanRegex,
-            "AT" => AustriaIbanRegex,
-            "AZ" => AzerbaijanIbanRegex,
-            "BH" => BahrainIbanRegex,
-            "BY" => BelarusIbanRegex,
-            "BE" => BelgiumIbanRegex,
-            "BA" => BosniaAndHerzegovinaIbanRegex,
-            "BR" => BrazilIbanRegex,
-            "BG" => BulgariaIbanRegex,
-            "CR" => CostaRicaIbanRegex,
-            "HR" => CroatiaIbanRegex,
-            "CY" => CyprusIbanRegex,
-            "CZ" => CzechRepublicIbanRegex,
-            "DK" => DenmarkIbanRegex,
-            "DO" => DominicanRepublicIbanRegex,
-            "TL" => EastTimorIbanRegex,
-            "EG" => EgyptIbanRegex,
-            "SV" => ElSalvadorIbanRegex,
-            "EE" => EstoniaIbanRegex,
-            "FO" => FaroeIslandsIbanRegex,
-            "FI" => FinlandIbanRegex,
-            "FR" => FranceIbanRegex,
-            "GE" => GeorgiaIbanRegex,
-            "DE" => GermanyIbanRegex,
-            "GI" => GibraltarIbanRegex,
-            "GR" => GreeceIbanRegex,
-            "GL" => GreenlandIbanRegex,
-            "GT" => GuatemalaIbanRegex,
-            "HU" => HungaryIbanRegex,
-            "IS" => IcelandIbanRegex,
-            "IQ" => IraqIbanRegex,
-            "IE" => IrelandIbanRegex,
-            "IL" => IsraelIbanRegex,
-            "IT" => ItalyIbanRegex,
-            "JO" => JordanIbanRegex,
-            "KZ" => KazakhstanIbanRegex,
-            "XK" => KosovoIbanRegex,
-            "KW" => KuwaitIbanRegex,
-            "LV" => LatviaIbanRegex,
-            "LB" => LebanonIbanRegex,
-            "LY" => LibyaIbanRegex,
-            "LI" => LiechtensteinIbanRegex,
-            "LT" => LithuaniaIbanRegex,
-            "LU" => LuxembourgIbanRegex,
-            "MT" => MaltaIbanRegex,
-            "MR" => MauritaniaIbanRegex,
-            "MU" => MauritiusIbanRegex,
-            "MC" => MonacoIbanRegex,
-            "MD" => MoldovaIbanRegex,
-            "ME" => MontenegroIbanRegex,
-            "NL" => NetherlandsIbanRegex,
-            "MK" => NorthMacedoniaIbanRegex,
-            "NO" => NorwayIbanRegex,
-            "PK" => PakistanIbanRegex,
-            "PS" => PalestinianterritoriesIbanRegex,
-            "PL" => PolandIbanRegex,
-            "PT" => PortugalIbanRegex,
-            "QA" => QatarIbanRegex,
-            "RO" => RomaniaIbanRegex,
-            "RU" => RussiaIbanRegex,
-            "LC" => SaintLuciaIbanRegex,
-            "SM" => SanMarinoIbanRegex,
-            "ST" => SãoToméandPríncipeIbanRegex,
-            "SA" => SaudiArabiaIbanRegex,
-            "RS" => SerbiaIbanRegex,
-            "SC" => SeychellesIbanRegex,
-            "SK" => SlovakiaIbanRegex,
-            "SI" => SloveniaIbanRegex,
-            "ES" => SpainIbanRegex,
-            "SD" => SudanIbanRegex,
-            "SE" => SwedenIbanRegex,
-            "CH" => SwitzerlandIbanRegex,
-            "TN" => TunisiaIbanRegex,
-            "TR" => TurkeyIbanRegex,
-            "UA" => UkraineIbanRegex,
-            "AE" => UnitedArabEmiratesIbanRegex,
-            "GB" => UnitedKingdomIbanRegex,
-            "VA" => VaticanCityIbanRegex,
-            "VG" => BritishVirginIslandsIbanRegex,
-            _ => null
-        };
-
-        if (countrySpecificRegex is null) {
-            var aspirationalCountryRegEx = CheckAspirational();
-
-            if (aspirationalCountryRegEx?.IsMatch(value) ?? false) {
-                validationErrors.Add(AddException(2014, Resources.GS1_Error_013, countryCode));
-                return false;
-            }
-        }
-        else if (countrySpecificRegex.IsMatch(value)) {
-            if (ValidateCheckDigits()) {
-                return result;
-            }
-
-            validationErrors.Add(AddException(2015, Resources.GS1_Error_014, countryCode));
-        }
-
-        validationErrors.Add(AddException(2013, Resources.GS1_Error_012, countryCode));
-        return false;
-
-        bool ValidateCheckDigits() {
-            var normalisedValue = value.Substring(4) + value.Substring(0, 4);
-
-            var builder = new StringBuilder();
-
-#if NETCOREAPP3_0_OR_GREATER
-            foreach (var c in normalisedValue.AsSpan()) {
-#else
-            foreach (var c in normalisedValue) {
-#endif
-                builder.Append(c switch {
-                    _ when c >= 65 && c <= 90 => (c - 55).ToString("D2"),
-                    _ => c
-                });
-            }
-
-            return (BigInteger.Parse(builder.ToString(), CultureInfo.InvariantCulture) % 97) == 1;
-        }
-
-        Regex? CheckAspirational() =>
-            countryCode switch {
-                "DZ" => AlgeriaIbanRegex,
-                "AO" => AngolaIbanRegex,
-                "BJ" => BeninIbanRegex,
-                "BF" => BurkinaFasoIbanRegex,
-                "BI" => BurundiIbanRegex,
-                "CV" => CaboVerdeIbanRegex,
-                "CM" => CameroonIbanRegex,
-                "CF" => CentralAfricanRepublicIbanRegex,
-                "TD" => ChadIbanRegex,
-                "KM" => ComorosIbanRegex,
-                "CG" => RepublicOfTheCongoIbanRegex,
-                "CI" => CôtedIvoireIbanRegex,
-                "DJ" => DjiboutiIbanRegex,
-                "GQ" => EquatorialGuineaIbanRegex,
-                "GA" => GabonIbanRegex,
-                "GW" => GuineaBissauIbanRegex,
-                "HN" => HondurasIbanRegex,
-                "IR" => IranIbanRegex,
-                "MG" => MadagascarIbanRegex,
-                "ML" => MaliIbanRegex,
-                "MA" => MoroccoIbanRegex,
-                "MZ" => MozambiqueIbanRegex,
-                "NI" => NicaraguaIbanRegex,
-                "NE" => NigerIbanRegex,
-                "SN" => SenegalIbanRegex,
-                "TG" => TogoIbanRegex,
-                _ => null
-            };
-
-        ParserException AddException(int errorNumber, string message, string country = "") {
-            var valueString = value.Length > 0 ? " " + value : string.Empty;
-            var offset = valueString.Length > 0 ? valueString.Trim().Length - 1 : 0;
-            return new ParserException(
-                errorNumber,
-                string.Format(CultureInfo.CurrentCulture, message, valueString, country),
-                false,
-                offset);
-        }
-    }
 #endif
 }

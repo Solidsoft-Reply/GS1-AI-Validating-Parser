@@ -120,10 +120,10 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Dati nav sniegti.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Validācija AI {0} ir beigusies.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
+  <data name="GS1_Error_007" xml:space="preserve">
     <value>Entītes vērtība nav sniegta AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
@@ -135,13 +135,13 @@
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Vērtība{0} ir nederīga AI {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Nederīgs lietojumprogrammas identifikators {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
+  <data name="GS1_Error_009" xml:space="preserve">
     <value>Vērtība{0} ir ar nederīgu kontrolsummu.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Vērtība{0} neatbilst norādītajam rakstam datu elementam.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,8 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Vērtība{0} neatbilst norādītajam rakstam Ziemeļamerikas pozitīvo piedāvājumu failu kuponiem.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Vērtība{0} nav atzīts UN/ECE vai GS1 iepakojuma veida kods.</value>
   </data>
 </root>

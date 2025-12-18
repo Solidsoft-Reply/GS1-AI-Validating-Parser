@@ -126,6 +126,9 @@
   <data name="ai02" xml:space="preserve">
     <value>Identifikation af handelsvarer indeholdt i en logistikenhed</value>
   </data>
+  <data name="ai03" xml:space="preserve">
+    <value>Identifikation af specialfremstillet handelsvare (GTIN)</value>
+  </data>
   <data name="ai10" xml:space="preserve">
     <value>Batch- eller partinummer</value>
   </data>
@@ -573,6 +576,9 @@
   <data name="ai7040" xml:space="preserve">
     <value>GS1 UIC med udvidelse 1 og importørindeks</value>
   </data>
+  <data name="ai7041" xml:space="preserve">
+    <value>UN/CEFACT fragt-enhedstype</value>
+  </data>
   <data name="ai710" xml:space="preserve">
     <value>Nationalt refusionsnummer for sundhedspleje (NHRN) - Tysk PZN</value>
   </data>
@@ -591,6 +597,12 @@
   <data name="ai715" xml:space="preserve">
     <value>Nationalt refusionsnummer for sundhedspleje (NHRN) - USA NDC</value>
   </data>
+  <data name="ai716" xml:space="preserve">
+    <value>Nationalt sundhedsrefusionsnummer – Italien AIC</value>
+  </data>
+  <data name="ai717" xml:space="preserve">
+    <value>Nationalt sundhedsrefusionsnummer (NHRN) – nummer i Costa Ricas sanitetsregister</value>
+  </data>
   <data name="ai723s" xml:space="preserve">
     <value>Certificeringsreference</value>
   </data>
@@ -602,6 +614,36 @@
   </data>
   <data name="ai7242" xml:space="preserve">
     <value>Versionskontrolnummer (VCN)</value>
+  </data>
+  <data name="ai7250" xml:space="preserve">
+    <value>Fødselsdato</value>
+  </data>
+  <data name="ai7251" xml:space="preserve">
+    <value>Fødselsdato og -tid</value>
+  </data>
+  <data name="ai7252" xml:space="preserve">
+    <value>Biologisk køn</value>
+  </data>
+  <data name="ai7253" xml:space="preserve">
+    <value>Efternavn på person</value>
+  </data>
+  <data name="ai7254" xml:space="preserve">
+    <value>Fornavn på person</value>
+  </data>
+  <data name="ai7255" xml:space="preserve">
+    <value>Navnesuffiks</value>
+  </data>
+  <data name="ai7256" xml:space="preserve">
+    <value>Fuldt navn på person</value>
+  </data>
+  <data name="ai7257" xml:space="preserve">
+    <value>Adresse på person</value>
+  </data>
+  <data name="ai7258" xml:space="preserve">
+    <value>Indikator for fødselsrækkefølge</value>
+  </data>
+  <data name="ai7259" xml:space="preserve">
+    <value>Barn af familienavnet</value>
   </data>
   <data name="ai8001" xml:space="preserve">
     <value>Rulleprodukter - bredde, længde, kerne diameter, retning, samlinger</value>
@@ -641,6 +683,9 @@
   </data>
   <data name="ai8013" xml:space="preserve">
     <value>Global modelnummer (GMN)</value>
+  </data>
+  <data name="ai8014" xml:space="preserve">
+    <value>Registrerings-id for højt individualiseret udstyr (HIDRI)</value>
   </data>
   <data name="ai8017" xml:space="preserve">
     <value>Global serviceforbindelsesnummer (GSRN) for at identificere forholdet mellem en organisation, der tilbyder tjenester, og udbyderen af tjenester</value>
@@ -701,5 +746,17 @@
   </data>
   <data name="ai99" xml:space="preserve">
     <value>Firmaintern information</value>
+  </data>
+  <data name="ai8040" xml:space="preserve">
+    <value>International Mobile Equipment Identity (IMEI)</value>
+  </data>
+  <data name="ai8041" xml:space="preserve">
+    <value>International Mobile Equipment Identity 2 (IMEI2)</value>
+  </data>
+  <data name="ai8042" xml:space="preserve">
+    <value>Indlejret SIM (eSIM)</value>
+  </data>
+  <data name="ai8043" xml:space="preserve">
+    <value>Fysisk SIM-kort</value>
   </data>
 </root>

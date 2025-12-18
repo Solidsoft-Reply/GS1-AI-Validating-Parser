@@ -120,10 +120,10 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Nenhum dado fornecido.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>A validação para AI {0} excedeu o tempo limite.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
+  <data name="GS1_Error_007" xml:space="preserve">
     <value>Nenhum valor de entidade fornecido para AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
@@ -135,13 +135,13 @@
   <data name="GS1_Error_006" xml:space="preserve">
     <value>O valor{0} é inválido para AI {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Identificador de aplicação inválido {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
+  <data name="GS1_Error_009" xml:space="preserve">
     <value>O valor{0} tem um checksum inválido.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>O valor{0} não corresponde ao padrão especificado para o elemento de dados.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,8 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>O valor{0} não corresponde ao padrão especificado para cupons de oferta positiva de arquivo norte-americanos.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>O valor{0} não é um código de tipo de embalagem reconhecido pela UN/ECE ou pela GS1.</value>
   </data>
 </root>

@@ -55,14 +55,15 @@ internal class IdentifierWithPos13ChecksumDescriptor(
     /// <summary>
     ///     Validate data against the descriptor.
     /// </summary>
-    /// <param name="value">The GS1 data element value to be validated.</param>
+    /// <param name="resolvedEntity">The resolved entity to be validated.</param>
     /// <param name="validationErrors">A list of validation errors.</param>
     /// <returns>True, if valid.  Otherwise, false.</returns>
     // ReSharper disable once CommentTypo
     // ReSharper disable once InheritdocConsiderUsage
 #if NET7_0_OR_GREATER
-    public override bool IsValid(ReadOnlySpan<char> value, out IList<ParserException>? validationErrors) {
-        var result = base.IsValid(value, out validationErrors);
+    public override bool IsValid(ResolvedApplicationIdentifierRef resolvedEntity, out IList<ParserException>? validationErrors) {
+        var result = base.IsValid(resolvedEntity, out validationErrors);
+        var value = resolvedEntity.Value;
 
         if (value.IsNull() || value.IsEmpty) {
             return result;
@@ -80,21 +81,32 @@ internal class IdentifierWithPos13ChecksumDescriptor(
 
         value = value.TrimEnd('\0');
         var valueString = value.Length > 0 ? " " + value.ToString() : string.Empty;
-        var offset = valueString.Length > 0 ? valueString.Trim().Length - 1 : 0;
+        var offset = valueString.Length > 0 ? resolvedEntity.Identifier.TrimEnd('\0').Length + valueString.Length - 1 : 0;
 
         // ReSharper disable once StringLiteralTypo
         validationErrors ??= [];
         validationErrors.Add(
             new ParserException(
+                string.Empty,
                 2009,
-                string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_008, valueString),
-                false,
+                string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_009, valueString, this.DataTitle),
+                true,
                 offset));
         return false;
     }
-#else
-    public override bool IsValid(string value, out IList<ParserException>? validationErrors) {
-        var result = base.IsValid(value, out validationErrors);
+
+
+#endif
+
+    /// <summary>
+    ///    Validate data against the descriptor.
+    /// </summary>
+    /// <param name="resolvedEntity">The resolved entity to be validated.</param>
+    /// <param name="validationErrors">A list of validation errors.</param>
+    /// <returns>True, if valid.  Otherwise, false.</returns>
+    public override bool IsValid(ResolvedApplicationIdentifier resolvedEntity, out IList<ParserException>? validationErrors) {
+        var result = base.IsValid(resolvedEntity, out validationErrors);
+        var value = resolvedEntity.Value;
 
         if (string.IsNullOrEmpty(value)) {
             return result;
@@ -117,17 +129,17 @@ internal class IdentifierWithPos13ChecksumDescriptor(
         }
 
         var valueString = value.Length > 0 ? " " + value : string.Empty;
-        var offset = valueString.Length > 0 ? valueString.Trim().Length - 1 : 0;
+        var offset = valueString.Length > 0 ? resolvedEntity.Identifier.Trim().Length + valueString.Trim().Length - 1 : 0;
         validationErrors ??= [];
 
         // ReSharper disable once StringLiteralTypo
         validationErrors.Add(
             new ParserException(
+                string.Empty,
                 2009,
-                string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_008, valueString),
-                false,
+                string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_009, valueString, this.DataTitle),
+                true,
                 offset));
         return false;
     }
-#endif
 }

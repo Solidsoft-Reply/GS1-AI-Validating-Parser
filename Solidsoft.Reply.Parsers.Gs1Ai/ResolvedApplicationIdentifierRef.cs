@@ -24,6 +24,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai;
 using System.Collections.Generic;
 using Properties;
 using Common;
+using System.Globalization;
 
 /// <summary>
 ///     Represents a resolved GS1 application identifier and its associated data.
@@ -75,7 +76,7 @@ public ref struct ResolvedApplicationIdentifierRef : IResolvedEntityRef {
     ///     The description of the application identifier.
     /// </param>
     /// <param name="characterPosition">
-    ///     The position of the application identifier for the current field.
+    ///     The position of the application identifier within the data.
     /// </param>
     public ResolvedApplicationIdentifierRef(
         int entity,
@@ -94,7 +95,9 @@ public ref struct ResolvedApplicationIdentifierRef : IResolvedEntityRef {
             DataTitle = dataTitle.Length > DataTitleMaxLength ? dataTitle[..DataTitleMaxLength] : dataTitle;
             Description = description.Length > DescriptionMaxLength ? description[..DescriptionMaxLength] : description;
 
-            if (inverseExponent < -1) AddException(new ParserException(2011, Resources.GS1_Error_010, false));
+            if (inverseExponent < -1) {
+                AddException(new ParserException(identifier.ToString(), 2010, Resources.GS1_Error_010, true, 4));
+            }
     }
 
     /// <summary>
@@ -128,7 +131,7 @@ public ref struct ResolvedApplicationIdentifierRef : IResolvedEntityRef {
         ParserException exception,
         int characterPosition,
         ResolvedApplicationIdentifierRef ai) {
-        (Entity, IsFixedWidth, CharacterPosition) = (-1, ai.IsFixedWidth, characterPosition);
+        (Entity, IsFixedWidth, CharacterPosition) = (ai.Entity, ai.IsFixedWidth, characterPosition);
         Identifier = ai.Identifier;
         Value = ai.Value;
         DataTitle = ai.DataTitle;
@@ -137,7 +140,12 @@ public ref struct ResolvedApplicationIdentifierRef : IResolvedEntityRef {
         foreach (var e in ai.Exceptions)
             AddException(e);
 
-        AddException(exception);
+        AddException(new ParserException(
+            ai.Identifier.ToString(),
+            exception.ErrorNumber,
+            exception.Message,
+            exception.IsFatal,
+            exception.Offset));
     }
 
     /// <summary>

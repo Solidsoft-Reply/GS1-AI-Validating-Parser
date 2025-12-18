@@ -23,21 +23,24 @@
 
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
-using Properties;
-
 using Common;
 
+using Properties;
+
+using Solidsoft.Reply.Parsers.Gs1Ai.Relationships;
+
 using System;
+using System.Globalization;
 
 #if NET7_0_OR_GREATER
-    /// <summary>
-    ///     Represents a method that is called when an entity reference has been resolved.
-    /// </summary>
-    /// <param name="resolvedEntity">The resolved entity reference that is passed to the delegate. Cannot be null.</param>
-    /// <remarks>
-    ///     Use this delegate in high-performance scenarios. Its use avoids unecessary heap allocations.
-    /// </remarks>
-    public delegate void ResolvedEntityDelegate(scoped in ResolvedApplicationIdentifierRef resolvedEntity);
+/// <summary>
+///     Represents a method that is called when an entity reference has been resolved.
+/// </summary>
+/// <param name="resolvedEntity">The resolved entity reference that is passed to the delegate. Cannot be null.</param>
+/// <remarks>
+///     Use this delegate in high-performance scenarios. Its use avoids unecessary heap allocations.
+/// </remarks>
+public delegate void ResolvedEntityDelegate(scoped in ResolvedApplicationIdentifierRef resolvedEntity);
 #endif
 
 /// <summary>
@@ -87,7 +90,8 @@ public static class Parser {
     /// <param name="initialPosition">
     ///     The initial character position.
     /// </param>
-    public static void Parse(string? data, Action<IResolvedEntity> processResolvedEntity, int initialPosition = 0) {
+    /// <param name="relationshipTests">Optional control to collect resolved AIs for relationship testing.</param>
+    public static void Parse(string? data, Action<IResolvedEntity> processResolvedEntity, int initialPosition = 0, DataRelationshipTests relationshipTests = DataRelationshipTests.No) {
 #if NET7_0_OR_GREATER
         ArgumentNullException.ThrowIfNull(processResolvedEntity);
 #else
@@ -99,17 +103,18 @@ public static class Parser {
         // Is any data present?
         if (string.IsNullOrWhiteSpace(data)) {
             // Handle errors
-            processResolvedEntity(
-                new ResolvedApplicationIdentifier(
-                    new ParserException(2001, Resources.GS1_Error_001, true),
-                    initialPosition));
+            var errorEntity = new ResolvedApplicationIdentifier(
+                    new ParserException(string.Empty, 2001, Resources.GS1_Error_001, true),
+                    initialPosition);
+
+            processResolvedEntity(errorEntity);
             return;
         }
 
 #if NET7_0_OR_GREATER
-        DoParse(data!.AsSpan(), processResolvedEntity, null, initialPosition);
+        DoParse(data!.AsSpan(), processResolvedEntity, null, initialPosition, relationshipTests);
 #else
-        DoParse(data!.AsSpan(), processResolvedEntity, initialPosition);
+        DoParse(data!.AsSpan(), processResolvedEntity, initialPosition, relationshipTests);
 #endif
     }
 
@@ -126,17 +131,18 @@ public static class Parser {
     /// <param name="initialPosition">
     ///     The initial character position.
     /// </param>
+    /// <param name="relationshipTests">Optional control to collect resolved AIs for relationship testing.</param>
     /// <remarks>
     /// Use this method as an alternative to Parse() for the very highest performance scenarios.  By using the ResolvedEntityDelegate delegate,
     /// you can avoid unecessary heap allocations.
     /// </remarks>
-    public static void ParseEx(ReadOnlySpan<char> data, ResolvedEntityDelegate processResolvedEntity, int initialPosition = 0) {
+    public static void ParseEx(ReadOnlySpan<char> data, ResolvedEntityDelegate processResolvedEntity, int initialPosition = 0, DataRelationshipTests relationshipTests = DataRelationshipTests.No) {
         ArgumentNullException.ThrowIfNull(processResolvedEntity);
 
         // Is any data present?
         if (data.IsNullOrWhiteSpace()) {
             var entity = new ResolvedApplicationIdentifierRef(
-                    new ParserException(2001, Resources.GS1_Error_001, true),
+                    new ParserException(string.Empty, 2001, Resources.GS1_Error_001, true),
                     initialPosition);
 
             // Handle errors
@@ -144,7 +150,7 @@ public static class Parser {
             return;
         }
 
-        DoParse(data, null, processResolvedEntity, initialPosition);
+        DoParse(data, null, processResolvedEntity, initialPosition, relationshipTests);
     }
 #endif
 
@@ -161,7 +167,8 @@ public static class Parser {
     /// <param name="initialPosition">
     ///     The initial character position.
     /// </param>
-    public static void Parse(ReadOnlySpan<char> data, Action<IResolvedEntity> processResolvedEntity, int initialPosition = 0) {
+    /// <param name="relationshipTests">Optional control to collect resolved AIs for relationship testing.</param>
+    public static void Parse(ReadOnlySpan<char> data, Action<IResolvedEntity> processResolvedEntity, int initialPosition = 0, DataRelationshipTests relationshipTests = DataRelationshipTests.No) {
 #if NET7_0_OR_GREATER
         ArgumentNullException.ThrowIfNull(processResolvedEntity);
 #else
@@ -173,17 +180,18 @@ public static class Parser {
         // Is any data present?
         if (data.IsNullOrWhiteSpace()) {
             // Handle errors
-            processResolvedEntity(
-                new ResolvedApplicationIdentifier(
-                    new ParserException(2001, Resources.GS1_Error_001, true),
-                    initialPosition));
+            var errorEntity = new ResolvedApplicationIdentifier(
+                    new ParserException(string.Empty, 2001, Resources.GS1_Error_001, true),
+                    initialPosition);
+
+            processResolvedEntity(errorEntity);
             return;
         }
 
 #if NET7_0_OR_GREATER
-        DoParse(data, processResolvedEntity, null, initialPosition);
+        DoParse(data, processResolvedEntity, null, initialPosition, relationshipTests);
 #else
-        DoParse(data, processResolvedEntity, initialPosition);
+        DoParse(data, processResolvedEntity, initialPosition, relationshipTests);
 #endif
     }
 #endif
@@ -199,6 +207,7 @@ public static class Parser {
     ///     An action that is invoked to process each resolved entity.
     /// </param>
 #if NET7_0_OR_GREATER
+    /// <param name="processResolvedEntityDelegate"></param>
     /// <remarks>
     /// If a delegate is provided, it is invoked to process each resolved entity.
     /// </remarks>
@@ -206,6 +215,7 @@ public static class Parser {
     /// <param name="currentPosition">
     /// The current character position.
     /// </param>
+    /// <param name="relationshipTest">Indicates if resolved AIs will be collected for relationship testing.</param>
 #pragma warning restore CS1587 // XML comment is not placed on a valid language element
 #pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment (but other parameters do)
     private static void DoParse(
@@ -215,12 +225,19 @@ public static class Parser {
         ResolvedEntityDelegate? processResolvedEntityDelegate,
 #endif
 #pragma warning restore CS1573 // Parameter has no matching param tag in the XML comment (but other parameters do)
-        int currentPosition) {
+        int currentPosition,
+        DataRelationshipTests relationshipTest) {
         int position = currentPosition;
+
+        if (relationshipTest == DataRelationshipTests.Yes) {
+            ResolvedAiList.Clear();
+        }
+
+        var stopParsing = false;
+
         while (characters.Length >= 2) {
             // Use custom lookup to avoid string allocation
             bool hasPredefinedLength = TryGetPredefinedLength(characters, out int numberOfChars);
-            position += 2;
             if (hasPredefinedLength) {
                 if (characters.Length >= numberOfChars) {
 #if NET6_0_OR_GREATER
@@ -230,8 +247,7 @@ public static class Parser {
                     var workingBuffer = characters.Slice(0, numberOfChars);
                     characters = characters.Slice(numberOfChars);
 #endif
-                    int gsIndex = workingBuffer.IndexOf(Convert.ToChar(29));
-                    if (gsIndex >= 0) {
+                    if (characters.Length > 0 && characters[0] == Convert.ToChar(29)) {
 #if NET7_0_OR_GREATER
                         if (processResolvedEntityDelegate is not null) {
                             ResolvedApplicationIdentifierRef defaultEntity = new(
@@ -245,26 +261,34 @@ public static class Parser {
                                 stackalloc char[ResolvedApplicationIdentifierRef.DescriptionMaxLength],
                                 0);
                             var entity = new ResolvedApplicationIdentifierRef(
-                                new ParserException(2003, Resources.GS1_Error_004, false),
-                                position + gsIndex,
+                                new ParserException(string.Empty, 2004, Resources.GS1_Error_004, false, position + numberOfChars),
+                                position,
                                 workingBuffer.ResolveEx(defaultEntity, workingBuffer[..2], position));
+                            if (relationshipTest == DataRelationshipTests.Yes) {
+                                ResolvedAiList.Add(entity.Identifier, entity.Value, position);
+                            }
+
                             processResolvedEntityDelegate(in entity);
+                            continue;
                         }
                         else
 #endif
                         {
-                            processResolvedEntity?.Invoke(
-                                new ResolvedApplicationIdentifier(
-                                    new ParserException(2003, Resources.GS1_Error_004, false),
-                                    position + gsIndex,
+                            var resolved = new ResolvedApplicationIdentifier(
+                                    new ParserException(string.Empty, 2004, Resources.GS1_Error_004, false, position + numberOfChars),
+                                    position,
 #if NET6_0_OR_GREATER
-                                    workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position)));
+                                    workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position));
 #else
-                                    workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position)));
+                                    workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position));
 #endif
-                        }
+                            if (relationshipTest == DataRelationshipTests.Yes) {
+                                ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
+                            }
 
-                        return;
+                            processResolvedEntity?.Invoke(resolved);
+                            continue;
+                        }
                     }
 
 #if NET7_0_OR_GREATER
@@ -280,20 +304,29 @@ public static class Parser {
                             stackalloc char[ResolvedApplicationIdentifierRef.DescriptionMaxLength],
                             0);
                         var entity = workingBuffer.ResolveEx(defaultEntity, workingBuffer[..2], position);
+                        if (relationshipTest == DataRelationshipTests.Yes) {
+                            ResolvedAiList.Add(entity.Identifier, entity.Value, position);
+                        }
+
                         processResolvedEntityDelegate(in entity);
                     }
                     else
 #endif
                     {
-                        processResolvedEntity?.Invoke(
+                        var resolved =
 #if NET6_0_OR_GREATER
-                            workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position));
+                            workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position);
 #else
-                            workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position));
+                            workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position);
 #endif
+                        if (relationshipTest == DataRelationshipTests.Yes) {
+                            ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
+                        }
+
+                        processResolvedEntity?.Invoke(resolved);
                     }
 
-                    position += numberOfChars - 2;
+                    position += numberOfChars;
                     if (characters.Length > 0 && characters[0] == Convert.ToChar(29)) {
 #if NET6_0_OR_GREATER
                         characters = characters[1..];
@@ -311,17 +344,25 @@ public static class Parser {
 #if NET7_0_OR_GREATER
                         if (processResolvedEntityDelegate is not null) {
                             var entity = new ResolvedApplicationIdentifierRef(
-                                new ParserException(2018, Resources.GS1_Error_007, true),
-                                position + 1);
+                                new ParserException(string.Empty, 2003, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_002, characters.ToString()), true),
+                                position);
+                            if (relationshipTest == DataRelationshipTests.Yes) {
+                                ResolvedAiList.Add(entity.Identifier, entity.Value, position);
+                            }
+
                             processResolvedEntityDelegate(in entity);
                         }
                         else
 #endif
                         {
-                            processResolvedEntity?.Invoke(
-                            new ResolvedApplicationIdentifier(
-                                new ParserException(2018, Resources.GS1_Error_007, true),
-                                position + 1));
+                            var resolved = new ResolvedApplicationIdentifier(
+                                new ParserException(string.Empty, 2003, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_002, characters.ToString()), true),
+                                position);
+                            if (relationshipTest == DataRelationshipTests.Yes) {
+                                ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
+                            }
+
+                            processResolvedEntity?.Invoke(resolved);
                         }
                     }
                 } else {
@@ -339,23 +380,31 @@ public static class Parser {
                                 stackalloc char[ResolvedApplicationIdentifierRef.DescriptionMaxLength],
                                 0);
                         var entity = new ResolvedApplicationIdentifierRef(
-                            new ParserException(2004, Resources.GS1_Error_005, false),
-                            position + numberOfChars,
+                            new ParserException(string.Empty, 2005, Resources.GS1_Error_005, true, characters.Length - 1),
+                            position,
                             workingBuffer.ResolveEx(defaultEntity, workingBuffer[..2], position));
+                        if (relationshipTest == DataRelationshipTests.Yes) {
+                            ResolvedAiList.Add(entity.Identifier, entity.Value, position);
+                        }
+
                         processResolvedEntityDelegate(in entity);
                     }
                     else
 #endif
                     {
-                        processResolvedEntity?.Invoke(
-                        new ResolvedApplicationIdentifier(
-                            new ParserException(2004, Resources.GS1_Error_005, false),
-                            position + numberOfChars,
+                        var resolved = new ResolvedApplicationIdentifier(
+                            new ParserException(string.Empty, 2005, Resources.GS1_Error_005, true, characters.Length - 1),
+                            position,
 #if NET6_0_OR_GREATER
-                            workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position)));
+                            workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position));
 #else
-                            workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position)));
+                            workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position));
 #endif
+                        if (relationshipTest == DataRelationshipTests.Yes) {
+                            ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
+                        }
+
+                        processResolvedEntity?.Invoke(resolved);
                     }
                 }
             } else {
@@ -375,17 +424,26 @@ public static class Parser {
                         0);
                     if (processResolvedEntityDelegate is not null) {
                         var entity = workingBuffer.ResolveEx(defaultEntity, workingBuffer[..2], position);
+                        if (relationshipTest == DataRelationshipTests.Yes) {
+                            ResolvedAiList.Add(entity.Identifier, entity.Value, position);
+                        }
+
                         processResolvedEntityDelegate(in entity);
                     }
                     else
 #endif
                     {
-                        processResolvedEntity?.Invoke(
+                        var resolved =
 #if NET6_0_OR_GREATER
-                        workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position));
+                        workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position);
 #else
-                        workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position));
+                        workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position);
 #endif
+                        if (relationshipTest == DataRelationshipTests.Yes) {
+                            ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
+                        }
+
+                        processResolvedEntity?.Invoke(resolved);
                     }
                 } else {
 #if NET6_0_OR_GREATER
@@ -394,6 +452,11 @@ public static class Parser {
                     var workingBuffer = characters.Slice(0, gsIndex);
 #endif
 #if NET7_0_OR_GREATER
+                    if (workingBuffer.IsEmpty) {
+                        stopParsing = true;
+                        break;
+                    }
+
                     ResolvedApplicationIdentifierRef defaultEntity = new(
                         -1,
                         stackalloc char[4],
@@ -406,19 +469,28 @@ public static class Parser {
                         0);
                     if (processResolvedEntityDelegate is not null) {
                         var entity = workingBuffer.ResolveEx(defaultEntity, workingBuffer[..2], position);
+                        if (relationshipTest == DataRelationshipTests.Yes) {
+                            ResolvedAiList.Add(entity.Identifier, entity.Value, position);
+                        }
+
                         processResolvedEntityDelegate(in entity);
                     }
                     else
 #endif
                     {
-                        processResolvedEntity?.Invoke(
+                        var resolved =
 #if NET6_0_OR_GREATER
                         new string(workingBuffer.ToArray())
-                            .Resolve(workingBuffer[..(workingBuffer.Length >= 2 ? 2 : workingBuffer.Length)].ToString(), position));
+                            .Resolve(workingBuffer[..(workingBuffer.Length >= 2 ? 2 : workingBuffer.Length)].ToString(), position);
 #else
                         new string(workingBuffer.ToArray())
-                            .Resolve(workingBuffer.Slice(0, workingBuffer.Length >= 2 ? 2 : workingBuffer.Length).ToString(), position));
+                            .Resolve(workingBuffer.Slice(0, workingBuffer.Length >= 2 ? 2 : workingBuffer.Length).ToString(), position);
 #endif
+                        if (relationshipTest == DataRelationshipTests.Yes) {
+                            ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
+                        }
+
+                        processResolvedEntity?.Invoke(resolved);
                     }
 
 #if NET6_0_OR_GREATER
@@ -435,23 +507,62 @@ public static class Parser {
 #if NET7_0_OR_GREATER
                         if (processResolvedEntityDelegate is not null) {
                             var entity = new ResolvedApplicationIdentifierRef(
-                                new ParserException(2019, Resources.GS1_Error_007, true),
-                                position + 1);
+                                new ParserException(string.Empty, 2003, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_002, characters.ToString()), true),
+                                position);
+                            if (relationshipTest == DataRelationshipTests.Yes) {
+                                ResolvedAiList.Add(entity.Identifier, entity.Value, position);
+                            }
+
                             processResolvedEntityDelegate(in entity);
                         }
                         else
 #endif
                         {
-                            processResolvedEntity?.Invoke(
-                            new ResolvedApplicationIdentifier(
-                                new ParserException(2019, Resources.GS1_Error_007, true),
-                                position + 1));
+                            var resolved = new ResolvedApplicationIdentifier(
+                                new ParserException(string.Empty, 2003, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_002, characters.ToString()), true),
+                                position);
+                            if (relationshipTest == DataRelationshipTests.Yes) {
+                                ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
+                            }
+
+                            processResolvedEntity?.Invoke(resolved);
                         }
                     }
                 }
             }
 
             break;
+        }
+
+        // Run relationship tests after parsing if requested
+        if (relationshipTest == DataRelationshipTests.Yes) {
+            var invalids = InvalidPairs.Test();
+            var mandated = MandatedElements.Test();
+
+            // Report any exceptions to the client following the existing pattern
+            foreach (var ex in invalids) {
+#if NET7_0_OR_GREATER
+                if (processResolvedEntityDelegate is not null) {
+                    var entity = new ResolvedApplicationIdentifierRef(ex, position);
+                    processResolvedEntityDelegate(in entity);
+                } else
+#endif
+                {
+                    processResolvedEntity?.Invoke(new ResolvedApplicationIdentifier(ex, position));
+                }
+            }
+
+            foreach (var ex in mandated) {
+#if NET7_0_OR_GREATER
+                if (processResolvedEntityDelegate is not null) {
+                    var entity = new ResolvedApplicationIdentifierRef(ex, position);
+                    processResolvedEntityDelegate(in entity);
+                } else
+#endif
+                {
+                    processResolvedEntity?.Invoke(new ResolvedApplicationIdentifier(ex, position));
+                }
+            }
         }
     }
 

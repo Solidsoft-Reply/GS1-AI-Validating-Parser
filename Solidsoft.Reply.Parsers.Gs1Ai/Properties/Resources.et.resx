@@ -120,10 +120,10 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Andmeid ei ole esitatud.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>AI {0} valideerimine aegus.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
+  <data name="GS1_Error_007" xml:space="preserve">
     <value>AI {0} jaoks ei ole entiteedi väärtust esitatud.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
@@ -135,13 +135,13 @@
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Väärtus{0} on kehtetu AI {1} jaoks.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Vigane rakenduse identifikaator {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
+  <data name="GS1_Error_009" xml:space="preserve">
     <value>Väärtus{0} omab kehtetut kontrollsummat.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Väärtus{0} ei vasta määratud mustrile andmeelemendile.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,8 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Väärtus{0} ei ühti Põhja-Ameerika positiivse pakkumisfaili kupongidele määratud mustriga.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Väärtus{0} ei ole tunnustatud UN/ECE ega GS1 pakenditüübi kood.</value>
   </data>
 </root>

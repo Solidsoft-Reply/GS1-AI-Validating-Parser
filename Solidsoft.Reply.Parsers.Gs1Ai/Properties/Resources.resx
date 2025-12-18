@@ -121,11 +121,11 @@
     <value>No data provided.</value>
     <comment>Error</comment>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Validation for AI {0} timed out.</value>
     <comment>Error</comment>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
+  <data name="GS1_Error_007" xml:space="preserve">
     <value>No entity value provided for AI {0}.</value>
     <comment>Error</comment>
   </data>
@@ -134,22 +134,22 @@
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Fixed-width entity does not contain sufficient number of characters.</value>
+    <value>A predefined-length entity does not contain a sufficient number of characters.</value>
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>The value{0} is invalid for AI {1}.</value>
     <comment>Error</comment>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Invalid application identifier {0}.</value>
     <comment>Error</comment>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
-    <value>The value{0} has an invalid checksum.</value>
+  <data name="GS1_Error_009" xml:space="preserve">
+    <value>The value{0} for {1} has an invalid check digit.</value>
     <comment>Error</comment>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>The value{0} does not match the specified pattern for the data element.</value>
     <comment>Error</comment>
   </data>
@@ -166,7 +166,7 @@
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_013" xml:space="preserve">
-    <value>The value{0} matches the pattern specified for {1} that is currently in development and not catalogued for general international use.</value>
+    <value>The value{0} matches the pattern specified for IBAN numbers for {1} that is currently in development and not catalogued for general international use.</value>
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_014" xml:space="preserve">
@@ -181,8 +181,20 @@
     <value>The value{0} does not match the pattern specified for North American positive offer file coupons.</value>
     <comment>Error</comment>
   </data>
-  <data name="GS1_Warning_001" xml:space="preserve">
+  <data name="GS1_Error_201" xml:space="preserve">
+    <value>Invalid data relationship found between AI {0} and AI {1}.</value>
+    <comment>Error</comment>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>Mandatory data relationship not found between AI {0} and AI {1}.</value>
+    <comment>Error</comment>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
     <value>The value{0} is not a recognised UN/ECE or GS1 package type code.</value>
     <comment>Warning</comment>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>Invalid application identifier {0}.  AIs must be between two and four digits in length.</value>
+    <comment>Error</comment>
   </data>
 </root>

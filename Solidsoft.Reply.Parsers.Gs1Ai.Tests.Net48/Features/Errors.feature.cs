@@ -172,31 +172,34 @@ this.ScenarioInitialize(scenarioInfo);
  await testRunner.GivenAsync("a request to parse data", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 30
- await testRunner.WhenAsync("the AI of 01 is incorrectly terminated with an FNC and the value is 1234567890123" +
-                        "1", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.WhenAsync("the AI of 01 is incorrectly terminated with an FNC1 and the value is 123456789012" +
+                        "31", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 31
- await testRunner.ThenAsync("there should be errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync("the entity should be 01", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 32
-     await testRunner.AndAsync("the errors should include a non-fatal 2003 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+     await testRunner.AndAsync("there should be errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 33
+     await testRunner.AndAsync("the errors should include a non-fatal 2004 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Trigger a \'fixed-width entity does not contain sufficient number of characters\' e" +
-            "rror")]
+        [Xunit.SkippableFactAttribute(DisplayName="Trigger a \'predefined-length entity does not contain sufficient number of charact" +
+            "ers\' error")]
         [Xunit.TraitAttribute("FeatureTitle", "Errors")]
-        [Xunit.TraitAttribute("Description", "Trigger a \'fixed-width entity does not contain sufficient number of characters\' e" +
-            "rror")]
-        public async System.Threading.Tasks.Task TriggerAFixed_WidthEntityDoesNotContainSufficientNumberOfCharactersError()
+        [Xunit.TraitAttribute("Description", "Trigger a \'predefined-length entity does not contain sufficient number of charact" +
+            "ers\' error")]
+        public async System.Threading.Tasks.Task TriggerAPredefined_LengthEntityDoesNotContainSufficientNumberOfCharactersError()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Trigger a \'fixed-width entity does not contain sufficient number of characters\' e" +
-                    "rror", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 34
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Trigger a \'predefined-length entity does not contain sufficient number of charact" +
+                    "ers\' error", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 35
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -206,29 +209,57 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 35
+#line 36
  await testRunner.GivenAsync("the input is 011234567890123", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 36
- await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
 #line 37
- await testRunner.ThenAsync("there should be errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 38
-     await testRunner.AndAsync("the errors should include a non-fatal 2004 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.ThenAsync("the entity should be 01", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 39
+     await testRunner.AndAsync("there should be errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 40
+     await testRunner.AndAsync("the errors should include a fatal 2005 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Trigger a \'No entity value provided for AI\' error")]
+        [Xunit.TraitAttribute("FeatureTitle", "Errors")]
+        [Xunit.TraitAttribute("Description", "Trigger a \'No entity value provided for AI\' error")]
+        public async System.Threading.Tasks.Task TriggerANoEntityValueProvidedForAIError()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Trigger a \'No entity value provided for AI\' error", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 42
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 43
  await testRunner.GivenAsync("the input is 01", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 41
+#line 44
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 42
- await testRunner.ThenAsync("there should be errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line 45
+ await testRunner.ThenAsync("the entity should be 01", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 43
-     await testRunner.AndAsync("the errors should include a non-fatal 2004 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 46
+     await testRunner.AndAsync("there should be errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 47
+     await testRunner.AndAsync("the errors should include a fatal 2007 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
@@ -242,7 +273,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Trigger an \'invalid application identifier {0}\' error", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 45
+#line 49
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -252,31 +283,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 46
+#line 50
  await testRunner.GivenAsync("the input is 38SomeValue", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 47
+#line 51
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 48
+#line 52
  await testRunner.ThenAsync("there should be errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 49
+#line 53
      await testRunner.AndAsync("the errors should include a fatal 2002 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Trigger a \'the GTIN value{0} has an invalid checksum\' error")]
+        [Xunit.SkippableFactAttribute(DisplayName="Trigger a \'the GTIN value{0} has an invalid check digit\' error")]
         [Xunit.TraitAttribute("FeatureTitle", "Errors")]
-        [Xunit.TraitAttribute("Description", "Trigger a \'the GTIN value{0} has an invalid checksum\' error")]
-        public async System.Threading.Tasks.Task TriggerATheGTINValue0HasAnInvalidChecksumError()
+        [Xunit.TraitAttribute("Description", "Trigger a \'the GTIN value{0} has an invalid check digit\' error")]
+        public async System.Threading.Tasks.Task TriggerATheGTINValue0HasAnInvalidCheckDigitError()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Trigger a \'the GTIN value{0} has an invalid checksum\' error", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 51
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Trigger a \'the GTIN value{0} has an invalid check digit\' error", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 55
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -286,65 +317,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 52
+#line 56
  await testRunner.GivenAsync("the input is 0112345678901233", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 53
+#line 57
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 54
- await testRunner.ThenAsync("there should be errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-#line 55
-     await testRunner.AndAsync("the errors should include a non-fatal 2008 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="2 Trigger a \'the GTIN value{0} has an invalid checksum\' error")]
-        [Xunit.TraitAttribute("FeatureTitle", "Errors")]
-        [Xunit.TraitAttribute("Description", "2 Trigger a \'the GTIN value{0} has an invalid checksum\' error")]
-        public async System.Threading.Tasks.Task _2TriggerATheGTINValue0HasAnInvalidChecksumError()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("2 Trigger a \'the GTIN value{0} has an invalid checksum\' error", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 57
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
 #line 58
- await testRunner.GivenAsync("the input is 2531234567890123", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.ThenAsync("the entity should be 01", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 59
-  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+     await testRunner.AndAsync("there should be errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 60
-  await testRunner.ThenAsync("there should be errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-#line 61
-   await testRunner.AndAsync("the errors should include a non-fatal 2009 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+     await testRunner.AndAsync("the errors should include a fatal 2009 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="3 Trigger a \'the GTIN value{0} has an invalid checksum\' error")]
+        [Xunit.SkippableFactAttribute(DisplayName="2 Trigger a \'the GTIN value{0} has an invalid check digit\' error")]
         [Xunit.TraitAttribute("FeatureTitle", "Errors")]
-        [Xunit.TraitAttribute("Description", "3 Trigger a \'the GTIN value{0} has an invalid checksum\' error")]
-        public async System.Threading.Tasks.Task _3TriggerATheGTINValue0HasAnInvalidChecksumError()
+        [Xunit.TraitAttribute("Description", "2 Trigger a \'the GTIN value{0} has an invalid check digit\' error")]
+        public async System.Threading.Tasks.Task _2TriggerATheGTINValue0HasAnInvalidCheckDigitError()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("3 Trigger a \'the GTIN value{0} has an invalid checksum\' error", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 63
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("2 Trigger a \'the GTIN value{0} has an invalid check digit\' error", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 62
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -354,17 +354,57 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
+#line 63
+ await testRunner.GivenAsync("the input is 2531234567890123", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
 #line 64
- await testRunner.GivenAsync("the input is 800301234567890123", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 65
-  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.ThenAsync("the entity should be 253", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 66
-  await testRunner.ThenAsync("there should be errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+  await testRunner.AndAsync("there should be errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 67
-   await testRunner.AndAsync("the errors should include a non-fatal 2010 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+  await testRunner.AndAsync("the errors should include a fatal 2009 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="3 Trigger a \'the GTIN value{0} has an invalid check digit\' error")]
+        [Xunit.TraitAttribute("FeatureTitle", "Errors")]
+        [Xunit.TraitAttribute("Description", "3 Trigger a \'the GTIN value{0} has an invalid check digit\' error")]
+        public async System.Threading.Tasks.Task _3TriggerATheGTINValue0HasAnInvalidCheckDigitError()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("3 Trigger a \'the GTIN value{0} has an invalid check digit\' error", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 69
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 70
+ await testRunner.GivenAsync("the input is 800301234567890123", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 71
+ await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 72
+ await testRunner.ThenAsync("the entity should be 8003", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 73
+  await testRunner.AndAsync("there should be errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 74
+  await testRunner.AndAsync("the errors should include a fatal 2009 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
@@ -381,7 +421,7 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Trigger a \'the value{0} does not match the specified pattern for the data element" +
                     "\' error", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 69
+#line 76
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -391,17 +431,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 70
+#line 77
  await testRunner.GivenAsync("the input is 01ABCDEFGHIJKLMN", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 71
+#line 78
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 72
- await testRunner.ThenAsync("there should be errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line 79
+ await testRunner.ThenAsync("the entity should be 01", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 73
-     await testRunner.AndAsync("the errors should include a non-fatal 2100 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 80
+  await testRunner.AndAsync("there should be errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 81
+  await testRunner.AndAsync("the errors should include a fatal 2100 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
@@ -418,7 +461,7 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Trigger a \'the implied decimal point position (inverse exponent) is specified inc" +
                     "orrectly\' error", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 75
+#line 83
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -428,20 +471,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 76
+#line 84
  await testRunner.GivenAsync("the input is 310A234567", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 77
+#line 85
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 78
+#line 86
  await testRunner.ThenAsync("the entity should be 310", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 79
+#line 87
      await testRunner.AndAsync("there should be errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 80
-     await testRunner.AndAsync("the errors should include a non-fatal 2011 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 88
+     await testRunner.AndAsync("the errors should include a fatal 2010 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

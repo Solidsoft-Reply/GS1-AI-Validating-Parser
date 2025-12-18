@@ -223,7 +223,7 @@
     <value>Estonia</value>
   </data>
   <data name="Finland" xml:space="preserve">
-    <value>Finland     </value>
+    <value>Finland</value>
   </data>
   <data name="FranceAndMonaco" xml:space="preserve">
     <value>France and Monaco</value>
@@ -259,7 +259,7 @@
     <value>Hong Kong</value>
   </data>
   <data name="Hungary" xml:space="preserve">
-    <value>Hungary     </value>
+    <value>Hungary</value>
   </data>
   <data name="Iceland" xml:space="preserve">
     <value>Iceland</value>
@@ -502,7 +502,7 @@
     <value>UPC-A compatible - United States reserved for future use</value>
   </data>
   <data name="Uruguay" xml:space="preserve">
-    <value>Uruguay     </value>
+    <value>Uruguay</value>
   </data>
   <data name="Uzbekistan" xml:space="preserve">
     <value>Uzbekistan</value>

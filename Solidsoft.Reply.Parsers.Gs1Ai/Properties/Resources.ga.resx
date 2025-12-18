@@ -120,10 +120,10 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Níor soláthraíodh aon sonraí.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Tháinig deireadh le hamchúlú le haghaidh AI {0}.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
+  <data name="GS1_Error_007" xml:space="preserve">
     <value>Níor soláthraíodh luach eintiteas do AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
@@ -135,13 +135,13 @@
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Tá an luach{0} neamhbhailí do AI {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Aitheantóir iarratais neamhbhailí {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
+  <data name="GS1_Error_009" xml:space="preserve">
     <value>Tá seiceáilsum neamhbhailí ag an luach{0}.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Níl an luach{0} ag teacht leis an bpátrún sonraithe don eilimint sonraí.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,8 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Níl an luach{0} ag teacht leis an bpátrún sonraithe do chúpóin comhad tairisceana dearfach Mheiriceá Thuaidh.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Ní aitheantas cód cineáil pacáistithe UN/ECE ná GS1 é an luach{0}. </value>
   </data>
 </root>

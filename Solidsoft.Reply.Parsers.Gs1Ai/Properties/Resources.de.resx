@@ -120,10 +120,10 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Keine Daten angegeben.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Die Validierung für AI {0} ist abgelaufen.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
+  <data name="GS1_Error_007" xml:space="preserve">
     <value>Kein Entitätswert für AI {0} angegeben.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
@@ -135,13 +135,13 @@
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Der Wert{0} ist ungültig für AI {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Ungültiger Anwendungsidentifikator {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
+  <data name="GS1_Error_009" xml:space="preserve">
     <value>Der Wert{0} hat eine ungültige Prüfsumme.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Der Wert{0} entspricht nicht dem spezifizierten Muster für das Datenelement.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,8 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Der Wert{0} entspricht nicht dem für nordamerikanische Positive-Angebot-Datei-Coupons spezifizierten Muster.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Der Wert{0} ist kein anerkannter UN/ECE- oder GS1-Verpackungstypcode.</value>
   </data>
 </root>

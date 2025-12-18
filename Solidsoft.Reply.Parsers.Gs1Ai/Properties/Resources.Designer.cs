@@ -19,7 +19,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -70,7 +70,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Validation for AI {0} timed out..
+        ///   Looks up a localized string similar to Invalid application identifier {0}..
         /// </summary>
         internal static string GS1_Error_002 {
             get {
@@ -79,7 +79,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No entity value provided for AI {0}..
+        ///   Looks up a localized string similar to Invalid application identifier {0}.  AIs must be between two and four digits in length..
         /// </summary>
         internal static string GS1_Error_003 {
             get {
@@ -97,7 +97,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fixed-width entity does not contain sufficient number of characters..
+        ///   Looks up a localized string similar to A predefined-length entity does not contain a sufficient number of characters..
         /// </summary>
         internal static string GS1_Error_005 {
             get {
@@ -115,7 +115,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invalid application identifier {0}..
+        ///   Looks up a localized string similar to No entity value provided for AI {0}..
         /// </summary>
         internal static string GS1_Error_007 {
             get {
@@ -124,7 +124,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The value{0} has an invalid checksum..
+        ///   Looks up a localized string similar to Validation for AI {0} timed out..
         /// </summary>
         internal static string GS1_Error_008 {
             get {
@@ -133,7 +133,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The value{0} does not match the specified pattern for the data element..
+        ///   Looks up a localized string similar to The value{0} for {1} has an invalid check digit..
         /// </summary>
         internal static string GS1_Error_009 {
             get {
@@ -169,7 +169,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The value{0} matches the pattern specified for {1} that is currently in development and not catalogued for general international use..
+        ///   Looks up a localized string similar to The value{0} matches the pattern specified for IBAN numbers for {1} that is currently in development and not catalogued for general international use..
         /// </summary>
         internal static string GS1_Error_013 {
             get {
@@ -205,11 +205,38 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The value{0} does not match the specified pattern for the data element..
+        /// </summary>
+        internal static string GS1_Error_100 {
+            get {
+                return ResourceManager.GetString("GS1_Error_100", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid data relationship found between AI {0} and AI {1}..
+        /// </summary>
+        internal static string GS1_Error_201 {
+            get {
+                return ResourceManager.GetString("GS1_Error_201", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mandatory data relationship not found between AI {0} and AI {1}..
+        /// </summary>
+        internal static string GS1_Error_202 {
+            get {
+                return ResourceManager.GetString("GS1_Error_202", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The value{0} is not a recognised UN/ECE or GS1 package type code..
         /// </summary>
-        internal static string GS1_Warning_001 {
+        internal static string GS1_Warning_017 {
             get {
-                return ResourceManager.GetString("GS1_Warning_001", resourceCulture);
+                return ResourceManager.GetString("GS1_Warning_017", resourceCulture);
             }
         }
     }

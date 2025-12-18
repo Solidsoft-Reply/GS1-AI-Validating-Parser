@@ -120,10 +120,10 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Ma ngħatat l-ebda data.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Il-validazzjoni għal AI {0} ħadet żmien twil wisq.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
+  <data name="GS1_Error_007" xml:space="preserve">
     <value>Ma ngħatatx valur tal-entità għal AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
@@ -135,13 +135,13 @@
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Il-valur{0} huwa invalidu għal AI {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Identifikatur tal-applikazzjoni invalidu {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
+  <data name="GS1_Error_009" xml:space="preserve">
     <value>Il-valur{0} għandu checksum invalidu.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Il-valur{0} ma jaqbilx mal-mudell speċifikat għall-element tad-data.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,8 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Il-valur{0} ma jaqbilx mal-mudell speċifikat għal kupuni tal-offerta pożittiva Nord-Amerikana.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Il-valur{0} mhuwiex kodiċi rikonoxxut tat-tip ta’ pakkett UN/ECE jew GS1</value>
   </data>
 </root>

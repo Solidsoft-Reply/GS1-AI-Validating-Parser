@@ -71,14 +71,15 @@ internal
     /// <summary>
     ///     Validate data against the descriptor.
     /// </summary>
-    /// <param name="value">The GS1 identifier to be validated.</param>
+    /// <param name="resolvedEntity">The resolved entity to be validated.</param>
     /// <param name="validationErrors">A list of validation errors.</param>
     /// <returns>True, if valid.  Otherwise, false.</returns>
     // ReSharper disable once CommentTypo
     // ReSharper disable once InheritdocConsiderUsage
 #if NET7_0_OR_GREATER
-    public override bool IsValid(ReadOnlySpan<char> value, out IList<ParserException>? validationErrors) {
-        var result = base.IsValid(value, out validationErrors);
+    public override bool IsValid(ResolvedApplicationIdentifierRef resolvedEntity, out IList<ParserException>? validationErrors) {
+        var result = base.IsValid(resolvedEntity, out validationErrors);
+        var value = resolvedEntity.Value;
 
         if (value.IsNull() || value.IsEmpty) {
             return result;
@@ -90,13 +91,53 @@ internal
 
         value = value.TrimEnd('\0');
         validationErrors ??= [];
-        validationErrors.Add(AddException(value, 2016, Resources.GS1_Error_015));
+        validationErrors.Add(AddException(resolvedEntity.Identifier.TrimEnd('\0'), value, 2015, Resources.GS1_Error_015));
         return false;
 
-        ParserException AddException(ReadOnlySpan<char> value, int errorNumber, string message, string country = "") {
+        static ParserException AddException(ReadOnlySpan<char> identifier, ReadOnlySpan<char> value, int errorNumber, string message) {
             var valueString = value.Length > 0 ? " " + value.ToString() : string.Empty;
-            var offset = valueString.Length > 0 ? valueString.Trim().Length - 1 : 0;
+            var offset = valueString.Length > 0 ? identifier.Length + valueString.Length - 1 : 0;
             return new ParserException(
+                string.Empty,
+                errorNumber,
+                string.Format(CultureInfo.CurrentCulture, message, valueString),
+                false,
+                offset);
+        }
+    }
+#endif
+
+    /// <summary>
+    ///    Validate data against the descriptor.
+    /// </summary>
+    /// <param name="resolvedEntity">The resolved application identifier to validate. Must not be null.</param>
+    /// <param name="validationErrors">When the method returns <see langword="false"/>, contains a list of <see cref="ParserException"/> instances.</param>
+    /// <returns>True, if valid.  Otherwise, false.</returns>
+    public override bool IsValid(ResolvedApplicationIdentifier resolvedEntity, out IList<ParserException>? validationErrors) {
+        var result = base.IsValid(resolvedEntity, out validationErrors);
+        var value = resolvedEntity.Value;
+
+        if (string.IsNullOrEmpty(value)) {
+            return result;
+        }
+
+#if NET7_0_OR_GREATER
+        if (CouponCodeRegex().IsMatch(value)) {
+#else
+        if (CouponCodeRegex.IsMatch(value)) {
+#endif
+            return true;
+        }
+
+        validationErrors ??= [];
+        validationErrors.Add(AddException(resolvedEntity.Identifier, 2015, Resources.GS1_Error_015));
+        return false;
+
+        ParserException AddException(string identifier, int errorNumber, string message, string country = "") {
+            var valueString = value.Length > 0 ? " " + value : string.Empty;
+            var offset = valueString.Length > 0 ? identifier.Trim().Length + valueString.Trim().Length - 1 : 0;
+            return new ParserException(
+                string.Empty,
                 errorNumber,
                 string.Format(CultureInfo.CurrentCulture, message, valueString, country),
                 false,
@@ -104,6 +145,7 @@ internal
         }
     }
 
+#if NET7_0_OR_GREATER
     // ReSharper disable once InvalidXmlDocComment
     /// <summary>
     ///     A regular expression for North American coupon codes.
@@ -114,31 +156,5 @@ internal
         RegexOptions.None,
         "en-US")]
     private static partial Regex CouponCodeRegex();
-#else
-    public override bool IsValid(string value, out IList<ParserException>? validationErrors) {
-        var result = base.IsValid(value, out validationErrors);
-
-        if (string.IsNullOrEmpty(value)) {
-            return result;
-        }
-
-        if (CouponCodeRegex.IsMatch(value)) {
-            return true;
-        }
-
-        validationErrors ??= [];
-        validationErrors.Add(AddException(2016, Resources.GS1_Error_015));
-        return false;
-
-        ParserException AddException(int errorNumber, string message, string country = "") {
-            var valueString = value.Length > 0 ? " " + value : string.Empty;
-            var offset = valueString.Length > 0 ? valueString.Trim().Length - 1 : 0;
-            return new ParserException(
-                errorNumber,
-                string.Format(CultureInfo.CurrentCulture, message, valueString, country),
-                false,
-                offset);
-        }
-    }
 #endif
 }

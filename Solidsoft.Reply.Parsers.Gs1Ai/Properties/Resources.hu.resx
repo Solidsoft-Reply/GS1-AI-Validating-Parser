@@ -120,10 +120,10 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Nem szolgáltatott adat.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Az AI {0} validálása lejárt.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
+  <data name="GS1_Error_007" xml:space="preserve">
     <value>Nincs entitásérték megadva az AI {0} számára.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
@@ -135,13 +135,13 @@
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Az érték{0} érvénytelen az AI {1} számára.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Érvénytelen alkalmazásazonosító {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
+  <data name="GS1_Error_009" xml:space="preserve">
     <value>Az érték{0} érvénytelen ellenőrzőösszeggel rendelkezik.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Az érték{0} nem felel meg az adatelemre meghatározott mintának.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,8 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Az érték{0} nem felel meg az Észak-Amerikai pozitív ajánlati fájlkuponokra meghatározott mintának.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Az érték{0} nem elismert UN/ECE vagy GS1 csomagolástípus-kód.</value>
   </data>
 </root>

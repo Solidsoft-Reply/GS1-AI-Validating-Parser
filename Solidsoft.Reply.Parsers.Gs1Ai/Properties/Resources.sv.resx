@@ -120,10 +120,10 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Inga data tillhandahållna.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Validering för AI {0} överskred tidsgränsen.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
+  <data name="GS1_Error_007" xml:space="preserve">
     <value>Inget entitetsvärde tillhandahållet för AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
@@ -135,13 +135,13 @@
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Värdet{0} är ogiltigt för AI {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Ogiltig applikationsidentifierare {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
+  <data name="GS1_Error_009" xml:space="preserve">
     <value>Värdet{0} har en ogiltig kontrollsumma.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Värdet{0} matchar inte det specificerade mönstret för dataelementet.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,8 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Värdet{0} matchar inte det specificerade mönstret för nordamerikanska positiva erbjudandefil-kuponger.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Värdet{0} är inte en erkänd UN/ECE- eller GS1-förpackningstypkod.</value>
   </data>
 </root>

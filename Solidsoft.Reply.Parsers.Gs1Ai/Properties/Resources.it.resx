@@ -120,10 +120,10 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Nessun dato fornito.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>La validazione per l'AI {0} è scaduta.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
+  <data name="GS1_Error_007" xml:space="preserve">
     <value>Nessun valore di entità fornito per l'AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
@@ -135,13 +135,13 @@
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Il valore {0} non è valido per l'AI {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Identificatore di applicazione non valido {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
+  <data name="GS1_Error_009" xml:space="preserve">
     <value>Il valore {0} ha un checksum non valido.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Il valore {0} non corrisponde al modello specificato per l'elemento di dati.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,8 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Il valore {0} non corrisponde al modello specificato per i coupon dell'offerta positiva nordamericana.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Il valore{0} non è un codice di tipo di imballaggio riconosciuto da UN/ECE o GS1.</value>
   </data>
 </root>

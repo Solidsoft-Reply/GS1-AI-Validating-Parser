@@ -408,6 +408,11 @@ internal static class EntityResolver {
     private static readonly Regex FourteenDigitRollProductValueRegex = new (@"^\d{12}[019]\d$", RegexOptions.None);
 
     /// <summary>
+    ///     Returns a regular expression for matching 15-digit values.
+    /// </summary>
+    private static readonly Regex FifteenDigitValueRegex = new (@"^\d{15}$", RegexOptions.None);
+
+    /// <summary>
     ///     Returns a regular expression for matching 17-digit values.
     /// </summary>
     private static readonly Regex SeventeenDigitValueRegex = new (@"^\d{17}$", RegexOptions.None);
@@ -418,6 +423,16 @@ internal static class EntityResolver {
     private static readonly Regex EighteenDigitValueRegex = new (@"^\d{18}$", RegexOptions.None);
 
     /// <summary>
+    ///     Returns a regular expression for matching Physical SIM values.
+    /// </summary>
+    private static readonly Regex PhysicalSimRegex = new (@"^\d{18}\d{0,2}$", RegexOptions.None);
+
+    /// <summary>
+    ///     Returns a regular expression for matching 32-digit values.
+    /// </summary>
+    private static readonly Regex ThirtyTwoDigitValueRegex = new (@"^\d{32}$", RegexOptions.None);
+
+   /// <summary>
     ///     Returns a regular expression for matching up to 4-digit values.
     /// </summary>
     private static readonly Regex MaxFourDigitValueRegex = new (@"^\d{1,4}$", RegexOptions.None);
@@ -1296,7 +1311,7 @@ internal static class EntityResolver {
             {
                 356,
                 new EntityDescriptors(
-                    "NET WEIGHT (t)",
+                    "NET WEIGHT (tr oz)",
                     Gs1ApplicationIdentifier.ai356n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
@@ -1320,7 +1335,7 @@ internal static class EntityResolver {
             {
                 360,
                 new EntityDescriptors(
-                    "NET VOLUME (q)",
+                    "NET VOLUME (qt (US))",
                     Gs1ApplicationIdentifier.ai360n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
@@ -1332,7 +1347,7 @@ internal static class EntityResolver {
             {
                 361,
                 new EntityDescriptors(
-                    "NET VOLUME (g)",
+                    "NET VOLUME (gal (US))",
                     Gs1ApplicationIdentifier.ai361n,
 #if NET7_0_OR_GREATER
                     SixDigitTradeMeasureRegex(),
@@ -1344,7 +1359,7 @@ internal static class EntityResolver {
             {
                 362,
                 new EntityDescriptors(
-                    "VOLUME (q), log",
+                    "VOLUME (qt (US)), log",
                     Gs1ApplicationIdentifier.ai362n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
@@ -1356,7 +1371,7 @@ internal static class EntityResolver {
             {
                 363,
                 new EntityDescriptors(
-                    "VOLUME (g), log",
+                    "VOLUME (gal (US)), log",
                     Gs1ApplicationIdentifier.ai363n,
 #if NET7_0_OR_GREATER
                     SixDigitLogisticsMeasureRegex(),
@@ -2524,6 +2539,18 @@ internal static class EntityResolver {
                     false)
             },
             {
+                717,
+                new EntityDescriptors(
+                    "NHRN SRN",
+                    Gs1ApplicationIdentifier.ai717,
+#if NET7_0_OR_GREATER
+                    CharacterSet8220CharsRegex(),
+#else
+                    CharacterSet8220CharsRegex,
+#endif
+                    false)
+            },
+            {
                 723,
                 new EntityDescriptors(
                     "CERT # s",
@@ -3039,6 +3066,54 @@ internal static class EntityResolver {
                     false)
             },
             {
+                8040,
+                new EntityDescriptors(
+                    "IMEI",
+                    Gs1ApplicationIdentifier.ai8040,
+#if NET7_0_OR_GREATER
+                    FifteenDigitValueRegex(),
+#else
+                    FifteenDigitValueRegex,
+#endif
+                    false)
+            },
+            {
+                8041,
+                new EntityDescriptors(
+                    "IMEI2",
+                    Gs1ApplicationIdentifier.ai8041,
+#if NET7_0_OR_GREATER
+                    FifteenDigitValueRegex(),
+#else
+                    FifteenDigitValueRegex,
+#endif
+                    false)
+            },
+            {
+                8042,
+                new EntityDescriptors(
+                    "ESIM",
+                    Gs1ApplicationIdentifier.ai8042,
+#if NET7_0_OR_GREATER
+                    ThirtyTwoDigitValueRegex(),
+#else
+                    ThirtyTwoDigitValueRegex,
+#endif
+                    false)
+            },
+            {
+                8043,
+                new EntityDescriptors(
+                    "PSIM",
+                    Gs1ApplicationIdentifier.ai8043,
+#if NET7_0_OR_GREATER
+                    PhysicalSimRegex(),
+#else
+                    PhysicalSimRegex,
+#endif
+                    false)
+            },
+            {
                 8110,
                 new CouponCodeDescriptor(
                     "-",
@@ -3283,9 +3358,11 @@ internal static class EntityResolver {
             aiRef.CharacterPosition = currentPosition;
             return new ResolvedApplicationIdentifierRef(
                 new ParserException(
+                    string.Empty,
                     2002,
-                    string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_007, firstTwoDigits.ToString()),
-                    true),
+                    string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_002, firstTwoDigits.ToString()),
+                    true,
+                    currentPosition + 1),
                 currentPosition,
                 aiRef);
         }
@@ -3316,7 +3393,8 @@ internal static class EntityResolver {
     }
 #endif
 
-//#if NET6_0_OR_GREATER
+// #if NET6_0_OR_GREATER
+
     /// <summary>
     ///     Resolve a first two digits of the application identifier into an entity.
     /// </summary>
@@ -3403,9 +3481,11 @@ internal static class EntityResolver {
         if (entity == ApplicationIdentifier.Unrecognised) {
             return new ResolvedApplicationIdentifier(
                 new ParserException(
+                    string.Empty,
                     2002,
-                    string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_007, firstTwoDigits.ToString()),
-                    true),
+                    string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_002, firstTwoDigits.ToString()),
+                    true,
+                    currentPosition + 1),
                 currentPosition,
                 new ResolvedApplicationIdentifier(
                     -1,
@@ -3515,8 +3595,8 @@ internal static class EntityResolver {
 
                 break;
             case "71":
-                // 0..6
-                entity = data.IsNumberInRange(2, 1, 0, 6)
+                // 0..7
+                entity = data.IsNumberInRange(2, 1, 0, 7)
                              ? data.GetEntity3()
                              : ApplicationIdentifier.Unrecognised;
                 if (entity == ApplicationIdentifier.Unrecognised) {
@@ -3663,11 +3743,12 @@ internal static class EntityResolver {
 
                 break;
             case "80":
-                // 01..09, 10..14, 17..20, 26, 30
+                // 01..09, 10..14, 17..20, 26, 30, 40..43
                 entity = data.IsNumberInRange(2, 2, 1, 9) || data.IsNumberInRange(2, 2, 10, 14)
                                                           || data.IsNumberInRange(2, 2, 17, 20)
                                                           || data.IsNumberEqual(2, 2, 26)
                                                           || data.IsNumberEqual(2, 2, 30)
+                                                          || data.IsNumberInRange(2, 2, 40, 43)
                              ? data.GetEntity4()
                              : ApplicationIdentifier.Unrecognised;
                 if (entity == ApplicationIdentifier.Unrecognised) {
@@ -3711,8 +3792,8 @@ internal static class EntityResolver {
                 break;
         }
 
-        // value is sized appropraietly for GS1 elemnts, but it is possible for malformed data to be 
-        // longer, so in this case we 
+        // value is sized appropraietly for GS1 elemnts, but it is possible for malformed data to be
+        // longer, so in this case we trim the extracted value to fit.
         var extractdValueLength = extractedValue.Length;
         if (extractdValueLength > value.Length) {
             extractedValue.Slice(0, value.Length).TrimEnd('\0').CopyTo(value);
@@ -4038,6 +4119,13 @@ internal static class EntityResolver {
     private static partial Regex FourteenDigitRollProductValueRegex();
 
     /// <summary>
+    ///     Returns a regular expression for matching 15-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex(@"^\d{15}$", RegexOptions.None, "en-US")]
+    private static partial Regex FifteenDigitValueRegex();
+
+    /// <summary>
     ///     Returns a regular expression for matching 17-digit values.
     /// </summary>
     /// <returns>A regular expression.</returns>
@@ -4050,6 +4138,20 @@ internal static class EntityResolver {
     /// <returns>A regular expression.</returns>
     [GeneratedRegex(@"^\d{18}$", RegexOptions.None, "en-US")]
     private static partial Regex EighteenDigitValueRegex();
+
+    /// <summary>
+    ///     Returns a regular expression for matching Physical SIM values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex(@"^\d{18}\d{0,2}$", RegexOptions.None, "en-US")]
+    private static partial Regex PhysicalSimRegex();
+
+    /// <summary>
+    ///     Returns a regular expression for matching 32-digit values.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex(@"^\d{32}$", RegexOptions.None, "en-US")]
+    private static partial Regex ThirtyTwoDigitValueRegex();
 
     /// <summary>
     ///     Returns a regular expression for matching up to 4-digit values.
@@ -4312,7 +4414,7 @@ internal static class EntityResolver {
         return data.Length >= startIndex + length
             && int.TryParse(
 #if NET6_0_OR_GREATER
-                data[startIndex..(length + startIndex)],
+                data[startIndex.. (length + startIndex)],
 #else
                 data.Slice(startIndex, length).ToString(),
 #endif
@@ -4392,11 +4494,13 @@ internal static class EntityResolver {
         if (value.TryFormat(buffer, out int charsWritten, format, CultureInfo.InvariantCulture)) {
             var startIndex = 4 - charsWritten;
 
-            for (var idx = 0; idx < startIndex; idx++)
+            for (var idx = 0; idx < startIndex; idx++) {
                 span4[idx] = '0';
+            }
 
-            for (var idx = startIndex; idx < 4; idx++)
+            for (var idx = startIndex; idx < 4; idx++) {
                 span4[idx] = buffer[idx - startIndex];
+            }
 
             return span4[startIndex..];
         }
@@ -4407,11 +4511,13 @@ internal static class EntityResolver {
 
             var startIndex = 4 - charsWritten;
 
-            for (var idx = 0; idx < startIndex; idx++)
+            for (var idx = 0; idx < startIndex; idx++) {
                 span4[idx] = '0';
+            }
 
-            for (var idx = startIndex; idx < 4; idx++)
+            for (var idx = startIndex; idx < 4; idx++) {
                 span4[idx] = formattedString[idx - startIndex];
+            }
 
             return span4.Slice(startIndex);
         }
@@ -4447,18 +4553,20 @@ internal static class EntityResolver {
         try {
             var identifier =
                 Descriptors[resolvedEntity.Entity].IsValid(
-                    resolvedEntity.Value,
+                    resolvedEntity,
                     out var validationErrors)
                     ? resolvedEntity
                     : new ResolvedApplicationIdentifier(
                         new ParserException(
-                            2005,
+                            resolvedEntity.Identifier.Trim(),
+                            2006,
                             string.Format(
                                 CultureInfo.CurrentCulture,
                                 Resources.GS1_Error_006,
                                 resolvedEntity.Value.Length > 0 ? " " + resolvedEntity.Value : string.Empty,
                                 resolvedEntity.Identifier.Trim()),
-                            true),
+                            true,
+                            resolvedEntity.Identifier.Length + resolvedEntity.Value.Length - 1),
                         resolvedEntity.CharacterPosition,
                         resolvedEntity);
 
@@ -4466,7 +4574,12 @@ internal static class EntityResolver {
             if (validationErrors == null || validationErrors.Count == 0) return identifier;
 
             foreach (var gs1ParserException in validationErrors) {
-                identifier.AddException(gs1ParserException);
+                identifier.AddException(new ParserException(
+                    resolvedEntity.Identifier,
+                    gs1ParserException.ErrorNumber,
+                    gs1ParserException.Message,
+                    gs1ParserException.IsFatal,
+                    resolvedEntity.Identifier.Length + resolvedEntity.Value.Length - 1));
             }
 
             return identifier;
@@ -4474,22 +4587,25 @@ internal static class EntityResolver {
         catch (ArgumentNullException) {
             return new ResolvedApplicationIdentifier(
                 new ParserException(
-                    2006,
+                    resolvedEntity.Identifier.Trim(),
+                    2007,
                     string.Format(
                         CultureInfo.CurrentCulture,
-                        Resources.GS1_Error_003,
+                        Resources.GS1_Error_007,
                         resolvedEntity.Identifier.Trim()),
-                    true),
+                    true,
+                    resolvedEntity.Identifier.Length - 1),
                 resolvedEntity.CharacterPosition,
                 resolvedEntity);
         }
         catch (RegexMatchTimeoutException) {
             return new ResolvedApplicationIdentifier(
                 new ParserException(
-                    2007,
+                    resolvedEntity.Identifier.Trim(),
+                    2008,
                     string.Format(
                         CultureInfo.CurrentCulture,
-                        Resources.GS1_Error_002,
+                        Resources.GS1_Error_008,
                         resolvedEntity.Identifier.Trim()),
                     true),
                 resolvedEntity.CharacterPosition,
@@ -4507,18 +4623,20 @@ internal static class EntityResolver {
         try {
             var identifier =
                 Descriptors[resolvedEntity.Entity].IsValid(
-                    resolvedEntity.Value,
+                    resolvedEntity,
                     out var validationErrors)
                     ? resolvedEntity
                     : new ResolvedApplicationIdentifierRef(
                         new ParserException(
-                            2005,
+                            resolvedEntity.Identifier.ToString().Trim(),
+                            2006,
                             string.Format(
                                 CultureInfo.CurrentCulture,
                                 Resources.GS1_Error_006,
                                 resolvedEntity.Value.Length > 0 ? " " + resolvedEntity.Value.ToString() : string.Empty,
                                 resolvedEntity.Identifier.ToString().Trim()),
-                            true),
+                            true,
+                            resolvedEntity.Identifier.Length + resolvedEntity.Value.Length - 1),
                         resolvedEntity.CharacterPosition,
                         resolvedEntity);
 
@@ -4526,9 +4644,12 @@ internal static class EntityResolver {
             if (validationErrors == null || validationErrors.Count == 0) return identifier;
 
             foreach (var gs1ParserException in validationErrors) {
-                System.Diagnostics.Trace.WriteLine(gs1ParserException.Message);
-                System.Console.WriteLine(gs1ParserException.Message);
-                identifier.AddException(gs1ParserException);
+                identifier.AddException(new ParserException(
+                    resolvedEntity.Identifier.ToString().Trim(),
+                    gs1ParserException.ErrorNumber,
+                    gs1ParserException.Message,
+                    gs1ParserException.IsFatal,
+                    resolvedEntity.Identifier.Length + resolvedEntity.Value.Length - 1));
             }
 
             return identifier;
@@ -4536,24 +4657,28 @@ internal static class EntityResolver {
         catch (ArgumentNullException) {
             return new ResolvedApplicationIdentifierRef(
                 new ParserException(
-                    2006,
+                    resolvedEntity.Identifier.ToString().Trim(),
+                    2007,
                     string.Format(
                         CultureInfo.CurrentCulture,
-                        Resources.GS1_Error_003,
+                        Resources.GS1_Error_007,
                         resolvedEntity.Identifier.ToString().Trim()),
-                    true),
+                    true,
+                    resolvedEntity.Identifier.Length - 1),
                 resolvedEntity.CharacterPosition,
                 resolvedEntity);
         }
         catch (RegexMatchTimeoutException) {
             return new ResolvedApplicationIdentifierRef(
                 new ParserException(
-                    2007,
+                    resolvedEntity.Identifier.ToString().Trim(),
+                    2008,
                     string.Format(
                         CultureInfo.CurrentCulture,
-                        Resources.GS1_Error_002,
+                        Resources.GS1_Error_008,
                         resolvedEntity.Identifier.ToString().Trim()),
-                    true),
+                    true,
+                    resolvedEntity.CharacterPosition),
                 resolvedEntity.CharacterPosition,
                 resolvedEntity);
         }

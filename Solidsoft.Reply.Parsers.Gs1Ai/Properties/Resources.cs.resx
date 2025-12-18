@@ -120,10 +120,10 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Nebyla poskytnuta žádná data.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Validace pro AI {0} vypršela.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
+  <data name="GS1_Error_007" xml:space="preserve">
     <value>Nebyla poskytnuta hodnota entity pro AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
@@ -135,13 +135,13 @@
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Hodnota{0} je neplatná pro AI {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Neplatný identifikátor aplikace {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
+  <data name="GS1_Error_009" xml:space="preserve">
     <value>Hodnota{0} má neplatný kontrolní součet.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Hodnota{0} neodpovídá specifikovanému vzoru pro datový prvek.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,8 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Hodnota{0} neodpovídá vzoru specifikovanému pro severoamerické kupóny s pozitivní nabídkovou souborovou.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Hodnota{0} není rozpoznaným kódem typu balení UN/ECE nebo GS1.</value>
   </data>
 </root>

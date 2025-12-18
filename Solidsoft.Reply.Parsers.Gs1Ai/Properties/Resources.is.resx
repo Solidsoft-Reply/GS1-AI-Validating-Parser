@@ -120,10 +120,10 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Engin gögn veitt.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Staðfesting fyrir AI {0} rann út á tíma.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
+  <data name="GS1_Error_007" xml:space="preserve">
     <value>Engin einingagildi veitt fyrir AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
@@ -135,13 +135,13 @@
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Gildið{0} er ógilt fyrir AI {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Ógilt umsóknar auðkenni {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
+  <data name="GS1_Error_009" xml:space="preserve">
     <value>Gildið{0} hefur ógilda athugunarsummu.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Gildið{0} passar ekki við tilgreint mynstur fyrir gagnaþátt.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,8 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Gildið{0} passar ekki við tilgreint mynstur fyrir norður-amerísk jákvæð tilboðsskrá kupóna.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Gildið{0} er ekki viðurkenndur UN/ECE- eða GS1-umbúðakóði.</value>
   </data>
 </root>

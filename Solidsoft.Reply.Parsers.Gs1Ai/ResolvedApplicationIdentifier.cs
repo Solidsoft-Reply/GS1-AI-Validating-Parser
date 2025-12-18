@@ -25,6 +25,7 @@ using Common;
 using Properties;
 
 using System.Collections.Generic;
+using System.Globalization;
 
 /// <summary>
 ///     Represents a resolved GS1 application identifier and its associated data.
@@ -61,7 +62,7 @@ public record ResolvedApplicationIdentifier : IResolvedEntity {
     ///     The description of the application identifier.
     /// </param>
     /// <param name="currentPosition">
-    ///     The position of the application identifier for the current field.
+    ///     The position of the application identifier within the data.
     /// </param>
     public ResolvedApplicationIdentifier(
         int entity,
@@ -85,7 +86,7 @@ public record ResolvedApplicationIdentifier : IResolvedEntity {
                currentPosition);
 
         if (inverseExponent < 0) {
-            AddException(new ParserException(2011, Resources.GS1_Error_010, false));
+            AddException(new ParserException(identifier, 2010, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_010, identifier, 4), true));
         }
     }
 
@@ -125,7 +126,7 @@ public record ResolvedApplicationIdentifier : IResolvedEntity {
         int currentPosition,
         ResolvedApplicationIdentifier ai) {
         (Entity, Identifier, Value, IsFixedWidth, DataTitle, Description, CharacterPosition)
-            = (-1,
+            = (ai.Entity,
                ai.Identifier,
                ai.Value,
                ai.IsFixedWidth,
@@ -137,7 +138,12 @@ public record ResolvedApplicationIdentifier : IResolvedEntity {
             AddException(e);
         }
 
-        AddException(exception);
+        AddException(new ParserException(
+            ai.Identifier,
+            exception.ErrorNumber,
+            exception.Message,
+            exception.IsFatal,
+            exception.Offset));
     }
 
     /// <summary>

@@ -838,14 +838,14 @@ Scenario: Parse AREA (y²), log
 		And there should be no errors
 
 @N4+N6
-Scenario: Parse NET WEIGHT (t)
+Scenario: Parse NET WEIGHT (tr oz)
 	Given the input is 3562123456
 	When the input to submitted to the parser
 	Then the entity should be 356
 	    And the AI should be 3562
 		And the inverse exponent should be 2
 		And the value should be 123456
-		And the data value should be NET WEIGHT (t)
+		And the data value should be NET WEIGHT (tr oz)
 		And the description should be Net weight, troy ounces (variable measure trade item)
 		And the length of the value should be fixed
 		And there should be no errors
@@ -864,53 +864,53 @@ Scenario: Parse NET VOLUME (oz)
 		And there should be no errors
 
 @N4+N6
-Scenario: Parse NET VOLUME (q)
+Scenario: Parse NET VOLUME (qt (US))
 	Given the input is 3602123456
 	When the input to submitted to the parser
 	Then the entity should be 360
 	    And the AI should be 3602
 		And the inverse exponent should be 2
 		And the value should be 123456
-		And the data value should be NET VOLUME (q)
+		And the data value should be NET VOLUME (qt (US))
 		And the description should be Net volume, quarts (variable measure trade item)
 		And the length of the value should be fixed
 		And there should be no errors
 
 @N4+N6
-Scenario: Parse NET VOLUME (g)
+Scenario: Parse NET VOLUME (gal (US))
 	Given the input is 3612123456
 	When the input to submitted to the parser
 	Then the entity should be 361
 	    And the AI should be 3612
 		And the inverse exponent should be 2
 		And the value should be 123456
-		And the data value should be NET VOLUME (g)
+		And the data value should be NET VOLUME (gal (US))
 		And the description should be Net volume, gallons U.S. (variable measure trade item)
 		And the length of the value should be fixed
 		And there should be no errors
 
 @N4+N6
-Scenario: Parse VOLUME (q), log
+Scenario: Parse VOLUME (qt (US)), log
 	Given the input is 3622123456
 	When the input to submitted to the parser
 	Then the entity should be 362
 	    And the AI should be 3622
 		And the inverse exponent should be 2
 		And the value should be 123456
-		And the data value should be VOLUME (q), log
+		And the data value should be VOLUME (qt (US)), log
 		And the description should be Logistic volume, quarts
 		And the length of the value should be fixed
 		And there should be no errors
 
 @N4+N6
-Scenario: Parse VOLUME (g), log
+Scenario: Parse VOLUME (gal (US)), log
 	Given the input is 3632123456
 	When the input to submitted to the parser
 	Then the entity should be 363
 	    And the AI should be 3632
 		And the inverse exponent should be 2
 		And the value should be 123456
-		And the data value should be VOLUME (g), log
+		And the data value should be VOLUME (gal (US)), log
 		And the description should be Logistic volume, gallons U.S.
 		And the length of the value should be fixed
 		And there should be no errors
@@ -2044,6 +2044,18 @@ Scenario: Parse NHRN AIC
 		And the length of the value should be variable
 		And there should be no errors
 
+@N3+X..20
+Scenario: Parse NHRN SRN
+	Given the input is 717052-20220012345
+	When the input to submitted to the parser
+	Then the entity should be 717
+	    And the AI should be 717
+		And the value should be 052-20220012345
+		And the data value should be NHRN SRN
+		And the description should be National Healthcare Reimbursement Number (NHRN) – Costa Rica Sanitary Register Number
+		And the length of the value should be variable
+		And there should be no errors
+
 @N4+X2+X..28
 Scenario: Parse CERT # s
 	Given the input is 7230EMBABT-MED00108
@@ -2450,6 +2462,54 @@ Scenario: Parse DIGSIG
 		And the value should be 41703319222174341186086981525711229423385405386071942069864323665892369845781264435120798=
 		And the data value should be DIGSIG
 		And the description should be Digital Signature (DigSig)
+		And the length of the value should be variable
+		And there should be no errors
+
+@N4+N15
+Scenario: Parse IMEI
+	Given the input is 8040490154203237518
+	When the input to submitted to the parser
+	Then the entity should be 8040
+	    And the AI should be 8040
+		And the value should be 490154203237518
+		And the data value should be IMEI
+		And the description should be International Mobile Equipment Identity (IMEI)
+		And the length of the value should be variable
+		And there should be no errors
+
+@N4+N15
+Scenario: Parse IMEI2
+	Given the input is 8041356938035643809
+	When the input to submitted to the parser
+	Then the entity should be 8041
+	    And the AI should be 8041
+		And the value should be 356938035643809
+		And the data value should be IMEI2
+		And the description should be International Mobile Equipment Identity 2 (IMEI2)
+		And the length of the value should be variable
+		And there should be no errors
+
+@N4+N32
+Scenario: Parse ESIM
+	Given the input is 804289033023456789012345678901234567
+	When the input to submitted to the parser
+	Then the entity should be 8042
+	    And the AI should be 8042
+		And the value should be 89033023456789012345678901234567
+		And the data value should be ESIM
+		And the description should be Embedded SIM
+		And the length of the value should be variable
+		And there should be no errors
+
+@N4+N18+[N1..N2]
+Scenario: Parse PSIM
+	Given the input is 80438944500101234567890
+	When the input to submitted to the parser
+	Then the entity should be 8043
+	    And the AI should be 8043
+		And the value should be 8944500101234567890
+		And the data value should be PSIM
+		And the description should be Physical SIM
 		And the length of the value should be variable
 		And there should be no errors
 

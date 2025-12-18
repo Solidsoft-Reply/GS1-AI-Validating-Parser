@@ -975,6 +975,12 @@ public enum ApplicationIdentifier {
     /// <remarks>Format: N3+X..20 (FNC1)</remarks>
     NationalHealthcareReimbursementNumberItalyAic = 716,
 
+    /// <summary>
+    ///     National Healthcare Reimbursement Number (NHRN) – Costa Rica Sanitary Register Number (NHRN SRN).
+    /// </summary>
+    /// <remarks>Format: N3+X..20 (FNC1)</remarks>
+    NationalHealthcareReimbursementNumberCostaRicaSrn = 717,
+
     // ... (*****) National Healthcare Reimbursement Number (NHRN) – Country “A” NHRN N3+X..20 (FNC1) NHRN ResolveEntity
 
     /// <summary>
@@ -1167,6 +1173,36 @@ public enum ApplicationIdentifier {
     /// </summary>
     /// <remarks>Format: N4+N14+N2+N2 (FNC1)</remarks>
     IdentificationOfTradeItemPieces = 8026,
+
+    /// <summary>
+    ///     Digital Signature (DIGSIG).
+    /// </summary>
+    /// <remarks>Format: N4+Z..90 (FNC1)</remarks>
+    DigitalSignature = 8030,
+
+    /// <summary>
+    ///     International Mobile Equipment Identity (IMEI).
+    /// </summary>
+    /// <remarks>Format: N4+N15 (FNC1)</remarks>
+    InternationalMobileEquipmentIdentity = 8040,
+
+    /// <summary>
+    ///     International Mobile Equipment Identity 2 (IMEI2).
+    /// </summary>
+    /// <remarks>Format: N4+N15 (FNC1)</remarks>
+    InternationalMobileEquipmentIdentity2 = 8041,
+
+    /// <summary>
+    ///     Embedded SIM (ESIM).
+    /// </summary>
+    /// <remarks>Format: N4+N32 (FNC1)</remarks>
+    EmbeddedSim = 8042,
+
+    /// <summary>
+    ///     Physical SIM (PSIM).
+    /// </summary>
+    /// <remarks>Format: N4+N18+[N1..N2] (FNC1)</remarks>
+    PhysicalSim = 8043,
 
     /// <summary>
     ///     Coupon code identification for use in North America (-).
