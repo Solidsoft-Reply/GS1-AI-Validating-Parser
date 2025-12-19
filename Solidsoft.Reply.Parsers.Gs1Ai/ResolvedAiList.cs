@@ -17,10 +17,8 @@
 // Thread-safe per-thread list for collecting AI identifiers and values during Parse operations.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
-namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
-using System.Collections.Generic;
-using System;
+namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
 /// <summary>
 /// Provides a per-thread static list of <see cref="ResolvedAiEntry"/> used when DataRelationshipTest is Yes.

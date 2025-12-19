@@ -20,12 +20,10 @@
 
 namespace Solidsoft.Reply.Parsers.Gs1Ai.Descriptors;
 
-using Common;
+using Solidsoft.Reply.Parsers.Common;
 
-using Properties;
+using Solidsoft.Reply.Parsers.Gs1Ai.Properties;
 
-using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Numerics;
 using System.Text;

@@ -18,13 +18,12 @@
 // Provides capability to test resolved AI entries collected during parsing against the rules.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+
 namespace Solidsoft.Reply.Parsers.Gs1Ai.Relationships;
 
 using Solidsoft.Reply.Parsers.Common;
-using Solidsoft.Reply.Parsers.Gs1Ai;
 using Solidsoft.Reply.Parsers.Gs1Ai.Properties;
 
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Text.RegularExpressions;

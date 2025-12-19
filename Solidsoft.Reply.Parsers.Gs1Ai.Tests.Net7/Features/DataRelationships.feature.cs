@@ -105,7 +105,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Tests.Net7.Features
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/DataRelationships.feature.ndjson", 4);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/DataRelationships.feature.ndjson", 42);
         }
         
         async global::System.Threading.Tasks.Task global::Xunit.IAsyncLifetime.InitializeAsync()
@@ -163,10 +163,10 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
  await testRunner.WhenAsync("the input to submitted to the parser and data relationship tests are required", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 9
- await testRunner.ThenAsync("we should detect entity 01", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync("we should detect AI 01", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 10
- await testRunner.AndAsync("we should detect entity 10", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.AndAsync("we should detect AI 10", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 11
  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
@@ -175,19 +175,61 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             await this.ScenarioCleanupAsync();
         }
         
-        [global::Xunit.SkippableFactAttribute(DisplayName="Detect invalid data relationships between two data elements")]
+        [global::Xunit.SkippableTheoryAttribute(DisplayName="Detect invalid data relationships")]
         [global::Xunit.TraitAttribute("FeatureTitle", "DataRelationships")]
-        [global::Xunit.TraitAttribute("Description", "Detect invalid data relationships between two data elements")]
-        public async global::System.Threading.Tasks.Task DetectInvalidDataRelationshipsBetweenTwoDataElements()
+        [global::Xunit.TraitAttribute("Description", "Detect invalid data relationships")]
+        [global::Xunit.InlineDataAttribute("01", "01", "0109506000134376013506091751986210ABC123[GS]17311231", "1", new string[0])]
+        [global::Xunit.InlineDataAttribute("01", "02", "0109506000134376023506091751986210ABC123[GS]17311231", "2", new string[0])]
+        [global::Xunit.InlineDataAttribute("01", "03", "0109506000134376033506091751986210ABC123[GS]17311231", "3", new string[0])]
+        [global::Xunit.InlineDataAttribute("01", "37", "010950600013437637144[GS]10ABC123[GS]17311231", "4", new string[0])]
+        [global::Xunit.InlineDataAttribute("03", "37", "030950600013437637144[GS]10ABC123[GS]173112311", "5", new string[0])]
+        [global::Xunit.InlineDataAttribute("01", "255", "01095060001343762555060917519861[GS]10ABC123[GS]17311231", "6", new string[0])]
+        [global::Xunit.InlineDataAttribute("03", "02", "0309506000134376023506091751986210ABC123[GS]17311231", "7", new string[0])]
+        [global::Xunit.InlineDataAttribute("21", "235", "2351ABC36610835978537[GS]010950600013437610ABC123[GS]173112312123560917519861", "8", new string[0])]
+        [global::Xunit.InlineDataAttribute("420", "421", "010950600013437610ABC123[GS]420SW23TP[GS]421826SW23TP", "9", new string[0])]
+        [global::Xunit.InlineDataAttribute("421", "4307", "010950600013437610ABC123[GS]421826SW23TP[GS]4307GB", "10", new string[0])]
+        [global::Xunit.InlineDataAttribute("422", "426", "010950600013437610ABC123[GS]422826[GS]426826", "11", new string[0])]
+        [global::Xunit.InlineDataAttribute("423", "426", "010950600013437610ABC123[GS]423826250276[GS]426826", "12", new string[0])]
+        [global::Xunit.InlineDataAttribute("424", "426", "010950600013437610ABC123[GS]424826[GS]426826", "13", new string[0])]
+        [global::Xunit.InlineDataAttribute("425", "426", "010950600013437610ABC123[GS]425826250276[GS]426826", "14", new string[0])]
+        [global::Xunit.InlineDataAttribute("3900", "3910", "01095060001343763900123[GS]3910826123[GS]802036641008056438[GS]41509506000134376", "15", new string[0])]
+        [global::Xunit.InlineDataAttribute("3900", "3941", "3900123[GS]39410055[GS]25509506000134376", "16", new string[0])]
+        [global::Xunit.InlineDataAttribute("3900", "8111", "3900123[GS]81110125[GS]25509506000134376", "17", new string[0])]
+        [global::Xunit.InlineDataAttribute("3920", "3930", "01095060001343763920123[GS]3930826123[GS]30144", "18", new string[0])]
+        [global::Xunit.InlineDataAttribute("3920", "3953", "01095060001343763920123[GS]3953123456[GS]30144", "19", new string[0])]
+        [global::Xunit.InlineDataAttribute("3940", "8111", "39400010[GS]81110125[GS]25509506000134376", "20", new string[0])]
+        [global::Xunit.InlineDataAttribute("3953", "8005", "01095060001343763953123456[GS]8005001234[GS]30144", "21", new string[0])]
+        [global::Xunit.InlineDataAttribute("3953", "3920", "01095060001343763953123456[GS]3920123[GS]30144", "22", new string[0])]
+        [global::Xunit.InlineDataAttribute("3953", "3930", "01095060001343763953123456[GS]3930826123[GS]30144", "23", new string[0])]
+        [global::Xunit.InlineDataAttribute("4330", "4331", "009506000984275650204330000250-[GS]4331001917-", "24", new string[0])]
+        [global::Xunit.InlineDataAttribute("4332", "4333", "009506000984275650204332000250-[GS]4333001917-", "25", new string[0])]
+        [global::Xunit.InlineDataAttribute("7250", "7251", "725019630304[GS]7251196303040104[GS]8018950600098427565020", "26", new string[0])]
+        [global::Xunit.InlineDataAttribute("7256", "7253", "7256JOHN+SMITH+JR[GS]7253SMITH[GS]8018950600098427565020", "27", new string[0])]
+        [global::Xunit.InlineDataAttribute("7256", "7254", "7256JOHN+SMITH+JR[GS]7254JOHN[GS]8018950600098427565020", "28", new string[0])]
+        [global::Xunit.InlineDataAttribute("7256", "7255", "7256JOHN+SMITH+JR[GS]7255JR[GS]8018950600098427565020", "29", new string[0])]
+        [global::Xunit.InlineDataAttribute("7256", "7259", "7256JOHN+SMITH+JR[GS]7259SMITH+BABY+BOY[GS]8018950600098427565020", "30", new string[0])]
+        [global::Xunit.InlineDataAttribute("7259", "7253", "7259SMITH+BABY+BOY[GS]7253SMITH[GS]8018950600098427565020", "31", new string[0])]
+        [global::Xunit.InlineDataAttribute("7259", "7254", "7259SMITH+BABY+BOY[GS]7254JOHN[GS]8018950600098427565020", "32", new string[0])]
+        [global::Xunit.InlineDataAttribute("7259", "7255", "7259SMITH+BABY+BOY[GS]7255JR[GS]8018950600098427565020", "33", new string[0])]
+        [global::Xunit.InlineDataAttribute("7259", "7256", "7259SMITH+BABY+BOY[GS]7256JOHN+SMITH+JR[GS]8018950600098427565020", "34", new string[0])]
+        [global::Xunit.InlineDataAttribute("8006", "01", "01095060001343768006095060001343760310", "35", new string[0])]
+        [global::Xunit.InlineDataAttribute("8006", "37", "800609506000134[GS]3760310[GS]3710", "36", new string[0])]
+        [global::Xunit.InlineDataAttribute("8018", "8017", "8017950600098427565020[GS]8018950600098427565020", "37", new string[0])]
+        [global::Xunit.InlineDataAttribute("8026", "02", "0095060009842756502002350609175198623710[GS]8026", "38", new string[0])]
+        [global::Xunit.InlineDataAttribute("8026", "8006", "009506000984275650208006095060001343760310[GS]3710[GS]8026095060001343760310", "39", new string[0])]
+        public async global::System.Threading.Tasks.Task DetectInvalidDataRelationships(string ai1, string ai2, string input, string @__pickleIndex, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
-            string pickleIndex = "1";
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Detect invalid data relationships between two data elements", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
+            argumentsOfScenario.Add("ai1", ai1);
+            argumentsOfScenario.Add("ai2", ai2);
+            argumentsOfScenario.Add("input", input);
+            string pickleIndex = @__pickleIndex;
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Detect invalid data relationships", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
 #line 13
-this.ScenarioInitialize(scenarioInfo, ruleInfo);
+ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -197,21 +239,18 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             {
                 await this.ScenarioStartAsync();
 #line 14
- await testRunner.GivenAsync("the input is 0109506000134376023506091751986210ABC123", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync(string.Format("the input is {0}", input), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 15
  await testRunner.WhenAsync("the input to submitted to the parser and data relationship tests are required", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 16
- await testRunner.ThenAsync("we should detect entity 01", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync(string.Format("we should detect AI {0}", ai1), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 17
- await testRunner.AndAsync("we should detect entity 02", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.AndAsync(string.Format("we should detect AI {0}", ai2), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 18
- await testRunner.AndAsync("we should detect entity 10", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 19
  await testRunner.AndAsync("there should be invalid pairs", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }

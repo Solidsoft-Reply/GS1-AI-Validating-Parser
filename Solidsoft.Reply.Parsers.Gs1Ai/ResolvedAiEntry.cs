@@ -17,6 +17,7 @@
 // Thread-safe per-thread list for collecting AI identifiers and values during Parse operations.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
 /// <summary>

@@ -20,14 +20,10 @@
 namespace Solidsoft.Reply.Parsers.Gs1Ai.Relationships;
 
 using Solidsoft.Reply.Parsers.Common;
-using Solidsoft.Reply.Parsers.Gs1Ai;
 using Solidsoft.Reply.Parsers.Gs1Ai.Properties;
 
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data;
 using System.Globalization;
-using System.Xml.Linq;
 
 /// <summary>
 /// A read-only dictionary of invalid AI pairs. Keys are strings and values are instances of <see cref="InvalidPairList"/>.
@@ -41,7 +37,7 @@ internal sealed class InvalidPairs : ReadOnlyDictionary<string, InvalidPairList>
     private static readonly Dictionary<string, InvalidPairList> Pairs = new() {
         { "01", new InvalidPairList(["01", "02", "03", "37", "255"]) },
         { "03", new InvalidPairList(["02", "37"]) },
-        { "21", new InvalidPairList(["255"]) },
+        { "21", new InvalidPairList(["235"]) },
         { "420", new InvalidPairList(["421"]) },
         { "421", new InvalidPairList(["4307"]) },
         { "422", new InvalidPairList(["426"]) },

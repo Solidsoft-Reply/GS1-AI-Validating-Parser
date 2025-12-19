@@ -16,6 +16,7 @@
 // Enumeration to control data relationship testing during parsing.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
 /// <summary>

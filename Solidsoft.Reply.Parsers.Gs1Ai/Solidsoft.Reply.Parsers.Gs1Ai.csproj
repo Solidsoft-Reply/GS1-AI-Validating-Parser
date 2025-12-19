@@ -30,6 +30,10 @@
 
 		5) Improved error handling to provide a more consistent approach to classifying errors as fatal or non-fatal.
 
+		6) Rationalised error and warning numbers.
+
+		7) Consistent reported of positions and offsets in resolved entities and exceptions.
+
 	</PackageReleaseNotes>
     <Description>
 		A comprehensive validating parser for GS1 Application Identifiers (AIs).
@@ -38,7 +42,7 @@
 		--------------
 		$(PackageReleaseNotes)
 	</Description>
-	<Version>1.1.3</Version>
+	<Version>1.2.0</Version>
 	<AssemblyName>$(MSBuildProjectName)</AssemblyName>
     <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
 	<NeutralLanguage>en</NeutralLanguage>

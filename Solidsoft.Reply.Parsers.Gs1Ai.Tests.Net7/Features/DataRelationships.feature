@@ -6,16 +6,55 @@ A short summary of the feature
 Scenario: Validate data relationships between two data elements
 	Given the input is 011234567890123110ABC123
 	When the input to submitted to the parser and data relationship tests are required
-	Then we should detect entity 01
-	And we should detect entity 10
+	Then we should detect AI 01
+	And we should detect AI 10
 	And there should be no errors
 
-Scenario: Detect invalid data relationships between two data elements
-	Given the input is 0109506000134376023506091751986210ABC123
+	Scenario Outline: Detect invalid data relationships
+	Given the input is <input>
 	When the input to submitted to the parser and data relationship tests are required
-	Then we should detect entity 01
-	And we should detect entity 02
-	And we should detect entity 10
+	Then we should detect AI <ai1>
+	And we should detect AI <ai2>
 	And there should be invalid pairs
 
-
+	Examples:
+    | ai1  | ai2  | input                                                                            |
+    |   01 |   01 | 0109506000134376013506091751986210ABC123[GS]17311231                             |
+    |   01 |   02 | 0109506000134376023506091751986210ABC123[GS]17311231                             |
+    |   01 |   03 | 0109506000134376033506091751986210ABC123[GS]17311231                             |
+    |   01 |   37 | 010950600013437637144[GS]10ABC123[GS]17311231                                    |
+    |   03 |   37 | 030950600013437637144[GS]10ABC123[GS]173112311                                   |
+    |   01 |  255 | 01095060001343762555060917519861[GS]10ABC123[GS]17311231                         |
+    |   03 |   02 | 0309506000134376023506091751986210ABC123[GS]17311231                             |
+    |   21 |  235 | 2351ABC36610835978537[GS]010950600013437610ABC123[GS]173112312123560917519861    |
+    |  420 |  421 | 010950600013437610ABC123[GS]420SW23TP[GS]421826SW23TP                            |
+    |  421 | 4307 | 010950600013437610ABC123[GS]421826SW23TP[GS]4307GB                               |
+    |  422 |  426 | 010950600013437610ABC123[GS]422826[GS]426826                                     |
+    |  423 |  426 | 010950600013437610ABC123[GS]423826250276[GS]426826                               |
+    |  424 |  426 | 010950600013437610ABC123[GS]424826[GS]426826                                     |
+    |  425 |  426 | 010950600013437610ABC123[GS]425826250276[GS]426826                               |
+    | 3900 | 3910 | 01095060001343763900123[GS]3910826123[GS]802036641008056438[GS]41509506000134376 |
+    | 3900 | 3941 | 3900123[GS]39410055[GS]25509506000134376                                         |
+    | 3900 | 8111 | 3900123[GS]81110125[GS]25509506000134376                                         |
+    | 3920 | 3930 | 01095060001343763920123[GS]3930826123[GS]30144                                   |
+    | 3920 | 3953 | 01095060001343763920123[GS]3953123456[GS]30144                                   |
+    | 3940 | 8111 | 39400010[GS]81110125[GS]25509506000134376                                        |
+    | 3953 | 8005 | 01095060001343763953123456[GS]8005001234[GS]30144                                |
+    | 3953 | 3920 | 01095060001343763953123456[GS]3920123[GS]30144                                   |
+    | 3953 | 3930 | 01095060001343763953123456[GS]3930826123[GS]30144                                |
+    | 4330 | 4331 | 009506000984275650204330000250-[GS]4331001917-                                   |
+    | 4332 | 4333 | 009506000984275650204332000250-[GS]4333001917-                                   |
+    | 7250 | 7251 | 725019630304[GS]7251196303040104[GS]8018950600098427565020                       |
+    | 7256 | 7253 | 7256JOHN+SMITH+JR[GS]7253SMITH[GS]8018950600098427565020                         |
+    | 7256 | 7254 | 7256JOHN+SMITH+JR[GS]7254JOHN[GS]8018950600098427565020                          |
+    | 7256 | 7255 | 7256JOHN+SMITH+JR[GS]7255JR[GS]8018950600098427565020                            |
+    | 7256 | 7259 | 7256JOHN+SMITH+JR[GS]7259SMITH+BABY+BOY[GS]8018950600098427565020                |
+    | 7259 | 7253 | 7259SMITH+BABY+BOY[GS]7253SMITH[GS]8018950600098427565020                        |
+    | 7259 | 7254 | 7259SMITH+BABY+BOY[GS]7254JOHN[GS]8018950600098427565020                         |
+    | 7259 | 7255 | 7259SMITH+BABY+BOY[GS]7255JR[GS]8018950600098427565020                           |
+    | 7259 | 7256 | 7259SMITH+BABY+BOY[GS]7256JOHN+SMITH+JR[GS]8018950600098427565020                |
+    | 8006 |   01 | 01095060001343768006095060001343760310                                           |
+    | 8006 |   37 | 800609506000134[GS]3760310[GS]3710                                               |
+    | 8018 | 8017 | 8017950600098427565020[GS]8018950600098427565020                                 |
+    | 8026 |   02 | 0095060009842756502002350609175198623710[GS]8026                                 |
+    | 8026 | 8006 | 009506000984275650208006095060001343760310[GS]3710[GS]8026095060001343760310     |

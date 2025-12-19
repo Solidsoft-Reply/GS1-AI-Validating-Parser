@@ -17,6 +17,7 @@
 // A list of invalid AI pairs that will be associated with a 'check' AI via an Invalid Pair Dictionary.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+
 namespace Solidsoft.Reply.Parsers.Gs1Ai.Relationships;
 
 using System.Collections.ObjectModel;

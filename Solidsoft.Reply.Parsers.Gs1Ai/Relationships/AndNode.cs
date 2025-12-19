@@ -17,6 +17,7 @@
 // AND node: all child nodes must be satisfied.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+
 namespace Solidsoft.Reply.Parsers.Gs1Ai.Relationships;
 
 /// <summary>

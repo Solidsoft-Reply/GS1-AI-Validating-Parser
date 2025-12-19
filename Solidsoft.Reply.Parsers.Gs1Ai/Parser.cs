@@ -23,13 +23,12 @@
 
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
-using Common;
+using Solidsoft.Reply.Parsers.Common;
 
-using Properties;
+using Solidsoft.Reply.Parsers.Gs1Ai.Properties;
 
 using Solidsoft.Reply.Parsers.Gs1Ai.Relationships;
 
-using System;
 using System.Globalization;
 
 #if NET7_0_OR_GREATER

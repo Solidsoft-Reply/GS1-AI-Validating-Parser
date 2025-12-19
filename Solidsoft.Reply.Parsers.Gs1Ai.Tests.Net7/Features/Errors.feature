@@ -56,7 +56,8 @@ Scenario: Trigger a 'No entity value provided for AI' error
 Scenario: Trigger an 'invalid application identifier {0}' error
 	Given the input is 38SomeValue
 	When the input to submitted to the parser 
-	Then there should be errors
+	Then the entity should be -1
+	    And there should be errors
 	    And the errors should include a fatal 2002 error
 
 Scenario: Trigger a 'the GTIN value{0} has an invalid check digit' error

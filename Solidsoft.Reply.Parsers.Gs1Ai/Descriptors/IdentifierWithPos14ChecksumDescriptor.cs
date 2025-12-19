@@ -20,13 +20,11 @@
 
 namespace Solidsoft.Reply.Parsers.Gs1Ai.Descriptors;
 
-using Properties;
-
-using System.Collections.Generic;
+using Solidsoft.Reply.Parsers.Gs1Ai.Properties;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-using Common;
+using Solidsoft.Reply.Parsers.Common;
 
 /// <summary>
 ///     A descriptor for a GS1 identifiers with a checksum at position 14 followed by optional text.

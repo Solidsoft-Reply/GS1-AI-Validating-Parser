@@ -22,7 +22,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
 using System.ComponentModel;
 
-using Properties;
+using Solidsoft.Reply.Parsers.Gs1Ai.Properties;
 
 /// <summary>
 ///   Specifies a localised description for a property or event.

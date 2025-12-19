@@ -17,6 +17,7 @@
 // XOR node: exactly one child node must be satisfied.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+
 namespace Solidsoft.Reply.Parsers.Gs1Ai.Relationships;
 
 /// <summary>

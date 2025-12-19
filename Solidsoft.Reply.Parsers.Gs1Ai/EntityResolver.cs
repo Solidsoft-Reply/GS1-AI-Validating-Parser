@@ -22,14 +22,12 @@
 // ReSharper disable BadListLineBreaks
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
-using Common;
+using Solidsoft.Reply.Parsers.Common;
 
-using Descriptors;
+using Solidsoft.Reply.Parsers.Gs1Ai.Descriptors;
 
-using Properties;
+using Solidsoft.Reply.Parsers.Gs1Ai.Properties;
 
-using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Text.RegularExpressions;
 

@@ -22,6 +22,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Descriptors;
 
 using System.Globalization;
 using System.Text.RegularExpressions;
+
 using Solidsoft.Reply.Parsers.Common;
 using Solidsoft.Reply.Parsers.Gs1Ai.Properties;
 

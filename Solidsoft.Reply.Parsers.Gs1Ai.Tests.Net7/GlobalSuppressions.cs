@@ -5,4 +5,4 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-[assembly: SuppressMessage("Performance", "CA1859:Use concrete types when possible for improved performance", Justification = "<Pending>", Scope = "member", Target = "~F:Solidsoft.Reply.Parsers.Gs1Ai.Tests.StepDefinitions.Gs1AiParserStepDefinitions._resolvedEntites")]
+[assembly: SuppressMessage("Performance", "CA1859:Use concrete types when possible for improved performance", Justification = "<Pending>", Scope = "member", Target = "~F:Solidsoft.Reply.Parsers.Gs1Ai.Tests.StepDefinitions.Gs1AiParserStepDefinitions._resolvedAIs")]

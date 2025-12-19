@@ -17,6 +17,7 @@
 // Node type discriminator for mandatory relationship nodes.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+
 namespace Solidsoft.Reply.Parsers.Gs1Ai.Relationships;
 
 /// <summary>

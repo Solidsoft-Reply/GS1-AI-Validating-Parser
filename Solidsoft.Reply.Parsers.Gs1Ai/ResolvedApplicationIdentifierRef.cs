@@ -18,14 +18,12 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-#if NET7_0_OR_GREATER
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
-using System.Collections.Generic;
-using Properties;
-using Common;
-using System.Globalization;
+using Solidsoft.Reply.Parsers.Gs1Ai.Properties;
+using Solidsoft.Reply.Parsers.Common;
 
+#if NET7_0_OR_GREATER
 /// <summary>
 ///     Represents a resolved GS1 application identifier and its associated data.
 /// </summary>
