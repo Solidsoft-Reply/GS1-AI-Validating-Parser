@@ -941,6 +941,46 @@ public static class Extensions {
         return true;
     }
 
+    /// <summary>
+    ///    Determines if a given AI pattern matches a provided AI string.
+    /// </summary>
+    /// <param name="pattern">The AI pattern to match against.</param>
+    /// <param name="ai">The AI string to test for a match.</param>
+    /// <returns>true if the AI string matches the pattern; otherwise, false.</returns>
+    internal static bool AiPatternMatches(this string pattern, string ai) {
+        if (string.IsNullOrEmpty(pattern)) return false;
+        if (pattern.Length != ai.Length) return false;
+        for (int i = 0; i < pattern.Length; i++) {
+            char pc = pattern[i];
+            char ac = ai[i];
+            if (pc == 'n' || pc == 'N' || pc == 's') {
+                if (ac < '0' || ac > '9') return false;
+            }
+            else if (pc != ac) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /// <summary>
+    ///   Determines if a given AI regular expression pattern matches a provided AI string.
+    /// </summary>
+    /// <param name="pattern">The AI regular expression pattern to match against.</param>
+    /// <param name="ai">The AI string to test for a match.</param>
+    /// <returns>true if the AI string matches the pattern; otherwise, false.</returns>
+    internal static bool AiRegExMatches(this string pattern, string ai) {
+        if (string.IsNullOrEmpty(pattern)) return false;
+        if (pattern[0] != '^') return false;
+        try {
+            var aiRegex = new Regex(pattern, RegexOptions.Compiled | RegexOptions.CultureInvariant);
+            return aiRegex.IsMatch(ai);
+        }
+        catch {
+            return false;
+        }
+    }
+
 #if NET7_0_OR_GREATER
     /// <summary>
     ///     UPC-A Compatible regular expression.

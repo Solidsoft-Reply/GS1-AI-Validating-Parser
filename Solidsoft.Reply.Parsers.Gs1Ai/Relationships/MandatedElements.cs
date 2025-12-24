@@ -18,20 +18,27 @@
 // Provides capability to test resolved AI entries collected during parsing against the rules.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
-
 namespace Solidsoft.Reply.Parsers.Gs1Ai.Relationships;
 
 using Solidsoft.Reply.Parsers.Common;
+using Solidsoft.Reply.Parsers.Gs1Ai;
 using Solidsoft.Reply.Parsers.Gs1Ai.Properties;
 
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
 /// <summary>
-/// Read-only dictionary of mandated elements where keys are AI strings and values are <see cref="MandatoryNode"/> instances.
-/// Construction is not allowed; use <see cref="Instance"/> to access the singleton.
+/// Provides a read-only mapping of GS1 Application Identifier (AI) patterns and context-specific rules to their
+/// corresponding mandatory element requirements, as defined by the GS1 specification.
 /// </summary>
+/// <remarks>The MandatedElements class enforces the presence of required AIs for various GS1 barcode contexts,
+/// such as standard, variable measure, or custom GTINs. It is implemented as a singleton and exposes a static Instance
+/// property for global access. The mapping is keyed by tuples of AI patterns and optional regular expressions, allowing
+/// for flexible rule evaluation based on both identifier and value patterns. This class is intended for internal use in
+/// validating that parsed barcode data includes all mandated elements for a given context.</remarks>
 internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string regex), MandatoryNode>
 {
     private static readonly Dictionary<(string ai, string regex), MandatoryNode> Rules = new()
@@ -49,25 +56,25 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
         { ("16", string.Empty), new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")]) },
         { ("17", string.Empty), new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")]) },
         { ("12", string.Empty), new AndNode([new AiNode("8020"), new AiNode("415")]) },
-        //{ ("17", string.Empty), new AiNode("255") },
+        { ("17", ":Coupon"), new AiNode("255") },
         { ("20", string.Empty), new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")]) },
         { ("21", string.Empty), new XorNode([new AiNode("01"), new AiNode("03"), new AiNode("8006")]) },
         { ("22", string.Empty), new AiNode("01") },
         { ("235", string.Empty), new AiNode("01") },
         { ("240", string.Empty), new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")]) },
         { ("241", string.Empty), new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")]) },
-        { ("242", string.Empty), new XorNode([new AiNode("01", "^9\\d{13}$"), new AiNode("02", "^9\\d{13}$"), new AiNode("8006", "^9\\d{13}\\d{4}\\d{4}$"), new AiNode("8026", "^9\\d{13}\\d{4}\\d{4}$")]) },
+        { ("242", string.Empty), new XorNode([new AiNode("01", "^9\\d{13}$"), new AiNode("02", "^9\\d{13}$"), new AiNode("8006", "^9\\d{13}\\d{2}\\d{2}$"), new AiNode("8026", "^9\\d{13}\\d{2}\\d{2}$")]) },
         { ("243", string.Empty), new AiNode("01") },
         { ("250", string.Empty), new AndNode([new XorNode([new AiNode("01"), new AiNode("8006")]), new AiNode("21")]) },
         { ("251", string.Empty), new XorNode([new AiNode("01"), new AiNode("8006")]) },
         { ("254", string.Empty), new AiNode("414") },
         { ("30", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("3nnn", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        //{ ("3nnn", string.Empty), new OrNode([new AiNode("00"), new AiNode("01")]) },
+        { ("^3(1[0-6]|2\\d|5[0-267]|6[014-6])\\d$", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
+        { ("^3(1[0-6]|2\\d|5[0-267]|6[014-6])\\d$:VariableMeasure", ":VariableMeasure"), new XorNode([new AiNode("01"), new AiNode("02")]) },
+        { ("^3(3[0-6]|4\\d|5[3-5]|6[237-9])\\d$", string.Empty), new XorNode([new AiNode("00"), new AiNode("01")]) },
         { ("337n", string.Empty), new AiNode("01") },
         { ("37", string.Empty), new AndNode([new AiNode("00"), new XorNode([new AiNode("02"), new AiNode("8026")])]) },
         { ("390n", string.Empty), new AndNode([new AiNode("8020"), new AiNode("8026")]) },
-        //{ ("390n", string.Empty), new AiNode("255") },
         { ("391n", string.Empty), new AndNode([new AiNode("8020"), new AiNode("415")]) },
         { ("392n", string.Empty), new AndNode([new AiNode("01"), new XorNode([new AiNode("30"), new AiNode("31nn"), new AiNode("32nn"), new AiNode("35nn"), new AiNode("36nn")])]) },
         { ("393n", string.Empty), new AndNode([new AiNode("01"), new XorNode([new AiNode("30"), new AiNode("31nn"), new AiNode("32nn"), new AiNode("35nn"), new AiNode("36nn")])]) },
@@ -149,177 +156,136 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
         { ("8200", string.Empty), new AiNode("01") },
     };
 
-    private MandatedElements() : base(Rules) { }
+    private MandatedElements()
+        : base(Rules)
+    {
+    }
 
+    /// <summary>
+    /// Gets the singleton instance of the <see cref="MandatedElements"/> class.
+    /// </summary>
     public static MandatedElements Instance { get; } = new MandatedElements();
 
     /// <summary>
-    /// Tests the thread-static list of resolved AI entries against the mandate rules.
-    /// Applies each matched rule and records exceptions for failures.
+    /// Tests the current resolved AI entries against the mandated elements rules.
     /// </summary>
-    /// <param name="gtinContext">Optional GTIN context; defaults to None.</param>
-    /// <returns>A read-only list of exceptions for failed rules.</returns>
-    public static IReadOnlyList<ParserException> Test(GtinContext gtinContext = GtinContext.None)
+    /// <param name="semantics">The AI semantics when evaluating rules (e.g., General, VariableMeasure, or Custom of AI 01).</param>
+    /// <returns>A read-only list of tuples containing the AI and the associated parser exception for any issues found.</returns>
+    public static IReadOnlyList<(string ai, ParserException ex)> Test(Semantics semantics)
     {
-        var exceptions = new List<ParserException>();
+        var issues = new List<(string ai, ParserException ex)>();
         var entries = ResolvedAiList.Current;
-
-        // Find matched rules per entry first (as previously filtered)
         var matched = new List<((string ai, string regex) key, MandatoryNode node)>();
-        foreach (var entry in entries)
-        {
-            foreach (var kvp in Rules)
-            {
-                var key = kvp.Key;
-                var node = kvp.Value;
 
-                // GTIN context filtering for AI "01" with suffix
-                if (entry.Identifier == "01")
-                {
-                    var suffixIndex = key.regex?.LastIndexOf(':') ?? -1;
-                    if (suffixIndex >= 0)
-                    {
-#if NET6_0_OR_GREATER
-                        var ctxSuffix = key.regex?[(suffixIndex + 1)..];
-#else
-                        var ctxSuffix = key.regex?.Substring(suffixIndex + 1);
-#endif
-                        if (string.Equals(ctxSuffix, nameof(GtinContext.VariableMeasure), StringComparison.Ordinal)
-                            || string.Equals(ctxSuffix, nameof(GtinContext.Custom), StringComparison.Ordinal))
-                        {
-                            var requiredContext = ctxSuffix == nameof(GtinContext.VariableMeasure)
-                                ? GtinContext.VariableMeasure
-                                : GtinContext.Custom;
-                            if (gtinContext == GtinContext.None || gtinContext != requiredContext)
-                            {
-                                continue;
-                            }
-                        }
-                    }
+        foreach (var entry in entries) {
+            foreach (var rule in Rules) {
+                var ruleKey = rule.Key;
+                var ruleNode = rule.Value;
+
+                // Single context/semantics check covering both 01 and 17 cases
+                if (!RuleContextMatches(ruleKey.regex, entry.Identifier, semantics)) {
+                    continue;
                 }
 
-                if (!AiPatternMatches(key.ai, entry.Identifier))
-                {
+                if (!ruleKey.ai.AiPatternMatches(entry.Identifier)
+                    && !ruleKey.ai.AiRegExMatches(entry.Identifier)) {
                     continue;
                 }
 
                 Regex? valueRegex = null;
-                if (!string.IsNullOrEmpty(key.regex))
-                {
-                    var colonIndex = key.regex.LastIndexOf(':');
+                if (!string.IsNullOrEmpty(ruleKey.regex)) {
+                    var colonIndex = ruleKey.regex.LastIndexOf(':');
 #if NET6_0_OR_GREATER
-                    var pattern = colonIndex >= 0 ? key.regex[..colonIndex] : key.regex;
+                    var pattern = colonIndex >= 0 ? ruleKey.regex[..colonIndex] : ruleKey.regex;
 #else
-                    var pattern = colonIndex >= 0 ? key.regex.Substring(0, colonIndex) : key.regex;
+                    var pattern = colonIndex >= 0 ? ruleKey.regex.Substring(0, colonIndex) : ruleKey.regex;
 #endif
-                    if (!string.IsNullOrEmpty(pattern))
-                    {
+                    if (!string.IsNullOrEmpty(pattern)) {
                         valueRegex = new Regex(pattern, RegexOptions.Compiled | RegexOptions.CultureInvariant);
                     }
                 }
 
-                if (valueRegex is not null && !valueRegex.IsMatch(entry.Value))
-                {
-                    continue;
-                }
+                if (valueRegex is not null && !valueRegex.IsMatch(entry.Value)) continue;
 
-                matched.Add((key, node));
+                matched.Add((ruleKey, ruleNode));
             }
         }
 
-        // Apply each matched rule to the full set of entries
-        foreach (var rule in matched)
-        {
-            var node = rule.node;
+        foreach (var (ruleKey, ruleNode) in matched) {
             bool fullMatch;
 
-            if (node is AiNode aiNode)
-            {
-                // First, if the AI node has a value regex, enforce it against the corresponding entry values
-                if (aiNode.ValueRegex is not null)
-                {
+            if (ruleNode is AiNode aiNode) {
+                if (aiNode.ValueRegex is not null) {
                     var anyValueMatch = false;
-                    foreach (var e in entries)
-                    {
-                        if (AiPatternMatches(aiNode.Ai, e.Identifier) && aiNode.ValueRegex.IsMatch(e.Value))
-                        {
+                    foreach (var e in entries) {
+                        if (aiNode.Ai.AiPatternMatches(e.Identifier) && aiNode.ValueRegex.IsMatch(e.Value)) {
                             anyValueMatch = true;
                             break;
                         }
                     }
 
-                    if (!anyValueMatch)
-                    {
-                        exceptions.Add(new ParserException(
-                            rule.key.ai,
-                            2202,
-                            string.Format(
-                            CultureInfo.CurrentCulture,
-                            Resources.GS1_Error_202,
-                            rule.key.ai,
-                            $"AI {aiNode.Ai}"),
-                            true,
-                            rule.key.ai.Length));
-                        continue; // Move to next rule
+                    if (!anyValueMatch) {
+                        issues.Add((ruleKey.ai, new ParserException(ruleKey.ai, 2202, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_202, ruleKey.ai, $"AI {aiNode.Ai}"), true, ruleKey.ai.Length)));
+                        continue;
                     }
                 }
 
-                // Then ensure the AI is present in entries (respecting wildcard 'n','N','s')
                 fullMatch = false;
-                foreach (var e in entries)
-                {
-                    if (AiPatternMatches(aiNode.Ai, e.Identifier))
-                    {
+                foreach (var e in entries) {
+                    if (aiNode.Ai.AiPatternMatches(e.Identifier)) {
                         fullMatch = true;
                         break;
                     }
                 }
 
-                if (!fullMatch)
-                {
-                    exceptions.Add(new ParserException(
-                        rule.key.ai,
-                        2202,
-                        string.Format(
-                        CultureInfo.CurrentCulture,
-                        Resources.GS1_Error_202,
-                        rule.key.ai,
-                        $"AI {aiNode.Ai}"),
-                        true,
-                        rule.key.ai.Length));
+                if (!fullMatch) {
+                    issues.Add((ruleKey.ai, new ParserException(ruleKey.ai, 2202, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_202, ruleKey.ai, $"AI {aiNode.Ai}"), true, ruleKey.ai.Length)));
                 }
 
-                continue; // root processed
+                continue;
             }
 
-            // Composite nodes: depth-first evaluation
-            fullMatch = EvaluateComposite(node, entries);
-            if (!fullMatch)
-            {
-                exceptions.Add(new ParserException(
-                    rule.key.ai,
-                    2202,
-                    string.Format(
-                    CultureInfo.CurrentCulture,
-                    Resources.GS1_Error_202,
-                    rule.key.ai,
-                    "one of multiple AIs"),
-                    true,
-                    rule.key.ai.Length));
+            fullMatch = EvaluateComposite(ruleNode, entries);
+            if (!fullMatch) {
+                issues.Add((ruleKey.ai, new ParserException(ruleKey.ai, 2202, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_202, ruleKey.ai, "one of multiple AIs"), true, ruleKey.ai.Length)));
             }
         }
 
-        return new ReadOnlyCollection<ParserException>(exceptions);
+        return new ReadOnlyCollection<(string ai, ParserException ex)>(issues);
+    }
+
+    private static bool RuleContextMatches(string? keyRegex, string identifier, Semantics semantics)
+    {
+        if (string.IsNullOrEmpty(keyRegex)) return true;
+        var idx = keyRegex.LastIndexOf(':');
+        if (idx < 0) return true;
+#if NET6_0_OR_GREATER
+        var suffix = keyRegex[(idx + 1)..];
+#else
+        var suffix = keyRegex.Substring(idx + 1);
+#endif
+        if (identifier == "01") {
+            if (Enum.TryParse<GtinSemantics>(suffix, false, out var gtin)) {
+                return semantics.GtinSemantics == gtin;
+            }
+            return true;
+        }
+        if (identifier == "17") {
+            if (Enum.TryParse<ExpiryDateSemantics>(suffix, false, out var exp)) {
+                return semantics.ExpiryDateSemantics == exp;
+            }
+            return true;
+        }
+        return true;
     }
 
     private static bool EvaluateComposite(MandatoryNode node, IReadOnlyList<ResolvedAiEntry> entries)
     {
         if (node is AiNode ai)
         {
-            // Leaf evaluation: check AI presence and optional value regex
             foreach (var e in entries)
             {
-                if (!AiPatternMatches(ai.Ai, e.Identifier))
+                if (!ai.Ai.AiPatternMatches(e.Identifier))
                 {
                     continue;
                 }
@@ -384,23 +350,35 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
         return false;
     }
 
-    private static bool AiPatternMatches(string pattern, string ai)
-    {
-        if (string.IsNullOrEmpty(pattern)) return false;
-        if (pattern.Length != ai.Length) return false;
-        for (int i = 0; i < pattern.Length; i++)
-        {
-            char pc = pattern[i];
-            char ac = ai[i];
-            if (pc == 'n' || pc == 'N' || pc == 's')
-            {
-                if (ac < '0' || ac > '9') return false;
-            }
-            else if (pc != ac)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
+    //////////private static bool AiPatternMatches(string pattern, string ai)
+    //////////{
+    //////////    if (string.IsNullOrEmpty(pattern)) return false;
+    //////////    if (pattern.Length != ai.Length) return false;
+    //////////    for (int i = 0; i < pattern.Length; i++)
+    //////////    {
+    //////////        char pc = pattern[i];
+    //////////        char ac = ai[i];
+    //////////        if (pc == 'n' || pc == 'N' || pc == 's')
+    //////////        {
+    //////////            if (ac < '0' || ac > '9') return false;
+    //////////        }
+    //////////        else if (pc != ac)
+    //////////        {
+    //////////            return false;
+    //////////        }
+    //////////    }
+    //////////    return true;
+    //////////}
+
+    //////////private static bool AiRegExMatches(string pattern, string ai) {
+    //////////    if (string.IsNullOrEmpty(pattern)) return false;
+    //////////    try {
+    //////////        var aiRegex = new Regex(pattern, RegexOptions.Compiled | RegexOptions.CultureInvariant);
+    //////////        return aiRegex.IsMatch(ai);
+    //////////    }
+    //////////    catch {
+    //////////        return false;
+    //////////    }
+    //////////}
+
 }

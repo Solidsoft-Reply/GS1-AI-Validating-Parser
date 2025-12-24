@@ -99,12 +99,12 @@ internal sealed class InvalidPairs : ReadOnlyDictionary<string, InvalidPairList>
     public static InvalidPairs Instance { get; } = new InvalidPairs();
 
     /// <summary>
-    /// Tests the collected AI entries for any invalid pairs and returns exceptions for violations.
+    /// Tests the collected AI entries for any invalid pairs and returns (ai, exception 2201) for violations.
     /// </summary>
-    /// <returns>A read-only list of exceptions for each invalid relationship found.</returns>
-    public static IReadOnlyList<ParserException> Test()
+    /// <returns>A read-only list of tuples, each containing an AI and its associated exception.</returns>
+    public static IReadOnlyList<(string ai, ParserException ex)> Test()
     {
-        var exceptions = new List<ParserException>();
+        var exceptions = new List<(string ai, ParserException ex)>();
         var entries = ResolvedAiList.Current;
 
         for (int i = 0; i < entries.Count; i++)
@@ -117,26 +117,27 @@ internal sealed class InvalidPairs : ReadOnlyDictionary<string, InvalidPairList>
 
             for (int j = 0; j < entries.Count; j++)
             {
-                if (i == j) continue; // Only test against other entries
+                if (i == j) continue;
                 var otherAi = entries[j].Identifier;
 
                 if (invalidList.Contains(otherAi))
                 {
-                    exceptions.Add(new ParserException(
+                    var ex = new ParserException(
                         currentAi,
                         2201,
                         string.Format(
-                        CultureInfo.CurrentCulture,
-                        Resources.GS1_Error_201,
-                        currentAi,
-                        otherAi),
+                            CultureInfo.CurrentCulture,
+                            Resources.GS1_Error_201,
+                            currentAi,
+                            otherAi),
                         true,
-                        entries[j].Position - entries[i].Position - entries[i].Identifier.Length + entries[j].Identifier.Length - 1));
+                        entries[j].Position - entries[i].Position - entries[i].Identifier.Length + entries[j].Identifier.Length - 1);
+                    exceptions.Add((currentAi, ex));
                 }
             }
         }
 
-        return new ReadOnlyCollection<ParserException>(exceptions);
+        return new ReadOnlyCollection<(string ai, ParserException ex)>(exceptions);
     }
 
     // Internal initialization helper(s) can be added here as needed to populate 'pairs'.

@@ -1,10 +1,13 @@
 ﻿using Solidsoft.Reply.Parsers.Common;
+using Solidsoft.Reply.Parsers.Gs1Ai.Relationships;
 
 namespace Solidsoft.Reply.Parsers.Gs1Ai.Tests.StepDefinitions;
 [Binding]
 public sealed class Gs1AiParserStepDefinitions {
 
-    private string _data = string.Empty; 
+    private string _data = string.Empty;
+    private GtinSemantics _gtinSemantics = GtinSemantics.General;
+    private ExpiryDateSemantics _expiryDateSemantics = ExpiryDateSemantics.General;
 
     private readonly IDictionary<int, IResolvedEntity> _resolvedEntities = new Dictionary<int, IResolvedEntity>();
     private readonly IDictionary<string, IResolvedEntity> _resolvedAIs = new Dictionary<string, IResolvedEntity>();
@@ -14,6 +17,20 @@ public sealed class Gs1AiParserStepDefinitions {
     [Given("the input is (.*)")]
     public void GivenTheValueIs(string input) {
         _data = input.Replace("[GS]", "\u001d");
+        _gtinSemantics = GtinSemantics.General;
+        _expiryDateSemantics = ExpiryDateSemantics.General;
+    }
+
+    [Given("the semantics are (.*)")]
+    public void GivenTheSemanticsIs(string input) {
+        var parts = input.Split('.', 2);
+        (string ai, string semantics) = parts.Length == 2 ? (parts[0], parts[1]) : (parts[0], string.Empty);
+        _gtinSemantics = ai == "01"
+            ? Enum.Parse<GtinSemantics>(semantics)
+            : GtinSemantics.General;
+        _expiryDateSemantics = ai == "17"
+            ? Enum.Parse<ExpiryDateSemantics>(semantics)
+            : ExpiryDateSemantics.General;
     }
 
     [When("the input to submitted to the parser")]
@@ -29,7 +46,7 @@ public sealed class Gs1AiParserStepDefinitions {
         _resolvedEntities.Clear();
         _resolvedAIs.Clear();
         _dataRelationshipExceptions.Clear();
-        Parser.Parse(_data, OnResolvedEntity, relationshipTests: DataRelationshipTests.Yes);
+        Parser.Parse(_data, OnResolvedEntity, relationshipTests: DataRelationshipTests.Yes, semantics: new(GtinSemantics: _gtinSemantics, ExpiryDateSemantics: _expiryDateSemantics));
     }
 
     public void OnResolvedEntity(IResolvedEntity resolvedEntity) {

@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="GtinContext.cs" company="Solidsoft Reply Ltd">
+// <copyright file="ExpiryDateSemantics.cs" company="Solidsoft Reply Ltd">
 // Copyright (c) 2018-2025 Solidsoft Reply Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,28 +14,24 @@
 // limitations under the License.
 // </copyright>
 // <summary>
-// The context in which to interpret the GTIN (AI 01).
+// The semantics of the Expiry Date (AI 17).
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace Solidsoft.Reply.Parsers.Gs1Ai.Relationships;
 
 /// <summary>
-/// The context in which to interpret the GTIN (AI 01).
+/// The semantics of the Expiry Date (AI 17).
 /// </summary>
-internal enum GtinContext {
+public enum ExpiryDateSemantics {
     /// <summary>
-    /// No context.
+    /// No specific semantics.
     /// </summary>
-    None,
+    General,
 
     /// <summary>
-    /// A variable measure trade item scanned at POS.
+    /// Expiry date of a coupon.
     /// </summary>
-    VariableMeasure,
+    Coupon,
 
-    /// <summary>
-    /// A custom trade item.
-    /// </summary>
-    Custom,
 }

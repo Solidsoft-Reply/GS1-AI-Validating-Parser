@@ -186,7 +186,7 @@
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
-    <value>Mandatory data relationship not found between AI {0} and AI {1}.</value>
+    <value>Mandatory data relationship not found between AI {0} and {1}.</value>
     <comment>Error</comment>
   </data>
   <data name="GS1_Warning_017" xml:space="preserve">
