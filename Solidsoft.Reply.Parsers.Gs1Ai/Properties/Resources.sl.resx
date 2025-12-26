@@ -138,9 +138,6 @@
   <data name="GS1_Error_002" xml:space="preserve">
     <value>Neveljaven identifikator aplikacije {0}.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
-    <value>Vrednost{0} ima neveljavno kontrolno vsoto.</value>
-  </data>
   <data name="GS1_Error_100" xml:space="preserve">
     <value>Vrednost{0} se ne ujema z določenim vzorcem za podatkovni element.</value>
   </data>
@@ -165,7 +162,28 @@
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Vrednost{0} se ne ujema z določenim vzorcem za severnoameriške kupone s pozitivno ponudbo.</value>
   </data>
+  <data name="GS1_Error_201" xml:space="preserve">
+    <value>Najdeno je neveljavno razmerje podatkov med AI {0} in AI {1}.</value>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>Obvezno razmerje podatkov med AI {0} in {1} ni bilo najdeno.</value>
+  </data>
   <data name="GS1_Warning_017" xml:space="preserve">
     <value>Vrednost{0} ni priznana koda vrste embalaže UN/ECE ali GS1.</value>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>Neveljaven identifikator aplikacije {0}. AI-ji morajo biti dolgi od dve do štiri števke.</value>
+  </data>
+  <data name="GS1_Error_202_and" xml:space="preserve">
+    <value>in</value>
+  </data>
+  <data name="GS1_Error_202_xor" xml:space="preserve">
+    <value>natanko eden od</value>
+  </data>
+  <data name="GS1_Error_202_or" xml:space="preserve">
+    <value>vsaj eden od</value>
+  </data>
+  <data name="GS1_Error_009" xml:space="preserve">
+    <value>Vrednost{0} za {1} ima neveljavno kontrolno številko.</value>
   </data>
 </root>

@@ -138,9 +138,6 @@
   <data name="GS1_Error_002" xml:space="preserve">
     <value>Ugyldig applikationsidentifikator {0}.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
-    <value>Værdien{0} har en ugyldig kontrolsum.</value>
-  </data>
   <data name="GS1_Error_100" xml:space="preserve">
     <value>Værdien{0} stemmer ikke overens med det angivne mønster for dataelementet.</value>
   </data>
@@ -165,7 +162,28 @@
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Værdien{0} stemmer ikke overens med det angivne mønster for nordamerikanske positive tilbudsfilkuponer.</value>
   </data>
+  <data name="GS1_Error_201" xml:space="preserve">
+    <value>Ugyldigt dataforhold fundet mellem AI {0} og AI {1}.</value>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>Obligatorisk datarelation blev ikke fundet mellem AI {0} og {1}.</value>
+  </data>
   <data name="GS1_Warning_017" xml:space="preserve">
     <value>Værdien{0} er ikke en anerkendt UN/ECE- eller GS1-emballagetypekode.</value>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>Ugyldigt programidentifikator {0}. AI'er skal være mellem to og fire cifre lange.</value>
+  </data>
+  <data name="GS1_Error_202_and" xml:space="preserve">
+    <value>og</value>
+  </data>
+  <data name="GS1_Error_202_xor" xml:space="preserve">
+    <value>præcis én af</value>
+  </data>
+  <data name="GS1_Error_202_or" xml:space="preserve">
+    <value>mindst én af</value>
+  </data>
+  <data name="GS1_Error_009" xml:space="preserve">
+    <value>Værdien {0} for {1} har et ugyldigt kontrolciffer.</value>
   </data>
 </root>

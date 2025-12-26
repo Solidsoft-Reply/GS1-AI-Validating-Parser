@@ -138,9 +138,6 @@
   <data name="GS1_Error_002" xml:space="preserve">
     <value>Nieprawidłowy identyfikator aplikacji {0}.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
-    <value>Wartość{0} posiada nieprawidłową sumę kontrolną.</value>
-  </data>
   <data name="GS1_Error_100" xml:space="preserve">
     <value>Wartość{0} nie odpowiada określonemu wzorcowi dla elementu danych.</value>
   </data>
@@ -165,7 +162,28 @@
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Wartość{0} nie odpowiada wzorcowi określonemu dla północnoamerykańskich kuponów z ofertami pozytywnymi.</value>
   </data>
+  <data name="GS1_Error_201" xml:space="preserve">
+    <value>Wykryto nieprawidłową relację danych między AI {0} a AI {1}.</value>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>Nie znaleziono obowiązkowej relacji danych między AI {0} a {1}.</value>
+  </data>
   <data name="GS1_Warning_017" xml:space="preserve">
     <value>Wartość{0} nie jest rozpoznawanym kodem typu opakowania UN/ECE ani GS1.</value>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>Nieprawidłowy identyfikator aplikacji {0}. Identyfikatory aplikacji (AI) muszą mieć długość od dwóch do czterech cyfr.</value>
+  </data>
+  <data name="GS1_Error_202_and" xml:space="preserve">
+    <value>i</value>
+  </data>
+  <data name="GS1_Error_202_xor" xml:space="preserve">
+    <value>dokładnie jeden z</value>
+  </data>
+  <data name="GS1_Error_202_or" xml:space="preserve">
+    <value>co najmniej jeden z</value>
+  </data>
+  <data name="GS1_Error_009" xml:space="preserve">
+    <value>Wartość {0} dla {1} ma nieprawidłową cyfrę kontrolną.</value>
   </data>
 </root>

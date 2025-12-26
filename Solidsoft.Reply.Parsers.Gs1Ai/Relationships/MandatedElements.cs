@@ -27,6 +27,7 @@ using Solidsoft.Reply.Parsers.Gs1Ai.Properties;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 /// <summary>
@@ -38,123 +39,135 @@ using System.Text.RegularExpressions;
 /// property for global access. The mapping is keyed by tuples of AI patterns and optional regular expressions, allowing
 /// for flexible rule evaluation based on both identifier and value patterns. This class is intended for internal use in
 /// validating that parsed barcode data includes all mandated elements for a given context.</remarks>
-internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string regex), MandatoryNode>
+internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string regex), (string description, MandatoryNode node)>
 {
-    private static readonly Dictionary<(string ai, string regex), MandatoryNode> Rules = new()
+    private static readonly Dictionary<(string ai, string regex), (string description, MandatoryNode node)> Rules = new()
     {
-        { ("01", "^0\\d{13}$:VariableMeasure"), new OrNode([new AiNode("30"), new AiNode("3nnn")]) },
-        { ("01", "^9\\d{13}$"), new OrNode([new AiNode("30"), new AiNode("3nnn"), new AiNode("8001"), new AiNode("242")]) },
-        { ("01", "^9\\d{13}$:VariableMeasure"), new OrNode([new AiNode("30"), new AiNode("3nnn"), new AiNode("8001")]) },
-        { ("02", "^9\\d{13}$"), new OrNode([new AiNode("30"), new AiNode("3nnn"), new AiNode("8001")]) },
-        { ("01", "^9\\d{13}$:Custom"), new AiNode("242") },
-        ////{ ("03", string.Empty), new AiNode("242") },  Removed from standard
-        { ("02", string.Empty), new AndNode([new AiNode("00"), new AiNode("37")]) },
-        { ("10", string.Empty), new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("03"), new AiNode("8006"), new AiNode("8026")]) },
-        { ("11", string.Empty), new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")]) },
-        { ("13", string.Empty), new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")]) },
-        { ("15", string.Empty), new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")]) },
-        { ("16", string.Empty), new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")]) },
-        { ("17", string.Empty), new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")]) },
-        { ("12", string.Empty), new AndNode([new AiNode("8020"), new AiNode("415")]) },
-        { ("17", ":Coupon"), new AiNode("255") },
-        { ("20", string.Empty), new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")]) },
-        { ("21", string.Empty), new XorNode([new AiNode("01"), new AiNode("03"), new AiNode("8006")]) },
-        { ("22", string.Empty), new AiNode("01") },
-        { ("235", string.Empty), new AiNode("01") },
-        { ("240", string.Empty), new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")]) },
-        { ("241", string.Empty), new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")]) },
-        { ("242", string.Empty), new XorNode([new AiNode("01", "^9\\d{13}$"), new AiNode("02", "^9\\d{13}$"), new AiNode("8006", "^9\\d{13}\\d{2}\\d{2}$"), new AiNode("8026", "^9\\d{13}\\d{2}\\d{2}$")]) },
-        { ("243", string.Empty), new AiNode("01") },
-        { ("250", string.Empty), new AndNode([new XorNode([new AiNode("01"), new AiNode("8006")]), new AiNode("21")]) },
-        { ("251", string.Empty), new XorNode([new AiNode("01"), new AiNode("8006")]) },
-        { ("254", string.Empty), new AiNode("414") },
-        { ("30", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("^3(1[0-6]|2\\d|5[0-267]|6[014-6])\\d$", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("^3(1[0-6]|2\\d|5[0-267]|6[014-6])\\d$", ":VariableMeasure"), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("^3(3[0-6]|4\\d|5[3-5]|6[237-9])\\d$", string.Empty), new OrNode([new AiNode("01"), new AiNode("02")]) },
-        { ("337n", string.Empty), new AiNode("01") },
-        { ("37", string.Empty), new AndNode([new AiNode("00"), new XorNode([new AiNode("02"), new AiNode("8026")])]) },
-        { ("390n", string.Empty), new AndNode([new AiNode("8020"), new AiNode("8026")]) },
-        { ("391n", string.Empty), new AndNode([new AiNode("8020"), new AiNode("415")]) },
-        { ("392n", string.Empty), new AndNode([new AiNode("01"), new XorNode([new AiNode("30"), new AiNode("31nn"), new AiNode("32nn"), new AiNode("35nn"), new AiNode("36nn")])]) },
-        { ("393n", string.Empty), new AndNode([new AiNode("01"), new XorNode([new AiNode("30"), new AiNode("31nn"), new AiNode("32nn"), new AiNode("35nn"), new AiNode("36nn")])]) },
-        { ("394n", string.Empty), new AiNode("255") },
-        { ("395n", string.Empty), new AndNode([new AiNode("01"), new XorNode([new AiNode("30"), new AiNode("31nn"), new AiNode("32nn"), new AiNode("35nn"), new AiNode("36nn")])]) },
-        { ("403", string.Empty), new AiNode("00") },
-        { ("415", string.Empty), new AiNode("8020") },
-        { ("422", string.Empty), new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")]) },
-        { ("423", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("424", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("425", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("426", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("427", string.Empty), new AndNode([new XorNode([new AiNode("01"), new AiNode("02")]), new AiNode("422")]) },
-        { ("430N", string.Empty), new AiNode("00") },
-        { ("4303", string.Empty), new AndNode([new AiNode("4302"), new AiNode("00")]) },
-        { ("4309", string.Empty), new AiNode("00") },
-        { ("431N", string.Empty), new AiNode("00") },
-        { ("4313", string.Empty), new AndNode([new AiNode("4312"), new AiNode("00")]) },
-        { ("432N", string.Empty), new AiNode("00") },
-        { ("4330", string.Empty), new AiNode("00") },
-        { ("4331", string.Empty), new AiNode("00") },
-        { ("4332", string.Empty), new AiNode("00") },
-        { ("4333", string.Empty), new AiNode("00") },
-        { ("7001", string.Empty), new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")]) },
-        { ("7002", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("7003", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("7004", string.Empty), new AndNode([new AiNode("01"), new AiNode("10")]) },
-        { ("7005", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("7006", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("7007", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("7008", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("7009", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("7010", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("7011", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("703s", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("710", string.Empty), new AiNode("01") },
-        { ("711", string.Empty), new AiNode("01") },
-        { ("712", string.Empty), new AiNode("01") },
-        { ("713", string.Empty), new AiNode("01") },
-        { ("714", string.Empty), new AiNode("01") },
-        { ("715", string.Empty), new AiNode("01") },
-        { ("716", string.Empty), new AiNode("01") },
-        { ("717", string.Empty), new AiNode("01") },
-        { ("7020", string.Empty), new AndNode([new XorNode([new AiNode("01, 8006")]), new AiNode("416")]) },
-        { ("7021", string.Empty), new XorNode([new AiNode("01, 8006")]) },
-        { ("7022", string.Empty), new AndNode([new XorNode([new AiNode("01, 8006")]), new AiNode("7021")]) },
-        { ("7041", string.Empty), new AiNode("00") },
-        { ("723s", string.Empty), new XorNode([new AiNode("01"), new AiNode("8004")]) },
-        { ("7240", string.Empty), new XorNode([new AiNode("01"), new AiNode("8006")]) },
-        { ("7241", string.Empty), new XorNode([new AiNode("8017"), new AiNode("8018")]) },
-        { ("7242", string.Empty), new XorNode([new AiNode("8017"), new AiNode("8018")]) },
-        { ("7250", string.Empty), new AiNode("8018") },
-        { ("7251", string.Empty), new AiNode("8018") },
-        { ("7252", string.Empty), new AiNode("8018") },
-        { ("7257", string.Empty), new AiNode("8018") },
-        { ("7259", string.Empty), new AiNode("8018") },
-        { ("7253", string.Empty), new XorNode([new AiNode("8017"), new AiNode("8018")]) },
-        { ("7254", string.Empty), new XorNode([new AiNode("8017"), new AiNode("8018")]) },
-        { ("7255", string.Empty), new XorNode([new AiNode("8017"), new AiNode("8018")]) },
-        { ("7256", string.Empty), new XorNode([new AiNode("8017"), new AiNode("8018")]) },
-        { ("7258", string.Empty), new AndNode([new AiNode("8018"), new AiNode("7259")]) },
-        { ("8001", string.Empty), new AiNode("01") },
-        { ("8005", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("8007", string.Empty), new AndNode([new AiNode("8020"), new AiNode("415")]) },
-        { ("8008", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("8009", string.Empty), new OrNode([new AiNode("01"), new AiNode("00")]) },
-        { ("8011", string.Empty), new AiNode("8010") },
-        { ("8012", string.Empty), new XorNode([new AiNode("01"), new AiNode("8006")]) },
-        { ("8014", string.Empty), new AiNode("01") },
-        { ("8019", string.Empty), new XorNode([new AiNode("8017"), new AiNode("8018")]) },
-        { ("8020", string.Empty), new AiNode("415") },
-        { ("8026", string.Empty), new AndNode([new AiNode("00"), new AiNode("37")]) },
-        { ("8030", string.Empty), new XorNode([new AndNode([new AiNode("01"), new AiNode("21")]), new AndNode([new AiNode("8006"), new AiNode("21")]), new AndNode([new AiNode("8010"), new AiNode("8011")]), new AiNode("8003"), new AiNode("8004"), new AiNode("8017"), new AiNode("8018"), new AiNode("00"), new AiNode("253"), new AiNode("255")]) },
-        { ("8040", string.Empty), new AndNode([new AiNode("01"), new AiNode("21")]) },
-        { ("8041", string.Empty), new AndNode([new AiNode("01"), new AiNode("21"), new AiNode("8040")]) },
-        { ("8042", string.Empty), new AndNode([new AiNode("01"), new AiNode("21"), new AiNode("8041")]) },
-        { ("8043", string.Empty), new AndNode([new AiNode("01"), new AiNode("21")]) },
-        { ("8111", string.Empty), new AiNode("255") },
-        { ("8200", string.Empty), new AiNode("01") },
+        { ("01", "^0\\d{13}$:VariableMeasure"), Make(new OrNode([new AiNode("30"), new AiNode("3nnn")])) },
+        { ("01", "^9\\d{13}$"), Make(new OrNode([new AiNode("30"), new AiNode("3nnn"), new AiNode("8001"), new AiNode("242")])) },
+        { ("01", "^9\\d{13}$:VariableMeasure"), Make(new OrNode([new AiNode("30"), new AiNode("3nnn"), new AiNode("8001")])) },
+        { ("02", "^9\\d{13}$"), Make(new OrNode([new AiNode("30"), new AiNode("3nnn"), new AiNode("8001")])) },
+        { ("01", "^9\\d{13}$:Custom"), Make(new AiNode("242")) },
+        ////{ ("03", string.Empty), Make(new AiNode("242")) },  Removed from standard
+        { ("02", string.Empty), Make(new AndNode([new AiNode("00"), new AiNode("37")])) },
+        { ("10", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("03"), new AiNode("8006"), new AiNode("8026")])) },
+        { ("11", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")])) },
+        { ("13", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")])) },
+        { ("15", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")])) },
+        { ("16", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")])) },
+        { ("17", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")])) },
+        { ("12", string.Empty), Make(new AndNode([new AiNode("8020"), new AiNode("415")])) },
+        { ("17", ":Coupon"), Make(new AiNode("255")) },
+        { ("20", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")])) },
+        { ("21", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("03"), new AiNode("8006")])) },
+        { ("22", string.Empty), Make(new AiNode("01")) },
+        { ("235", string.Empty), Make(new AiNode("01")) },
+        { ("240", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")])) },
+        { ("241", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")])) },
+        { ("242", string.Empty), Make(new XorNode([new AiNode("01", "^9\\d{13}$"), new AiNode("02", "^9\\d{13}$"), new AiNode("8006", "^9\\d{13}\\d{2}\\d{2}$"), new AiNode("8026", "^9\\d{13}\\d{2}\\d{2}$")])) },
+        { ("243", string.Empty), Make(new AiNode("01")) },
+        { ("250", string.Empty), Make(new AndNode([new XorNode([new AiNode("01"), new AiNode("8006")]), new AiNode("21")])) },
+        { ("251", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("8006")])) },
+        { ("254", string.Empty), Make(new AiNode("414")) },
+        { ("30", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
+        { ("^3(1[0-6]|2\\d|5[0-267]|6[014-6])\\d$", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
+        { ("^3(1[0-6]|2\\d|5[0-267]|6[014-6])\\d$", ":VariableMeasure"), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
+        { ("^3(3[0-6]|4\\d|5[3-5]|6[237-9])\\d$", string.Empty), Make(new OrNode([new AiNode("01"), new AiNode("02")])) },
+        { ("337n", string.Empty), Make(new AiNode("01")) },
+        { ("37", string.Empty), Make(new AndNode([new AiNode("00"), new XorNode([new AiNode("02"), new AiNode("8026")])])) },
+        { ("390n", string.Empty), Make(new AndNode([new AiNode("8020"), new AiNode("8026")])) },
+        { ("391n", string.Empty), Make(new AndNode([new AiNode("8020"), new AiNode("415")])) },
+        { ("392n", string.Empty), Make(new AndNode([new AiNode("01"), new XorNode([new AiNode("30"), new AiNode("31nn"), new AiNode("32nn"), new AiNode("35nn"), new AiNode("36nn")])])) },
+        { ("393n", string.Empty), Make(new AndNode([new AiNode("01"), new XorNode([new AiNode("30"), new AiNode("31nn"), new AiNode("32nn"), new AiNode("35nn"), new AiNode("36nn")])])) },
+        { ("394n", string.Empty), Make(new AiNode("255")) },
+        { ("395n", string.Empty), Make(new AndNode([new AiNode("01"), new XorNode([new AiNode("30"), new AiNode("31nn"), new AiNode("32nn"), new AiNode("35nn"), new AiNode("36nn")])])) },
+        { ("403", string.Empty), Make(new AiNode("00")) },
+        { ("415", string.Empty), Make(new AiNode("8020")) },
+        { ("422", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")])) },
+        { ("423", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
+        { ("424", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
+        { ("425", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
+        { ("426", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
+        { ("427", string.Empty), Make(new AndNode([new XorNode([new AiNode("01"), new AiNode("02")]), new AiNode("422")])) },
+        { ("430N", string.Empty), Make(new AiNode("00")) },
+        { ("4303", string.Empty), Make(new AndNode([new AiNode("4302"), new AiNode("00")])) },
+        { ("4309", string.Empty), Make(new AiNode("00")) },
+        { ("431N", string.Empty), Make(new AiNode("00")) },
+        { ("4313", string.Empty), Make(new AndNode([new AiNode("4312"), new AiNode("00")])) },
+        { ("432N", string.Empty), Make(new AiNode("00")) },
+        { ("4330", string.Empty), Make(new AiNode("00")) },
+        { ("4331", string.Empty), Make(new AiNode("00")) },
+        { ("4332", string.Empty), Make(new AiNode("00")) },
+        { ("4333", string.Empty), Make(new AiNode("00")) },
+        { ("7001", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")])) },
+        { ("7002", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
+        { ("7003", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
+        { ("7004", string.Empty), Make(new AndNode([new AiNode("01"), new AiNode("10")])) },
+        { ("7005", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
+        { ("7006", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
+        { ("7007", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
+        { ("7008", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
+        { ("7009", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
+        { ("7010", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
+        { ("7011", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
+        { ("703s", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
+        { ("710", string.Empty), Make(new AiNode("01")) },
+        { ("711", string.Empty), Make(new AiNode("01")) },
+        { ("712", string.Empty), Make(new AiNode("01")) },
+        { ("713", string.Empty), Make(new AiNode("01")) },
+        { ("714", string.Empty), Make(new AiNode("01")) },
+        { ("715", string.Empty), Make(new AiNode("01")) },
+        { ("716", string.Empty), Make(new AiNode("01")) },
+        { ("717", string.Empty), Make(new AiNode("01")) },
+        { ("7020", string.Empty), Make(new AndNode([new XorNode([new AiNode("01, 8006")]), new AiNode("416")])) },
+        { ("7021", string.Empty), Make(new XorNode([new AiNode("01, 8006")])) },
+        { ("7022", string.Empty), Make(new AndNode([new XorNode([new AiNode("01, 8006")]), new AiNode("7021")])) },
+        { ("7041", string.Empty), Make(new AiNode("00")) },
+        { ("723s", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("8004")])) },
+        { ("7240", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("8006")])) },
+        { ("7241", string.Empty), Make(new XorNode([new AiNode("8017"), new AiNode("8018")])) },
+        { ("7242", string.Empty), Make(new XorNode([new AiNode("8017"), new AiNode("8018")])) },
+        { ("7250", string.Empty), Make(new AiNode("8018")) },
+        { ("7251", string.Empty), Make(new AiNode("8018")) },
+        { ("7252", string.Empty), Make(new AiNode("8018")) },
+        { ("7257", string.Empty), Make(new AiNode("8018")) },
+        { ("7259", string.Empty), Make(new AiNode("8018")) },
+        { ("7253", string.Empty), Make(new XorNode([new AiNode("8017"), new AiNode("8018")])) },
+        { ("7254", string.Empty), Make(new XorNode([new AiNode("8017"), new AiNode("8018")])) },
+        { ("7255", string.Empty), Make(new XorNode([new AiNode("8017"), new AiNode("8018")])) },
+        { ("7256", string.Empty), Make(new XorNode([new AiNode("8017"), new AiNode("8018")])) },
+        { ("7258", string.Empty), Make(new AndNode([new AiNode("8018"), new AiNode("7259")])) },
+        { ("8001", string.Empty), Make(new AiNode("01")) },
+        { ("8005", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
+        { ("8007", string.Empty), Make(new AndNode([new AiNode("8020"), new AiNode("415")])) },
+        { ("8008", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
+        { ("8009", string.Empty), Make(new OrNode([new AiNode("01"), new AiNode("00")])) },
+        { ("8011", string.Empty), Make(new AiNode("8010")) },
+        { ("8012", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("8006")])) },
+        { ("8014", string.Empty), Make(new AiNode("01")) },
+        { ("8019", string.Empty), Make(new XorNode([new AiNode("8017"), new AiNode("8018")])) },
+        { ("8020", string.Empty), Make(new AiNode("415")) },
+        { ("8026", string.Empty), Make(new AndNode([new AiNode("00"), new AiNode("37")])) },
+        { ("8030", string.Empty), Make(new XorNode([new AndNode([new AiNode("01"), new AiNode("21")]), new AndNode([new AiNode("8006"), new AiNode("21")]), new AndNode([new AiNode("8010"), new AiNode("8011")]), new AiNode("8003"), new AiNode("8004"), new AiNode("8017"), new AiNode("8018"), new AiNode("00"), new AiNode("253"), new AiNode("255")])) },
+        { ("8040", string.Empty), Make(new AndNode([new AiNode("01"), new AiNode("21")])) },
+        { ("8041", string.Empty), Make(new AndNode([new AiNode("01"), new AiNode("21"), new AiNode("8040")])) },
+        { ("8042", string.Empty), Make(new AndNode([new AiNode("01"), new AiNode("21"), new AiNode("8041")])) },
+        { ("8043", string.Empty), Make(new AndNode([new AiNode("01"), new AiNode("21")])) },
+        { ("8111", string.Empty), Make(new AiNode("255")) },
+        { ("8200", string.Empty), Make(new AiNode("01")) },
     };
+
+    private static (string description, MandatoryNode node) Make(MandatoryNode node) => (Describe(node), node);
+
+    private static string Describe(MandatoryNode node) {
+        return node switch {
+            AiNode ai => $"AI {ai.Ai}",
+            CompositeNode c when c.NodeType == MandatoryNodeType.And => string.Join($" {Resources.GS1_Error_202_and} ", c.Children.Select(Describe)),
+            CompositeNode c when c.NodeType == MandatoryNodeType.Or => $"{Resources.GS1_Error_202_or} ({string.Join(", ", c.Children.Select(Describe))})",
+            CompositeNode c when c.NodeType == MandatoryNodeType.Xor => $"{Resources.GS1_Error_202_xor} ({string.Join(", ", c.Children.Select(Describe))})",
+            _ => string.Empty
+        };
+    }
 
     private MandatedElements()
         : base(Rules)
@@ -175,14 +188,16 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
     {
         var issues = new List<(string ai, ParserException ex)>();
         var entries = ResolvedAiList.Current;
-        var matched = new List<(string ai, MandatoryNode node)>();
+        var matched = new List<(string ai, string description, MandatoryNode node)>();
 
         foreach (var entry in entries) {
 
             // Find all rules that match the current entry
             foreach (var rule in Rules) {
                 var ruleKey = rule.Key;
-                var ruleNode = rule.Value;
+                var ruleValue = rule.Value;
+                var ruleNode = ruleValue.node;
+                var ruleDescription = ruleValue.description;
 
                 // Special handling for variable measure and coupon/custom GTIN contexts (DRY)
                 bool RuleContextMatches(string? ruleRegex, string identifier)
@@ -236,11 +251,11 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
 
                 if (valueRegex is not null && !valueRegex.IsMatch(entry.Value)) continue;
 
-                matched.Add((entry.Identifier, ruleNode));
+                matched.Add((entry.Identifier, ruleDescription, ruleNode));
             }
         }
 
-        foreach (var (ai, ruleNode) in matched) {
+        foreach (var (ai, description, ruleNode) in matched) {
             bool fullMatch;
 
             if (ruleNode is AiNode aiNode) {
@@ -256,7 +271,7 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
 
                     // If no match exists, report the issue
                     if (!anyValueMatch) {
-                        issues.Add((ai, new ParserException(ai, 2202, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_202, ai, $"AI {aiNode.Ai}"), true, ai.Length)));
+                        issues.Add((ai, new ParserException(ai, 2202, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_202, ai, description), true, ai.Length)));
                         continue;
                     }
                 }
@@ -272,7 +287,7 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
 
                 // If no match exists, report the issue
                 if (!fullMatch) {
-                    issues.Add((ai, new ParserException(ai, 2202, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_202, ai, $"AI {aiNode.Ai}"), true, ai.Length)));
+                    issues.Add((ai, new ParserException(ai, 2202, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_202, ai, description), true, ai.Length)));
                 }
 
                 continue;
@@ -281,10 +296,9 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
             // Now evaluate composite nodes
             fullMatch = EvaluateComposite(ruleNode, entries);
             if (!fullMatch) {
-                issues.Add((ai, new ParserException(ai, 2202, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_202, ai, "one of multiple AIs"), true, ai.Length)));
+                issues.Add((ai, new ParserException(ai, 2202, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_202, ai, description), true, ai.Length)));
             }
         }
-
         return new ReadOnlyCollection<(string ai, ParserException ex)>(issues);
     }
 

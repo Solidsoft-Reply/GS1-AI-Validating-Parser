@@ -138,9 +138,6 @@
   <data name="GS1_Error_002" xml:space="preserve">
     <value>Identificatorul de aplicație invalid {0}.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
-    <value>Valoarea{0} are un checksum invalid.</value>
-  </data>
   <data name="GS1_Error_100" xml:space="preserve">
     <value>Valoarea{0} nu se potrivește cu modelul specificat pentru elementul de date.</value>
   </data>
@@ -165,7 +162,28 @@
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Valoarea{0} nu se potrivește cu modelul specificat pentru cupoanele de ofertă pozitivă nord-americane.</value>
   </data>
+  <data name="GS1_Error_201" xml:space="preserve">
+    <value>S-a găsit o relație de date nevalidă între AI {0} și AI {1}.</value>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>Relația obligatorie de date nu a fost găsită între AI {0} și {1}.</value>
+  </data>
   <data name="GS1_Warning_017" xml:space="preserve">
     <value>Valoarea{0} nu este un cod recunoscut de tip de ambalaj UN/ECE sau GS1.</value>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>Identificator de aplicație nevalid {0}. AI-urile trebuie să aibă între două și patru cifre.</value>
+  </data>
+  <data name="GS1_Error_202_and" xml:space="preserve">
+    <value>și</value>
+  </data>
+  <data name="GS1_Error_202_xor" xml:space="preserve">
+    <value>exact unul dintre</value>
+  </data>
+  <data name="GS1_Error_202_or" xml:space="preserve">
+    <value>cel puțin unul dintre</value>
+  </data>
+  <data name="GS1_Error_009" xml:space="preserve">
+    <value>Valoarea{0} pentru {1} are o cifră de control nevalidă.</value>
   </data>
 </root>

@@ -138,9 +138,6 @@
   <data name="GS1_Error_002" xml:space="preserve">
     <value>Ungültiger Anwendungsidentifikator {0}.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
-    <value>Der Wert{0} hat eine ungültige Prüfsumme.</value>
-  </data>
   <data name="GS1_Error_100" xml:space="preserve">
     <value>Der Wert{0} entspricht nicht dem spezifizierten Muster für das Datenelement.</value>
   </data>
@@ -165,7 +162,28 @@
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Der Wert{0} entspricht nicht dem für nordamerikanische Positive-Angebot-Datei-Coupons spezifizierten Muster.</value>
   </data>
+  <data name="GS1_Error_201" xml:space="preserve">
+    <value>Ungültige Datenbeziehung zwischen AI {0} und AI {1} gefunden.</value>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>Obligatorische Datenbeziehung zwischen KI {0} und {1} nicht gefunden.</value>
+  </data>
   <data name="GS1_Warning_017" xml:space="preserve">
     <value>Der Wert{0} ist kein anerkannter UN/ECE- oder GS1-Verpackungstypcode.</value>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>Ungültiger Anwendungskennzeichner {0}. AIs müssen zwischen zwei und vier Ziffern lang sein.</value>
+  </data>
+  <data name="GS1_Error_202_and" xml:space="preserve">
+    <value>und</value>
+  </data>
+  <data name="GS1_Error_202_xor" xml:space="preserve">
+    <value>genau eine von</value>
+  </data>
+  <data name="GS1_Error_202_or" xml:space="preserve">
+    <value>mindestens eines von</value>
+  </data>
+  <data name="GS1_Error_009" xml:space="preserve">
+    <value>Der Wert{0} für {1} hat eine ungültige Prüfziffer.</value>
   </data>
 </root>

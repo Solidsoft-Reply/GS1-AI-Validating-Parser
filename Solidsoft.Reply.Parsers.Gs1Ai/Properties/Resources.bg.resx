@@ -138,9 +138,6 @@
   <data name="GS1_Error_002" xml:space="preserve">
     <value>Невалиден идентификатор на приложение {0}.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
-    <value>Стойността{0} има невалидна контролна сума.</value>
-  </data>
   <data name="GS1_Error_100" xml:space="preserve">
     <value>Стойността{0} не отговаря на посочения модел за елемента на данните.</value>
   </data>
@@ -165,7 +162,28 @@
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Стойността{0} не отговаря на посочения модел за купони за положителни оферти в Северна Америка.</value>
   </data>
+  <data name="GS1_Error_201" xml:space="preserve">
+    <value>Открита е невалидна връзка на данни между AI {0} и AI {1}.</value>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>Не е намерена задължителна връзка на данни между AI {0} и {1}.</value>
+  </data>
   <data name="GS1_Warning_017" xml:space="preserve">
     <value>Стойността{0} не е разпознат код за типа опаковка на UN/ECE или GS1.</value>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>Невалиден идентификатор на приложение {0}. Идентификаторите на приложения (AI) трябва да са с дължина между две и четири цифри.</value>
+  </data>
+  <data name="GS1_Error_202_and" xml:space="preserve">
+    <value>и</value>
+  </data>
+  <data name="GS1_Error_202_xor" xml:space="preserve">
+    <value>точно едно от</value>
+  </data>
+  <data name="GS1_Error_202_or" xml:space="preserve">
+    <value>поне един от</value>
+  </data>
+  <data name="GS1_Error_009" xml:space="preserve">
+    <value>Стойността{0} за {1} има невалидна контролна цифра.</value>
   </data>
 </root>

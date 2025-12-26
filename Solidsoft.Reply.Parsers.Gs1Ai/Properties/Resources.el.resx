@@ -138,9 +138,6 @@
   <data name="GS1_Error_002" xml:space="preserve">
     <value>Μη έγκυρος αναγνωριστικός κωδικός εφαρμογής {0}.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
-    <value>Η τιμή{0} έχει άκυρο έλεγχο ακεραιότητας.</value>
-  </data>
   <data name="GS1_Error_100" xml:space="preserve">
     <value>Η τιμή{0} δεν ταιριάζει με το καθορισμένο μοτίβο για το στοιχείο δεδομένων.</value>
   </data>
@@ -165,7 +162,28 @@
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Η τιμή{0} δεν ταιριάζει με το καθορισμένο μοτίβο για κουπόνια θετικής προσφοράς αρχείων Βόρειας Αμερικής.</value>
   </data>
+  <data name="GS1_Error_201" xml:space="preserve">
+    <value>Βρέθηκε μη έγκυρη σχέση δεδομένων μεταξύ του AI {0} και του AI {1}.</value>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>Δεν βρέθηκε υποχρεωτική σχέση δεδομένων μεταξύ του AI {0} και του {1}.</value>
+  </data>
   <data name="GS1_Warning_017" xml:space="preserve">
     <value>Η τιμή{0} δεν είναι αναγνωρισμένος κωδικός τύπου συσκευασίας UN/ECE ή GS1.</value>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>Μη έγκυρο αναγνωριστικό εφαρμογής {0}. Τα AI πρέπει να έχουν μήκος από δύο έως τέσσερα ψηφία.</value>
+  </data>
+  <data name="GS1_Error_202_and" xml:space="preserve">
+    <value>και</value>
+  </data>
+  <data name="GS1_Error_202_xor" xml:space="preserve">
+    <value>ακριβώς ένα από τα</value>
+  </data>
+  <data name="GS1_Error_202_or" xml:space="preserve">
+    <value>τουλάχιστον ένα από τα</value>
+  </data>
+  <data name="GS1_Error_009" xml:space="preserve">
+    <value>Η τιμή{0} για το {1} έχει μη έγκυρο ψηφίο ελέγχου.</value>
   </data>
 </root>

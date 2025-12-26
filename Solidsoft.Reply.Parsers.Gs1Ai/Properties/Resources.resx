@@ -197,4 +197,13 @@
     <value>Invalid application identifier {0}.  AIs must be between two and four digits in length.</value>
     <comment>Error</comment>
   </data>
+  <data name="GS1_Error_202_and" xml:space="preserve">
+    <value>and</value>
+  </data>
+  <data name="GS1_Error_202_xor" xml:space="preserve">
+    <value>exactly one of</value>
+  </data>
+  <data name="GS1_Error_202_or" xml:space="preserve">
+    <value>at least one of</value>
+  </data>
 </root>

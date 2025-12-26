@@ -138,9 +138,6 @@
   <data name="GS1_Error_002" xml:space="preserve">
     <value>Aitheantóir iarratais neamhbhailí {0}.</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
-    <value>Tá seiceáilsum neamhbhailí ag an luach{0}.</value>
-  </data>
   <data name="GS1_Error_100" xml:space="preserve">
     <value>Níl an luach{0} ag teacht leis an bpátrún sonraithe don eilimint sonraí.</value>
   </data>
@@ -165,7 +162,28 @@
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Níl an luach{0} ag teacht leis an bpátrún sonraithe do chúpóin comhad tairisceana dearfach Mheiriceá Thuaidh.</value>
   </data>
+  <data name="GS1_Error_201" xml:space="preserve">
+    <value>Fuarthas gaol sonraí neamhbhailí idir AI {0} agus AI {1}.</value>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>Níor aimsíodh caidreamh sonraí éigeantach idir AI {0} agus {1}.</value>
+  </data>
   <data name="GS1_Warning_017" xml:space="preserve">
     <value>Ní aitheantas cód cineáil pacáistithe UN/ECE ná GS1 é an luach{0}. </value>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>Aitheantóir feidhmchláir neamhbhailí {0}. Caithfidh AIanna a bheith idir dhá agus ceithre dhigit ar fhad.</value>
+  </data>
+  <data name="GS1_Error_202_and" xml:space="preserve">
+    <value>agus</value>
+  </data>
+  <data name="GS1_Error_202_xor" xml:space="preserve">
+    <value>go díreach ceann amháin de</value>
+  </data>
+  <data name="GS1_Error_202_or" xml:space="preserve">
+    <value>ar a laghad ceann amháin de</value>
+  </data>
+  <data name="GS1_Error_009" xml:space="preserve">
+    <value>Tá digit seiceála neamhbhailí ag an luach{0} do {1}.</value>
   </data>
 </root>
