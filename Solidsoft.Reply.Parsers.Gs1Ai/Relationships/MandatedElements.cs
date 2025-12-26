@@ -24,7 +24,6 @@ using Solidsoft.Reply.Parsers.Common;
 using Solidsoft.Reply.Parsers.Gs1Ai;
 using Solidsoft.Reply.Parsers.Gs1Ai.Properties;
 
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
@@ -48,6 +47,7 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
         { ("01", "^9\\d{13}$:VariableMeasure"), new OrNode([new AiNode("30"), new AiNode("3nnn"), new AiNode("8001")]) },
         { ("02", "^9\\d{13}$"), new OrNode([new AiNode("30"), new AiNode("3nnn"), new AiNode("8001")]) },
         { ("01", "^9\\d{13}$:Custom"), new AiNode("242") },
+        ////{ ("03", string.Empty), new AiNode("242") },  Removed from standard
         { ("02", string.Empty), new AndNode([new AiNode("00"), new AiNode("37")]) },
         { ("10", string.Empty), new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("03"), new AiNode("8006"), new AiNode("8026")]) },
         { ("11", string.Empty), new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")]) },
@@ -70,8 +70,8 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
         { ("254", string.Empty), new AiNode("414") },
         { ("30", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
         { ("^3(1[0-6]|2\\d|5[0-267]|6[014-6])\\d$", string.Empty), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("^3(1[0-6]|2\\d|5[0-267]|6[014-6])\\d$:VariableMeasure", ":VariableMeasure"), new XorNode([new AiNode("01"), new AiNode("02")]) },
-        { ("^3(3[0-6]|4\\d|5[3-5]|6[237-9])\\d$", string.Empty), new XorNode([new AiNode("00"), new AiNode("01")]) },
+        { ("^3(1[0-6]|2\\d|5[0-267]|6[014-6])\\d$", ":VariableMeasure"), new XorNode([new AiNode("01"), new AiNode("02")]) },
+        { ("^3(3[0-6]|4\\d|5[3-5]|6[237-9])\\d$", string.Empty), new OrNode([new AiNode("01"), new AiNode("02")]) },
         { ("337n", string.Empty), new AiNode("01") },
         { ("37", string.Empty), new AndNode([new AiNode("00"), new XorNode([new AiNode("02"), new AiNode("8026")])]) },
         { ("390n", string.Empty), new AndNode([new AiNode("8020"), new AiNode("8026")]) },
@@ -169,216 +169,197 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
     /// <summary>
     /// Tests the current resolved AI entries against the mandated elements rules.
     /// </summary>
-    /// <param name="semantics">The AI semantics when evaluating rules (e.g., General, VariableMeasure, or Custom of AI 01).</param>
+    /// <param name="semantics">The AI semantics when evaluating rules (e.g., for AI 01, General, VariableMeasure, or Custom).</param>
     /// <returns>A read-only list of tuples containing the AI and the associated parser exception for any issues found.</returns>
     public static IReadOnlyList<(string ai, ParserException ex)> Test(Semantics semantics)
     {
         var issues = new List<(string ai, ParserException ex)>();
         var entries = ResolvedAiList.Current;
-        var matched = new List<((string ai, string regex) key, MandatoryNode node)>();
+        var matched = new List<(string ai, MandatoryNode node)>();
 
         foreach (var entry in entries) {
+
+            // Find all rules that match the current entry
             foreach (var rule in Rules) {
                 var ruleKey = rule.Key;
                 var ruleNode = rule.Value;
 
-                // Single context/semantics check covering both 01 and 17 cases
-                if (!RuleContextMatches(ruleKey.regex, entry.Identifier, semantics)) {
+                // Special handling for variable measure and coupon/custom GTIN contexts (DRY)
+                bool RuleContextMatches(string? ruleRegex, string identifier)
+                {
+                    if (string.IsNullOrEmpty(ruleRegex)) return true;
+                    var suffixIndex = ruleRegex.LastIndexOf(':');
+                    if (suffixIndex < 0) return true;
+#if NET6_0_OR_GREATER
+                    var ctxSuffix = ruleRegex[(suffixIndex + 1)..];
+#else
+                    var ctxSuffix = ruleRegex.Substring(suffixIndex + 1);
+#endif
+                    return identifier switch
+                    {
+                        "01" => ctxSuffix switch
+                        {
+                            nameof(GtinSemantics.VariableMeasure) => semantics.GtinSemantics == GtinSemantics.VariableMeasure,
+                            nameof(GtinSemantics.Custom) => semantics.GtinSemantics == GtinSemantics.Custom,
+                            _ => true
+                        },
+                        "17" => ctxSuffix switch
+                        {
+                            nameof(ExpiryDateSemantics.Coupon) => semantics.ExpiryDateSemantics == ExpiryDateSemantics.Coupon,
+                            _ => true
+                        },
+                        _ => true
+                    };
+                }
+
+                // Skip rules that do not match the current semantic context
+                if (!RuleContextMatches(ruleKey.regex, entry.Identifier)) {
                     continue;
                 }
 
-                if (!ruleKey.ai.AiPatternMatches(entry.Identifier)
-                    && !ruleKey.ai.AiRegExMatches(entry.Identifier)) {
-                    continue;
-                }
+                // Check if the resolved AI matches the rule's AI pattern
+                if (!AiPatternMatches(ruleKey.ai, entry.Identifier)) continue;
 
+                // Extract the rule's regular expression, if provided.
                 Regex? valueRegex = null;
                 if (!string.IsNullOrEmpty(ruleKey.regex)) {
-                    var colonIndex = ruleKey.regex.LastIndexOf(':');
+                    var colonIndex = ruleKey.regex?.LastIndexOf(':');
 #if NET6_0_OR_GREATER
-                    var pattern = colonIndex >= 0 ? ruleKey.regex[..colonIndex] : ruleKey.regex;
+                    var pattern = colonIndex >= 0 ? ruleKey.regex?[..(colonIndex ?? 0)] : ruleKey.regex;
 #else
-                    var pattern = colonIndex >= 0 ? ruleKey.regex.Substring(0, colonIndex) : ruleKey.regex;
+                    var pattern = colonIndex >= 0 ? ruleKey.regex?.Substring(0, colonIndex ?? 0) : ruleKey.regex;
 #endif
-                    if (!string.IsNullOrEmpty(pattern)) {
-                        valueRegex = new Regex(pattern, RegexOptions.Compiled | RegexOptions.CultureInvariant);
-                    }
+                    valueRegex = !string.IsNullOrEmpty(pattern)
+                        ? new Regex(pattern, RegexOptions.Compiled | RegexOptions.CultureInvariant)
+                        : null;
                 }
 
                 if (valueRegex is not null && !valueRegex.IsMatch(entry.Value)) continue;
 
-                matched.Add((ruleKey, ruleNode));
+                matched.Add((entry.Identifier, ruleNode));
             }
         }
 
-        foreach (var (ruleKey, ruleNode) in matched) {
+        foreach (var (ai, ruleNode) in matched) {
             bool fullMatch;
 
             if (ruleNode is AiNode aiNode) {
+                // Look for a resolved AI that matches the AI node directly, including a regualar expression
                 if (aiNode.ValueRegex is not null) {
                     var anyValueMatch = false;
                     foreach (var e in entries) {
-                        if (aiNode.Ai.AiPatternMatches(e.Identifier) && aiNode.ValueRegex.IsMatch(e.Value)) {
+                        if (AiPatternMatches(aiNode.Ai, e.Identifier) && aiNode.ValueRegex.IsMatch(e.Value)) {
                             anyValueMatch = true;
                             break;
                         }
                     }
 
+                    // If no match exists, report the issue
                     if (!anyValueMatch) {
-                        issues.Add((ruleKey.ai, new ParserException(ruleKey.ai, 2202, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_202, ruleKey.ai, $"AI {aiNode.Ai}"), true, ruleKey.ai.Length)));
+                        issues.Add((ai, new ParserException(ai, 2202, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_202, ai, $"AI {aiNode.Ai}"), true, ai.Length)));
                         continue;
                     }
                 }
 
+                // If no issues arose for nodes with value regex, check for AI pattern match only
                 fullMatch = false;
                 foreach (var e in entries) {
-                    if (aiNode.Ai.AiPatternMatches(e.Identifier)) {
+                    if (AiPatternMatches(aiNode.Ai, e.Identifier)) {
                         fullMatch = true;
                         break;
                     }
                 }
 
+                // If no match exists, report the issue
                 if (!fullMatch) {
-                    issues.Add((ruleKey.ai, new ParserException(ruleKey.ai, 2202, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_202, ruleKey.ai, $"AI {aiNode.Ai}"), true, ruleKey.ai.Length)));
+                    issues.Add((ai, new ParserException(ai, 2202, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_202, ai, $"AI {aiNode.Ai}"), true, ai.Length)));
                 }
 
                 continue;
             }
 
+            // Now evaluate composite nodes
             fullMatch = EvaluateComposite(ruleNode, entries);
             if (!fullMatch) {
-                issues.Add((ruleKey.ai, new ParserException(ruleKey.ai, 2202, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_202, ruleKey.ai, "one of multiple AIs"), true, ruleKey.ai.Length)));
+                issues.Add((ai, new ParserException(ai, 2202, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_202, ai, "one of multiple AIs"), true, ai.Length)));
             }
         }
 
         return new ReadOnlyCollection<(string ai, ParserException ex)>(issues);
     }
 
-    private static bool RuleContextMatches(string? keyRegex, string identifier, Semantics semantics)
-    {
-        if (string.IsNullOrEmpty(keyRegex)) return true;
-        var idx = keyRegex.LastIndexOf(':');
-        if (idx < 0) return true;
-#if NET6_0_OR_GREATER
-        var suffix = keyRegex[(idx + 1)..];
-#else
-        var suffix = keyRegex.Substring(idx + 1);
-#endif
-        if (identifier == "01") {
-            if (Enum.TryParse<GtinSemantics>(suffix, false, out var gtin)) {
-                return semantics.GtinSemantics == gtin;
-            }
-            return true;
-        }
-        if (identifier == "17") {
-            if (Enum.TryParse<ExpiryDateSemantics>(suffix, false, out var exp)) {
-                return semantics.ExpiryDateSemantics == exp;
-            }
-            return true;
-        }
-        return true;
-    }
-
+    /// <summary>
+    /// Evaluates the composite mandatory ruleNode against the provided resolved AI entries.
+    /// </summary>
+    /// <param name="node">The mandatory ruleNode to evaluate, which may be a composite or AI ruleNode.</param>
+    /// <param name="entries">The list of resolved AI entries to test against the mandatory ruleNode.</param>
+    /// <returns>true if the entries satisfy the mandatory ruleNode's requirements; otherwise, false.</returns>
     private static bool EvaluateComposite(MandatoryNode node, IReadOnlyList<ResolvedAiEntry> entries)
     {
-        if (node is AiNode ai)
+        return node switch
         {
-            foreach (var e in entries)
-            {
-                if (!ai.Ai.AiPatternMatches(e.Identifier))
-                {
-                    continue;
-                }
+            AiNode aiNode =>
+                EvaluateAiNode(aiNode),
+            CompositeNode compositeNode when compositeNode.NodeType == MandatoryNodeType.And =>
+                compositeNode.Children.All(child => EvaluateComposite(child, entries)),
+            CompositeNode compositeNode when compositeNode.NodeType == MandatoryNodeType.Or =>
+                compositeNode.Children.Any(child => EvaluateComposite(child, entries)),
+            CompositeNode compositeNode when compositeNode.NodeType == MandatoryNodeType.Xor =>
+                compositeNode.Children.Count(child => EvaluateComposite(child, entries)) == 1,
+            _ => false,
+        };
 
-                if (ai.ValueRegex is null || ai.ValueRegex.IsMatch(e.Value))
-                {
-                    return true;
-                }
+        bool EvaluateAiNode(AiNode ai) {
+            foreach (var e in entries) {
+                if (!AiPatternMatches(ai.Ai, e.Identifier)) continue;
+                if (ai.ValueRegex is null || ai.ValueRegex.IsMatch(e.Value)) return true;
             }
 
             return false;
         }
-
-        if (node is CompositeNode composite)
-        {
-            switch (composite.NodeType)
-            {
-                case MandatoryNodeType.And:
-                {
-                    foreach (var child in composite.Children)
-                    {
-                        if (!EvaluateComposite(child, entries))
-                        {
-                            return false;
-                        }
-                    }
-
-                    return true;
-                }
-                case MandatoryNodeType.Or:
-                {
-                    foreach (var child in composite.Children)
-                    {
-                        if (EvaluateComposite(child, entries))
-                        {
-                            return true;
-                        }
-                    }
-
-                    return false;
-                }
-                case MandatoryNodeType.Xor:
-                {
-                    var matchCount = 0;
-                    foreach (var child in composite.Children)
-                    {
-                        if (EvaluateComposite(child, entries))
-                        {
-                            matchCount++;
-                            if (matchCount > 1)
-                            {
-                                break;
-                            }
-                        }
-                    }
-
-                    return matchCount == 1;
-                }
-            }
-        }
-
-        return false;
     }
 
-    //////////private static bool AiPatternMatches(string pattern, string ai)
-    //////////{
-    //////////    if (string.IsNullOrEmpty(pattern)) return false;
-    //////////    if (pattern.Length != ai.Length) return false;
-    //////////    for (int i = 0; i < pattern.Length; i++)
-    //////////    {
-    //////////        char pc = pattern[i];
-    //////////        char ac = ai[i];
-    //////////        if (pc == 'n' || pc == 'N' || pc == 's')
-    //////////        {
-    //////////            if (ac < '0' || ac > '9') return false;
-    //////////        }
-    //////////        else if (pc != ac)
-    //////////        {
-    //////////            return false;
-    //////////        }
-    //////////    }
-    //////////    return true;
-    //////////}
+    /// <summary>
+    /// Determines whether the specified AI string matches the given pattern, where certain pattern characters represent
+    /// digit placeholders.
+    /// </summary>
+    /// <remarks>A pattern character of 'n', 'N', or 's' matches any single digit ('0'-'9') in the
+    /// corresponding position of the AI string. All other characters in the pattern must match exactly. The method
+    /// returns false if the pattern is null, empty, or if the pattern and AI strings are of different
+    /// lengths.</remarks>
+    /// <param name="pattern">The pattern string to match against. Characters 'n', 'N', or 's' in the pattern represent digit placeholders;
+    /// all other characters must match exactly. Cannot be null or empty.</param>
+    /// <param name="ai">The AI string to test for a match against the pattern. Must be the same length as the pattern.</param>
+    /// <returns>true if the AI string matches the pattern, treating 'n', 'N', or 's' as digit placeholders; otherwise, false.</returns>
+    private static bool AiPatternMatches(string pattern, string ai)
+    {
+        if (string.IsNullOrEmpty(pattern)) return false;
+        if (pattern.Length < ai.Length) return false;
 
-    //////////private static bool AiRegExMatches(string pattern, string ai) {
-    //////////    if (string.IsNullOrEmpty(pattern)) return false;
-    //////////    try {
-    //////////        var aiRegex = new Regex(pattern, RegexOptions.Compiled | RegexOptions.CultureInvariant);
-    //////////        return aiRegex.IsMatch(ai);
-    //////////    }
-    //////////    catch {
-    //////////        return false;
-    //////////    }
-    //////////}
+        try {
+            if (pattern.StartsWith("^") && new Regex(pattern).Match(ai).Success) {
+                return true;
+            }
 
+            for (int i = 0; i < pattern.Length; i++) {
+                char pc = pattern[i];
+                char ac = ai[i];
+
+                var digitMatch = pc switch {
+                    _ when pc == 'n' && (ac >= '0' || ac <= '9') => true,
+                    _ when pc == 'N' && (ac >= '0' || ac <= '9') => true,
+                    _ when pc == 's' && (ac >= '0' || ac <= '9') => true,
+                    _ when pc == ac => true,
+                    _ => false
+                };
+
+                if (!digitMatch) return digitMatch;
+            }
+
+            return true;
+        }
+        catch {
+            return false;
+        }
+    }
 }

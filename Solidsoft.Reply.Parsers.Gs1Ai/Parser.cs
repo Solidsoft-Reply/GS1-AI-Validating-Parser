@@ -82,7 +82,7 @@ public static class Parser {
     /// <param name="relationshipTests">Optional control to collect resolved AIs for relationship testing.</param>
     /// <param name="semantics">The AI semantics when data relationship tests are performed.</param>
     public static void Parse(
-        string? data, 
+        string? data,
         Action<IResolvedEntity> processResolvedEntity,
         int initialPosition = 0,
         DataRelationshipTests relationshipTests = DataRelationshipTests.No,
@@ -131,10 +131,10 @@ public static class Parser {
     /// Use this method as an alternative to Parse() for the very highest performance scenarios.  By using the ResolvedEntityDelegate delegate,
     /// you can avoid unecessary heap allocations.
     /// </remarks>
-    /// <param name="semantics">The AI semantics when data relationship tests are performed.</param>
+    /// <param name=semantics">The AI semantics when data relationship tests are performed.</param>
     public static void ParseEx(
         ReadOnlySpan<char> data,
-        ResolvedEntityDelegate processResolvedEntity, 
+        ResolvedEntityDelegate processResolvedEntity,
         int initialPosition = 0,
         DataRelationshipTests relationshipTests = DataRelationshipTests.No,
         Semantics semantics = default) {
@@ -223,7 +223,7 @@ public static class Parser {
     /// The current character position.
     /// </param>
     /// <param name="relationshipTest">Indicates if resolved AIs will be collected for relationship testing.</param>
-    /// <param name="semantics">The AI semantics when data relationship tests are performed.</param>
+    /// <param name="semantics">The semantics of any GTIN (AI 01) when data relationship tests are performed.</param>
 #pragma warning restore CS1587 // XML comment is not placed on a valid language element
 #pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment (but other parameters do)
     private static void DoParse(
@@ -652,10 +652,8 @@ public static class Parser {
             // Attach exceptions to pending entities, or create new ones
             void AttachException(string ai, ParserException ex) {
                 if (pendingByAi is null) return;
-
-                var matchingEntries = pendingByAi.Where(kvp => kvp.Key == ai || ai.AiPatternMatches(kvp.Key) || ai.AiRegExMatches(kvp.Key));
-                if (matchingEntries.Any()) {
-                    matchingEntries.First().Value.AddException(ex);
+                if (pendingByAi.TryGetValue(ai, out var entity)) {
+                    entity.AddException(ex);
                 } else {
                     // Create a minimal error entity for the AI
                     var clsEntity = new ResolvedApplicationIdentifier(ex, position);
@@ -675,14 +673,7 @@ public static class Parser {
             if (pendingByAi is not null) {
                 foreach (var kvp in pendingByAi) {
                     var entity = kvp.Value;
-////////#if NET7_0_OR_GREATER
-////////                    if (processResolvedEntityDelegate is not null && entity is ResolvedApplicationIdentifierRef refEntity) {
-////////                        processResolvedEntityDelegate(in refEntity);
-////////                    } else
-////////#endif
-////////                    {
-                        processResolvedEntity?.Invoke(entity);
-                    ////////}
+                    processResolvedEntity?.Invoke(entity);
                 }
             }
         }

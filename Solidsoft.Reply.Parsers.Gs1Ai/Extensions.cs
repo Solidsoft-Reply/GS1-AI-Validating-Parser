@@ -981,6 +981,28 @@ public static class Extensions {
         }
     }
 
+//////////    /// <summary>
+//////////    ///    Converts a list of non-matching AIs to a human-readable string.
+//////////    /// </summary>
+//////////    /// <param name="nonMatchingAis">The list of non-matching AIs.</param>
+//////////    /// <returns>A human-readable string representation of the non-matching AIs.</returns>
+//////////    internal static string ConvertToString(this IList<string> nonMatchingAis) {
+//////////        if (nonMatchingAis.Count == 0) return string.Empty;
+//////////        if (nonMatchingAis.Count == 1) return "AI " + nonMatchingAis[0];
+
+//////////        var processedList = nonMatchingAis.ToList();
+//////////        for (var idx = 1; idx < processedList.Count * 2; idx += 2) {
+//////////            processedList.Insert(idx, ". ");
+//////////        }
+
+//////////#if NET6_0_OR_GREATER
+//////////        processedList[^2] = " and ";
+//////////#else
+//////////            processedList[processedList.Count - 2] = " and ";
+//////////#endif
+//////////        return "AIs" + nonMatchingAis.Aggregate((a, e) => a + e);
+//////////    }
+
 #if NET7_0_OR_GREATER
     /// <summary>
     ///     UPC-A Compatible regular expression.

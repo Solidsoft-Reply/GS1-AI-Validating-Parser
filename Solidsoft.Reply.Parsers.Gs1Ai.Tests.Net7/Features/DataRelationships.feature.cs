@@ -105,7 +105,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Tests.Net7.Features
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/DataRelationships.feature.ndjson", 159);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/DataRelationships.feature.ndjson", 171);
         }
         
         async global::System.Threading.Tasks.Task global::Xunit.IAsyncLifetime.InitializeAsync()
@@ -284,15 +284,23 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
         [global::Xunit.InlineDataAttribute("010950600013437610ABC123[GS]173112313100000001", "", "105", new string[0])]
         [global::Xunit.InlineDataAttribute("010950600013437610ABC123[GS]173112313100000001", "01.VariableMeasure", "106", new string[0])]
         [global::Xunit.InlineDataAttribute("00950600098427565020020950600013437610ABC123[GS]173112313710[GS]3100000001", "", "107", new string[0])]
-        [global::Xunit.InlineDataAttribute("010950600013437610ABC123[GS]173112313110000001", "", "108", new string[0])]
-        [global::Xunit.InlineDataAttribute("010950600013437610ABC123[GS]173112313110000001", "01.VariableMeasure", "109", new string[0])]
+        [global::Xunit.InlineDataAttribute("010950600013437610ABC123[GS]173112313200000001", "", "108", new string[0])]
+        [global::Xunit.InlineDataAttribute("010950600013437610ABC123[GS]173112313200000001", "01.VariableMeasure", "109", new string[0])]
         [global::Xunit.InlineDataAttribute("00950600098427565020020950600013437610ABC123[GS]173112313710[GS]3200000001", "", "110", new string[0])]
-        [global::Xunit.InlineDataAttribute("010950600013437610ABC123[GS]173112313100000001", "", "111", new string[0])]
-        [global::Xunit.InlineDataAttribute("010950600013437610ABC123[GS]173112313100000001", "01.VariableMeasure", "112", new string[0])]
+        [global::Xunit.InlineDataAttribute("010950600013437610ABC123[GS]173112313500000001", "", "111", new string[0])]
+        [global::Xunit.InlineDataAttribute("010950600013437610ABC123[GS]173112313500000001", "01.VariableMeasure", "112", new string[0])]
         [global::Xunit.InlineDataAttribute("00950600098427565020020950600013437610ABC123[GS]173112313710[GS]3500000001", "", "113", new string[0])]
-        [global::Xunit.InlineDataAttribute("010950600013437610ABC123[GS]173112313100000001", "", "114", new string[0])]
-        [global::Xunit.InlineDataAttribute("010950600013437610ABC123[GS]173112313100000001", "01.VariableMeasure", "115", new string[0])]
+        [global::Xunit.InlineDataAttribute("010950600013437610ABC123[GS]173112313600000001", "", "114", new string[0])]
+        [global::Xunit.InlineDataAttribute("010950600013437610ABC123[GS]173112313600000001", "01.VariableMeasure", "115", new string[0])]
         [global::Xunit.InlineDataAttribute("00950600098427565020020950600013437610ABC123[GS]173112313710[GS]3600000001", "", "116", new string[0])]
+        [global::Xunit.InlineDataAttribute("00950600098427565020010950600013437610ABC123[GS]173112313330000001", "", "117", new string[0])]
+        [global::Xunit.InlineDataAttribute("010950600013437610ABC123[GS]173112313330000001", "", "118", new string[0])]
+        [global::Xunit.InlineDataAttribute("00950600098427565020010950600013437610ABC123[GS]173112313430000001", "", "119", new string[0])]
+        [global::Xunit.InlineDataAttribute("010950600013437610ABC123[GS]173112313430000001", "", "120", new string[0])]
+        [global::Xunit.InlineDataAttribute("00950600098427565020010950600013437610ABC123[GS]173112313530000001", "", "121", new string[0])]
+        [global::Xunit.InlineDataAttribute("010950600013437610ABC123[GS]173112313530000001", "", "122", new string[0])]
+        [global::Xunit.InlineDataAttribute("00950600098427565020010950600013437610ABC123[GS]173112313630000001", "", "123", new string[0])]
+        [global::Xunit.InlineDataAttribute("010950600013437610ABC123[GS]173112313630000001", "", "124", new string[0])]
         public async global::System.Threading.Tasks.Task ValidateDataRelationshipsBetweenMultipleDataElements(string input, string semantics, string @__pickleIndex, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -332,46 +340,50 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
         [global::Xunit.SkippableTheoryAttribute(DisplayName="Detect missing mandatory data relationships")]
         [global::Xunit.TraitAttribute("FeatureTitle", "DataRelationships")]
         [global::Xunit.TraitAttribute("Description", "Detect missing mandatory data relationships")]
-        [global::Xunit.InlineDataAttribute("01", "010950600013437610ABC123[GS]17311231", "01.VariableMeasure", "117", new string[0])]
-        [global::Xunit.InlineDataAttribute("01", "019950600013437910ABC123[GS]17311231", "01.VariableMeasure", "118", new string[0])]
-        [global::Xunit.InlineDataAttribute("02", "00950600098427565020029950600013437910ABC123[GS]173112313710", "01.VariableMeasure", "119", new string[0])]
-        [global::Xunit.InlineDataAttribute("01", "019950600013437910ABC123[GS]17311231", "01.Custom", "120", new string[0])]
-        [global::Xunit.InlineDataAttribute("02", "020950600013437610ABC123", "", "121", new string[0])]
-        [global::Xunit.InlineDataAttribute("02", "009506000984275650200200235060917511", "", "122", new string[0])]
-        [global::Xunit.InlineDataAttribute("02", "02002350609175113710", "", "123", new string[0])]
-        [global::Xunit.InlineDataAttribute("10", "10ABC123[GS]17311231", "", "124", new string[0])]
-        [global::Xunit.InlineDataAttribute("11", "10ABC123[GS]11251221", "", "125", new string[0])]
-        [global::Xunit.InlineDataAttribute("13", "ABC123[GS]13251221", "", "126", new string[0])]
-        [global::Xunit.InlineDataAttribute("15", "ABC123[GS]15260103", "", "127", new string[0])]
-        [global::Xunit.InlineDataAttribute("16", "10ABC123[GS]16261102", "", "128", new string[0])]
-        [global::Xunit.InlineDataAttribute("17", "10ABC123[GS]17260103", "", "129", new string[0])]
-        [global::Xunit.InlineDataAttribute("12", "12251231", "", "130", new string[0])]
-        [global::Xunit.InlineDataAttribute("12", "1225123180201438940A32", "", "131", new string[0])]
-        [global::Xunit.InlineDataAttribute("12", "122512314159506000134376", "", "132", new string[0])]
-        [global::Xunit.InlineDataAttribute("17", "10ABC123[GS]172601038006095060001343760310", "17.Coupon", "133", new string[0])]
-        [global::Xunit.InlineDataAttribute("20", "200317311231", "", "134", new string[0])]
-        [global::Xunit.InlineDataAttribute("21", "2149950304162", "", "135", new string[0])]
-        [global::Xunit.InlineDataAttribute("22", "2249950A304162", "", "136", new string[0])]
-        [global::Xunit.InlineDataAttribute("235", "2351ABC36610835978537", "", "137", new string[0])]
-        [global::Xunit.InlineDataAttribute("240", "24049950A304162", "", "138", new string[0])]
-        [global::Xunit.InlineDataAttribute("241", "24149950A304162", "", "139", new string[0])]
-        [global::Xunit.InlineDataAttribute("242", "24223", "", "140", new string[0])]
-        [global::Xunit.InlineDataAttribute("242", "010950600013437624223[GS]17311231", "", "141", new string[0])]
-        [global::Xunit.InlineDataAttribute("242", "00950600098427565020020950600013437624223[GS]173112313710", "", "142", new string[0])]
-        [global::Xunit.InlineDataAttribute("242", "24223[GS]8006095060001343760310", "", "143", new string[0])]
-        [global::Xunit.InlineDataAttribute("242", "0095060009842756502024223[GS]8026095060001343760310[GS]3710", "", "144", new string[0])]
-        [global::Xunit.InlineDataAttribute("243", "2431ABC36610835978537", "", "145", new string[0])]
-        [global::Xunit.InlineDataAttribute("250", "25049950304162", "", "146", new string[0])]
-        [global::Xunit.InlineDataAttribute("250", "010950600013437625049950304162", "", "147", new string[0])]
-        [global::Xunit.InlineDataAttribute("250", "8006095060001343760310[GS]25049950304162", "", "148", new string[0])]
-        [global::Xunit.InlineDataAttribute("250", "25049950304162[GS]218801005795367", "", "149", new string[0])]
-        [global::Xunit.InlineDataAttribute("251", "25149950304162", "", "150", new string[0])]
-        [global::Xunit.InlineDataAttribute("254", "254JJ429", "", "151", new string[0])]
-        [global::Xunit.InlineDataAttribute("30", "30100", "", "152", new string[0])]
-        [global::Xunit.InlineDataAttribute("3100", "3100000001", "", "153", new string[0])]
-        [global::Xunit.InlineDataAttribute("3200", "3200000001", "", "154", new string[0])]
-        [global::Xunit.InlineDataAttribute("3500", "3500000001", "", "155", new string[0])]
-        [global::Xunit.InlineDataAttribute("3600", "3600000001", "", "156", new string[0])]
+        [global::Xunit.InlineDataAttribute("01", "010950600013437610ABC123[GS]17311231", "01.VariableMeasure", "125", new string[0])]
+        [global::Xunit.InlineDataAttribute("01", "019950600013437910ABC123[GS]17311231", "01.VariableMeasure", "126", new string[0])]
+        [global::Xunit.InlineDataAttribute("02", "00950600098427565020029950600013437910ABC123[GS]173112313710", "01.VariableMeasure", "127", new string[0])]
+        [global::Xunit.InlineDataAttribute("01", "019950600013437910ABC123[GS]17311231", "01.Custom", "128", new string[0])]
+        [global::Xunit.InlineDataAttribute("02", "020950600013437610ABC123", "", "129", new string[0])]
+        [global::Xunit.InlineDataAttribute("02", "009506000984275650200200235060917511", "", "130", new string[0])]
+        [global::Xunit.InlineDataAttribute("02", "02002350609175113710", "", "131", new string[0])]
+        [global::Xunit.InlineDataAttribute("10", "10ABC123[GS]17311231", "", "132", new string[0])]
+        [global::Xunit.InlineDataAttribute("11", "10ABC123[GS]11251221", "", "133", new string[0])]
+        [global::Xunit.InlineDataAttribute("13", "ABC123[GS]13251221", "", "134", new string[0])]
+        [global::Xunit.InlineDataAttribute("15", "ABC123[GS]15260103", "", "135", new string[0])]
+        [global::Xunit.InlineDataAttribute("16", "10ABC123[GS]16261102", "", "136", new string[0])]
+        [global::Xunit.InlineDataAttribute("17", "10ABC123[GS]17260103", "", "137", new string[0])]
+        [global::Xunit.InlineDataAttribute("12", "12251231", "", "138", new string[0])]
+        [global::Xunit.InlineDataAttribute("12", "1225123180201438940A32", "", "139", new string[0])]
+        [global::Xunit.InlineDataAttribute("12", "122512314159506000134376", "", "140", new string[0])]
+        [global::Xunit.InlineDataAttribute("17", "10ABC123[GS]172601038006095060001343760310", "17.Coupon", "141", new string[0])]
+        [global::Xunit.InlineDataAttribute("20", "200317311231", "", "142", new string[0])]
+        [global::Xunit.InlineDataAttribute("21", "2149950304162", "", "143", new string[0])]
+        [global::Xunit.InlineDataAttribute("22", "2249950A304162", "", "144", new string[0])]
+        [global::Xunit.InlineDataAttribute("235", "2351ABC36610835978537", "", "145", new string[0])]
+        [global::Xunit.InlineDataAttribute("240", "24049950A304162", "", "146", new string[0])]
+        [global::Xunit.InlineDataAttribute("241", "24149950A304162", "", "147", new string[0])]
+        [global::Xunit.InlineDataAttribute("242", "24223", "", "148", new string[0])]
+        [global::Xunit.InlineDataAttribute("242", "010950600013437624223[GS]17311231", "", "149", new string[0])]
+        [global::Xunit.InlineDataAttribute("242", "00950600098427565020020950600013437624223[GS]173112313710", "", "150", new string[0])]
+        [global::Xunit.InlineDataAttribute("242", "24223[GS]8006095060001343760310", "", "151", new string[0])]
+        [global::Xunit.InlineDataAttribute("242", "0095060009842756502024223[GS]8026095060001343760310[GS]3710", "", "152", new string[0])]
+        [global::Xunit.InlineDataAttribute("243", "2431ABC36610835978537", "", "153", new string[0])]
+        [global::Xunit.InlineDataAttribute("250", "25049950304162", "", "154", new string[0])]
+        [global::Xunit.InlineDataAttribute("250", "010950600013437625049950304162", "", "155", new string[0])]
+        [global::Xunit.InlineDataAttribute("250", "8006095060001343760310[GS]25049950304162", "", "156", new string[0])]
+        [global::Xunit.InlineDataAttribute("250", "25049950304162[GS]218801005795367", "", "157", new string[0])]
+        [global::Xunit.InlineDataAttribute("251", "25149950304162", "", "158", new string[0])]
+        [global::Xunit.InlineDataAttribute("254", "254JJ429", "", "159", new string[0])]
+        [global::Xunit.InlineDataAttribute("30", "30100", "", "160", new string[0])]
+        [global::Xunit.InlineDataAttribute("3100", "3100000001", "", "161", new string[0])]
+        [global::Xunit.InlineDataAttribute("3200", "3200000001", "", "162", new string[0])]
+        [global::Xunit.InlineDataAttribute("3500", "3500000001", "", "163", new string[0])]
+        [global::Xunit.InlineDataAttribute("3600", "3600000001", "", "164", new string[0])]
+        [global::Xunit.InlineDataAttribute("3330", "3330000001", "", "165", new string[0])]
+        [global::Xunit.InlineDataAttribute("3430", "3430000001", "", "166", new string[0])]
+        [global::Xunit.InlineDataAttribute("3530", "3530000001", "", "167", new string[0])]
+        [global::Xunit.InlineDataAttribute("3630", "3630000001", "", "168", new string[0])]
         public async global::System.Threading.Tasks.Task DetectMissingMandatoryDataRelationships(string ai, string input, string semantics, string @__pickleIndex, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -383,7 +395,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Detect missing mandatory data relationships", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 183
+#line 193
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -393,19 +405,19 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 184
+#line 194
  await testRunner.GivenAsync(string.Format("the input is {0}", input), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 185
+#line 195
     await testRunner.AndAsync(string.Format("the semantics are {0}", semantics), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 186
+#line 196
  await testRunner.WhenAsync("the input to submitted to the parser and data relationship tests are required", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 187
+#line 197
     await testRunner.ThenAsync(string.Format("we should detect AI {0}", ai), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 188
+#line 198
     await testRunner.AndAsync("the errors should include a fatal 2202 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
