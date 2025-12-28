@@ -818,7 +818,7 @@ public enum CountryCode {
     CouponIdentificationForCommonCurrencyArea = 981,
 
     /// <summary>
-    ///     Coupon identification.
+    ///     CouponValue identification.
     /// </summary>
     [LocalisedDescription(nameof(CouponIdentification))]
     CouponIdentification = 990,

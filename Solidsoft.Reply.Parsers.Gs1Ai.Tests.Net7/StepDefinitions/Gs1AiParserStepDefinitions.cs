@@ -7,7 +7,8 @@ public sealed class Gs1AiParserStepDefinitions {
 
     private string _data = string.Empty;
     private GtinSemantics _gtinSemantics = GtinSemantics.General;
-    private ExpiryDateSemantics _expiryDateSemantics = ExpiryDateSemantics.General;
+    private ExpiryDateSemantics _expiryDateSemantics = ExpiryDateSemantics.TradeItem;
+    private AmountPayableSemantics _amountPayableSemantics = AmountPayableSemantics.Invoice;
 
     private readonly IDictionary<int, IResolvedEntity> _resolvedEntities = new Dictionary<int, IResolvedEntity>();
     private readonly IDictionary<string, IResolvedEntity> _resolvedAIs = new Dictionary<string, IResolvedEntity>();
@@ -18,7 +19,8 @@ public sealed class Gs1AiParserStepDefinitions {
     public void GivenTheValueIs(string input) {
         _data = input.Replace("[GS]", "\u001d");
         _gtinSemantics = GtinSemantics.General;
-        _expiryDateSemantics = ExpiryDateSemantics.General;
+        _expiryDateSemantics = ExpiryDateSemantics.TradeItem;
+        _amountPayableSemantics = AmountPayableSemantics.Invoice;
     }
 
     [Given("the semantics are (.*)")]
@@ -30,7 +32,10 @@ public sealed class Gs1AiParserStepDefinitions {
             : GtinSemantics.General;
         _expiryDateSemantics = ai == "17"
             ? Enum.Parse<ExpiryDateSemantics>(semantics)
-            : ExpiryDateSemantics.General;
+            : ExpiryDateSemantics.TradeItem;
+        _amountPayableSemantics = ai.StartsWith("390")
+            ? Enum.Parse<AmountPayableSemantics>(semantics)
+            : AmountPayableSemantics.Invoice;
     }
 
     [When("the input to submitted to the parser")]
@@ -46,7 +51,7 @@ public sealed class Gs1AiParserStepDefinitions {
         _resolvedEntities.Clear();
         _resolvedAIs.Clear();
         _dataRelationshipExceptions.Clear();
-        Parser.Parse(_data, OnResolvedEntity, relationshipTests: DataRelationshipTests.Yes, semantics: new(GtinSemantics: _gtinSemantics, ExpiryDateSemantics: _expiryDateSemantics));
+        Parser.Parse(_data, OnResolvedEntity, relationshipTests: DataRelationshipTests.Yes, semantics: new(GtinSemantics: _gtinSemantics, ExpiryDateSemantics: _expiryDateSemantics, AmountPayableSemantics: _amountPayableSemantics));
     }
 
     public void OnResolvedEntity(IResolvedEntity resolvedEntity) {

@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ExpiryDateSemantics.cs" company="Solidsoft Reply Ltd">
+// <copyright file="AmountPayableSemantics.cs" company="Solidsoft Reply Ltd">
 // Copyright (c) 2018-2025 Solidsoft Reply Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,24 +14,24 @@
 // limitations under the License.
 // </copyright>
 // <summary>
-// The semantics of the Expiry Date (AI 17).
+// The semantics of the Amount Payable (Single monetary area) (AI 390n).
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace Solidsoft.Reply.Parsers.Gs1Ai.Relationships;
 
 /// <summary>
-/// The semantics of the Expiry Date (AI 17).
+/// The semantics of the Amount Payable (Single monetary area) (AI 390n).
 /// </summary>
-public enum ExpiryDateSemantics {
+public enum AmountPayableSemantics {
     /// <summary>
-    /// Expiry date of a trade item, or no specific semantics provided.
+    /// Amount payable on an invoice payment slip, or no specific semantics.
     /// </summary>
-    TradeItem = 0,
+    Invoice,
 
     /// <summary>
-    /// Expiry date of a coupon.
+    /// Value of a coupon.
     /// </summary>
-    Coupon,
+    CouponValue,
 
 }

@@ -268,7 +268,7 @@ internal class Gs1ApplicationIdentifier {
     }
     
     /// <summary>
-    ///   Looks up a localized string similar to Global Coupon Number (GCN).
+    ///   Looks up a localized string similar to Global CouponValue Number (GCN).
     /// </summary>
     internal static string ai255 {
         get {
@@ -1861,7 +1861,7 @@ internal class Gs1ApplicationIdentifier {
     }
     
     /// <summary>
-    ///   Looks up a localized string similar to Coupon code identification for use in North America.
+    ///   Looks up a localized string similar to CouponValue code identification for use in North America.
     /// </summary>
     internal static string ai8110 {
         get {

@@ -198,7 +198,7 @@ internal static class EntityResolver {
     private static readonly Regex GdtiRegex = new (@"^\d{13}(" + CharacterSet82 + @"{1,17})?$", RegexOptions.None);
 
     /// <summary>
-    ///     Returns a regular expression for matching a Global Coupon Number.
+    ///     Returns a regular expression for matching a Global CouponValue Number.
     /// </summary>
     private static readonly Regex GcnRegex = new (@"^\d{13}(\d{1,12})?$", RegexOptions.None);
 
@@ -3828,7 +3828,7 @@ internal static class EntityResolver {
     private static partial Regex GdtiRegex();
 
     /// <summary>
-    ///     Returns a regular expression for matching a Global Coupon Number.
+    ///     Returns a regular expression for matching a Global CouponValue Number.
     /// </summary>
     /// <returns>A regular expression.</returns>
     [GeneratedRegex(@"^\d{13}(\d{1,12})?$", RegexOptions.None, "en-US")]

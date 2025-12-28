@@ -268,7 +268,7 @@ internal class Gs1CountryCode {
     }
     
     /// <summary>
-    ///   Looks up a localized string similar to Coupon identification.
+    ///   Looks up a localized string similar to CouponValue identification.
     /// </summary>
     internal static string CouponIdentification {
         get {

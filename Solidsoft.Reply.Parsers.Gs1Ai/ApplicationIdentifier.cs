@@ -172,7 +172,7 @@ public enum ApplicationIdentifier {
     GlnExtensionComponent = 254,
 
     /// <summary>
-    ///     Global Coupon Number (GCN).
+    ///     Global CouponValue Number (GCN).
     /// </summary>
     /// <remarks>Format:  N3+N13+N..12 (FNC1)</remarks>
     GlobalCouponNumber = 255,
@@ -508,7 +508,7 @@ public enum ApplicationIdentifier {
     CountOfTradeItems = 37,
 
     /// <summary>
-    ///     Applicable amount payable or Coupon value, local currency (AMOUNT).
+    ///     Applicable amount payable or CouponValue value, local currency (AMOUNT).
     /// </summary>
     /// <remarks>Format: N4+N..15 (FNC1)</remarks>
     ApplicableAmountPayableOrCouponValueLocalCurrency = 390,
@@ -1205,7 +1205,7 @@ public enum ApplicationIdentifier {
     PhysicalSim = 8043,
 
     /// <summary>
-    ///     Coupon code identification for use in North America (-).
+    ///     CouponValue code identification for use in North America (-).
     /// </summary>
     /// <remarks>Format: N4+X..70 (FNC1)</remarks>
     CouponCodeIdentificationForUseInNorthAmerica = 8110,

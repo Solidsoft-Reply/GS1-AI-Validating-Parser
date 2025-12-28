@@ -71,16 +71,16 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
         { ("254", string.Empty), Make(new AiNode("414")) },
         { ("30", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
         { ("^3(1[0-6]|2\\d|5[0-267]|6[014-6])\\d$", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
-        { ("^3(1[0-6]|2\\d|5[0-267]|6[014-6])\\d$", ":VariableMeasure"), Make(new XorNode([new AiNode("01"), new AiNode("02")])) },
         { ("^3(3[0-6]|4\\d|5[3-5]|6[237-9])\\d$", string.Empty), Make(new OrNode([new AiNode("01"), new AiNode("02")])) },
         { ("337n", string.Empty), Make(new AiNode("01")) },
         { ("37", string.Empty), Make(new AndNode([new AiNode("00"), new XorNode([new AiNode("02"), new AiNode("8026")])])) },
-        { ("390n", string.Empty), Make(new AndNode([new AiNode("8020"), new AiNode("8026")])) },
+        { ("390n", string.Empty), Make(new AndNode([new AiNode("8020"), new AiNode("415")])) },
+        { ("390n", ":CouponValue"), Make(new AiNode("255")) },
         { ("391n", string.Empty), Make(new AndNode([new AiNode("8020"), new AiNode("415")])) },
-        { ("392n", string.Empty), Make(new AndNode([new AiNode("01"), new XorNode([new AiNode("30"), new AiNode("31nn"), new AiNode("32nn"), new AiNode("35nn"), new AiNode("36nn")])])) },
-        { ("393n", string.Empty), Make(new AndNode([new AiNode("01"), new XorNode([new AiNode("30"), new AiNode("31nn"), new AiNode("32nn"), new AiNode("35nn"), new AiNode("36nn")])])) },
+        { ("392n", string.Empty), Make(new AndNode([new AiNode("01"), new XorNode([new AiNode("30"), new AiNode("^3(1[0-6]|2\\d|5[0-267]|6[014-6])\\d$")])])) },
+        { ("393n", string.Empty), Make(new AndNode([new AiNode("01"), new XorNode([new AiNode("30"), new AiNode("^3(1[0-6]|2\\d|5[0-267]|6[014-6])\\d$")])])) },
         { ("394n", string.Empty), Make(new AiNode("255")) },
-        { ("395n", string.Empty), Make(new AndNode([new AiNode("01"), new XorNode([new AiNode("30"), new AiNode("31nn"), new AiNode("32nn"), new AiNode("35nn"), new AiNode("36nn")])])) },
+        { ("395n", string.Empty), Make(new AndNode([new AiNode("01"), new XorNode([new AiNode("30"), new AiNode("^3(1[0-6]|2\\d|5[0-267]|6[014-6])\\d$")])])) },
         { ("403", string.Empty), Make(new AiNode("00")) },
         { ("415", string.Empty), Make(new AiNode("8020")) },
         { ("422", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("02"), new AiNode("8006"), new AiNode("8026")])) },
@@ -94,7 +94,7 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
         { ("4309", string.Empty), Make(new AiNode("00")) },
         { ("431N", string.Empty), Make(new AiNode("00")) },
         { ("4313", string.Empty), Make(new AndNode([new AiNode("4312"), new AiNode("00")])) },
-        { ("432N", string.Empty), Make(new AiNode("00")) },
+        { ("^432[0-6]$", string.Empty), Make(new AiNode("00")) },
         { ("4330", string.Empty), Make(new AiNode("00")) },
         { ("4331", string.Empty), Make(new AiNode("00")) },
         { ("4332", string.Empty), Make(new AiNode("00")) },
@@ -119,9 +119,9 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
         { ("715", string.Empty), Make(new AiNode("01")) },
         { ("716", string.Empty), Make(new AiNode("01")) },
         { ("717", string.Empty), Make(new AiNode("01")) },
-        { ("7020", string.Empty), Make(new AndNode([new XorNode([new AiNode("01, 8006")]), new AiNode("416")])) },
-        { ("7021", string.Empty), Make(new XorNode([new AiNode("01, 8006")])) },
-        { ("7022", string.Empty), Make(new AndNode([new XorNode([new AiNode("01, 8006")]), new AiNode("7021")])) },
+        { ("7020", string.Empty), Make(new AndNode([new XorNode([new AiNode("01"), new AiNode("8006")]), new AiNode("416")])) },
+        { ("7021", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("8006")])) },
+        { ("7022", string.Empty), Make(new AndNode([new XorNode([new AiNode("01"), new AiNode("8006")]), new AiNode("7021")])) },
         { ("7041", string.Empty), Make(new AiNode("00")) },
         { ("723s", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("8004")])) },
         { ("7240", string.Empty), Make(new XorNode([new AiNode("01"), new AiNode("8006")])) },
@@ -202,16 +202,15 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
                 // Special handling for variable measure and coupon/custom GTIN contexts (DRY)
                 bool RuleContextMatches(string? ruleRegex, string identifier)
                 {
-                    if (string.IsNullOrEmpty(ruleRegex)) return true;
-                    var suffixIndex = ruleRegex.LastIndexOf(':');
-                    if (suffixIndex < 0) return true;
+                    var suffixIndex = ruleRegex?.LastIndexOf(':') ?? -1;
+                    var ctxSuffix = suffixIndex < 0
+                        ? string.Empty
 #if NET6_0_OR_GREATER
-                    var ctxSuffix = ruleRegex[(suffixIndex + 1)..];
+                        : ruleRegex?[(suffixIndex + 1)..];
 #else
-                    var ctxSuffix = ruleRegex.Substring(suffixIndex + 1);
+                        : ruleRegex?.Substring(suffixIndex + 1);
 #endif
-                    return identifier switch
-                    {
+                    return identifier switch {
                         "01" => ctxSuffix switch
                         {
                             nameof(GtinSemantics.VariableMeasure) => semantics.GtinSemantics == GtinSemantics.VariableMeasure,
@@ -220,8 +219,15 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
                         },
                         "17" => ctxSuffix switch
                         {
+                            nameof(ExpiryDateSemantics.TradeItem) => semantics.ExpiryDateSemantics == ExpiryDateSemantics.TradeItem,
                             nameof(ExpiryDateSemantics.Coupon) => semantics.ExpiryDateSemantics == ExpiryDateSemantics.Coupon,
-                            _ => true
+                            _ => semantics.ExpiryDateSemantics == ExpiryDateSemantics.TradeItem
+                        },
+                        _ when identifier.StartsWith("390") => ctxSuffix switch
+                        {
+                            nameof(AmountPayableSemantics.Invoice) => semantics.AmountPayableSemantics == AmountPayableSemantics.Invoice,
+                            nameof(AmountPayableSemantics.CouponValue) => semantics.AmountPayableSemantics == AmountPayableSemantics.CouponValue,
+                            _ => semantics.AmountPayableSemantics == AmountPayableSemantics.Invoice
                         },
                         _ => true
                     };
