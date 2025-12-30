@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ResolvedAiEntry.cs" company="Solidsoft Reply Ltd">
+// <copyright file="Scenario.cs" company="Solidsoft Reply Ltd">
 // Copyright (c) 2018-2025 Solidsoft Reply Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,34 +14,39 @@
 // limitations under the License.
 // </copyright>
 // <summary>
-// Thread-safe per-thread list for collecting AI identifiers and values during Parse operations.
+// Represents the scenario for barcode parsing with respect to the correspondence between
+// barcodes and physical entities.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
 /// <summary>
-/// Represents a collected AI identifier and its value (snapshot for relationship testing).
+/// Represents the scenario for barcode parsing with respect to the correspondence between
+/// barcodes and physical entities.
 /// </summary>
-/// <remarks>
-/// Initializes a new instance of the <see cref="ResolvedAiEntry"/> class.
-/// </remarks>
-/// <param name="identifier">The AI identifier.</param>
-/// <param name="value">The AI value.</param>
-/// <param name="position">The position of the AI.</param>
-public sealed class ResolvedAiEntry(string identifier, string value, int position) {
+public enum Scenario {
     /// <summary>
-    /// Gets the AI identifier.
+    /// The list of barcodes appear on a single physical entity.
     /// </summary>
-    public string Identifier { get; } = identifier ?? string.Empty;
+    /// <remarks>
+    /// The parser will perform data relationship tests across all barcodes in the list.
+    /// </remarks>
+    SinglePhysicalEntity = 0,
 
     /// <summary>
-    /// Gets the AI value.
+    /// Each barcode appears on a single physical entity.
     /// </summary>
-    public string Value { get; } = value ?? string.Empty;
+    /// <remarks>
+    /// The parser will perform data relationship tests for each individual barcode.
+    /// </remarks>
+    SinglePhysicalEntityPerBarcode = 1,
 
     /// <summary>
-    /// Gets the position of the AI.
+    /// No assumption is made regarding the correspondence of barcodes to physical entities.
     /// </summary>
-    public int Position { get; } = position;
+    /// <remarks>
+    /// The parser will not perform data relationship tests.
+    /// </remarks>
+    Arbitrary = 2,
 }

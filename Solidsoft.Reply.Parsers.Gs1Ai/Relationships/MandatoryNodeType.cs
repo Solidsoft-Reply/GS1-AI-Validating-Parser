@@ -24,7 +24,6 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Relationships;
 /// Node type discriminator for mandatory relationship nodes.
 /// </summary>
 internal enum MandatoryNodeType {
-
     /// <summary>
     /// AI leaf node representing an AI value and optional compiled regex to validate the AI's value format/content.
     /// </summary>

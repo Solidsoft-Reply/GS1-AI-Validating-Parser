@@ -23,13 +23,10 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Relationships;
 /// <summary>
 /// AND node: all child nodes must be satisfied.
 /// </summary>
-internal sealed class AndNode : CompositeNode {
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="AndNode"/> class.
-    /// </summary>
-    /// <param name="children">The child nodes.</param>
-    public AndNode(IEnumerable<MandatoryNode> children)
-        : base(MandatoryNodeType.And, children) {
-    }
+/// <remarks>
+/// Initializes a new instance of the <see cref="AndNode"/> class.
+/// </remarks>
+/// <param name="children">The child nodes.</param>
+internal sealed class AndNode(IEnumerable<MandatoryNode> children)
+    : CompositeNode(MandatoryNodeType.And, children) {
 }

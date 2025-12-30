@@ -255,15 +255,23 @@ public static class Parser {
 #endif
 
     /// <summary>
-    /// Parse multiple GS1-encoded barcode contents as a single physical entity, applying full data relationship rules across all inputs.
+    /// Parse multiple GS1-encoded barcode contents for a single physical entity, applying full data relationship rules across all inputs.
     /// </summary>
     /// <param name="barcodeContents">List of barcode content strings (each item is one barcode).</param>
     /// <param name="processResolvedEntity">Callback invoked for each resolved entity and any aggregated rule exceptions.</param>
     /// <param name="semantics">AI semantics for relationship evaluation (e.g., GTIN semantics).</param>
+    /// <param name="scenario">
+    /// The barcode parsing scenario with respect to the correspondence between barcodes and physical entities.
+    /// </param>
+    /// <remarks>AI semantics for relationship evaluation (e.g., GTIN semantics).
+    /// This method assumes that the barcode inputs provided in the barcode contents list are for a single physical
+    /// entity and performs data relationship tests accrdingly.
+    /// </remarks>
     public static void ParseMulti(
         IList<string> barcodeContents,
         Action<IResolvedEntity> processResolvedEntity,
-        Semantics semantics = default)
+        Semantics semantics = default,
+        Scenario scenario = Scenario.SinglePhysicalEntity)
     {
 #if NET7_0_OR_GREATER
         ArgumentNullException.ThrowIfNull(barcodeContents);
@@ -272,6 +280,7 @@ public static class Parser {
         if (barcodeContents is null) throw new ArgumentNullException(nameof(barcodeContents));
         if (processResolvedEntity is null) throw new ArgumentNullException(nameof(processResolvedEntity));
 #endif
+
         // Aggregate resolved AIs across all inputs
         ResolvedAiList.Clear();
         var pendingByAi = new Dictionary<string, IResolvedEntity>(StringComparer.Ordinal);
@@ -285,11 +294,38 @@ public static class Parser {
                 processResolvedEntity(errorEntity);
                 continue;
             }
+#pragma warning disable SA1118 // Parameter should not span multiple lines
 #if NET7_0_OR_GREATER
-            DoParse(content.AsSpan(), processResolvedEntity, null, 0, DataRelationshipTests.All, semantics, accumulate: true, pendingShared: pendingByAi);
+            DoParse(
+                content.AsSpan(),
+                processResolvedEntity,
+                null,
+                0,
+                scenario switch {
+                    Scenario.SinglePhysicalEntity => DataRelationshipTests.All,
+                    Scenario.SinglePhysicalEntityPerBarcode => DataRelationshipTests.All,
+                    Scenario.Arbitrary => DataRelationshipTests.None,
+                    _ => DataRelationshipTests.InvalidPairs
+                },
+                semantics,
+                accumulate: scenario == Scenario.SinglePhysicalEntity,
+                pendingShared: scenario == Scenario.SinglePhysicalEntity ? pendingByAi : null);
 #else
-            DoParse(content.AsSpan(), processResolvedEntity, 0, DataRelationshipTests.All, semantics, accumulate: true, pendingShared: pendingByAi);
+            DoParse(
+                content.AsSpan(),
+                processResolvedEntity,
+                0,
+                scenario switch {
+                    Scenario.SinglePhysicalEntity => DataRelationshipTests.All,
+                    Scenario.SinglePhysicalEntityPerBarcode => DataRelationshipTests.All,
+                    Scenario.Arbitrary => DataRelationshipTests.None,
+                    _ => DataRelationshipTests.InvalidPairs
+                },
+                semantics,
+                accumulate: scenario == Scenario.SinglePhysicalEntity,
+                pendingShared: scenario == Scenario.SinglePhysicalEntity ? pendingByAi : null);
 #endif
+#pragma warning restore SA1118 // Parameter should not span multiple lines
         }
 
         // After parsing all inputs, evaluate relationship rules once across the aggregated ResolvedAiList
@@ -376,7 +412,7 @@ public static class Parser {
         }
 
         // Buffer callbacks when relationship tests are requested
-        Dictionary<string, IResolvedEntity>? pendingByAi = (accumulate ? pendingShared : (relationshipTest != DataRelationshipTests.None ? new Dictionary<string, IResolvedEntity>(StringComparer.Ordinal) : null));
+        Dictionary<string, IResolvedEntity>? pendingByAi = accumulate ? pendingShared : (relationshipTest != DataRelationshipTests.None ? new Dictionary<string, IResolvedEntity>(StringComparer.Ordinal) : null);
 
         // Convert GS1 element format to FNC1 format.
         var len = characters.Length;
@@ -398,7 +434,7 @@ public static class Parser {
                     if (normalisedCharacters.Length > 0 && normalisedCharacters[0] == Convert.ToChar(29)) {
 #if NET7_0_OR_GREATER
                         if (processResolvedEntityDelegate is not null) {
-                            ResolvedApplicationIdentifierRef defaultEntity = new(
+                            ResolvedApplicationIdentifierRef defaultEntity = new (
                                 -1,
                                 stackalloc char[4],
                                 null,
@@ -456,7 +492,7 @@ public static class Parser {
 
 #if NET7_0_OR_GREATER
                     if (processResolvedEntityDelegate is not null) {
-                        ResolvedApplicationIdentifierRef defaultEntity = new(
+                        ResolvedApplicationIdentifierRef defaultEntity = new (
                             -1,
                             stackalloc char[4],
                             null,
@@ -563,7 +599,7 @@ public static class Parser {
 
 #if NET7_0_OR_GREATER
                     if (processResolvedEntityDelegate is not null) {
-                        ResolvedApplicationIdentifierRef defaultEntity = new(
+                        ResolvedApplicationIdentifierRef defaultEntity = new (
                             -1,
                             stackalloc char[4],
                             null,
@@ -623,7 +659,7 @@ public static class Parser {
                     normalisedCharacters = [];
 
 #if NET7_0_OR_GREATER
-                    ResolvedApplicationIdentifierRef defaultEntity = new(
+                    ResolvedApplicationIdentifierRef defaultEntity = new (
                         -1,
                         stackalloc char[4],
                         null,
@@ -685,7 +721,7 @@ public static class Parser {
                         break;
                     }
 
-                    ResolvedApplicationIdentifierRef defaultEntity = new(
+                    ResolvedApplicationIdentifierRef defaultEntity = new (
                         -1,
                         stackalloc char[4],
                         null,

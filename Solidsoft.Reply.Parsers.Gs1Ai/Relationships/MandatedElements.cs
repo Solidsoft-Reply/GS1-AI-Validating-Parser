@@ -157,21 +157,11 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
         { ("8200", string.Empty), Make(new AiNode("01")) },
     };
 
-    private static (string description, MandatoryNode node) Make(MandatoryNode node) => (Describe(node), node);
-
-    private static string Describe(MandatoryNode node) {
-        return node switch {
-            AiNode ai => $"AI {ai.Ai}",
-            CompositeNode c when c.NodeType == MandatoryNodeType.And => string.Join($" {Resources.GS1_Error_203_and} ", c.Children.Select(Describe)),
-            CompositeNode c when c.NodeType == MandatoryNodeType.Or => $"{Resources.GS1_Error_203_or} ({string.Join(", ", c.Children.Select(Describe))})",
-            CompositeNode c when c.NodeType == MandatoryNodeType.Xor => $"{Resources.GS1_Error_203_xor} ({string.Join(", ", c.Children.Select(Describe))})",
-            _ => string.Empty
-        };
-    }
-
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MandatedElements"/> class.
+    /// </summary>
     private MandatedElements()
-        : base(Rules)
-    {
+    : base(Rules) {
     }
 
     /// <summary>
@@ -184,24 +174,21 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
     /// </summary>
     /// <param name="semantics">The AI semantics when evaluating rules (e.g., for AI 01, General, VariableMeasure, or Custom).</param>
     /// <returns>A read-only list of tuples containing the AI and the associated parser exception for any issues found.</returns>
-    public static IReadOnlyList<(string ai, ParserException ex)> Test(Semantics semantics)
-    {
+    public static IReadOnlyList<(string ai, ParserException ex)> Test(Semantics semantics) {
         var issues = new List<(string ai, ParserException ex)>();
         var entries = ResolvedAiList.Current;
         var matched = new List<(string ai, string description, MandatoryNode node)>();
 
         foreach (var entry in entries) {
-
             // Find all rules that match the current entry
             foreach (var rule in Rules) {
-                var ruleKey = rule.Key;
-                var ruleValue = rule.Value;
-                var ruleNode = ruleValue.node;
-                var ruleDescription = ruleValue.description;
+                var (ai, regex) = rule.Key;
+                var (description, node) = rule.Value;
+                var ruleNode = node;
+                var ruleDescription = description;
 
                 // Special handling for variable measure and coupon/custom GTIN contexts (DRY)
-                bool RuleContextMatches(string? ruleRegex, string identifier)
-                {
+                bool RuleContextMatches(string? ruleRegex, string identifier) {
                     var suffixIndex = ruleRegex?.LastIndexOf(':') ?? -1;
                     var ctxSuffix = suffixIndex < 0
                         ? string.Empty
@@ -211,20 +198,17 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
                         : ruleRegex?.Substring(suffixIndex + 1);
 #endif
                     return identifier switch {
-                        "01" => ctxSuffix switch
-                        {
+                        "01" => ctxSuffix switch {
                             nameof(GtinSemantics.VariableMeasure) => semantics.GtinSemantics == GtinSemantics.VariableMeasure,
                             nameof(GtinSemantics.Custom) => semantics.GtinSemantics == GtinSemantics.Custom,
                             _ => true
                         },
-                        "17" => ctxSuffix switch
-                        {
+                        "17" => ctxSuffix switch {
                             nameof(ExpiryDateSemantics.TradeItem) => semantics.ExpiryDateSemantics == ExpiryDateSemantics.TradeItem,
                             nameof(ExpiryDateSemantics.Coupon) => semantics.ExpiryDateSemantics == ExpiryDateSemantics.Coupon,
                             _ => semantics.ExpiryDateSemantics == ExpiryDateSemantics.TradeItem
                         },
-                        _ when identifier.StartsWith("390") => ctxSuffix switch
-                        {
+                        _ when identifier.StartsWith("390") => ctxSuffix switch {
                             nameof(AmountPayableSemantics.Invoice) => semantics.AmountPayableSemantics == AmountPayableSemantics.Invoice,
                             nameof(AmountPayableSemantics.CouponValue) => semantics.AmountPayableSemantics == AmountPayableSemantics.CouponValue,
                             _ => semantics.AmountPayableSemantics == AmountPayableSemantics.Invoice
@@ -234,21 +218,21 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
                 }
 
                 // Skip rules that do not match the current semantic context
-                if (!RuleContextMatches(ruleKey.regex, entry.Identifier)) {
+                if (!RuleContextMatches(regex, entry.Identifier)) {
                     continue;
                 }
 
                 // Check if the resolved AI matches the rule's AI pattern
-                if (!AiPatternMatches(ruleKey.ai, entry.Identifier)) continue;
+                if (!AiPatternMatches(ai, entry.Identifier)) continue;
 
                 // Extract the rule's regular expression, if provided.
                 Regex? valueRegex = null;
-                if (!string.IsNullOrEmpty(ruleKey.regex)) {
-                    var colonIndex = ruleKey.regex?.LastIndexOf(':');
+                if (!string.IsNullOrEmpty(regex)) {
+                    var colonIndex = regex?.LastIndexOf(':');
 #if NET6_0_OR_GREATER
-                    var pattern = colonIndex >= 0 ? ruleKey.regex?[..(colonIndex ?? 0)] : ruleKey.regex;
+                    var pattern = colonIndex >= 0 ? regex?[..(colonIndex ?? 0)] : regex;
 #else
-                    var pattern = colonIndex >= 0 ? ruleKey.regex?.Substring(0, colonIndex ?? 0) : ruleKey.regex;
+                    var pattern = colonIndex >= 0 ? regex?.Substring(0, colonIndex ?? 0) : regex;
 #endif
                     valueRegex = !string.IsNullOrEmpty(pattern)
                         ? new Regex(pattern, RegexOptions.Compiled | RegexOptions.CultureInvariant)
@@ -305,7 +289,30 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
                 issues.Add((ai, new ParserException(ai, 2203, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_203, ai, description), true, ai.Length)));
             }
         }
+
         return new ReadOnlyCollection<(string ai, ParserException ex)>(issues);
+    }
+
+    /// <summary>
+    /// Creates a tuple containing the description and the mandatory node.
+    /// </summary>
+    /// <param name="node">The mandatory node.</param>
+    /// <returns>A tuple containing the description and the mandatory node.</returns>
+    private static (string description, MandatoryNode node) Make(MandatoryNode node) => (Describe(node), node);
+
+    /// <summary>
+    /// Generates a human-readable description of the mandatory node structure.
+    /// </summary>
+    /// <param name="node">The mandatory node.</param>
+    /// <returns>A human-readable description of the mandatory node structure.</returns>
+    private static string Describe(MandatoryNode node) {
+        return node switch {
+            AiNode ai => $"AI {ai.Ai}",
+            CompositeNode c when c.NodeType == MandatoryNodeType.And => string.Join($" {Resources.GS1_Error_203_and} ", c.Children.Select(Describe)),
+            CompositeNode c when c.NodeType == MandatoryNodeType.Or => $"{Resources.GS1_Error_203_or} ({string.Join(", ", c.Children.Select(Describe))})",
+            CompositeNode c when c.NodeType == MandatoryNodeType.Xor => $"{Resources.GS1_Error_203_xor} ({string.Join(", ", c.Children.Select(Describe))})",
+            _ => string.Empty
+        };
     }
 
     /// <summary>

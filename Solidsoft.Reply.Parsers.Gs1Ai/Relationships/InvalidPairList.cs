@@ -25,16 +25,13 @@ using System.Collections.ObjectModel;
 /// <summary>
 /// A read-only list of invalid AI pairs.
 /// </summary>
-internal sealed class InvalidPairList : ReadOnlyCollection<string> {
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="InvalidPairList"/> class with the specified collection of items.
-    /// </summary>
-    /// <param name="items">The collection of string items to include in the list. Cannot be null.</param>
-    /// <exception cref="ArgumentNullException">Thrown if the items parameter is null.</exception>
-    public InvalidPairList(IEnumerable<string> items)
-        : base(items is null
+/// <remarks>
+/// Initializes a new instance of the <see cref="InvalidPairList"/> class with the specified collection of items.
+/// </remarks>
+/// <param name="items">The collection of string items to include in the list. Cannot be null.</param>
+/// <exception cref="ArgumentNullException">Thrown if the items parameter is null.</exception>
+internal sealed class InvalidPairList(IEnumerable<string> items)
+    : ReadOnlyCollection<string>(items is null
             ? throw new ArgumentNullException(nameof(items))
             : new List<string>(items)) {
-    }
 }

@@ -80,8 +80,7 @@ class UnCefactFreightUnitTypeDescriptor(
     Regex pattern,
     bool isFixedWidth)
 : EntityDescriptors(dataTitle, description, pattern, isFixedWidth) {
-
-    private static Dictionary<string, (string, string)> _freightUnitTypes = new () {
+    private static readonly Dictionary<string, (string, string)> _freightUnitTypes = new () {
         { "8", ("Oneway pallet (GS1 Code)", "Pallet need not be returned to the point of expedition") },
         { "9", ("Returnable pallet (GS1 Code)", "Pallet must be returned to the point of expedition.") },
         { "43", ("Bag, super bulk", "A cloth plastic or paper based bag having the dimensions of the pallet on which it is constructed.") },
@@ -544,7 +543,6 @@ class UnCefactFreightUnitTypeDescriptor(
         { "ZX", ("Intermediate bulk container, plywood", string.Empty) },
         { "ZY", ("Intermediate bulk container, reconstituted wood", string.Empty) },
         { "ZZ", ("Mutually defined", string.Empty) },
-
     };
 
     /// <summary>

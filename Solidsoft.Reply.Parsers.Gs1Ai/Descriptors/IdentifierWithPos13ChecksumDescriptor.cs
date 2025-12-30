@@ -94,7 +94,6 @@ internal class IdentifierWithPos13ChecksumDescriptor(
         return false;
     }
 
-
 #endif
 
     /// <summary>

@@ -26,7 +26,6 @@ using System.Text.RegularExpressions;
 /// AI leaf node representing an AI value and optional compiled regex to validate the AI's value format/content.
 /// </summary>
 internal sealed class AiNode : MandatoryNode {
-
     /// <summary>
     /// Initializes a new instance of the <see cref="AiNode"/> class.
     /// </summary>

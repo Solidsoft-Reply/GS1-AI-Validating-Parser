@@ -1,8 +1,9 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="DataRelationshipTest.cs" company="Solidsoft Reply Ltd">
+// <copyright file="DataRelationshipTests.cs" company="Solidsoft Reply Ltd">
 // Copyright (c) 2018-2025 Solidsoft Reply Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
-// you may obtain a copy of the License at
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
 // http://www.apache.org/licenses/LICENSE-2.0
 //
@@ -13,7 +14,7 @@
 // limitations under the License.
 // </copyright>
 // <summary>
-// Enumeration to control data relationship testing during parsing.
+// Options for running GS1 data relationship tests during parsing.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 

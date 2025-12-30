@@ -23,13 +23,10 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Relationships;
 /// <summary>
 /// XOR node: exactly one child node must be satisfied.
 /// </summary>
-internal sealed class XorNode : CompositeNode {
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="XorNode"/> class.
-    /// </summary>
-    /// <param name="children">The child nodes.</param>
-    public XorNode(IEnumerable<MandatoryNode> children)
-        : base(MandatoryNodeType.Xor, children) {
-    }
+/// <remarks>
+/// Initializes a new instance of the <see cref="XorNode"/> class.
+/// </remarks>
+/// <param name="children">The child nodes.</param>
+internal sealed class XorNode(IEnumerable<MandatoryNode> children)
+    : CompositeNode(MandatoryNodeType.Xor, children) {
 }

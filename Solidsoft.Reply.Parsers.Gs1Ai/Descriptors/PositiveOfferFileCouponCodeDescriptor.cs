@@ -54,7 +54,6 @@ internal
         Regex pattern,
         bool isFixedWidth)
     : EntityDescriptors(dataTitle, description, pattern, isFixedWidth) {
-
 #if NET7_0_OR_GREATER
     /// <summary>
     ///     Validate data against the descriptor.

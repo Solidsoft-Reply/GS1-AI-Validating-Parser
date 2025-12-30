@@ -37,5 +37,5 @@ internal enum RuleType {
     /// <summary>
     /// Logical XOR - exactly one condition must be met.
     /// </summary>
-    Xor
+    Xor,
 }

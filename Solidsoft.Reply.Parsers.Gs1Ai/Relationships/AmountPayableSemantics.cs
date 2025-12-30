@@ -33,5 +33,4 @@ public enum AmountPayableSemantics {
     /// Value of a coupon.
     /// </summary>
     CouponValue,
-
 }

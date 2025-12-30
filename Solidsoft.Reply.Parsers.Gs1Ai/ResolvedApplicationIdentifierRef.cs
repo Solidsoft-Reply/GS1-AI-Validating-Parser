@@ -46,7 +46,9 @@ public ref struct ResolvedApplicationIdentifierRef : IResolvedEntityRef {
     /// <summary>
     ///     A disctionary of per-thread resolver exceptions.
     /// </summary>
+#pragma warning disable SA1311 // Static readonly fields should begin with upper-case letter
     private static readonly Dictionary<int, List<ParserException>> exceptions = [];
+#pragma warning restore SA1311 // Static readonly fields should begin with upper-case letter
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="ResolvedApplicationIdentifierRef" /> struct.
@@ -192,7 +194,6 @@ public ref struct ResolvedApplicationIdentifierRef : IResolvedEntityRef {
         }
 
         internal set {
-
             if (!exceptions.TryGetValue(Environment.CurrentManagedThreadId, out var list))
                 exceptions[Environment.CurrentManagedThreadId] = [];
             else

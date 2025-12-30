@@ -28,7 +28,6 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Relationships;
 /// </remarks>
 /// <param name="type">The type of the mandatory node.</param>
 internal abstract class MandatoryNode(MandatoryNodeType type) {
-
     /// <summary>
     /// Gets the node type discriminator.
     /// </summary>

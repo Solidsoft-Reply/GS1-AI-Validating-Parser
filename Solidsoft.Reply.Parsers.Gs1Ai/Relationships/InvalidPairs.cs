@@ -30,7 +30,6 @@ using System.Globalization;
 /// Construction is not allowed; use <see cref="Instance"/> to access the singleton.
 /// </summary>
 internal sealed class InvalidPairs : ReadOnlyDictionary<string, InvalidPairList> {
-
     /// <summary>
     /// The internal dictionary of invalid AI pairs.
     /// </summary>

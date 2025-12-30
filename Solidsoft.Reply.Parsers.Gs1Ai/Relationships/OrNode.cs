@@ -23,13 +23,10 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Relationships;
 /// <summary>
 /// OR node: at least one child node must be satisfied.
 /// </summary>
-internal sealed class OrNode : CompositeNode {
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="OrNode"/> class.
-    /// </summary>
-    /// <param name="children">The child nodes.</param>
-    public OrNode(IEnumerable<MandatoryNode> children)
-        : base(MandatoryNodeType.Or, children) {
-    }
+/// <remarks>
+/// Initializes a new instance of the <see cref="OrNode"/> class.
+/// </remarks>
+/// <param name="children">The child nodes.</param>
+internal sealed class OrNode(IEnumerable<MandatoryNode> children)
+    : CompositeNode(MandatoryNodeType.Or, children) {
 }

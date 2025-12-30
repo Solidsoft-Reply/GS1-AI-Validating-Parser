@@ -1,4 +1,4 @@
-﻿namespace Solidsoft.Reply.Parsers.Gs1Ai.Tests;
+﻿namespace Solidsoft.Reply.Parsers.Gs1Ai.Tests.Net5;
 
 #if NET7_0_OR_GREATER
 

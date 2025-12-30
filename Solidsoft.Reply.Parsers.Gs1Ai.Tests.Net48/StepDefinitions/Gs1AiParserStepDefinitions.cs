@@ -1,12 +1,12 @@
 ﻿using Solidsoft.Reply.Parsers.Common;
 using Solidsoft.Reply.Parsers.Gs1Ai.Relationships;
 
-namespace Solidsoft.Reply.Parsers.Gs1Ai.Tests.StepDefinitions;
+namespace Solidsoft.Reply.Parsers.Gs1Ai.Tests.Net48.StepDefinitions;
 [Binding]
 public sealed class Gs1AiParserStepDefinitions {
 
     private string _data = string.Empty;
-    private List<string> _barcodes = [];
+    private readonly List<string> _barcodes = [];
     private GtinSemantics _gtinSemantics = GtinSemantics.General;
     private ExpiryDateSemantics _expiryDateSemantics = ExpiryDateSemantics.TradeItem;
     private AmountPayableSemantics _amountPayableSemantics = AmountPayableSemantics.Invoice;

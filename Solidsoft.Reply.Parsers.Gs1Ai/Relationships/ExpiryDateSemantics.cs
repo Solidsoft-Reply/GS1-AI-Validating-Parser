@@ -33,5 +33,4 @@ public enum ExpiryDateSemantics {
     /// Expiry date of a coupon.
     /// </summary>
     Coupon,
-
 }

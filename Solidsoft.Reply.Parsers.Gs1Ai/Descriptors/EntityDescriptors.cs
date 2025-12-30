@@ -53,7 +53,6 @@ internal class EntityDescriptors(
     Regex? pattern,
     bool isFixedWidth,
     Regex? validator = null) {
-
     /// <summary>
     ///     Gets the data title of the entity.
     /// </summary>
@@ -91,7 +90,9 @@ internal class EntityDescriptors(
         var value = resolvedEntity.Value;
 
         if (value.IsNullOrWhiteSpace()) {
+#pragma warning disable CA2208 // Instantiate argument exceptions correctly
             throw new ArgumentNullException(nameof(value));
+#pragma warning restore CA2208 // Instantiate argument exceptions correctly
         }
 
         if (Pattern == null) {

@@ -54,17 +54,17 @@ internal
         Regex pattern,
         bool isFixedWidth)
     : EntityDescriptors(dataTitle, description, pattern, isFixedWidth) {
+    /// <summary>
+    ///     A regular expression for six-digit date representation - YYMMDD.
+    /// </summary>
+    private const string DatePattern = @"(((\d{2})(0[13578]|1[02])(0[1-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[1-9]|[12]\d|30))|((\d{2})02(0[1-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))";
+
 #if !NET7_0_OR_GREATER
     /// <summary>
     ///     A regular expression for North American coupon codes.
     /// </summary>
     private static readonly Regex CouponCodeRegex = new (@"^[0-6]\d{6,12}\d{6}[1-5]\d{1,5}[1-5]\d{1,5}[0-49]\d{3}(1[0-3][1-5]\d{1,5}[0-49]\d{3}[0-6]\d{6,12}(2[1-5]\d{1,5}[0-49]\d{3}[0-6]\d{6,12})?)?" + $"(3{DatePattern})?(4{DatePattern})?" + @"(5[0-9]\d{6,15})?(6[1-7]\d{7,13})?(9[0-256][0-2]\d[01])?$");
 #endif
-
-    /// <summary>
-    ///     A regular expression for six-digit date representation - YYMMDD.
-    /// </summary>
-    private const string DatePattern = @"(((\d{2})(0[13578]|1[02])(0[1-9]|[12]\d|3[01]))|((\d{2})(0[469]|11)(0[1-9]|[12]\d|30))|((\d{2})02(0[1-9]|1\d|2[0-8]))|(((0[048]|[2468][048]|[13579][26]))0229))";
 
     /// <summary>
     ///     Validate data against the descriptor.
