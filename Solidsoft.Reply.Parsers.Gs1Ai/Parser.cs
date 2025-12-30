@@ -212,7 +212,7 @@ public static class Parser {
     /// <remarks>
     /// <para>
     ///     GS1 data relationship rules are applied when requested via the <paramref name="relationshipTests"/>
-    ///     parameter. Applying these rules intorduces additional overhead, and may not be necessary in many
+    ///     parameter. Applying these rules introduces additional overhead, and may not be necessary in many
     ///     scenarios.
     /// </para>
     /// <para>
@@ -254,6 +254,83 @@ public static class Parser {
     }
 #endif
 
+    /// <summary>
+    /// Parse multiple GS1-encoded barcode contents as a single physical entity, applying full data relationship rules across all inputs.
+    /// </summary>
+    /// <param name="barcodeContents">List of barcode content strings (each item is one barcode).</param>
+    /// <param name="processResolvedEntity">Callback invoked for each resolved entity and any aggregated rule exceptions.</param>
+    /// <param name="semantics">AI semantics for relationship evaluation (e.g., GTIN semantics).</param>
+    public static void ParseMulti(
+        IList<string> barcodeContents,
+        Action<IResolvedEntity> processResolvedEntity,
+        Semantics semantics = default)
+    {
+#if NET7_0_OR_GREATER
+        ArgumentNullException.ThrowIfNull(barcodeContents);
+        ArgumentNullException.ThrowIfNull(processResolvedEntity);
+#else
+        if (barcodeContents is null) throw new ArgumentNullException(nameof(barcodeContents));
+        if (processResolvedEntity is null) throw new ArgumentNullException(nameof(processResolvedEntity));
+#endif
+        // Aggregate resolved AIs across all inputs
+        ResolvedAiList.Clear();
+        var pendingByAi = new Dictionary<string, IResolvedEntity>(StringComparer.Ordinal);
+
+        foreach (var content in barcodeContents) {
+            if (string.IsNullOrWhiteSpace(content)) {
+                // Emit an error entity for empty content but continue processing others
+                var errorEntity = new ResolvedApplicationIdentifier(
+                    new ParserException(string.Empty, 2001, Resources.GS1_Error_001, true),
+                    0);
+                processResolvedEntity(errorEntity);
+                continue;
+            }
+#if NET7_0_OR_GREATER
+            DoParse(content.AsSpan(), processResolvedEntity, null, 0, DataRelationshipTests.All, semantics, accumulate: true, pendingShared: pendingByAi);
+#else
+            DoParse(content.AsSpan(), processResolvedEntity, 0, DataRelationshipTests.All, semantics, accumulate: true, pendingShared: pendingByAi);
+#endif
+        }
+
+        // After parsing all inputs, evaluate relationship rules once across the aggregated ResolvedAiList
+        var invalids = InvalidPairs.Test();
+        var mandated = MandatedElements.Test(semantics);
+
+        void AttachException(string ai, ParserException ex) {
+            if (pendingByAi.TryGetValue(ai, out var entity)) {
+                entity.AddException(ex);
+            } else {
+                var clsEntity = new ResolvedApplicationIdentifier(ex, 0);
+                pendingByAi[ai] = clsEntity;
+            }
+        }
+
+        foreach (var (ai, ex) in invalids) AttachException(ai, ex);
+        foreach (var (ai, ex) in mandated) AttachException(ai, ex);
+
+        // General rule across all barcodes: same AI appearing more than once must have identical values
+        var differingAis = new HashSet<string>(StringComparer.Ordinal);
+        var seenValues = new Dictionary<string, string>(StringComparer.Ordinal);
+
+        foreach (var entry in ResolvedAiList.Current) {
+            if (!seenValues.TryGetValue(entry.Identifier, out var firstVal)) {
+                seenValues[entry.Identifier] = entry.Value;
+            } else if (!string.Equals(firstVal, entry.Value, StringComparison.Ordinal)) {
+                differingAis.Add(entry.Identifier);
+            }
+        }
+
+        foreach (var ai in differingAis) {
+            var message = string.Format(System.Globalization.CultureInfo.CurrentCulture, Resources.GS1_Error_202, ai);
+            var ex = new ParserException(string.Empty, 2202, message, true);
+            AttachException(ai, ex);
+        }
+
+        foreach (var kvp in pendingByAi) {
+            processResolvedEntity(kvp.Value);
+        }
+    }
+
 #pragma warning disable CS1587 // XML comment is not placed on a valid language element
     /// <summary>
     ///     Perform the parsing of the data.
@@ -275,6 +352,8 @@ public static class Parser {
     /// </param>
     /// <param name="relationshipTest">Indicates if resolved AIs will be collected for relationship testing.</param>
     /// <param name="semantics">The semantics of any GTIN (AI 01) when data relationship tests are performed.</param>
+    /// <param name="accumulate">Flag indicating if resolved AIs should be accumulated across multiple calls.</param>
+    /// <param name="pendingShared">Buffered collection of resolved AIs used when accumuating results.</param>
 #pragma warning restore CS1587 // XML comment is not placed on a valid language element
 #pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment (but other parameters do)
     private static void DoParse(
@@ -286,18 +365,18 @@ public static class Parser {
 #pragma warning restore CS1573 // Parameter has no matching param tag in the XML comment (but other parameters do)
         int currentPosition,
         DataRelationshipTests relationshipTest,
-        Semantics semantics) {
+        Semantics semantics,
+        bool accumulate = false,
+        Dictionary<string, IResolvedEntity>? pendingShared = null) {
         int position = currentPosition;
 
-        // Initialize/clear collected AIs only when relationship tests are requested
-        if (relationshipTest != DataRelationshipTests.None && relationshipTest != DataRelationshipTests.None) {
+        // Initialize/clear collected AIs only when relationship tests are requested and not accumulating
+        if (!accumulate && relationshipTest != DataRelationshipTests.None) {
             ResolvedAiList.Clear();
         }
 
         // Buffer callbacks when relationship tests are requested
-        Dictionary<string, IResolvedEntity>? pendingByAi = (relationshipTest != DataRelationshipTests.None)
-            ? new Dictionary<string, IResolvedEntity>(StringComparer.Ordinal)
-            : null;
+        Dictionary<string, IResolvedEntity>? pendingByAi = (accumulate ? pendingShared : (relationshipTest != DataRelationshipTests.None ? new Dictionary<string, IResolvedEntity>(StringComparer.Ordinal) : null));
 
         // Convert GS1 element format to FNC1 format.
         var len = characters.Length;
@@ -354,7 +433,8 @@ public static class Parser {
                                 entity.CharacterPosition);
 
                             continue;
-                        } else
+                        }
+                        else
 #endif
                         {
                             var resolved = new ResolvedApplicationIdentifier(
@@ -406,7 +486,8 @@ public static class Parser {
                             entity.DataTitle.ToString(),
                             entity.Description.ToString(),
                             entity.CharacterPosition);
-                    } else
+                    }
+                    else
 #endif
                     {
                         var resolved =
@@ -475,7 +556,8 @@ public static class Parser {
                             RecordResolvedEntity(resolved);
                         }
                     }
-                } else {
+                }
+                else {
                     var workingBuffer = normalisedCharacters;
                     normalisedCharacters = [];
 
@@ -533,7 +615,8 @@ public static class Parser {
                         RecordResolvedEntity(resolved);
                     }
                 }
-            } else {
+            }
+            else {
                 int gsIndex = normalisedCharacters.IndexOf(Convert.ToChar(29));
                 if (gsIndex < 0) {
                     var workingBuffer = normalisedCharacters;
@@ -587,10 +670,11 @@ public static class Parser {
 
                         RecordResolvedEntity(resolved);
                     }
-                } else {
+                }
+                else {
 #if NET6_0_OR_GREATER
                     var workingBuffer = normalisedCharacters[..gsIndex];
-                    normalisedCharacters = normalisedCharacters[(gsIndex + 1) ..];
+                    normalisedCharacters = normalisedCharacters[(gsIndex + 1)..];
 #else
                     var workingBuffer = normalisedCharacters.Slice(0, gsIndex);
                     normalisedCharacters = normalisedCharacters.Slice(gsIndex + 1);
@@ -639,7 +723,7 @@ public static class Parser {
                         var resolved =
 #if NET6_0_OR_GREATER
                             new string(workingBuffer.ToArray())
-                                .Resolve(workingBuffer[.. (workingBuffer.Length >= 2 ? 2 : workingBuffer.Length)].ToString(), position);
+                                .Resolve(workingBuffer[..(workingBuffer.Length >= 2 ? 2 : workingBuffer.Length)].ToString(), position);
 #else
                             new string(workingBuffer.ToArray())
                                 .Resolve(workingBuffer.Slice(0, workingBuffer.Length >= 2 ? 2 : workingBuffer.Length).ToString(), position);
@@ -702,15 +786,29 @@ public static class Parser {
         }
 
         // After parsing, run relationship tests and merge exceptions, then flush callbacks
-        if (relationshipTest != DataRelationshipTests.None) {
-            IEnumerable<(string ai, ParserException ex)> invalids = Array.Empty<(string, ParserException)>();
-            IEnumerable<(string ai, ParserException ex)> mandated = Array.Empty<(string, ParserException)>();
+        if (!accumulate && relationshipTest != DataRelationshipTests.None) {
+            IEnumerable<(string ai, ParserException ex)> invalids = [];
+            IEnumerable<(string ai, ParserException ex)> mandated = [];
 
             if (relationshipTest == DataRelationshipTests.InvalidPairs) {
                 invalids = InvalidPairs.Test();
-            } else if (relationshipTest == DataRelationshipTests.All) {
+            }
+            else if (relationshipTest == DataRelationshipTests.All) {
                 invalids = InvalidPairs.Test();
                 mandated = MandatedElements.Test(semantics);
+            }
+
+            // General rule: same AI appearing more than once must have identical values
+            // Compute AIs with differing values using ResolvedAiList.Current
+            var differingAis = new HashSet<string>(StringComparer.Ordinal);
+            var seenValues = new Dictionary<string, string>(StringComparer.Ordinal);
+            foreach (var entry in ResolvedAiList.Current) {
+                if (!seenValues.TryGetValue(entry.Identifier, out var firstVal)) {
+                    seenValues[entry.Identifier] = entry.Value;
+                }
+                else if (!string.Equals(firstVal, entry.Value, StringComparison.Ordinal)) {
+                    differingAis.Add(entry.Identifier);
+                }
             }
 
             // Attach exceptions to pending entities, or create new ones
@@ -718,7 +816,8 @@ public static class Parser {
                 if (pendingByAi is null) return;
                 if (pendingByAi.TryGetValue(ai, out var entity)) {
                     entity.AddException(ex);
-                } else {
+                }
+                else {
                     // Create a minimal error entity for the AI
                     var clsEntity = new ResolvedApplicationIdentifier(ex, position);
                     pendingByAi[ai] = clsEntity;
@@ -730,6 +829,13 @@ public static class Parser {
             }
 
             foreach (var (ai, ex) in mandated) {
+                AttachException(ai, ex);
+            }
+
+            // Emit duplicate-value errors
+            foreach (var ai in differingAis) {
+                var message = string.Format(System.Globalization.CultureInfo.CurrentCulture, Resources.GS1_Error_202, ai);
+                var ex = new ParserException(string.Empty, 2202, message, true);
                 AttachException(ai, ex);
             }
 

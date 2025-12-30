@@ -138,6 +138,9 @@
   <data name="GS1_Error_002" xml:space="preserve">
     <value>Identificador de aplicación inválido {0}.</value>
   </data>
+  <data name="GS1_Error_009" xml:space="preserve">
+    <value>El valor{0} para {1} tiene un dígito de control no válido.</value>
+  </data>
   <data name="GS1_Error_100" xml:space="preserve">
     <value>El valor{0} no coincide con el patrón especificado para el elemento de datos.</value>
   </data>
@@ -165,7 +168,7 @@
   <data name="GS1_Error_201" xml:space="preserve">
     <value>Se encontró una relación de datos no válida entre la IA {0} y la IA {1}.</value>
   </data>
-  <data name="GS1_Error_202" xml:space="preserve">
+  <data name="GS1_Error_203" xml:space="preserve">
     <value>No se encontró una relación de datos obligatoria entre la IA {0} y {1}.</value>
   </data>
   <data name="GS1_Warning_017" xml:space="preserve">
@@ -174,16 +177,16 @@
   <data name="GS1_Error_003" xml:space="preserve">
     <value>Identificador de aplicación no válido {0}. Los AI deben tener entre dos y cuatro dígitos de longitud.</value>
   </data>
-  <data name="GS1_Error_202_and" xml:space="preserve">
+  <data name="GS1_Error_203_and" xml:space="preserve">
     <value>y</value>
   </data>
-  <data name="GS1_Error_202_xor" xml:space="preserve">
+  <data name="GS1_Error_203_xor" xml:space="preserve">
     <value>exactamente uno de</value>
   </data>
-  <data name="GS1_Error_202_or" xml:space="preserve">
+  <data name="GS1_Error_203_or" xml:space="preserve">
     <value>al menos uno de</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
-    <value>El valor{0} para {1} tiene un dígito de control no válido.</value>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>La IA {0} aparece más de una vez con valores diferentes.</value>
   </data>
 </root>

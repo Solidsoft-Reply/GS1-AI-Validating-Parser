@@ -138,6 +138,9 @@
   <data name="GS1_Error_002" xml:space="preserve">
     <value>Identificador de aplicação inválido {0}.</value>
   </data>
+  <data name="GS1_Error_009" xml:space="preserve">
+    <value>O valor{0} para {1} tem um dígito de verificação inválido.</value>
+  </data>
   <data name="GS1_Error_100" xml:space="preserve">
     <value>O valor{0} não corresponde ao padrão especificado para o elemento de dados.</value>
   </data>
@@ -165,7 +168,7 @@
   <data name="GS1_Error_201" xml:space="preserve">
     <value>Foi encontrada uma relação de dados inválida entre a IA {0} e a IA {1}.</value>
   </data>
-  <data name="GS1_Error_202" xml:space="preserve">
+  <data name="GS1_Error_203" xml:space="preserve">
     <value>Relação de dados obrigatória não encontrada entre a IA {0} e {1}.</value>
   </data>
   <data name="GS1_Warning_017" xml:space="preserve">
@@ -174,16 +177,16 @@
   <data name="GS1_Error_003" xml:space="preserve">
     <value>Identificador de aplicação inválido {0}. Os AIs devem ter entre dois e quatro dígitos de comprimento.</value>
   </data>
-  <data name="GS1_Error_202_and" xml:space="preserve">
+  <data name="GS1_Error_203_and" xml:space="preserve">
     <value>e</value>
   </data>
-  <data name="GS1_Error_202_xor" xml:space="preserve">
+  <data name="GS1_Error_203_xor" xml:space="preserve">
     <value>exatamente um de</value>
   </data>
-  <data name="GS1_Error_202_or" xml:space="preserve">
+  <data name="GS1_Error_203_or" xml:space="preserve">
     <value>pelo menos um dos</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
-    <value>O valor{0} para {1} tem um dígito de verificação inválido.</value>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>A IA {0} aparece mais de uma vez com valores diferentes.</value>
   </data>
 </root>

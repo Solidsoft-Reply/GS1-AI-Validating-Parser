@@ -138,6 +138,9 @@
   <data name="GS1_Error_002" xml:space="preserve">
     <value>Nederīgs lietojumprogrammas identifikators {0}.</value>
   </data>
+  <data name="GS1_Error_009" xml:space="preserve">
+    <value>Vērtībai {0} laukā {1} ir nederīgs kontrolcipars.</value>
+  </data>
   <data name="GS1_Error_100" xml:space="preserve">
     <value>Vērtība{0} neatbilst norādītajam rakstam datu elementam.</value>
   </data>
@@ -165,7 +168,7 @@
   <data name="GS1_Error_201" xml:space="preserve">
     <value>Starp AI {0} un AI {1} tika konstatēta nederīga datu saistība.</value>
   </data>
-  <data name="GS1_Error_202" xml:space="preserve">
+  <data name="GS1_Error_203" xml:space="preserve">
     <value>Starp AI {0} un {1} netika atrasta obligāta datu saistība.</value>
   </data>
   <data name="GS1_Warning_017" xml:space="preserve">
@@ -174,16 +177,16 @@
   <data name="GS1_Error_003" xml:space="preserve">
     <value>Nederīgs lietotnes identifikators {0}. AI garumam jābūt no 2 līdz 4 cipariem.</value>
   </data>
-  <data name="GS1_Error_202_and" xml:space="preserve">
+  <data name="GS1_Error_203_and" xml:space="preserve">
     <value>un</value>
   </data>
-  <data name="GS1_Error_202_xor" xml:space="preserve">
+  <data name="GS1_Error_203_xor" xml:space="preserve">
     <value>tieši viens no</value>
   </data>
-  <data name="GS1_Error_202_or" xml:space="preserve">
+  <data name="GS1_Error_203_or" xml:space="preserve">
     <value>vismaz viens no</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
-    <value>Vērtībai {0} laukā {1} ir nederīgs kontrolcipars.</value>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>AI {0} parādās vairāk nekā vienu reizi ar atšķirīgām vērtībām.</value>
   </data>
 </root>

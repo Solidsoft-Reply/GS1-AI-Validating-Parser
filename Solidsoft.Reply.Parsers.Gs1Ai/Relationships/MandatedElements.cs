@@ -162,9 +162,9 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
     private static string Describe(MandatoryNode node) {
         return node switch {
             AiNode ai => $"AI {ai.Ai}",
-            CompositeNode c when c.NodeType == MandatoryNodeType.And => string.Join($" {Resources.GS1_Error_202_and} ", c.Children.Select(Describe)),
-            CompositeNode c when c.NodeType == MandatoryNodeType.Or => $"{Resources.GS1_Error_202_or} ({string.Join(", ", c.Children.Select(Describe))})",
-            CompositeNode c when c.NodeType == MandatoryNodeType.Xor => $"{Resources.GS1_Error_202_xor} ({string.Join(", ", c.Children.Select(Describe))})",
+            CompositeNode c when c.NodeType == MandatoryNodeType.And => string.Join($" {Resources.GS1_Error_203_and} ", c.Children.Select(Describe)),
+            CompositeNode c when c.NodeType == MandatoryNodeType.Or => $"{Resources.GS1_Error_203_or} ({string.Join(", ", c.Children.Select(Describe))})",
+            CompositeNode c when c.NodeType == MandatoryNodeType.Xor => $"{Resources.GS1_Error_203_xor} ({string.Join(", ", c.Children.Select(Describe))})",
             _ => string.Empty
         };
     }
@@ -277,7 +277,7 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
 
                     // If no match exists, report the issue
                     if (!anyValueMatch) {
-                        issues.Add((ai, new ParserException(ai, 2202, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_202, ai, description), true, ai.Length)));
+                        issues.Add((ai, new ParserException(ai, 2203, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_203, ai, description), true, ai.Length)));
                         continue;
                     }
                 }
@@ -293,7 +293,7 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
 
                 // If no match exists, report the issue
                 if (!fullMatch) {
-                    issues.Add((ai, new ParserException(ai, 2202, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_202, ai, description), true, ai.Length)));
+                    issues.Add((ai, new ParserException(ai, 2203, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_203, ai, description), true, ai.Length)));
                 }
 
                 continue;
@@ -302,7 +302,7 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
             // Now evaluate composite nodes
             fullMatch = EvaluateComposite(ruleNode, entries);
             if (!fullMatch) {
-                issues.Add((ai, new ParserException(ai, 2202, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_202, ai, description), true, ai.Length)));
+                issues.Add((ai, new ParserException(ai, 2203, string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_203, ai, description), true, ai.Length)));
             }
         }
         return new ReadOnlyCollection<(string ai, ParserException ex)>(issues);

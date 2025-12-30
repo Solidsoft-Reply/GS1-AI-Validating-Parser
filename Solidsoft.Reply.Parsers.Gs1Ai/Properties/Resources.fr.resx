@@ -138,6 +138,9 @@
   <data name="GS1_Error_002" xml:space="preserve">
     <value>Identifiant d'application invalide {0}.</value>
   </data>
+  <data name="GS1_Error_009" xml:space="preserve">
+    <value>La valeur {0} pour {1} a un chiffre de contrôle invalide.</value>
+  </data>
   <data name="GS1_Error_100" xml:space="preserve">
     <value>La valeur{0} ne correspond pas au motif spécifié pour l'élément de données.</value>
   </data>
@@ -165,7 +168,7 @@
   <data name="GS1_Error_201" xml:space="preserve">
     <value>Relation de données non valide détectée entre l’IA {0} et l’IA {1}.</value>
   </data>
-  <data name="GS1_Error_202" xml:space="preserve">
+  <data name="GS1_Error_203" xml:space="preserve">
     <value>Relation de données obligatoire introuvable entre l’IA {0} et {1}.</value>
   </data>
   <data name="GS1_Warning_017" xml:space="preserve">
@@ -174,16 +177,16 @@
   <data name="GS1_Error_003" xml:space="preserve">
     <value>Identifiant d’application {0} invalide. Les IA doivent comporter entre deux et quatre chiffres.</value>
   </data>
-  <data name="GS1_Error_202_and" xml:space="preserve">
+  <data name="GS1_Error_203_and" xml:space="preserve">
     <value>et</value>
   </data>
-  <data name="GS1_Error_202_xor" xml:space="preserve">
+  <data name="GS1_Error_203_xor" xml:space="preserve">
     <value>exactement un seul parmi</value>
   </data>
-  <data name="GS1_Error_202_or" xml:space="preserve">
+  <data name="GS1_Error_203_or" xml:space="preserve">
     <value>au moins l’un des éléments suivants</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
-    <value>La valeur {0} pour {1} a un chiffre de contrôle invalide.</value>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>L’IA {0} apparaît plus d’une fois avec des valeurs différentes.</value>
   </data>
 </root>

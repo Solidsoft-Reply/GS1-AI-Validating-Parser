@@ -35,7 +35,10 @@ internal sealed class InvalidPairs : ReadOnlyDictionary<string, InvalidPairList>
     /// The internal dictionary of invalid AI pairs.
     /// </summary>
     private static readonly Dictionary<string, InvalidPairList> Pairs = new() {
-        { "01", new InvalidPairList(["01", "02", "03", "37", "255"]) },
+        // AI 01 is omitted from the following rule. The rule for 01 and 01 applies only
+        // when different values are provided, and this is already handled elsewhere.
+        // The first rule in Figure 4.13.1-1 is redundant - see the third note under 4.13 (2).
+        { "01", new InvalidPairList(["02", "03", "37", "255"]) },
         { "03", new InvalidPairList(["02", "37"]) },
         { "21", new InvalidPairList(["235"]) },
         { "420", new InvalidPairList(["421"]) },

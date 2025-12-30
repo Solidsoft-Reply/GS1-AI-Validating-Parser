@@ -6,6 +6,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Tests.StepDefinitions;
 public sealed class Gs1AiParserStepDefinitions {
 
     private string _data = string.Empty;
+    private List<string> _barcodes = [];
     private GtinSemantics _gtinSemantics = GtinSemantics.General;
     private ExpiryDateSemantics _expiryDateSemantics = ExpiryDateSemantics.TradeItem;
     private AmountPayableSemantics _amountPayableSemantics = AmountPayableSemantics.Invoice;
@@ -18,6 +19,14 @@ public sealed class Gs1AiParserStepDefinitions {
     [Given("the input is (.*)")]
     public void GivenTheValueIs(string input) {
         _data = input.Replace("[GS]", "\u001d");
+        _gtinSemantics = GtinSemantics.General;
+        _expiryDateSemantics = ExpiryDateSemantics.TradeItem;
+        _amountPayableSemantics = AmountPayableSemantics.Invoice;
+    }
+
+    [Given("the input for barcode (.*) is (.*)")]
+    public void GivenTheInputForBarcodeIs(int barcodeNumber, string input) {
+        _barcodes.Add(input.Replace("[GS]", "\u001d"));
         _gtinSemantics = GtinSemantics.General;
         _expiryDateSemantics = ExpiryDateSemantics.TradeItem;
         _amountPayableSemantics = AmountPayableSemantics.Invoice;
@@ -54,11 +63,24 @@ public sealed class Gs1AiParserStepDefinitions {
         Parser.Parse(_data, OnResolvedEntity, relationshipTests: DataRelationshipTests.All, semantics: new(gtinSemantics: _gtinSemantics, expiryDateSemantics: _expiryDateSemantics, amountPayableSemantics: _amountPayableSemantics));
     }
 
+    [When("the barcodes are submitted to the parser")]
+    public void WhenTheBarcodesAReSubmittedToTheParser() {
+        _resolvedEntities.Clear();
+        _resolvedAIs.Clear();
+        _dataRelationshipExceptions.Clear();
+        Parser.ParseMulti(_barcodes, OnResolvedEntity);
+        _barcodes.Clear();
+    }
+
     public void OnResolvedEntity(IResolvedEntity resolvedEntity) {
         if (resolvedEntity.Entity < 0
-            && resolvedEntity.Exceptions.Any(e => e.ErrorNumber == 2201 || e.ErrorNumber == 2202)) {
+            && resolvedEntity.Exceptions.Any(e => e.ErrorNumber == 2201 || e.ErrorNumber == 2203)) {
             _dataRelationshipExceptions.Add(resolvedEntity);
             return;
+        }
+
+        if (resolvedEntity.Exceptions.Any(e => e.ErrorNumber == 2202)) {
+            _dataRelationshipExceptions.Add(resolvedEntity);
         }
 
         if (!_resolvedEntities.TryGetValue(resolvedEntity.Entity, out _))
@@ -158,8 +180,23 @@ public sealed class Gs1AiParserStepDefinitions {
             .Contain(ent => ent.Exceptions != null && ent.Exceptions.Any(ex => ex.ErrorNumber == 2201));
     }
 
+    [Then("there should be invalid duplicate AI pairs")]
+    public void TheThereShouldBInvalidDuplicateAIPairs() {
+        _dataRelationshipExceptions
+            .Should()
+            .Contain(ent => ent.Exceptions != null && ent.Exceptions.Any(ex => ex.ErrorNumber == 2202));
+    }
+    
     [Then("the errors should include a fatal (.*) error")]
     public void ThenTheErrorsShouldIncludeAFatalError(int errorNumber) {
+        if (string.IsNullOrEmpty(_ai)) {
+            foreach (var entity in _resolvedAIs.Values) {
+                if (entity.Exceptions.Any(e => e.ErrorNumber == errorNumber && e.IsFatal)) {
+                    return;
+                }
+            }
+        }
+
         ((ResolvedApplicationIdentifier)_resolvedAIs[_ai]).Exceptions.Should()
             .Contain(e => e.ErrorNumber == errorNumber && e.IsFatal);
     }

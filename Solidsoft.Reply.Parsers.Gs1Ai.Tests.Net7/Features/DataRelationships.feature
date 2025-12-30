@@ -10,7 +10,6 @@ Scenario Outline: Detect invalid data relationships
 
 	Examples:
     | ai1  | ai2  | input                                                                            |
-    |   01 |   01 | 0109506000134376013506091751986210ABC123[GS]17311231                             |
     |   01 |   02 | 0109506000134376023506091751986210ABC123[GS]17311231                             |
     |   01 |   03 | 0109506000134376033506091751986210ABC123[GS]17311231                             |
     |   01 |   37 | 010950600013437637144[GS]10ABC123[GS]17311231                                    |
@@ -49,6 +48,27 @@ Scenario Outline: Detect invalid data relationships
     | 8018 | 8017 | 8017950600098427565020[GS]8018950600098427565020                                 |
     | 8026 |   02 | 0095060009842756502002350609175198623710[GS]8026095060001343760310               |
     | 8026 | 8006 | 009506000984275650208006095060001343760310[GS]3710[GS]8026095060001343760310     |
+
+Scenario Outline: Detect invalid duplicate AI data relationships
+	Given the input is <input>
+	When the input to submitted to the parser and data relationship tests are required
+	Then the errors should include a fatal 2202 error
+
+	Examples:
+    | ai1  | ai2  | input                                                                            |
+    |   01 |   01 | 0109506000134376013506091751986210ABC123[GS]17311231                             |
+
+
+Scenario Outline: Detect invalid duplicate AI data relationships across multiple barcodes
+    Given the input for barcode 1 is <barcode1> 
+    And the input for barcode 2 is <barcode2>
+    And the input for barcode 3 is <barcode3>
+    When the barcodes are submitted to the parser
+	Then there should be invalid duplicate AI pairs
+
+	Examples:
+    | barcode1                             | barcode2                             | barcode3                             |
+    | 010950600013437610ABC123[GS]17311231 | 010950600013437610XYZ999[GS]17320531 | 013506091751986210ABC123[GS]17311231 |
 
 Scenario Outline: Validate data relationships between multiple data elements
 	Given the input is <input>
@@ -520,7 +540,7 @@ Scenario Outline: Detect missing mandatory data relationships
     And the semantics are <semantics>
 	When the input to submitted to the parser and data relationship tests are required
     Then we should detect AI <ai>
-    And the errors should include a fatal 2202 error
+    And the errors should include a fatal 2203 error
 
     Examples:
     | ai   | input                                                                                                                             | semantics          |

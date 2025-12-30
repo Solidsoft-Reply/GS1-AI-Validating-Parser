@@ -138,6 +138,9 @@
   <data name="GS1_Error_002" xml:space="preserve">
     <value>Virheellinen sovellustunniste {0}.</value>
   </data>
+  <data name="GS1_Error_009" xml:space="preserve">
+    <value>Arvolla {0} kentässä {1} on virheellinen tarkistusnumero.</value>
+  </data>
   <data name="GS1_Error_100" xml:space="preserve">
     <value>Arvo{0} ei vastaa datan elementille määriteltyä mallia.</value>
   </data>
@@ -165,7 +168,7 @@
   <data name="GS1_Error_201" xml:space="preserve">
     <value>Virheellinen tietosuhde havaittu AI:n {0} ja AI:n {1} välillä.</value>
   </data>
-  <data name="GS1_Error_202" xml:space="preserve">
+  <data name="GS1_Error_203" xml:space="preserve">
     <value>Pakollista tietosuhdetta ei löytynyt AI:n {0} ja {1} väliltä.</value>
   </data>
   <data name="GS1_Warning_017" xml:space="preserve">
@@ -174,16 +177,16 @@
   <data name="GS1_Error_003" xml:space="preserve">
     <value>Virheellinen sovellustunniste {0}. AI-tunnisteen pituuden on oltava 2–4 numeroa.</value>
   </data>
-  <data name="GS1_Error_202_and" xml:space="preserve">
+  <data name="GS1_Error_203_and" xml:space="preserve">
     <value>ja</value>
   </data>
-  <data name="GS1_Error_202_xor" xml:space="preserve">
+  <data name="GS1_Error_203_xor" xml:space="preserve">
     <value>tasan yksi seuraavista</value>
   </data>
-  <data name="GS1_Error_202_or" xml:space="preserve">
+  <data name="GS1_Error_203_or" xml:space="preserve">
     <value>vähintään yksi seuraavista</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
-    <value>Arvolla {0} kentässä {1} on virheellinen tarkistusnumero.</value>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>Tekoäly {0} esiintyy useammin kuin kerran eri arvoilla.</value>
   </data>
 </root>

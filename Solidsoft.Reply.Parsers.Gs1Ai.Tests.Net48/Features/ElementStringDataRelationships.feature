@@ -16,7 +16,6 @@ Scenario Outline: Detect invalid data relationships (parentheses / element strin
 
 	Examples:
 	| ai1  | ai2  | input                                                                                 |
-	|   01 |   01 | (01)09506000134376(01)03506091751986210ABC123(17)311231                               |
 	|   01 |   02 | (01)09506000134376(02)03506091751986210ABC123(17)311231                               |
 	|   01 |   03 | (01)09506000134376(03)03506091751986210ABC123(17)311231                               |
 	|   01 |   37 | (01)09506000134376(37)144(10)ABC123(17)311231                                         |
@@ -56,6 +55,26 @@ Scenario Outline: Detect invalid data relationships (parentheses / element strin
 	| 8026 |   02 | (00)950600098427565020(02)35060917519862(8026)095060001343760310                      | 
 	| 8026 | 8006 | (00)950600098427565020(8006)095060001343760310(37)10(8026)095060001343760310(37)60310 |
 
+Scenario Outline: Detect invalid duplicate AI data relationships (parentheses / element string format)
+	Given the input is <input>
+	When the input to submitted to the parser and data relationship tests are required
+	Then we should detect AI <ai1>
+	And the errors should include a fatal 2202 error
+
+	Examples:
+	| ai1  | ai2  | input                                                                                 |
+	|   01 |   01 | (01)09506000134376(01)03506091751986210ABC123(17)311231                               |
+
+Scenario Outline: Detect invalid duplicate AI data relationships across multiple barcodes
+    Given the input for barcode 1 is <barcode1> 
+    And the input for barcode 2 is <barcode2>
+    And the input for barcode 3 is <barcode3>
+    When the barcodes are submitted to the parser
+	Then there should be invalid duplicate AI pairs
+
+	Examples:
+    | barcode1                             | barcode2                             | barcode3                             |
+    | 010950600013437610ABC123[GS]17311231 | 010950600013437610XYZ999[GS]17320531 | 013506091751986210ABC123[GS]17311231 |
 
 Scenario Outline: Validate data relationships between multiple data elements (parentheses / element string format)
 	Given the input is <input>
@@ -186,7 +205,7 @@ Scenario Outline: Detect missing mandatory data relationships (parentheses / ele
 	And the semantics are <semantics>
 	When the input to submitted to the parser and data relationship tests are required
 	Then we should detect AI <ai>
-	And the errors should include a fatal 2202 error
+	And the errors should include a fatal 2203 error
 
 	Examples:
 	| ai   | input                                                                                                | semantics          |

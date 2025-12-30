@@ -138,6 +138,9 @@
   <data name="GS1_Error_002" xml:space="preserve">
     <value>Identificatore di applicazione non valido {0}.</value>
   </data>
+  <data name="GS1_Error_009" xml:space="preserve">
+    <value>Il valore {0} per {1} ha una cifra di controllo non valida.</value>
+  </data>
   <data name="GS1_Error_100" xml:space="preserve">
     <value>Il valore {0} non corrisponde al modello specificato per l'elemento di dati.</value>
   </data>
@@ -165,7 +168,7 @@
   <data name="GS1_Error_201" xml:space="preserve">
     <value>Rilevata una relazione di dati non valida tra AI {0} e AI {1}.</value>
   </data>
-  <data name="GS1_Error_202" xml:space="preserve">
+  <data name="GS1_Error_203" xml:space="preserve">
     <value>Relazione obbligatoria tra i dati non trovata tra l’IA {0} e {1}.</value>
   </data>
   <data name="GS1_Warning_017" xml:space="preserve">
@@ -174,16 +177,16 @@
   <data name="GS1_Error_003" xml:space="preserve">
     <value>Identificatore dell’applicazione {0} non valido. Gli AI devono essere compresi tra due e quattro cifre.</value>
   </data>
-  <data name="GS1_Error_202_and" xml:space="preserve">
+  <data name="GS1_Error_203_and" xml:space="preserve">
     <value>e</value>
   </data>
-  <data name="GS1_Error_202_xor" xml:space="preserve">
+  <data name="GS1_Error_203_xor" xml:space="preserve">
     <value>esattamente uno tra</value>
   </data>
-  <data name="GS1_Error_202_or" xml:space="preserve">
+  <data name="GS1_Error_203_or" xml:space="preserve">
     <value>almeno uno tra</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
-    <value>Il valore {0} per {1} ha una cifra di controllo non valida.</value>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>L’IA {0} compare più di una volta con valori diversi.</value>
   </data>
 </root>

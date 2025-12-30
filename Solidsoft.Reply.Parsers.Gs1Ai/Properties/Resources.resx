@@ -185,7 +185,7 @@
     <value>Invalid data relationship found between AI {0} and AI {1}.</value>
     <comment>Error</comment>
   </data>
-  <data name="GS1_Error_202" xml:space="preserve">
+  <data name="GS1_Error_203" xml:space="preserve">
     <value>Mandatory data relationship not found between AI {0} and {1}.</value>
     <comment>Error</comment>
   </data>
@@ -197,13 +197,16 @@
     <value>Invalid application identifier {0}.  AIs must be between two and four digits in length.</value>
     <comment>Error</comment>
   </data>
-  <data name="GS1_Error_202_and" xml:space="preserve">
+  <data name="GS1_Error_203_and" xml:space="preserve">
     <value>and</value>
   </data>
-  <data name="GS1_Error_202_xor" xml:space="preserve">
+  <data name="GS1_Error_203_xor" xml:space="preserve">
     <value>exactly one of</value>
   </data>
-  <data name="GS1_Error_202_or" xml:space="preserve">
+  <data name="GS1_Error_203_or" xml:space="preserve">
     <value>at least one of</value>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>AI {0} appears more than once with different values.</value>
   </data>
 </root>

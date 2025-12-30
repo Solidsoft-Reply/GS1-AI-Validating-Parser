@@ -138,6 +138,9 @@
   <data name="GS1_Error_002" xml:space="preserve">
     <value>Ugyldig applikasjonsidentifikator {0}.</value>
   </data>
+  <data name="GS1_Error_009" xml:space="preserve">
+    <value>Verdien{0} for {1} har et ugyldig kontrollsiffer.</value>
+  </data>
   <data name="GS1_Error_100" xml:space="preserve">
     <value>Verdien{0} samsvarer ikke med det spesifiserte mønsteret for datatelementet.</value>
   </data>
@@ -165,7 +168,7 @@
   <data name="GS1_Error_201" xml:space="preserve">
     <value>Ugyldig datarelasjon funnet mellom AI {0} og AI {1}.</value>
   </data>
-  <data name="GS1_Error_202" xml:space="preserve">
+  <data name="GS1_Error_203" xml:space="preserve">
     <value>Obligatorisk datarelasjon ble ikke funnet mellom AI {0} og {1}.</value>
   </data>
   <data name="GS1_Warning_017" xml:space="preserve">
@@ -174,16 +177,16 @@
   <data name="GS1_Error_003" xml:space="preserve">
     <value>Ugyldig applikasjonsidentifikator {0}. AI-er må være mellom to og fire sifre lange.</value>
   </data>
-  <data name="GS1_Error_202_and" xml:space="preserve">
+  <data name="GS1_Error_203_and" xml:space="preserve">
     <value>og</value>
   </data>
-  <data name="GS1_Error_202_xor" xml:space="preserve">
+  <data name="GS1_Error_203_xor" xml:space="preserve">
     <value>akkurat én av</value>
   </data>
-  <data name="GS1_Error_202_or" xml:space="preserve">
+  <data name="GS1_Error_203_or" xml:space="preserve">
     <value>minst én av</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
-    <value>Verdien{0} for {1} har et ugyldig kontrollsiffer.</value>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>AI {0} vises mer enn én gang med ulike verdier.</value>
   </data>
 </root>

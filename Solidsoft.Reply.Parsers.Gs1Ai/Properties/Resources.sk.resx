@@ -138,6 +138,9 @@
   <data name="GS1_Error_002" xml:space="preserve">
     <value>Neplatný identifikátor aplikácie {0}.</value>
   </data>
+  <data name="GS1_Error_009" xml:space="preserve">
+    <value>Hodnota{0} pre {1} má neplatnú kontrolnú číslicu.</value>
+  </data>
   <data name="GS1_Error_100" xml:space="preserve">
     <value>Hodnota{0} nezodpovedá určenému vzoru pre dátový prvok.</value>
   </data>
@@ -165,7 +168,7 @@
   <data name="GS1_Error_201" xml:space="preserve">
     <value>Našiel sa neplatný vzťah údajov medzi AI {0} a AI {1}.</value>
   </data>
-  <data name="GS1_Error_202" xml:space="preserve">
+  <data name="GS1_Error_203" xml:space="preserve">
     <value>Povinný vzťah medzi údajmi nebol nájdený medzi AI {0} a {1}.</value>
   </data>
   <data name="GS1_Warning_017" xml:space="preserve">
@@ -174,16 +177,16 @@
   <data name="GS1_Error_003" xml:space="preserve">
     <value>Neplatný identifikátor aplikácie {0}. Identifikátory aplikácie musia mať dĺžku od dvoch do štyroch číslic.</value>
   </data>
-  <data name="GS1_Error_202_and" xml:space="preserve">
+  <data name="GS1_Error_203_and" xml:space="preserve">
     <value>a</value>
   </data>
-  <data name="GS1_Error_202_xor" xml:space="preserve">
+  <data name="GS1_Error_203_xor" xml:space="preserve">
     <value>presne jeden z</value>
   </data>
-  <data name="GS1_Error_202_or" xml:space="preserve">
+  <data name="GS1_Error_203_or" xml:space="preserve">
     <value>aspoň jeden z</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
-    <value>Hodnota{0} pre {1} má neplatnú kontrolnú číslicu.</value>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>AI {0} sa vyskytuje viackrát s rôznymi hodnotami.</value>
   </data>
 </root>

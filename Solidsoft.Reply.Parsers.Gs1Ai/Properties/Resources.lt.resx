@@ -138,6 +138,9 @@
   <data name="GS1_Error_002" xml:space="preserve">
     <value>Netinkamas programos identifikatorius {0}.</value>
   </data>
+  <data name="GS1_Error_009" xml:space="preserve">
+    <value>Reikšmė{0}, skirta {1}, turi neteisingą kontrolinį skaitmenį.</value>
+  </data>
   <data name="GS1_Error_100" xml:space="preserve">
     <value>Vertė{0} neatitinka nustatyto duomenų elemento rašto.</value>
   </data>
@@ -165,7 +168,7 @@
   <data name="GS1_Error_201" xml:space="preserve">
     <value>Nustatytas neteisingas duomenų ryšys tarp AI {0} ir AI {1}.</value>
   </data>
-  <data name="GS1_Error_202" xml:space="preserve">
+  <data name="GS1_Error_203" xml:space="preserve">
     <value>Nerastas privalomas duomenų ryšys tarp AI {0} ir {1}.</value>
   </data>
   <data name="GS1_Warning_017" xml:space="preserve">
@@ -174,16 +177,16 @@
   <data name="GS1_Error_003" xml:space="preserve">
     <value>Neteisingas programos identifikatorius {0}. AI turi būti nuo dviejų iki keturių skaitmenų ilgio.</value>
   </data>
-  <data name="GS1_Error_202_and" xml:space="preserve">
+  <data name="GS1_Error_203_and" xml:space="preserve">
     <value>ir</value>
   </data>
-  <data name="GS1_Error_202_xor" xml:space="preserve">
+  <data name="GS1_Error_203_xor" xml:space="preserve">
     <value>tiksliai vienas iš</value>
   </data>
-  <data name="GS1_Error_202_or" xml:space="preserve">
+  <data name="GS1_Error_203_or" xml:space="preserve">
     <value>bent vienas iš</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
-    <value>Reikšmė{0}, skirta {1}, turi neteisingą kontrolinį skaitmenį.</value>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>AI {0} pasirodo daugiau nei vieną kartą su skirtingomis reikšmėmis.</value>
   </data>
 </root>

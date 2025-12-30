@@ -105,7 +105,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Tests.Net7.Features
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/ElementStringDataRelationships.feature.ndjson", 265);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/ElementStringDataRelationships.feature.ndjson", 266);
         }
         
         async global::System.Threading.Tasks.Task global::Xunit.IAsyncLifetime.InitializeAsync()
@@ -136,46 +136,45 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Tests.Net7.Features
         [global::Xunit.SkippableTheoryAttribute(DisplayName="Detect invalid data relationships (parentheses / element string format)")]
         [global::Xunit.TraitAttribute("FeatureTitle", "ElementStringDataRelationships")]
         [global::Xunit.TraitAttribute("Description", "Detect invalid data relationships (parentheses / element string format)")]
-        [global::Xunit.InlineDataAttribute("01", "01", "(01)09506000134376(01)03506091751986210ABC123(17)311231", "0", new string[0])]
-        [global::Xunit.InlineDataAttribute("01", "02", "(01)09506000134376(02)03506091751986210ABC123(17)311231", "1", new string[0])]
-        [global::Xunit.InlineDataAttribute("01", "03", "(01)09506000134376(03)03506091751986210ABC123(17)311231", "2", new string[0])]
-        [global::Xunit.InlineDataAttribute("01", "37", "(01)09506000134376(37)144(10)ABC123(17)311231", "3", new string[0])]
-        [global::Xunit.InlineDataAttribute("03", "37", "(03)09506000134376(37)144(10)ABC123(17)3112311", "4", new string[0])]
-        [global::Xunit.InlineDataAttribute("01", "255", "(01)09506000134376(255)05060917519861(10)ABC123(17)311231", "5", new string[0])]
-        [global::Xunit.InlineDataAttribute("03", "02", "(03)09506000134376(02)03506091751986210ABC123(17)311231", "6", new string[0])]
-        [global::Xunit.InlineDataAttribute("21", "235", "(235)1ABC36610835978537(01)09506000134376(10)ABC123(17)311231(21)23560917519861", "7", new string[0])]
-        [global::Xunit.InlineDataAttribute("420", "421", "(01)09506000134376(10)ABC123(420)SW23TP(421)826SW23TP", "8", new string[0])]
-        [global::Xunit.InlineDataAttribute("421", "4307", "(01)09506000134376(10)ABC123(421)826SW23TP(4307)GB", "9", new string[0])]
-        [global::Xunit.InlineDataAttribute("422", "426", "(01)09506000134376(10)ABC123(422)826(426)826", "10", new string[0])]
-        [global::Xunit.InlineDataAttribute("423", "426", "(01)09506000134376(10)ABC123(423)826250276(426)826", "11", new string[0])]
-        [global::Xunit.InlineDataAttribute("424", "426", "(01)09506000134376(10)ABC123(424)826(426)826", "12", new string[0])]
-        [global::Xunit.InlineDataAttribute("425", "426", "(01)09506000134376(10)ABC123(425)826250276(426)826", "13", new string[0])]
-        [global::Xunit.InlineDataAttribute("3900", "3910", "(01)09506000134376(3900)123(3910)826123(8020)36641008056438(415)09506000134376", "14", new string[0])]
-        [global::Xunit.InlineDataAttribute("3900", "3941", "(3900)123(3941)0055(255)09506000134376", "15", new string[0])]
-        [global::Xunit.InlineDataAttribute("3900", "8111", "(3900)123(8111)0125(255)09506000134376", "16", new string[0])]
-        [global::Xunit.InlineDataAttribute("3920", "3930", "(01)09506000134376(3920)123(3930)826123(30)144", "17", new string[0])]
-        [global::Xunit.InlineDataAttribute("3920", "3953", "(01)09506000134376(3920)123(3953)123456(30)144", "18", new string[0])]
-        [global::Xunit.InlineDataAttribute("3940", "8111", "(3940)0010(8111)0125(255)09506000134376", "19", new string[0])]
-        [global::Xunit.InlineDataAttribute("3953", "8005", "(01)09506000134376(3953)123456(8005)001234(30)144", "20", new string[0])]
-        [global::Xunit.InlineDataAttribute("3953", "3920", "(01)09506000134376(3953)123456(3920)123(30)144", "21", new string[0])]
-        [global::Xunit.InlineDataAttribute("3953", "3930", "(01)09506000134376(3953)123456(3930)826123(30)144", "22", new string[0])]
-        [global::Xunit.InlineDataAttribute("4330", "4331", "(00)950600098427565020(4330)000250-(4331)001917-", "23", new string[0])]
-        [global::Xunit.InlineDataAttribute("4332", "4333", "(00)950600098427565020(4332)000250-(4333)001917-", "24", new string[0])]
-        [global::Xunit.InlineDataAttribute("7250", "7251", "(7250)19630304(7251)196303040104(8018)950600098427565020", "25", new string[0])]
-        [global::Xunit.InlineDataAttribute("7256", "7253", "(7256)JOHN+SMITH+JR(7253)SMITH(8018)950600098427565020", "26", new string[0])]
-        [global::Xunit.InlineDataAttribute("7256", "7254", "(7256)JOHN+SMITH+JR(7254)JOHN(8018)950600098427565020", "27", new string[0])]
-        [global::Xunit.InlineDataAttribute("7256", "7255", "(7256)JOHN+SMITH+JR(7255)JR(8018)950600098427565020", "28", new string[0])]
-        [global::Xunit.InlineDataAttribute("7256", "7259", "(7256)JOHN+SMITH+JR(7259)SMITH+BABY+BOY(8018)950600098427565020", "29", new string[0])]
-        [global::Xunit.InlineDataAttribute("7259", "7253", "(7259)SMITH+BABY+BOY(7253)SMITH(8018)950600098427565020", "30", new string[0])]
-        [global::Xunit.InlineDataAttribute("7259", "7254", "(7259)SMITH+BABY+BOY(7254)JOHN(8018)950600098427565020", "31", new string[0])]
-        [global::Xunit.InlineDataAttribute("7259", "7255", "(7259)SMITH+BABY+BOY(7255)JR(8018)950600098427565020", "32", new string[0])]
-        [global::Xunit.InlineDataAttribute("7259", "7256", "(7259)SMITH+BABY+BOY(7256)JOHN+SMITH+JR(8018)950600098427565020", "33", new string[0])]
-        [global::Xunit.InlineDataAttribute("8006", "01", "(01)09506000134376(8006)095060001343760310", "34", new string[0])]
-        [global::Xunit.InlineDataAttribute("8006", "37", "(8006)09506000134(37)60310(37)10", "35", new string[0])]
-        [global::Xunit.InlineDataAttribute("8018", "8017", "(8017)950600098427565020(8018)950600098427565020", "36", new string[0])]
-        [global::Xunit.InlineDataAttribute("8026", "02", "(00)950600098427565020(02)35060917519862(8026)095060001343760310", "37", new string[0])]
+        [global::Xunit.InlineDataAttribute("01", "02", "(01)09506000134376(02)03506091751986210ABC123(17)311231", "0", new string[0])]
+        [global::Xunit.InlineDataAttribute("01", "03", "(01)09506000134376(03)03506091751986210ABC123(17)311231", "1", new string[0])]
+        [global::Xunit.InlineDataAttribute("01", "37", "(01)09506000134376(37)144(10)ABC123(17)311231", "2", new string[0])]
+        [global::Xunit.InlineDataAttribute("03", "37", "(03)09506000134376(37)144(10)ABC123(17)3112311", "3", new string[0])]
+        [global::Xunit.InlineDataAttribute("01", "255", "(01)09506000134376(255)05060917519861(10)ABC123(17)311231", "4", new string[0])]
+        [global::Xunit.InlineDataAttribute("03", "02", "(03)09506000134376(02)03506091751986210ABC123(17)311231", "5", new string[0])]
+        [global::Xunit.InlineDataAttribute("21", "235", "(235)1ABC36610835978537(01)09506000134376(10)ABC123(17)311231(21)23560917519861", "6", new string[0])]
+        [global::Xunit.InlineDataAttribute("420", "421", "(01)09506000134376(10)ABC123(420)SW23TP(421)826SW23TP", "7", new string[0])]
+        [global::Xunit.InlineDataAttribute("421", "4307", "(01)09506000134376(10)ABC123(421)826SW23TP(4307)GB", "8", new string[0])]
+        [global::Xunit.InlineDataAttribute("422", "426", "(01)09506000134376(10)ABC123(422)826(426)826", "9", new string[0])]
+        [global::Xunit.InlineDataAttribute("423", "426", "(01)09506000134376(10)ABC123(423)826250276(426)826", "10", new string[0])]
+        [global::Xunit.InlineDataAttribute("424", "426", "(01)09506000134376(10)ABC123(424)826(426)826", "11", new string[0])]
+        [global::Xunit.InlineDataAttribute("425", "426", "(01)09506000134376(10)ABC123(425)826250276(426)826", "12", new string[0])]
+        [global::Xunit.InlineDataAttribute("3900", "3910", "(01)09506000134376(3900)123(3910)826123(8020)36641008056438(415)09506000134376", "13", new string[0])]
+        [global::Xunit.InlineDataAttribute("3900", "3941", "(3900)123(3941)0055(255)09506000134376", "14", new string[0])]
+        [global::Xunit.InlineDataAttribute("3900", "8111", "(3900)123(8111)0125(255)09506000134376", "15", new string[0])]
+        [global::Xunit.InlineDataAttribute("3920", "3930", "(01)09506000134376(3920)123(3930)826123(30)144", "16", new string[0])]
+        [global::Xunit.InlineDataAttribute("3920", "3953", "(01)09506000134376(3920)123(3953)123456(30)144", "17", new string[0])]
+        [global::Xunit.InlineDataAttribute("3940", "8111", "(3940)0010(8111)0125(255)09506000134376", "18", new string[0])]
+        [global::Xunit.InlineDataAttribute("3953", "8005", "(01)09506000134376(3953)123456(8005)001234(30)144", "19", new string[0])]
+        [global::Xunit.InlineDataAttribute("3953", "3920", "(01)09506000134376(3953)123456(3920)123(30)144", "20", new string[0])]
+        [global::Xunit.InlineDataAttribute("3953", "3930", "(01)09506000134376(3953)123456(3930)826123(30)144", "21", new string[0])]
+        [global::Xunit.InlineDataAttribute("4330", "4331", "(00)950600098427565020(4330)000250-(4331)001917-", "22", new string[0])]
+        [global::Xunit.InlineDataAttribute("4332", "4333", "(00)950600098427565020(4332)000250-(4333)001917-", "23", new string[0])]
+        [global::Xunit.InlineDataAttribute("7250", "7251", "(7250)19630304(7251)196303040104(8018)950600098427565020", "24", new string[0])]
+        [global::Xunit.InlineDataAttribute("7256", "7253", "(7256)JOHN+SMITH+JR(7253)SMITH(8018)950600098427565020", "25", new string[0])]
+        [global::Xunit.InlineDataAttribute("7256", "7254", "(7256)JOHN+SMITH+JR(7254)JOHN(8018)950600098427565020", "26", new string[0])]
+        [global::Xunit.InlineDataAttribute("7256", "7255", "(7256)JOHN+SMITH+JR(7255)JR(8018)950600098427565020", "27", new string[0])]
+        [global::Xunit.InlineDataAttribute("7256", "7259", "(7256)JOHN+SMITH+JR(7259)SMITH+BABY+BOY(8018)950600098427565020", "28", new string[0])]
+        [global::Xunit.InlineDataAttribute("7259", "7253", "(7259)SMITH+BABY+BOY(7253)SMITH(8018)950600098427565020", "29", new string[0])]
+        [global::Xunit.InlineDataAttribute("7259", "7254", "(7259)SMITH+BABY+BOY(7254)JOHN(8018)950600098427565020", "30", new string[0])]
+        [global::Xunit.InlineDataAttribute("7259", "7255", "(7259)SMITH+BABY+BOY(7255)JR(8018)950600098427565020", "31", new string[0])]
+        [global::Xunit.InlineDataAttribute("7259", "7256", "(7259)SMITH+BABY+BOY(7256)JOHN+SMITH+JR(8018)950600098427565020", "32", new string[0])]
+        [global::Xunit.InlineDataAttribute("8006", "01", "(01)09506000134376(8006)095060001343760310", "33", new string[0])]
+        [global::Xunit.InlineDataAttribute("8006", "37", "(8006)09506000134(37)60310(37)10", "34", new string[0])]
+        [global::Xunit.InlineDataAttribute("8018", "8017", "(8017)950600098427565020(8018)950600098427565020", "35", new string[0])]
+        [global::Xunit.InlineDataAttribute("8026", "02", "(00)950600098427565020(02)35060917519862(8026)095060001343760310", "36", new string[0])]
         [global::Xunit.InlineDataAttribute("8026", "8006", "(00)950600098427565020(8006)095060001343760310(37)10(8026)095060001343760310(37)6" +
-            "0310", "38", new string[0])]
+            "0310", "37", new string[0])]
         public async global::System.Threading.Tasks.Task DetectInvalidDataRelationshipsParenthesesElementStringFormat(string ai1, string ai2, string input, string @__pickleIndex, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -213,77 +212,165 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             await this.ScenarioCleanupAsync();
         }
         
+        [global::Xunit.SkippableTheoryAttribute(DisplayName="Detect invalid duplicate AI data relationships (parentheses / element string form" +
+            "at)")]
+        [global::Xunit.TraitAttribute("FeatureTitle", "ElementStringDataRelationships")]
+        [global::Xunit.TraitAttribute("Description", "Detect invalid duplicate AI data relationships (parentheses / element string form" +
+            "at)")]
+        [global::Xunit.InlineDataAttribute("01", "01", "(01)09506000134376(01)03506091751986210ABC123(17)311231", "38", new string[0])]
+        public async global::System.Threading.Tasks.Task DetectInvalidDuplicateAIDataRelationshipsParenthesesElementStringFormat(string ai1, string ai2, string input, string @__pickleIndex, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("ai1", ai1);
+            argumentsOfScenario.Add("ai2", ai2);
+            argumentsOfScenario.Add("input", input);
+            string pickleIndex = @__pickleIndex;
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Detect invalid duplicate AI data relationships (parentheses / element string form" +
+                    "at)", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
+            string[] tagsOfRule = ((string[])(null));
+            global::Reqnroll.RuleInfo ruleInfo = null;
+#line 58
+this.ScenarioInitialize(scenarioInfo, ruleInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                await testRunner.SkipScenarioAsync();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 59
+ await testRunner.GivenAsync(string.Format("the input is {0}", input), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 60
+ await testRunner.WhenAsync("the input to submitted to the parser and data relationship tests are required", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 61
+ await testRunner.ThenAsync(string.Format("we should detect AI {0}", ai1), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 62
+ await testRunner.AndAsync("the errors should include a fatal 2202 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [global::Xunit.SkippableTheoryAttribute(DisplayName="Detect invalid duplicate AI data relationships across multiple barcodes")]
+        [global::Xunit.TraitAttribute("FeatureTitle", "ElementStringDataRelationships")]
+        [global::Xunit.TraitAttribute("Description", "Detect invalid duplicate AI data relationships across multiple barcodes")]
+        [global::Xunit.InlineDataAttribute("010950600013437610ABC123[GS]17311231", "010950600013437610XYZ999[GS]17320531", "013506091751986210ABC123[GS]17311231", "39", new string[0])]
+        public async global::System.Threading.Tasks.Task DetectInvalidDuplicateAIDataRelationshipsAcrossMultipleBarcodes(string barcode1, string barcode2, string barcode3, string @__pickleIndex, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("barcode1", barcode1);
+            argumentsOfScenario.Add("barcode2", barcode2);
+            argumentsOfScenario.Add("barcode3", barcode3);
+            string pickleIndex = @__pickleIndex;
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Detect invalid duplicate AI data relationships across multiple barcodes", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
+            string[] tagsOfRule = ((string[])(null));
+            global::Reqnroll.RuleInfo ruleInfo = null;
+#line 68
+this.ScenarioInitialize(scenarioInfo, ruleInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                await testRunner.SkipScenarioAsync();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 69
+    await testRunner.GivenAsync(string.Format("the input for barcode 1 is {0}", barcode1), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 70
+    await testRunner.AndAsync(string.Format("the input for barcode 2 is {0}", barcode2), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 71
+    await testRunner.AndAsync(string.Format("the input for barcode 3 is {0}", barcode3), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 72
+    await testRunner.WhenAsync("the barcodes are submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 73
+ await testRunner.ThenAsync("there should be invalid duplicate AI pairs", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
         [global::Xunit.SkippableTheoryAttribute(DisplayName="Validate data relationships between multiple data elements (parentheses / element" +
             " string format)")]
         [global::Xunit.TraitAttribute("FeatureTitle", "ElementStringDataRelationships")]
         [global::Xunit.TraitAttribute("Description", "Validate data relationships between multiple data elements (parentheses / element" +
             " string format)")]
-        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(17)311231(30)10", "01.VariableMeasure", "39", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(17)311231(3100)000010", "01.VariableMeasure", "40", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)99506000134379(10)ABC123(17)311231(30)10", "01.VariableMeasure", "41", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)99506000134379(10)ABC123(17)311231(3100)000010", "01.VariableMeasure", "42", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)99506000134379(10)ABC123(17)311231(8001)10000010010010", "01.VariableMeasure", "43", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)99506000134379(10)ABC123(17)311231(30)10(37)10", "01.VariableMeasure", "44", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)99506000134379(10)ABC123(17)311231(3100)000010(37)10", "01.VariableMeasure", "45", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)99506000134379(10)ABC123(17)311231(242)23", "01.Custom", "46", new string[0])]
-        [global::Xunit.InlineDataAttribute("(03)09506000134376(242)23(8006)950609175198640310", "", "47", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)35060917519862(37)10", "", "48", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(17)311231", "", "49", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)09506000134376(10)ABC123(17)311231(37)10", "", "50", new string[0])]
-        [global::Xunit.InlineDataAttribute("(10)ABC123(8006)095060001343760310", "", "51", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(10)ABC123(8026)095060001343760310(37)10", "", "52", new string[0])]
-        [global::Xunit.InlineDataAttribute("(03)09506000134376(10)ABC123", "", "53", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(11)251221", "", "54", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(13)251221", "", "55", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(15)260103", "", "56", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(16)261102", "", "57", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(17)260103", "", "58", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)09506000134376(10)ABC123(11)251221(37)10", "", "59", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)09506000134376(10)ABC123(13)251221(37)10", "", "60", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)09506000134376(10)ABC123(15)260103(37)10", "", "61", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)09506000134376(10)ABC123(16)261102(37)10", "", "62", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)09506000134376(10)ABC123(17)260103(37)10", "", "63", new string[0])]
-        [global::Xunit.InlineDataAttribute("(10)ABC123(11)251221(8006)095060001343760310", "", "64", new string[0])]
-        [global::Xunit.InlineDataAttribute("(10)ABC123(13)251221(8006)095060001343760310", "", "65", new string[0])]
-        [global::Xunit.InlineDataAttribute("(10)ABC123(15)260103(8006)095060001343760310", "", "66", new string[0])]
-        [global::Xunit.InlineDataAttribute("(10)ABC123(16)261102(8006)095060001343760310", "", "67", new string[0])]
-        [global::Xunit.InlineDataAttribute("(10)ABC123(17)260103(8006)095060001343760310", "", "68", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(10)ABC123(11)251221(8026)095060001343760310(37)10", "", "69", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(10)ABC123(13)251221(8026)095060001343760310(37)10", "", "70", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(10)ABC123(15)260103(8026)095060001343760310(37)10", "", "71", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(10)ABC123(16)261102(8026)095060001343760310(37)10", "", "72", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(10)ABC123(17)260103(8026)095060001343760310(37)10", "", "73", new string[0])]
-        [global::Xunit.InlineDataAttribute("(12)251231(8020)1438940A32(415)9506000134376", "", "74", new string[0])]
-        [global::Xunit.InlineDataAttribute("(17)260103(255)5060917519861", "17.Coupon", "75", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)09506000134376(20)03(17)311231", "", "76", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)09506000134376(20)03(17)311231(37)10", "", "77", new string[0])]
-        [global::Xunit.InlineDataAttribute("(20)03(8006)095060001343760310", "", "78", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(20)03(8026)095060001343760310(37)10", "", "79", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(17)311231(21)49950304162", "", "80", new string[0])]
-        [global::Xunit.InlineDataAttribute("(10)ABC123(8006)095060001343760310(21)49950304162", "", "81", new string[0])]
-        [global::Xunit.InlineDataAttribute("(03)09506000134376(10)ABC123(21)49950304162", "", "82", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)09506000134376(22)49950A304162", "", "83", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)09506000134376(235)2351ABC36610835978537", "", "84", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)09506000134376(240)49950A304162(17)311231", "", "85", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)09506000134376(240)49950A304162(17)311231(37)10", "", "86", new string[0])]
-        [global::Xunit.InlineDataAttribute("(240)49950A304162(8006)095060001343760310", "", "87", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(240)49950A304162(8026)095060001343760310(37)10", "", "88", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)09506000134376(241)49950A304162(17)311231", "", "89", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)09506000134376(241)49950A304162(17)311231(37)10", "", "90", new string[0])]
-        [global::Xunit.InlineDataAttribute("(241)49950A304162(8006)095060001343760310", "", "91", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(241)49950A304162(8026)095060001343760310(37)10", "", "92", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)99506000134379(242)23(17)311231", "", "93", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)99506000134379(242)23(17)311231(30)10(37)10", "", "94", new string[0])]
-        [global::Xunit.InlineDataAttribute("(242)23(8006)995060001343790310", "", "95", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(242)23(8026)995060001343790310(37)10", "", "96", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)09506000134376(243)1ABC36610835978537", "", "97", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(17)311231(250)49950304162(21)8801005795367", "", "98", new string[0])]
-        [global::Xunit.InlineDataAttribute("(10)ABC123(8006)095060001343760310(250)49950304162(21)8801005795367", "", "99", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(17)311231(251)49950304162", "", "100", new string[0])]
-        [global::Xunit.InlineDataAttribute("(10)ABC123(8006)095060001343760310(251)49950304162", "", "101", new string[0])]
-        [global::Xunit.InlineDataAttribute("(254)JJ429(414)9506000134376", "", "102", new string[0])]
-        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(17)311231(30)100", "", "103", new string[0])]
-        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)09506000134376(10)ABC123(17)311231(37)10(30)100", "", "104", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(17)311231(30)10", "01.VariableMeasure", "40", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(17)311231(3100)000010", "01.VariableMeasure", "41", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)99506000134379(10)ABC123(17)311231(30)10", "01.VariableMeasure", "42", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)99506000134379(10)ABC123(17)311231(3100)000010", "01.VariableMeasure", "43", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)99506000134379(10)ABC123(17)311231(8001)10000010010010", "01.VariableMeasure", "44", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)99506000134379(10)ABC123(17)311231(30)10(37)10", "01.VariableMeasure", "45", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)99506000134379(10)ABC123(17)311231(3100)000010(37)10", "01.VariableMeasure", "46", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)99506000134379(10)ABC123(17)311231(242)23", "01.Custom", "47", new string[0])]
+        [global::Xunit.InlineDataAttribute("(03)09506000134376(242)23(8006)950609175198640310", "", "48", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)35060917519862(37)10", "", "49", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(17)311231", "", "50", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)09506000134376(10)ABC123(17)311231(37)10", "", "51", new string[0])]
+        [global::Xunit.InlineDataAttribute("(10)ABC123(8006)095060001343760310", "", "52", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(10)ABC123(8026)095060001343760310(37)10", "", "53", new string[0])]
+        [global::Xunit.InlineDataAttribute("(03)09506000134376(10)ABC123", "", "54", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(11)251221", "", "55", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(13)251221", "", "56", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(15)260103", "", "57", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(16)261102", "", "58", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(17)260103", "", "59", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)09506000134376(10)ABC123(11)251221(37)10", "", "60", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)09506000134376(10)ABC123(13)251221(37)10", "", "61", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)09506000134376(10)ABC123(15)260103(37)10", "", "62", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)09506000134376(10)ABC123(16)261102(37)10", "", "63", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)09506000134376(10)ABC123(17)260103(37)10", "", "64", new string[0])]
+        [global::Xunit.InlineDataAttribute("(10)ABC123(11)251221(8006)095060001343760310", "", "65", new string[0])]
+        [global::Xunit.InlineDataAttribute("(10)ABC123(13)251221(8006)095060001343760310", "", "66", new string[0])]
+        [global::Xunit.InlineDataAttribute("(10)ABC123(15)260103(8006)095060001343760310", "", "67", new string[0])]
+        [global::Xunit.InlineDataAttribute("(10)ABC123(16)261102(8006)095060001343760310", "", "68", new string[0])]
+        [global::Xunit.InlineDataAttribute("(10)ABC123(17)260103(8006)095060001343760310", "", "69", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(10)ABC123(11)251221(8026)095060001343760310(37)10", "", "70", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(10)ABC123(13)251221(8026)095060001343760310(37)10", "", "71", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(10)ABC123(15)260103(8026)095060001343760310(37)10", "", "72", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(10)ABC123(16)261102(8026)095060001343760310(37)10", "", "73", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(10)ABC123(17)260103(8026)095060001343760310(37)10", "", "74", new string[0])]
+        [global::Xunit.InlineDataAttribute("(12)251231(8020)1438940A32(415)9506000134376", "", "75", new string[0])]
+        [global::Xunit.InlineDataAttribute("(17)260103(255)5060917519861", "17.Coupon", "76", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)09506000134376(20)03(17)311231", "", "77", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)09506000134376(20)03(17)311231(37)10", "", "78", new string[0])]
+        [global::Xunit.InlineDataAttribute("(20)03(8006)095060001343760310", "", "79", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(20)03(8026)095060001343760310(37)10", "", "80", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(17)311231(21)49950304162", "", "81", new string[0])]
+        [global::Xunit.InlineDataAttribute("(10)ABC123(8006)095060001343760310(21)49950304162", "", "82", new string[0])]
+        [global::Xunit.InlineDataAttribute("(03)09506000134376(10)ABC123(21)49950304162", "", "83", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)09506000134376(22)49950A304162", "", "84", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)09506000134376(235)2351ABC36610835978537", "", "85", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)09506000134376(240)49950A304162(17)311231", "", "86", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)09506000134376(240)49950A304162(17)311231(37)10", "", "87", new string[0])]
+        [global::Xunit.InlineDataAttribute("(240)49950A304162(8006)095060001343760310", "", "88", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(240)49950A304162(8026)095060001343760310(37)10", "", "89", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)09506000134376(241)49950A304162(17)311231", "", "90", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)09506000134376(241)49950A304162(17)311231(37)10", "", "91", new string[0])]
+        [global::Xunit.InlineDataAttribute("(241)49950A304162(8006)095060001343760310", "", "92", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(241)49950A304162(8026)095060001343760310(37)10", "", "93", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)99506000134379(242)23(17)311231", "", "94", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)99506000134379(242)23(17)311231(30)10(37)10", "", "95", new string[0])]
+        [global::Xunit.InlineDataAttribute("(242)23(8006)995060001343790310", "", "96", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(242)23(8026)995060001343790310(37)10", "", "97", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)09506000134376(243)1ABC36610835978537", "", "98", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(17)311231(250)49950304162(21)8801005795367", "", "99", new string[0])]
+        [global::Xunit.InlineDataAttribute("(10)ABC123(8006)095060001343760310(250)49950304162(21)8801005795367", "", "100", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(17)311231(251)49950304162", "", "101", new string[0])]
+        [global::Xunit.InlineDataAttribute("(10)ABC123(8006)095060001343760310(251)49950304162", "", "102", new string[0])]
+        [global::Xunit.InlineDataAttribute("(254)JJ429(414)9506000134376", "", "103", new string[0])]
+        [global::Xunit.InlineDataAttribute("(01)09506000134376(10)ABC123(17)311231(30)100", "", "104", new string[0])]
+        [global::Xunit.InlineDataAttribute("(00)950600098427565020(02)09506000134376(10)ABC123(17)311231(37)10(30)100", "", "105", new string[0])]
         public async global::System.Threading.Tasks.Task ValidateDataRelationshipsBetweenMultipleDataElementsParenthesesElementStringFormat(string input, string semantics, string @__pickleIndex, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -295,7 +382,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
                     " string format)", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 60
+#line 79
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -305,16 +392,16 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 61
+#line 80
  await testRunner.GivenAsync(string.Format("the input is {0}", input), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 62
+#line 81
  await testRunner.AndAsync(string.Format("the semantics are {0}", semantics), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 63
+#line 82
  await testRunner.WhenAsync("the input to submitted to the parser and data relationship tests are required", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 64
+#line 83
  await testRunner.ThenAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -326,165 +413,165 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
         [global::Xunit.TraitAttribute("FeatureTitle", "ElementStringDataRelationships")]
         [global::Xunit.TraitAttribute("Description", "Detect missing mandatory data relationships (parentheses / element string format)" +
             "")]
-        [global::Xunit.InlineDataAttribute("01", "(01)09506000134376(10)ABC123(17)311231", "01.VariableMeasure", "105", new string[0])]
-        [global::Xunit.InlineDataAttribute("01", "(01)99506000134379(10)ABC123(17)311231", "01.VariableMeasure", "106", new string[0])]
-        [global::Xunit.InlineDataAttribute("02", "(00)950600098427565020(02)99506000134379(10)ABC123(17)311231(37)10", "01.VariableMeasure", "107", new string[0])]
-        [global::Xunit.InlineDataAttribute("01", "(01)99506000134379(10)ABC123(17)311231", "01.Custom", "108", new string[0])]
-        [global::Xunit.InlineDataAttribute("02", "(02)09506000134376(10)ABC123", "", "109", new string[0])]
-        [global::Xunit.InlineDataAttribute("02", "(00)950600098427565020(02)00235060917511", "", "110", new string[0])]
-        [global::Xunit.InlineDataAttribute("02", "(02)002350609175113710", "", "111", new string[0])]
-        [global::Xunit.InlineDataAttribute("10", "(10)ABC123(17)311231", "", "112", new string[0])]
-        [global::Xunit.InlineDataAttribute("11", "(10)ABC123(11)251221", "", "113", new string[0])]
-        [global::Xunit.InlineDataAttribute("13", "(13)251221", "", "114", new string[0])]
-        [global::Xunit.InlineDataAttribute("15", "(15)260103", "", "115", new string[0])]
-        [global::Xunit.InlineDataAttribute("16", "(10)ABC123(16)261102", "", "116", new string[0])]
-        [global::Xunit.InlineDataAttribute("17", "(10)ABC123(17)260103", "", "117", new string[0])]
-        [global::Xunit.InlineDataAttribute("12", "(12)251231", "", "118", new string[0])]
-        [global::Xunit.InlineDataAttribute("12", "(12)251231(8020)1438940A32", "", "119", new string[0])]
-        [global::Xunit.InlineDataAttribute("12", "(12)251231(415)9506000134376", "", "120", new string[0])]
-        [global::Xunit.InlineDataAttribute("17", "(10)ABC123(17)260103(8006)095060001343760310", "17.Coupon", "121", new string[0])]
-        [global::Xunit.InlineDataAttribute("20", "(20)03", "", "122", new string[0])]
-        [global::Xunit.InlineDataAttribute("21", "(21)49950304162", "", "123", new string[0])]
-        [global::Xunit.InlineDataAttribute("22", "(22)49950A304162", "", "124", new string[0])]
-        [global::Xunit.InlineDataAttribute("235", "(235)2351ABC36610835978537", "", "125", new string[0])]
-        [global::Xunit.InlineDataAttribute("240", "(240)49950A304162", "", "126", new string[0])]
-        [global::Xunit.InlineDataAttribute("241", "(241)49950A304162", "", "127", new string[0])]
-        [global::Xunit.InlineDataAttribute("242", "(242)23", "", "128", new string[0])]
-        [global::Xunit.InlineDataAttribute("243", "(243)1ABC36610835978537", "", "129", new string[0])]
-        [global::Xunit.InlineDataAttribute("250", "(250)49950304162", "", "130", new string[0])]
-        [global::Xunit.InlineDataAttribute("251", "(251)49950304162", "", "131", new string[0])]
-        [global::Xunit.InlineDataAttribute("254", "(254)JJ429", "", "132", new string[0])]
-        [global::Xunit.InlineDataAttribute("30", "(30)100", "", "133", new string[0])]
-        [global::Xunit.InlineDataAttribute("3100", "(3100)0000001", "", "134", new string[0])]
-        [global::Xunit.InlineDataAttribute("3200", "(3200)0000001", "", "135", new string[0])]
-        [global::Xunit.InlineDataAttribute("3500", "(3500)0000001", "", "136", new string[0])]
-        [global::Xunit.InlineDataAttribute("3600", "(3600)0000001", "", "137", new string[0])]
-        [global::Xunit.InlineDataAttribute("3330", "(3330)0000001", "", "138", new string[0])]
-        [global::Xunit.InlineDataAttribute("3430", "(3430)0000001", "", "139", new string[0])]
-        [global::Xunit.InlineDataAttribute("3530", "(3530)0000001", "", "140", new string[0])]
-        [global::Xunit.InlineDataAttribute("3630", "(3630)0000001", "", "141", new string[0])]
-        [global::Xunit.InlineDataAttribute("3372", "(3372)001458", "", "142", new string[0])]
-        [global::Xunit.InlineDataAttribute("37", "(37)144(10)ABC123", "", "143", new string[0])]
-        [global::Xunit.InlineDataAttribute("3902", "(3902)3902001458", "", "144", new string[0])]
-        [global::Xunit.InlineDataAttribute("3902", "(8020)R470364122BJ5(3902)001458", "", "145", new string[0])]
-        [global::Xunit.InlineDataAttribute("3902", "(3902)001458(415)9506000134376", "", "146", new string[0])]
-        [global::Xunit.InlineDataAttribute("3902", "(3902)3902001458", "3902.CouponValue", "147", new string[0])]
-        [global::Xunit.InlineDataAttribute("3912", "(3912)9783902001458", "", "148", new string[0])]
-        [global::Xunit.InlineDataAttribute("3912", "(8020)R470364122BJ5(3912)978001458", "", "149", new string[0])]
-        [global::Xunit.InlineDataAttribute("3912", "(3912)978001458(415)9506000134376", "", "150", new string[0])]
-        [global::Xunit.InlineDataAttribute("3922", "(01)09506000134376(10)ABC123(3922)001458", "", "151", new string[0])]
-        [global::Xunit.InlineDataAttribute("3932", "(01)09506000134376(10)ABC123(3932)978001458", "", "152", new string[0])]
-        [global::Xunit.InlineDataAttribute("3940", "(3940)0010", "", "153", new string[0])]
-        [global::Xunit.InlineDataAttribute("3952", "(01)09506000134376(10)ABC123(3952)001458", "", "154", new string[0])]
-        [global::Xunit.InlineDataAttribute("403", "(403)GBR4720045198", "", "155", new string[0])]
-        [global::Xunit.InlineDataAttribute("415", "(415)9506000134376", "", "156", new string[0])]
-        [global::Xunit.InlineDataAttribute("422", "(422)826", "", "157", new string[0])]
-        [global::Xunit.InlineDataAttribute("423", "(423)826250276", "", "158", new string[0])]
-        [global::Xunit.InlineDataAttribute("424", "(424)826", "", "159", new string[0])]
-        [global::Xunit.InlineDataAttribute("425", "(425)826250276", "", "160", new string[0])]
-        [global::Xunit.InlineDataAttribute("426", "(426)826", "", "161", new string[0])]
-        [global::Xunit.InlineDataAttribute("427", "(422)826(427)826", "", "162", new string[0])]
-        [global::Xunit.InlineDataAttribute("4300", "(4300)ACME+LIMITED", "", "163", new string[0])]
-        [global::Xunit.InlineDataAttribute("4301", "(4301)JOHN+SMITH", "", "164", new string[0])]
-        [global::Xunit.InlineDataAttribute("4302", "(4302)UNIT+5", "", "165", new string[0])]
-        [global::Xunit.InlineDataAttribute("4304", "(4304)UPPER+NETHERBY", "", "166", new string[0])]
-        [global::Xunit.InlineDataAttribute("4305", "(4305)WESTGATE", "", "167", new string[0])]
-        [global::Xunit.InlineDataAttribute("4306", "(4306)BILLINGSHIRE", "", "168", new string[0])]
-        [global::Xunit.InlineDataAttribute("4307", "(4307)GB", "", "169", new string[0])]
-        [global::Xunit.InlineDataAttribute("4308", "(4308)01379250388", "", "170", new string[0])]
-        [global::Xunit.InlineDataAttribute("4303", "(4303)ELM+STREET+BUSINESS+PARK", "", "171", new string[0])]
-        [global::Xunit.InlineDataAttribute("4309", "(4309)02790858483015297971", "", "172", new string[0])]
-        [global::Xunit.InlineDataAttribute("4310", "(4310)ACME+LIMITED", "", "173", new string[0])]
-        [global::Xunit.InlineDataAttribute("4311", "(4311)JOHN+SMITH", "", "174", new string[0])]
-        [global::Xunit.InlineDataAttribute("4312", "(4312)UNIT+5", "", "175", new string[0])]
-        [global::Xunit.InlineDataAttribute("4314", "(4314)UPPER+NETHERBY", "", "176", new string[0])]
-        [global::Xunit.InlineDataAttribute("4315", "(4315)WESTGATE", "", "177", new string[0])]
-        [global::Xunit.InlineDataAttribute("4316", "(4316)BILLINGSHIRE", "", "178", new string[0])]
-        [global::Xunit.InlineDataAttribute("4317", "(4317)GB", "", "179", new string[0])]
-        [global::Xunit.InlineDataAttribute("4318", "(4318)01379250388", "", "180", new string[0])]
-        [global::Xunit.InlineDataAttribute("4319", "(4319)02790858483015297971", "", "181", new string[0])]
-        [global::Xunit.InlineDataAttribute("4320", "(4320)HANDLE+WITH+CARE", "", "182", new string[0])]
-        [global::Xunit.InlineDataAttribute("4321", "(4321)1", "", "183", new string[0])]
-        [global::Xunit.InlineDataAttribute("4322", "(4322)1", "", "184", new string[0])]
-        [global::Xunit.InlineDataAttribute("4323", "(4323)1", "", "185", new string[0])]
-        [global::Xunit.InlineDataAttribute("4324", "(4324)2512271300", "", "186", new string[0])]
-        [global::Xunit.InlineDataAttribute("4325", "(4325)2512271300", "", "187", new string[0])]
-        [global::Xunit.InlineDataAttribute("4326", "(4326)260131", "", "188", new string[0])]
-        [global::Xunit.InlineDataAttribute("4330", "(4330)023020", "", "189", new string[0])]
-        [global::Xunit.InlineDataAttribute("4331", "(4331)000090", "", "190", new string[0])]
-        [global::Xunit.InlineDataAttribute("4332", "(4332)023020", "", "191", new string[0])]
-        [global::Xunit.InlineDataAttribute("4333", "(4333)000090", "", "192", new string[0])]
-        [global::Xunit.InlineDataAttribute("7001", "(7001)1005000739421", "", "193", new string[0])]
-        [global::Xunit.InlineDataAttribute("7002", "(7002)10164300153201040050", "", "194", new string[0])]
-        [global::Xunit.InlineDataAttribute("7003", "(7003)2603311200", "", "195", new string[0])]
-        [global::Xunit.InlineDataAttribute("7004", "(7004)3107", "", "196", new string[0])]
-        [global::Xunit.InlineDataAttribute("7005", "(7005)27.8.e.2", "", "197", new string[0])]
-        [global::Xunit.InlineDataAttribute("7006", "(7006)251227", "", "198", new string[0])]
-        [global::Xunit.InlineDataAttribute("7007", "(7007)250803250817", "", "199", new string[0])]
-        [global::Xunit.InlineDataAttribute("7008", "(7008)BOH", "", "200", new string[0])]
-        [global::Xunit.InlineDataAttribute("7009", "(7009)09.31", "", "201", new string[0])]
-        [global::Xunit.InlineDataAttribute("7010", "(7010)01", "", "202", new string[0])]
-        [global::Xunit.InlineDataAttribute("7011", "(7011)2603151200", "", "203", new string[0])]
-        [global::Xunit.InlineDataAttribute("7030", "(7030)826AB123C456", "", "204", new string[0])]
-        [global::Xunit.InlineDataAttribute("7031", "(7031)826AB123C456", "", "205", new string[0])]
-        [global::Xunit.InlineDataAttribute("7032", "(7032)826AB123C456", "", "206", new string[0])]
-        [global::Xunit.InlineDataAttribute("7033", "(7033)826AB123C456", "", "207", new string[0])]
-        [global::Xunit.InlineDataAttribute("7034", "(7034)826AB123C456", "", "208", new string[0])]
-        [global::Xunit.InlineDataAttribute("7035", "(7035)826AB123C456", "", "209", new string[0])]
-        [global::Xunit.InlineDataAttribute("7036", "(7036)826AB123C456", "", "210", new string[0])]
-        [global::Xunit.InlineDataAttribute("7037", "(7037)826AB123C456", "", "211", new string[0])]
-        [global::Xunit.InlineDataAttribute("7038", "(7038)826AB123C456", "", "212", new string[0])]
-        [global::Xunit.InlineDataAttribute("7039", "(7039)826AB123C456", "", "213", new string[0])]
-        [global::Xunit.InlineDataAttribute("710", "(710)27580899", "", "214", new string[0])]
-        [global::Xunit.InlineDataAttribute("711", "(711)3400123456789", "", "215", new string[0])]
-        [global::Xunit.InlineDataAttribute("712", "(712)244137.8", "", "216", new string[0])]
-        [global::Xunit.InlineDataAttribute("713", "(713)1234567890123", "", "217", new string[0])]
-        [global::Xunit.InlineDataAttribute("714", "(714)5551643", "", "218", new string[0])]
-        [global::Xunit.InlineDataAttribute("715", "(715)00781150610", "", "219", new string[0])]
-        [global::Xunit.InlineDataAttribute("716", "(716)365820310", "", "220", new string[0])]
-        [global::Xunit.InlineDataAttribute("717", "(717)M-ES-20-00283", "", "221", new string[0])]
-        [global::Xunit.InlineDataAttribute("7020", "(7020)ABC123", "", "222", new string[0])]
-        [global::Xunit.InlineDataAttribute("7021", "(7021)APPROVED2512", "", "223", new string[0])]
-        [global::Xunit.InlineDataAttribute("7022", "(7022)4.178", "", "224", new string[0])]
-        [global::Xunit.InlineDataAttribute("7041", "(7041)4A", "", "225", new string[0])]
-        [global::Xunit.InlineDataAttribute("7230", "(7230)AB123C456", "", "226", new string[0])]
-        [global::Xunit.InlineDataAttribute("7231", "(7231)AB123C456", "", "227", new string[0])]
-        [global::Xunit.InlineDataAttribute("7232", "(7232)AB123C456", "", "228", new string[0])]
-        [global::Xunit.InlineDataAttribute("7233", "(7233)AB123C456", "", "229", new string[0])]
-        [global::Xunit.InlineDataAttribute("7234", "(7234)AB123C456", "", "230", new string[0])]
-        [global::Xunit.InlineDataAttribute("7235", "(7235)AB123C456", "", "231", new string[0])]
-        [global::Xunit.InlineDataAttribute("7236", "(7236)AB123C456", "", "232", new string[0])]
-        [global::Xunit.InlineDataAttribute("7237", "(7237)AB123C456", "", "233", new string[0])]
-        [global::Xunit.InlineDataAttribute("7238", "(7238)AB123C456", "", "234", new string[0])]
-        [global::Xunit.InlineDataAttribute("7239", "(7239)AB123C456", "", "235", new string[0])]
-        [global::Xunit.InlineDataAttribute("7240", "(7240)1EA06672749541", "", "236", new string[0])]
-        [global::Xunit.InlineDataAttribute("7241", "(7241)10", "", "237", new string[0])]
-        [global::Xunit.InlineDataAttribute("7242", "(7242)117.43.8092.7", "", "238", new string[0])]
-        [global::Xunit.InlineDataAttribute("7250", "(7250)19630403", "", "239", new string[0])]
-        [global::Xunit.InlineDataAttribute("7251", "(7251)196304030100", "", "240", new string[0])]
-        [global::Xunit.InlineDataAttribute("7252", "(7252)1", "", "241", new string[0])]
-        [global::Xunit.InlineDataAttribute("7257", "(7257)Av.+Louise+326", "", "242", new string[0])]
-        [global::Xunit.InlineDataAttribute("7259", "(7259)SMITH01", "", "243", new string[0])]
-        [global::Xunit.InlineDataAttribute("7253", "(7253)SMITH", "", "244", new string[0])]
-        [global::Xunit.InlineDataAttribute("7254", "(7254)JOHN", "", "245", new string[0])]
-        [global::Xunit.InlineDataAttribute("7255", "(7255)Jr", "", "246", new string[0])]
-        [global::Xunit.InlineDataAttribute("7256", "(7256)JOHN+SMITH+JR", "", "247", new string[0])]
-        [global::Xunit.InlineDataAttribute("7258", "(7258)1/1", "", "248", new string[0])]
-        [global::Xunit.InlineDataAttribute("8001", "(8001)10000010010010", "", "249", new string[0])]
-        [global::Xunit.InlineDataAttribute("8005", "(8005)001250", "", "250", new string[0])]
-        [global::Xunit.InlineDataAttribute("8007", "(8007)GB29NWBK60161331926819", "", "251", new string[0])]
-        [global::Xunit.InlineDataAttribute("8008", "(8008)251228115214", "", "252", new string[0])]
-        [global::Xunit.InlineDataAttribute("8009", "(8009)01/TEMP/MAX=008C/DUR=120H/ALGO=TTI1", "", "253", new string[0])]
-        [global::Xunit.InlineDataAttribute("8011", "(8011)5883078132", "", "254", new string[0])]
-        [global::Xunit.InlineDataAttribute("8012", "(8012)15.0.4701.1001", "", "255", new string[0])]
-        [global::Xunit.InlineDataAttribute("8014", "(8014)1987654Ad4X4bL5ttr2310c2K", "", "256", new string[0])]
-        [global::Xunit.InlineDataAttribute("8019", "(8019)0030562094", "", "257", new string[0])]
-        [global::Xunit.InlineDataAttribute("8020", "(8020)R470364122BJ5", "", "258", new string[0])]
-        [global::Xunit.InlineDataAttribute("8026", "(8026)095060001343760310", "", "259", new string[0])]
+        [global::Xunit.InlineDataAttribute("01", "(01)09506000134376(10)ABC123(17)311231", "01.VariableMeasure", "106", new string[0])]
+        [global::Xunit.InlineDataAttribute("01", "(01)99506000134379(10)ABC123(17)311231", "01.VariableMeasure", "107", new string[0])]
+        [global::Xunit.InlineDataAttribute("02", "(00)950600098427565020(02)99506000134379(10)ABC123(17)311231(37)10", "01.VariableMeasure", "108", new string[0])]
+        [global::Xunit.InlineDataAttribute("01", "(01)99506000134379(10)ABC123(17)311231", "01.Custom", "109", new string[0])]
+        [global::Xunit.InlineDataAttribute("02", "(02)09506000134376(10)ABC123", "", "110", new string[0])]
+        [global::Xunit.InlineDataAttribute("02", "(00)950600098427565020(02)00235060917511", "", "111", new string[0])]
+        [global::Xunit.InlineDataAttribute("02", "(02)002350609175113710", "", "112", new string[0])]
+        [global::Xunit.InlineDataAttribute("10", "(10)ABC123(17)311231", "", "113", new string[0])]
+        [global::Xunit.InlineDataAttribute("11", "(10)ABC123(11)251221", "", "114", new string[0])]
+        [global::Xunit.InlineDataAttribute("13", "(13)251221", "", "115", new string[0])]
+        [global::Xunit.InlineDataAttribute("15", "(15)260103", "", "116", new string[0])]
+        [global::Xunit.InlineDataAttribute("16", "(10)ABC123(16)261102", "", "117", new string[0])]
+        [global::Xunit.InlineDataAttribute("17", "(10)ABC123(17)260103", "", "118", new string[0])]
+        [global::Xunit.InlineDataAttribute("12", "(12)251231", "", "119", new string[0])]
+        [global::Xunit.InlineDataAttribute("12", "(12)251231(8020)1438940A32", "", "120", new string[0])]
+        [global::Xunit.InlineDataAttribute("12", "(12)251231(415)9506000134376", "", "121", new string[0])]
+        [global::Xunit.InlineDataAttribute("17", "(10)ABC123(17)260103(8006)095060001343760310", "17.Coupon", "122", new string[0])]
+        [global::Xunit.InlineDataAttribute("20", "(20)03", "", "123", new string[0])]
+        [global::Xunit.InlineDataAttribute("21", "(21)49950304162", "", "124", new string[0])]
+        [global::Xunit.InlineDataAttribute("22", "(22)49950A304162", "", "125", new string[0])]
+        [global::Xunit.InlineDataAttribute("235", "(235)2351ABC36610835978537", "", "126", new string[0])]
+        [global::Xunit.InlineDataAttribute("240", "(240)49950A304162", "", "127", new string[0])]
+        [global::Xunit.InlineDataAttribute("241", "(241)49950A304162", "", "128", new string[0])]
+        [global::Xunit.InlineDataAttribute("242", "(242)23", "", "129", new string[0])]
+        [global::Xunit.InlineDataAttribute("243", "(243)1ABC36610835978537", "", "130", new string[0])]
+        [global::Xunit.InlineDataAttribute("250", "(250)49950304162", "", "131", new string[0])]
+        [global::Xunit.InlineDataAttribute("251", "(251)49950304162", "", "132", new string[0])]
+        [global::Xunit.InlineDataAttribute("254", "(254)JJ429", "", "133", new string[0])]
+        [global::Xunit.InlineDataAttribute("30", "(30)100", "", "134", new string[0])]
+        [global::Xunit.InlineDataAttribute("3100", "(3100)0000001", "", "135", new string[0])]
+        [global::Xunit.InlineDataAttribute("3200", "(3200)0000001", "", "136", new string[0])]
+        [global::Xunit.InlineDataAttribute("3500", "(3500)0000001", "", "137", new string[0])]
+        [global::Xunit.InlineDataAttribute("3600", "(3600)0000001", "", "138", new string[0])]
+        [global::Xunit.InlineDataAttribute("3330", "(3330)0000001", "", "139", new string[0])]
+        [global::Xunit.InlineDataAttribute("3430", "(3430)0000001", "", "140", new string[0])]
+        [global::Xunit.InlineDataAttribute("3530", "(3530)0000001", "", "141", new string[0])]
+        [global::Xunit.InlineDataAttribute("3630", "(3630)0000001", "", "142", new string[0])]
+        [global::Xunit.InlineDataAttribute("3372", "(3372)001458", "", "143", new string[0])]
+        [global::Xunit.InlineDataAttribute("37", "(37)144(10)ABC123", "", "144", new string[0])]
+        [global::Xunit.InlineDataAttribute("3902", "(3902)3902001458", "", "145", new string[0])]
+        [global::Xunit.InlineDataAttribute("3902", "(8020)R470364122BJ5(3902)001458", "", "146", new string[0])]
+        [global::Xunit.InlineDataAttribute("3902", "(3902)001458(415)9506000134376", "", "147", new string[0])]
+        [global::Xunit.InlineDataAttribute("3902", "(3902)3902001458", "3902.CouponValue", "148", new string[0])]
+        [global::Xunit.InlineDataAttribute("3912", "(3912)9783902001458", "", "149", new string[0])]
+        [global::Xunit.InlineDataAttribute("3912", "(8020)R470364122BJ5(3912)978001458", "", "150", new string[0])]
+        [global::Xunit.InlineDataAttribute("3912", "(3912)978001458(415)9506000134376", "", "151", new string[0])]
+        [global::Xunit.InlineDataAttribute("3922", "(01)09506000134376(10)ABC123(3922)001458", "", "152", new string[0])]
+        [global::Xunit.InlineDataAttribute("3932", "(01)09506000134376(10)ABC123(3932)978001458", "", "153", new string[0])]
+        [global::Xunit.InlineDataAttribute("3940", "(3940)0010", "", "154", new string[0])]
+        [global::Xunit.InlineDataAttribute("3952", "(01)09506000134376(10)ABC123(3952)001458", "", "155", new string[0])]
+        [global::Xunit.InlineDataAttribute("403", "(403)GBR4720045198", "", "156", new string[0])]
+        [global::Xunit.InlineDataAttribute("415", "(415)9506000134376", "", "157", new string[0])]
+        [global::Xunit.InlineDataAttribute("422", "(422)826", "", "158", new string[0])]
+        [global::Xunit.InlineDataAttribute("423", "(423)826250276", "", "159", new string[0])]
+        [global::Xunit.InlineDataAttribute("424", "(424)826", "", "160", new string[0])]
+        [global::Xunit.InlineDataAttribute("425", "(425)826250276", "", "161", new string[0])]
+        [global::Xunit.InlineDataAttribute("426", "(426)826", "", "162", new string[0])]
+        [global::Xunit.InlineDataAttribute("427", "(422)826(427)826", "", "163", new string[0])]
+        [global::Xunit.InlineDataAttribute("4300", "(4300)ACME+LIMITED", "", "164", new string[0])]
+        [global::Xunit.InlineDataAttribute("4301", "(4301)JOHN+SMITH", "", "165", new string[0])]
+        [global::Xunit.InlineDataAttribute("4302", "(4302)UNIT+5", "", "166", new string[0])]
+        [global::Xunit.InlineDataAttribute("4304", "(4304)UPPER+NETHERBY", "", "167", new string[0])]
+        [global::Xunit.InlineDataAttribute("4305", "(4305)WESTGATE", "", "168", new string[0])]
+        [global::Xunit.InlineDataAttribute("4306", "(4306)BILLINGSHIRE", "", "169", new string[0])]
+        [global::Xunit.InlineDataAttribute("4307", "(4307)GB", "", "170", new string[0])]
+        [global::Xunit.InlineDataAttribute("4308", "(4308)01379250388", "", "171", new string[0])]
+        [global::Xunit.InlineDataAttribute("4303", "(4303)ELM+STREET+BUSINESS+PARK", "", "172", new string[0])]
+        [global::Xunit.InlineDataAttribute("4309", "(4309)02790858483015297971", "", "173", new string[0])]
+        [global::Xunit.InlineDataAttribute("4310", "(4310)ACME+LIMITED", "", "174", new string[0])]
+        [global::Xunit.InlineDataAttribute("4311", "(4311)JOHN+SMITH", "", "175", new string[0])]
+        [global::Xunit.InlineDataAttribute("4312", "(4312)UNIT+5", "", "176", new string[0])]
+        [global::Xunit.InlineDataAttribute("4314", "(4314)UPPER+NETHERBY", "", "177", new string[0])]
+        [global::Xunit.InlineDataAttribute("4315", "(4315)WESTGATE", "", "178", new string[0])]
+        [global::Xunit.InlineDataAttribute("4316", "(4316)BILLINGSHIRE", "", "179", new string[0])]
+        [global::Xunit.InlineDataAttribute("4317", "(4317)GB", "", "180", new string[0])]
+        [global::Xunit.InlineDataAttribute("4318", "(4318)01379250388", "", "181", new string[0])]
+        [global::Xunit.InlineDataAttribute("4319", "(4319)02790858483015297971", "", "182", new string[0])]
+        [global::Xunit.InlineDataAttribute("4320", "(4320)HANDLE+WITH+CARE", "", "183", new string[0])]
+        [global::Xunit.InlineDataAttribute("4321", "(4321)1", "", "184", new string[0])]
+        [global::Xunit.InlineDataAttribute("4322", "(4322)1", "", "185", new string[0])]
+        [global::Xunit.InlineDataAttribute("4323", "(4323)1", "", "186", new string[0])]
+        [global::Xunit.InlineDataAttribute("4324", "(4324)2512271300", "", "187", new string[0])]
+        [global::Xunit.InlineDataAttribute("4325", "(4325)2512271300", "", "188", new string[0])]
+        [global::Xunit.InlineDataAttribute("4326", "(4326)260131", "", "189", new string[0])]
+        [global::Xunit.InlineDataAttribute("4330", "(4330)023020", "", "190", new string[0])]
+        [global::Xunit.InlineDataAttribute("4331", "(4331)000090", "", "191", new string[0])]
+        [global::Xunit.InlineDataAttribute("4332", "(4332)023020", "", "192", new string[0])]
+        [global::Xunit.InlineDataAttribute("4333", "(4333)000090", "", "193", new string[0])]
+        [global::Xunit.InlineDataAttribute("7001", "(7001)1005000739421", "", "194", new string[0])]
+        [global::Xunit.InlineDataAttribute("7002", "(7002)10164300153201040050", "", "195", new string[0])]
+        [global::Xunit.InlineDataAttribute("7003", "(7003)2603311200", "", "196", new string[0])]
+        [global::Xunit.InlineDataAttribute("7004", "(7004)3107", "", "197", new string[0])]
+        [global::Xunit.InlineDataAttribute("7005", "(7005)27.8.e.2", "", "198", new string[0])]
+        [global::Xunit.InlineDataAttribute("7006", "(7006)251227", "", "199", new string[0])]
+        [global::Xunit.InlineDataAttribute("7007", "(7007)250803250817", "", "200", new string[0])]
+        [global::Xunit.InlineDataAttribute("7008", "(7008)BOH", "", "201", new string[0])]
+        [global::Xunit.InlineDataAttribute("7009", "(7009)09.31", "", "202", new string[0])]
+        [global::Xunit.InlineDataAttribute("7010", "(7010)01", "", "203", new string[0])]
+        [global::Xunit.InlineDataAttribute("7011", "(7011)2603151200", "", "204", new string[0])]
+        [global::Xunit.InlineDataAttribute("7030", "(7030)826AB123C456", "", "205", new string[0])]
+        [global::Xunit.InlineDataAttribute("7031", "(7031)826AB123C456", "", "206", new string[0])]
+        [global::Xunit.InlineDataAttribute("7032", "(7032)826AB123C456", "", "207", new string[0])]
+        [global::Xunit.InlineDataAttribute("7033", "(7033)826AB123C456", "", "208", new string[0])]
+        [global::Xunit.InlineDataAttribute("7034", "(7034)826AB123C456", "", "209", new string[0])]
+        [global::Xunit.InlineDataAttribute("7035", "(7035)826AB123C456", "", "210", new string[0])]
+        [global::Xunit.InlineDataAttribute("7036", "(7036)826AB123C456", "", "211", new string[0])]
+        [global::Xunit.InlineDataAttribute("7037", "(7037)826AB123C456", "", "212", new string[0])]
+        [global::Xunit.InlineDataAttribute("7038", "(7038)826AB123C456", "", "213", new string[0])]
+        [global::Xunit.InlineDataAttribute("7039", "(7039)826AB123C456", "", "214", new string[0])]
+        [global::Xunit.InlineDataAttribute("710", "(710)27580899", "", "215", new string[0])]
+        [global::Xunit.InlineDataAttribute("711", "(711)3400123456789", "", "216", new string[0])]
+        [global::Xunit.InlineDataAttribute("712", "(712)244137.8", "", "217", new string[0])]
+        [global::Xunit.InlineDataAttribute("713", "(713)1234567890123", "", "218", new string[0])]
+        [global::Xunit.InlineDataAttribute("714", "(714)5551643", "", "219", new string[0])]
+        [global::Xunit.InlineDataAttribute("715", "(715)00781150610", "", "220", new string[0])]
+        [global::Xunit.InlineDataAttribute("716", "(716)365820310", "", "221", new string[0])]
+        [global::Xunit.InlineDataAttribute("717", "(717)M-ES-20-00283", "", "222", new string[0])]
+        [global::Xunit.InlineDataAttribute("7020", "(7020)ABC123", "", "223", new string[0])]
+        [global::Xunit.InlineDataAttribute("7021", "(7021)APPROVED2512", "", "224", new string[0])]
+        [global::Xunit.InlineDataAttribute("7022", "(7022)4.178", "", "225", new string[0])]
+        [global::Xunit.InlineDataAttribute("7041", "(7041)4A", "", "226", new string[0])]
+        [global::Xunit.InlineDataAttribute("7230", "(7230)AB123C456", "", "227", new string[0])]
+        [global::Xunit.InlineDataAttribute("7231", "(7231)AB123C456", "", "228", new string[0])]
+        [global::Xunit.InlineDataAttribute("7232", "(7232)AB123C456", "", "229", new string[0])]
+        [global::Xunit.InlineDataAttribute("7233", "(7233)AB123C456", "", "230", new string[0])]
+        [global::Xunit.InlineDataAttribute("7234", "(7234)AB123C456", "", "231", new string[0])]
+        [global::Xunit.InlineDataAttribute("7235", "(7235)AB123C456", "", "232", new string[0])]
+        [global::Xunit.InlineDataAttribute("7236", "(7236)AB123C456", "", "233", new string[0])]
+        [global::Xunit.InlineDataAttribute("7237", "(7237)AB123C456", "", "234", new string[0])]
+        [global::Xunit.InlineDataAttribute("7238", "(7238)AB123C456", "", "235", new string[0])]
+        [global::Xunit.InlineDataAttribute("7239", "(7239)AB123C456", "", "236", new string[0])]
+        [global::Xunit.InlineDataAttribute("7240", "(7240)1EA06672749541", "", "237", new string[0])]
+        [global::Xunit.InlineDataAttribute("7241", "(7241)10", "", "238", new string[0])]
+        [global::Xunit.InlineDataAttribute("7242", "(7242)117.43.8092.7", "", "239", new string[0])]
+        [global::Xunit.InlineDataAttribute("7250", "(7250)19630403", "", "240", new string[0])]
+        [global::Xunit.InlineDataAttribute("7251", "(7251)196304030100", "", "241", new string[0])]
+        [global::Xunit.InlineDataAttribute("7252", "(7252)1", "", "242", new string[0])]
+        [global::Xunit.InlineDataAttribute("7257", "(7257)Av.+Louise+326", "", "243", new string[0])]
+        [global::Xunit.InlineDataAttribute("7259", "(7259)SMITH01", "", "244", new string[0])]
+        [global::Xunit.InlineDataAttribute("7253", "(7253)SMITH", "", "245", new string[0])]
+        [global::Xunit.InlineDataAttribute("7254", "(7254)JOHN", "", "246", new string[0])]
+        [global::Xunit.InlineDataAttribute("7255", "(7255)Jr", "", "247", new string[0])]
+        [global::Xunit.InlineDataAttribute("7256", "(7256)JOHN+SMITH+JR", "", "248", new string[0])]
+        [global::Xunit.InlineDataAttribute("7258", "(7258)1/1", "", "249", new string[0])]
+        [global::Xunit.InlineDataAttribute("8001", "(8001)10000010010010", "", "250", new string[0])]
+        [global::Xunit.InlineDataAttribute("8005", "(8005)001250", "", "251", new string[0])]
+        [global::Xunit.InlineDataAttribute("8007", "(8007)GB29NWBK60161331926819", "", "252", new string[0])]
+        [global::Xunit.InlineDataAttribute("8008", "(8008)251228115214", "", "253", new string[0])]
+        [global::Xunit.InlineDataAttribute("8009", "(8009)01/TEMP/MAX=008C/DUR=120H/ALGO=TTI1", "", "254", new string[0])]
+        [global::Xunit.InlineDataAttribute("8011", "(8011)5883078132", "", "255", new string[0])]
+        [global::Xunit.InlineDataAttribute("8012", "(8012)15.0.4701.1001", "", "256", new string[0])]
+        [global::Xunit.InlineDataAttribute("8014", "(8014)1987654Ad4X4bL5ttr2310c2K", "", "257", new string[0])]
+        [global::Xunit.InlineDataAttribute("8019", "(8019)0030562094", "", "258", new string[0])]
+        [global::Xunit.InlineDataAttribute("8020", "(8020)R470364122BJ5", "", "259", new string[0])]
+        [global::Xunit.InlineDataAttribute("8026", "(8026)095060001343760310", "", "260", new string[0])]
         [global::Xunit.InlineDataAttribute("8030", "(8030)SgmLUBtmxgI-jeh6y_E-wv7B_KpvzV89rrRoAYU1_vZmZZVgNpZYzoimidtx15-GKrMpIqMoGBi" +
-            "lYABllltNkVZpppppsA", "", "260", new string[0])]
-        [global::Xunit.InlineDataAttribute("8111", "(8111)0946", "", "261", new string[0])]
-        [global::Xunit.InlineDataAttribute("8200", "(8200)http://example.com", "", "262", new string[0])]
+            "lYABllltNkVZpppppsA", "", "261", new string[0])]
+        [global::Xunit.InlineDataAttribute("8111", "(8111)0946", "", "262", new string[0])]
+        [global::Xunit.InlineDataAttribute("8200", "(8200)http://example.com", "", "263", new string[0])]
         public async global::System.Threading.Tasks.Task DetectMissingMandatoryDataRelationshipsParenthesesElementStringFormat(string ai, string input, string semantics, string @__pickleIndex, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -497,7 +584,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
                     "", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 184
+#line 203
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -507,20 +594,20 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 185
+#line 204
  await testRunner.GivenAsync(string.Format("the input is {0}", input), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 186
+#line 205
  await testRunner.AndAsync(string.Format("the semantics are {0}", semantics), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 187
+#line 206
  await testRunner.WhenAsync("the input to submitted to the parser and data relationship tests are required", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 188
+#line 207
  await testRunner.ThenAsync(string.Format("we should detect AI {0}", ai), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 189
- await testRunner.AndAsync("the errors should include a fatal 2202 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 208
+ await testRunner.AndAsync("the errors should include a fatal 2203 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

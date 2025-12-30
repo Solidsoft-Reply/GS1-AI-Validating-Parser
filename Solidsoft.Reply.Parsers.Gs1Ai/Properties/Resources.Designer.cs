@@ -223,7 +223,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mandatory data relationship not found between AI {0} and {1}..
+        ///   Looks up a localized string similar to AI {0} appears more than once with different values..
         /// </summary>
         internal static string GS1_Error_202 {
             get {
@@ -232,29 +232,38 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mandatory data relationship not found between AI {0} and {1}..
+        /// </summary>
+        internal static string GS1_Error_203 {
+            get {
+                return ResourceManager.GetString("GS1_Error_203", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to and.
         /// </summary>
-        internal static string GS1_Error_202_and {
+        internal static string GS1_Error_203_and {
             get {
-                return ResourceManager.GetString("GS1_Error_202_and", resourceCulture);
+                return ResourceManager.GetString("GS1_Error_203_and", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to at least one of.
         /// </summary>
-        internal static string GS1_Error_202_or {
+        internal static string GS1_Error_203_or {
             get {
-                return ResourceManager.GetString("GS1_Error_202_or", resourceCulture);
+                return ResourceManager.GetString("GS1_Error_203_or", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to exactly one of.
         /// </summary>
-        internal static string GS1_Error_202_xor {
+        internal static string GS1_Error_203_xor {
             get {
-                return ResourceManager.GetString("GS1_Error_202_xor", resourceCulture);
+                return ResourceManager.GetString("GS1_Error_203_xor", resourceCulture);
             }
         }
         

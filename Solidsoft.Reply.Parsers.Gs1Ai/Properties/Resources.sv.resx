@@ -138,6 +138,9 @@
   <data name="GS1_Error_002" xml:space="preserve">
     <value>Ogiltig applikationsidentifierare {0}.</value>
   </data>
+  <data name="GS1_Error_009" xml:space="preserve">
+    <value>Värdet{0} för {1} har en ogiltig kontrollsiffra.</value>
+  </data>
   <data name="GS1_Error_100" xml:space="preserve">
     <value>Värdet{0} matchar inte det specificerade mönstret för dataelementet.</value>
   </data>
@@ -165,7 +168,7 @@
   <data name="GS1_Error_201" xml:space="preserve">
     <value>Ogiltig datarelation hittades mellan AI {0} och AI {1}.</value>
   </data>
-  <data name="GS1_Error_202" xml:space="preserve">
+  <data name="GS1_Error_203" xml:space="preserve">
     <value>Obligatorisk datarelation hittades inte mellan AI {0} och {1}.</value>
   </data>
   <data name="GS1_Warning_017" xml:space="preserve">
@@ -174,16 +177,16 @@
   <data name="GS1_Error_003" xml:space="preserve">
     <value>Ogiltig applikationsidentifierare {0}. AI måste vara mellan två och fyra siffror långt.</value>
   </data>
-  <data name="GS1_Error_202_and" xml:space="preserve">
+  <data name="GS1_Error_203_and" xml:space="preserve">
     <value>och</value>
   </data>
-  <data name="GS1_Error_202_xor" xml:space="preserve">
+  <data name="GS1_Error_203_xor" xml:space="preserve">
     <value>exakt en av</value>
   </data>
-  <data name="GS1_Error_202_or" xml:space="preserve">
+  <data name="GS1_Error_203_or" xml:space="preserve">
     <value>minst en av</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
-    <value>Värdet{0} för {1} har en ogiltig kontrollsiffra.</value>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>AI {0} förekommer mer än en gång med olika värden.</value>
   </data>
 </root>

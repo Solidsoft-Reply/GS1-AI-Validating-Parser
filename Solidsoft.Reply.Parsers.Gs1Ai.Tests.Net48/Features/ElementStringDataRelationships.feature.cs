@@ -95,7 +95,6 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Tests.Net48.Features
         [Xunit.SkippableTheoryAttribute(DisplayName="Detect invalid data relationships (parentheses / element string format)")]
         [Xunit.TraitAttribute("FeatureTitle", "ElementStringDataRelationships")]
         [Xunit.TraitAttribute("Description", "Detect invalid data relationships (parentheses / element string format)")]
-        [Xunit.InlineDataAttribute("01", "01", "(01)09506000134376(01)03506091751986210ABC123(17)311231", new string[0])]
         [Xunit.InlineDataAttribute("01", "02", "(01)09506000134376(02)03506091751986210ABC123(17)311231", new string[0])]
         [Xunit.InlineDataAttribute("01", "03", "(01)09506000134376(03)03506091751986210ABC123(17)311231", new string[0])]
         [Xunit.InlineDataAttribute("01", "37", "(01)09506000134376(37)144(10)ABC123(17)311231", new string[0])]
@@ -164,6 +163,88 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 9
  await testRunner.AndAsync("the errors should include a fatal 2201 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableTheoryAttribute(DisplayName="Detect invalid duplicate AI data relationships (parentheses / element string form" +
+            "at)")]
+        [Xunit.TraitAttribute("FeatureTitle", "ElementStringDataRelationships")]
+        [Xunit.TraitAttribute("Description", "Detect invalid duplicate AI data relationships (parentheses / element string form" +
+            "at)")]
+        [Xunit.InlineDataAttribute("01", "01", "(01)09506000134376(01)03506091751986210ABC123(17)311231", new string[0])]
+        public async System.Threading.Tasks.Task DetectInvalidDuplicateAIDataRelationshipsParenthesesElementStringFormat(string ai1, string ai2, string input, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("ai1", ai1);
+            argumentsOfScenario.Add("ai2", ai2);
+            argumentsOfScenario.Add("input", input);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Detect invalid duplicate AI data relationships (parentheses / element string form" +
+                    "at)", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 58
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 59
+ await testRunner.GivenAsync(string.Format("the input is {0}", input), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 60
+ await testRunner.WhenAsync("the input to submitted to the parser and data relationship tests are required", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 61
+ await testRunner.ThenAsync(string.Format("we should detect AI {0}", ai1), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 62
+ await testRunner.AndAsync("the errors should include a fatal 2202 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableTheoryAttribute(DisplayName="Detect invalid duplicate AI data relationships across multiple barcodes")]
+        [Xunit.TraitAttribute("FeatureTitle", "ElementStringDataRelationships")]
+        [Xunit.TraitAttribute("Description", "Detect invalid duplicate AI data relationships across multiple barcodes")]
+        [Xunit.InlineDataAttribute("010950600013437610ABC123[GS]17311231", "010950600013437610XYZ999[GS]17320531", "013506091751986210ABC123[GS]17311231", new string[0])]
+        public async System.Threading.Tasks.Task DetectInvalidDuplicateAIDataRelationshipsAcrossMultipleBarcodes(string barcode1, string barcode2, string barcode3, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("barcode1", barcode1);
+            argumentsOfScenario.Add("barcode2", barcode2);
+            argumentsOfScenario.Add("barcode3", barcode3);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Detect invalid duplicate AI data relationships across multiple barcodes", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 68
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 69
+    await testRunner.GivenAsync(string.Format("the input for barcode 1 is {0}", barcode1), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 70
+    await testRunner.AndAsync(string.Format("the input for barcode 2 is {0}", barcode2), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 71
+    await testRunner.AndAsync(string.Format("the input for barcode 3 is {0}", barcode3), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 72
+    await testRunner.WhenAsync("the barcodes are submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 73
+ await testRunner.ThenAsync("there should be invalid duplicate AI pairs", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
@@ -248,7 +329,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("semantics", semantics);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Validate data relationships between multiple data elements (parentheses / element" +
                     " string format)", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 60
+#line 79
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -258,16 +339,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 61
+#line 80
  await testRunner.GivenAsync(string.Format("the input is {0}", input), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 62
+#line 81
  await testRunner.AndAsync(string.Format("the semantics are {0}", semantics), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 63
+#line 82
  await testRunner.WhenAsync("the input to submitted to the parser and data relationship tests are required", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 64
+#line 83
  await testRunner.ThenAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -447,7 +528,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("semantics", semantics);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Detect missing mandatory data relationships (parentheses / element string format)" +
                     "", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 184
+#line 203
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -457,20 +538,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 185
+#line 204
  await testRunner.GivenAsync(string.Format("the input is {0}", input), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 186
+#line 205
  await testRunner.AndAsync(string.Format("the semantics are {0}", semantics), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 187
+#line 206
  await testRunner.WhenAsync("the input to submitted to the parser and data relationship tests are required", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 188
+#line 207
  await testRunner.ThenAsync(string.Format("we should detect AI {0}", ai), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 189
- await testRunner.AndAsync("the errors should include a fatal 2202 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 208
+ await testRunner.AndAsync("the errors should include a fatal 2203 error", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

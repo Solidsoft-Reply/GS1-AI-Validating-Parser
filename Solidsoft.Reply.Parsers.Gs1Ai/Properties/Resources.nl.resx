@@ -138,6 +138,9 @@
   <data name="GS1_Error_002" xml:space="preserve">
     <value>Ongeldige applicatie-identificatie {0}.</value>
   </data>
+  <data name="GS1_Error_009" xml:space="preserve">
+    <value>De waarde{0} voor {1} heeft een ongeldig controlecijfer.</value>
+  </data>
   <data name="GS1_Error_100" xml:space="preserve">
     <value>De waarde{0} komt niet overeen met het gespecificeerde patroon voor het gegevenselement.</value>
   </data>
@@ -165,7 +168,7 @@
   <data name="GS1_Error_201" xml:space="preserve">
     <value>Ongeldige gegevensrelatie gevonden tussen AI {0} en AI {1}.</value>
   </data>
-  <data name="GS1_Error_202" xml:space="preserve">
+  <data name="GS1_Error_203" xml:space="preserve">
     <value>Verplichte gegevensrelatie niet gevonden tussen AI {0} en {1}.</value>
   </data>
   <data name="GS1_Warning_017" xml:space="preserve">
@@ -174,16 +177,16 @@
   <data name="GS1_Error_003" xml:space="preserve">
     <value>Ongeldige applicatie-identificatie {0}. AI’s moeten tussen twee en vier cijfers lang zijn.</value>
   </data>
-  <data name="GS1_Error_202_and" xml:space="preserve">
+  <data name="GS1_Error_203_and" xml:space="preserve">
     <value>en</value>
   </data>
-  <data name="GS1_Error_202_xor" xml:space="preserve">
+  <data name="GS1_Error_203_xor" xml:space="preserve">
     <value>exact één van</value>
   </data>
-  <data name="GS1_Error_202_or" xml:space="preserve">
+  <data name="GS1_Error_203_or" xml:space="preserve">
     <value>ten minste één van</value>
   </data>
-  <data name="GS1_Error_009" xml:space="preserve">
-    <value>De waarde{0} voor {1} heeft een ongeldig controlecijfer.</value>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>AI {0} komt meer dan één keer voor met verschillende waarden.</value>
   </data>
 </root>
