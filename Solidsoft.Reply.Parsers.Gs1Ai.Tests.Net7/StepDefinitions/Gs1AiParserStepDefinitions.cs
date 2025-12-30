@@ -51,7 +51,7 @@ public sealed class Gs1AiParserStepDefinitions {
         _resolvedEntities.Clear();
         _resolvedAIs.Clear();
         _dataRelationshipExceptions.Clear();
-        Parser.Parse(_data, OnResolvedEntity, relationshipTests: DataRelationshipTests.Yes, semantics: new(GtinSemantics: _gtinSemantics, ExpiryDateSemantics: _expiryDateSemantics, AmountPayableSemantics: _amountPayableSemantics));
+        Parser.Parse(_data, OnResolvedEntity, relationshipTests: DataRelationshipTests.All, semantics: new(GtinSemantics: _gtinSemantics, ExpiryDateSemantics: _expiryDateSemantics, AmountPayableSemantics: _amountPayableSemantics));
     }
 
     public void OnResolvedEntity(IResolvedEntity resolvedEntity) {
@@ -76,11 +76,10 @@ public sealed class Gs1AiParserStepDefinitions {
 
     [Then("the AI should be (.*)")]
     [Then("we should detect AI (.*)")]
-public void ThenTheAiShouldBe(string expectedAi) {
+    public void ThenTheAiShouldBe(string expectedAi) {
         _resolvedAIs[expectedAi].Identifier.Should().Be(expectedAi);
         _ai = expectedAi;
     }
-
 
     [Then("the value should be (.*)")]
     public void ThenTheValueShouldBe(string expectedValue) {
@@ -114,13 +113,13 @@ public void ThenTheAiShouldBe(string expectedAi) {
 
     [Then("the length of the value should be variable")]
     public void ThenTheValueShouldBeVariable() {
-        ((ResolvedApplicationIdentifier)_resolvedAIs[_ai]).IsFixedWidth.Should().Be(false);
+        ((ResolvedApplicationIdentifier)_resolvedAIs[_ai]).IsFixedWidth.Should().BeFalse();
     }
 
     [Then("there should be no errors")]
     public void ThenThereShouldBeNoErrors() {
         foreach (var entity in _resolvedAIs) {
-            entity.Value.IsFatal.Should().BeFalse();
+            entity.Value.IsError.Should().BeFalse();
         }
     }
 

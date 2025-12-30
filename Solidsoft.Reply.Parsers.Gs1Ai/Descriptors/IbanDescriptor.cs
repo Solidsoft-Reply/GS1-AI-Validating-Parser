@@ -1016,11 +1016,7 @@ internal
 
             var builder = new StringBuilder();
 
-#if NETCOREAPP3_0_OR_GREATER
             foreach (var c in normalisedValue.AsSpan()) {
-#else
-            foreach (var c in normalisedValue) {
-#endif
                 builder.Append(c switch {
                     _ when c >= 65 && c <= 90 => (c - 55).ToString("D2"),
                     _ => c

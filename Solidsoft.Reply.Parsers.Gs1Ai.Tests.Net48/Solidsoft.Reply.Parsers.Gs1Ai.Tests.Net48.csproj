@@ -7,6 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>$(MSBuildProjectName)</AssemblyName>
     <RootNamespace>$(MSBuildProjectName.Replace(" ","_"))</RootNamespace>
+	<SuppressTfmSupportBuildWarnings>/SuppressTfmSupportBuildWarnings&gt;;true</SuppressTfmSupportBuildWarnings>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -61,6 +62,21 @@
       <DesignTime>true</DesignTime>
       <AutoGen>true</AutoGen>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ReqnrollFeatureFiles Update="Features\DataRelationships.feature">
+      <NormalizedLogicalName>$([System.String]::Copy('%(Identity)').Replace('\','/'))</NormalizedLogicalName>
+      <MessagesFile>$(IntermediateOutputPath)%(RelativeDir)%(Filename).feature.ndjson</MessagesFile>
+    </ReqnrollFeatureFiles>
+    <ReqnrollFeatureFiles Update="Features\ElementStringDataRelationships.feature">
+      <NormalizedLogicalName>$([System.String]::Copy('%(Identity)').Replace('\','/'))</NormalizedLogicalName>
+      <MessagesFile>$(IntermediateOutputPath)%(RelativeDir)%(Filename).feature.ndjson</MessagesFile>
+    </ReqnrollFeatureFiles>
+    <ReqnrollFeatureFiles Update="Features\ElementStrings.feature">
+      <NormalizedLogicalName>$([System.String]::Copy('%(Identity)').Replace('\','/'))</NormalizedLogicalName>
+      <MessagesFile>$(IntermediateOutputPath)%(RelativeDir)%(Filename).feature.ndjson</MessagesFile>
+    </ReqnrollFeatureFiles>
   </ItemGroup>
 
 </Project>

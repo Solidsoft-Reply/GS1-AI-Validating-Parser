@@ -1,10 +1,15 @@
 ﻿using Solidsoft.Reply.Parsers.Common;
+using Solidsoft.Reply.Parsers.Gs1Ai.Relationships;
 
 namespace Solidsoft.Reply.Parsers.Gs1Ai.Tests.StepDefinitions;
 [Binding]
 public sealed class Gs1AiParserStepDefinitions {
 
     private string _data = string.Empty;
+    private GtinSemantics _gtinSemantics = GtinSemantics.General;
+    private ExpiryDateSemantics _expiryDateSemantics = ExpiryDateSemantics.TradeItem;
+    private AmountPayableSemantics _amountPayableSemantics = AmountPayableSemantics.Invoice;
+
     private readonly IDictionary<int, IResolvedEntity> _resolvedEntities = new Dictionary<int, IResolvedEntity>();
     private readonly IDictionary<string, IResolvedEntity> _resolvedAIs = new Dictionary<string, IResolvedEntity>();
     private readonly List<IResolvedEntity> _dataRelationshipExceptions = [];
@@ -13,6 +18,24 @@ public sealed class Gs1AiParserStepDefinitions {
     [Given("the input is (.*)")]
     public void GivenTheValueIs(string input) {
         _data = input.Replace("[GS]", "\u001d");
+        _gtinSemantics = GtinSemantics.General;
+        _expiryDateSemantics = ExpiryDateSemantics.TradeItem;
+        _amountPayableSemantics = AmountPayableSemantics.Invoice;
+    }
+
+    [Given("the semantics are (.*)")]
+    public void GivenTheSemanticsIs(string input) {
+        var parts = input.Split(['.'], 2);
+        (string ai, string semantics) = parts.Length == 2 ? (parts[0], parts[1]) : (parts[0], string.Empty);
+        _gtinSemantics = ai == "01"
+            ? (GtinSemantics)Enum.Parse(typeof(GtinSemantics), semantics)
+            : GtinSemantics.General;
+        _expiryDateSemantics = ai == "17"
+            ? (ExpiryDateSemantics)Enum.Parse(typeof(ExpiryDateSemantics), semantics)
+            : ExpiryDateSemantics.TradeItem;
+        _amountPayableSemantics = ai.StartsWith("390")
+            ? (AmountPayableSemantics)Enum.Parse(typeof(AmountPayableSemantics), semantics)
+            : AmountPayableSemantics.Invoice;
     }
 
     [When("the input to submitted to the parser")]
@@ -28,7 +51,7 @@ public sealed class Gs1AiParserStepDefinitions {
         _resolvedEntities.Clear();
         _resolvedAIs.Clear();
         _dataRelationshipExceptions.Clear();
-        Parser.Parse(_data, OnResolvedEntity, relationshipTests: DataRelationshipTests.Yes);
+        Parser.Parse(_data, OnResolvedEntity, relationshipTests: DataRelationshipTests.All, semantics: new(gtinSemantics: _gtinSemantics, expiryDateSemantics: _expiryDateSemantics, amountPayableSemantics: _amountPayableSemantics));
     }
 
     public void OnResolvedEntity(IResolvedEntity resolvedEntity) {
@@ -90,13 +113,14 @@ public sealed class Gs1AiParserStepDefinitions {
 
     [Then("the length of the value should be variable")]
     public void ThenTheValueShouldBeVariable() {
-        ((ResolvedApplicationIdentifier)_resolvedAIs[_ai]).IsFixedWidth.Should().Be(false);
+        ((ResolvedApplicationIdentifier)_resolvedAIs[_ai]).IsFixedWidth.Should().BeFalse();
     }
-
 
     [Then("there should be no errors")]
     public void ThenThereShouldBeNoErrors() {
-        ((ResolvedApplicationIdentifier)_resolvedAIs[_ai]).IsError.Should().Be(false);
+        foreach (var entity in _resolvedAIs) {
+            entity.Value.IsError.Should().BeFalse();
+        }
     }
 
     [Given("a request to parse data")]

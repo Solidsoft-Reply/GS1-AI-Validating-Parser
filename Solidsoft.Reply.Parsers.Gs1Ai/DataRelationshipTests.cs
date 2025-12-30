@@ -20,17 +20,22 @@
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
 /// <summary>
-/// Controls whether data relationship tests are performed during Parse().
+/// Options for running GS1 data relationship tests during parsing.
 /// </summary>
 public enum DataRelationshipTests
 {
     /// <summary>
-    /// Indicates that data relationship tests will not be carried out.
+    /// Do not run any relationship tests.
     /// </summary>
-    No = 0,
+    None = 0,
 
     /// <summary>
-    /// Indicates that data relationship tests will be carried out.
+    /// Run only invalid pairs tests.
     /// </summary>
-    Yes = 1,
+    InvalidPairs = 1,
+
+    /// <summary>
+    /// Run both invalid pairs and mandatory association tests.
+    /// </summary>
+    All = 2,
 }

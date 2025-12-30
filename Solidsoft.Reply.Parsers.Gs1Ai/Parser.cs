@@ -33,15 +33,30 @@ using System;
 using System.Collections.Generic;
 
 #if NET7_0_OR_GREATER
+/// <summary>
+/// Delegate for processing resolved entities with minimal heap allocations.
+/// </summary>
+/// <param name="resolvedEntity">The resolved entity to process.</param>
 public delegate void ResolvedEntityDelegate(scoped in ResolvedApplicationIdentifierRef resolvedEntity);
 #endif
 
+/// <summary>
+/// Provides static methods for parsing GS1-encoded strings and processing resolved application identifiers (AIs)
+/// according to GS1 standards.
+/// </summary>
+/// <remarks>The Parser class offers multiple overloads of the Parse method to support different input types and
+/// performance requirements. It applies GS1 data relationship rules when requested, enabling validation and
+/// relationship testing of AIs within a single physical entity. For high-performance scenarios, use the ParseEx method
+/// with a delegate to minimize heap allocations. All parsing methods invoke a callback for each resolved entity,
+/// allowing callers to process or validate parsed data as needed. GS1 data relationship rules are only applied if
+/// explicitly requested via the appropriate parameter. Applying these rules may introduce additional overhead and is
+/// not required for all use cases. The class is thread-safe for concurrent parsing operations.</remarks>
 public static class Parser {
 #if !NET6_0_OR_GREATER
     /// <summary>
     ///     Dictionary of AI values (the first two digits in an entity) of elements with a pre-defined length.
     /// </summary>
-    private static readonly Dictionary<string, int> FirstTwoDigitsTable = new() {
+    private static readonly Dictionary<string, int> FirstTwoDigitsTable = new () {
         { "00", 20 },
         { "01", 16 },
         { "02", 16 },
@@ -80,12 +95,24 @@ public static class Parser {
     ///     The initial character position.
     /// </param>
     /// <param name="relationshipTests">Optional control to collect resolved AIs for relationship testing.</param>
-    /// <param name="semantics">The AI semantics when data relationship tests are performed.</param>
+    /// <param name="semantics">AI semantics when data relationship tests are performed.</param>
+    /// <remarks>
+    /// <para>
+    ///     GS1 data relationship rules are applied when requested via the <paramref name="relationshipTests"/>
+    ///     parameter. Applying these rules intorduces additional overhead, and may not be necessary in many
+    ///     scenarios.
+    /// </para>
+    /// <para>
+    ///     GS1 data relationship rules apply to AI element strings present on a single physical entity. This
+    ///     does not necessarily mean that the element strings need to appear in the same data carrier. For
+    ///     example, multiple GS1-128 barcode symbols may be used in combination on a GS1 Logistic Label.
+    /// </para>
+    /// </remarks>
     public static void Parse(
         string? data,
         Action<IResolvedEntity> processResolvedEntity,
         int initialPosition = 0,
-        DataRelationshipTests relationshipTests = DataRelationshipTests.No,
+        DataRelationshipTests relationshipTests = DataRelationshipTests.None,
         Semantics semantics = default) {
 #if NET7_0_OR_GREATER
         ArgumentNullException.ThrowIfNull(processResolvedEntity);
@@ -131,12 +158,24 @@ public static class Parser {
     /// Use this method as an alternative to Parse() for the very highest performance scenarios.  By using the ResolvedEntityDelegate delegate,
     /// you can avoid unecessary heap allocations.
     /// </remarks>
-    /// <param name=semantics">The AI semantics when data relationship tests are performed.</param>
+    /// <param name="semantics">AI semantics when data relationship tests are performed.</param>
+    /// <remarks>
+    /// <para>
+    ///     GS1 data relationship rules are applied when requested via the <paramref name="relationshipTests"/>
+    ///     parameter. Applying these rules intorduces additional overhead, and may not be necessary in many
+    ///     scenarios.
+    /// </para>
+    /// <para>
+    ///     GS1 data relationship rules apply to AI element strings present on a single physical entity. This
+    ///     does not necessarily mean that the element strings need to appear in the same data carrier. For
+    ///     example, multiple GS1-128 barcode symbols may be used in combination on a GS1 Logistic Label.
+    /// </para>
+    /// </remarks>
     public static void ParseEx(
         ReadOnlySpan<char> data,
         ResolvedEntityDelegate processResolvedEntity,
         int initialPosition = 0,
-        DataRelationshipTests relationshipTests = DataRelationshipTests.No,
+        DataRelationshipTests relationshipTests = DataRelationshipTests.None,
         Semantics semantics = default) {
         ArgumentNullException.ThrowIfNull(processResolvedEntity);
 
@@ -169,12 +208,24 @@ public static class Parser {
     ///     The initial character position.
     /// </param>
     /// <param name="relationshipTests">Optional control to collect resolved AIs for relationship testing.</param>
-    /// <param name="semantics">The AI semantics when data relationship tests are performed.</param>
+    /// <param name="semantics">AI semantics when data relationship tests are performed.</param>
+    /// <remarks>
+    /// <para>
+    ///     GS1 data relationship rules are applied when requested via the <paramref name="relationshipTests"/>
+    ///     parameter. Applying these rules intorduces additional overhead, and may not be necessary in many
+    ///     scenarios.
+    /// </para>
+    /// <para>
+    ///     GS1 data relationship rules apply to AI element strings present on a single physical entity. This
+    ///     does not necessarily mean that the element strings need to appear in the same data carrier. For
+    ///     example, multiple GS1-128 barcode symbols may be used in combination on a GS1 Logistic Label.
+    /// </para>
+    /// </remarks>
     public static void Parse(
         ReadOnlySpan<char> data,
         Action<IResolvedEntity> processResolvedEntity,
         int initialPosition = 0,
-        DataRelationshipTests relationshipTests = DataRelationshipTests.No,
+        DataRelationshipTests relationshipTests = DataRelationshipTests.None,
         Semantics semantics = default) {
 #if NET7_0_OR_GREATER
         ArgumentNullException.ThrowIfNull(processResolvedEntity);
@@ -238,28 +289,34 @@ public static class Parser {
         Semantics semantics) {
         int position = currentPosition;
 
-        if (relationshipTest == DataRelationshipTests.Yes) {
+        // Initialize/clear collected AIs only when relationship tests are requested
+        if (relationshipTest != DataRelationshipTests.None && relationshipTest != DataRelationshipTests.None) {
             ResolvedAiList.Clear();
         }
 
         // Buffer callbacks when relationship tests are requested
-        Dictionary<string, IResolvedEntity>? pendingByAi = relationshipTest == DataRelationshipTests.Yes
+        Dictionary<string, IResolvedEntity>? pendingByAi = (relationshipTest != DataRelationshipTests.None)
             ? new Dictionary<string, IResolvedEntity>(StringComparer.Ordinal)
             : null;
 
-        while (characters.Length >= 2) {
+        // Convert GS1 element format to FNC1 format.
+        var len = characters.Length;
+        var destination = len <= 512 ? stackalloc char[len] : new char[len];
+        var normalisedCharacters = characters.NormaliseData(destination);
+
+        while (normalisedCharacters.Length >= 2) {
             // Use custom lookup to avoid string allocation
-            bool hasPredefinedLength = TryGetPredefinedLength(characters, out int numberOfChars);
+            bool hasPredefinedLength = normalisedCharacters.TryGetPredefinedLength(out int numberOfChars);
             if (hasPredefinedLength) {
-                if (characters.Length >= numberOfChars) {
+                if (normalisedCharacters.Length >= numberOfChars) {
 #if NET6_0_OR_GREATER
-                    var workingBuffer = characters[..numberOfChars];
-                    characters = characters[numberOfChars..];
+                    var workingBuffer = normalisedCharacters[..numberOfChars];
+                    normalisedCharacters = normalisedCharacters[numberOfChars..];
 #else
-                    var workingBuffer = characters.Slice(0, numberOfChars);
-                    characters = characters.Slice(numberOfChars);
+                    var workingBuffer = normalisedCharacters.Slice(0, numberOfChars);
+                    normalisedCharacters = normalisedCharacters.Slice(numberOfChars);
 #endif
-                    if (characters.Length > 0 && characters[0] == Convert.ToChar(29)) {
+                    if (normalisedCharacters.Length > 0 && normalisedCharacters[0] == Convert.ToChar(29)) {
 #if NET7_0_OR_GREATER
                         if (processResolvedEntityDelegate is not null) {
                             ResolvedApplicationIdentifierRef defaultEntity = new(
@@ -276,7 +333,7 @@ public static class Parser {
                                 new ParserException(string.Empty, 2004, Resources.GS1_Error_004, false, position + numberOfChars),
                                 position,
                                 workingBuffer.ResolveEx(defaultEntity, workingBuffer[..2], position));
-                            if (relationshipTest == DataRelationshipTests.Yes) {
+                            if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
                                 ResolvedAiList.Add(entity.Identifier, entity.Value, position);
                             }
 
@@ -308,7 +365,7 @@ public static class Parser {
 #else
                                 workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position));
 #endif
-                            if (relationshipTest == DataRelationshipTests.Yes) {
+                            if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
                                 ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
                             }
 
@@ -330,7 +387,7 @@ public static class Parser {
                             stackalloc char[ResolvedApplicationIdentifierRef.DescriptionMaxLength],
                             0);
                         var entity = workingBuffer.ResolveEx(defaultEntity, workingBuffer[..2], position);
-                        if (relationshipTest == DataRelationshipTests.Yes) {
+                        if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
                             ResolvedAiList.Add(entity.Identifier, entity.Value, position);
                         }
 
@@ -358,7 +415,7 @@ public static class Parser {
 #else
                             workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position);
 #endif
-                        if (relationshipTest == DataRelationshipTests.Yes) {
+                        if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
                             ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
                         }
 
@@ -366,26 +423,26 @@ public static class Parser {
                     }
 
                     position += numberOfChars;
-                    if (characters.Length > 0 && characters[0] == Convert.ToChar(29)) {
-#if NET6_0_OR_GREATER
-                        characters = characters[1..];
+                    if (normalisedCharacters.Length > 0 && normalisedCharacters[0] == Convert.ToChar(29)) {
+#if NET7_0_OR_GREATER
+                        normalisedCharacters = normalisedCharacters[1..];
 #else
-                        characters = characters.Slice(1);
+                        normalisedCharacters = normalisedCharacters.Slice(1);
 #endif
                         position++;
                     }
 
-                    if (characters.Length > 1) {
+                    if (normalisedCharacters.Length > 1) {
                         continue;
                     }
 
-                    if (characters.Length == 1) {
+                    if (normalisedCharacters.Length == 1) {
 #if NET7_0_OR_GREATER
                         if (processResolvedEntityDelegate is not null) {
                             var entity = new ResolvedApplicationIdentifierRef(
-                                new ParserException(string.Empty, 2003, string.Format(System.Globalization.CultureInfo.CurrentCulture, Resources.GS1_Error_002, characters.ToString()), true),
+                                new ParserException(string.Empty, 2003, string.Format(System.Globalization.CultureInfo.CurrentCulture, Resources.GS1_Error_002, normalisedCharacters.ToString()), true),
                                 position);
-                            if (relationshipTest == DataRelationshipTests.Yes) {
+                            if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
                                 ResolvedAiList.Add(entity.Identifier, entity.Value, position);
                             }
 
@@ -409,9 +466,9 @@ public static class Parser {
 #endif
                         {
                             var resolved = new ResolvedApplicationIdentifier(
-                                new ParserException(string.Empty, 2003, string.Format(System.Globalization.CultureInfo.CurrentCulture, Resources.GS1_Error_002, characters.ToString()), true),
+                                new ParserException(string.Empty, 2003, string.Format(System.Globalization.CultureInfo.CurrentCulture, Resources.GS1_Error_002, normalisedCharacters.ToString()), true),
                                 position);
-                            if (relationshipTest == DataRelationshipTests.Yes) {
+                            if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
                                 ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
                             }
 
@@ -419,8 +476,8 @@ public static class Parser {
                         }
                     }
                 } else {
-                    var workingBuffer = characters;
-                    characters = ReadOnlySpan<char>.Empty;
+                    var workingBuffer = normalisedCharacters;
+                    normalisedCharacters = [];
 
 #if NET7_0_OR_GREATER
                     if (processResolvedEntityDelegate is not null) {
@@ -435,10 +492,10 @@ public static class Parser {
                             stackalloc char[ResolvedApplicationIdentifierRef.DescriptionMaxLength],
                             0);
                         var entity = new ResolvedApplicationIdentifierRef(
-                            new ParserException(string.Empty, 2005, Resources.GS1_Error_005, true, characters.Length - 1),
+                            new ParserException(string.Empty, 2005, Resources.GS1_Error_005, true, normalisedCharacters.Length - 1),
                             position,
                             workingBuffer.ResolveEx(defaultEntity, workingBuffer[..2], position));
-                        if (relationshipTest == DataRelationshipTests.Yes) {
+                        if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
                             ResolvedAiList.Add(entity.Identifier, entity.Value, position);
                         }
 
@@ -462,14 +519,14 @@ public static class Parser {
 #endif
                     {
                         var resolved = new ResolvedApplicationIdentifier(
-                            new ParserException(string.Empty, 2005, Resources.GS1_Error_005, true, characters.Length - 1),
+                            new ParserException(string.Empty, 2005, Resources.GS1_Error_005, true, normalisedCharacters.Length - 1),
                             position,
 #if NET6_0_OR_GREATER
                             workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position));
 #else
                             workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position));
 #endif
-                        if (relationshipTest == DataRelationshipTests.Yes) {
+                        if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
                             ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
                         }
 
@@ -477,10 +534,10 @@ public static class Parser {
                     }
                 }
             } else {
-                int gsIndex = characters.IndexOf(Convert.ToChar(29));
+                int gsIndex = normalisedCharacters.IndexOf(Convert.ToChar(29));
                 if (gsIndex < 0) {
-                    var workingBuffer = characters;
-                    characters = ReadOnlySpan<char>.Empty;
+                    var workingBuffer = normalisedCharacters;
+                    normalisedCharacters = [];
 
 #if NET7_0_OR_GREATER
                     ResolvedApplicationIdentifierRef defaultEntity = new(
@@ -495,7 +552,7 @@ public static class Parser {
                         0);
                     if (processResolvedEntityDelegate is not null) {
                         var entity = workingBuffer.ResolveEx(defaultEntity, workingBuffer[..2], position);
-                        if (relationshipTest == DataRelationshipTests.Yes) {
+                        if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
                             ResolvedAiList.Add(entity.Identifier, entity.Value, position);
                         }
 
@@ -524,7 +581,7 @@ public static class Parser {
 #else
                             workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position);
 #endif
-                        if (relationshipTest == DataRelationshipTests.Yes) {
+                        if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
                             ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
                         }
 
@@ -532,11 +589,11 @@ public static class Parser {
                     }
                 } else {
 #if NET6_0_OR_GREATER
-                    var workingBuffer = characters[..gsIndex];
-                    characters = characters[(gsIndex + 1)..];
+                    var workingBuffer = normalisedCharacters[..gsIndex];
+                    normalisedCharacters = normalisedCharacters[(gsIndex + 1) ..];
 #else
-                    var workingBuffer = characters.Slice(0, gsIndex);
-                    characters = characters.Slice(gsIndex + 1);
+                    var workingBuffer = normalisedCharacters.Slice(0, gsIndex);
+                    normalisedCharacters = normalisedCharacters.Slice(gsIndex + 1);
 #endif
 
 #if NET7_0_OR_GREATER
@@ -556,7 +613,7 @@ public static class Parser {
                         0);
                     if (processResolvedEntityDelegate is not null) {
                         var entity = workingBuffer.ResolveEx(defaultEntity, workingBuffer[..2], position);
-                        if (relationshipTest == DataRelationshipTests.Yes) {
+                        if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
                             ResolvedAiList.Add(entity.Identifier, entity.Value, position);
                         }
 
@@ -582,12 +639,12 @@ public static class Parser {
                         var resolved =
 #if NET6_0_OR_GREATER
                             new string(workingBuffer.ToArray())
-                                .Resolve(workingBuffer[..(workingBuffer.Length >= 2 ? 2 : workingBuffer.Length)].ToString(), position);
+                                .Resolve(workingBuffer[.. (workingBuffer.Length >= 2 ? 2 : workingBuffer.Length)].ToString(), position);
 #else
                             new string(workingBuffer.ToArray())
                                 .Resolve(workingBuffer.Slice(0, workingBuffer.Length >= 2 ? 2 : workingBuffer.Length).ToString(), position);
 #endif
-                        if (relationshipTest == DataRelationshipTests.Yes) {
+                        if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
                             ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
                         }
 
@@ -595,17 +652,17 @@ public static class Parser {
                     }
 
                     position += gsIndex - 1;
-                    if (characters.Length > 1) {
+                    if (normalisedCharacters.Length > 1) {
                         continue;
                     }
 
-                    if (characters.Length == 1) {
+                    if (normalisedCharacters.Length == 1) {
 #if NET7_0_OR_GREATER
                         if (processResolvedEntityDelegate is not null) {
                             var entity = new ResolvedApplicationIdentifierRef(
-                                new ParserException(string.Empty, 2003, string.Format(System.Globalization.CultureInfo.CurrentCulture, Resources.GS1_Error_002, characters.ToString()), true),
+                                new ParserException(string.Empty, 2003, string.Format(System.Globalization.CultureInfo.CurrentCulture, Resources.GS1_Error_002, normalisedCharacters.ToString()), true),
                                 position);
-                            if (relationshipTest == DataRelationshipTests.Yes) {
+                            if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
                                 ResolvedAiList.Add(entity.Identifier, entity.Value, position);
                             }
 
@@ -629,9 +686,9 @@ public static class Parser {
 #endif
                         {
                             var resolved = new ResolvedApplicationIdentifier(
-                                new ParserException(string.Empty, 2003, string.Format(System.Globalization.CultureInfo.CurrentCulture, Resources.GS1_Error_002, characters.ToString()), true),
+                                new ParserException(string.Empty, 2003, string.Format(System.Globalization.CultureInfo.CurrentCulture, Resources.GS1_Error_002, normalisedCharacters.ToString()), true),
                                 position);
-                            if (relationshipTest == DataRelationshipTests.Yes) {
+                            if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
                                 ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
                             }
 
@@ -645,9 +702,16 @@ public static class Parser {
         }
 
         // After parsing, run relationship tests and merge exceptions, then flush callbacks
-        if (relationshipTest == DataRelationshipTests.Yes) {
-            var invalids = InvalidPairs.Test();
-            var mandated = MandatedElements.Test(semantics);
+        if (relationshipTest != DataRelationshipTests.None) {
+            IEnumerable<(string ai, ParserException ex)> invalids = Array.Empty<(string, ParserException)>();
+            IEnumerable<(string ai, ParserException ex)> mandated = Array.Empty<(string, ParserException)>();
+
+            if (relationshipTest == DataRelationshipTests.InvalidPairs) {
+                invalids = InvalidPairs.Test();
+            } else if (relationshipTest == DataRelationshipTests.All) {
+                invalids = InvalidPairs.Test();
+                mandated = MandatedElements.Test(semantics);
+            }
 
             // Attach exceptions to pending entities, or create new ones
             void AttachException(string ai, ParserException ex) {
@@ -687,68 +751,5 @@ public static class Parser {
 
             pendingByAi[entity.Identifier] = entity;
         }
-    }
-
-    /// <summary>
-    ///     Try to get the predefined length for the first two digits without allocating a string.
-    /// </summary>
-    /// <param name="span">A span containing at least two characters.</param>
-    /// <param name="length">The predefined length if found.</param>
-    /// <returns>True if found, otherwise false.</returns>
-    private static bool TryGetPredefinedLength(ReadOnlySpan<char> span, out int length) {
-        length = 0;
-        if (span.Length < 2) return false;
-        switch (span[0]) {
-            case '0':
-                switch (span[1]) {
-                    case '0': length = 20; return true;
-                    case '1': length = 16; return true;
-                    case '2': length = 16; return true;
-                    case '3': length = 16; return true;
-                    case '4': length = 18; return true;
-                }
-
-                break;
-            case '1':
-                switch (span[1]) {
-                    case '1': length = 8; return true;
-                    case '2': length = 8; return true;
-                    case '3': length = 8; return true;
-                    case '4': length = 8; return true;
-                    case '5': length = 8; return true;
-                    case '6': length = 8; return true;
-                    case '7': length = 8; return true;
-                    case '8': length = 8; return true;
-                    case '9': length = 8; return true;
-                }
-
-                break;
-            case '2':
-                switch (span[1]) {
-                    case '0': length = 4; return true;
-                }
-
-                break;
-            case '3':
-                switch (span[1]) {
-                    case '1': length = 10; return true;
-                    case '2': length = 10; return true;
-                    case '3': length = 10; return true;
-                    case '4': length = 10; return true;
-                    case '5': length = 10; return true;
-                    case '6': length = 10; return true;
-                }
-
-                break;
-            case '4':
-                if (span[1] == '1') {
-                    length = 16;
-                    return true;
-                }
-
-                break;
-        }
-
-        return false;
     }
 }

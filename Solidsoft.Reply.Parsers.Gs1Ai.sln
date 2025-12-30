@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.0.11222.15 d18.0
+VisualStudioVersion = 18.0.11222.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solidsoft.Reply.Parsers.Gs1Ai", "Solidsoft.Reply.Parsers.Gs1Ai\Solidsoft.Reply.Parsers.Gs1Ai.csproj", "{97AEF4DD-C2AE-4D75-930F-F7A14AFE7D72}"
 EndProject
@@ -14,6 +14,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solidsoft.Reply.Parsers.Gs1Ai.Tests.Net5", "Solidsoft.Reply.Parsers.Gs1Ai.Tests.Net5\Solidsoft.Reply.Parsers.Gs1Ai.Tests.Net5.csproj", "{4577C352-CFD5-447C-D449-98511B922EF7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solidsoft.Reply.Parsers.Gs1Ai.Tests.Net48", "Solidsoft.Reply.Parsers.Gs1Ai.Tests.Net48\Solidsoft.Reply.Parsers.Gs1Ai.Tests.Net48.csproj", "{70C2251C-4731-45DF-F87F-9616DB91BCEF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{12C52D22-0DA3-4BE7-9AEA-6E8949C40333}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

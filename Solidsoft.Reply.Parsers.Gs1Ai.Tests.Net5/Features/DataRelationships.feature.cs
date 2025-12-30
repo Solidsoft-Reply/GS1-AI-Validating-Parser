@@ -11,7 +11,7 @@
 #region Designer generated code
 #pragma warning disable
 using Reqnroll;
-namespace Solidsoft.Reply.Parsers.Gs1Ai.Tests.Net7.Features
+namespace Solidsoft.Reply.Parsers.Gs1Ai.Tests.Net5.Features
 {
     
     

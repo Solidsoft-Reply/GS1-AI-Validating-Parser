@@ -16,6 +16,23 @@ public record struct Semantics(
     }
 #else
 public readonly struct Semantics() {
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Semantics"/> struct.
+    /// </summary>
+    /// <param name="gtinSemantics">The semantics for the Global Trade Item Number (GTIN).</param>
+    /// <param name="expiryDateSemantics">The semantics for the expiry date.</param>
+    /// <param name="amountPayableSemantics">The semantics for the amount payable.</param>
+    public Semantics(
+        GtinSemantics gtinSemantics,
+        ExpiryDateSemantics expiryDateSemantics,
+        AmountPayableSemantics amountPayableSemantics)
+        : this() {
+        GtinSemantics = gtinSemantics;
+        ExpiryDateSemantics = expiryDateSemantics;
+        AmountPayableSemantics = amountPayableSemantics;
+    }
+
     /// <summary>
     /// Gets the semantics for the Global Trade Item Number (GTIN).
     /// </summary>
