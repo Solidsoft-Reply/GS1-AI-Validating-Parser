@@ -21,10 +21,7 @@
 // ReSharper disable BadListLineBreaks
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Text.RegularExpressions;
 
 /// <summary>
@@ -674,7 +671,279 @@ public static class Extensions {
     ///     UPC-A Compatible UnitedStates and Canada regular expression.
     /// </summary>
     private static readonly Regex UpcaCompatibleUnitedStatesAndCanadaRegex = new ("^\\d((0000[1-9])|(000[1-9])|(0[01][0-9]))\\d*$");
+
+    /// <summary>
+    /// Regex that detects the presence of an initial parenthesised AI in a URI.
+    /// </summary>
+    private static readonly Regex RegexInitialParenthesisedAiDetector = new (@"^\((\d{2,4}?)\)");
+
+    /// <summary>
+    /// Regex that detects the presence of an initial parenthesised AI in a URI.
+    /// </summary>
+    private static readonly Regex RegexBracketedAiParser = new (@"\((\d{2,4}?)\)");
 #endif
+
+    /// <summary>
+    ///   Normalises the input data by converting bracketed Application Identifiers (AIs) to GS1 FNC1 format if necessary.
+    /// </summary>
+    /// <param name="data">The input data to normalise.</param>
+    /// <param name="destination">The buffer to write the normalised data to.</param>
+    /// <returns>A span containing the normalised data.</returns>
+    public static ReadOnlySpan<char> NormaliseData(this ReadOnlySpan<char> data, Span<char> destination) {
+        if (data.IsNullOrWhiteSpace()) {
+            return [];
+        }
+
+#if NET7_0_OR_GREATER
+        // Check if the initial AI is enclosed within parentheses
+        var initialParenthesisedAiDetector = RegexInitialParenthesisedAiDetector();
+        if (initialParenthesisedAiDetector.IsMatch(data)) {
+#else
+        var initialParenthesisedAiDetector = RegexInitialParenthesisedAiDetector;
+        if (initialParenthesisedAiDetector.IsMatch(data.ToString())) {
+#endif
+            // Assume that the input is a bracketed element string and convert
+            // it to FNC1 format
+            var len = data.Length;
+            if (data.TryConvertParenthesesAIsToFnc1(destination, out int charactersWritten)) {
+#if NET6_0_OR_GREATER
+                return destination[..charactersWritten];
+#else
+                return destination.Slice(0, charactersWritten);
+#endif
+            }
+            else {
+                return data;
+            }
+        }
+
+        return data;
+    }
+
+    /// <summary>
+    /// Attempts to convert bracketed Application Identifiers (AIs) in the input to GS1 FNC1 format and writes the
+    /// result to the specified destination buffer.
+    /// </summary>
+    /// <remarks>If the input does not contain any bracketed AIs, the method copies the input to the
+    /// destination buffer unchanged. The method returns false if the destination buffer is not large enough to hold the
+    /// converted result.</remarks>
+    /// <param name="input">The input span containing the text with bracketed AIs to convert.</param>
+    /// <param name="destination">The buffer that receives the converted output in GS1 FNC1 format. Must be large enough to hold the result.</param>
+    /// <param name="written">When this method returns, contains the number of characters written to the destination buffer.</param>
+    /// <returns>true if the conversion succeeded and the result was written to the destination buffer; otherwise, false.</returns>
+    public static bool TryConvertParenthesesAIsToFnc1(this ReadOnlySpan<char> input, Span<char> destination, out int written)
+    {
+#if NET7_0_OR_GREATER
+        var aiPattern = RegexBracketedAiParser();
+#else
+        var aiPattern = RegexBracketedAiParser;
+#endif
+        written = 0;
+
+#if NET7_0_OR_GREATER
+        // Fast path: detect if there is at least one match without allocating a MatchCollection
+        var enumerator = aiPattern.EnumerateMatches(input);
+        bool any = false;
+
+#pragma warning disable SA1312 // Variable names should begin with lower-case letter
+        foreach (var _ in enumerator) {
+            any = true;
+            break;
+        }
+#pragma warning restore SA1312 // Variable names should begin with lower-case letter
+
+        if (!any) {
+            if (input.Length > destination.Length) return false;
+            input.CopyTo(destination);
+            written = input.Length;
+            return true;
+        }
+
+        // First pass: compute total length and whether to drop trailing FNC1
+        int totalLen = 0;
+        bool lastAppendsFnc1 = false;
+        var matches = aiPattern.EnumerateMatches(input);
+
+        foreach (var valueMatch in matches) {
+            var startAi = valueMatch.Index + 1;
+            var ai = input[startAi..(startAi + valueMatch.Length - 2)];
+            (int dataLen, _, _, bool isFnc1)  = ParseElement(valueMatch, ai, input);
+
+            totalLen += ai.Length + dataLen + (isFnc1 ? 1 : 0);
+            lastAppendsFnc1 = isFnc1;
+        }
+
+        if (lastAppendsFnc1) totalLen--;
+        if (totalLen > destination.Length) return false;
+
+        // Second pass: write directly into destination
+        int pos = 0;
+        int matchIndex = 0;
+        int currentDataStart = 0;
+
+        foreach (var valueMatch in aiPattern.EnumerateMatches(input)) {
+            var startAi = valueMatch.Index + 1;
+            var ai = input[startAi..(startAi + valueMatch.Length - 2)];
+            (int dataLen, int dataStart, int dataEnd, bool isFnc1) = ParseElement(valueMatch, ai, input);
+
+            ai.CopyTo(destination[pos..]);
+            pos += ai.Length;
+            input[dataStart..(dataStart + dataLen)].CopyTo(destination[pos..]);
+            pos += dataLen;
+            var isLast = !aiPattern.EnumerateMatches(input[dataEnd..]).GetEnumerator().MoveNext();
+            if (isFnc1 && !(lastAppendsFnc1 && isLast)) {
+                destination[pos++] = '\x1D';
+            }
+
+            matchIndex++;
+            currentDataStart = dataEnd;
+        }
+
+        written = pos;
+        return true;
+
+        (int dataLen, int dataStart, int dataEnd, bool isFnc1) ParseElement(ValueMatch valueMatch, ReadOnlySpan<char> ai, ReadOnlySpan<char> input) {
+            var aiStart = valueMatch.Index;
+            var aiLength = valueMatch.Length;
+            var dataStart = aiStart + aiLength;
+
+            // Find end of data by peeking next match index, or end of input
+            int dataEnd = input.Length;
+            var peek = aiPattern.EnumerateMatches(input[dataStart..]);
+
+            foreach (var match in peek) {
+                dataEnd = dataStart + match.Index;
+                break;
+            }
+
+            var rawDataSection = input[dataStart..dataEnd];
+            var isFnc1 = !ai.TryGetPredefinedLength(out var predefinedLength);
+            var dataLen = isFnc1 ? rawDataSection.Length : Math.Min(predefinedLength, rawDataSection.Length);
+
+            return (dataLen, dataStart, dataEnd, isFnc1);
+        }
+#else
+        var inputString = input.ToString(); // Regex APIs require string
+        var matches = aiPattern.Matches(inputString);
+
+        if (matches.Count == 0) {
+            if (input.Length > destination.Length) return false;
+            input.CopyTo(destination);
+            written = input.Length;
+            return true;
+        }
+
+        int totalLen = 0;
+        bool lastAppendsFnc1 = false;
+
+        foreach (Match match in matches) {
+            var ai = inputString.AsSpan(match.Groups[1].Index, match.Groups[1].Length);
+            (int dataLen, _, _, bool isFnc1) = ParseElement(match, ai, inputString);
+
+            totalLen += ai.Length + dataLen + (isFnc1 ? 1 : 0);
+            lastAppendsFnc1 = isFnc1;
+        }
+
+        if (lastAppendsFnc1) totalLen--;
+        if (totalLen > destination.Length) return false;
+
+        int pos = 0;
+
+        for (int i = 0; i < matches.Count; i++) {
+            var match = matches[i];
+            var ai = inputString.AsSpan(match.Groups[1].Index, match.Groups[1].Length);
+            (int dataLen, int dataStart, int dataEnd, bool isFnc1) = ParseElement(match, ai, inputString);
+
+#if NET6_0_OR_GREATER
+            ai.CopyTo(destination[pos..]);
+            pos += ai.Length;
+            input[dataStart..(dataStart + dataLen)].CopyTo(destination[pos..]);
+#else
+            ai.CopyTo(destination.Slice(pos));
+            pos += ai.Length;
+            input.Slice(dataStart, dataLen).CopyTo(destination.Slice(pos));
+#endif
+            pos += dataLen;
+            if (isFnc1 && !(lastAppendsFnc1 && i == matches.Count - 1)) destination[pos++] = '\x1D';
+        }
+
+        (int dataLen, int dataStart, int dataEnd, bool isFnc1) ParseElement(Match match, ReadOnlySpan<char> ai, ReadOnlySpan<char> input) {
+            var dataStart = match.Index + match.Length;
+            var next = match.NextMatch();
+            var dataEnd = next.Success ? next.Index : input.Length;
+            var rawDataSection = inputString.AsSpan(dataStart, dataEnd - dataStart);
+            var isFnc1 = !ai.TryGetPredefinedLength(out var predefinedLength);
+            var dataLen = isFnc1 ? rawDataSection.Length : Math.Min(predefinedLength, rawDataSection.Length);
+            return (dataLen, dataStart, dataEnd, isFnc1);
+        }
+
+        written = pos;
+        return true;
+#endif
+    }
+
+    /// <summary>
+    ///     Try to get the predefined length for the first two digits without allocating a string.
+    /// </summary>
+    /// <param name="span">A span containing at least two characters.</param>
+    /// <param name="length">The predefined length if found.</param>
+    /// <returns>True if found, otherwise false.</returns>
+    public static bool TryGetPredefinedLength(this ReadOnlySpan<char> span, out int length) {
+        length = 0;
+        if (span.Length < 2) return false;
+        switch (span[0]) {
+            case '0':
+                switch (span[1]) {
+                    case '0': length = 20; return true;
+                    case '1': length = 16; return true;
+                    case '2': length = 16; return true;
+                    case '3': length = 16; return true;
+                    case '4': length = 18; return true;
+                }
+
+                break;
+            case '1':
+                switch (span[1]) {
+                    case '1': length = 8; return true;
+                    case '2': length = 8; return true;
+                    case '3': length = 8; return true;
+                    case '4': length = 8; return true;
+                    case '5': length = 8; return true;
+                    case '6': length = 8; return true;
+                    case '7': length = 8; return true;
+                    case '8': length = 8; return true;
+                    case '9': length = 8; return true;
+                }
+
+                break;
+            case '2':
+                switch (span[1]) {
+                    case '0': length = 4; return true;
+                }
+
+                break;
+            case '3':
+                switch (span[1]) {
+                    case '1': length = 10; return true;
+                    case '2': length = 10; return true;
+                    case '3': length = 10; return true;
+                    case '4': length = 10; return true;
+                    case '5': length = 10; return true;
+                    case '6': length = 10; return true;
+                }
+
+                break;
+            case '4':
+                if (span[1] == '1') {
+                    length = 16;
+                    return true;
+                }
+
+                break;
+        }
+
+        return false;
+    }
 
     /// <summary>
     ///     Resolve a GTIN or NTIN to a GS1 country code.
@@ -780,6 +1049,7 @@ public static class Extensions {
         }
 
         key = key.TrimEnd('\0');
+
         // Ensure that the string contains only integer values.
         foreach (var c in key) {
             if ((int)char.GetNumericValue(c) == -1) {
@@ -890,6 +1160,14 @@ public static class Extensions {
                    : CountryCode.Unknown;
     }
 
+    /// <summary>
+    /// Determines whether the specified character span is null, empty, or consists only of white-space or null
+    /// characters.
+    /// </summary>
+    /// <remarks>This method treats null characters ('\0') as white-space for the purpose of evaluation. It is
+    /// intended for use with spans that may contain embedded nulls or be empty.</remarks>
+    /// <param name="span">The read-only character span to evaluate for null, empty, or white-space content.</param>
+    /// <returns>true if the span is empty or contains only white-space or null characters; otherwise, false.</returns>
     internal static bool IsNullOrWhiteSpace(this ReadOnlySpan<char> span) {
         foreach (var c in span) {
             if (c != '\0' && !char.IsWhiteSpace(c)) {
@@ -900,6 +1178,13 @@ public static class Extensions {
         return true;
     }
 
+    /// <summary>
+    /// Determines whether all characters in the specified span are null characters ('\0').
+    /// </summary>
+    /// <remarks>This method does not check for empty spans. An empty span returns true, as it contains no
+    /// non-null characters.</remarks>
+    /// <param name="span">The read-only character span to examine for null characters.</param>
+    /// <returns>true if every character in the span is '\0'; otherwise, false.</returns>
     internal static bool IsNull(this ReadOnlySpan<char> span) {
         foreach (var c in span) {
             if (c != '\0') {
@@ -910,6 +1195,14 @@ public static class Extensions {
         return true;
     }
 
+    /// <summary>
+    /// Determines whether all characters in the specified span are null characters ('\0').
+    /// </summary>
+    /// <remarks>This method does not check for reference nullity, but rather whether all elements in the span
+    /// are the null character. Useful for validating buffers or regions that are expected to be
+    /// zero-initialized.</remarks>
+    /// <param name="span">The span of characters to examine for null character content.</param>
+    /// <returns>true if every character in the span is '\0'; otherwise, false.</returns>
     internal static bool IsNull(this Span<char> span) {
         foreach (var c in span) {
             if (c != '\0') {
@@ -920,6 +1213,68 @@ public static class Extensions {
         return true;
     }
 
+    /// <summary>
+    ///    Determines if a given AI pattern matches a provided AI string.
+    /// </summary>
+    /// <param name="pattern">The AI pattern to match against.</param>
+    /// <param name="ai">The AI string to test for a match.</param>
+    /// <returns>true if the AI string matches the pattern; otherwise, false.</returns>
+    internal static bool AiPatternMatches(this string pattern, string ai) {
+        if (string.IsNullOrEmpty(pattern)) return false;
+        if (pattern.Length != ai.Length) return false;
+        for (int i = 0; i < pattern.Length; i++) {
+            char pc = pattern[i];
+            char ac = ai[i];
+            if (pc == 'n' || pc == 'N' || pc == 's') {
+                if (ac < '0' || ac > '9') return false;
+            }
+            else if (pc != ac) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /// <summary>
+    ///   Determines if a given AI regular expression pattern matches a provided AI string.
+    /// </summary>
+    /// <param name="pattern">The AI regular expression pattern to match against.</param>
+    /// <param name="ai">The AI string to test for a match.</param>
+    /// <returns>true if the AI string matches the pattern; otherwise, false.</returns>
+    internal static bool AiRegExMatches(this string pattern, string ai) {
+        if (string.IsNullOrEmpty(pattern)) return false;
+        if (pattern[0] != '^') return false;
+        try {
+            var aiRegex = new Regex(pattern, RegexOptions.Compiled | RegexOptions.CultureInvariant);
+            return aiRegex.IsMatch(ai);
+        }
+        catch {
+            return false;
+        }
+    }
+
+//////////    /// <summary>
+//////////    ///    Converts a list of non-matching AIs to a human-readable string.
+//////////    /// </summary>
+//////////    /// <param name="nonMatchingAis">The list of non-matching AIs.</param>
+//////////    /// <returns>A human-readable string representation of the non-matching AIs.</returns>
+//////////    internal static string ConvertToString(this IList<string> nonMatchingAis) {
+//////////        if (nonMatchingAis.Count == 0) return string.Empty;
+//////////        if (nonMatchingAis.Count == 1) return "AI " + nonMatchingAis[0];
+
+//////////        var processedList = nonMatchingAis.ToList();
+//////////        for (var idx = 1; idx < processedList.Count * 2; idx += 2) {
+//////////            processedList.Insert(idx, ". ");
+//////////        }
+
+//////////#if NET6_0_OR_GREATER
+//////////        processedList[^2] = " and ";
+//////////#else
+//////////            processedList[processedList.Count - 2] = " and ";
+//////////#endif
+//////////        return "AIs" + nonMatchingAis.Aggregate((a, e) => a + e);
+//////////    }
 
 #if NET7_0_OR_GREATER
     /// <summary>
@@ -935,6 +1290,20 @@ public static class Extensions {
     /// <returns></returns>
     [GeneratedRegex("^\\d((0000[1-9])|(000[1-9])|(0[01][0-9]))\\d*$")]
     private static partial Regex UpcaCompatibleUnitedStatesAndCanadaRegex();
+
+    /// <summary>
+    /// Regex that detects the presence of an initial parenthesised AI in a URI.
+    /// </summary>
+    /// <returns></returns>
+    [GeneratedRegex(@"^\((\d{2,4}?)\)")]
+    private static partial Regex RegexInitialParenthesisedAiDetector();
+
+    /// <summary>
+    /// Regex that parses a bracketed element string.
+    /// </summary>
+    /// <returns>A regular expression.</returns>
+    [GeneratedRegex(@"\((\d{2,4}?)\)", RegexOptions.Compiled)]
+    private static partial Regex RegexBracketedAiParser();
 #endif
 
     /// <summary>

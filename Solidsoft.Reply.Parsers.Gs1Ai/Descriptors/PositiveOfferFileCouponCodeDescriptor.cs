@@ -20,13 +20,11 @@
 
 namespace Solidsoft.Reply.Parsers.Gs1Ai.Descriptors;
 
-using Properties;
-
-using System.Collections.Generic;
+using Solidsoft.Reply.Parsers.Gs1Ai.Properties;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-using Common;
+using Solidsoft.Reply.Parsers.Common;
 
 /// <summary>
 ///     A descriptor for North American Positive Offer File coupon codes.
@@ -55,38 +53,84 @@ internal
         string description,
         Regex pattern,
         bool isFixedWidth)
-    : EntityDescriptors(dataTitle, description, pattern, isFixedWidth) {
-
+    : ElementDescriptors(dataTitle, description, pattern, isFixedWidth) {
 #if NET7_0_OR_GREATER
     /// <summary>
     ///     Validate data against the descriptor.
     /// </summary>
-    /// <param name="value">The GS1 identifier to be validated.</param>
+    /// <param name="resolvedElement">The resolved application identifier to be validated.</param>
     /// <param name="validationErrors">A list of validation errors.</param>
     /// <returns>True, if valid.  Otherwise, false.</returns>
     // ReSharper disable once CommentTypo
     // ReSharper disable once InheritdocConsiderUsage
-    public override bool IsValid(ReadOnlySpan<char> value, out IList<ParserException>? validationErrors) {
-        var result = base.IsValid(value, out validationErrors);
-
+    public override bool IsValid(ResolvedApplicationIdentifierRef resolvedElement, out IList<ParserException>? validationErrors) {
+        var result = base.IsValid(resolvedElement, out validationErrors);
+        var value = resolvedElement.Value;
         if (value.IsNull() || value.IsEmpty) {
             return result;
         }
 
-        value = value.TrimEnd('\0');
         value = value.TrimEnd('\0');
         if (PositiveOfferFileCouponCodeRegex().IsMatch(value)) {
             return true;
         }
 
         validationErrors ??= [];
-        validationErrors.Add(AddException(value.ToString(), 2017, Resources.GS1_Error_016));
+        validationErrors.Add(AddException(resolvedElement.Identifier.TrimEnd('\0').ToString(), value.ToString(), 2016, Resources.GS1_Error_016));
         return false;
 
-        ParserException AddException(string value, int errorNumber, string message, string country = "") {
+        static ParserException AddException(string identifier, string value, int errorNumber, string message, string country = "") {
             var valueString = value.Length > 0 ? " " + value : string.Empty;
-            var offset = valueString.Length > 0 ? valueString.Trim().Length - 1 : 0;
+            var offset = valueString.Length > 0 ? identifier.Length + valueString.Length - 1 : 0;
             return new ParserException(
+                string.Empty,
+                errorNumber,
+                string.Format(CultureInfo.CurrentCulture, message, valueString, country),
+                false,
+                offset);
+        }
+    }
+#else
+    /// <summary>
+    ///     A regular expression for North American positive offer file coupon codes.
+    /// </summary>
+    private static readonly Regex PositiveOfferFileCouponCodeRegex = new (@"^[01][0-6]\d{6,12}\d{6}[0-9]\d{6,15}$");
+
+#endif
+
+    /// <summary>
+    ///     Validate data against the descriptor.
+    /// </summary>
+    /// <param name="resolvedElement">The resolved application identifier to be validated.</param>
+    /// <param name="validationErrors">A list of validation errors.</param>
+    /// <returns>True, if valid.  Otherwise, false.</returns>
+    // ReSharper disable once CommentTypo
+    // ReSharper disable once InheritdocConsiderUsage
+    public override bool IsValid(ResolvedApplicationIdentifier resolvedElement, out IList<ParserException>? validationErrors) {
+        var result = base.IsValid(resolvedElement, out validationErrors);
+        var value = resolvedElement.Value;
+
+        if (string.IsNullOrEmpty(value)) {
+            return result;
+        }
+
+#if NET7_0_OR_GREATER
+        if (PositiveOfferFileCouponCodeRegex().IsMatch(value)) {
+#else
+        if (PositiveOfferFileCouponCodeRegex.IsMatch(value)) {
+#endif
+            return true;
+        }
+
+        validationErrors ??= [];
+        validationErrors.Add(AddException(resolvedElement.Identifier, 2016, Resources.GS1_Error_016));
+        return false;
+
+        ParserException AddException(string identifier, int errorNumber, string message, string country = "") {
+            var valueString = value.Length > 0 ? " " + value : string.Empty;
+            var offset = valueString.Length > 0 ? identifier.Trim().Length + valueString.Trim().Length - 1 : 0;
+            return new ParserException(
+                string.Empty,
                 errorNumber,
                 string.Format(CultureInfo.CurrentCulture, message, valueString, country),
                 false,
@@ -94,6 +138,7 @@ internal
         }
     }
 
+#if NET7_0_OR_GREATER
     /// <summary>
     ///     A regular expression for North American positive offer file coupon codes.
     /// </summary>
@@ -103,44 +148,5 @@ internal
         RegexOptions.None,
         "en-US")]
     private static partial Regex PositiveOfferFileCouponCodeRegex();
-#else
-    /// <summary>
-    ///     A regular expression for North American positive offer file coupon codes.
-    /// </summary>
-    private static readonly Regex PositiveOfferFileCouponCodeRegex = new (@"^[01][0-6]\d{6,12}\d{6}[0-9]\d{6,15}$");
-
-    /// <summary>
-    ///     Validate data against the descriptor.
-    /// </summary>
-    /// <param name="value">The GS1 identifier to be validated.</param>
-    /// <param name="validationErrors">A list of validation errors.</param>
-    /// <returns>True, if valid.  Otherwise, false.</returns>
-    // ReSharper disable once CommentTypo
-    // ReSharper disable once InheritdocConsiderUsage
-    public override bool IsValid(string value, out IList<ParserException>? validationErrors) {
-        var result = base.IsValid(value, out validationErrors);
-
-        if (string.IsNullOrEmpty(value)) {
-            return result;
-        }
-
-        if (PositiveOfferFileCouponCodeRegex.IsMatch(value)) {
-            return true;
-        }
-
-        validationErrors ??= [];
-        validationErrors.Add(AddException(2017, Resources.GS1_Error_016));
-        return false;
-
-        ParserException AddException(int errorNumber, string message, string country = "") {
-            var valueString = value.Length > 0 ? " " + value : string.Empty;
-            var offset = valueString.Length > 0 ? valueString.Trim().Length - 1 : 0;
-            return new ParserException(
-                errorNumber,
-                string.Format(CultureInfo.CurrentCulture, message, valueString, country),
-                false,
-                offset);
-        }
-    }
 #endif
 }

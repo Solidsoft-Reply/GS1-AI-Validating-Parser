@@ -126,6 +126,9 @@
   <data name="ai02" xml:space="preserve">
     <value>Identifikazzjoni ta' oġġetti kummerċjali f'unità loġistika</value>
   </data>
+  <data name="ai03" xml:space="preserve">
+    <value>Identifikazzjoni ta’ oġġett kummerċjali magħmul fuq ordni (GTIN)</value>
+  </data>
   <data name="ai10" xml:space="preserve">
     <value>Numru tal-lott jew tal-partita</value>
   </data>
@@ -573,6 +576,9 @@
   <data name="ai7040" xml:space="preserve">
     <value>GS1 UIC b'Estensjoni 1 u Indiċi tal-Importatur</value>
   </data>
+  <data name="ai7041" xml:space="preserve">
+    <value>Tip ta’ unità tat-tagħbija UN/CEFACT</value>
+  </data>
   <data name="ai710" xml:space="preserve">
     <value>Numru Nazzjonali ta' Rimbors tal-Kura tas-Saħħa (NHRN) - PZN Ġermaniż</value>
   </data>
@@ -591,6 +597,12 @@
   <data name="ai715" xml:space="preserve">
     <value>Numru Nazzjonali ta' Rimbors tal-Kura tas-Saħħa (NHRN) - NDC tal-Istati Uniti tal-Amerika</value>
   </data>
+  <data name="ai716" xml:space="preserve">
+    <value>Numru Nazzjonali ta' Rimbors tal-Kura tas-Saħħa (NHRN) – Italja AIC</value>
+  </data>
+  <data name="ai717" xml:space="preserve">
+    <value>Numru Nazzjonali ta' Rimbors tal-Kura tas-Saħħa (NHRN) – numru tar-reġistru sanitarju ta’ Costa Rica</value>
+  </data>
   <data name="ai723s" xml:space="preserve">
     <value>Referenza taċ-ċertifikazzjoni</value>
   </data>
@@ -602,6 +614,36 @@
   </data>
   <data name="ai7242" xml:space="preserve">
     <value>Numru tal-Kontroll tal-Verżjoni (VCN)</value>
+  </data>
+  <data name="ai7250" xml:space="preserve">
+    <value>Data tat-twelid</value>
+  </data>
+  <data name="ai7251" xml:space="preserve">
+    <value>Data u ħin tat-twelid</value>
+  </data>
+  <data name="ai7252" xml:space="preserve">
+    <value>Sess bijoloġiku</value>
+  </data>
+  <data name="ai7253" xml:space="preserve">
+    <value>Kunjom tal-persuna</value>
+  </data>
+  <data name="ai7254" xml:space="preserve">
+    <value>Isem tal-persuna</value>
+  </data>
+  <data name="ai7255" xml:space="preserve">
+    <value>Suffiss tal-isem</value>
+  </data>
+  <data name="ai7256" xml:space="preserve">
+    <value>Isem sħiħ tal-persuna</value>
+  </data>
+  <data name="ai7257" xml:space="preserve">
+    <value>Indirizz tal-persuna</value>
+  </data>
+  <data name="ai7258" xml:space="preserve">
+    <value>Indikatur tas-sekwenza tat-twelid tat-tarbija</value>
+  </data>
+  <data name="ai7259" xml:space="preserve">
+    <value>Tarbija tal-kunjom tal-familja</value>
   </data>
   <data name="ai8001" xml:space="preserve">
     <value>Prodotti tar-rombli - wisa', tul, dijametru tal-qalba, direzzjoni, ġonot</value>
@@ -641,6 +683,9 @@
   </data>
   <data name="ai8013" xml:space="preserve">
     <value>Numru Globali tal-Mudell (GMN)</value>
+  </data>
+  <data name="ai8014" xml:space="preserve">
+    <value>Identifikatur tar-reġistrazzjoni ta’ apparat altamente individwalizzat (HIDRI)</value>
   </data>
   <data name="ai8017" xml:space="preserve">
     <value>Numru Globali tar-Relazzjoni tas-Servizz (GSRN) biex jidentifika r-relazzjoni bejn organizzazzjoni li toffri servizzi u l-fornitur tas-servizzi</value>
@@ -701,5 +746,17 @@
   </data>
   <data name="ai99" xml:space="preserve">
     <value>Informazzjoni interna tal-kumpanija</value>
+  </data>
+  <data name="ai8040" xml:space="preserve">
+    <value>Identità Internazzjonali tat-Tagħmir Mobbli (IMEI)</value>
+  </data>
+  <data name="ai8041" xml:space="preserve">
+    <value>Identità Internazzjonali tat-Tagħmir Mobbli 2 (IMEI2)</value>
+  </data>
+  <data name="ai8042" xml:space="preserve">
+    <value>SIM inkorporata (eSIM)</value>
+  </data>
+  <data name="ai8043" xml:space="preserve">
+    <value>SIM fiżika</value>
   </data>
 </root>

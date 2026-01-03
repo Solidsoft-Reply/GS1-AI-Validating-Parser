@@ -126,6 +126,9 @@
   <data name="ai02" xml:space="preserve">
     <value>Logistiikkayksikössä olevien kauppatavaroiden tunnistus</value>
   </data>
+  <data name="ai03" xml:space="preserve">
+    <value>Räätälöidyn tuote-erän tunnistus (GTIN)</value>
+  </data>
   <data name="ai10" xml:space="preserve">
     <value>Erä- tai lohkonumero</value>
   </data>
@@ -573,6 +576,9 @@
   <data name="ai7040" xml:space="preserve">
     <value>GS1 UIC laajennuksella 1 ja tuojaindeksillä</value>
   </data>
+  <data name="ai7041" xml:space="preserve">
+    <value>UN/CEFACT rahdityyppi</value>
+  </data>
   <data name="ai710" xml:space="preserve">
     <value>Kansallinen terveydenhuollon korvausnumero (NHRN) - Saksan PZN</value>
   </data>
@@ -591,6 +597,12 @@
   <data name="ai715" xml:space="preserve">
     <value>Kansallinen terveydenhuollon korvausnumero (NHRN) - Yhdysvaltojen NDC</value>
   </data>
+  <data name="ai716" xml:space="preserve">
+    <value>Kansallinen terveydenhuollon korvausnumero (NHRN) – Italia AIC</value>
+  </data>
+  <data name="ai717" xml:space="preserve">
+    <value>Kansallinen terveydenhuollon korvausnumero (NHRN) – Costa Rican terveysrekisterinumero</value>
+  </data>
   <data name="ai723s" xml:space="preserve">
     <value>Sertifiointiviite</value>
   </data>
@@ -602,6 +614,36 @@
   </data>
   <data name="ai7242" xml:space="preserve">
     <value>Versionhallintanumero (VCN)</value>
+  </data>
+  <data name="ai7250" xml:space="preserve">
+    <value>Syntymäaika</value>
+  </data>
+  <data name="ai7251" xml:space="preserve">
+    <value>Syntymäaika ja -hetki</value>
+  </data>
+  <data name="ai7252" xml:space="preserve">
+    <value>Biologinen sukupuoli</value>
+  </data>
+  <data name="ai7253" xml:space="preserve">
+    <value>Henkilön sukunimi</value>
+  </data>
+  <data name="ai7254" xml:space="preserve">
+    <value>Henkilön etunimi</value>
+  </data>
+  <data name="ai7255" xml:space="preserve">
+    <value>Nimen jälkiliitei</value>
+  </data>
+  <data name="ai7256" xml:space="preserve">
+    <value>Koko nimi</value>
+  </data>
+  <data name="ai7257" xml:space="preserve">
+    <value>Henkilön osoite</value>
+  </data>
+  <data name="ai7258" xml:space="preserve">
+    <value>Vauvan syntymäjärjestyksen ilmaisin</value>
+  </data>
+  <data name="ai7259" xml:space="preserve">
+    <value>Perheen sukunimen laps</value>
   </data>
   <data name="ai8001" xml:space="preserve">
     <value>Rullatuotteet - leveys, pituus, ydinhalkaisija, suunta, liitokset</value>
@@ -641,6 +683,9 @@
   </data>
   <data name="ai8013" xml:space="preserve">
     <value>Globaali mallinumero (GMN)</value>
+  </data>
+  <data name="ai8014" xml:space="preserve">
+    <value>Erittäin yksilöllisen laitteen rekisteritunniste (HIDRI)</value>
   </data>
   <data name="ai8017" xml:space="preserve">
     <value>Globaali palvelusuhteenumero (GSRN) palveluja tarjoavan organisaation ja palvelujen tarjoajan välisen suhteen tunnistamiseen</value>
@@ -701,5 +746,17 @@
   </data>
   <data name="ai99" xml:space="preserve">
     <value>Yrityksen sisäinen tieto</value>
+  </data>
+  <data name="ai8040" xml:space="preserve">
+    <value>Kansainvälinen mobiililaitteen tunnus (IMEI)</value>
+  </data>
+  <data name="ai8041" xml:space="preserve">
+    <value>Kansainvälinen mobiililaitteen tunnus 2 (IMEI2)</value>
+  </data>
+  <data name="ai8042" xml:space="preserve">
+    <value>Sulautettu SIM (eSIM)</value>
+  </data>
+  <data name="ai8043" xml:space="preserve">
+    <value>Fyysinen SIM-kortti</value>
   </data>
 </root>

@@ -126,6 +126,9 @@
   <data name="ai02" xml:space="preserve">
     <value>Identifizierung von Handelsartikeln in einer logistischen Einheit</value>
   </data>
+  <data name="ai03" xml:space="preserve">
+    <value>Identifikation eines kundenspezifischen Handelsartikels (GTIN)</value>
+  </data>
   <data name="ai10" xml:space="preserve">
     <value>Chargen- oder Losnummer</value>
   </data>
@@ -573,6 +576,9 @@
   <data name="ai7040" xml:space="preserve">
     <value>GS1 UIC mit Erweiterung 1 und Importeurindex</value>
   </data>
+  <data name="ai7041" xml:space="preserve">
+    <value>UN/CEFACT-Fracht­einheitstyp</value>
+  </data>
   <data name="ai710" xml:space="preserve">
     <value>Nationaler Erstattungsnummer für das Gesundheitswesen (NHRN) - Deutschland PZN</value>
   </data>
@@ -591,6 +597,12 @@
   <data name="ai715" xml:space="preserve">
     <value>Nationaler Erstattungsnummer für das Gesundheitswesen (NHRN) - Vereinigte Staaten von Amerika NDC</value>
   </data>
+  <data name="ai716" xml:space="preserve">
+    <value>Nationale Erstattungsnummer im Gesundheitswesen – Italien AIC</value>
+  </data>
+  <data name="ai717" xml:space="preserve">
+    <value>Nationale Erstattungsnummer im Gesundheitswesen (NHRN) – Nummer des Sanitätsregisters von Costa Rica</value>
+  </data>
   <data name="ai723s" xml:space="preserve">
     <value>Zertifizierungsreferenz</value>
   </data>
@@ -602,6 +614,36 @@
   </data>
   <data name="ai7242" xml:space="preserve">
     <value>Versionskontrollnummer (VCN)</value>
+  </data>
+  <data name="ai7250" xml:space="preserve">
+    <value>Geburtsdatum</value>
+  </data>
+  <data name="ai7251" xml:space="preserve">
+    <value>Geburtsdatum und -zeit</value>
+  </data>
+  <data name="ai7252" xml:space="preserve">
+    <value>Biologisches Geschlecht</value>
+  </data>
+  <data name="ai7253" xml:space="preserve">
+    <value>Familienname einer Person</value>
+  </data>
+  <data name="ai7254" xml:space="preserve">
+    <value>Vorname einer Person</value>
+  </data>
+  <data name="ai7255" xml:space="preserve">
+    <value>Namenssuffix einer Person</value>
+  </data>
+  <data name="ai7256" xml:space="preserve">
+    <value>Vollständiger Name einer Person</value>
+  </data>
+  <data name="ai7257" xml:space="preserve">
+    <value>Adresse einer Person</value>
+  </data>
+  <data name="ai7258" xml:space="preserve">
+    <value>Indikator für Geburtsreihenfolge</value>
+  </data>
+  <data name="ai7259" xml:space="preserve">
+    <value>Baby mit Familiennamen</value>
   </data>
   <data name="ai8001" xml:space="preserve">
     <value>Rollprodukte - Breite, Länge, Kerndurchmesser, Richtung, Spleiße</value>
@@ -641,6 +683,9 @@
   </data>
   <data name="ai8013" xml:space="preserve">
     <value>Globale Modellnummer (GMN)</value>
+  </data>
+  <data name="ai8014" xml:space="preserve">
+    <value>Registrierungskennzeichen für hoch individualisiertes Gerät (HIDRI)</value>
   </data>
   <data name="ai8017" xml:space="preserve">
     <value>Globale Dienstleistungsbeziehungsnummer (GSRN), um die Beziehung zwischen einer Dienstleistungen anbietenden Organisation und dem Dienstleistungsanbieter zu identifizieren</value>
@@ -701,5 +746,17 @@
   </data>
   <data name="ai99" xml:space="preserve">
     <value>Firmeninterne Informationen</value>
+  </data>
+  <data name="ai8040" xml:space="preserve">
+    <value>Internationale Geräteidentität (IMEI)</value>
+  </data>
+  <data name="ai8041" xml:space="preserve">
+    <value>Internationale Geräteidentität 2 (IMEI2)</value>
+  </data>
+  <data name="ai8042" xml:space="preserve">
+    <value>Eingebettete SIM (eSIM)</value>
+  </data>
+  <data name="ai8043" xml:space="preserve">
+    <value>Physische SIM-Karte</value>
   </data>
 </root>

@@ -126,6 +126,9 @@
   <data name="ai02" xml:space="preserve">
     <value>Identifikácia obchodných položiek obsiahnutých v logistickej jednotke</value>
   </data>
+  <data name="ai03" xml:space="preserve">
+    <value>Identifikácia položky vyrobenej na objednávku (GTIN)</value>
+  </data>
   <data name="ai10" xml:space="preserve">
     <value>Číslo šarže alebo lotu</value>
   </data>
@@ -573,6 +576,9 @@
   <data name="ai7040" xml:space="preserve">
     <value>GS1 UIC s rozšírením 1 a indexom dovozcu</value>
   </data>
+  <data name="ai7041" xml:space="preserve">
+    <value>Typ nákladnej jednotky UN/CEFACT</value>
+  </data>
   <data name="ai710" xml:space="preserve">
     <value>Národné číslo zdravotnej starostlivosti (NHRN) - Nemecký PZN</value>
   </data>
@@ -591,6 +597,12 @@
   <data name="ai715" xml:space="preserve">
     <value>Národné číslo zdravotnej starostlivosti (NHRN) - Americký NDC</value>
   </data>
+  <data name="ai716" xml:space="preserve">
+    <value>Národné číslo zdravotnej starostlivosti (NHRN) – Taliansko AIC</value>
+  </data>
+  <data name="ai717" xml:space="preserve">
+    <value>Národné číslo zdravotnej starostlivosti (NHRN) – číslo sanitárneho registra Kostariky</value>
+  </data>
   <data name="ai723s" xml:space="preserve">
     <value>Referencia certifikácie</value>
   </data>
@@ -602,6 +614,36 @@
   </data>
   <data name="ai7242" xml:space="preserve">
     <value>Kontrolné číslo verzie (VCN)</value>
+  </data>
+  <data name="ai7250" xml:space="preserve">
+    <value>Dátum narodenia</value>
+  </data>
+  <data name="ai7251" xml:space="preserve">
+    <value>Dátum a čas narodenia</value>
+  </data>
+  <data name="ai7252" xml:space="preserve">
+    <value>Biologické pohlavie</value>
+  </data>
+  <data name="ai7253" xml:space="preserve">
+    <value>Priezvisko osoby</value>
+  </data>
+  <data name="ai7254" xml:space="preserve">
+    <value>Meno osoby</value>
+  </data>
+  <data name="ai7255" xml:space="preserve">
+    <value>Sufix mena</value>
+  </data>
+  <data name="ai7256" xml:space="preserve">
+    <value>Plné meno osoby</value>
+  </data>
+  <data name="ai7257" xml:space="preserve">
+    <value>Adresa osoby</value>
+  </data>
+  <data name="ai7258" xml:space="preserve">
+    <value>Indikátor poradia narodenia dieťaťa</value>
+  </data>
+  <data name="ai7259" xml:space="preserve">
+    <value>Dieťa s rodinným priezviskom</value>
   </data>
   <data name="ai8001" xml:space="preserve">
     <value>Rozmery rolkových produktov - šírka, dĺžka, priemer jadra, smer, spoje</value>
@@ -641,6 +683,9 @@
   </data>
   <data name="ai8013" xml:space="preserve">
     <value>Globálne modelové číslo (GMN)</value>
+  </data>
+  <data name="ai8014" xml:space="preserve">
+    <value>Identifikátor registrácie vysoko individualizovaného zariadenia (HIDRI)</value>
   </data>
   <data name="ai8017" xml:space="preserve">
     <value>Globálne číslo vzťahu k službám (GSRN) na identifikáciu vzťahu medzi organizáciou poskytujúcou služby a poskytovateľom služieb</value>
@@ -701,5 +746,17 @@
   </data>
   <data name="ai99" xml:space="preserve">
     <value>Interné informácie spoločnosti</value>
+  </data>
+  <data name="ai8040" xml:space="preserve">
+    <value>Medzinárodná identita mobilného zariadenia (IMEI)</value>
+  </data>
+  <data name="ai8041" xml:space="preserve">
+    <value>Medzinárodná identita mobilného zariadenia 2 (IMEI2)</value>
+  </data>
+  <data name="ai8042" xml:space="preserve">
+    <value>Zabudovaná SIM (eSIM)</value>
+  </data>
+  <data name="ai8043" xml:space="preserve">
+    <value>Fyzická SIM karta</value>
   </data>
 </root>

@@ -29,7 +29,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai;
 /// </summary>
 public enum ApplicationIdentifier {
     /// <summary>
-    ///     Unrecognised entity.
+    ///     Unrecognised element.
     /// </summary>
     Unrecognised = -1,
 
@@ -172,7 +172,7 @@ public enum ApplicationIdentifier {
     GlnExtensionComponent = 254,
 
     /// <summary>
-    ///     Global Coupon Number (GCN).
+    ///     Global CouponValue Number (GCN).
     /// </summary>
     /// <remarks>Format:  N3+N13+N..12 (FNC1)</remarks>
     GlobalCouponNumber = 255,
@@ -508,7 +508,7 @@ public enum ApplicationIdentifier {
     CountOfTradeItems = 37,
 
     /// <summary>
-    ///     Applicable amount payable or Coupon value, local currency (AMOUNT).
+    ///     Applicable amount payable or CouponValue value, local currency (AMOUNT).
     /// </summary>
     /// <remarks>Format: N4+N..15 (FNC1)</remarks>
     ApplicableAmountPayableOrCouponValueLocalCurrency = 390,
@@ -975,7 +975,13 @@ public enum ApplicationIdentifier {
     /// <remarks>Format: N3+X..20 (FNC1)</remarks>
     NationalHealthcareReimbursementNumberItalyAic = 716,
 
-    // ... (*****) National Healthcare Reimbursement Number (NHRN) – Country “A” NHRN N3+X..20 (FNC1) NHRN ResolveEntity
+    /// <summary>
+    ///     National Healthcare Reimbursement Number (NHRN) – Costa Rica Sanitary Register Number (NHRN SRN).
+    /// </summary>
+    /// <remarks>Format: N3+X..20 (FNC1)</remarks>
+    NationalHealthcareReimbursementNumberCostaRicaSrn = 717,
+
+    // ... (*****) National Healthcare Reimbursement Number (NHRN) – Country “A” NHRN N3+X..20 (FNC1) NHRN
 
     /// <summary>
     ///     Certification reference (CERT # s).
@@ -1169,7 +1175,37 @@ public enum ApplicationIdentifier {
     IdentificationOfTradeItemPieces = 8026,
 
     /// <summary>
-    ///     Coupon code identification for use in North America (-).
+    ///     Digital Signature (DIGSIG).
+    /// </summary>
+    /// <remarks>Format: N4+Z..90 (FNC1)</remarks>
+    DigitalSignature = 8030,
+
+    /// <summary>
+    ///     International Mobile Equipment Identity (IMEI).
+    /// </summary>
+    /// <remarks>Format: N4+N15 (FNC1)</remarks>
+    InternationalMobileEquipmentIdentity = 8040,
+
+    /// <summary>
+    ///     International Mobile Equipment Identity 2 (IMEI2).
+    /// </summary>
+    /// <remarks>Format: N4+N15 (FNC1)</remarks>
+    InternationalMobileEquipmentIdentity2 = 8041,
+
+    /// <summary>
+    ///     Embedded SIM (ESIM).
+    /// </summary>
+    /// <remarks>Format: N4+N32 (FNC1)</remarks>
+    EmbeddedSim = 8042,
+
+    /// <summary>
+    ///     Physical SIM (PSIM).
+    /// </summary>
+    /// <remarks>Format: N4+N18+[N1..N2] (FNC1)</remarks>
+    PhysicalSim = 8043,
+
+    /// <summary>
+    ///     CouponValue code identification for use in North America (-).
     /// </summary>
     /// <remarks>Format: N4+X..70 (FNC1)</remarks>
     CouponCodeIdentificationForUseInNorthAmerica = 8110,

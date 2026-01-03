@@ -120,28 +120,28 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Aucune donnée fournie.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>La validation pour AI {0} a expiré.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
-    <value>Aucune valeur d'entité fournie pour AI {0}.</value>
+  <data name="GS1_Error_007" xml:space="preserve">
+    <value>Aucune valeur d’élément fournie pour l’IA {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>L'entité est incorrectement terminée par un FNC1.</value>
+    <value>L’élément est terminé de manière incorrecte avec un FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>L'entité à largeur fixe ne contient pas un nombre suffisant de caractères.</value>
+    <value>Un élément de longueur prédéfinie ne contient pas un nombre suffisant de caractères.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>La valeur{0} est invalide pour AI {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Identifiant d'application invalide {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
-    <value>La valeur{0} a une somme de contrôle invalide.</value>
-  </data>
   <data name="GS1_Error_009" xml:space="preserve">
+    <value>La valeur {0} pour {1} a un chiffre de contrôle invalide.</value>
+  </data>
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>La valeur{0} ne correspond pas au motif spécifié pour l'élément de données.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,32 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>La valeur{0} ne correspond pas au motif spécifié pour les coupons de fichier d'offre positive nord-américains.</value>
+  </data>
+  <data name="GS1_Error_201" xml:space="preserve">
+    <value>Relation de données non valide détectée entre l’IA {0} et l’IA {1}.</value>
+  </data>
+  <data name="GS1_Error_203" xml:space="preserve">
+    <value>Relation de données obligatoire introuvable entre l’IA {0} et {1}.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>La valeur{0} n'est pas un code de type d’emballage reconnu par l’UN/ECE ou GS1.</value>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>Identifiant d’application {0} invalide. Les IA doivent comporter entre deux et quatre chiffres.</value>
+  </data>
+  <data name="GS1_Error_203_and" xml:space="preserve">
+    <value>et</value>
+  </data>
+  <data name="GS1_Error_203_xor" xml:space="preserve">
+    <value>exactement un seul parmi</value>
+  </data>
+  <data name="GS1_Error_203_or" xml:space="preserve">
+    <value>au moins l’un des éléments suivants</value>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>L’IA {0} apparaît plus d’une fois avec des valeurs différentes.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>La valeur de l’IA {0} ne contient pas de préfixe d’entreprise mondial (GCP) reconnu.</value>
   </data>
 </root>

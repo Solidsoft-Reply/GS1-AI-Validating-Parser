@@ -120,28 +120,28 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Inga data tillhandahållna.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Validering för AI {0} överskred tidsgränsen.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
-    <value>Inget entitetsvärde tillhandahållet för AI {0}.</value>
+  <data name="GS1_Error_007" xml:space="preserve">
+    <value>Inget elementvärde angavs för AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Entitet är felaktigt avslutad med en FNC1.</value>
+    <value>Elementet avslutas felaktigt med en FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Entitet med fast bredd innehåller inte tillräckligt antal tecken.</value>
+    <value>Ett element med fördefinierad längd innehåller inte tillräckligt många tecken.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Värdet{0} är ogiltigt för AI {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Ogiltig applikationsidentifierare {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
-    <value>Värdet{0} har en ogiltig kontrollsumma.</value>
-  </data>
   <data name="GS1_Error_009" xml:space="preserve">
+    <value>Värdet{0} för {1} har en ogiltig kontrollsiffra.</value>
+  </data>
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Värdet{0} matchar inte det specificerade mönstret för dataelementet.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,32 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Värdet{0} matchar inte det specificerade mönstret för nordamerikanska positiva erbjudandefil-kuponger.</value>
+  </data>
+  <data name="GS1_Error_201" xml:space="preserve">
+    <value>Ogiltig datarelation hittades mellan AI {0} och AI {1}.</value>
+  </data>
+  <data name="GS1_Error_203" xml:space="preserve">
+    <value>Obligatorisk datarelation hittades inte mellan AI {0} och {1}.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Värdet{0} är inte en erkänd UN/ECE- eller GS1-förpackningstypkod.</value>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>Ogiltig applikationsidentifierare {0}. AI måste vara mellan två och fyra siffror långt.</value>
+  </data>
+  <data name="GS1_Error_203_and" xml:space="preserve">
+    <value>och</value>
+  </data>
+  <data name="GS1_Error_203_xor" xml:space="preserve">
+    <value>exakt en av</value>
+  </data>
+  <data name="GS1_Error_203_or" xml:space="preserve">
+    <value>minst en av</value>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>AI {0} förekommer mer än en gång med olika värden.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Värdet för AI {0} innehåller inte ett igenkänt Global Company Prefix (GCP).</value>
   </data>
 </root>

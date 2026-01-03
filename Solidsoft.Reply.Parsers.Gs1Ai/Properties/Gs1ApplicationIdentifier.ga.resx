@@ -126,6 +126,9 @@
   <data name="ai02" xml:space="preserve">
     <value>Aitheantas earraí trádála atá i aonad loighistice</value>
   </data>
+  <data name="ai03" xml:space="preserve">
+    <value>Aitheantas earra trádála déanta ar ordú (GTIN)</value>
+  </data>
   <data name="ai10" xml:space="preserve">
     <value>Uimhir bhaisc nó lóta</value>
   </data>
@@ -573,6 +576,9 @@
   <data name="ai7040" xml:space="preserve">
     <value>GS1 UIC le Síneadh 1 agus Innéacs Allmhaireora</value>
   </data>
+  <data name="ai7041" xml:space="preserve">
+    <value>Cineál aonad lasta UN/CEFACT</value>
+  </data>
   <data name="ai710" xml:space="preserve">
     <value>Uimhir Aisíocaíochta Cúraim Sláinte Náisiúnta (NHRN) - Gearmáinis PZN</value>
   </data>
@@ -591,6 +597,12 @@
   <data name="ai715" xml:space="preserve">
     <value>Uimhir Aisíocaíochta Cúraim Sláinte Náisiúnta (NHRN) - Stáit Aontaithe Mheiriceá NDC</value>
   </data>
+  <data name="ai716" xml:space="preserve">
+    <value>Uimhir Aisíocaíochta Cúraim Sláinte Náisiúnta (NHRN) – An Iodáil AIC</value>
+  </data>
+  <data name="ai717" xml:space="preserve">
+    <value>Uimhir Aisíocaíochta Cúraim Sláinte Náisiúnta (NHRN) – uimhir chlárlainne shláintíochta Chósta Ríce</value>
+  </data>
   <data name="ai723s" xml:space="preserve">
     <value>Tagairt deimhnithe</value>
   </data>
@@ -602,6 +614,36 @@
   </data>
   <data name="ai7242" xml:space="preserve">
     <value>Uimhir Rialaithe Leagan (VCN)</value>
+  </data>
+  <data name="ai7250" xml:space="preserve">
+    <value>Dáta breithe</value>
+  </data>
+  <data name="ai7251" xml:space="preserve">
+    <value>Dáta agus am breithe</value>
+  </data>
+  <data name="ai7252" xml:space="preserve">
+    <value>Gné bhitheolaíoch</value>
+  </data>
+  <data name="ai7253" xml:space="preserve">
+    <value>Sloinne an duine</value>
+  </data>
+  <data name="ai7254" xml:space="preserve">
+    <value>Ainm baiste an duine</value>
+  </data>
+  <data name="ai7255" xml:space="preserve">
+    <value>Iarmhír ainm</value>
+  </data>
+  <data name="ai7256" xml:space="preserve">
+    <value>Ainm iomlán an duine</value>
+  </data>
+  <data name="ai7257" xml:space="preserve">
+    <value>Seoladh an duine</value>
+  </data>
+  <data name="ai7258" xml:space="preserve">
+    <value>Táscaire shraith bhreithe linbh</value>
+  </data>
+  <data name="ai7259" xml:space="preserve">
+    <value>Leanbh den sloinne</value>
   </data>
   <data name="ai8001" xml:space="preserve">
     <value>Táirgí rolla - leithead, fad, trastomhas lárnach, treo, spliceanna</value>
@@ -641,6 +683,9 @@
   </data>
   <data name="ai8013" xml:space="preserve">
     <value>Uimhir Mhúnla Domhanda (GMN)</value>
+  </data>
+  <data name="ai8014" xml:space="preserve">
+    <value>Aitheantas clárúcháin gléis an-aonair (HIDRI)</value>
   </data>
   <data name="ai8017" xml:space="preserve">
     <value>Uimhir Ghnóthachan Seirbhíse Domhanda (GSRN) chun an caidreamh idir eagraíocht a thairgeann seirbhísí agus an soláthróir seirbhísí a aithint</value>
@@ -701,5 +746,17 @@
   </data>
   <data name="ai99" xml:space="preserve">
     <value>Eolas inmheánach cuideachta</value>
+  </data>
+  <data name="ai8040" xml:space="preserve">
+    <value>Aitheantas Idirnáisiúnta Trealamh Soghluaiste (IMEI)</value>
+  </data>
+  <data name="ai8041" xml:space="preserve">
+    <value>Aitheantas Idirnáisiúnta Trealamh Soghluaiste 2 (IMEI2)</value>
+  </data>
+  <data name="ai8042" xml:space="preserve">
+    <value>SIM leabaithe (eSIM)</value>
+  </data>
+  <data name="ai8043" xml:space="preserve">
+    <value>Cárta SIM fhisiciúil</value>
   </data>
 </root>

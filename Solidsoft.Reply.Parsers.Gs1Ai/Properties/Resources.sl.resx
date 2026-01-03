@@ -120,28 +120,28 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Podatki niso bili podani.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Validacija za AI {0} je prekoračila časovno omejitev.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
-    <value>Vrednost entitete ni bila podana za AI {0}.</value>
+  <data name="GS1_Error_007" xml:space="preserve">
+    <value>Za AI {0} ni bila podana nobena vrednost elementa.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Entiteta je nepravilno zaključena z FNC1.</value>
+    <value>Element se nepravilno zaključi z znakom FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Entiteta fiksne širine ne vsebuje zadostnega števila znakov.</value>
+    <value>V elementu z vnaprej določeno dolžino ni zadostnega števila znakov.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Vrednost{0} ni veljavna za AI {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Neveljaven identifikator aplikacije {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
-    <value>Vrednost{0} ima neveljavno kontrolno vsoto.</value>
-  </data>
   <data name="GS1_Error_009" xml:space="preserve">
+    <value>Vrednost{0} za {1} ima neveljavno kontrolno številko.</value>
+  </data>
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Vrednost{0} se ne ujema z določenim vzorcem za podatkovni element.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,32 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Vrednost{0} se ne ujema z določenim vzorcem za severnoameriške kupone s pozitivno ponudbo.</value>
+  </data>
+  <data name="GS1_Error_201" xml:space="preserve">
+    <value>Najdeno je neveljavno razmerje podatkov med AI {0} in AI {1}.</value>
+  </data>
+  <data name="GS1_Error_203" xml:space="preserve">
+    <value>Obvezno razmerje podatkov med AI {0} in {1} ni bilo najdeno.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Vrednost{0} ni priznana koda vrste embalaže UN/ECE ali GS1.</value>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>Neveljaven identifikator aplikacije {0}. AI-ji morajo biti dolgi od dve do štiri števke.</value>
+  </data>
+  <data name="GS1_Error_203_and" xml:space="preserve">
+    <value>in</value>
+  </data>
+  <data name="GS1_Error_203_xor" xml:space="preserve">
+    <value>natanko eden od</value>
+  </data>
+  <data name="GS1_Error_203_or" xml:space="preserve">
+    <value>vsaj eden od</value>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>AI {0} se pojavi več kot enkrat z različnimi vrednostmi.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Vrednost AI {0} ne vsebuje prepoznane globalne predpone podjetja (GCP).</value>
   </data>
 </root>

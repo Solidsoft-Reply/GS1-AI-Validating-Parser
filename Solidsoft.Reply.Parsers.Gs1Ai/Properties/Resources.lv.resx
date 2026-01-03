@@ -120,28 +120,28 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Dati nav sniegti.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Validācija AI {0} ir beigusies.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
-    <value>Entītes vērtība nav sniegta AI {0}.</value>
+  <data name="GS1_Error_007" xml:space="preserve">
+    <value>Nav norādīta elementa vērtība AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Entīte ir nepareizi beigusies ar FNC1.</value>
+    <value>Elements ir nepareizi noslēgts ar FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Fiksēta platuma entīte nesatur pietiekamu rakstzīmju skaitu.</value>
+    <value>Iepriekš noteikta garuma elements nesatur pietiekamu rakstzīmju skaitu.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Vērtība{0} ir nederīga AI {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Nederīgs lietojumprogrammas identifikators {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
-    <value>Vērtība{0} ir ar nederīgu kontrolsummu.</value>
-  </data>
   <data name="GS1_Error_009" xml:space="preserve">
+    <value>Vērtībai {0} laukā {1} ir nederīgs kontrolcipars.</value>
+  </data>
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Vērtība{0} neatbilst norādītajam rakstam datu elementam.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,32 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Vērtība{0} neatbilst norādītajam rakstam Ziemeļamerikas pozitīvo piedāvājumu failu kuponiem.</value>
+  </data>
+  <data name="GS1_Error_201" xml:space="preserve">
+    <value>Starp AI {0} un AI {1} tika konstatēta nederīga datu saistība.</value>
+  </data>
+  <data name="GS1_Error_203" xml:space="preserve">
+    <value>Starp AI {0} un {1} netika atrasta obligāta datu saistība.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Vērtība{0} nav atzīts UN/ECE vai GS1 iepakojuma veida kods.</value>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>Nederīgs lietotnes identifikators {0}. AI garumam jābūt no 2 līdz 4 cipariem.</value>
+  </data>
+  <data name="GS1_Error_203_and" xml:space="preserve">
+    <value>un</value>
+  </data>
+  <data name="GS1_Error_203_xor" xml:space="preserve">
+    <value>tieši viens no</value>
+  </data>
+  <data name="GS1_Error_203_or" xml:space="preserve">
+    <value>vismaz viens no</value>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>AI {0} parādās vairāk nekā vienu reizi ar atšķirīgām vērtībām.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>AI {0} vērtība nesatur atpazītu globālo uzņēmuma prefiksu (GCP).</value>
   </data>
 </root>

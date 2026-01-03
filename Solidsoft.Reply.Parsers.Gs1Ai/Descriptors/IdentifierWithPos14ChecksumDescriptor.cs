@@ -20,13 +20,11 @@
 
 namespace Solidsoft.Reply.Parsers.Gs1Ai.Descriptors;
 
-using Properties;
-
-using System.Collections.Generic;
+using Solidsoft.Reply.Parsers.Gs1Ai.Properties;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-using Common;
+using Solidsoft.Reply.Parsers.Common;
 
 /// <summary>
 ///     A descriptor for a GS1 identifiers with a checksum at position 14 followed by optional text.
@@ -51,18 +49,19 @@ internal class IdentifierWithPos14ChecksumDescriptor(
         string description,
         Regex? pattern,
         bool isFixedWidth)
-    : EntityDescriptors(dataTitle, description, pattern, isFixedWidth) {
+    : ElementDescriptors(dataTitle, description, pattern, isFixedWidth) {
     /// <summary>
     ///     Validate data against the descriptor.
     /// </summary>
-    /// <param name="value">The GS1 data element value to be validated.</param>
+    /// <param name="resolvedElement">The resolved application identifier to be validated.</param>
     /// <param name="validationErrors">A list of validation errors.</param>
     /// <returns>True, if valid.  Otherwise, false.</returns>
     // ReSharper disable once CommentTypo
     // ReSharper disable once InheritdocConsiderUsage
 #if NET7_0_OR_GREATER
-    public override bool IsValid(ReadOnlySpan<char> value, out IList<ParserException>? validationErrors) {
-        var result = base.IsValid(value, out validationErrors);
+    public override bool IsValid(ResolvedApplicationIdentifierRef resolvedElement, out IList<ParserException>? validationErrors) {
+        var result = base.IsValid(resolvedElement, out validationErrors);
+        var value = resolvedElement.Value;
 
         if (value.IsNull() || value.IsEmpty) {
             return result;
@@ -80,21 +79,30 @@ internal class IdentifierWithPos14ChecksumDescriptor(
 
         value = value.TrimEnd('\0');
         var valueString = value.Length > 0 ? " " + value.ToString() : string.Empty;
-        var offset = valueString.Length > 0 ? valueString.Trim().Length - 1 : 0;
+        var offset = valueString.Length > 0 ? resolvedElement.Identifier.TrimEnd('\0').Length + valueString.Length - 1 : 0;
 
         // ReSharper disable once StringLiteralTypo
         validationErrors ??= [];
         validationErrors.Add(
             new ParserException(
-                2010,
-                string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_008, valueString),
-                false,
+                string.Empty,
+                2009,
+                string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_009, valueString, this.DataTitle),
+                true,
                 offset));
         return false;
     }
-#else
-    public override bool IsValid(string value, out IList<ParserException>? validationErrors) {
-        var result = base.IsValid(value, out validationErrors);
+#endif
+
+    /// <summary>
+    ///    Validate data against the descriptor.
+    /// </summary>
+    /// <param name="resolvedElement">The resolved application identifier to be validated.</param>
+    /// <param name="validationErrors">A list of validation errors.</param>
+    /// <returns>True, if valid.  Otherwise, false.</returns>
+    public override bool IsValid(ResolvedApplicationIdentifier resolvedElement, out IList<ParserException>? validationErrors) {
+        var result = base.IsValid(resolvedElement, out validationErrors);
+        var value = resolvedElement.Value;
 
         if (string.IsNullOrEmpty(value)) {
             return result;
@@ -117,17 +125,17 @@ internal class IdentifierWithPos14ChecksumDescriptor(
         }
 
         var valueString = value.Length > 0 ? " " + value : string.Empty;
-        var offset = valueString.Length > 0 ? valueString.Trim().Length - 1 : 0;
+        var offset = valueString.Length > 0 ? resolvedElement.Identifier.Trim().Length + valueString.Trim().Length - 1 : 0;
         validationErrors ??= [];
 
         // ReSharper disable once StringLiteralTypo
         validationErrors.Add(
             new ParserException(
-                2010,
-                string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_008, valueString),
-                false,
+                string.Empty,
+                2009,
+                string.Format(CultureInfo.CurrentCulture, Resources.GS1_Error_009, valueString, this.DataTitle),
+                true,
                 offset));
         return false;
     }
-#endif
 }

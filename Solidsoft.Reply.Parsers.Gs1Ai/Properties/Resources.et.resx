@@ -120,28 +120,28 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Andmeid ei ole esitatud.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>AI {0} valideerimine aegus.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
-    <value>AI {0} jaoks ei ole entiteedi väärtust esitatud.</value>
+  <data name="GS1_Error_007" xml:space="preserve">
+    <value>AI {0} jaoks ei ole elemendi väärtust esitatud.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Entiteet on valesti lõpetatud FNC1-ga.</value>
+    <value>Element on valesti lõpetatud FNC1-ga.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Fikseeritud laiusega entiteet ei sisalda piisavat arvu tähemärke.</value>
+    <value>Eelmääratud pikkusega element ei sisalda piisavalt märke.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Väärtus{0} on kehtetu AI {1} jaoks.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Vigane rakenduse identifikaator {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
-    <value>Väärtus{0} omab kehtetut kontrollsummat.</value>
-  </data>
   <data name="GS1_Error_009" xml:space="preserve">
+    <value>Väärtusel {0} välja {1} jaoks on vigane kontrollnumber.</value>
+  </data>
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Väärtus{0} ei vasta määratud mustrile andmeelemendile.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,32 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Väärtus{0} ei ühti Põhja-Ameerika positiivse pakkumisfaili kupongidele määratud mustriga.</value>
+  </data>
+  <data name="GS1_Error_201" xml:space="preserve">
+    <value>Leiti kehtetu andmeseos AI {0} ja AI {1} vahel.</value>
+  </data>
+  <data name="GS1_Error_203" xml:space="preserve">
+    <value>AI {0} ja {1} vahel ei leitud kohustuslikku andmeseost.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Väärtus{0} ei ole tunnustatud UN/ECE ega GS1 pakenditüübi kood.</value>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>Kehtetu rakenduse identifikaator {0}. AI-d peavad olema 2–4 numbrit pikad.</value>
+  </data>
+  <data name="GS1_Error_203_and" xml:space="preserve">
+    <value>ja</value>
+  </data>
+  <data name="GS1_Error_203_xor" xml:space="preserve">
+    <value>täpselt üks järgmistest</value>
+  </data>
+  <data name="GS1_Error_203_or" xml:space="preserve">
+    <value>vähemalt üks järgmistest</value>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>AI {0} esineb rohkem kui üks kord erinevate väärtustega.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>AI {0} väärtus ei sisalda tunnustatud globaalse ettevõtte prefiksit (GCP).</value>
   </data>
 </root>

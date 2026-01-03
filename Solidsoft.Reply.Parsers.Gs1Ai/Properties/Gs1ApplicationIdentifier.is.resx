@@ -126,6 +126,9 @@
   <data name="ai02" xml:space="preserve">
     <value>Auðkenning á viðskiptavörum í lógistík einingu</value>
   </data>
+  <data name="ai03" xml:space="preserve">
+    <value>Auðkenning sérpantaðrar vöru (GTIN)</value>
+  </data>
   <data name="ai10" xml:space="preserve">
     <value>Skrá eða lota númer</value>
   </data>
@@ -573,23 +576,32 @@
   <data name="ai7040" xml:space="preserve">
     <value>GS1 UIC með Extension 1 og Innflytjandi vísitölu</value>
   </data>
+  <data name="ai7041" xml:space="preserve">
+    <value>Tegund vörueiningar UN/CEFACT</value>
+  </data>
   <data name="ai710" xml:space="preserve">
-    <value>National Healthcare Reimbursement Number (NHRN) - Þýska PZN</value>
+    <value>Landsendurgreiðslunúmer í heilbrigðisþjónustu (NHRN) - Þýska PZN</value>
   </data>
   <data name="ai711" xml:space="preserve">
-    <value>National Healthcare Reimbursement Number (NHRN) - Franska CIP</value>
+    <value>Landsendurgreiðslunúmer í heilbrigðisþjónustu (NHRN) - Franska CIP</value>
   </data>
   <data name="ai712" xml:space="preserve">
-    <value>National Healthcare Reimbursement Number (NHRN) - Spænska CN</value>
+    <value>Landsendurgreiðslunúmer í heilbrigðisþjónustu (NHRN) - Spænska CN</value>
   </data>
   <data name="ai713" xml:space="preserve">
-    <value>National Healthcare Reimbursement Number (NHRN) - Brasilía DRN</value>
+    <value>Landsendurgreiðslunúmer í heilbrigðisþjónustu (NHRN) - Brasilía DRN</value>
   </data>
   <data name="ai714" xml:space="preserve">
-    <value>National Healthcare Reimbursement Number (NHRN) - Portúgal AIM</value>
+    <value>Landsendurgreiðslunúmer í heilbrigðisþjónustu (NHRN) - Portúgal AIM</value>
   </data>
   <data name="ai715" xml:space="preserve">
-    <value>National Healthcare Reimbursement Number (NHRN) - Bandaríkin NDC</value>
+    <value>Landsendurgreiðslunúmer í heilbrigðisþjónustu (NHRN) - Bandaríkin NDC</value>
+  </data>
+  <data name="ai716" xml:space="preserve">
+    <value>Landsendurgreiðslunúmer í heilbrigðisþjónustu (NHRN) – Ítalía AIC</value>
+  </data>
+  <data name="ai717" xml:space="preserve">
+    <value>Landsendurgreiðslunúmer í heilbrigðisþjónustu (NHRN) – heilbrigðisskráarnúmer Kosta Ríka</value>
   </data>
   <data name="ai723s" xml:space="preserve">
     <value>Vottun vísa</value>
@@ -602,6 +614,36 @@
   </data>
   <data name="ai7242" xml:space="preserve">
     <value>Útgáfa stjórnunarnúmer (VCN)</value>
+  </data>
+  <data name="ai7250" xml:space="preserve">
+    <value>Fæðingardagur</value>
+  </data>
+  <data name="ai7251" xml:space="preserve">
+    <value>Fæðingardagur og -tími</value>
+  </data>
+  <data name="ai7252" xml:space="preserve">
+    <value>Líffræðilegt kyn</value>
+  </data>
+  <data name="ai7253" xml:space="preserve">
+    <value>Eftirlífisnafn einstaklings</value>
+  </data>
+  <data name="ai7254" xml:space="preserve">
+    <value>Skírnarnafn einstaklings</value>
+  </data>
+  <data name="ai7255" xml:space="preserve">
+    <value>Nafnviðskeyti</value>
+  </data>
+  <data name="ai7256" xml:space="preserve">
+    <value>Fullt nafn einstaklings</value>
+  </data>
+  <data name="ai7257" xml:space="preserve">
+    <value>Heimilisfang einstaklings</value>
+  </data>
+  <data name="ai7258" xml:space="preserve">
+    <value>Fæðingarröð barns</value>
+  </data>
+  <data name="ai7259" xml:space="preserve">
+    <value>Barn með ættarnafni</value>
   </data>
   <data name="ai8001" xml:space="preserve">
     <value>Rúllu vörur - breidd, lengd, kjarna þvermál, stefna, tengingar</value>
@@ -641,6 +683,9 @@
   </data>
   <data name="ai8013" xml:space="preserve">
     <value>Global Model Number (GMN)</value>
+  </data>
+  <data name="ai8014" xml:space="preserve">
+    <value>Skráningarauðkenni mjög sérhæfðs búnaðar (HIDRI)</value>
   </data>
   <data name="ai8017" xml:space="preserve">
     <value>Global Service Relation Number (GSRN) til að auðkenna samband milli fyrirtækis sem býður upp á þjónustu og þjónustuveitanda</value>
@@ -701,5 +746,17 @@
   </data>
   <data name="ai99" xml:space="preserve">
     <value>Innanfyrirtækjaupplýsingar</value>
+  </data>
+  <data name="ai8040" xml:space="preserve">
+    <value>Alþjóðlegt auðkenni farsímatækis (IMEI)</value>
+  </data>
+  <data name="ai8041" xml:space="preserve">
+    <value>Alþjóðlegt auðkenni farsímatækis 2 (IMEI2)</value>
+  </data>
+  <data name="ai8042" xml:space="preserve">
+    <value>Innbyggð SIM (eSIM)</value>
+  </data>
+  <data name="ai8043" xml:space="preserve">
+    <value>Líkamleg SIM-kort</value>
   </data>
 </root>

@@ -120,28 +120,28 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Няма предоставени данни.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Валидацията за AI {0} изтече.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
-    <value>Не е предоставена стойност на обекта за AI {0}.</value>
+  <data name="GS1_Error_007" xml:space="preserve">
+    <value>Не е предоставена стойност на елемента за AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Обектът е неправилно завършен с FNC1.</value>
+    <value>Елементът е неправилно завършен с FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Обектът с фиксирана ширина не съдържа достатъчно символи.</value>
+    <value>Елемент с предварително зададена дължина не съдържа достатъчен брой знаци.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Стойността{0} е невалидна за AI {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Невалиден идентификатор на приложение {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
-    <value>Стойността{0} има невалидна контролна сума.</value>
-  </data>
   <data name="GS1_Error_009" xml:space="preserve">
+    <value>Стойността{0} за {1} има невалидна контролна цифра.</value>
+  </data>
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Стойността{0} не отговаря на посочения модел за елемента на данните.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,32 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Стойността{0} не отговаря на посочения модел за купони за положителни оферти в Северна Америка.</value>
+  </data>
+  <data name="GS1_Error_201" xml:space="preserve">
+    <value>Открита е невалидна връзка на данни между AI {0} и AI {1}.</value>
+  </data>
+  <data name="GS1_Error_203" xml:space="preserve">
+    <value>Не е намерена задължителна връзка на данни между AI {0} и {1}.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Стойността{0} не е разпознат код за типа опаковка на UN/ECE или GS1.</value>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>Невалиден идентификатор на приложение {0}. Идентификаторите на приложения (AI) трябва да са с дължина между две и четири цифри.</value>
+  </data>
+  <data name="GS1_Error_203_and" xml:space="preserve">
+    <value>и</value>
+  </data>
+  <data name="GS1_Error_203_xor" xml:space="preserve">
+    <value>точно едно от</value>
+  </data>
+  <data name="GS1_Error_203_or" xml:space="preserve">
+    <value>поне един от</value>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>AI {0} се появява повече от веднъж с различни стойности.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Стойността на AI {0} не съдържа разпознат глобален фирмен префикс (GCP).</value>
   </data>
 </root>

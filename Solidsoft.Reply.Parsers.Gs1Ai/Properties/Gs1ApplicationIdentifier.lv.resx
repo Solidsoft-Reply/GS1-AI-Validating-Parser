@@ -126,6 +126,9 @@
   <data name="ai02" xml:space="preserve">
     <value>Loģistikas vienībā esošo tirdzniecības preču identifikācija</value>
   </data>
+  <data name="ai03" xml:space="preserve">
+    <value>Pasūtījuma preces identifikācija (GTIN)</value>
+  </data>
   <data name="ai10" xml:space="preserve">
     <value>Partijas vai sērijas numurs</value>
   </data>
@@ -573,6 +576,9 @@
   <data name="ai7040" xml:space="preserve">
     <value>GS1 UIC ar paplašinājumu 1 un importētāja indeksu</value>
   </data>
+  <data name="ai7041" xml:space="preserve">
+    <value>UN/CEFACT kravas vienības tips</value>
+  </data>
   <data name="ai710" xml:space="preserve">
     <value>Nacionālais veselības aprūpes kompensācijas numurs (NHRN) - Vācijas PZN</value>
   </data>
@@ -591,6 +597,12 @@
   <data name="ai715" xml:space="preserve">
     <value>Nacionālais veselības aprūpes kompensācijas numurs (NHRN) - Amerikas Savienotajām Valstīm NDC</value>
   </data>
+  <data name="ai716" xml:space="preserve">
+    <value>Nacionālais veselības aprūpes kompensācijas numurs (NHRN) – Itālija AIC</value>
+  </data>
+  <data name="ai717" xml:space="preserve">
+    <value>Nacionālais veselības aprūpes kompensācijas numurs (NHRN) – Kostarikas sanitārā reģistra numurs</value>
+  </data>
   <data name="ai723s" xml:space="preserve">
     <value>Sertifikācijas atsauce</value>
   </data>
@@ -602,6 +614,36 @@
   </data>
   <data name="ai7242" xml:space="preserve">
     <value>Versijas kontroles numurs (VCN)</value>
+  </data>
+  <data name="ai7250" xml:space="preserve">
+    <value>Dzimšanas datums</value>
+  </data>
+  <data name="ai7251" xml:space="preserve">
+    <value>Dzimšanas datums un laiks</value>
+  </data>
+  <data name="ai7252" xml:space="preserve">
+    <value>Bioloģiskais dzimums</value>
+  </data>
+  <data name="ai7253" xml:space="preserve">
+    <value>Personas uzvārds</value>
+  </data>
+  <data name="ai7254" xml:space="preserve">
+    <value>Personas vārds</value>
+  </data>
+  <data name="ai7255" xml:space="preserve">
+    <value>Vārda sufikss</value>
+  </data>
+  <data name="ai7256" xml:space="preserve">
+    <value>Personas pilns vārds</value>
+  </data>
+  <data name="ai7257" xml:space="preserve">
+    <value>Personas adrese</value>
+  </data>
+  <data name="ai7258" xml:space="preserve">
+    <value>Jaundzimušā dzimšanas secības rādītājs</value>
+  </data>
+  <data name="ai7259" xml:space="preserve">
+    <value>Bērns ar ģimenes uzvārdu</value>
   </data>
   <data name="ai8001" xml:space="preserve">
     <value>Ruļļu produkti - platums, garums, kodola diametrs, virziens, savienojumi</value>
@@ -641,6 +683,9 @@
   </data>
   <data name="ai8013" xml:space="preserve">
     <value>Globālais Modeļa Numurs (GMN)</value>
+  </data>
+  <data name="ai8014" xml:space="preserve">
+    <value>Ļoti individualizētas ierīces reģistrācijas identifikators (HIDRI)</value>
   </data>
   <data name="ai8017" xml:space="preserve">
     <value>Globālais Pakalpojumu Attiecību Numurs (GSRN), lai identificētu attiecības starp organizāciju, kas piedāvā pakalpojumus, un pakalpojumu sniedzēju</value>
@@ -701,5 +746,17 @@
   </data>
   <data name="ai99" xml:space="preserve">
     <value>Uzņēmuma iekšējā informācija</value>
+  </data>
+  <data name="ai8040" xml:space="preserve">
+    <value>Starptautiskais mobilās ierīces identifikators (IMEI)</value>
+  </data>
+  <data name="ai8041" xml:space="preserve">
+    <value>Starptautiskais mobilās ierīces identifikators 2 (IMEI2)</value>
+  </data>
+  <data name="ai8042" xml:space="preserve">
+    <value>Iebūvēta SIM (eSIM)</value>
+  </data>
+  <data name="ai8043" xml:space="preserve">
+    <value>Fiziska SIM karte</value>
   </data>
 </root>

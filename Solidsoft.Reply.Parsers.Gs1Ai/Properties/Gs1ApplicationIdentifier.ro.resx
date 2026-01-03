@@ -126,6 +126,9 @@
   <data name="ai02" xml:space="preserve">
     <value>Identificarea articolelor comerciale conținute într-o unitate logistică</value>
   </data>
+  <data name="ai03" xml:space="preserve">
+    <value>Identificarea unui articol comercial realizat la comandă (GTIN)</value>
+  </data>
   <data name="ai10" xml:space="preserve">
     <value>Număr de lot sau serie</value>
   </data>
@@ -573,6 +576,9 @@
   <data name="ai7040" xml:space="preserve">
     <value>GS1 UIC cu Extensia 1 și indicele importatorului</value>
   </data>
+  <data name="ai7041" xml:space="preserve">
+    <value>Tipul unității de marfă UN/CEFACT</value>
+  </data>
   <data name="ai710" xml:space="preserve">
     <value>Numărul Național de Rambursare a Îngrijirilor Medicale (NHRN) - România PZN</value>
   </data>
@@ -591,6 +597,12 @@
   <data name="ai715" xml:space="preserve">
     <value>Numărul Național de Rambursare a Îngrijirilor Medicale (NHRN) - Statele Unite ale Americii NDC</value>
   </data>
+  <data name="ai716" xml:space="preserve">
+    <value>Numărul Național de Rambursare a Îngrijirilor Medicale (NHRN) – Italia AIC</value>
+  </data>
+  <data name="ai717" xml:space="preserve">
+    <value>Numărul Național de Rambursare a Îngrijirilor Medicale (NHRN) – număr de registru sanitar al Costa Ricăi</value>
+  </data>
   <data name="ai723s" xml:space="preserve">
     <value>Referința de certificare</value>
   </data>
@@ -602,6 +614,36 @@
   </data>
   <data name="ai7242" xml:space="preserve">
     <value>Numărul de Control al Versiunii (VCN)</value>
+  </data>
+  <data name="ai7250" xml:space="preserve">
+    <value>Data nașterii</value>
+  </data>
+  <data name="ai7251" xml:space="preserve">
+    <value>Data și ora nașterii</value>
+  </data>
+  <data name="ai7252" xml:space="preserve">
+    <value>Sex biologic</value>
+  </data>
+  <data name="ai7253" xml:space="preserve">
+    <value>Numele de familie al persoanei</value>
+  </data>
+  <data name="ai7254" xml:space="preserve">
+    <value>Prenumele persoanei</value>
+  </data>
+  <data name="ai7255" xml:space="preserve">
+    <value>Sufix al numelui</value>
+  </data>
+  <data name="ai7256" xml:space="preserve">
+    <value>Numele complet al persoanei</value>
+  </data>
+  <data name="ai7257" xml:space="preserve">
+    <value>Adresa persoanei</value>
+  </data>
+  <data name="ai7258" xml:space="preserve">
+    <value>Indicator al ordinii nașterii copilului</value>
+  </data>
+  <data name="ai7259" xml:space="preserve">
+    <value>Copil cu numele de familie</value>
   </data>
   <data name="ai8001" xml:space="preserve">
     <value>Produse pe rolă - lățime, lungime, diametrul miezului, direcție, îmbinări</value>
@@ -641,6 +683,9 @@
   </data>
   <data name="ai8013" xml:space="preserve">
     <value>Numărul Global de Model (GMN)</value>
+  </data>
+  <data name="ai8014" xml:space="preserve">
+    <value>Identificator de înregistrare pentru dispozitiv înalt individualizat (HIDRI)</value>
   </data>
   <data name="ai8017" xml:space="preserve">
     <value>Numărul Global de Relație de Serviciu (GSRN) pentru identificarea relației dintre o organizație care oferă servicii și furnizorul de servicii</value>
@@ -701,5 +746,17 @@
   </data>
   <data name="ai99" xml:space="preserve">
     <value>Informații interne ale companiei</value>
+  </data>
+  <data name="ai8040" xml:space="preserve">
+    <value>Identificator internațional de echipament mobil (IMEI)</value>
+  </data>
+  <data name="ai8041" xml:space="preserve">
+    <value>Identificator internațional de echipament mobil 2 (IMEI2)</value>
+  </data>
+  <data name="ai8042" xml:space="preserve">
+    <value>SIM integrată (eSIM)</value>
+  </data>
+  <data name="ai8043" xml:space="preserve">
+    <value>Cartelă SIM fizică</value>
   </data>
 </root>

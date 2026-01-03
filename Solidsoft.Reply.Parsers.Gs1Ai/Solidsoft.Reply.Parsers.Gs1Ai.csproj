@@ -6,6 +6,7 @@
 	<LangVersion>preview</LangVersion>
 	<ImplicitUsings>enable</ImplicitUsings>
 	<Nullable>enable</Nullable>
+	<PublishReadyToRun>true</PublishReadyToRun>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>GS1 AI Validating Parser</Title>
     <Copyright>© 2018-2025 Solidsoft Reply</Copyright>
@@ -18,11 +19,38 @@
 	<PackageTags>gs1;ai;parser;barcode;datamatrix;qr;code-128</PackageTags>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 	<PackageReleaseNotes>
+		This release contains minor breaking changes as well as new functionality. Please check existing code carefully to ensure that it continues to work as expected after upgrading.
+
 		The following changes were made in this release.
 
-		1) Fixed bugs that caused failures when handling malformed data under certain circumstances.
+		1) Added support for new NHRN (Costa Rica Sanitary Register Number). AI 717 - see GSCN 25-199.
 
-		2) Extended the high-performance zero-allocation (stack-only) model to include .NET Standard 2.0.
+		2) Added support for new GS1 AIs for activation of mobile communication devices onto cellular networks. AIs 8040, 8041, 8042 and 8043 - see GSCN 25-047.
+
+		3) Updated abbreviations for measures to UN ECE Recommendation 20 - see GSCN 25-081.
+
+		4) Fixed an issue concerning detection of elements that are incorrectly terminated with an FNC1 character.
+
+		5) Fixed an issue with enumeration of exceptions when calling ParseEx().
+		
+		6) Improved error handling to provide a more consistent approach to classifying errors as fatal or non-fatal.
+
+		7) Rationalised error and warning numbers. This is a potentially breaking change if existing code relies on specific error number values.
+
+		8) Consistent reporting of positions and offsets in resolved elements and exceptions.
+
+		9) Consistent use of the term 'element' instead of 'entity' to align better with GS1 terminology. NB., this is a breaking change.
+
+		10) Supplied missing translations for all official EU and EFTA languages.
+
+		11) Added support for parsing mulitple element string sequences in a single call to Parse().
+
+		12) Implemented data relationship rules for certain AIs as per GS1 General Specifications.
+
+		13) Added support for parsing data elements represented is GS1 Human-Readable Information (HRI) format.
+
+		14) Provided improved and expanded documentation for parser.
+
 	</PackageReleaseNotes>
     <Description>
 		A comprehensive validating parser for GS1 Application Identifiers (AIs).
@@ -31,12 +59,13 @@
 		--------------
 		$(PackageReleaseNotes)
 	</Description>
-	<Version>1.1.1</Version>
+	<Version>2.0.0</Version>
 	<AssemblyName>$(MSBuildProjectName)</AssemblyName>
     <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
 	<NeutralLanguage>en</NeutralLanguage>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -340,10 +369,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Notices\" />
   </ItemGroup>
 
   <ItemGroup>

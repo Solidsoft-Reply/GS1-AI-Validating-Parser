@@ -3597,16 +3597,16 @@ this.ScenarioInitialize(scenarioInfo);
             await this.ScenarioCleanupAsync();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Parse NET WEIGHT (t)")]
+        [Xunit.SkippableFactAttribute(DisplayName="Parse NET WEIGHT (tr oz)")]
         [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse NET WEIGHT (t)")]
+        [Xunit.TraitAttribute("Description", "Parse NET WEIGHT (tr oz)")]
         [Xunit.TraitAttribute("Category", "N4+N6")]
-        public async System.Threading.Tasks.Task ParseNETWEIGHTT()
+        public async System.Threading.Tasks.Task ParseNETWEIGHTTrOz()
         {
             string[] tagsOfScenario = new string[] {
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse NET WEIGHT (t)", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse NET WEIGHT (tr oz)", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 841
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -3636,7 +3636,7 @@ this.ScenarioInitialize(scenarioInfo);
   await testRunner.AndAsync("the value should be 123456", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 848
-  await testRunner.AndAsync("the data value should be NET WEIGHT (t)", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+  await testRunner.AndAsync("the data value should be NET WEIGHT (tr oz)", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 849
   await testRunner.AndAsync("the description should be Net weight, troy ounces (variable measure trade item)", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
@@ -3706,16 +3706,16 @@ this.ScenarioInitialize(scenarioInfo);
             await this.ScenarioCleanupAsync();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Parse NET VOLUME (q)")]
+        [Xunit.SkippableFactAttribute(DisplayName="Parse NET VOLUME (qt (US))")]
         [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse NET VOLUME (q)")]
+        [Xunit.TraitAttribute("Description", "Parse NET VOLUME (qt (US))")]
         [Xunit.TraitAttribute("Category", "N4+N6")]
-        public async System.Threading.Tasks.Task ParseNETVOLUMEQ()
+        public async System.Threading.Tasks.Task ParseNETVOLUMEQtUS()
         {
             string[] tagsOfScenario = new string[] {
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse NET VOLUME (q)", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse NET VOLUME (qt (US))", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 867
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -3745,7 +3745,7 @@ this.ScenarioInitialize(scenarioInfo);
   await testRunner.AndAsync("the value should be 123456", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 874
-  await testRunner.AndAsync("the data value should be NET VOLUME (q)", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+  await testRunner.AndAsync("the data value should be NET VOLUME (qt (US))", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 875
   await testRunner.AndAsync("the description should be Net volume, quarts (variable measure trade item)", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
@@ -3760,16 +3760,16 @@ this.ScenarioInitialize(scenarioInfo);
             await this.ScenarioCleanupAsync();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Parse NET VOLUME (g)")]
+        [Xunit.SkippableFactAttribute(DisplayName="Parse NET VOLUME (gal (US))")]
         [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse NET VOLUME (g)")]
+        [Xunit.TraitAttribute("Description", "Parse NET VOLUME (gal (US))")]
         [Xunit.TraitAttribute("Category", "N4+N6")]
-        public async System.Threading.Tasks.Task ParseNETVOLUMEG()
+        public async System.Threading.Tasks.Task ParseNETVOLUMEGalUS()
         {
             string[] tagsOfScenario = new string[] {
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse NET VOLUME (g)", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse NET VOLUME (gal (US))", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 880
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -3799,7 +3799,7 @@ this.ScenarioInitialize(scenarioInfo);
   await testRunner.AndAsync("the value should be 123456", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 887
-  await testRunner.AndAsync("the data value should be NET VOLUME (g)", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+  await testRunner.AndAsync("the data value should be NET VOLUME (gal (US))", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 888
   await testRunner.AndAsync("the description should be Net volume, gallons U.S. (variable measure trade item)", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
@@ -3814,16 +3814,16 @@ this.ScenarioInitialize(scenarioInfo);
             await this.ScenarioCleanupAsync();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Parse VOLUME (q), log")]
+        [Xunit.SkippableFactAttribute(DisplayName="Parse VOLUME (qt (US)), log")]
         [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse VOLUME (q), log")]
+        [Xunit.TraitAttribute("Description", "Parse VOLUME (qt (US)), log")]
         [Xunit.TraitAttribute("Category", "N4+N6")]
-        public async System.Threading.Tasks.Task ParseVOLUMEQLog()
+        public async System.Threading.Tasks.Task ParseVOLUMEQtUSLog()
         {
             string[] tagsOfScenario = new string[] {
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse VOLUME (q), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse VOLUME (qt (US)), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 893
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -3853,7 +3853,7 @@ this.ScenarioInitialize(scenarioInfo);
   await testRunner.AndAsync("the value should be 123456", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 900
-  await testRunner.AndAsync("the data value should be VOLUME (q), log", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+  await testRunner.AndAsync("the data value should be VOLUME (qt (US)), log", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 901
   await testRunner.AndAsync("the description should be Logistic volume, quarts", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
@@ -3868,16 +3868,16 @@ this.ScenarioInitialize(scenarioInfo);
             await this.ScenarioCleanupAsync();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Parse VOLUME (g), log")]
+        [Xunit.SkippableFactAttribute(DisplayName="Parse VOLUME (gal (US)), log")]
         [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse VOLUME (g), log")]
+        [Xunit.TraitAttribute("Description", "Parse VOLUME (gal (US)), log")]
         [Xunit.TraitAttribute("Category", "N4+N6")]
-        public async System.Threading.Tasks.Task ParseVOLUMEGLog()
+        public async System.Threading.Tasks.Task ParseVOLUMEGalUSLog()
         {
             string[] tagsOfScenario = new string[] {
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse VOLUME (g), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse VOLUME (gal (US)), log", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 906
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -3907,7 +3907,7 @@ this.ScenarioInitialize(scenarioInfo);
   await testRunner.AndAsync("the value should be 123456", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 913
-  await testRunner.AndAsync("the data value should be VOLUME (g), log", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+  await testRunner.AndAsync("the data value should be VOLUME (gal (US)), log", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 914
   await testRunner.AndAsync("the description should be Logistic volume, gallons U.S.", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
@@ -8720,16 +8720,16 @@ this.ScenarioInitialize(scenarioInfo);
             await this.ScenarioCleanupAsync();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Parse CERT # s")]
+        [Xunit.SkippableFactAttribute(DisplayName="Parse NHRN SRN")]
         [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse CERT # s")]
-        [Xunit.TraitAttribute("Category", "N4+X2+X..28")]
-        public async System.Threading.Tasks.Task ParseCERTS()
+        [Xunit.TraitAttribute("Description", "Parse NHRN SRN")]
+        [Xunit.TraitAttribute("Category", "N3+X..20")]
+        public async System.Threading.Tasks.Task ParseNHRNSRN()
         {
             string[] tagsOfScenario = new string[] {
-                    "N4+X2+X..28"};
+                    "N3+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse CERT # s", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse NHRN SRN", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 2048
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -8741,33 +8741,85 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 2049
- await testRunner.GivenAsync("the input is 7230EMBABT-MED00108", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync("the input is 717052-20220012345", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 2050
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 2051
- await testRunner.ThenAsync("the entity should be 723", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync("the entity should be 717", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 2052
-     await testRunner.AndAsync("the AI should be 7230", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+     await testRunner.AndAsync("the AI should be 717", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 2053
-  await testRunner.AndAsync("the sequence number should be 0", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+  await testRunner.AndAsync("the value should be 052-20220012345", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 2054
-  await testRunner.AndAsync("the value should be EMBABT-MED00108", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+  await testRunner.AndAsync("the data value should be NHRN SRN", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 2055
-  await testRunner.AndAsync("the data value should be CERT # s", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+  await testRunner.AndAsync("the description should be National Healthcare Reimbursement Number (NHRN) – Costa" +
+                        " Rica Sanitary Register Number", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 2056
-  await testRunner.AndAsync("the description should be Certification reference", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2057
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2058
+#line 2057
+  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse CERT # s")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse CERT # s")]
+        [Xunit.TraitAttribute("Category", "N4+X2+X..28")]
+        public async System.Threading.Tasks.Task ParseCERTS()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+X2+X..28"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse CERT # s", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2060
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 2061
+ await testRunner.GivenAsync("the input is 7230EMBABT-MED00108", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 2062
+ await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 2063
+ await testRunner.ThenAsync("the entity should be 723", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 2064
+     await testRunner.AndAsync("the AI should be 7230", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2065
+  await testRunner.AndAsync("the sequence number should be 0", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2066
+  await testRunner.AndAsync("the value should be EMBABT-MED00108", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2067
+  await testRunner.AndAsync("the data value should be CERT # s", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2068
+  await testRunner.AndAsync("the description should be Certification reference", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2069
+  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2070
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -8784,7 +8836,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse PROTOCOL", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2061
+#line 2073
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8794,31 +8846,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2062
+#line 2074
  await testRunner.GivenAsync("the input is 7240CACZ885N2301E2", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2063
+#line 2075
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2064
+#line 2076
  await testRunner.ThenAsync("the entity should be 7240", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2065
+#line 2077
      await testRunner.AndAsync("the AI should be 7240", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2066
+#line 2078
   await testRunner.AndAsync("the value should be CACZ885N2301E2", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2067
+#line 2079
   await testRunner.AndAsync("the data value should be PROTOCOL", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2068
+#line 2080
   await testRunner.AndAsync("the description should be Protocol ID", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2069
+#line 2081
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2070
+#line 2082
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -8835,7 +8887,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N8"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse DOB", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2073
+#line 2085
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8845,31 +8897,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2074
+#line 2086
  await testRunner.GivenAsync("the input is 725020240214", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2075
+#line 2087
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2076
+#line 2088
  await testRunner.ThenAsync("the entity should be 7250", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2077
+#line 2089
      await testRunner.AndAsync("the AI should be 7250", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2078
+#line 2090
   await testRunner.AndAsync("the value should be 20240214", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2079
+#line 2091
   await testRunner.AndAsync("the data value should be DOB", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2080
+#line 2092
   await testRunner.AndAsync("the description should be Date of birth", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2081
+#line 2093
   await testRunner.AndAsync("the length of the value should be fixed", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2082
+#line 2094
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -8886,7 +8938,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N12"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse DOB TIME", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2085
+#line 2097
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8896,31 +8948,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2086
+#line 2098
  await testRunner.GivenAsync("the input is 7251202402141743", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2087
+#line 2099
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2088
+#line 2100
  await testRunner.ThenAsync("the entity should be 7251", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2089
+#line 2101
      await testRunner.AndAsync("the AI should be 7251", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2090
+#line 2102
   await testRunner.AndAsync("the value should be 202402141743", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2091
+#line 2103
   await testRunner.AndAsync("the data value should be DOB TIME", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2092
+#line 2104
   await testRunner.AndAsync("the description should be Date and time of birth", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2093
+#line 2105
   await testRunner.AndAsync("the length of the value should be fixed", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2094
+#line 2106
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -8937,7 +8989,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N1"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse BIO SEX", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2097
+#line 2109
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8947,31 +8999,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2098
+#line 2110
  await testRunner.GivenAsync("the input is 72521", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2099
+#line 2111
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2100
+#line 2112
  await testRunner.ThenAsync("the entity should be 7252", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2101
+#line 2113
      await testRunner.AndAsync("the AI should be 7252", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2102
+#line 2114
   await testRunner.AndAsync("the value should be 1", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2103
+#line 2115
   await testRunner.AndAsync("the data value should be BIO SEX", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2104
+#line 2116
   await testRunner.AndAsync("the description should be Biological sex", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2105
+#line 2117
   await testRunner.AndAsync("the length of the value should be fixed", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2106
+#line 2118
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -8988,7 +9040,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..40"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse FAMILY NAME", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2109
+#line 2121
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -8998,31 +9050,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2110
+#line 2122
  await testRunner.GivenAsync("the input is 7253Doe", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2111
+#line 2123
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2112
+#line 2124
  await testRunner.ThenAsync("the entity should be 7253", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2113
+#line 2125
      await testRunner.AndAsync("the AI should be 7253", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2114
+#line 2126
   await testRunner.AndAsync("the value should be Doe", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2115
+#line 2127
   await testRunner.AndAsync("the data value should be FAMILY NAME", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2116
+#line 2128
   await testRunner.AndAsync("the description should be Family name of person", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2117
+#line 2129
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2118
+#line 2130
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -9039,7 +9091,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..40"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse GIVEN NAME", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2121
+#line 2133
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9049,31 +9101,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2122
+#line 2134
  await testRunner.GivenAsync("the input is 7254John", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2123
+#line 2135
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2124
+#line 2136
  await testRunner.ThenAsync("the entity should be 7254", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2125
+#line 2137
      await testRunner.AndAsync("the AI should be 7254", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2126
+#line 2138
   await testRunner.AndAsync("the value should be John", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2127
+#line 2139
   await testRunner.AndAsync("the data value should be GIVEN NAME", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2128
+#line 2140
   await testRunner.AndAsync("the description should be Given name of person", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2129
+#line 2141
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2130
+#line 2142
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -9090,7 +9142,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..10"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse SUFFIX", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2133
+#line 2145
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9100,31 +9152,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2134
+#line 2146
  await testRunner.GivenAsync("the input is 7255Junior", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2135
+#line 2147
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2136
+#line 2148
  await testRunner.ThenAsync("the entity should be 7255", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2137
+#line 2149
      await testRunner.AndAsync("the AI should be 7255", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2138
+#line 2150
   await testRunner.AndAsync("the value should be Junior", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2139
+#line 2151
   await testRunner.AndAsync("the data value should be SUFFIX", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2140
+#line 2152
   await testRunner.AndAsync("the description should be Name suffix of person", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2141
+#line 2153
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2142
+#line 2154
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -9141,7 +9193,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..90"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse FULL NAME", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2145
+#line 2157
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9151,31 +9203,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2146
+#line 2158
  await testRunner.GivenAsync("the input is 7256Doe,John,Junior", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2147
+#line 2159
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2148
+#line 2160
  await testRunner.ThenAsync("the entity should be 7256", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2149
+#line 2161
      await testRunner.AndAsync("the AI should be 7256", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2150
+#line 2162
   await testRunner.AndAsync("the value should be Doe,John,Junior", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2151
+#line 2163
   await testRunner.AndAsync("the data value should be FULL NAME", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2152
+#line 2164
   await testRunner.AndAsync("the description should be Full name of person", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2153
+#line 2165
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2154
+#line 2166
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -9192,7 +9244,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse PERSON ADDR", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2157
+#line 2169
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9202,31 +9254,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2158
+#line 2170
  await testRunner.GivenAsync("the input is 7257123+Main+St,+Anytown,+Anyregion,+12345", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2159
+#line 2171
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2160
+#line 2172
  await testRunner.ThenAsync("the entity should be 7257", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2161
+#line 2173
      await testRunner.AndAsync("the AI should be 7257", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2162
+#line 2174
   await testRunner.AndAsync("the value should be 123+Main+St,+Anytown,+Anyregion,+12345", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2163
+#line 2175
   await testRunner.AndAsync("the data value should be PERSON ADDR", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2164
+#line 2176
   await testRunner.AndAsync("the description should be Address of person", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2165
+#line 2177
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2166
+#line 2178
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -9243,7 +9295,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N1+X1+N1"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse BIRTH SEQUENCE", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2169
+#line 2181
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9253,31 +9305,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2170
+#line 2182
  await testRunner.GivenAsync("the input is 72582/3", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2171
+#line 2183
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2172
+#line 2184
  await testRunner.ThenAsync("the entity should be 7258", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2173
+#line 2185
      await testRunner.AndAsync("the AI should be 7258", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2174
+#line 2186
   await testRunner.AndAsync("the value should be 2/3", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2175
+#line 2187
   await testRunner.AndAsync("the data value should be BIRTH SEQUENCE", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2176
+#line 2188
   await testRunner.AndAsync("the description should be Baby birth sequence indicator", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2177
+#line 2189
   await testRunner.AndAsync("the length of the value should be fixed", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2178
+#line 2190
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -9294,7 +9346,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..40"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse BABY", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2181
+#line 2193
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9304,31 +9356,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2182
+#line 2194
  await testRunner.GivenAsync("the input is 7259Alice+Betty", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2183
+#line 2195
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2184
+#line 2196
  await testRunner.ThenAsync("the entity should be 7259", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2185
+#line 2197
      await testRunner.AndAsync("the AI should be 7259", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2186
+#line 2198
   await testRunner.AndAsync("the value should be Alice+Betty", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2187
+#line 2199
   await testRunner.AndAsync("the data value should be BABY", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2188
+#line 2200
   await testRunner.AndAsync("the description should be Baby of family name", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2189
+#line 2201
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2190
+#line 2202
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -9345,7 +9397,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N2"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse AIDC MEDIA TYPE", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2193
+#line 2205
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9355,31 +9407,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2194
+#line 2206
  await testRunner.GivenAsync("the input is 724105", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2195
+#line 2207
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2196
+#line 2208
  await testRunner.ThenAsync("the entity should be 7241", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2197
+#line 2209
      await testRunner.AndAsync("the AI should be 7241", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2198
+#line 2210
   await testRunner.AndAsync("the value should be 05", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2199
+#line 2211
   await testRunner.AndAsync("the data value should be AIDC MEDIA TYPE", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2200
+#line 2212
   await testRunner.AndAsync("the description should be AIDC media type", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2201
+#line 2213
   await testRunner.AndAsync("the length of the value should be fixed", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2202
+#line 2214
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -9396,7 +9448,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..25"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse VCN", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2205
+#line 2217
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9406,31 +9458,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2206
+#line 2218
  await testRunner.GivenAsync("the input is 7242094672AG22L44", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2207
+#line 2219
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2208
+#line 2220
  await testRunner.ThenAsync("the entity should be 7242", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2209
+#line 2221
      await testRunner.AndAsync("the AI should be 7242", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2210
+#line 2222
   await testRunner.AndAsync("the value should be 094672AG22L44", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2211
+#line 2223
   await testRunner.AndAsync("the data value should be VCN", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2212
+#line 2224
   await testRunner.AndAsync("the description should be Version Control Number (VCN)", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2213
+#line 2225
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2214
+#line 2226
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -9447,7 +9499,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N14"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse DIMENSIONS", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2217
+#line 2229
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9457,32 +9509,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2218
+#line 2230
  await testRunner.GivenAsync("the input is 800115000003056000", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2219
+#line 2231
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2220
+#line 2232
  await testRunner.ThenAsync("the entity should be 8001", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2221
+#line 2233
      await testRunner.AndAsync("the AI should be 8001", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2222
+#line 2234
   await testRunner.AndAsync("the value should be 15000003056000", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2223
+#line 2235
   await testRunner.AndAsync("the data value should be DIMENSIONS", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2224
+#line 2236
   await testRunner.AndAsync("the description should be Roll products - width, length, core diameter, direction" +
                         ", splices", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2225
+#line 2237
   await testRunner.AndAsync("the length of the value should be fixed", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2226
+#line 2238
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -9499,7 +9551,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse CMT No.", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2229
+#line 2241
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9509,31 +9561,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2230
+#line 2242
  await testRunner.GivenAsync("the input is 8002RF1DB6K177Y", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2231
+#line 2243
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2232
+#line 2244
  await testRunner.ThenAsync("the entity should be 8002", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2233
+#line 2245
      await testRunner.AndAsync("the AI should be 8002", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2234
+#line 2246
   await testRunner.AndAsync("the value should be RF1DB6K177Y", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2235
+#line 2247
   await testRunner.AndAsync("the data value should be CMT No.", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2236
+#line 2248
   await testRunner.AndAsync("the description should be Cellular mobile telephone identifier", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2237
+#line 2249
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2238
+#line 2250
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -9550,7 +9602,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N14[+X..16]"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse GRAI", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2241
+#line 2253
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9560,31 +9612,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2242
+#line 2254
  await testRunner.GivenAsync("the input is 80030506091751000434B1UL09036", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2243
+#line 2255
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2244
+#line 2256
  await testRunner.ThenAsync("the entity should be 8003", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2245
+#line 2257
      await testRunner.AndAsync("the AI should be 8003", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2246
+#line 2258
   await testRunner.AndAsync("the value should be 0506091751000434B1UL09036", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2247
+#line 2259
   await testRunner.AndAsync("the data value should be GRAI", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2248
+#line 2260
   await testRunner.AndAsync("the description should be Global Returnable Asset Identifier (GRAI)", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2249
+#line 2261
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2250
+#line 2262
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -9601,7 +9653,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..30"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse GIAI", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2253
+#line 2265
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9611,31 +9663,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2254
+#line 2266
  await testRunner.GivenAsync("the input is 80045060917ASSET+0001", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2255
+#line 2267
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2256
+#line 2268
  await testRunner.ThenAsync("the entity should be 8004", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2257
+#line 2269
      await testRunner.AndAsync("the AI should be 8004", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2258
+#line 2270
   await testRunner.AndAsync("the value should be 5060917ASSET+0001", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2259
+#line 2271
   await testRunner.AndAsync("the data value should be GIAI", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2260
+#line 2272
   await testRunner.AndAsync("the description should be Global Individual Asset Identifier (GIAI)", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2261
+#line 2273
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2262
+#line 2274
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -9652,7 +9704,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N6"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse PRICE PER UNIT", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2265
+#line 2277
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9662,31 +9714,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2266
+#line 2278
  await testRunner.GivenAsync("the input is 8005000150", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2267
+#line 2279
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2268
+#line 2280
  await testRunner.ThenAsync("the entity should be 8005", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2269
+#line 2281
      await testRunner.AndAsync("the AI should be 8005", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2270
+#line 2282
   await testRunner.AndAsync("the value should be 000150", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2271
+#line 2283
   await testRunner.AndAsync("the data value should be PRICE PER UNIT", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2272
+#line 2284
   await testRunner.AndAsync("the description should be Price per unit of measure", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2273
+#line 2285
   await testRunner.AndAsync("the length of the value should be fixed", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2274
+#line 2286
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -9703,7 +9755,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N14+N2+N2"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse ITIP", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2277
+#line 2289
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9713,32 +9765,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2278
+#line 2290
  await testRunner.GivenAsync("the input is 8006050609175100040102", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2279
+#line 2291
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2280
+#line 2292
  await testRunner.ThenAsync("the entity should be 8006", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2281
+#line 2293
      await testRunner.AndAsync("the AI should be 8006", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2282
+#line 2294
   await testRunner.AndAsync("the value should be 050609175100040102", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2283
+#line 2295
   await testRunner.AndAsync("the data value should be ITIP", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2284
+#line 2296
   await testRunner.AndAsync("the description should be Identification of an individual trade item (ITIP) piece" +
                         "", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2285
+#line 2297
   await testRunner.AndAsync("the length of the value should be fixed", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2286
+#line 2298
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -9755,7 +9807,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..34"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse IBAN", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2289
+#line 2301
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9765,31 +9817,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2290
+#line 2302
  await testRunner.GivenAsync("the input is 8007GB82WEST12345698765432", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2291
+#line 2303
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2292
+#line 2304
  await testRunner.ThenAsync("the entity should be 8007", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2293
+#line 2305
      await testRunner.AndAsync("the AI should be 8007", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2294
+#line 2306
   await testRunner.AndAsync("the value should be GB82WEST12345698765432", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2295
+#line 2307
   await testRunner.AndAsync("the data value should be IBAN", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2296
+#line 2308
   await testRunner.AndAsync("the description should be International Bank Account Number (IBAN)", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2297
+#line 2309
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2298
+#line 2310
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -9806,7 +9858,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N8[+N..4]"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse PROD TIME", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2301
+#line 2313
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9816,31 +9868,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2302
+#line 2314
  await testRunner.GivenAsync("the input is 8008231231142652", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2303
+#line 2315
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2304
+#line 2316
  await testRunner.ThenAsync("the entity should be 8008", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2305
+#line 2317
      await testRunner.AndAsync("the AI should be 8008", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2306
+#line 2318
   await testRunner.AndAsync("the value should be 231231142652", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2307
+#line 2319
   await testRunner.AndAsync("the data value should be PROD TIME", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2308
+#line 2320
   await testRunner.AndAsync("the description should be Date and time of production", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2309
+#line 2321
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2310
+#line 2322
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -9857,7 +9909,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..50"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse OPTSEN", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2313
+#line 2325
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9867,31 +9919,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2314
+#line 2326
  await testRunner.GivenAsync("the input is 800901190531", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2315
+#line 2327
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2316
+#line 2328
  await testRunner.ThenAsync("the entity should be 8009", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2317
+#line 2329
      await testRunner.AndAsync("the AI should be 8009", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2318
+#line 2330
   await testRunner.AndAsync("the value should be 01190531", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2319
+#line 2331
   await testRunner.AndAsync("the data value should be OPTSEN", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2320
+#line 2332
   await testRunner.AndAsync("the description should be Optically readable sensor indicator", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2321
+#line 2333
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2322
+#line 2334
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -9908,7 +9960,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+Y..30"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse CPID", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2325
+#line 2337
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9918,31 +9970,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2326
+#line 2338
  await testRunner.GivenAsync("the input is 8010506091751DR4529P327", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2327
+#line 2339
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2328
+#line 2340
  await testRunner.ThenAsync("the entity should be 8010", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2329
+#line 2341
      await testRunner.AndAsync("the AI should be 8010", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2330
+#line 2342
   await testRunner.AndAsync("the value should be 506091751DR4529P327", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2331
+#line 2343
   await testRunner.AndAsync("the data value should be CPID", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2332
+#line 2344
   await testRunner.AndAsync("the description should be Component/Part Identifier (CPID)", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2333
+#line 2345
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2334
+#line 2346
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -9959,7 +10011,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N..12"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse CPID SERIAL", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2337
+#line 2349
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -9969,31 +10021,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2338
+#line 2350
  await testRunner.GivenAsync("the input is 8011422393761701", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2339
+#line 2351
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2340
+#line 2352
  await testRunner.ThenAsync("the entity should be 8011", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2341
+#line 2353
      await testRunner.AndAsync("the AI should be 8011", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2342
+#line 2354
   await testRunner.AndAsync("the value should be 422393761701", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2343
+#line 2355
   await testRunner.AndAsync("the data value should be CPID SERIAL", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2344
+#line 2356
   await testRunner.AndAsync("the description should be Component/Part Identifier serial number", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2345
+#line 2357
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2346
+#line 2358
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -10010,7 +10062,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..20"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse VERSION", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2349
+#line 2361
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10020,31 +10072,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2350
+#line 2362
  await testRunner.GivenAsync("the input is 801215.0.4701.1001", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2351
+#line 2363
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2352
+#line 2364
  await testRunner.ThenAsync("the entity should be 8012", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2353
+#line 2365
      await testRunner.AndAsync("the AI should be 8012", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2354
+#line 2366
   await testRunner.AndAsync("the value should be 15.0.4701.1001", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2355
+#line 2367
   await testRunner.AndAsync("the data value should be VERSION", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2356
+#line 2368
   await testRunner.AndAsync("the description should be Software version", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2357
+#line 2369
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2358
+#line 2370
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -10061,7 +10113,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..25"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse GMN", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2361
+#line 2373
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10071,31 +10123,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2362
+#line 2374
  await testRunner.GivenAsync("the input is 80131987654Ad4X4bL5ttr2310c2K", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2363
+#line 2375
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2364
+#line 2376
  await testRunner.ThenAsync("the entity should be 8013", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2365
+#line 2377
      await testRunner.AndAsync("the AI should be 8013", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2366
+#line 2378
   await testRunner.AndAsync("the value should be 1987654Ad4X4bL5ttr2310c2K", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2367
+#line 2379
   await testRunner.AndAsync("the data value should be GMN", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2368
+#line 2380
   await testRunner.AndAsync("the description should be Global Model Number (GMN)", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2369
+#line 2381
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2370
+#line 2382
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -10112,7 +10164,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..25"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse MUDI", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2373
+#line 2385
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10122,32 +10174,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2374
+#line 2386
  await testRunner.GivenAsync("the input is 80141987654Ad4X4bL5ttr2310c2K", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2375
+#line 2387
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2376
+#line 2388
  await testRunner.ThenAsync("the entity should be 8014", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2377
+#line 2389
      await testRunner.AndAsync("the AI should be 8014", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2378
+#line 2390
   await testRunner.AndAsync("the value should be 1987654Ad4X4bL5ttr2310c2K", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2379
+#line 2391
   await testRunner.AndAsync("the data value should be MUDI", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2380
+#line 2392
   await testRunner.AndAsync("the description should be Highly Individualised Device Registration Identifier (H" +
                         "IDRI)", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2381
+#line 2393
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2382
+#line 2394
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -10164,7 +10216,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N18"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse GSRN - PROVIDER", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2385
+#line 2397
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10174,33 +10226,33 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2386
+#line 2398
  await testRunner.GivenAsync("the input is 8017506091751000315180", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2387
+#line 2399
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2388
+#line 2400
  await testRunner.ThenAsync("the entity should be 8017", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2389
+#line 2401
      await testRunner.AndAsync("the AI should be 8017", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2390
+#line 2402
   await testRunner.AndAsync("the value should be 506091751000315180", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2391
+#line 2403
   await testRunner.AndAsync("the data value should be GSRN - PROVIDER", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2392
+#line 2404
   await testRunner.AndAsync("the description should be Global Service Relation Number (GSRN) to identify the r" +
                         "elationship between an organisation offering services and the provider of servic" +
                         "es", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2393
+#line 2405
   await testRunner.AndAsync("the length of the value should be fixed", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2394
+#line 2406
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -10217,7 +10269,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N18"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse GSRN - RECIPIENT", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2397
+#line 2409
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10227,33 +10279,33 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2398
+#line 2410
  await testRunner.GivenAsync("the input is 8018506091751000315180", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2399
+#line 2411
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2400
+#line 2412
  await testRunner.ThenAsync("the entity should be 8018", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2401
+#line 2413
      await testRunner.AndAsync("the AI should be 8018", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2402
+#line 2414
   await testRunner.AndAsync("the value should be 506091751000315180", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2403
+#line 2415
   await testRunner.AndAsync("the data value should be GSRN - RECIPIENT", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2404
+#line 2416
   await testRunner.AndAsync("the description should be Global Service Relation Number (GSRN) to identify the r" +
                         "elationship between an organisation offering services and the recipient of servi" +
                         "ces", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2405
+#line 2417
   await testRunner.AndAsync("the length of the value should be fixed", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2406
+#line 2418
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -10270,7 +10322,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N..10"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse SRIN", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2409
+#line 2421
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10280,31 +10332,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2410
+#line 2422
  await testRunner.GivenAsync("the input is 801900499427", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2411
+#line 2423
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2412
+#line 2424
  await testRunner.ThenAsync("the entity should be 8019", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2413
+#line 2425
      await testRunner.AndAsync("the AI should be 8019", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2414
+#line 2426
   await testRunner.AndAsync("the value should be 00499427", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2415
+#line 2427
   await testRunner.AndAsync("the data value should be SRIN", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2416
+#line 2428
   await testRunner.AndAsync("the description should be Service Relation Instance Number (SRIN)", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2417
+#line 2429
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2418
+#line 2430
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -10321,7 +10373,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..25"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse REF No.", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2421
+#line 2433
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10331,31 +10383,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2422
+#line 2434
  await testRunner.GivenAsync("the input is 8020000B231297726310000", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2423
+#line 2435
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2424
+#line 2436
  await testRunner.ThenAsync("the entity should be 8020", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2425
+#line 2437
      await testRunner.AndAsync("the AI should be 8020", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2426
+#line 2438
   await testRunner.AndAsync("the value should be 000B231297726310000", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2427
+#line 2439
   await testRunner.AndAsync("the data value should be REF No.", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2428
+#line 2440
   await testRunner.AndAsync("the description should be Payment slip reference number", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2429
+#line 2441
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2430
+#line 2442
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -10372,7 +10424,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+N14+N2+N2"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse ITIP CONTENT", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2433
+#line 2445
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10382,32 +10434,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2434
+#line 2446
  await testRunner.GivenAsync("the input is 8026050609175100040102", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2435
+#line 2447
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2436
+#line 2448
  await testRunner.ThenAsync("the entity should be 8026", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2437
+#line 2449
      await testRunner.AndAsync("the AI should be 8026", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2438
+#line 2450
   await testRunner.AndAsync("the value should be 050609175100040102", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2439
+#line 2451
   await testRunner.AndAsync("the data value should be ITIP CONTENT", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2440
+#line 2452
   await testRunner.AndAsync("the description should be Identification of pieces of a trade item (ITIP) contain" +
                         "ed in a logistic unit", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2441
+#line 2453
   await testRunner.AndAsync("the length of the value should be fixed", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2442
+#line 2454
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -10424,7 +10476,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+Z..90"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse DIGSIG", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2445
+#line 2457
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10434,33 +10486,237 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2446
+#line 2458
  await testRunner.GivenAsync("the input is 80304170331922217434118608698152571122942338540538607194206986432366" +
                         "5892369845781264435120798=", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2447
+#line 2459
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2448
+#line 2460
  await testRunner.ThenAsync("the entity should be 8030", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2449
+#line 2461
      await testRunner.AndAsync("the AI should be 8030", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2450
+#line 2462
   await testRunner.AndAsync("the value should be 4170331922217434118608698152571122942338540538607194206986432" +
                         "3665892369845781264435120798=", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2451
+#line 2463
   await testRunner.AndAsync("the data value should be DIGSIG", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2452
+#line 2464
   await testRunner.AndAsync("the description should be Digital Signature (DigSig)", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2453
+#line 2465
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2454
+#line 2466
+  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse IMEI")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse IMEI")]
+        [Xunit.TraitAttribute("Category", "N4+N15")]
+        public async System.Threading.Tasks.Task ParseIMEI()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+N15"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse IMEI", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2469
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 2470
+ await testRunner.GivenAsync("the input is 8040490154203237518", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 2471
+ await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 2472
+ await testRunner.ThenAsync("the entity should be 8040", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 2473
+     await testRunner.AndAsync("the AI should be 8040", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2474
+  await testRunner.AndAsync("the value should be 490154203237518", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2475
+  await testRunner.AndAsync("the data value should be IMEI", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2476
+  await testRunner.AndAsync("the description should be International Mobile Equipment Identity (IMEI)", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2477
+  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2478
+  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse IMEI2")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse IMEI2")]
+        [Xunit.TraitAttribute("Category", "N4+N15")]
+        public async System.Threading.Tasks.Task ParseIMEI2()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+N15"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse IMEI2", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2481
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 2482
+ await testRunner.GivenAsync("the input is 8041356938035643809", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 2483
+ await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 2484
+ await testRunner.ThenAsync("the entity should be 8041", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 2485
+     await testRunner.AndAsync("the AI should be 8041", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2486
+  await testRunner.AndAsync("the value should be 356938035643809", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2487
+  await testRunner.AndAsync("the data value should be IMEI2", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2488
+  await testRunner.AndAsync("the description should be International Mobile Equipment Identity 2 (IMEI2)", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2489
+  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2490
+  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse ESIM")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse ESIM")]
+        [Xunit.TraitAttribute("Category", "N4+N32")]
+        public async System.Threading.Tasks.Task ParseESIM()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+N32"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse ESIM", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2493
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 2494
+ await testRunner.GivenAsync("the input is 804289033023456789012345678901234567", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 2495
+ await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 2496
+ await testRunner.ThenAsync("the entity should be 8042", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 2497
+     await testRunner.AndAsync("the AI should be 8042", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2498
+  await testRunner.AndAsync("the value should be 89033023456789012345678901234567", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2499
+  await testRunner.AndAsync("the data value should be ESIM", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2500
+  await testRunner.AndAsync("the description should be Embedded SIM", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2501
+  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2502
+  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse PSIM")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse PSIM")]
+        [Xunit.TraitAttribute("Category", "N4+N18+[N1..N2]")]
+        public async System.Threading.Tasks.Task ParsePSIM()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+N18+[N1..N2]"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse PSIM", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2505
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 2506
+ await testRunner.GivenAsync("the input is 80438944500101234567890", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 2507
+ await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 2508
+ await testRunner.ThenAsync("the entity should be 8043", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 2509
+     await testRunner.AndAsync("the AI should be 8043", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2510
+  await testRunner.AndAsync("the value should be 8944500101234567890", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2511
+  await testRunner.AndAsync("the data value should be PSIM", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2512
+  await testRunner.AndAsync("the description should be Physical SIM", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2513
+  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2514
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -10477,261 +10733,6 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse COUPON 1a", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2457
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 2458
- await testRunner.GivenAsync("the input is 8110106141416543213500110000310123196000", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 2459
- await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 2460
- await testRunner.ThenAsync("the entity should be 8110", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-#line 2461
-     await testRunner.AndAsync("the AI should be 8110", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2462
-  await testRunner.AndAsync("the value should be 106141416543213500110000310123196000", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2463
-  await testRunner.AndAsync("the data value should be -", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2464
-  await testRunner.AndAsync("the description should be Coupon code identification for use in North America", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2465
-  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2466
-  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Parse COUPON 1b")]
-        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse COUPON 1b")]
-        [Xunit.TraitAttribute("Category", "N4+X..70")]
-        public async System.Threading.Tasks.Task ParseCOUPON1B()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "N4+X..70"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse COUPON 1b", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2469
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 2470
- await testRunner.GivenAsync("the input is 81101061414165432131501101201211014092110256100126663101231", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 2471
- await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 2472
- await testRunner.ThenAsync("the entity should be 8110", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-#line 2473
-     await testRunner.AndAsync("the AI should be 8110", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2474
-  await testRunner.AndAsync("the value should be 1061414165432131501101201211014092110256100126663101231", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2475
-  await testRunner.AndAsync("the data value should be -", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2476
-  await testRunner.AndAsync("the description should be Coupon code identification for use in North America", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2477
-  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2478
-  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Parse COUPON 1c")]
-        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse COUPON 1c")]
-        [Xunit.TraitAttribute("Category", "N4+X..70")]
-        public async System.Threading.Tasks.Task ParseCOUPON1C()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "N4+X..70"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse COUPON 1c", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2481
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 2482
- await testRunner.GivenAsync("the input is 8110106141410012342501106501013085093101231", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 2483
- await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 2484
- await testRunner.ThenAsync("the entity should be 8110", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-#line 2485
-     await testRunner.AndAsync("the AI should be 8110", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2486
-  await testRunner.AndAsync("the value should be 106141410012342501106501013085093101231", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2487
-  await testRunner.AndAsync("the data value should be -", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2488
-  await testRunner.AndAsync("the description should be Coupon code identification for use in North America", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2489
-  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2490
-  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Parse COUPON 1d")]
-        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse COUPON 1d")]
-        [Xunit.TraitAttribute("Category", "N4+X..70")]
-        public async System.Threading.Tasks.Task ParseCOUPON1D()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "N4+X..70"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse COUPON 1d", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2493
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 2494
- await testRunner.GivenAsync("the input is 8110106141410012471011076011110850921108609310123191000", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 2495
- await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 2496
- await testRunner.ThenAsync("the entity should be 8110", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-#line 2497
-     await testRunner.AndAsync("the AI should be 8110", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2498
-  await testRunner.AndAsync("the value should be 106141410012471011076011110850921108609310123191000", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2499
-  await testRunner.AndAsync("the data value should be -", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2500
-  await testRunner.AndAsync("the description should be Coupon code identification for use in North America", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2501
-  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2502
-  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Parse COUPON 1e")]
-        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse COUPON 1e")]
-        [Xunit.TraitAttribute("Category", "N4+X..70")]
-        public async System.Threading.Tasks.Task ParseCOUPON1E()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "N4+X..70"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse COUPON 1e", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2505
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 2506
- await testRunner.GivenAsync("the input is 81101061414154321031501101201211014092110256100126663101231", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 2507
- await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 2508
- await testRunner.ThenAsync("the entity should be 8110", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-#line 2509
-     await testRunner.AndAsync("the AI should be 8110", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2510
-  await testRunner.AndAsync("the value should be 1061414154321031501101201211014092110256100126663101231", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2511
-  await testRunner.AndAsync("the data value should be -", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2512
-  await testRunner.AndAsync("the description should be Coupon code identification for use in North America", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2513
-  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2514
-  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Parse COUPON 1f")]
-        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse COUPON 1f")]
-        [Xunit.TraitAttribute("Category", "N4+X..70")]
-        public async System.Threading.Tasks.Task ParseCOUPON1F()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "N4+X..70"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse COUPON 1f", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 2517
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -10773,16 +10774,16 @@ this.ScenarioInitialize(scenarioInfo);
             await this.ScenarioCleanupAsync();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Parse POINTS")]
+        [Xunit.SkippableFactAttribute(DisplayName="Parse COUPON 1b")]
         [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse POINTS")]
-        [Xunit.TraitAttribute("Category", "N4+N4")]
-        public async System.Threading.Tasks.Task ParsePOINTS()
+        [Xunit.TraitAttribute("Description", "Parse COUPON 1b")]
+        [Xunit.TraitAttribute("Category", "N4+X..70")]
+        public async System.Threading.Tasks.Task ParseCOUPON1B()
         {
             string[] tagsOfScenario = new string[] {
-                    "N4+N4"};
+                    "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse POINTS", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse COUPON 1b", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 2529
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -10794,30 +10795,285 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 2530
- await testRunner.GivenAsync("the input is 81110310", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync("the input is 81101061414165432131501101201211014092110256100126663101231", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 2531
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 2532
- await testRunner.ThenAsync("the entity should be 8111", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync("the entity should be 8110", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 2533
-     await testRunner.AndAsync("the AI should be 8111", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+     await testRunner.AndAsync("the AI should be 8110", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 2534
-  await testRunner.AndAsync("the value should be 0310", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+  await testRunner.AndAsync("the value should be 1061414165432131501101201211014092110256100126663101231", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 2535
-  await testRunner.AndAsync("the data value should be POINTS", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+  await testRunner.AndAsync("the data value should be -", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 2536
-  await testRunner.AndAsync("the description should be Loyalty points of a coupon", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+  await testRunner.AndAsync("the description should be Coupon code identification for use in North America", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 2537
-  await testRunner.AndAsync("the length of the value should be fixed", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 2538
+  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse COUPON 1c")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse COUPON 1c")]
+        [Xunit.TraitAttribute("Category", "N4+X..70")]
+        public async System.Threading.Tasks.Task ParseCOUPON1C()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+X..70"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse COUPON 1c", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2541
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 2542
+ await testRunner.GivenAsync("the input is 8110106141410012342501106501013085093101231", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 2543
+ await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 2544
+ await testRunner.ThenAsync("the entity should be 8110", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 2545
+     await testRunner.AndAsync("the AI should be 8110", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2546
+  await testRunner.AndAsync("the value should be 106141410012342501106501013085093101231", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2547
+  await testRunner.AndAsync("the data value should be -", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2548
+  await testRunner.AndAsync("the description should be Coupon code identification for use in North America", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2549
+  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2550
+  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse COUPON 1d")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse COUPON 1d")]
+        [Xunit.TraitAttribute("Category", "N4+X..70")]
+        public async System.Threading.Tasks.Task ParseCOUPON1D()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+X..70"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse COUPON 1d", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2553
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 2554
+ await testRunner.GivenAsync("the input is 8110106141410012471011076011110850921108609310123191000", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 2555
+ await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 2556
+ await testRunner.ThenAsync("the entity should be 8110", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 2557
+     await testRunner.AndAsync("the AI should be 8110", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2558
+  await testRunner.AndAsync("the value should be 106141410012471011076011110850921108609310123191000", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2559
+  await testRunner.AndAsync("the data value should be -", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2560
+  await testRunner.AndAsync("the description should be Coupon code identification for use in North America", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2561
+  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2562
+  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse COUPON 1e")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse COUPON 1e")]
+        [Xunit.TraitAttribute("Category", "N4+X..70")]
+        public async System.Threading.Tasks.Task ParseCOUPON1E()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+X..70"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse COUPON 1e", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2565
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 2566
+ await testRunner.GivenAsync("the input is 81101061414154321031501101201211014092110256100126663101231", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 2567
+ await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 2568
+ await testRunner.ThenAsync("the entity should be 8110", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 2569
+     await testRunner.AndAsync("the AI should be 8110", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2570
+  await testRunner.AndAsync("the value should be 1061414154321031501101201211014092110256100126663101231", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2571
+  await testRunner.AndAsync("the data value should be -", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2572
+  await testRunner.AndAsync("the description should be Coupon code identification for use in North America", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2573
+  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2574
+  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse COUPON 1f")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse COUPON 1f")]
+        [Xunit.TraitAttribute("Category", "N4+X..70")]
+        public async System.Threading.Tasks.Task ParseCOUPON1F()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+X..70"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse COUPON 1f", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2577
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 2578
+ await testRunner.GivenAsync("the input is 8110106141416543213500110000310123196000", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 2579
+ await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 2580
+ await testRunner.ThenAsync("the entity should be 8110", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 2581
+     await testRunner.AndAsync("the AI should be 8110", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2582
+  await testRunner.AndAsync("the value should be 106141416543213500110000310123196000", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2583
+  await testRunner.AndAsync("the data value should be -", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2584
+  await testRunner.AndAsync("the description should be Coupon code identification for use in North America", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2585
+  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2586
+  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse POINTS")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse POINTS")]
+        [Xunit.TraitAttribute("Category", "N4+N4")]
+        public async System.Threading.Tasks.Task ParsePOINTS()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N4+N4"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse POINTS", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2589
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 2590
+ await testRunner.GivenAsync("the input is 81110310", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 2591
+ await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 2592
+ await testRunner.ThenAsync("the entity should be 8111", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 2593
+     await testRunner.AndAsync("the AI should be 8111", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2594
+  await testRunner.AndAsync("the value should be 0310", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2595
+  await testRunner.AndAsync("the data value should be POINTS", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2596
+  await testRunner.AndAsync("the description should be Loyalty points of a coupon", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2597
+  await testRunner.AndAsync("the length of the value should be fixed", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2598
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -10834,7 +11090,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse COUPON 2", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2541
+#line 2601
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10844,32 +11100,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2542
+#line 2602
  await testRunner.GivenAsync("the input is 8112106141416543213500110000310123196000", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2543
+#line 2603
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2544
+#line 2604
  await testRunner.ThenAsync("the entity should be 8112", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2545
+#line 2605
      await testRunner.AndAsync("the AI should be 8112", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2546
+#line 2606
   await testRunner.AndAsync("the value should be 106141416543213500110000310123196000", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2547
+#line 2607
   await testRunner.AndAsync("the data value should be -", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2548
+#line 2608
   await testRunner.AndAsync("the description should be Positive offer file coupon code identification for use " +
                         "in North America", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2549
+#line 2609
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2550
+#line 2610
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -10886,7 +11142,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N4+X..70"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse PRODUCT URL", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2553
+#line 2613
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10896,31 +11152,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2554
+#line 2614
  await testRunner.GivenAsync("the input is 8200https://acme.com/", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2555
+#line 2615
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2556
+#line 2616
  await testRunner.ThenAsync("the entity should be 8200", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2557
+#line 2617
      await testRunner.AndAsync("the AI should be 8200", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2558
+#line 2618
   await testRunner.AndAsync("the value should be https://acme.com/", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2559
+#line 2619
   await testRunner.AndAsync("the data value should be PRODUCT URL", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2560
+#line 2620
   await testRunner.AndAsync("the description should be Extended packaging URL", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2561
+#line 2621
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2562
+#line 2622
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -10937,7 +11193,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+X..30"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse INTERNAL 90", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2565
+#line 2625
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -10947,31 +11203,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 2566
+#line 2626
  await testRunner.GivenAsync("the input is 90Some+information+1234", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 2567
+#line 2627
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 2568
+#line 2628
  await testRunner.ThenAsync("the entity should be 90", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 2569
+#line 2629
      await testRunner.AndAsync("the AI should be 90", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2570
+#line 2630
   await testRunner.AndAsync("the value should be Some+information+1234", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2571
+#line 2631
   await testRunner.AndAsync("the data value should be INTERNAL", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2572
+#line 2632
   await testRunner.AndAsync("the description should be Information mutually agreed between trading partners", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2573
+#line 2633
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 2574
+#line 2634
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -10988,266 +11244,6 @@ this.ScenarioInitialize(scenarioInfo);
                     "N2+X..90"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse INTERNAL 91", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2577
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 2578
- await testRunner.GivenAsync("the input is 91The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 2579
- await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 2580
- await testRunner.ThenAsync("the entity should be 91", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-#line 2581
-     await testRunner.AndAsync("the AI should be 91", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2582
-  await testRunner.AndAsync("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
-                        "90", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2583
-  await testRunner.AndAsync("the data value should be INTERNAL", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2584
-  await testRunner.AndAsync("the description should be Company internal information", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2585
-  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2586
-  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Parse INTERNAL 92")]
-        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse INTERNAL 92")]
-        [Xunit.TraitAttribute("Category", "N2+X..90")]
-        public async System.Threading.Tasks.Task ParseINTERNAL92()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "N2+X..90"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse INTERNAL 92", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2589
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 2590
- await testRunner.GivenAsync("the input is 92The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 2591
- await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 2592
- await testRunner.ThenAsync("the entity should be 92", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-#line 2593
-     await testRunner.AndAsync("the AI should be 92", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2594
-  await testRunner.AndAsync("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
-                        "90", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2595
-  await testRunner.AndAsync("the data value should be INTERNAL", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2596
-  await testRunner.AndAsync("the description should be Company internal information", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2597
-  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2598
-  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Parse INTERNAL 93")]
-        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse INTERNAL 93")]
-        [Xunit.TraitAttribute("Category", "N2+X..90")]
-        public async System.Threading.Tasks.Task ParseINTERNAL93()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "N2+X..90"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse INTERNAL 93", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2601
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 2602
- await testRunner.GivenAsync("the input is 93The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 2603
- await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 2604
- await testRunner.ThenAsync("the entity should be 93", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-#line 2605
-     await testRunner.AndAsync("the AI should be 93", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2606
-  await testRunner.AndAsync("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
-                        "90", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2607
-  await testRunner.AndAsync("the data value should be INTERNAL", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2608
-  await testRunner.AndAsync("the description should be Company internal information", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2609
-  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2610
-  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Parse INTERNAL 94")]
-        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse INTERNAL 94")]
-        [Xunit.TraitAttribute("Category", "N2+X..90")]
-        public async System.Threading.Tasks.Task ParseINTERNAL94()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "N2+X..90"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse INTERNAL 94", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2613
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 2614
- await testRunner.GivenAsync("the input is 94The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 2615
- await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 2616
- await testRunner.ThenAsync("the entity should be 94", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-#line 2617
-     await testRunner.AndAsync("the AI should be 94", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2618
-  await testRunner.AndAsync("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
-                        "90", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2619
-  await testRunner.AndAsync("the data value should be INTERNAL", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2620
-  await testRunner.AndAsync("the description should be Company internal information", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2621
-  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2622
-  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Parse INTERNAL 95")]
-        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse INTERNAL 95")]
-        [Xunit.TraitAttribute("Category", "N2+X..90")]
-        public async System.Threading.Tasks.Task ParseINTERNAL95()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "N2+X..90"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse INTERNAL 95", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 2625
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 2626
- await testRunner.GivenAsync("the input is 95The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 2627
- await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 2628
- await testRunner.ThenAsync("the entity should be 95", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-#line 2629
-     await testRunner.AndAsync("the AI should be 95", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2630
-  await testRunner.AndAsync("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
-                        "90", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2631
-  await testRunner.AndAsync("the data value should be INTERNAL", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2632
-  await testRunner.AndAsync("the description should be Company internal information", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2633
-  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 2634
-  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Parse INTERNAL 96")]
-        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse INTERNAL 96")]
-        [Xunit.TraitAttribute("Category", "N2+X..90")]
-        public async System.Threading.Tasks.Task ParseINTERNAL96()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "N2+X..90"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse INTERNAL 96", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 2637
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -11259,16 +11255,16 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 2638
- await testRunner.GivenAsync("the input is 96The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync("the input is 91The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 2639
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 2640
- await testRunner.ThenAsync("the entity should be 96", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync("the entity should be 91", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 2641
-     await testRunner.AndAsync("the AI should be 96", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+     await testRunner.AndAsync("the AI should be 91", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 2642
   await testRunner.AndAsync("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
@@ -11290,16 +11286,16 @@ this.ScenarioInitialize(scenarioInfo);
             await this.ScenarioCleanupAsync();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Parse INTERNAL 97")]
+        [Xunit.SkippableFactAttribute(DisplayName="Parse INTERNAL 92")]
         [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse INTERNAL 97")]
+        [Xunit.TraitAttribute("Description", "Parse INTERNAL 92")]
         [Xunit.TraitAttribute("Category", "N2+X..90")]
-        public async System.Threading.Tasks.Task ParseINTERNAL97()
+        public async System.Threading.Tasks.Task ParseINTERNAL92()
         {
             string[] tagsOfScenario = new string[] {
                     "N2+X..90"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse INTERNAL 97", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse INTERNAL 92", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 2649
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -11311,16 +11307,16 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 2650
- await testRunner.GivenAsync("the input is 97The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync("the input is 92The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 2651
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 2652
- await testRunner.ThenAsync("the entity should be 97", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync("the entity should be 92", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 2653
-     await testRunner.AndAsync("the AI should be 97", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+     await testRunner.AndAsync("the AI should be 92", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 2654
   await testRunner.AndAsync("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
@@ -11342,16 +11338,16 @@ this.ScenarioInitialize(scenarioInfo);
             await this.ScenarioCleanupAsync();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Parse INTERNAL 98")]
+        [Xunit.SkippableFactAttribute(DisplayName="Parse INTERNAL 93")]
         [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse INTERNAL 98")]
+        [Xunit.TraitAttribute("Description", "Parse INTERNAL 93")]
         [Xunit.TraitAttribute("Category", "N2+X..90")]
-        public async System.Threading.Tasks.Task ParseINTERNAL98()
+        public async System.Threading.Tasks.Task ParseINTERNAL93()
         {
             string[] tagsOfScenario = new string[] {
                     "N2+X..90"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse INTERNAL 98", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse INTERNAL 93", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 2661
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -11363,16 +11359,16 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 2662
- await testRunner.GivenAsync("the input is 98The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync("the input is 93The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 2663
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 2664
- await testRunner.ThenAsync("the entity should be 98", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync("the entity should be 93", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 2665
-     await testRunner.AndAsync("the AI should be 98", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+     await testRunner.AndAsync("the AI should be 93", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 2666
   await testRunner.AndAsync("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
@@ -11394,16 +11390,16 @@ this.ScenarioInitialize(scenarioInfo);
             await this.ScenarioCleanupAsync();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Parse INTERNAL 99")]
+        [Xunit.SkippableFactAttribute(DisplayName="Parse INTERNAL 94")]
         [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
-        [Xunit.TraitAttribute("Description", "Parse INTERNAL 99")]
+        [Xunit.TraitAttribute("Description", "Parse INTERNAL 94")]
         [Xunit.TraitAttribute("Category", "N2+X..90")]
-        public async System.Threading.Tasks.Task ParseINTERNAL99()
+        public async System.Threading.Tasks.Task ParseINTERNAL94()
         {
             string[] tagsOfScenario = new string[] {
                     "N2+X..90"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse INTERNAL 99", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse INTERNAL 94", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 2673
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -11415,16 +11411,16 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 2674
- await testRunner.GivenAsync("the input is 99The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync("the input is 94The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 2675
  await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 2676
- await testRunner.ThenAsync("the entity should be 99", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync("the entity should be 94", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 2677
-     await testRunner.AndAsync("the AI should be 99", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+     await testRunner.AndAsync("the AI should be 94", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 2678
   await testRunner.AndAsync("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
@@ -11440,6 +11436,266 @@ this.ScenarioInitialize(scenarioInfo);
   await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 2682
+  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse INTERNAL 95")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse INTERNAL 95")]
+        [Xunit.TraitAttribute("Category", "N2+X..90")]
+        public async System.Threading.Tasks.Task ParseINTERNAL95()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N2+X..90"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse INTERNAL 95", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2685
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 2686
+ await testRunner.GivenAsync("the input is 95The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 2687
+ await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 2688
+ await testRunner.ThenAsync("the entity should be 95", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 2689
+     await testRunner.AndAsync("the AI should be 95", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2690
+  await testRunner.AndAsync("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
+                        "90", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2691
+  await testRunner.AndAsync("the data value should be INTERNAL", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2692
+  await testRunner.AndAsync("the description should be Company internal information", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2693
+  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2694
+  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse INTERNAL 96")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse INTERNAL 96")]
+        [Xunit.TraitAttribute("Category", "N2+X..90")]
+        public async System.Threading.Tasks.Task ParseINTERNAL96()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N2+X..90"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse INTERNAL 96", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2697
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 2698
+ await testRunner.GivenAsync("the input is 96The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 2699
+ await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 2700
+ await testRunner.ThenAsync("the entity should be 96", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 2701
+     await testRunner.AndAsync("the AI should be 96", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2702
+  await testRunner.AndAsync("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
+                        "90", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2703
+  await testRunner.AndAsync("the data value should be INTERNAL", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2704
+  await testRunner.AndAsync("the description should be Company internal information", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2705
+  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2706
+  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse INTERNAL 97")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse INTERNAL 97")]
+        [Xunit.TraitAttribute("Category", "N2+X..90")]
+        public async System.Threading.Tasks.Task ParseINTERNAL97()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N2+X..90"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse INTERNAL 97", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2709
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 2710
+ await testRunner.GivenAsync("the input is 97The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 2711
+ await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 2712
+ await testRunner.ThenAsync("the entity should be 97", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 2713
+     await testRunner.AndAsync("the AI should be 97", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2714
+  await testRunner.AndAsync("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
+                        "90", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2715
+  await testRunner.AndAsync("the data value should be INTERNAL", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2716
+  await testRunner.AndAsync("the description should be Company internal information", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2717
+  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2718
+  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse INTERNAL 98")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse INTERNAL 98")]
+        [Xunit.TraitAttribute("Category", "N2+X..90")]
+        public async System.Threading.Tasks.Task ParseINTERNAL98()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N2+X..90"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse INTERNAL 98", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2721
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 2722
+ await testRunner.GivenAsync("the input is 98The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 2723
+ await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 2724
+ await testRunner.ThenAsync("the entity should be 98", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 2725
+     await testRunner.AndAsync("the AI should be 98", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2726
+  await testRunner.AndAsync("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
+                        "90", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2727
+  await testRunner.AndAsync("the data value should be INTERNAL", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2728
+  await testRunner.AndAsync("the description should be Company internal information", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2729
+  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2730
+  await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Parse INTERNAL 99")]
+        [Xunit.TraitAttribute("FeatureTitle", "ParseEntity")]
+        [Xunit.TraitAttribute("Description", "Parse INTERNAL 99")]
+        [Xunit.TraitAttribute("Category", "N2+X..90")]
+        public async System.Threading.Tasks.Task ParseINTERNAL99()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "N2+X..90"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Parse INTERNAL 99", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2733
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 2734
+ await testRunner.GivenAsync("the input is 99The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+01234567890", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 2735
+ await testRunner.WhenAsync("the input to submitted to the parser", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 2736
+ await testRunner.ThenAsync("the entity should be 99", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 2737
+     await testRunner.AndAsync("the AI should be 99", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2738
+  await testRunner.AndAsync("the value should be The+quick+brown+fox+jumped+over+the+lazy+dog\'s+back+012345678" +
+                        "90", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2739
+  await testRunner.AndAsync("the data value should be INTERNAL", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2740
+  await testRunner.AndAsync("the description should be Company internal information", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2741
+  await testRunner.AndAsync("the length of the value should be variable", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 2742
   await testRunner.AndAsync("there should be no errors", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }

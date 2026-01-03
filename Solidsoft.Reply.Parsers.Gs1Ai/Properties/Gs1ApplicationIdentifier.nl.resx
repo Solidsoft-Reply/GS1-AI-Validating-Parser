@@ -126,6 +126,9 @@
   <data name="ai02" xml:space="preserve">
     <value>Identificatie van handelsartikelen in een logistieke eenheid</value>
   </data>
+  <data name="ai03" xml:space="preserve">
+    <value>Identificatie van een maatwerk-handelsartikel (GTIN)</value>
+  </data>
   <data name="ai10" xml:space="preserve">
     <value>Batch- of lotnummer</value>
   </data>
@@ -573,6 +576,9 @@
   <data name="ai7040" xml:space="preserve">
     <value>GS1 UIC met Uitbreiding 1 en Importeursindex</value>
   </data>
+  <data name="ai7041" xml:space="preserve">
+    <value>UN/CEFACT vrachteenheidtype</value>
+  </data>
   <data name="ai710" xml:space="preserve">
     <value>Nationaal Gezondheidszorg Terugbetalingsnummer (NHRN) - Nederlands PZN</value>
   </data>
@@ -591,6 +597,12 @@
   <data name="ai715" xml:space="preserve">
     <value>Nationaal Gezondheidszorg Terugbetalingsnummer (NHRN) - Verenigde Staten van Amerika NDC</value>
   </data>
+  <data name="ai716" xml:space="preserve">
+    <value>Nationaal Gezondheidszorg Terugbetalingsnummer (NHRN) – Italië AIC</value>
+  </data>
+  <data name="ai717" xml:space="preserve">
+    <value>Nationaal Gezondheidszorg Terugbetalingsnummer (NHRN) – nummer van het gezondheidsregister van Costa Rica</value>
+  </data>
   <data name="ai723s" xml:space="preserve">
     <value>Certificatiereferentie</value>
   </data>
@@ -602,6 +614,36 @@
   </data>
   <data name="ai7242" xml:space="preserve">
     <value>Versiecontrole Nummer (VCN)</value>
+  </data>
+  <data name="ai7250" xml:space="preserve">
+    <value>Geboortedatum</value>
+  </data>
+  <data name="ai7251" xml:space="preserve">
+    <value>Geboortedatum en -tijd</value>
+  </data>
+  <data name="ai7252" xml:space="preserve">
+    <value>Biologisch geslacht</value>
+  </data>
+  <data name="ai7253" xml:space="preserve">
+    <value>Achternaam van de persoon</value>
+  </data>
+  <data name="ai7254" xml:space="preserve">
+    <value>Voornaam van de persoon</value>
+  </data>
+  <data name="ai7255" xml:space="preserve">
+    <value>Naamachtervoegsel</value>
+  </data>
+  <data name="ai7256" xml:space="preserve">
+    <value>Volledige naam van de persoon</value>
+  </data>
+  <data name="ai7257" xml:space="preserve">
+    <value>Adres van de persoon</value>
+  </data>
+  <data name="ai7258" xml:space="preserve">
+    <value>Indicator voor geboortesequentie</value>
+  </data>
+  <data name="ai7259" xml:space="preserve">
+    <value>Baby met de familienaam</value>
   </data>
   <data name="ai8001" xml:space="preserve">
     <value>Rolproducten - breedte, lengte, kern diameter, richting, verbindingen</value>
@@ -641,6 +683,9 @@
   </data>
   <data name="ai8013" xml:space="preserve">
     <value>Globaal Modelnummer (GMN)</value>
+  </data>
+  <data name="ai8014" xml:space="preserve">
+    <value>Registratie-identificatie voor sterk geïndividualiseerd apparaat (HIDRI)</value>
   </data>
   <data name="ai8017" xml:space="preserve">
     <value>Globale Service Relatie Nummer (GSRN) om de relatie tussen een dienstverlenende organisatie en de serviceprovider te identificeren</value>
@@ -701,5 +746,17 @@
   </data>
   <data name="ai99" xml:space="preserve">
     <value>Interne bedrijfsinformatie</value>
+  </data>
+  <data name="ai8040" xml:space="preserve">
+    <value>Internationale Mobiele Apparatuur Identiteit (IMEI)</value>
+  </data>
+  <data name="ai8041" xml:space="preserve">
+    <value>Internationale Mobiele Apparatuur Identiteit 2 (IMEI2)</value>
+  </data>
+  <data name="ai8042" xml:space="preserve">
+    <value>Ingebedde SIM (eSIM)</value>
+  </data>
+  <data name="ai8043" xml:space="preserve">
+    <value>Fysieke SIM-kaart</value>
   </data>
 </root>

@@ -18,13 +18,12 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-#if NET7_0_OR_GREATER
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
-using System.Collections.Generic;
-using Properties;
-using Common;
+using Solidsoft.Reply.Parsers.Gs1Ai.Properties;
+using Solidsoft.Reply.Parsers.Common;
 
+#if NET7_0_OR_GREATER
 /// <summary>
 ///     Represents a resolved GS1 application identifier and its associated data.
 /// </summary>
@@ -47,7 +46,9 @@ public ref struct ResolvedApplicationIdentifierRef : IResolvedEntityRef {
     /// <summary>
     ///     A disctionary of per-thread resolver exceptions.
     /// </summary>
+#pragma warning disable SA1311 // Static readonly fields should begin with upper-case letter
     private static readonly Dictionary<int, List<ParserException>> exceptions = [];
+#pragma warning restore SA1311 // Static readonly fields should begin with upper-case letter
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="ResolvedApplicationIdentifierRef" /> struct.
@@ -67,7 +68,10 @@ public ref struct ResolvedApplicationIdentifierRef : IResolvedEntityRef {
     /// <param name="value">
     ///     The value associated with the application identifier.
     /// </param>
-    /// <param name="isFixedWidth">Indicates whether the value associated with the application identifier is fixed width.</param>
+    /// <param name="isFixedWidth">
+    ///     Indicates whether the value associated with the application identifier is fixed width.
+    ///     This includes fixed width values for AIs that do not have a pre-defined length.
+    /// </param>
     /// <param name="dataTitle">
     ///     The application identifier data title.
     /// </param>
@@ -75,7 +79,10 @@ public ref struct ResolvedApplicationIdentifierRef : IResolvedEntityRef {
     ///     The description of the application identifier.
     /// </param>
     /// <param name="characterPosition">
-    ///     The position of the application identifier for the current field.
+    ///     The position of the application identifier within the data.
+    /// </param>
+    /// <param name="index">
+    ///     The index of the element string sequence. This is set when using ParseMulti().
     /// </param>
     public ResolvedApplicationIdentifierRef(
         int entity,
@@ -86,15 +93,18 @@ public ref struct ResolvedApplicationIdentifierRef : IResolvedEntityRef {
         bool isFixedWidth,
         Span<char> dataTitle,
         Span<char> description,
-        int characterPosition) {
-            (Entity, InverseExponent, Sequence, IsFixedWidth, CharacterPosition)
-                = (entity, inverseExponent, sequence, isFixedWidth, characterPosition);
+        int characterPosition,
+        int index) {
+            (Entity, InverseExponent, Sequence, IsFixedWidth, CharacterPosition, Index)
+                = (entity, inverseExponent, sequence, isFixedWidth, characterPosition, index);
             Identifier = identifier;
             Value = value.Length > ValueMaxLength ? value[..ValueMaxLength] : value;
             DataTitle = dataTitle.Length > DataTitleMaxLength ? dataTitle[..DataTitleMaxLength] : dataTitle;
             Description = description.Length > DescriptionMaxLength ? description[..DescriptionMaxLength] : description;
 
-            if (inverseExponent < -1) AddException(new ParserException(2011, Resources.GS1_Error_010, false));
+            if (inverseExponent < -1) {
+                AddException(new ParserException(identifier.ToString(), 2010, Resources.GS1_Error_010, true, 4));
+            }
     }
 
     /// <summary>
@@ -104,9 +114,13 @@ public ref struct ResolvedApplicationIdentifierRef : IResolvedEntityRef {
     /// <param name="characterPosition">
     ///     he current character position at which parsing has occurred.
     /// </param>
-    public ResolvedApplicationIdentifierRef(ParserException exception, int characterPosition) {
-        (Entity, InverseExponent, Sequence, IsFixedWidth, CharacterPosition)
-            = (-1, null, null, false, characterPosition);
+    /// <param name="index">
+    ///     The index of the element string sequence. This is always 0 when parsing a single sequence of
+    ///     element strings, but indicates the index of the sequence when using ParseMulti().
+    /// </param>
+    public ResolvedApplicationIdentifierRef(ParserException exception, int characterPosition, int index = 0) {
+        (Entity, InverseExponent, Sequence, IsFixedWidth, CharacterPosition, Index)
+            = (-1, null, null, false, characterPosition, index);
         Identifier = [];
         Value = [];
         DataTitle = [];
@@ -128,16 +142,31 @@ public ref struct ResolvedApplicationIdentifierRef : IResolvedEntityRef {
         ParserException exception,
         int characterPosition,
         ResolvedApplicationIdentifierRef ai) {
-        (Entity, IsFixedWidth, CharacterPosition) = (-1, ai.IsFixedWidth, characterPosition);
+        (Entity, IsFixedWidth, CharacterPosition) = (ai.Entity, ai.IsFixedWidth, characterPosition);
         Identifier = ai.Identifier;
         Value = ai.Value;
         DataTitle = ai.DataTitle;
         Description = ai.Description;
+        Index = ai.Index;
 
-        foreach (var e in ai.Exceptions)
-            AddException(e);
+        // Snapshot the existing exceptions to avoid modifying the collection during enumeration
+        // (AddException adds to the same per-thread list returned by Exceptions).
+        var existing = exceptions.TryGetValue(Environment.CurrentManagedThreadId, out var list)
+            ? list.ToArray()
+            : null;
 
-        AddException(exception);
+        if (existing != null) {
+            foreach (var e in existing) {
+                AddException(e);
+            }
+        }
+
+        AddException(new ParserException(
+            ai.Identifier.ToString(),
+            exception.ErrorNumber,
+            exception.Message,
+            exception.IsFatal,
+            exception.Offset));
     }
 
     /// <summary>
@@ -171,7 +200,7 @@ public ref struct ResolvedApplicationIdentifierRef : IResolvedEntityRef {
     public int? Sequence { get; internal set; }
 
     /// <summary>
-    ///     Gets the exceptions raised during attempted entity resolution.
+    ///     Gets the exceptions raised during attempted element resolution.
     /// </summary>
     public readonly IEnumerable<ParserException> Exceptions {
         get {
@@ -186,7 +215,6 @@ public ref struct ResolvedApplicationIdentifierRef : IResolvedEntityRef {
         }
 
         internal set {
-
             if (!exceptions.TryGetValue(Environment.CurrentManagedThreadId, out var list))
                 exceptions[Environment.CurrentManagedThreadId] = [];
             else
@@ -205,7 +233,9 @@ public ref struct ResolvedApplicationIdentifierRef : IResolvedEntityRef {
     /// <summary>
     ///     Gets a value indicating whether resolution resulted in an error.
     /// </summary>
-    public readonly bool IsError => exceptions.Count > 0;
+    public readonly bool IsError {
+        get => exceptions.TryGetValue(Environment.CurrentManagedThreadId, out var list) && list.Count > 0;
+    }
 
     /// <summary>
     ///     Gets a value indicating whether an error is fatal (further parsing was aborted).
@@ -217,6 +247,7 @@ public ref struct ResolvedApplicationIdentifierRef : IResolvedEntityRef {
 
     /// <summary>
     ///     Gets a value indicating whether the application identifier is a fixed-width field,.
+    ///     This includes fixed width values for AIs that do not have a pre-defined length.
     /// </summary>
     // ReSharper disable once MemberCanBePrivate.Global
     public bool IsFixedWidth { get; internal set; }
@@ -225,6 +256,20 @@ public ref struct ResolvedApplicationIdentifierRef : IResolvedEntityRef {
     ///     Gets the value associated with the application identifier.
     /// </summary>
     public readonly Span<char> Value { get; }
+
+    /// <summary>
+    ///     Gets the index of the element string sequence. This is always 0 unless using ParseMulti().
+    /// </summary>
+    public int Index { get; }
+
+    /// <summary>
+    /// Clears resolver exceptions for the current thread to prevent unbounded growth during repeated parses.
+    /// </summary>
+    public static void ClearExceptionsForCurrentThread() {
+        if (exceptions.TryGetValue(Environment.CurrentManagedThreadId, out var list)) {
+            list.Clear();
+        }
+    }
 
     /// <summary>
     ///     Adds a resolver exception.

@@ -126,6 +126,9 @@
   <data name="ai02" xml:space="preserve">
     <value>Logisztikai egységben található kereskedelmi cikkek azonosítása</value>
   </data>
+  <data name="ai03" xml:space="preserve">
+    <value>Egyedi gyártású kereskedelmi tétel azonosítása (GTIN)</value>
+  </data>
   <data name="ai10" xml:space="preserve">
     <value>Tétel- vagy gyártási szám</value>
   </data>
@@ -573,6 +576,9 @@
   <data name="ai7040" xml:space="preserve">
     <value>GS1 UIC kiterjesztéssel 1 és importőr index</value>
   </data>
+  <data name="ai7041" xml:space="preserve">
+    <value>UN/CEFACT szállítási egységtípus</value>
+  </data>
   <data name="ai710" xml:space="preserve">
     <value>Nemzeti Egészségügyi Visszatérítési Szám (NHRN) - Magyar PZN</value>
   </data>
@@ -591,6 +597,12 @@
   <data name="ai715" xml:space="preserve">
     <value>Nemzeti Egészségügyi Visszatérítési Szám (NHRN) - Amerikai Egyesült Államok NDC</value>
   </data>
+  <data name="ai716" xml:space="preserve">
+    <value>Nemzeti Egészségügyi Visszatérítési Szám (NHRN) – Olaszország AIC</value>
+  </data>
+  <data name="ai717" xml:space="preserve">
+    <value>Nemzeti Egészségügyi Visszatérítési Szám (NHRN) – Costa Rica egészségügyi nyilvántartási száma</value>
+  </data>
   <data name="ai723s" xml:space="preserve">
     <value>Tanúsítási hivatkozás</value>
   </data>
@@ -602,6 +614,36 @@
   </data>
   <data name="ai7242" xml:space="preserve">
     <value>Verzió Ellenőrzési Szám (VCN)</value>
+  </data>
+  <data name="ai7250" xml:space="preserve">
+    <value>Születési dátum</value>
+  </data>
+  <data name="ai7251" xml:space="preserve">
+    <value>Születés dátuma és ideje</value>
+  </data>
+  <data name="ai7252" xml:space="preserve">
+    <value>Biológiai nem</value>
+  </data>
+  <data name="ai7253" xml:space="preserve">
+    <value>Személy családneve</value>
+  </data>
+  <data name="ai7254" xml:space="preserve">
+    <value>Személy utóneve</value>
+  </data>
+  <data name="ai7255" xml:space="preserve">
+    <value>Név utótag</value>
+  </data>
+  <data name="ai7256" xml:space="preserve">
+    <value>Teljes név</value>
+  </data>
+  <data name="ai7257" xml:space="preserve">
+    <value>A személy címe</value>
+  </data>
+  <data name="ai7258" xml:space="preserve">
+    <value>Csecsemő születési sorrendjelző</value>
+  </data>
+  <data name="ai7259" xml:space="preserve">
+    <value>A családnevű csecsemő</value>
   </data>
   <data name="ai8001" xml:space="preserve">
     <value>Tekercses termékek - szélesség, hosszúság, magtengely átmérő, irány, illesztések</value>
@@ -641,6 +683,9 @@
   </data>
   <data name="ai8013" xml:space="preserve">
     <value>Globális Modellszám (GMN)</value>
+  </data>
+  <data name="ai8014" xml:space="preserve">
+    <value>Nagymértékben személyre szabott eszköz regisztrációs azonosító (HIDRI)</value>
   </data>
   <data name="ai8017" xml:space="preserve">
     <value>Globális Szolgáltatás Kapcsolat Szám (GSRN) egy szolgáltatást nyújtó szervezet és a szolgáltató kapcsolatának azonosítására</value>
@@ -701,5 +746,17 @@
   </data>
   <data name="ai99" xml:space="preserve">
     <value>Cég belső információi</value>
+  </data>
+  <data name="ai8040" xml:space="preserve">
+    <value>Nemzetközi mobilberendezés-azonosító (IMEI)</value>
+  </data>
+  <data name="ai8041" xml:space="preserve">
+    <value>Nemzetközi mobilberendezés-azonosító 2 (IMEI2)</value>
+  </data>
+  <data name="ai8042" xml:space="preserve">
+    <value>Beágyazott SIM (eSIM)</value>
+  </data>
+  <data name="ai8043" xml:space="preserve">
+    <value>Fizikai SIM-kártya</value>
   </data>
 </root>

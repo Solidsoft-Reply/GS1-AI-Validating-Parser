@@ -126,6 +126,9 @@
   <data name="ai02" xml:space="preserve">
     <value>Αναγνώριση εμπορικών αντικειμένων που περιέχονται σε μια λογιστική μονάδα</value>
   </data>
+  <data name="ai03" xml:space="preserve">
+    <value>Αναγνώριση προϊόντος κατασκευασμένου κατόπιν παραγγελίας (GTIN)</value>
+  </data>
   <data name="ai10" xml:space="preserve">
     <value>Αριθμός παρτίδας ή σειράς</value>
   </data>
@@ -573,6 +576,9 @@
   <data name="ai7040" xml:space="preserve">
     <value>GS1 UIC με Επέκταση 1 και Δείκτη Εισαγωγέα</value>
   </data>
+  <data name="ai7041" xml:space="preserve">
+    <value>Τύπος μονάδας φορτίου UN/CEFACT</value>
+  </data>
   <data name="ai710" xml:space="preserve">
     <value>Εθνικός Αριθμός Επιστροφής Υγειονομικής Φροντίδας (NHRN) - Ελλάδα PZN</value>
   </data>
@@ -591,6 +597,12 @@
   <data name="ai715" xml:space="preserve">
     <value>Εθνικός Αριθμός Επιστροφής Υγειονομικής Φροντίδας (NHRN) - Ηνωμένες Πολιτείες Αμερικής NDC</value>
   </data>
+  <data name="ai716" xml:space="preserve">
+    <value>Εθνικός Αριθμός Επιστροφής Υγειονομικής Φροντίδας (NHRN)  – Ιταλία AIC</value>
+  </data>
+  <data name="ai717" xml:space="preserve">
+    <value>Εθνικός Αριθμός Επιστροφής Υγειονομικής Φροντίδας (NHRN) – αριθμός υγειονομικού μητρώου της Κόστα Ρίκα</value>
+  </data>
   <data name="ai723s" xml:space="preserve">
     <value>Αναφορά πιστοποίησης</value>
   </data>
@@ -602,6 +614,36 @@
   </data>
   <data name="ai7242" xml:space="preserve">
     <value>Αριθμός Ελέγχου Έκδοσης (VCN)</value>
+  </data>
+  <data name="ai7250" xml:space="preserve">
+    <value>Ημερομηνία γέννησης</value>
+  </data>
+  <data name="ai7251" xml:space="preserve">
+    <value>Ημερομηνία και ώρα γέννησης</value>
+  </data>
+  <data name="ai7252" xml:space="preserve">
+    <value>Βιολογικό φύλο</value>
+  </data>
+  <data name="ai7253" xml:space="preserve">
+    <value>Επώνυμο προσώπου</value>
+  </data>
+  <data name="ai7254" xml:space="preserve">
+    <value>Όνομα προσώπου</value>
+  </data>
+  <data name="ai7255" xml:space="preserve">
+    <value>Κατάληξη ονόματος</value>
+  </data>
+  <data name="ai7256" xml:space="preserve">
+    <value>Πλήρες όνομα προσώπου</value>
+  </data>
+  <data name="ai7257" xml:space="preserve">
+    <value>Διεύθυνση προσώπου</value>
+  </data>
+  <data name="ai7258" xml:space="preserve">
+    <value>Δείκτης σειράς γέννησης βρέφους</value>
+  </data>
+  <data name="ai7259" xml:space="preserve">
+    <value>Βρέφος του επωνύμου</value>
   </data>
   <data name="ai8001" xml:space="preserve">
     <value>Προϊόντα ρολών - πλάτος, μήκος, διάμετρος πυρήνα, κατεύθυνση, συνδέσεις</value>
@@ -641,6 +683,9 @@
   </data>
   <data name="ai8013" xml:space="preserve">
     <value>Παγκόσμιος Αριθμός Μοντέλου (GMN)</value>
+  </data>
+  <data name="ai8014" xml:space="preserve">
+    <value>Αναγνωριστικό καταχώρισης υψηλά εξατομικευμένης συσκευής (HIDRI)</value>
   </data>
   <data name="ai8017" xml:space="preserve">
     <value>Παγκόσμιος Αριθμός Υπηρεσιακής Σχέσης (GSRN) για την ταυτοποίηση της σχέσης μεταξύ μιας οργάνωσης που προσφέρει υπηρεσίες και του παρόχου υπηρεσιών</value>
@@ -701,5 +746,17 @@
   </data>
   <data name="ai99" xml:space="preserve">
     <value>Εσωτερικές πληροφορίες εταιρείας</value>
+  </data>
+  <data name="ai8040" xml:space="preserve">
+    <value>Διεθνής ταυτότητα κινητού εξοπλισμού (IMEI)</value>
+  </data>
+  <data name="ai8041" xml:space="preserve">
+    <value>Διεθνής ταυτότητα κινητού εξοπλισμού 2 (IMEI2)</value>
+  </data>
+  <data name="ai8042" xml:space="preserve">
+    <value>Ενσωματωμένη SIM (eSIM)</value>
+  </data>
+  <data name="ai8043" xml:space="preserve">
+    <value>Φυσική κάρτα SIM</value>
   </data>
 </root>

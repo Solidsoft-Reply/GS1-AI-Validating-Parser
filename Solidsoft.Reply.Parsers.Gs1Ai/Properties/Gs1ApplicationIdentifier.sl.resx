@@ -126,6 +126,9 @@
   <data name="ai02" xml:space="preserve">
     <value>Identifikacija trgovskih artiklov, vsebovanih v logistični enoti</value>
   </data>
+  <data name="ai03" xml:space="preserve">
+    <value>Identifikacija izdelka izdelanega po naročilu (GTIN)</value>
+  </data>
   <data name="ai10" xml:space="preserve">
     <value>Številka serije ali serija</value>
   </data>
@@ -573,6 +576,9 @@
   <data name="ai7040" xml:space="preserve">
     <value>GS1 UIC z razširitvijo 1 in indeksom uvoznika</value>
   </data>
+  <data name="ai7041" xml:space="preserve">
+    <value>Tip prevozne enote UN/CEFACT</value>
+  </data>
   <data name="ai710" xml:space="preserve">
     <value>Nacionalna številka za povračilo zdravstvene oskrbe (NHRN) - Nemški PZN</value>
   </data>
@@ -591,6 +597,12 @@
   <data name="ai715" xml:space="preserve">
     <value>Nacionalna številka za povračilo zdravstvene oskrbe (NHRN) - Ameriški NDC</value>
   </data>
+  <data name="ai716" xml:space="preserve">
+    <value>Nacionalna številka za povračilo zdravstvene oskrbe (NHRN) – Italija AIC</value>
+  </data>
+  <data name="ai717" xml:space="preserve">
+    <value>Nacionalna številka za povračilo zdravstvene oskrbe (NHRN) – številka sanitarnega registra Kostarike</value>
+  </data>
   <data name="ai723s" xml:space="preserve">
     <value>Referenca certifikacije</value>
   </data>
@@ -602,6 +614,36 @@
   </data>
   <data name="ai7242" xml:space="preserve">
     <value>Številka za nadzor različice (VCN)</value>
+  </data>
+  <data name="ai7250" xml:space="preserve">
+    <value>Datum rojstva</value>
+  </data>
+  <data name="ai7251" xml:space="preserve">
+    <value>Datum in čas rojstva</value>
+  </data>
+  <data name="ai7252" xml:space="preserve">
+    <value>Biološki spol</value>
+  </data>
+  <data name="ai7253" xml:space="preserve">
+    <value>Priimek osebe</value>
+  </data>
+  <data name="ai7254" xml:space="preserve">
+    <value>Ime osebe</value>
+  </data>
+  <data name="ai7255" xml:space="preserve">
+    <value>Ime pripona</value>
+  </data>
+  <data name="ai7256" xml:space="preserve">
+    <value>Polno ime osebe</value>
+  </data>
+  <data name="ai7257" xml:space="preserve">
+    <value>Naslov osebe</value>
+  </data>
+  <data name="ai7258" xml:space="preserve">
+    <value>Indikator rojstnega reda dojenčka</value>
+  </data>
+  <data name="ai7259" xml:space="preserve">
+    <value>Otrok s priimkom družine</value>
   </data>
   <data name="ai8001" xml:space="preserve">
     <value>Izdelki v rolah - širina, dolžina, premer jedra, smer, spoji</value>
@@ -641,6 +683,9 @@
   </data>
   <data name="ai8013" xml:space="preserve">
     <value>Globalna številka modela (GMN)</value>
+  </data>
+  <data name="ai8014" xml:space="preserve">
+    <value>Identifikator registracije visoko individualizirane naprave (HIDRI)</value>
   </data>
   <data name="ai8017" xml:space="preserve">
     <value>Globalna številka za razmerje storitev (GSRN) za identifikacijo razmerja med organizacijo, ki nudi storitve in ponudnikom storitev</value>
@@ -701,5 +746,17 @@
   </data>
   <data name="ai99" xml:space="preserve">
     <value>Notranje informacije podjetja</value>
+  </data>
+  <data name="ai8040" xml:space="preserve">
+    <value>Mednarodna identiteta mobilne opreme (IMEI)</value>
+  </data>
+  <data name="ai8041" xml:space="preserve">
+    <value>Mednarodna identiteta mobilne opreme 2 (IMEI2)</value>
+  </data>
+  <data name="ai8042" xml:space="preserve">
+    <value>Vgrajena SIM (eSIM)</value>
+  </data>
+  <data name="ai8043" xml:space="preserve">
+    <value>Fizična SIM kartica</value>
   </data>
 </root>

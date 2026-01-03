@@ -120,28 +120,28 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Ma ngħatat l-ebda data.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Il-validazzjoni għal AI {0} ħadet żmien twil wisq.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
-    <value>Ma ngħatatx valur tal-entità għal AI {0}.</value>
+  <data name="GS1_Error_007" xml:space="preserve">
+    <value>L-ebda valur tal-element ma ġie pprovdut għal AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>L-entità hija tterminata b'mod żbaljat b'FNC1.</value>
+    <value>L-element huwa mitmum b’mod żbaljat b’FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Entità ta' wisa' fiss ma fihiex numru suffiċjenti ta' karattri.</value>
+    <value>Element b’tul definit minn qabel ma fihx numru suffiċjenti ta’ karattri.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Il-valur{0} huwa invalidu għal AI {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Identifikatur tal-applikazzjoni invalidu {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
-    <value>Il-valur{0} għandu checksum invalidu.</value>
-  </data>
   <data name="GS1_Error_009" xml:space="preserve">
+    <value>Il-valur{0} għal {1} għandu ċifra ta’ kontroll mhux valida.</value>
+  </data>
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Il-valur{0} ma jaqbilx mal-mudell speċifikat għall-element tad-data.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,32 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Il-valur{0} ma jaqbilx mal-mudell speċifikat għal kupuni tal-offerta pożittiva Nord-Amerikana.</value>
+  </data>
+  <data name="GS1_Error_201" xml:space="preserve">
+    <value>Instabet relazzjoni tad-dejta mhux valida bejn l-AI {0} u l-AI {1}.</value>
+  </data>
+  <data name="GS1_Error_203" xml:space="preserve">
+    <value>Relazzjoni tad-dejta obbligatorja ma nstabitx bejn l-AI {0} u {1}.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Il-valur{0} mhuwiex kodiċi rikonoxxut tat-tip ta’ pakkett UN/ECE jew GS1</value>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>Identifikatur tal-applikazzjoni {0} mhux validu. L-AIs iridu jkunu twal bejn żewġ u erba’ ċifri.</value>
+  </data>
+  <data name="GS1_Error_203_and" xml:space="preserve">
+    <value>u</value>
+  </data>
+  <data name="GS1_Error_203_xor" xml:space="preserve">
+    <value>eżattament wieħed minn</value>
+  </data>
+  <data name="GS1_Error_203_or" xml:space="preserve">
+    <value>mill-inqas wieħed minn</value>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>AI {0} jidher aktar minn darba b’valuri differenti.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Il-valur tal-AI {0} ma fihx Prefiss Globali tal-Kumpanija (GCP) rikonoxxut.</value>
   </data>
 </root>

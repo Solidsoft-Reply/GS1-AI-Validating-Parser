@@ -120,28 +120,28 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Engin gögn veitt.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Staðfesting fyrir AI {0} rann út á tíma.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
-    <value>Engin einingagildi veitt fyrir AI {0}.</value>
+  <data name="GS1_Error_007" xml:space="preserve">
+    <value>Ekkert staksgildi var gefið upp fyrir AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Einingu er ranglega lokað með FNC1.</value>
+    <value>Staki er ranglega lokað með FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Föst breidd einingar inniheldur ekki nægilegan fjölda stafa.</value>
+    <value>Fyrirfram skilgreindur þáttur með fastri lengd inniheldur ekki nægjanlegan fjölda stafa.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Gildið{0} er ógilt fyrir AI {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Ógilt umsóknar auðkenni {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
-    <value>Gildið{0} hefur ógilda athugunarsummu.</value>
-  </data>
   <data name="GS1_Error_009" xml:space="preserve">
+    <value>Gildið {0} fyrir {1} er með ógildan próftölu.</value>
+  </data>
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Gildið{0} passar ekki við tilgreint mynstur fyrir gagnaþátt.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,32 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Gildið{0} passar ekki við tilgreint mynstur fyrir norður-amerísk jákvæð tilboðsskrá kupóna.</value>
+  </data>
+  <data name="GS1_Error_201" xml:space="preserve">
+    <value>Ógilt gagnatengsl fundust milli AI {0} og AI {1}.</value>
+  </data>
+  <data name="GS1_Error_203" xml:space="preserve">
+    <value>Skyldubundið gagnatengsl fundust ekki milli gervigreindar {0} og {1}.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Gildið{0} er ekki viðurkenndur UN/ECE- eða GS1-umbúðakóði.</value>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>Ógilt auðkenni forrits {0}. AI verða að vera á bilinu tveir til fjórir tölustafir að lengd.</value>
+  </data>
+  <data name="GS1_Error_203_and" xml:space="preserve">
+    <value>og</value>
+  </data>
+  <data name="GS1_Error_203_xor" xml:space="preserve">
+    <value>nákvæmlega eitt af</value>
+  </data>
+  <data name="GS1_Error_203_or" xml:space="preserve">
+    <value>að minnsta kosti eitt af</value>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>Gervigreind {0} kemur fyrir oftar en einu sinni með mismunandi gildum.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Gildi AI {0} inniheldur ekki viðurkenndan Global Company Prefix (GCP).</value>
   </data>
 </root>

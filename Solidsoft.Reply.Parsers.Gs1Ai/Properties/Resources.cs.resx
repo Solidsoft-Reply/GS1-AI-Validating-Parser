@@ -120,28 +120,28 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Nebyla poskytnuta žádná data.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Validace pro AI {0} vypršela.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
-    <value>Nebyla poskytnuta hodnota entity pro AI {0}.</value>
+  <data name="GS1_Error_007" xml:space="preserve">
+    <value>Nebyla poskytnuta žádná hodnota prvku pro AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Entita je ukončena nesprávně s FNC1.</value>
+    <value>Element je nesprávně ukončen znakem FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Entita pevné šířky neobsahuje dostatečný počet znaků.</value>
+    <value>Prvek s předem definovanou délkou neobsahuje dostatečný počet znaků.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Hodnota{0} je neplatná pro AI {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Neplatný identifikátor aplikace {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
-    <value>Hodnota{0} má neplatný kontrolní součet.</value>
-  </data>
   <data name="GS1_Error_009" xml:space="preserve">
+    <value>Hodnota{0} pro {1} má neplatnou kontrolní číslici.</value>
+  </data>
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Hodnota{0} neodpovídá specifikovanému vzoru pro datový prvek.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,32 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Hodnota{0} neodpovídá vzoru specifikovanému pro severoamerické kupóny s pozitivní nabídkovou souborovou.</value>
+  </data>
+  <data name="GS1_Error_201" xml:space="preserve">
+    <value>Byl nalezen neplatný vztah dat mezi AI {0} a AI {1}.</value>
+  </data>
+  <data name="GS1_Error_203" xml:space="preserve">
+    <value>Povinný datový vztah mezi AI {0} a {1} nebyl nalezen.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Hodnota{0} není rozpoznaným kódem typu balení UN/ECE nebo GS1.</value>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>Neplatný identifikátor aplikace {0}. AI musí mít délku 2 až 4 číslice.</value>
+  </data>
+  <data name="GS1_Error_203_and" xml:space="preserve">
+    <value>a</value>
+  </data>
+  <data name="GS1_Error_203_xor" xml:space="preserve">
+    <value>právě jeden z</value>
+  </data>
+  <data name="GS1_Error_203_or" xml:space="preserve">
+    <value>alespoň jeden z</value>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>AI {0} se vyskytuje více než jednou s různými hodnotami.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Hodnota AI {0} neobsahuje rozpoznaný globální prefix společnosti (GCP).</value>
   </data>
 </root>

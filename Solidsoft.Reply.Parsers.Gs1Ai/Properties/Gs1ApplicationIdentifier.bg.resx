@@ -126,6 +126,9 @@
   <data name="ai02" xml:space="preserve">
     <value>Идентификация на търговски артикули, съдържащи се в логистична единица</value>
   </data>
+  <data name="ai03" xml:space="preserve">
+    <value>Идентификация на изработен по поръчка търговски артикул (GTIN)</value>
+  </data>
   <data name="ai10" xml:space="preserve">
     <value>Партида или номер на серия</value>
   </data>
@@ -573,6 +576,9 @@
   <data name="ai7040" xml:space="preserve">
     <value>GS1 UIC с разширение 1 и индекс на вносителя</value>
   </data>
+  <data name="ai7041" xml:space="preserve">
+    <value>Тип на товарна единица UN/CEFACT</value>
+  </data>
   <data name="ai710" xml:space="preserve">
     <value>Национален номер за възстановяване на здравеопазването (NHRN) - Германия PZN</value>
   </data>
@@ -591,6 +597,13 @@
   <data name="ai715" xml:space="preserve">
     <value>Национален номер за възстановяване на здравеопазването (NHRN) - Съединените американски щати NDC</value>
   </data>
+  <data name="ai716" xml:space="preserve">
+    <value>Национален номер за възстановяване на здравни разходи (NHRN) – Италия AIC
+</value>
+  </data>
+  <data name="ai717" xml:space="preserve">
+    <value>Национален номер за възстановяване на здравни разходи (NHRN) – номер на санитарния регистър на Коста Рика</value>
+  </data>
   <data name="ai723s" xml:space="preserve">
     <value>Сертификационна референция</value>
   </data>
@@ -602,6 +615,36 @@
   </data>
   <data name="ai7242" xml:space="preserve">
     <value>Номер за контрол на версията (VCN)</value>
+  </data>
+  <data name="ai7250" xml:space="preserve">
+    <value>Дата на раждане</value>
+  </data>
+  <data name="ai7251" xml:space="preserve">
+    <value>Дата и час на раждане</value>
+  </data>
+  <data name="ai7252" xml:space="preserve">
+    <value>Биологичен пол</value>
+  </data>
+  <data name="ai7253" xml:space="preserve">
+    <value>Фамилно име на лице</value>
+  </data>
+  <data name="ai7254" xml:space="preserve">
+    <value>Собствено име на лице</value>
+  </data>
+  <data name="ai7255" xml:space="preserve">
+    <value>Суфикс на име</value>
+  </data>
+  <data name="ai7256" xml:space="preserve">
+    <value>Пълно име на лице</value>
+  </data>
+  <data name="ai7257" xml:space="preserve">
+    <value>Адрес на лице</value>
+  </data>
+  <data name="ai7258" xml:space="preserve">
+    <value>Показател за реда на раждане на бебето</value>
+  </data>
+  <data name="ai7259" xml:space="preserve">
+    <value>Бебе от фамилията</value>
   </data>
   <data name="ai8001" xml:space="preserve">
     <value>Ролни продукти - ширина, дължина, диаметър на сърцевината, посока, свързвания</value>
@@ -641,6 +684,9 @@
   </data>
   <data name="ai8013" xml:space="preserve">
     <value>Глобален моделен номер (GMN)</value>
+  </data>
+  <data name="ai8014" xml:space="preserve">
+    <value>Идентификатор за регистрация на силно индивидуализирано устройство (HIDRI)</value>
   </data>
   <data name="ai8017" xml:space="preserve">
     <value>Глобален номер за връзка с услуги (GSRN) за идентифициране на връзката между организация, предлагаща услуги, и доставчик на услуги</value>
@@ -701,5 +747,17 @@
   </data>
   <data name="ai99" xml:space="preserve">
     <value>Фирмена вътрешна информация</value>
+  </data>
+  <data name="ai8040" xml:space="preserve">
+    <value>Международен идентификационен номер на мобилно устройство (IMEI)</value>
+  </data>
+  <data name="ai8041" xml:space="preserve">
+    <value>Международен идентификационен номер на мобилно устройство 2 (IMEI2)</value>
+  </data>
+  <data name="ai8042" xml:space="preserve">
+    <value>Вграден SIM (eSIM)</value>
+  </data>
+  <data name="ai8043" xml:space="preserve">
+    <value>Физическа SIM карта</value>
   </data>
 </root>

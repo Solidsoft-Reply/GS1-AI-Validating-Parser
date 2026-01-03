@@ -120,28 +120,28 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Nem szolgáltatott adat.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Az AI {0} validálása lejárt.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
-    <value>Nincs entitásérték megadva az AI {0} számára.</value>
+  <data name="GS1_Error_007" xml:space="preserve">
+    <value>Nincs megadva elemérték az AI {0} számára.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Az entitás helytelenül van befejezve egy FNC1-gyel.</value>
+    <value>Az elem helytelenül van lezárva egy FNC1-gyel.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>A fix szélességű entitás nem tartalmaz elegendő számú karaktert.</value>
+    <value>Egy előre meghatározott hosszúságú elem nem tartalmaz elegendő számú karaktert.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Az érték{0} érvénytelen az AI {1} számára.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Érvénytelen alkalmazásazonosító {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
-    <value>Az érték{0} érvénytelen ellenőrzőösszeggel rendelkezik.</value>
-  </data>
   <data name="GS1_Error_009" xml:space="preserve">
+    <value>A(z) {1} értéke ({0}) érvénytelen ellenőrző számjegyet tartalmaz.</value>
+  </data>
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Az érték{0} nem felel meg az adatelemre meghatározott mintának.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,32 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Az érték{0} nem felel meg az Észak-Amerikai pozitív ajánlati fájlkuponokra meghatározott mintának.</value>
+  </data>
+  <data name="GS1_Error_201" xml:space="preserve">
+    <value>Érvénytelen adatkapcsolat található az AI {0} és az AI {1} között.</value>
+  </data>
+  <data name="GS1_Error_203" xml:space="preserve">
+    <value>Nem található kötelező adatkapcsolat az AI {0} és a(z) {1} között.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Az érték{0} nem elismert UN/ECE vagy GS1 csomagolástípus-kód.</value>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>Érvénytelen alkalmazásazonosító: {0}. Az AI-k hossza 2 és 4 számjegy között kell legyen.</value>
+  </data>
+  <data name="GS1_Error_203_and" xml:space="preserve">
+    <value>és</value>
+  </data>
+  <data name="GS1_Error_203_xor" xml:space="preserve">
+    <value>pontosan az alábbiak közül egyet</value>
+  </data>
+  <data name="GS1_Error_203_or" xml:space="preserve">
+    <value>legalább az egyik a következők közül:</value>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>Az AI {0} többször is megjelenik eltérő értékekkel.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Az AI {0} értéke nem tartalmaz elismert globális vállalati előtagot (GCP).</value>
   </data>
 </root>

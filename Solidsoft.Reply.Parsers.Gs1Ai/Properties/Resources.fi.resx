@@ -120,28 +120,28 @@
   <data name="GS1_Error_001" xml:space="preserve">
     <value>Tietoja ei ole annettu.</value>
   </data>
-  <data name="GS1_Error_002" xml:space="preserve">
+  <data name="GS1_Error_008" xml:space="preserve">
     <value>Validointi AI:lle {0} aikakatkaistiin.</value>
   </data>
-  <data name="GS1_Error_003" xml:space="preserve">
-    <value>Entiteetin arvoa ei ole annettu AI:lle {0}.</value>
+  <data name="GS1_Error_007" xml:space="preserve">
+    <value>AI {0}:lle ei annettu elementin arvoa.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Entiteetti on virheellisesti päättynyt FNC1:llä.</value>
+    <value>Elementti on päätetty virheellisesti FNC1:llä.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Kiinteän leveyden entiteetti ei sisällä riittävää määrää merkkejä.</value>
+    <value>Ennalta määritetyn pituinen elementti ei sisällä riittävää määrää merkkejä.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Arvo{0} on virheellinen AI:lle {1}.</value>
   </data>
-  <data name="GS1_Error_007" xml:space="preserve">
+  <data name="GS1_Error_002" xml:space="preserve">
     <value>Virheellinen sovellustunniste {0}.</value>
   </data>
-  <data name="GS1_Error_008" xml:space="preserve">
-    <value>Arvo{0}:lla on virheellinen tarkistussumma.</value>
-  </data>
   <data name="GS1_Error_009" xml:space="preserve">
+    <value>Arvolla {0} kentässä {1} on virheellinen tarkistusnumero.</value>
+  </data>
+  <data name="GS1_Error_100" xml:space="preserve">
     <value>Arvo{0} ei vastaa datan elementille määriteltyä mallia.</value>
   </data>
   <data name="GS1_Error_010" xml:space="preserve">
@@ -164,5 +164,32 @@
   </data>
   <data name="GS1_Error_016" xml:space="preserve">
     <value>Arvo{0} ei vastaa Pohjois-Amerikan positiivisten tarjouskuponkien mallia.</value>
+  </data>
+  <data name="GS1_Error_201" xml:space="preserve">
+    <value>Virheellinen tietosuhde havaittu AI:n {0} ja AI:n {1} välillä.</value>
+  </data>
+  <data name="GS1_Error_203" xml:space="preserve">
+    <value>Pakollista tietosuhdetta ei löytynyt AI:n {0} ja {1} väliltä.</value>
+  </data>
+  <data name="GS1_Warning_017" xml:space="preserve">
+    <value>Arvo{0} ei ole tunnistettu UN/ECE- tai GS1-pakkaustyyppikoodi.</value>
+  </data>
+  <data name="GS1_Error_003" xml:space="preserve">
+    <value>Virheellinen sovellustunniste {0}. AI-tunnisteen pituuden on oltava 2–4 numeroa.</value>
+  </data>
+  <data name="GS1_Error_203_and" xml:space="preserve">
+    <value>ja</value>
+  </data>
+  <data name="GS1_Error_203_xor" xml:space="preserve">
+    <value>tasan yksi seuraavista</value>
+  </data>
+  <data name="GS1_Error_203_or" xml:space="preserve">
+    <value>vähintään yksi seuraavista</value>
+  </data>
+  <data name="GS1_Error_202" xml:space="preserve">
+    <value>Tekoäly {0} esiintyy useammin kuin kerran eri arvoilla.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>AI {0} -arvo ei sisällä tunnistettua Global Company Prefixiä (GCP).</value>
   </data>
 </root>
