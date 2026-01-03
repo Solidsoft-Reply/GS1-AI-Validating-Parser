@@ -22,7 +22,7 @@ The NuGet package provides support for a wide range of .NET versions including m
 
 ### Using the Library
 
-The Parser class provides a simple API for parsing data containing a sequence of elements. Each element string in the sequence has an Application Identifier (AI) between 2-4 digits in length and a numeric or alphanumeric data value of fixed or variable length, depending on the AI’s definition.
+The Parser class provides a simple API for parsing data containing a sequence of elements. Each element string in the sequence has an Application Identifier (AI) between 2-4 digits in length and a numeric or alphanumeric data value of fixed or variable length, depending on the AIï¿½s definition.
 
 
 
@@ -143,7 +143,7 @@ Each time the Parser calls back to the client code, it provides a ResolvedApplic
 * **Inverse Exponent**: the implied decimal point position specified in the AI, if supported. Otherwise, null.
 * **Sequence**: the sequence within a real-world process represented by the data element, if supported. Otherwise, null.
 * **Exceptions**: a collection of exceptions that occurred, if any, when resolving the data element.
-* **'Is Error' indicator**: True, if any exceptions where detected when resolving the data element. Otherwise, false.
+* **'Is Error' indicator**: True, if any exceptions where detected when resolving the data element.ï¿½Otherwise, false.
 * **'Is Fatal' indicator**: True, if any exceptions prevented the GS1 Parser from representing a parsed data element that conforms to, or is known to conform to, the GS1 specification for that data element. Otherwise, false.
 * **'Is Fixed Width' indicator**: True if the value of the data element is specified as a fixed-width value. This does not imply that the data element has a predefined length specified in Figure 7.8.5-2 in GS1 General Specifications. However, all AIs with a predefined length have fixed-width values.
 * **Index**: The index of the element string sequence containing the resolved data element in the list of sequences passed to the Parse() method.
@@ -257,9 +257,9 @@ void \_\_stdcall Gs1Ai\_Callback(
 
 &nbsp;   int,             // Is fixed width (1 = true, 0 = false)
 
-&nbsp;   int,             // Is error (1 = true, 0 = false) 
+&nbsp;   int,ï¿½            // Is error (1 = true, 0 = false) 
 
-&nbsp;   int,             // Is fatal (1 = true, 0 = false) 
+&nbsp;   int,ï¿½            // Is fatal (1 = true, 0 = false) 
 
 &nbsp;   int,             // Character position 
 
@@ -269,17 +269,17 @@ void \_\_stdcall Gs1Ai\_Callback(
 
 void \_\_stdcall Gs1Ai\_SetExceptionCallback(
 
-    int,             // Entity
+ï¿½   int,             // Entity
 
-    int,             // Error number
+ï¿½   int,             // Error number
 
-    wchar\_t\*,        // Message (UTF-16 on Windows)
+ï¿½   wchar\_t\*,  ï¿½     // Message (UTF-16 on Windows)
 
-    int,             // length of message
+ï¿½   int,      ï¿½      // length of message
 
-    int,             // Is fatal (1 = true, 0 = false)
+ï¿½   int,ï¿½   ï¿½        // Is fatal (1 = true, 0 = false)
 
-    int)             // Offset
+ï¿½   int)             // Offset
 
 
 
@@ -297,7 +297,7 @@ int \_\_stadcall Gs1Ai\_Parse(
 
 &nbsp;   int,             // Amount Payable semantics - 0 = Invoice, 1 - Coupon Value
 
-&nbsp;   const wchar\_t\*\*, // GCP list (UTF-16 on Windows)
+&nbsp;   const wchar\_t\*\*, // GCP listï¿½(UTF-16 on Windows)
 
 &nbsp;   int)             // Count of GCPs in list
 
@@ -519,7 +519,7 @@ Fatal: No
 
 Message: The value{0} is not a recognised UN/ECE or GS1 package type code.
 
-Reason: The value of the package type code does not conform to UN/CEFACT Recommendation No. 21 – Codes for Types of Cargo, Packages and Packaging Materials. In addition, it is not defined in the GS1 Packaging Type Code List.
+Reason: The value of the package type code does not conform to UN/CEFACT Recommendation No. 21 ï¿½ Codes for Types of Cargo, Packages and Packaging Materials. In addition, it is not defined in the GS1 Packaging Type Code List.
 
 
 
