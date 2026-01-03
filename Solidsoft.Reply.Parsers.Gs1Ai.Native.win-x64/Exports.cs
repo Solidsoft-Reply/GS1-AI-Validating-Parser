@@ -1,6 +1,7 @@
 namespace Solidsoft.Reply.Parsers.Gs1Ai.Native;
 
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
 /// <summary>
@@ -8,7 +9,7 @@ using System.Runtime.InteropServices;
 /// </summary>
 public static unsafe class Exports
 {
-    // Callback signature: identifier (UTF-16), idLen, value (UTF-16), valLen, entity, dataTitle (UTF-16), dtLen, description (UTF-16), descLen, inverseExponent, sequence, isFixedWidth, isError, isFatal
+    // Callback signature: identifier (UTF-16), idLen, value (UTF-16), valLen, entity, dataTitle (UTF-16), dtLen, description (UTF-16), descLen, inverseExponent, sequence, isFixedWidth, isError, isFatal, characterPosition, index
     private static delegate* unmanaged<char*, int, char*, int, int, char*, int, char*, int, int, int, int, int, int, int, int, void> Callback;
 
     // Exception signature: entity, errorNumber, message (UTF-16), msgLen, isFatal, offset
@@ -19,8 +20,8 @@ public static unsafe class Exports
     /// </summary>
     /// <param name="cb">The callback function.</param>
     /// <returns>0 on success, -1 on failure.</returns>
-    [UnmanagedCallersOnly(EntryPoint = "Gs1_SetCallback")]
-    public static int Gs1_SetCallback(delegate* unmanaged<char*, int, char*, int, int, char*, int, char*, int, int, int, int, int, int, int, int, void> cb) {
+    [UnmanagedCallersOnly(EntryPoint = "Gs1Ai_SetCallback")]
+    public static int Gs1Ai_SetCallback(delegate* unmanaged<char*, int, char*, int, int, char*, int, char*, int, int, int, int, int, int, int, int, void> cb) {
         try { 
             Callback = cb;
             return 0;
@@ -36,8 +37,8 @@ public static unsafe class Exports
     /// </summary>
     /// <param name="ecb">The exception callback.</param>
     /// <returns>0 on success, -1 on failure.</returns>
-    [UnmanagedCallersOnly(EntryPoint = "Gs1_SetExceptionCallback")]
-    public static int Gs1_SetExceptionCallback(delegate* unmanaged<int, int, char*, int, int, int, void> ecb) {
+    [UnmanagedCallersOnly(EntryPoint = "Gs1Ai_SetExceptionCallback")]
+    public static int Gs1Ai_SetExceptionCallback(delegate* unmanaged<int, int, char*, int, int, int, void> ecb) {
         try {
             ExceptionCallback = ecb;
             return 0;
@@ -54,17 +55,29 @@ public static unsafe class Exports
     /// <param name="length">The length of the data.</param>
     /// <param name="relationshipTests">The relationship tests to apply.</param>
     /// <returns>0 on success, -1 on failure.</returns>
-    [UnmanagedCallersOnly(EntryPoint = "Gs1_Parse")]
-    public static int Gs1_Parse(char* data, int length, int relationshipTests) {
+    [UnmanagedCallersOnly(EntryPoint = "Gs1Ai_Parse")]
+    public static int Gs1Ai_Parse(char* data, int length, int relationshipTests, int gtinSemantics, int expiryDateSemantics, int amountPayableSemantics, char** gcps, int count) {
         try
         {
             var span = new ReadOnlySpan<char>(data, Math.Max(length, 0));
+            List<string> gcpsList = null;
+            if (gcps != null && count > 0) {
+                gcpsList = new List<string>(count);
+                for (int idx = 0; idx < count; idx++) {
+                    char* s = gcps[idx];
+                    int len = WcsLen(s);
+                    if (s == null || len <= 0) continue;
+                    gcpsList.Add(new string(gcps[idx], 0, len));
+                }
+            }
+
             Parser.Parse(
                 span, 
                 entity => {
                     if (Callback != null)
                     {
                         var resolvedAi = (ResolvedApplicationIdentifier)entity;
+
                         fixed (char* idPtr = entity.Identifier)
                         fixed (char* valPtr = entity.Value)
                         fixed (char* dtPtr = entity.DataTitle)
@@ -106,14 +119,22 @@ public static unsafe class Exports
                         }
                     }
                 },
-            initialPosition: 0,
-            relationshipTests: (DataRelationshipTests)relationshipTests,
-            semantics: default);
+                initialPosition: 0,
+                relationshipTests: (DataRelationshipTests)relationshipTests,
+                semantics: default,
+                gcps: gcpsList);
             return 0;
         }
         catch
         {
             return -1;
+        }
+
+        static int WcsLen(char* s) {
+            int n = 0;
+            if (s == null) return 0;
+            while (s[n] != '\0') n++;
+            return n; 
         }
     }
 }

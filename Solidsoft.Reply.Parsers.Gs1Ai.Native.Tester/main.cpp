@@ -1,14 +1,19 @@
 #include <windows.h>
 #include <iostream>
 #include <string>
+#include <vector>
 
 // Entity callback: prints resolved entity details
 void __stdcall OnEntity(
-    wchar_t* identifier, int idLen,
-    wchar_t* value, int valLen,
+    wchar_t* identifier,
+    int idLen,
+    wchar_t* value,
+    int valLen,
     int entity,
-    wchar_t* dataTitle, int dtLen,
-    wchar_t* description, int descLen,
+    wchar_t* dataTitle,
+    int dtLen,
+    wchar_t* description,
+    int descLen,
     int inverseExponent,
     int sequence,
     int isFixedWidth,
@@ -17,29 +22,29 @@ void __stdcall OnEntity(
     int characterPosition,
     int index)
 {
-    std::wcout << L"[Entity] AI='" << std::wstring(identifier, idLen)
-               << L"' Value='" << std::wstring(value, valLen)
-               << L"' Entity=" << entity
-               << L" Title='" << std::wstring(dataTitle, dtLen)
-               << L"' Desc='" << std::wstring(description, descLen)
-               << L"' InverseExp=" << inverseExponent
-               << L" Seq=" << sequence
-               << L" FixedWidth=" << (isFixedWidth ? L"true" : L"false")
-               << L" Error=" << (isError ? L"true" : L"false")
-               << L" Fatal=" << (isFatal ? L"true" : L"false")
-               << L" Pos=" << characterPosition
-               << L" Index=" << index
+    std::wcout << L"\r\n[Entity]\r\n\tAI='" << std::wstring(identifier, idLen)
+               << L"'\r\n\tValue='" << std::wstring(value, valLen)
+               << L"'\r\n\tEntity=" << entity
+               << L"\r\n\tTitle='" << std::wstring(dataTitle, dtLen)
+               << L"'\r\n\tDesc='" << std::wstring(description, descLen)
+               << L"'\r\n\tInverseExp=" << inverseExponent
+               << L"\r\n\tSeq=" << sequence
+               << L"\r\n\tFixedWidth=" << (isFixedWidth ? L"true" : L"false")
+               << L"\r\n\tError=" << (isError ? L"true" : L"false")
+               << L"\r\n\tFatal=" << (isFatal ? L"true" : L"false")
+               << L"\r\n\tPos=" << characterPosition
+               << L"\r\n\tIndex=" << index
                << std::endl;
 }
 
 // Exception callback: prints exception details
 void __stdcall OnException(int entity, int errorNumber, wchar_t* message, int msgLen, int isFatal, int offset)
 {
-    std::wcout << L"[Exception] Entity=" << entity
-               << L" Error=" << errorNumber
-               << L" Message='" << std::wstring(message, msgLen)
-               << L"' Fatal=" << (isFatal ? L"true" : L"false")
-               << L" Offset=" << offset
+    std::wcout << L"\r\n[Exception]\r\n\tEntity=" << entity
+               << L"\r\n\tError=" << errorNumber
+               << L"\r\n\tMessage='" << std::wstring(message, msgLen)
+               << L"'\r\n\tFatal=" << (isFatal ? L"true" : L"false")
+               << L"\r\n\tOffset=" << offset
                << std::endl;
 }
 
@@ -59,7 +64,7 @@ std::wstring NormalizeInput(const std::wstring& input)
 // Function pointer typedefs matching native exports
 typedef int (__stdcall *SetCallbackFn)(void(__stdcall*)(wchar_t*, int, wchar_t*, int, int, wchar_t*, int, wchar_t*, int, int, int, int, int, int, int, int));
 typedef int (__stdcall *SetExceptionCallbackFn)(void(__stdcall*)(int, int, wchar_t*, int, int, int));
-typedef int (__stdcall *ParseFn)(wchar_t*, int, int);
+typedef int (__stdcall *ParseFn)(wchar_t*, int, int, int, int, int, const wchar_t** gcps, int count);
 
 int wmain(int argc, wchar_t* argv[])
 {
@@ -71,6 +76,8 @@ int wmain(int argc, wchar_t* argv[])
         input = L"01095011015300061731123110ABC123[GS]21SN000111222333";
     }
 
+    std::wcout << L"\r\n[Input]\t" << input << std::endl;
+
     input = NormalizeInput(input);
 
     // Load published native DLL (assumes it’s in PATH or same directory)
@@ -81,9 +88,9 @@ int wmain(int argc, wchar_t* argv[])
     }
 
     // Resolve exported functions
-    auto pSetCb = reinterpret_cast<SetCallbackFn>(GetProcAddress(hMod, "Gs1_SetCallback"));
-    auto pSetExCb = reinterpret_cast<SetExceptionCallbackFn>(GetProcAddress(hMod, "Gs1_SetExceptionCallback"));
-    auto pParse = reinterpret_cast<ParseFn>(GetProcAddress(hMod, "Gs1_Parse"));
+    auto pSetCb = reinterpret_cast<SetCallbackFn>(GetProcAddress(hMod, "Gs1Ai_SetCallback"));
+    auto pSetExCb = reinterpret_cast<SetExceptionCallbackFn>(GetProcAddress(hMod, "Gs1Ai_SetExceptionCallback"));
+    auto pParse = reinterpret_cast<ParseFn>(GetProcAddress(hMod, "Gs1Ai_Parse"));
 
     if (!pSetCb || !pSetExCb || !pParse) {
         std::wcerr << L"Failed to resolve one or more exports" << std::endl;
@@ -100,8 +107,24 @@ int wmain(int argc, wchar_t* argv[])
         return 1;
     }
 
+    // build GCP array
+    std::vector<std::wstring> gcpStorage{ L"012345", L"078129", L"123456"};
+    std::vector<const wchar_t*> gcpPtrs;
+    gcpPtrs.reserve(gcpStorage.size());
+    for (const auto& s : gcpStorage) {
+        gcpPtrs.push_back(s.c_str());
+    }
+
     // Parse with relationship tests = All
-    int rc = pParse(const_cast<wchar_t*>(input.c_str()), static_cast<int>(input.length()), /*relationshipTests*/ 2);
+    int rc = pParse(
+        const_cast<wchar_t*>(input.c_str()), 
+        static_cast<int>(input.length()), 
+		2,  // All relationship tests
+        0,  // GTIN
+        0,  // Expiry Date of trade item
+        0,  // amount payable on Invoice slip
+        gcpPtrs.data(),  // GCPs
+        static_cast<int>(gcpPtrs.size()));
     if (rc != 0) {
         std::wcerr << L"Parse failed: rc=" << rc << std::endl;
         return rc;
