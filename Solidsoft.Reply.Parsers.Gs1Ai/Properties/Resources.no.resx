@@ -124,13 +124,13 @@
     <value>Validering for AI {0} tidsavbrutt.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Ingen enhetsverdi oppgitt for AI {0}.</value>
+    <value>Ingen elementverdi er oppgitt for AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Enheten er feilaktig avsluttet med en FNC1.</value>
+    <value>Elementet avsluttes feilaktig med en FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Fastbredde-enheten inneholder ikke tilstrekkelig antall tegn.</value>
+    <value>Et element med forhåndsdefinert lengde inneholder ikke et tilstrekkelig antall tegn.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Verdien{0} er ugyldig for AI {1}.</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>AI {0} vises mer enn én gang med ulike verdier.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Verdien for AI {0} inneholder en anerkjent Global Company Prefix (GCP).</value>
   </data>
 </root>

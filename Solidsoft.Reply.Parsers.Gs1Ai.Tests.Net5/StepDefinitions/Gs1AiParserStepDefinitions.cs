@@ -68,7 +68,7 @@ public sealed class Gs1AiParserStepDefinitions {
         _resolvedEntities.Clear();
         _resolvedAIs.Clear();
         _dataRelationshipExceptions.Clear();
-        Parser.ParseMulti(_barcodes, OnResolvedEntity);
+        Parser.Parse(_barcodes, OnResolvedEntity);
         _barcodes.Clear();
     }
 
@@ -160,7 +160,7 @@ public sealed class Gs1AiParserStepDefinitions {
     [When("the input submitted to the parser is null")]
     public void WhenTheInputSubmittedToTheParserIsNull() {
         _resolvedAIs.Clear();
-        Parser.Parse(null, OnResolvedEntity);
+        Parser.Parse(null, OnResolvedEntity, relationshipTests: DataRelationshipTests.None);
     }
 
     [When("the AI of (.*) is incorrectly terminated with an FNC1 and the value is (.*)")]

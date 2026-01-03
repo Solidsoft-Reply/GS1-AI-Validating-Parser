@@ -124,13 +124,13 @@
     <value>La validazione per l'AI {0} è scaduta.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Nessun valore di entità fornito per l'AI {0}.</value>
+    <value>Nessun valore dell'elemento fornito per l'IA {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>L'entità termina in modo errato con un FNC1.</value>
+    <value>L'elemento è terminato in modo errato con un FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>L'entità a larghezza fissa non contiene un numero sufficiente di caratteri.</value>
+    <value>Un elemento di lunghezza predefinita non contiene un numero sufficiente di caratteri.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Il valore {0} non è valido per l'AI {1}.</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>L’IA {0} compare più di una volta con valori diversi.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Il valore di AI {0} non contiene un Prefisso Aziendale Globale (GCP) riconosciuto.</value>
   </data>
 </root>

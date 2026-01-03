@@ -124,13 +124,13 @@
     <value>A validação para AI {0} excedeu o tempo limite.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Nenhum valor de entidade fornecido para AI {0}.</value>
+    <value>Nenhum valor de elemento fornecido para a IA {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>A entidade está incorretamente terminada com um FNC1.</value>
+    <value>O elemento é terminado incorretamente com um FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Entidade de largura fixa não contém número suficiente de caracteres.</value>
+    <value>Um elemento de comprimento predefinido não contém um número suficiente de caracteres.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>O valor{0} é inválido para AI {1}.</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>A IA {0} aparece mais de uma vez com valores diferentes.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>O valor de AI {0} não contém um Prefixo Global de Empresa (GCP) reconhecido.</value>
   </data>
 </root>

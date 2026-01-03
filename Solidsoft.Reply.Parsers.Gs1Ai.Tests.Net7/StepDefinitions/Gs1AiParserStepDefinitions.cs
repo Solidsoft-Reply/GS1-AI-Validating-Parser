@@ -13,7 +13,7 @@ public sealed class Gs1AiParserStepDefinitions {
 
     private readonly IDictionary<int, IResolvedEntity> _resolvedEntities = new Dictionary<int, IResolvedEntity>();
     private readonly IDictionary<string, IResolvedEntity> _resolvedAIs = new Dictionary<string, IResolvedEntity>();
-    private readonly List<IResolvedEntity> _dataRelationshipExceptions = [];
+    private readonly List<IEnumerable<ParserException>> _dataRelationshipExceptions = [];
     private string _ai = "";
 
     [Given("the input is (.*)")]
@@ -55,6 +55,14 @@ public sealed class Gs1AiParserStepDefinitions {
         Parser.Parse(_data, OnResolvedEntity);
     }
 
+    [When("the input to submitted to the extended parser")]
+    public void WhenTheInputIsSubmittedToTheExtendedParser() {
+        _resolvedEntities.Clear();
+        _resolvedAIs.Clear();
+        _dataRelationshipExceptions.Clear();
+        Parser.ParseEx(_data, OnResolvedEntityEx);
+    }
+
     [When("the input to submitted to the parser and data relationship tests are required")]
     public void WhenTheInputIsSubmittedToTheParserAndDataRelationshipTestsAreRequired() {
         _resolvedEntities.Clear();
@@ -63,24 +71,33 @@ public sealed class Gs1AiParserStepDefinitions {
         Parser.Parse(_data, OnResolvedEntity, relationshipTests: DataRelationshipTests.All, semantics: new(GtinSemantics: _gtinSemantics, ExpiryDateSemantics: _expiryDateSemantics, AmountPayableSemantics: _amountPayableSemantics));
     }
 
+    [When("the input to submitted to the extended parser and data relationship tests are required")]
+    public void WhenTheInputIsSubmittedToTheExtendedParserAndDataRelationshipTestsAreRequired() {
+        _resolvedEntities.Clear();
+        _resolvedAIs.Clear();
+        _dataRelationshipExceptions.Clear();
+        Parser.ParseEx(_data, OnResolvedEntityEx, relationshipTests: DataRelationshipTests.All, semantics: new(GtinSemantics: _gtinSemantics, ExpiryDateSemantics: _expiryDateSemantics, AmountPayableSemantics: _amountPayableSemantics));
+    }
+
+
     [When("the barcodes are submitted to the parser")]
     public void WhenTheBarcodesAReSubmittedToTheParser() {
         _resolvedEntities.Clear();
         _resolvedAIs.Clear();
         _dataRelationshipExceptions.Clear();
-        Parser.ParseMulti(_barcodes, OnResolvedEntity);
+        Parser.Parse(_barcodes, OnResolvedEntity);
         _barcodes.Clear();
     }
 
     public void OnResolvedEntity(IResolvedEntity resolvedEntity) {
         if (resolvedEntity.Entity < 0
             && resolvedEntity.Exceptions.Any(e => e.ErrorNumber == 2201 || e.ErrorNumber == 2203)) {
-            _dataRelationshipExceptions.Add(resolvedEntity);
+            _dataRelationshipExceptions.Add(resolvedEntity.Exceptions);
             return;
         }
 
         if (resolvedEntity.Exceptions.Any(e => e.ErrorNumber == 2202)) {
-            _dataRelationshipExceptions.Add(resolvedEntity);
+            _dataRelationshipExceptions.Add(resolvedEntity.Exceptions);
         }
 
         if (!_resolvedEntities.TryGetValue(resolvedEntity.Entity, out _))
@@ -88,6 +105,37 @@ public sealed class Gs1AiParserStepDefinitions {
 
         if (!_resolvedAIs.TryGetValue(resolvedEntity.Identifier, out _))
             _resolvedAIs.Add(resolvedEntity.Identifier, resolvedEntity);
+    }
+
+    // Make the handler signature match the delegate (scoped in)
+    public void OnResolvedEntityEx(scoped in ResolvedApplicationIdentifierRef resolvedEntity) {
+        if (resolvedEntity.Entity < 0
+            && resolvedEntity.Exceptions.Any(e => e.ErrorNumber == 2201 || e.ErrorNumber == 2203)) {
+            _dataRelationshipExceptions.Add(resolvedEntity.Exceptions);
+            return;
+        }
+
+        if (resolvedEntity.Exceptions.Any(e => e.ErrorNumber == 2202)) {
+            _dataRelationshipExceptions.Add(resolvedEntity.Exceptions);
+        }
+
+        if (!_resolvedEntities.TryGetValue(resolvedEntity.Entity, out _)) {
+            var resolvedAi = new ResolvedApplicationIdentifier(resolvedEntity.Entity, resolvedEntity.Identifier.ToString(), resolvedEntity.InverseExponent, resolvedEntity.Sequence, resolvedEntity.Value.ToString(), resolvedEntity.IsFixedWidth, resolvedEntity.DataTitle.ToString(), resolvedEntity.Description.ToString(), resolvedEntity.CharacterPosition, resolvedEntity.Index);
+            foreach (var ex in resolvedEntity.Exceptions) {
+                resolvedAi.AddException(ex);
+            }
+
+            _resolvedEntities.Add(resolvedEntity.Entity, resolvedAi);
+        }
+
+        if (!_resolvedAIs.TryGetValue(resolvedEntity.Identifier.ToString(), out _)) {
+            var resolvedAi = new ResolvedApplicationIdentifier(resolvedEntity.Entity, resolvedEntity.Identifier.ToString(), resolvedEntity.InverseExponent, resolvedEntity.Sequence, resolvedEntity.Value.ToString(), resolvedEntity.IsFixedWidth, resolvedEntity.DataTitle.ToString(), resolvedEntity.Description.ToString(), resolvedEntity.CharacterPosition, resolvedEntity.Index);
+            foreach (var ex in resolvedEntity.Exceptions) {
+                resolvedAi.AddException(ex);
+            }
+
+            _resolvedAIs.Add(resolvedEntity.Identifier.ToString(), resolvedAi);
+        }
     }
 
     [Then("the entity should be (.*)")]
@@ -159,7 +207,7 @@ public sealed class Gs1AiParserStepDefinitions {
     [When("the input submitted to the parser is null")]
     public void WhenTheInputSubmittedToTheParserIsNull() {
         _resolvedAIs.Clear();
-        Parser.Parse(null, OnResolvedEntity);
+        Parser.Parse(null, OnResolvedEntity, relationshipTests: DataRelationshipTests.None);
     }
 
     [When("the AI of (.*) is incorrectly terminated with an FNC1 and the value is (.*)")]
@@ -177,14 +225,14 @@ public sealed class Gs1AiParserStepDefinitions {
     public void TheThereShouldBInvalidPairs() {
         _dataRelationshipExceptions
             .Should()
-            .Contain(ent => ent.Exceptions != null && ent.Exceptions.Any(ex => ex.ErrorNumber == 2201));
+            .Contain(dre => dre != null && dre.Any(ex => ex.ErrorNumber == 2201));
     }
 
     [Then("there should be invalid duplicate AI pairs")]
     public void TheThereShouldBInvalidDuplicateAIPairs() {
         _dataRelationshipExceptions
             .Should()
-            .Contain(ent => ent.Exceptions != null && ent.Exceptions.Any(ex => ex.ErrorNumber == 2202));
+            .Contain(dre => dre != null && dre.Any(ex => ex.ErrorNumber == 2202));
     }
 
     [Then("the errors should include a fatal (.*) error")]

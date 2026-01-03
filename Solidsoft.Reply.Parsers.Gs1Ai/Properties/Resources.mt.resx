@@ -124,13 +124,13 @@
     <value>Il-validazzjoni għal AI {0} ħadet żmien twil wisq.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Ma ngħatatx valur tal-entità għal AI {0}.</value>
+    <value>L-ebda valur tal-element ma ġie pprovdut għal AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>L-entità hija tterminata b'mod żbaljat b'FNC1.</value>
+    <value>L-element huwa mitmum b’mod żbaljat b’FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Entità ta' wisa' fiss ma fihiex numru suffiċjenti ta' karattri.</value>
+    <value>Element b’tul definit minn qabel ma fihx numru suffiċjenti ta’ karattri.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Il-valur{0} huwa invalidu għal AI {1}.</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>AI {0} jidher aktar minn darba b’valuri differenti.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Il-valur tal-AI {0} ma fihx Prefiss Globali tal-Kumpanija (GCP) rikonoxxut.</value>
   </data>
 </root>

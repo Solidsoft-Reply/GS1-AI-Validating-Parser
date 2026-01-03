@@ -124,13 +124,13 @@
     <value>Walidacja dla identyfikatora AI {0} przekroczyła limit czasu.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Nie podano wartości jednostki dla identyfikatora AI {0}.</value>
+    <value>Nie podano wartości elementu dla AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Jednostka jest nieprawidłowo zakończona kodem FNC1.</value>
+    <value>Element jest nieprawidłowo zakończony znakiem FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Jednostka o stałej szerokości nie zawiera wystarczającej liczby znaków.</value>
+    <value>Element o z góry określonej długości nie zawiera wystarczającej liczby znaków.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Wartość{0} jest nieprawidłowa dla identyfikatora AI {1}.</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>AI {0} występuje więcej niż raz z różnymi wartościami.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Wartość AI {0} zawiera rozpoznany globalny prefiks firmy (GCP).</value>
   </data>
 </root>

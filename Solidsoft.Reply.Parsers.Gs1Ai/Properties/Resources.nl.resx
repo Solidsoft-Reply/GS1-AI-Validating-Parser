@@ -124,13 +124,13 @@
     <value>Validatie voor AI {0} is verlopen.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Geen entiteitswaarde verstrekt voor AI {0}.</value>
+    <value>Geen elementwaarde opgegeven voor AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Entiteit is incorrect beëindigd met een FNC1.</value>
+    <value>Element is onjuiste beëindigd met een FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Vaste breedte entiteit bevat niet voldoende aantal karakters.</value>
+    <value>Een element met een vooraf gedefinieerde lengte bevat onvoldoende tekens.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>De waarde{0} is ongeldig voor AI {1}.</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>AI {0} komt meer dan één keer voor met verschillende waarden.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>De waarde van AI {0} bevat een erkende Global Company Prefix (GCP).</value>
   </data>
 </root>

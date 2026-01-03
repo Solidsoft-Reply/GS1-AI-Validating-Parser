@@ -79,7 +79,7 @@ class UnCefactFreightUnitTypeDescriptor(
     string description,
     Regex pattern,
     bool isFixedWidth)
-: EntityDescriptors(dataTitle, description, pattern, isFixedWidth) {
+: ElementDescriptors(dataTitle, description, pattern, isFixedWidth) {
     private static readonly Dictionary<string, (string, string)> _freightUnitTypes = new () {
         { "8", ("Oneway pallet (GS1 Code)", "Pallet need not be returned to the point of expedition") },
         { "9", ("Returnable pallet (GS1 Code)", "Pallet must be returned to the point of expedition.") },
@@ -548,7 +548,7 @@ class UnCefactFreightUnitTypeDescriptor(
     /// <summary>
     ///     Validate data against the descriptor.
     /// </summary>
-    /// <param name="resolvedEntity">The resolved entity to be validated.</param>
+    /// <param name="resolvedElement">The resolved application identifier to be validated.</param>
     /// <param name="validationErrors">A list of validation errors.</param>
     /// <returns>True, if valid.  Otherwise, false.</returns>
     /// <remarks>The exception is marked as a warning, rather than an error,
@@ -557,8 +557,8 @@ class UnCefactFreightUnitTypeDescriptor(
     // ReSharper disable once CommentTypo
     // ReSharper disable once InheritdocConsiderUsage
 #if NET7_0_OR_GREATER
-    public override bool IsValid(ResolvedApplicationIdentifierRef resolvedEntity, out IList<ParserException>? validationErrors) {
-        var value = resolvedEntity.Value;
+    public override bool IsValid(ResolvedApplicationIdentifierRef resolvedElement, out IList<ParserException>? validationErrors) {
+        var value = resolvedElement.Value.TrimEnd('\0');
         if (!_freightUnitTypes.ContainsKey(value.ToString())) {
             validationErrors = [
                 new (
@@ -566,7 +566,7 @@ class UnCefactFreightUnitTypeDescriptor(
                     2017,
                     string.Format(CultureInfo.CurrentCulture, Resources.GS1_Warning_017, value.ToString()),
                     false,
-                    resolvedEntity.Identifier.Length + resolvedEntity.Value.Length - 1),
+                    resolvedElement.Identifier.TrimEnd('\0').Length + value.Length - 1),
             ];
 
             return false;
@@ -580,11 +580,11 @@ class UnCefactFreightUnitTypeDescriptor(
     /// <summary>
     ///    Validate data against the descriptor.
     /// </summary>
-    /// <param name="resolvedEntity">The resolved entity to be validated.</param>
+    /// <param name="resolvedElement">The resolved application identifier to be validated.</param>
     /// <param name="validationErrors">A list of validation errors.</param>
     /// <returns>True, if valid.  Otherwise, false.</returns>
-    public override bool IsValid(ResolvedApplicationIdentifier resolvedEntity, out IList<ParserException>? validationErrors) {
-        var value = resolvedEntity.Value;
+    public override bool IsValid(ResolvedApplicationIdentifier resolvedElement, out IList<ParserException>? validationErrors) {
+        var value = resolvedElement.Value;
         if (!_freightUnitTypes.ContainsKey(value)) {
             validationErrors = [
                 new (
@@ -592,7 +592,7 @@ class UnCefactFreightUnitTypeDescriptor(
                     2017,
                     string.Format(CultureInfo.CurrentCulture, Resources.GS1_Warning_017, value),
                     false,
-                    resolvedEntity.Identifier.Length + resolvedEntity.Value.Length - 1),
+                    resolvedElement.Identifier.Length + resolvedElement.Value.Length - 1),
             ];
 
             return false;

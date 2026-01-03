@@ -62,7 +62,7 @@ public static class ResolvedAiList
     /// <param name="position">The position of the AI.</param>
     public static void Add(ReadOnlySpan<char> identifier, ReadOnlySpan<char> value, int position)
     {
-        Current.Add(new ResolvedAiEntry(identifier.ToString(), value.ToString(), position));
+        Current.Add(new ResolvedAiEntry(identifier.ToString().TrimEnd('\0'), value.ToString().TrimEnd('\0'), position));
     }
 
     /// <summary>

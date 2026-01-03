@@ -124,13 +124,13 @@
     <value>Валидацията за AI {0} изтече.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Не е предоставена стойност на обекта за AI {0}.</value>
+    <value>Не е предоставена стойност на елемента за AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Обектът е неправилно завършен с FNC1.</value>
+    <value>Елементът е неправилно завършен с FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Обектът с фиксирана ширина не съдържа достатъчно символи.</value>
+    <value>Елемент с предварително зададена дължина не съдържа достатъчен брой знаци.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Стойността{0} е невалидна за AI {1}.</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>AI {0} се появява повече от веднъж с различни стойности.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Стойността на AI {0} не съдържа разпознат глобален фирмен префикс (GCP).</value>
   </data>
 </root>

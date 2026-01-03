@@ -124,13 +124,13 @@
     <value>Az AI {0} validálása lejárt.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Nincs entitásérték megadva az AI {0} számára.</value>
+    <value>Nincs megadva elemérték az AI {0} számára.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Az entitás helytelenül van befejezve egy FNC1-gyel.</value>
+    <value>Az elem helytelenül van lezárva egy FNC1-gyel.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>A fix szélességű entitás nem tartalmaz elegendő számú karaktert.</value>
+    <value>Egy előre meghatározott hosszúságú elem nem tartalmaz elegendő számú karaktert.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Az érték{0} érvénytelen az AI {1} számára.</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>Az AI {0} többször is megjelenik eltérő értékekkel.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Az AI {0} értéke nem tartalmaz elismert globális vállalati előtagot (GCP).</value>
   </data>
 </root>

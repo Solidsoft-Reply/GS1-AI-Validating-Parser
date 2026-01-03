@@ -14,36 +14,36 @@
 // limitations under the License.
 // </copyright>
 // <summary>
-// Represents the scenario for barcode parsing with respect to the correspondence between
-// barcodes and physical entities.
+// Represents the scenario for element string sequence parsing with respect to the correspondence between
+// element string sequences and physical entities.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace Solidsoft.Reply.Parsers.Gs1Ai;
 
 /// <summary>
-/// Represents the scenario for barcode parsing with respect to the correspondence between
-/// barcodes and physical entities.
+/// Represents the scenario for element string sequence parsing with respect to the correspondence between
+/// element string sequences and physical entities.
 /// </summary>
 public enum Scenario {
     /// <summary>
-    /// The list of barcodes appear on a single physical entity.
+    /// The list of element string sequences (e.g., barcodes) appear on a single physical entity.
     /// </summary>
     /// <remarks>
-    /// The parser will perform data relationship tests across all barcodes in the list.
+    /// The parser will perform data relationship tests across all element string sequences in the list.
     /// </remarks>
     SinglePhysicalEntity = 0,
 
     /// <summary>
-    /// Each barcode appears on a single physical entity.
+    /// Each element string sequence (e.g., barcode) appears uniquely on a single physical entity.
     /// </summary>
     /// <remarks>
-    /// The parser will perform data relationship tests for each individual barcode.
+    /// The parser will perform data relationship tests for each individual element string sequence.
     /// </remarks>
-    SinglePhysicalEntityPerBarcode = 1,
+    SinglePhysicalEntityPerSequence = 1,
 
     /// <summary>
-    /// No assumption is made regarding the correspondence of barcodes to physical entities.
+    /// No assumption is made regarding the correspondence of element string sequences (e.g barcodes) to physical entities.
     /// </summary>
     /// <remarks>
     /// The parser will not perform data relationship tests.

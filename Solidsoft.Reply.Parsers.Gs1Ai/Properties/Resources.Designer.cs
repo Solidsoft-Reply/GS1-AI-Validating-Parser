@@ -88,7 +88,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Entity is incorrectly terminated with an FNC1..
+        ///   Looks up a localized string similar to Element is incorrectly terminated with an FNC1..
         /// </summary>
         internal static string GS1_Error_004 {
             get {
@@ -97,7 +97,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A predefined-length entity does not contain a sufficient number of characters..
+        ///   Looks up a localized string similar to A predefined-length element does not contain a sufficient number of characters..
         /// </summary>
         internal static string GS1_Error_005 {
             get {
@@ -115,7 +115,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No entity value provided for AI {0}..
+        ///   Looks up a localized string similar to No element value provided for AI {0}..
         /// </summary>
         internal static string GS1_Error_007 {
             get {
@@ -210,6 +210,15 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai.Properties {
         internal static string GS1_Error_100 {
             get {
                 return ResourceManager.GetString("GS1_Error_100", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value of AI {0} does contains an recognised Global Company Prefix (GCP)..
+        /// </summary>
+        internal static string GS1_Error_101 {
+            get {
+                return ResourceManager.GetString("GS1_Error_101", resourceCulture);
             }
         }
         

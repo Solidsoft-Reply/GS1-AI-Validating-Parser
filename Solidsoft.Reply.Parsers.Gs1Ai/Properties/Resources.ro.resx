@@ -124,13 +124,13 @@
     <value>Validarea pentru AI {0} a expirat.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Nu a fost furnizată o valoare pentru entitatea AI {0}.</value>
+    <value>Nu a fost furnizată nicio valoare de element pentru AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Entitatea este încheiată incorect cu un FNC1.</value>
+    <value>Elementul este terminat incorect cu un FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Entitatea cu lățime fixă nu conține un număr suficient de caractere.</value>
+    <value>Un element cu lungime predefinită nu conține un număr suficient de caractere.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Valoarea{0} este invalidă pentru AI {1}.</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>AI {0} apare de mai multe ori cu valori diferite.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Valoarea AI {0} nu conține un Prefix Global de Companie (GCP) recunoscut.</value>
   </data>
 </root>

@@ -29,7 +29,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai;
 /// </summary>
 public enum ApplicationIdentifier {
     /// <summary>
-    ///     Unrecognised entity.
+    ///     Unrecognised element.
     /// </summary>
     Unrecognised = -1,
 
@@ -981,7 +981,7 @@ public enum ApplicationIdentifier {
     /// <remarks>Format: N3+X..20 (FNC1)</remarks>
     NationalHealthcareReimbursementNumberCostaRicaSrn = 717,
 
-    // ... (*****) National Healthcare Reimbursement Number (NHRN) – Country “A” NHRN N3+X..20 (FNC1) NHRN ResolveEntity
+    // ... (*****) National Healthcare Reimbursement Number (NHRN) – Country “A” NHRN N3+X..20 (FNC1) NHRN
 
     /// <summary>
     ///     Certification reference (CERT # s).

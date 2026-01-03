@@ -124,13 +124,13 @@
     <value>Die Validierung für AI {0} ist abgelaufen.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Kein Entitätswert für AI {0} angegeben.</value>
+    <value>Kein Elementwert für KI {0} angegeben.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Die Entität wird fälschlicherweise mit einem FNC1 beendet.</value>
+    <value>Element wird fälschlicherweise mit einem FNC1 beendet.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Festbreitenentität enthält nicht genügend Zeichen.</value>
+    <value>Ein Element mit vordefinierter Länge enthält nicht genügend Zeichen.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Der Wert{0} ist ungültig für AI {1}.</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>KI {0} erscheint mehr als einmal mit unterschiedlichen Werten.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Der Wert von AI {0} enthält keinen anerkannten Global Company Prefix (GCP).</value>
   </data>
 </root>

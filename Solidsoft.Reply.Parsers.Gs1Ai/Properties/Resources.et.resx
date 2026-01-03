@@ -124,13 +124,13 @@
     <value>AI {0} valideerimine aegus.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>AI {0} jaoks ei ole entiteedi väärtust esitatud.</value>
+    <value>AI {0} jaoks ei ole elemendi väärtust esitatud.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Entiteet on valesti lõpetatud FNC1-ga.</value>
+    <value>Element on valesti lõpetatud FNC1-ga.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Fikseeritud laiusega entiteet ei sisalda piisavat arvu tähemärke.</value>
+    <value>Eelmääratud pikkusega element ei sisalda piisavalt märke.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Väärtus{0} on kehtetu AI {1} jaoks.</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>AI {0} esineb rohkem kui üks kord erinevate väärtustega.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>AI {0} väärtus ei sisalda tunnustatud globaalse ettevõtte prefiksit (GCP).</value>
   </data>
 </root>

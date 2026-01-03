@@ -124,13 +124,13 @@
     <value>Validointi AI:lle {0} aikakatkaistiin.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Entiteetin arvoa ei ole annettu AI:lle {0}.</value>
+    <value>AI {0}:lle ei annettu elementin arvoa.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Entiteetti on virheellisesti päättynyt FNC1:llä.</value>
+    <value>Elementti on päätetty virheellisesti FNC1:llä.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Kiinteän leveyden entiteetti ei sisällä riittävää määrää merkkejä.</value>
+    <value>Ennalta määritetyn pituinen elementti ei sisällä riittävää määrää merkkejä.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Arvo{0} on virheellinen AI:lle {1}.</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>Tekoäly {0} esiintyy useammin kuin kerran eri arvoilla.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>AI {0} -arvo ei sisällä tunnistettua Global Company Prefixiä (GCP).</value>
   </data>
 </root>

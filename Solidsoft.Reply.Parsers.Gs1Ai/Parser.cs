@@ -34,27 +34,27 @@ using System.Collections.Generic;
 
 #if NET7_0_OR_GREATER
 /// <summary>
-/// Delegate for processing resolved entities with minimal heap allocations.
+/// Delegate for processing element data elements with minimal heap allocations.
 /// </summary>
-/// <param name="resolvedEntity">The resolved entity to process.</param>
-public delegate void ResolvedEntityDelegate(scoped in ResolvedApplicationIdentifierRef resolvedEntity);
+/// <param name="resolvedElement">The element element to process.</param>
+public delegate void ResolvedElementDelegate(scoped in ResolvedApplicationIdentifierRef resolvedElement);
 #endif
 
 /// <summary>
-/// Provides static methods for parsing GS1-encoded strings and processing resolved application identifiers (AIs)
+/// Provides static methods for parsing GS1-encoded strings and processing element application identifiers (AIs)
 /// according to GS1 standards.
 /// </summary>
 /// <remarks>The Parser class offers multiple overloads of the Parse method to support different input types and
 /// performance requirements. It applies GS1 data relationship rules when requested, enabling validation and
-/// relationship testing of AIs within a single physical entity. For high-performance scenarios, use the ParseEx method
-/// with a delegate to minimize heap allocations. All parsing methods invoke a callback for each resolved entity,
+/// relationship testing of AIs within a single physical element. For high-performance scenarios, use the ParseEx method
+/// with a delegate to minimize heap allocations. All parsing methods invoke a callback for each element element,
 /// allowing callers to process or validate parsed data as needed. GS1 data relationship rules are only applied if
 /// explicitly requested via the appropriate parameter. Applying these rules may introduce additional overhead and is
 /// not required for all use cases. The class is thread-safe for concurrent parsing operations.</remarks>
 public static class Parser {
 #if !NET6_0_OR_GREATER
     /// <summary>
-    ///     Dictionary of AI values (the first two digits in an entity) of elements with a pre-defined length.
+    ///     Dictionary of AIs (the first two digits in an application idetifier) and values of elements with a pre-defined length.
     /// </summary>
     private static readonly Dictionary<string, int> FirstTwoDigitsTable = new () {
         { "00", 20 },
@@ -83,61 +83,88 @@ public static class Parser {
 #endif
 
     /// <summary>
+    /// Contains the set of Application Identifiers (AIs) that are associated with direct Global Company Prefix (GCP)
+    /// assignment according to GS1 specifications.
+    /// </summary>
+    /// <remarks>This set includes AIs for which the GCP is determined directly from the data element, rather
+    /// than by parsing additional context. The comparison is performed using ordinal string comparison to ensure case
+    /// sensitivity.</remarks>
+    private static readonly HashSet<string> GcpDirectAis = new (StringComparer.Ordinal)
+    {
+        "00", "253", "255", "401", "402", "410", "411", "412", "413", "414", "415", "416", "417",
+        "7023", "8004", "8010", "8013", "8014", "8017", "8018",
+    };
+
+    /// <summary>
+    /// Contains the set of GS1 Global Company Prefixes (GCPs) that are associated with Application Identifiers (AIs)
+    /// where the AI begins with a leading digit.
+    /// </summary>
+    /// <remarks>This set is used to identify GCPs that require special handling due to their associated AIs
+    /// starting with a digit. The comparison is case-sensitive and uses ordinal string comparison.</remarks>
+    private static readonly HashSet<string> GcpWithLeadingDigitAis = new (StringComparer.Ordinal)
+    {
+        "01", "02", "03", "8006", "8026",
+    };
+
+    /// <summary>
     ///     Parse the content of a GS1-encoded string.
     /// </summary>
     /// <param name="data">
     ///     The data to be parsed.
     /// </param>
-    /// <param name="processResolvedEntity">
-    ///     An action that is invoked to process each resolved entity.
+    /// <param name="processResolvedElement">
+    ///     An action that is invoked to process each element element.
     /// </param>
     /// <param name="initialPosition">
     ///     The initial character position.
     /// </param>
-    /// <param name="relationshipTests">Optional control to collect resolved AIs for relationship testing.</param>
+    /// <param name="relationshipTests">Optional control to collect element AIs for relationship testing.</param>
     /// <param name="semantics">AI semantics when data relationship tests are performed.</param>
+    /// <param name="gcps">Optional list of Global Company Prefixes (GCPs) for additional validation of AIs.</param>
     /// <remarks>
     /// <para>
     ///     GS1 data relationship rules are applied when requested via the <paramref name="relationshipTests"/>
-    ///     parameter. Applying these rules intorduces additional overhead, and may not be necessary in many
+    ///     parameter. Applying these rules introduces additional overhead, and may not be necessary in many
     ///     scenarios.
     /// </para>
     /// <para>
-    ///     GS1 data relationship rules apply to AI element strings present on a single physical entity. This
+    ///     GS1 data relationship rules apply to AI element strings present on a single physical element. This
     ///     does not necessarily mean that the element strings need to appear in the same data carrier. For
     ///     example, multiple GS1-128 barcode symbols may be used in combination on a GS1 Logistic Label.
     /// </para>
     /// </remarks>
     public static void Parse(
         string? data,
-        Action<IResolvedEntity> processResolvedEntity,
+        Action<IResolvedEntity> processResolvedElement,
         int initialPosition = 0,
         DataRelationshipTests relationshipTests = DataRelationshipTests.None,
-        Semantics semantics = default) {
+        Semantics semantics = default,
+        IList<string>? gcps = null) {
 #if NET7_0_OR_GREATER
-        ArgumentNullException.ThrowIfNull(processResolvedEntity);
+        ArgumentNullException.ThrowIfNull(processResolvedElement);
 #else
-        if (processResolvedEntity is null) {
-            throw new ArgumentNullException(nameof(processResolvedEntity));
+        if (processResolvedElement is null) {
+            throw new ArgumentNullException(nameof(processResolvedElement));
         }
 #endif
 
         // Is any data present?
         if (string.IsNullOrWhiteSpace(data)) {
             // Handle errors
-            var errorEntity = new ResolvedApplicationIdentifier(
+            var errorElement = new ResolvedApplicationIdentifier(
                     new ParserException(string.Empty, 2001, Resources.GS1_Error_001, true),
                     initialPosition);
 
-            processResolvedEntity(errorEntity);
+            processResolvedElement(errorElement);
             return;
         }
 
 #if NET7_0_OR_GREATER
-        DoParse(data!.AsSpan(), processResolvedEntity, null, initialPosition, relationshipTests, semantics);
+        DoParse(data!.AsSpan(), processResolvedElement, null, initialPosition, relationshipTests, semantics, false, null, 0, gcps);
 #else
-        DoParse(data!.AsSpan(), processResolvedEntity, initialPosition, relationshipTests, semantics);
+        DoParse(data!.AsSpan(), processResolvedElement, initialPosition, relationshipTests, semantics, false, null, 0, gcps);
 #endif
+        ResolvedAiList.Clear();
     }
 
 #if NET7_0_OR_GREATER
@@ -147,18 +174,19 @@ public static class Parser {
     /// <param name="data">
     ///     The data to be parsed.
     /// </param>
-    /// <param name="processResolvedEntity">
-    ///     A delegate that is invoked to process each resolved entity.  Use this overload to minmise heap allocations for greatest performance.
+    /// <param name="processResolvedElement">
+    ///     A delegate that is invoked to process each element element.  Use this overload to minmise heap allocations for greatest performance.
     /// </param>
     /// <param name="initialPosition">
     ///     The initial character position.
     /// </param>
-    /// <param name="relationshipTests">Optional control to collect resolved AIs for relationship testing.</param>
+    /// <param name="relationshipTests">Optional control to collect element AIs for relationship testing.</param>
     /// <remarks>
-    /// Use this method as an alternative to Parse() for the very highest performance scenarios.  By using the ResolvedEntityDelegate delegate,
+    /// Use this method as an alternative to Parse() for the very highest performance scenarios.  By using the ResolvedElementDelegate delegate,
     /// you can avoid unecessary heap allocations.
     /// </remarks>
     /// <param name="semantics">AI semantics when data relationship tests are performed.</param>
+    /// <param name="gcps">Optional list of Global Company Prefixes (GCPs) for additional validation of AIs.</param>
     /// <remarks>
     /// <para>
     ///     GS1 data relationship rules are applied when requested via the <paramref name="relationshipTests"/>
@@ -166,31 +194,36 @@ public static class Parser {
     ///     scenarios.
     /// </para>
     /// <para>
-    ///     GS1 data relationship rules apply to AI element strings present on a single physical entity. This
+    ///     GS1 data relationship rules apply to AI element strings present on a single physical element. This
     ///     does not necessarily mean that the element strings need to appear in the same data carrier. For
     ///     example, multiple GS1-128 barcode symbols may be used in combination on a GS1 Logistic Label.
     /// </para>
     /// </remarks>
     public static void ParseEx(
         ReadOnlySpan<char> data,
-        ResolvedEntityDelegate processResolvedEntity,
+        ResolvedElementDelegate processResolvedElement,
         int initialPosition = 0,
         DataRelationshipTests relationshipTests = DataRelationshipTests.None,
-        Semantics semantics = default) {
-        ArgumentNullException.ThrowIfNull(processResolvedEntity);
+        Semantics semantics = default,
+        IList<string>? gcps = null) {
+        ArgumentNullException.ThrowIfNull(processResolvedElement);
 
         // Is any data present?
         if (data.IsNullOrWhiteSpace()) {
-            var entity = new ResolvedApplicationIdentifierRef(
+            // Handle errors
+            var errorElement = new ResolvedApplicationIdentifierRef(
                     new ParserException(string.Empty, 2001, Resources.GS1_Error_001, true),
                     initialPosition);
 
-            // Handle errors
-            processResolvedEntity(in entity);
+            processResolvedElement(in errorElement);
             return;
         }
 
-        DoParse(data, null, processResolvedEntity, initialPosition, relationshipTests, semantics);
+        DoParse(data, null, processResolvedElement, initialPosition, relationshipTests, semantics, false, null, 0, gcps);
+        ResolvedAiList.Clear();
+#if NET7_0_OR_GREATER
+        ResolvedApplicationIdentifierRef.ClearExceptionsForCurrentThread();
+#endif
     }
 #endif
 
@@ -201,14 +234,15 @@ public static class Parser {
     /// <param name="data">
     ///     The data to be parsed.
     /// </param>
-    /// <param name="processResolvedEntity">
-    ///     An action that is invoked to process each resolved entity.
+    /// <param name="processResolvedElement">
+    ///     An action that is invoked to process each element element.
     /// </param>
     /// <param name="initialPosition">
     ///     The initial character position.
     /// </param>
-    /// <param name="relationshipTests">Optional control to collect resolved AIs for relationship testing.</param>
+    /// <param name="relationshipTests">Optional control to collect element AIs for relationship testing.</param>
     /// <param name="semantics">AI semantics when data relationship tests are performed.</param>
+    /// <param name="gcps">Optional list of Global Company Prefixes (GCPs) for additional validation of AIs.</param>
     /// <remarks>
     /// <para>
     ///     GS1 data relationship rules are applied when requested via the <paramref name="relationshipTests"/>
@@ -216,22 +250,23 @@ public static class Parser {
     ///     scenarios.
     /// </para>
     /// <para>
-    ///     GS1 data relationship rules apply to AI element strings present on a single physical entity. This
+    ///     GS1 data relationship rules apply to AI element strings present on a single physical element. This
     ///     does not necessarily mean that the element strings need to appear in the same data carrier. For
     ///     example, multiple GS1-128 barcode symbols may be used in combination on a GS1 Logistic Label.
     /// </para>
     /// </remarks>
     public static void Parse(
         ReadOnlySpan<char> data,
-        Action<IResolvedEntity> processResolvedEntity,
+        Action<IResolvedEntity> processResolvedElement,
         int initialPosition = 0,
         DataRelationshipTests relationshipTests = DataRelationshipTests.None,
-        Semantics semantics = default) {
+        Semantics semantics = default,
+        IList<string>? gcps = null) {
 #if NET7_0_OR_GREATER
-        ArgumentNullException.ThrowIfNull(processResolvedEntity);
+        ArgumentNullException.ThrowIfNull(processResolvedElement);
 #else
-        if (processResolvedEntity is null) {
-            throw new ArgumentNullException(nameof(processResolvedEntity));
+        if (processResolvedElement is null) {
+            throw new ArgumentNullException(nameof(processResolvedElement));
         }
 #endif
 
@@ -242,89 +277,98 @@ public static class Parser {
                     new ParserException(string.Empty, 2001, Resources.GS1_Error_001, true),
                     initialPosition);
 
-            processResolvedEntity(errorEntity);
+            processResolvedElement(errorEntity);
             return;
         }
 
 #if NET7_0_OR_GREATER
-        DoParse(data, processResolvedEntity, null, initialPosition, relationshipTests, semantics);
+        DoParse(data, processResolvedElement, null, initialPosition, relationshipTests, semantics, false, null, 0, gcps);
 #else
-        DoParse(data, processResolvedEntity, initialPosition, relationshipTests, semantics);
+        DoParse(data, processResolvedElement, initialPosition, relationshipTests, semantics, false, null, 0, gcps);
 #endif
+        ResolvedAiList.Clear();
     }
 #endif
 
     /// <summary>
-    /// Parse multiple GS1-encoded barcode contents for a single physical entity, applying full data relationship rules across all inputs.
+    /// Parse multiple GS1-encoded barcode contents for a single physical element, applying full data relationship rules across all inputs.
     /// </summary>
     /// <param name="barcodeContents">List of barcode content strings (each item is one barcode).</param>
-    /// <param name="processResolvedEntity">Callback invoked for each resolved entity and any aggregated rule exceptions.</param>
+    /// <param name="processResolvedElement">Callback invoked for each element element and any aggregated rule exceptions.</param>
     /// <param name="semantics">AI semantics for relationship evaluation (e.g., GTIN semantics).</param>
     /// <param name="scenario">
     /// The barcode parsing scenario with respect to the correspondence between barcodes and physical entities.
     /// </param>
+    /// <param name="gcps">Optional list of Global Company Prefixes (GCPs) for additional validation of AIs.</param>
     /// <remarks>AI semantics for relationship evaluation (e.g., GTIN semantics).
     /// This method assumes that the barcode inputs provided in the barcode contents list are for a single physical
-    /// entity and performs data relationship tests accrdingly.
+    /// element and performs data relationship tests accrdingly.
     /// </remarks>
-    public static void ParseMulti(
+    public static void Parse(
         IList<string> barcodeContents,
-        Action<IResolvedEntity> processResolvedEntity,
+        Action<IResolvedEntity> processResolvedElement,
         Semantics semantics = default,
-        Scenario scenario = Scenario.SinglePhysicalEntity)
+        Scenario scenario = Scenario.SinglePhysicalEntity,
+        IList<string>? gcps = null)
     {
 #if NET7_0_OR_GREATER
         ArgumentNullException.ThrowIfNull(barcodeContents);
-        ArgumentNullException.ThrowIfNull(processResolvedEntity);
+        ArgumentNullException.ThrowIfNull(processResolvedElement);
 #else
         if (barcodeContents is null) throw new ArgumentNullException(nameof(barcodeContents));
-        if (processResolvedEntity is null) throw new ArgumentNullException(nameof(processResolvedEntity));
+        if (processResolvedElement is null) throw new ArgumentNullException(nameof(processResolvedElement));
 #endif
 
-        // Aggregate resolved AIs across all inputs
-        ResolvedAiList.Clear();
+        // Aggregate element AIs across all inputs
         var pendingByAi = new Dictionary<string, IResolvedEntity>(StringComparer.Ordinal);
+        var index = 0;
 
         foreach (var content in barcodeContents) {
             if (string.IsNullOrWhiteSpace(content)) {
-                // Emit an error entity for empty content but continue processing others
-                var errorEntity = new ResolvedApplicationIdentifier(
+                // Emit an error element for empty content but continue processing others
+                var errorElement = new ResolvedApplicationIdentifier(
                     new ParserException(string.Empty, 2001, Resources.GS1_Error_001, true),
                     0);
-                processResolvedEntity(errorEntity);
+                processResolvedElement(errorElement);
+                index++;
                 continue;
             }
 #pragma warning disable SA1118 // Parameter should not span multiple lines
 #if NET7_0_OR_GREATER
             DoParse(
                 content.AsSpan(),
-                processResolvedEntity,
+                processResolvedElement,
                 null,
                 0,
                 scenario switch {
                     Scenario.SinglePhysicalEntity => DataRelationshipTests.All,
-                    Scenario.SinglePhysicalEntityPerBarcode => DataRelationshipTests.All,
+                    Scenario.SinglePhysicalEntityPerSequence => DataRelationshipTests.All,
                     Scenario.Arbitrary => DataRelationshipTests.None,
                     _ => DataRelationshipTests.InvalidPairs
                 },
                 semantics,
                 accumulate: scenario == Scenario.SinglePhysicalEntity,
-                pendingShared: scenario == Scenario.SinglePhysicalEntity ? pendingByAi : null);
+                pendingShared: scenario == Scenario.SinglePhysicalEntity ? pendingByAi : null,
+                index: index,
+                gcps: gcps);
 #else
             DoParse(
                 content.AsSpan(),
-                processResolvedEntity,
+                processResolvedElement,
                 0,
                 scenario switch {
                     Scenario.SinglePhysicalEntity => DataRelationshipTests.All,
-                    Scenario.SinglePhysicalEntityPerBarcode => DataRelationshipTests.All,
+                    Scenario.SinglePhysicalEntityPerSequence => DataRelationshipTests.All,
                     Scenario.Arbitrary => DataRelationshipTests.None,
                     _ => DataRelationshipTests.InvalidPairs
                 },
                 semantics,
                 accumulate: scenario == Scenario.SinglePhysicalEntity,
-                pendingShared: scenario == Scenario.SinglePhysicalEntity ? pendingByAi : null);
+                pendingShared: scenario == Scenario.SinglePhysicalEntity ? pendingByAi : null,
+                index: index,
+                gcps: gcps);
 #endif
+            index++;
 #pragma warning restore SA1118 // Parameter should not span multiple lines
         }
 
@@ -333,11 +377,11 @@ public static class Parser {
         var mandated = MandatedElements.Test(semantics);
 
         void AttachException(string ai, ParserException ex) {
-            if (pendingByAi.TryGetValue(ai, out var entity)) {
-                entity.AddException(ex);
+            if (pendingByAi.TryGetValue(ai, out var pendingElement)) {
+                pendingElement.AddException(ex);
             } else {
-                var clsEntity = new ResolvedApplicationIdentifier(ex, 0);
-                pendingByAi[ai] = clsEntity;
+                var errorElement = new ResolvedApplicationIdentifier(ex, 0);
+                pendingByAi[ai] = errorElement;
             }
         }
 
@@ -363,8 +407,10 @@ public static class Parser {
         }
 
         foreach (var kvp in pendingByAi) {
-            processResolvedEntity(kvp.Value);
+            processResolvedElement(kvp.Value);
         }
+
+        ResolvedAiList.Clear();
     }
 
 #pragma warning disable CS1587 // XML comment is not placed on a valid language element
@@ -374,42 +420,42 @@ public static class Parser {
     /// <param name="characters">
     ///     The character buffer containing the data to be parsed.
     /// </param>
-    /// <param name="processResolvedEntity">
-    ///     An action that is invoked to process each resolved entity.
+    /// <param name="processResolvedElement">
+    ///     An action that is invoked to process each element element.
     /// </param>
 #if NET7_0_OR_GREATER
-    /// <param name="processResolvedEntityDelegate"></param>
+    /// <param name="processResolvedElementDelegate">
+    ///     A delegate that is invoked to process each element element.
+    /// </param>
     /// <remarks>
-    /// If a delegate is provided, it is invoked to process each resolved entity.
+    /// If a delegate is provided, it is invoked to process each element element.
     /// </remarks>
 #endif
     /// <param name="currentPosition">
     /// The current character position.
     /// </param>
-    /// <param name="relationshipTest">Indicates if resolved AIs will be collected for relationship testing.</param>
+    /// <param name="relationshipTest">Indicates if element AIs will be collected for relationship testing.</param>
     /// <param name="semantics">The semantics of any GTIN (AI 01) when data relationship tests are performed.</param>
-    /// <param name="accumulate">Flag indicating if resolved AIs should be accumulated across multiple calls.</param>
-    /// <param name="pendingShared">Buffered collection of resolved AIs used when accumuating results.</param>
+    /// <param name="accumulate">Flag indicating if element AIs should be accumulated across multiple calls.</param>
+    /// <param name="pendingShared">Buffered collection of element AIs used when accumuating results.</param>
+    /// <param name="index">The index of the element string sequence. This is set when using ParseMulti().</param>
+    /// <param name="gcps">Optional list of Global Company Prefixes (GCPs) for additional validation of AIs.</param>
 #pragma warning restore CS1587 // XML comment is not placed on a valid language element
 #pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment (but other parameters do)
     private static void DoParse(
         ReadOnlySpan<char> characters,
-        Action<IResolvedEntity>? processResolvedEntity,
+        Action<IResolvedEntity>? processResolvedElement,
 #if NET7_0_OR_GREATER
-        ResolvedEntityDelegate? processResolvedEntityDelegate,
+        ResolvedElementDelegate? processResolvedElementDelegate,
 #endif
-#pragma warning restore CS1573 // Parameter has no matching param tag in the XML comment (but other parameters do)
         int currentPosition,
         DataRelationshipTests relationshipTest,
         Semantics semantics,
         bool accumulate = false,
-        Dictionary<string, IResolvedEntity>? pendingShared = null) {
+        Dictionary<string, IResolvedEntity>? pendingShared = null,
+        int index = 0,
+        IList<string>? gcps = null) {
         int position = currentPosition;
-
-        // Initialize/clear collected AIs only when relationship tests are requested and not accumulating
-        if (!accumulate && relationshipTest != DataRelationshipTests.None) {
-            ResolvedAiList.Clear();
-        }
 
         // Buffer callbacks when relationship tests are requested
         Dictionary<string, IResolvedEntity>? pendingByAi = accumulate ? pendingShared : (relationshipTest != DataRelationshipTests.None ? new Dictionary<string, IResolvedEntity>(StringComparer.Ordinal) : null);
@@ -433,8 +479,8 @@ public static class Parser {
 #endif
                     if (normalisedCharacters.Length > 0 && normalisedCharacters[0] == Convert.ToChar(29)) {
 #if NET7_0_OR_GREATER
-                        if (processResolvedEntityDelegate is not null) {
-                            ResolvedApplicationIdentifierRef defaultEntity = new (
+                        if (processResolvedElementDelegate is not null) {
+                            ResolvedApplicationIdentifierRef defaultElement = new (
                                 -1,
                                 stackalloc char[4],
                                 null,
@@ -443,56 +489,60 @@ public static class Parser {
                                 false,
                                 stackalloc char[ResolvedApplicationIdentifierRef.DataTitleMaxLength],
                                 stackalloc char[ResolvedApplicationIdentifierRef.DescriptionMaxLength],
-                                0);
-                            var entity = new ResolvedApplicationIdentifierRef(
+                                0,
+                                index);
+                            var element = new ResolvedApplicationIdentifierRef(
                                 new ParserException(string.Empty, 2004, Resources.GS1_Error_004, false, position + numberOfChars),
                                 position,
-                                workingBuffer.ResolveEx(defaultEntity, workingBuffer[..2], position));
+                                workingBuffer.ResolveEx(defaultElement, workingBuffer[..2], position));
+                            ApplyGcpValidationForRef(element);
                             if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
-                                ResolvedAiList.Add(entity.Identifier, entity.Value, position);
+                                ResolvedAiList.Add(element.Identifier, element.Value, position);
                             }
 
                             if (pendingByAi is null) {
-                                processResolvedEntityDelegate(in entity);
+                                processResolvedElementDelegate(in element);
                                 continue;
                             }
 
-                            pendingByAi[entity.Identifier.ToString()] = new ResolvedApplicationIdentifier(
-                                entity.Entity,
-                                entity.Identifier.ToString(),
-                                entity.InverseExponent,
-                                entity.Sequence,
-                                entity.Value.ToString(),
-                                entity.IsFixedWidth,
-                                entity.DataTitle.ToString(),
-                                entity.Description.ToString(),
-                                entity.CharacterPosition);
+                            pendingByAi[element.Identifier.ToString().TrimEnd('\0')] = new ResolvedApplicationIdentifier(
+                                element.Entity,
+                                element.Identifier,
+                                element.InverseExponent,
+                                element.Sequence,
+                                element.Value,
+                                element.IsFixedWidth,
+                                element.DataTitle,
+                                element.Description,
+                                element.CharacterPosition,
+                                element.Index);
 
                             continue;
                         }
                         else
 #endif
                         {
-                            var resolved = new ResolvedApplicationIdentifier(
+                            var element = new ResolvedApplicationIdentifier(
                                 new ParserException(string.Empty, 2004, Resources.GS1_Error_004, false, position + numberOfChars),
                                 position,
 #if NET6_0_OR_GREATER
-                                workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position));
+                                workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position, index));
 #else
-                                workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position));
+                                workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position, index));
 #endif
+                            ApplyGcpValidation(element);
                             if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
-                                ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
+                                ResolvedAiList.Add(element.Identifier, element.Value, position);
                             }
 
-                            RecordResolvedEntity(resolved);
+                            RecordResolvedElement(element);
                             continue;
                         }
                     }
 
 #if NET7_0_OR_GREATER
-                    if (processResolvedEntityDelegate is not null) {
-                        ResolvedApplicationIdentifierRef defaultEntity = new (
+                    if (processResolvedElementDelegate is not null) {
+                        ResolvedApplicationIdentifierRef defaultElement = new (
                             -1,
                             stackalloc char[4],
                             null,
@@ -501,42 +551,46 @@ public static class Parser {
                             false,
                             stackalloc char[ResolvedApplicationIdentifierRef.DataTitleMaxLength],
                             stackalloc char[ResolvedApplicationIdentifierRef.DescriptionMaxLength],
-                            0);
-                        var entity = workingBuffer.ResolveEx(defaultEntity, workingBuffer[..2], position);
+                            0,
+                            index);
+                        var element = workingBuffer.ResolveEx(defaultElement, workingBuffer[..2], position);
+                        ApplyGcpValidationForRef(element);
                         if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
-                            ResolvedAiList.Add(entity.Identifier, entity.Value, position);
+                            ResolvedAiList.Add(element.Identifier, element.Value, position);
                         }
 
                         if (pendingByAi is null) {
-                            processResolvedEntityDelegate(in entity);
+                            processResolvedElementDelegate(in element);
                             continue;
                         }
 
-                        pendingByAi[entity.Identifier.ToString()] = new ResolvedApplicationIdentifier(
-                            entity.Entity,
-                            entity.Identifier.ToString(),
-                            entity.InverseExponent,
-                            entity.Sequence,
-                            entity.Value.ToString(),
-                            entity.IsFixedWidth,
-                            entity.DataTitle.ToString(),
-                            entity.Description.ToString(),
-                            entity.CharacterPosition);
+                        pendingByAi[element.Identifier.ToString().TrimEnd('\0')] = new ResolvedApplicationIdentifier(
+                            element.Entity,
+                            element.Identifier,
+                            element.InverseExponent,
+                            element.Sequence,
+                            element.Value,
+                            element.IsFixedWidth,
+                            element.DataTitle,
+                            element.Description,
+                            element.CharacterPosition,
+                            element.Index);
                     }
                     else
 #endif
                     {
-                        var resolved =
+                        var element =
 #if NET6_0_OR_GREATER
-                            workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position);
+                            workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position, index);
 #else
-                            workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position);
+                            workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position, index);
 #endif
+                        ApplyGcpValidation(element);
                         if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
-                            ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
+                            ResolvedAiList.Add(element.Identifier, element.Value, position);
                         }
 
-                        RecordResolvedEntity(resolved);
+                        RecordResolvedElement(element);
                     }
 
                     position += numberOfChars;
@@ -555,41 +609,46 @@ public static class Parser {
 
                     if (normalisedCharacters.Length == 1) {
 #if NET7_0_OR_GREATER
-                        if (processResolvedEntityDelegate is not null) {
-                            var entity = new ResolvedApplicationIdentifierRef(
+                        if (processResolvedElementDelegate is not null) {
+                            var element = new ResolvedApplicationIdentifierRef(
                                 new ParserException(string.Empty, 2003, string.Format(System.Globalization.CultureInfo.CurrentCulture, Resources.GS1_Error_002, normalisedCharacters.ToString()), true),
-                                position);
+                                position,
+                                index);
+                            ApplyGcpValidationForRef(element);
                             if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
-                                ResolvedAiList.Add(entity.Identifier, entity.Value, position);
+                                ResolvedAiList.Add(element.Identifier, element.Value, position);
                             }
 
                             if (pendingByAi is null) {
-                                processResolvedEntityDelegate(in entity);
+                                processResolvedElementDelegate(in element);
                                 continue;
                             }
 
-                            pendingByAi[entity.Identifier.ToString()] = new ResolvedApplicationIdentifier(
-                                entity.Entity,
-                                entity.Identifier.ToString(),
-                                entity.InverseExponent,
-                                entity.Sequence,
-                                entity.Value.ToString(),
-                                entity.IsFixedWidth,
-                                entity.DataTitle.ToString(),
-                                entity.Description.ToString(),
-                                entity.CharacterPosition);
+                            pendingByAi[element.Identifier.ToString().TrimEnd('\0')] = new ResolvedApplicationIdentifier(
+                                element.Entity,
+                                element.Identifier,
+                                element.InverseExponent,
+                                element.Sequence,
+                                element.Value,
+                                element.IsFixedWidth,
+                                element.DataTitle,
+                                element.Description,
+                                element.CharacterPosition,
+                                element.Index);
                         }
                         else
 #endif
                         {
-                            var resolved = new ResolvedApplicationIdentifier(
+                            var element = new ResolvedApplicationIdentifier(
                                 new ParserException(string.Empty, 2003, string.Format(System.Globalization.CultureInfo.CurrentCulture, Resources.GS1_Error_002, normalisedCharacters.ToString()), true),
-                                position);
+                                position,
+                                index);
+                            ApplyGcpValidation(element);
                             if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
-                                ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
+                                ResolvedAiList.Add(element.Identifier, element.Value, position);
                             }
 
-                            RecordResolvedEntity(resolved);
+                            RecordResolvedElement(element);
                         }
                     }
                 }
@@ -598,8 +657,8 @@ public static class Parser {
                     normalisedCharacters = [];
 
 #if NET7_0_OR_GREATER
-                    if (processResolvedEntityDelegate is not null) {
-                        ResolvedApplicationIdentifierRef defaultEntity = new (
+                    if (processResolvedElementDelegate is not null) {
+                        ResolvedApplicationIdentifierRef defaultElement = new (
                             -1,
                             stackalloc char[4],
                             null,
@@ -608,58 +667,61 @@ public static class Parser {
                             false,
                             stackalloc char[ResolvedApplicationIdentifierRef.DataTitleMaxLength],
                             stackalloc char[ResolvedApplicationIdentifierRef.DescriptionMaxLength],
-                            0);
-                        var entity = new ResolvedApplicationIdentifierRef(
+                            0,
+                            index);
+                        var element = new ResolvedApplicationIdentifierRef(
                             new ParserException(string.Empty, 2005, Resources.GS1_Error_005, true, normalisedCharacters.Length - 1),
                             position,
-                            workingBuffer.ResolveEx(defaultEntity, workingBuffer[..2], position));
+                            workingBuffer.ResolveEx(defaultElement, workingBuffer[..2], position));
+                        ApplyGcpValidationForRef(element);
                         if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
-                            ResolvedAiList.Add(entity.Identifier, entity.Value, position);
+                            ResolvedAiList.Add(element.Identifier, element.Value, position);
                         }
 
                         if (pendingByAi is null) {
-                            processResolvedEntityDelegate(in entity);
+                            processResolvedElementDelegate(in element);
                             continue;
                         }
 
-                        pendingByAi[entity.Identifier.ToString()] = new ResolvedApplicationIdentifier(
-                            entity.Entity,
-                            entity.Identifier.ToString(),
-                            entity.InverseExponent,
-                            entity.Sequence,
-                            entity.Value.ToString(),
-                            entity.IsFixedWidth,
-                            entity.DataTitle.ToString(),
-                            entity.Description.ToString(),
-                            entity.CharacterPosition);
+                        pendingByAi[element.Identifier.ToString().TrimEnd('\0')] = new ResolvedApplicationIdentifier(
+                            element.Entity,
+                            element.Identifier,
+                            element.InverseExponent,
+                            element.Sequence,
+                            element.Value,
+                            element.IsFixedWidth,
+                            element.DataTitle,
+                            element.Description,
+                            element.CharacterPosition,
+                            element.Index);
                     }
                     else
 #endif
                     {
-                        var resolved = new ResolvedApplicationIdentifier(
+                        var element = new ResolvedApplicationIdentifier(
                             new ParserException(string.Empty, 2005, Resources.GS1_Error_005, true, normalisedCharacters.Length - 1),
                             position,
 #if NET6_0_OR_GREATER
-                            workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position));
+                            workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position, index));
 #else
-                            workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position));
+                            workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position, index));
 #endif
+                        ApplyGcpValidation(element);
                         if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
-                            ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
+                            ResolvedAiList.Add(element.Identifier, element.Value, position);
                         }
 
-                        RecordResolvedEntity(resolved);
+                        RecordResolvedElement(element);
                     }
                 }
-            }
-            else {
+            } else {
                 int gsIndex = normalisedCharacters.IndexOf(Convert.ToChar(29));
                 if (gsIndex < 0) {
                     var workingBuffer = normalisedCharacters;
                     normalisedCharacters = [];
 
 #if NET7_0_OR_GREATER
-                    ResolvedApplicationIdentifierRef defaultEntity = new (
+                    ResolvedApplicationIdentifierRef defaultElement = new (
                         -1,
                         stackalloc char[4],
                         null,
@@ -668,43 +730,48 @@ public static class Parser {
                         false,
                         stackalloc char[ResolvedApplicationIdentifierRef.DataTitleMaxLength],
                         stackalloc char[ResolvedApplicationIdentifierRef.DescriptionMaxLength],
-                        0);
-                    if (processResolvedEntityDelegate is not null) {
-                        var entity = workingBuffer.ResolveEx(defaultEntity, workingBuffer[..2], position);
+                        0,
+                        index);
+                    ResolvedApplicationIdentifierRef.ClearExceptionsForCurrentThread();
+                    if (processResolvedElementDelegate is not null) {
+                        var element = workingBuffer.ResolveEx(defaultElement, workingBuffer[..2], position);
+                        ApplyGcpValidationForRef(element);
                         if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
-                            ResolvedAiList.Add(entity.Identifier, entity.Value, position);
+                            ResolvedAiList.Add(element.Identifier, element.Value, position);
                         }
 
                         if (pendingByAi is null) {
-                            processResolvedEntityDelegate(in entity);
+                            processResolvedElementDelegate(in element);
                             continue;
                         }
 
-                        pendingByAi[entity.Identifier.ToString()] = new ResolvedApplicationIdentifier(
-                            entity.Entity,
-                            entity.Identifier.ToString(),
-                            entity.InverseExponent,
-                            entity.Sequence,
-                            entity.Value.ToString(),
-                            entity.IsFixedWidth,
-                            entity.DataTitle.ToString(),
-                            entity.Description.ToString(),
-                            entity.CharacterPosition);
+                        pendingByAi[element.Identifier.ToString().TrimEnd('\0')] = new ResolvedApplicationIdentifier(
+                            element.Entity,
+                            element.Identifier,
+                            element.InverseExponent,
+                            element.Sequence,
+                            element.Value,
+                            element.IsFixedWidth,
+                            element.DataTitle,
+                            element.Description,
+                            element.CharacterPosition,
+                            element.Index);
                     }
                     else
 #endif
                     {
-                        var resolved =
+                        var element =
 #if NET6_0_OR_GREATER
-                            workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position);
+                            workingBuffer.ToString().Resolve(workingBuffer[..2].ToString(), position, index);
 #else
-                            workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position);
+                            workingBuffer.ToString().Resolve(workingBuffer.Slice(0, 2).ToString(), position, index);
 #endif
+                        ApplyGcpValidation(element);
                         if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
-                            ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
+                            ResolvedAiList.Add(element.Identifier, element.Value, position);
                         }
 
-                        RecordResolvedEntity(resolved);
+                        RecordResolvedElement(element);
                     }
                 }
                 else {
@@ -721,7 +788,7 @@ public static class Parser {
                         break;
                     }
 
-                    ResolvedApplicationIdentifierRef defaultEntity = new (
+                    ResolvedApplicationIdentifierRef defaultElement = new (
                         -1,
                         stackalloc char[4],
                         null,
@@ -730,45 +797,49 @@ public static class Parser {
                         false,
                         stackalloc char[ResolvedApplicationIdentifierRef.DataTitleMaxLength],
                         stackalloc char[ResolvedApplicationIdentifierRef.DescriptionMaxLength],
-                        0);
-                    if (processResolvedEntityDelegate is not null) {
-                        var entity = workingBuffer.ResolveEx(defaultEntity, workingBuffer[..2], position);
+                        0,
+                        index);
+                    if (processResolvedElementDelegate is not null) {
+                        var element = workingBuffer.ResolveEx(defaultElement, workingBuffer[..2], position);
+                        ApplyGcpValidationForRef(element);
                         if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
-                            ResolvedAiList.Add(entity.Identifier, entity.Value, position);
+                            ResolvedAiList.Add(element.Identifier, element.Value, position);
                         }
 
                         if (pendingByAi is null) {
-                            processResolvedEntityDelegate(in entity);
+                            processResolvedElementDelegate(in element);
                             continue;
                         }
 
-                        pendingByAi[entity.Identifier.ToString()] = new ResolvedApplicationIdentifier(
-                            entity.Entity,
-                            entity.Identifier.ToString(),
-                            entity.InverseExponent,
-                            entity.Sequence,
-                            entity.Value.ToString(),
-                            entity.IsFixedWidth,
-                            entity.DataTitle.ToString(),
-                            entity.Description.ToString(),
-                            entity.CharacterPosition);
+                        pendingByAi[element.Identifier.ToString().TrimEnd('\0')] = new ResolvedApplicationIdentifier(
+                            element.Entity,
+                            element.Identifier,
+                            element.InverseExponent,
+                            element.Sequence,
+                            element.Value,
+                            element.IsFixedWidth,
+                            element.DataTitle,
+                            element.Description,
+                            element.CharacterPosition,
+                            element.Index);
                     }
                     else
 #endif
                     {
-                        var resolved =
+                        var element =
 #if NET6_0_OR_GREATER
                             new string(workingBuffer.ToArray())
-                                .Resolve(workingBuffer[..(workingBuffer.Length >= 2 ? 2 : workingBuffer.Length)].ToString(), position);
+                                .Resolve(workingBuffer[.. (workingBuffer.Length >= 2 ? 2 : workingBuffer.Length)].ToString(), position, index);
 #else
                             new string(workingBuffer.ToArray())
-                                .Resolve(workingBuffer.Slice(0, workingBuffer.Length >= 2 ? 2 : workingBuffer.Length).ToString(), position);
+                                .Resolve(workingBuffer.Slice(0, workingBuffer.Length >= 2 ? 2 : workingBuffer.Length).ToString(), position, index);
 #endif
+                        ApplyGcpValidation(element);
                         if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
-                            ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
+                            ResolvedAiList.Add(element.Identifier, element.Value, position);
                         }
 
-                        RecordResolvedEntity(resolved);
+                        RecordResolvedElement(element);
                     }
 
                     position += gsIndex - 1;
@@ -778,41 +849,46 @@ public static class Parser {
 
                     if (normalisedCharacters.Length == 1) {
 #if NET7_0_OR_GREATER
-                        if (processResolvedEntityDelegate is not null) {
-                            var entity = new ResolvedApplicationIdentifierRef(
+                        if (processResolvedElementDelegate is not null) {
+                            var element = new ResolvedApplicationIdentifierRef(
                                 new ParserException(string.Empty, 2003, string.Format(System.Globalization.CultureInfo.CurrentCulture, Resources.GS1_Error_002, normalisedCharacters.ToString()), true),
-                                position);
+                                position,
+                                index);
+                            ApplyGcpValidationForRef(element);
                             if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
-                                ResolvedAiList.Add(entity.Identifier, entity.Value, position);
+                                ResolvedAiList.Add(element.Identifier, element.Value, position);
                             }
 
                             if (pendingByAi is null) {
-                                processResolvedEntityDelegate(in entity);
+                                processResolvedElementDelegate(in element);
                                 continue;
                             }
 
-                            pendingByAi[entity.Identifier.ToString()] = new ResolvedApplicationIdentifier(
-                                entity.Entity,
-                                entity.Identifier.ToString(),
-                                entity.InverseExponent,
-                                entity.Sequence,
-                                entity.Value.ToString(),
-                                entity.IsFixedWidth,
-                                entity.DataTitle.ToString(),
-                                entity.Description.ToString(),
-                                entity.CharacterPosition);
+                            pendingByAi[element.Identifier.ToString().TrimEnd('\0')] = new ResolvedApplicationIdentifier(
+                                element.Entity,
+                                element.Identifier,
+                                element.InverseExponent,
+                                element.Sequence,
+                                element.Value,
+                                element.IsFixedWidth,
+                                element.DataTitle,
+                                element.Description,
+                                element.CharacterPosition,
+                                element.Index);
                         }
                         else
 #endif
                         {
-                            var resolved = new ResolvedApplicationIdentifier(
+                            var element = new ResolvedApplicationIdentifier(
                                 new ParserException(string.Empty, 2003, string.Format(System.Globalization.CultureInfo.CurrentCulture, Resources.GS1_Error_002, normalisedCharacters.ToString()), true),
-                                position);
+                                position,
+                                index);
+                            ApplyGcpValidation(element);
                             if (relationshipTest == DataRelationshipTests.All || relationshipTest == DataRelationshipTests.InvalidPairs) {
-                                ResolvedAiList.Add(resolved.Identifier, resolved.Value, position);
+                                ResolvedAiList.Add(element.Identifier, element.Value, position);
                             }
 
-                            RecordResolvedEntity(resolved);
+                            RecordResolvedElement(element);
                         }
                     }
                 }
@@ -847,16 +923,16 @@ public static class Parser {
                 }
             }
 
-            // Attach exceptions to pending entities, or create new ones
+            // Attach exceptions to pending elements, or create new ones
             void AttachException(string ai, ParserException ex) {
                 if (pendingByAi is null) return;
-                if (pendingByAi.TryGetValue(ai, out var entity)) {
-                    entity.AddException(ex);
+                if (pendingByAi.TryGetValue(ai, out var element)) {
+                    element.AddException(ex);
                 }
                 else {
-                    // Create a minimal error entity for the AI
-                    var clsEntity = new ResolvedApplicationIdentifier(ex, position);
-                    pendingByAi[ai] = clsEntity;
+                    // Create a minimal error element for the AI
+                    var errorElement = new ResolvedApplicationIdentifier(ex, position, index);
+                    pendingByAi[ai] = errorElement;
                 }
             }
 
@@ -878,20 +954,119 @@ public static class Parser {
             // Flush buffered callbacks
             if (pendingByAi is not null) {
                 foreach (var kvp in pendingByAi) {
-                    var entity = kvp.Value;
-                    processResolvedEntity?.Invoke(entity);
+                    var element = (ResolvedApplicationIdentifier)kvp.Value;
+#if NET7_0_OR_GREATER
+                    if (processResolvedElementDelegate is not null) {
+                       // Materialize readonly spans into writable stackalloc spans
+                        var idLen = element.Identifier.Length;
+                        var valLen = element.Value.Length;
+                        var dtLen = element.DataTitle.Length;
+                        var descLen = element.Description.Length;
+
+                        var idSpan = idLen <= 128
+                            ? stackalloc char[idLen]
+                            : new char[idLen];
+                        var valSpan = valLen <= ResolvedApplicationIdentifierRef.ValueMaxLength ? stackalloc char[valLen] : new char[valLen];
+                        var dtSpan = dtLen <= ResolvedApplicationIdentifierRef.DataTitleMaxLength ? stackalloc char[dtLen] : new char[dtLen];
+                        var descSpan = descLen <= ResolvedApplicationIdentifierRef.DescriptionMaxLength ? stackalloc char[descLen] : new char[descLen];
+
+                        element.Identifier.AsSpan().CopyTo(idSpan);
+                        element.Value.AsSpan().CopyTo(valSpan);
+                        element.DataTitle.AsSpan().CopyTo(dtSpan);
+                        element.Description.AsSpan().CopyTo(descSpan);
+
+                        var resolvedAiRef =
+                            new ResolvedApplicationIdentifierRef(
+                            element.Entity,
+                            idSpan,
+                            element.InverseExponent,
+                            element.Sequence,
+                            valSpan,
+                            element.IsFixedWidth,
+                            dtSpan,
+                            descSpan,
+                            element.CharacterPosition,
+                            element.Index);
+
+                        foreach (var ex in element.Exceptions) {
+                            resolvedAiRef.AddException(ex);
+                        }
+
+                        processResolvedElementDelegate(resolvedAiRef);
+                    }
+                    else {
+                        processResolvedElement?.Invoke(element);
+                    }
+#else
+                    processResolvedElement?.Invoke(element);
+#endif
                 }
             }
         }
 
-        // Helper to record a resolved entity either immediately or into buffer
-        void RecordResolvedEntity(IResolvedEntity entity) {
+        // Helper to record a element element either immediately or into buffer
+        void RecordResolvedElement(IResolvedEntity element) {
             if (pendingByAi is null) {
-                processResolvedEntity?.Invoke(entity);
+                processResolvedElement?.Invoke(element);
                 return;
             }
 
-            pendingByAi[entity.Identifier] = entity;
+            pendingByAi[element.Identifier] = element;
         }
+
+        static bool ValueStartsWithAny(ReadOnlySpan<char> value, IList<string> gcps) {
+            foreach (var gcp in gcps) {
+                if (!string.IsNullOrEmpty(gcp)) {
+                    var g = gcp.AsSpan();
+                    if (value.Length >= g.Length && value.StartsWith(g, StringComparison.Ordinal))
+                        return true;
+                }
+            }
+
+            return false;
+        }
+
+        void ApplyGcpValidation(IResolvedEntity element) {
+            if (gcps is null || gcps.Count == 0) return;
+            var ai = element.Identifier;
+            if (string.IsNullOrEmpty(ai)) return;
+            if (GcpDirectAis.Contains(ai)) {
+                if (!ValueStartsWithAny(element.Value.AsSpan(), gcps)) element.AddException(new ParserException(ai, 2101, string.Format(System.Globalization.CultureInfo.CurrentCulture, Resources.GS1_Error_101, ai), true));
+                return;
+            }
+
+            if (GcpWithLeadingDigitAis.Contains(ai)) {
+                var v = element.Value;
+                if (v.Length < 2 || v[0] < '0' || v[0] > '9' || !ValueStartsWithAny(v.AsSpan(1), gcps)) element.AddException(new ParserException(ai, 2101, string.Format(System.Globalization.CultureInfo.CurrentCulture, Resources.GS1_Error_101, ai), true));
+                return;
+            }
+
+            if (ai == "8003") {
+                var v = element.Value;
+                if (v.Length < 2 || v[0] != '0' || !ValueStartsWithAny(v.AsSpan(1), gcps)) element.AddException(new ParserException(ai, 2101, string.Format(System.Globalization.CultureInfo.CurrentCulture, Resources.GS1_Error_101, ai), true));
+            }
+        }
+#if NET7_0_OR_GREATER
+        void ApplyGcpValidationForRef(scoped in ResolvedApplicationIdentifierRef elementRef) {
+            if (gcps is null || gcps.Count == 0) return;
+            var ai = elementRef.Identifier.TrimEnd('\0').ToString();
+            if (string.IsNullOrEmpty(ai)) return;
+            if (GcpDirectAis.Contains(ai)) {
+                if (!ValueStartsWithAny(elementRef.Value, gcps)) elementRef.AddException(new ParserException(ai, 2101, string.Format(System.Globalization.CultureInfo.CurrentCulture, Resources.GS1_Error_101, ai), true));
+                return;
+            }
+
+            if (GcpWithLeadingDigitAis.Contains(ai)) {
+                var v = elementRef.Value.TrimEnd('\0');
+                if (v.Length < 2 || v[0] < '0' || v[0] > '9' || !ValueStartsWithAny(v[1..], gcps)) elementRef.AddException(new ParserException(ai, 2101, string.Format(System.Globalization.CultureInfo.CurrentCulture, Resources.GS1_Error_101, ai), true));
+                return;
+            }
+
+            if (ai == "8003") {
+                var v = elementRef.Value.TrimEnd('\0');
+                if (v.Length < 2 || v[0] != '0' || !ValueStartsWithAny(v[1..], gcps)) elementRef.AddException(new ParserException(ai, 2101, string.Format(System.Globalization.CultureInfo.CurrentCulture, Resources.GS1_Error_101, ai), true));
+            }
+        }
+#endif
     }
 }

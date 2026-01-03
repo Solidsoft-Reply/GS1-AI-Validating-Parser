@@ -124,13 +124,13 @@
     <value>Validering för AI {0} överskred tidsgränsen.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Inget entitetsvärde tillhandahållet för AI {0}.</value>
+    <value>Inget elementvärde angavs för AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Entitet är felaktigt avslutad med en FNC1.</value>
+    <value>Elementet avslutas felaktigt med en FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Entitet med fast bredd innehåller inte tillräckligt antal tecken.</value>
+    <value>Ett element med fördefinierad längd innehåller inte tillräckligt många tecken.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Värdet{0} är ogiltigt för AI {1}.</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>AI {0} förekommer mer än en gång med olika värden.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Värdet för AI {0} innehåller inte ett igenkänt Global Company Prefix (GCP).</value>
   </data>
 </root>

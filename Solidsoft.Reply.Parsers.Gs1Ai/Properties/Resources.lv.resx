@@ -124,13 +124,13 @@
     <value>Validācija AI {0} ir beigusies.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Entītes vērtība nav sniegta AI {0}.</value>
+    <value>Nav norādīta elementa vērtība AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Entīte ir nepareizi beigusies ar FNC1.</value>
+    <value>Elements ir nepareizi noslēgts ar FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Fiksēta platuma entīte nesatur pietiekamu rakstzīmju skaitu.</value>
+    <value>Iepriekš noteikta garuma elements nesatur pietiekamu rakstzīmju skaitu.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Vērtība{0} ir nederīga AI {1}.</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>AI {0} parādās vairāk nekā vienu reizi ar atšķirīgām vērtībām.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>AI {0} vērtība nesatur atpazītu globālo uzņēmuma prefiksu (GCP).</value>
   </data>
 </root>

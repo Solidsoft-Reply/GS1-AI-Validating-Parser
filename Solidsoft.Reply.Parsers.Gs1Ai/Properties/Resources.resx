@@ -126,15 +126,15 @@
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>No entity value provided for AI {0}.</value>
+    <value>No element value provided for AI {0}.</value>
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Entity is incorrectly terminated with an FNC1.</value>
+    <value>Element is incorrectly terminated with an FNC1.</value>
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>A predefined-length entity does not contain a sufficient number of characters.</value>
+    <value>A predefined-length element does not contain a sufficient number of characters.</value>
     <comment>Error</comment>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
@@ -208,5 +208,9 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>AI {0} appears more than once with different values.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>The value of AI {0} does contains an recognised Global Company Prefix (GCP).</value>
+    <comment>Error</comment>
   </data>
 </root>

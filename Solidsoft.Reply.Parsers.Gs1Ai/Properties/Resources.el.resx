@@ -124,13 +124,13 @@
     <value>Η επικύρωση για τον AI {0} έληξε.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Δεν παρέχεται τιμή οντότητας για τον AI {0}.</value>
+    <value>Δεν δόθηκε τιμή στοιχείου για το AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Η οντότητα τερματίζεται εσφαλμένα με FNC1.</value>
+    <value>Το στοιχείο τερματίζεται εσφαλμένα με ένα FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Η σταθερού πλάτους οντότητα δεν περιέχει επαρκή αριθμό χαρακτήρων.</value>
+    <value>Ένα στοιχείο προκαθορισμένου μήκους δεν περιέχει επαρκή αριθμό χαρακτήρων.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Η τιμή{0} είναι άκυρη για τον AI {1}.</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>Το AI {0} εμφανίζεται περισσότερες από μία φορές με διαφορετικές τιμές.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Η τιμή του AI {0} δεν περιέχει αναγνωρισμένο Global Company Prefix (GCP).</value>
   </data>
 </root>

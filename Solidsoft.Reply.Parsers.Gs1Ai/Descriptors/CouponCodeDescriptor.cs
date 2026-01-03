@@ -53,7 +53,7 @@ internal
         string description,
         Regex pattern,
         bool isFixedWidth)
-    : EntityDescriptors(dataTitle, description, pattern, isFixedWidth) {
+    : ElementDescriptors(dataTitle, description, pattern, isFixedWidth) {
     /// <summary>
     ///     A regular expression for six-digit date representation - YYMMDD.
     /// </summary>
@@ -69,15 +69,15 @@ internal
     /// <summary>
     ///     Validate data against the descriptor.
     /// </summary>
-    /// <param name="resolvedEntity">The resolved entity to be validated.</param>
+    /// <param name="resolvedElement">The resolved application identifier to be validated.</param>
     /// <param name="validationErrors">A list of validation errors.</param>
     /// <returns>True, if valid.  Otherwise, false.</returns>
     // ReSharper disable once CommentTypo
     // ReSharper disable once InheritdocConsiderUsage
 #if NET7_0_OR_GREATER
-    public override bool IsValid(ResolvedApplicationIdentifierRef resolvedEntity, out IList<ParserException>? validationErrors) {
-        var result = base.IsValid(resolvedEntity, out validationErrors);
-        var value = resolvedEntity.Value;
+    public override bool IsValid(ResolvedApplicationIdentifierRef resolvedElement, out IList<ParserException>? validationErrors) {
+        var result = base.IsValid(resolvedElement, out validationErrors);
+        var value = resolvedElement.Value;
 
         if (value.IsNull() || value.IsEmpty) {
             return result;
@@ -89,7 +89,7 @@ internal
 
         value = value.TrimEnd('\0');
         validationErrors ??= [];
-        validationErrors.Add(AddException(resolvedEntity.Identifier.TrimEnd('\0'), value, 2015, Resources.GS1_Error_015));
+        validationErrors.Add(AddException(resolvedElement.Identifier.TrimEnd('\0'), value, 2015, Resources.GS1_Error_015));
         return false;
 
         static ParserException AddException(ReadOnlySpan<char> identifier, ReadOnlySpan<char> value, int errorNumber, string message) {
@@ -108,12 +108,12 @@ internal
     /// <summary>
     ///    Validate data against the descriptor.
     /// </summary>
-    /// <param name="resolvedEntity">The resolved application identifier to validate. Must not be null.</param>
+    /// <param name="resolvedElement">The resolved application identifier to validate. Must not be null.</param>
     /// <param name="validationErrors">When the method returns <see langword="false"/>, contains a list of <see cref="ParserException"/> instances.</param>
     /// <returns>True, if valid.  Otherwise, false.</returns>
-    public override bool IsValid(ResolvedApplicationIdentifier resolvedEntity, out IList<ParserException>? validationErrors) {
-        var result = base.IsValid(resolvedEntity, out validationErrors);
-        var value = resolvedEntity.Value;
+    public override bool IsValid(ResolvedApplicationIdentifier resolvedElement, out IList<ParserException>? validationErrors) {
+        var result = base.IsValid(resolvedElement, out validationErrors);
+        var value = resolvedElement.Value;
 
         if (string.IsNullOrEmpty(value)) {
             return result;
@@ -128,7 +128,7 @@ internal
         }
 
         validationErrors ??= [];
-        validationErrors.Add(AddException(resolvedEntity.Identifier, 2015, Resources.GS1_Error_015));
+        validationErrors.Add(AddException(resolvedElement.Identifier, 2015, Resources.GS1_Error_015));
         return false;
 
         ParserException AddException(string identifier, int errorNumber, string message, string country = "") {

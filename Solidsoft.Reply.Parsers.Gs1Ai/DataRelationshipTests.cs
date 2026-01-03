@@ -26,7 +26,7 @@ namespace Solidsoft.Reply.Parsers.Gs1Ai;
 public enum DataRelationshipTests
 {
     /// <summary>
-    /// Do not run any relationship tests.
+    /// Do not run any data relationship tests.
     /// </summary>
     None = 0,
 

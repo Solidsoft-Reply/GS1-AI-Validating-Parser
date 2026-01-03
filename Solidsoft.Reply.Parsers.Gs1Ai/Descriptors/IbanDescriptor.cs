@@ -56,7 +56,7 @@ internal
         string description,
         Regex pattern,
         bool isFixedWidth)
-    : EntityDescriptors(dataTitle, description, pattern, isFixedWidth) {
+    : ElementDescriptors(dataTitle, description, pattern, isFixedWidth) {
 #if !NET7_0_OR_GREATER
 
     /// <summary>
@@ -602,15 +602,15 @@ internal
     /// <summary>
     ///     Validate data against the descriptor.
     /// </summary>
-    /// <param name="resolvedEntity">The resolved entity to be validated.</param>
+    /// <param name="resolvedElement">The resolved application identifier to be validated.</param>
     /// <param name="validationErrors">A list of validation errors.</param>
     /// <returns>True, if valid.  Otherwise, false.</returns>
     // ReSharper disable once CommentTypo
     // ReSharper disable once InheritdocConsiderUsage
 #if NET7_0_OR_GREATER
-    public override bool IsValid(ResolvedApplicationIdentifierRef resolvedEntity, out IList<ParserException>? validationErrors) {
-        var result = base.IsValid(resolvedEntity, out validationErrors);
-        var value = resolvedEntity.Value;
+    public override bool IsValid(ResolvedApplicationIdentifierRef resolvedElement, out IList<ParserException>? validationErrors) {
+        var result = base.IsValid(resolvedElement, out validationErrors);
+        var value = resolvedElement.Value;
 
         if (value.IsNull() || value.IsEmpty) {
             return result;
@@ -619,7 +619,7 @@ internal
         value = value.TrimEnd('\0');
         if (!IbanRegex().IsMatch(value)) {
             validationErrors ??= [];
-            validationErrors.Add(AddException(resolvedEntity.Identifier.TrimEnd('\0').ToString(), value.ToString(), 2011, Resources.GS1_Error_011));
+            validationErrors.Add(AddException(resolvedElement.Identifier.TrimEnd('\0').ToString(), value.ToString(), 2011, Resources.GS1_Error_011));
             return false;
         }
 
@@ -713,11 +713,11 @@ internal
             validationErrors ??= [];
 
             if (aspirationalCountryRegEx?.IsMatch(value) ?? false) {
-                validationErrors.Add(AddException(resolvedEntity.Identifier.TrimEnd('\0').ToString(), value.ToString(), 2013, Resources.GS1_Error_013, countryCode.ToString()));
+                validationErrors.Add(AddException(resolvedElement.Identifier.TrimEnd('\0').ToString(), value.ToString(), 2013, Resources.GS1_Error_013, countryCode.ToString()));
                 return false;
             }
             else {
-                validationErrors.Add(AddException(resolvedEntity.Identifier.TrimEnd('\0').ToString(), value.ToString(), 2011, Resources.GS1_Error_011));
+                validationErrors.Add(AddException(resolvedElement.Identifier.TrimEnd('\0').ToString(), value.ToString(), 2011, Resources.GS1_Error_011));
                 return false;
             }
         }
@@ -727,11 +727,11 @@ internal
             }
 
             validationErrors ??= [];
-            validationErrors.Add(AddException(resolvedEntity.Identifier.TrimEnd('\0').ToString(), value.ToString(), 2014, Resources.GS1_Error_014, countryCode.ToString()));
+            validationErrors.Add(AddException(resolvedElement.Identifier.TrimEnd('\0').ToString(), value.ToString(), 2014, Resources.GS1_Error_014, countryCode.ToString()));
         }
 
         validationErrors ??= [];
-        validationErrors.Add(AddException(resolvedEntity.Identifier.TrimEnd('\0').ToString(), value.ToString(), 2012, Resources.GS1_Error_012, countryCode.ToString()));
+        validationErrors.Add(AddException(resolvedElement.Identifier.TrimEnd('\0').ToString(), value.ToString(), 2012, Resources.GS1_Error_012, countryCode.ToString()));
         return false;
 
         bool ValidateCheckDigits(ReadOnlySpan<char> value) {
@@ -796,14 +796,14 @@ internal
 #endif
 
     /// <summary>
-    /// Validates the specified resolved entity.
+    /// Validates the specified resolved element.
     /// </summary>
-    /// <param name="resolvedEntity">The resolved entity to validate.</param>
+    /// <param name="resolvedElement">The resolved application identifier to validate.</param>
     /// <param name="validationErrors">A list of validation errors.</param>
-    /// <returns>True if the entity is valid; otherwise, false.</returns>
-    public override bool IsValid(ResolvedApplicationIdentifier resolvedEntity, out IList<ParserException>? validationErrors) {
-        var result = base.IsValid(resolvedEntity, out validationErrors);
-        var value = resolvedEntity.Value;
+    /// <returns>True if the element is valid; otherwise, false.</returns>
+    public override bool IsValid(ResolvedApplicationIdentifier resolvedElement, out IList<ParserException>? validationErrors) {
+        var result = base.IsValid(resolvedElement, out validationErrors);
+        var value = resolvedElement.Value;
 
         if (string.IsNullOrEmpty(value)) {
             return result;
@@ -815,7 +815,7 @@ internal
         if (!IbanRegex.IsMatch(value)) {
 #endif
             validationErrors ??= [];
-            validationErrors.Add(AddException(resolvedEntity.Identifier, 2011, Resources.GS1_Error_011));
+            validationErrors.Add(AddException(resolvedElement.Identifier, 2011, Resources.GS1_Error_011));
             return false;
         }
 
@@ -996,7 +996,7 @@ internal
             var aspirationalCountryRegEx = CheckAspirational();
 
             if (aspirationalCountryRegEx?.IsMatch(value) ?? false) {
-                validationErrors?.Add(AddException(resolvedEntity.Identifier, 2013, Resources.GS1_Error_013, countryCode));
+                validationErrors?.Add(AddException(resolvedElement.Identifier, 2013, Resources.GS1_Error_013, countryCode));
                 return false;
             }
         }
@@ -1005,10 +1005,10 @@ internal
                 return result;
             }
 
-            validationErrors?.Add(AddException(resolvedEntity.Identifier, 2014, Resources.GS1_Error_014, countryCode));
+            validationErrors?.Add(AddException(resolvedElement.Identifier, 2014, Resources.GS1_Error_014, countryCode));
         }
 
-        validationErrors?.Add(AddException(resolvedEntity.Identifier, 2012, Resources.GS1_Error_012, countryCode));
+        validationErrors?.Add(AddException(resolvedElement.Identifier, 2012, Resources.GS1_Error_012, countryCode));
         return false;
 
         bool ValidateCheckDigits() {

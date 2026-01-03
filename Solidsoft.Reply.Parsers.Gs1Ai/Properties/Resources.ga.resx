@@ -124,13 +124,13 @@
     <value>Tháinig deireadh le hamchúlú le haghaidh AI {0}.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Níor soláthraíodh luach eintiteas do AI {0}.</value>
+    <value>Níor cuireadh luach eiliminte ar fáil do AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Críochnaítear an eintiteas go mícheart le FNC1.</value>
+    <value>Tá an eilimint críochnaithe go mícheart le FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Níl dóthain carachtar sa eintiteas leathanach seasta.</value>
+    <value>Ní bhíonn líon leordhóthanach carachtar in eilimint a bhfuil fad réamhshainithe aici.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Tá an luach{0} neamhbhailí do AI {1}.</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>Tá AI {0} le feiceáil níos mó ná uair amháin le luachanna éagsúla.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Níl réimír chuideachta dhomhanda (GCP) aitheanta sa luach AI {0}.</value>
   </data>
 </root>

@@ -124,13 +124,13 @@
     <value>Overenie pre AI {0} vypršalo.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Nie je poskytnutá žiadna hodnota entity pre AI {0}.</value>
+    <value>Nebola poskytnutá žiadna hodnota prvku pre AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Entita je nesprávne ukončená pomocou FNC1.</value>
+    <value>Element je nesprávne ukončený znakom FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Entita s pevnou šírkou neobsahuje dostatočný počet znakov.</value>
+    <value>Prvok s vopred definovanou dĺžkou neobsahuje dostatočný počet znakov.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Hodnota{0} je neplatná pre AI {1}.</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>AI {0} sa vyskytuje viackrát s rôznymi hodnotami.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Hodnota AI {0} neobsahuje rozpoznaný globálny prefix spoločnosti (GCP).</value>
   </data>
 </root>

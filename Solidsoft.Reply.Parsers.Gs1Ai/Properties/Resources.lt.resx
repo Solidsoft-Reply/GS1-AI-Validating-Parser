@@ -124,13 +124,13 @@
     <value>Validacija AI {0} pasibaigė laiko limitas.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Entiteto vertė AI {0} nepateikta.</value>
+    <value>Nepateikta jokio elemento reikšmė AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Entitetas neteisingai baigtas FNC1.</value>
+    <value>Elementas neteisingai užbaigtas naudojant FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Fiksuoto pločio entitetas neturi pakankamo simbolių skaičiaus.</value>
+    <value>Iš anksto nustatyto ilgio elemente nėra pakankamai simbolių.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Vertė{0} yra netinkama AI {1}.</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>AI {0} pasirodo daugiau nei vieną kartą su skirtingomis reikšmėmis.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>AI {0} reikšmėje nėra atpažinto pasaulinio įmonės prefikso (GCP).</value>
   </data>
 </root>

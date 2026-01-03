@@ -124,13 +124,13 @@
     <value>Staðfesting fyrir AI {0} rann út á tíma.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Engin einingagildi veitt fyrir AI {0}.</value>
+    <value>Ekkert staksgildi var gefið upp fyrir AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Einingu er ranglega lokað með FNC1.</value>
+    <value>Staki er ranglega lokað með FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Föst breidd einingar inniheldur ekki nægilegan fjölda stafa.</value>
+    <value>Fyrirfram skilgreindur þáttur með fastri lengd inniheldur ekki nægjanlegan fjölda stafa.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Gildið{0} er ógilt fyrir AI {1}.</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>Gervigreind {0} kemur fyrir oftar en einu sinni með mismunandi gildum.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Gildi AI {0} inniheldur ekki viðurkenndan Global Company Prefix (GCP).</value>
   </data>
 </root>

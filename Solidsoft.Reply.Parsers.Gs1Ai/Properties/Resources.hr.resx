@@ -124,13 +124,13 @@
     <value>Validacija za AI {0} je istekla.</value>
   </data>
   <data name="GS1_Error_007" xml:space="preserve">
-    <value>Nije pružena vrijednost entiteta za AI {0}.</value>
+    <value>Nije navedena vrijednost elementa za AI {0}.</value>
   </data>
   <data name="GS1_Error_004" xml:space="preserve">
-    <value>Entitet je netočno završen s FNC1.</value>
+    <value>Element je neispravno završen s FNC1.</value>
   </data>
   <data name="GS1_Error_005" xml:space="preserve">
-    <value>Entitet fiksne širine ne sadrži dovoljan broj znakova.</value>
+    <value>Element unaprijed definirane duljine ne sadrži dovoljan broj znakova.</value>
   </data>
   <data name="GS1_Error_006" xml:space="preserve">
     <value>Vrijednost{0} je nevažeća za AI {1}.</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="GS1_Error_202" xml:space="preserve">
     <value>AI {0} pojavljuje se više puta s različitim vrijednostima.</value>
+  </data>
+  <data name="GS1_Error_101" xml:space="preserve">
+    <value>Vrijednost AI {0} ne sadrži prepoznati Global Company Prefix (GCP).</value>
   </data>
 </root>

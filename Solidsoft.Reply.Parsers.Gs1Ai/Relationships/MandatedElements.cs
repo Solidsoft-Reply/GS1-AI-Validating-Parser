@@ -325,6 +325,7 @@ internal sealed class MandatedElements : ReadOnlyDictionary<(string ai, string r
     {
         return node switch
         {
+
             AiNode aiNode =>
                 EvaluateAiNode(aiNode),
             CompositeNode compositeNode when compositeNode.NodeType == MandatoryNodeType.And =>
